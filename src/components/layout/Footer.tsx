@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Instagram, Facebook, Twitter, ArrowRight } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
@@ -25,70 +25,88 @@ const footerLinks = {
   ],
 };
 
+const socialLinks = [
+  { icon: Instagram, href: '#', label: 'Instagram' },
+  { icon: Facebook, href: '#', label: 'Facebook' },
+  { icon: Twitter, href: '#', label: 'Twitter' },
+];
+
 const trustBadges = [
-  'Third-Party Tested',
+  '3rd Party Tested',
   'Non-GMO',
   'Ethically Sourced',
   'Made in USA',
+  'CGMP Certified',
 ];
 
 export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
-      {/* Newsletter Section */}
+      {/* Newsletter Section - TryAuri Style */}
       <div className="border-b border-primary-foreground/10">
-        <div className="container-wide py-12">
+        <div className="container-wide py-16">
           <div className="max-w-xl mx-auto text-center">
-            <h3 className="font-display text-2xl md:text-3xl font-bold mb-3">
+            <h3 className="font-display text-2xl md:text-3xl font-bold mb-4">
               Join the Neuvie Family
             </h3>
-            <p className="text-primary-foreground/70 mb-6">
+            <p className="text-primary-foreground/70 mb-8 text-base">
               Get 15% off your first order and stay updated on new products and wellness tips.
             </p>
-            <div className="flex gap-3 max-w-md mx-auto">
+            <form className="flex gap-3 max-w-md mx-auto">
               <Input 
+                type="email"
                 placeholder="Enter your email" 
-                className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
+                className="h-12 bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 rounded-lg flex-1"
               />
-              <Button className="bg-accent text-accent-foreground hover:bg-accent/90 px-6">
+              <Button 
+                type="submit"
+                className="h-12 bg-accent hover:bg-accent/90 text-accent-foreground px-6 font-semibold rounded-lg"
+              >
                 Subscribe
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-            </div>
+            </form>
           </div>
         </div>
       </div>
 
-      {/* Main Footer */}
+      {/* Main Footer - TryAuri Style */}
       <div className="container-wide py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
-              <span className="font-display text-3xl font-bold">Neuvie</span>
+              <span className="font-display text-4xl font-bold">Neuvie</span>
             </Link>
-            <p className="text-primary-foreground/70 mb-6 max-w-sm">
+            <p className="text-primary-foreground/70 mb-8 max-w-sm text-sm leading-relaxed">
               Premium supplements crafted with science-backed ingredients to help you feel your best, naturally.
             </p>
-            <div className="flex gap-4">
-              <a href="#" className="p-2 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="p-2 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="p-2 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
-                <Twitter className="h-5 w-5" />
-              </a>
+            
+            {/* Social Links - TryAuri Style */}
+            <div className="flex gap-3">
+              {socialLinks.map((social) => (
+                <a 
+                  key={social.label}
+                  href={social.href} 
+                  className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center transition-colors"
+                  aria-label={social.label}
+                >
+                  <social.icon className="h-5 w-5" />
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Shop Links */}
           <div>
-            <h4 className="font-semibold mb-4 text-lg">Shop</h4>
-            <ul className="space-y-3">
+            <h4 className="font-semibold text-lg mb-6">Shop</h4>
+            <ul className="space-y-4">
               {footerLinks.shop.map((link) => (
                 <li key={link.href}>
-                  <Link to={link.href} className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                  <Link 
+                    to={link.href} 
+                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm"
+                  >
                     {link.label}
                   </Link>
                 </li>
@@ -98,11 +116,14 @@ export function Footer() {
 
           {/* Company Links */}
           <div>
-            <h4 className="font-semibold mb-4 text-lg">Company</h4>
-            <ul className="space-y-3">
+            <h4 className="font-semibold text-lg mb-6">Company</h4>
+            <ul className="space-y-4">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
-                  <Link to={link.href} className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                  <Link 
+                    to={link.href} 
+                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm"
+                  >
                     {link.label}
                   </Link>
                 </li>
@@ -112,11 +133,14 @@ export function Footer() {
 
           {/* Support Links */}
           <div>
-            <h4 className="font-semibold mb-4 text-lg">Support</h4>
-            <ul className="space-y-3">
+            <h4 className="font-semibold text-lg mb-6">Support</h4>
+            <ul className="space-y-4">
               {footerLinks.support.map((link) => (
                 <li key={link.href}>
-                  <Link to={link.href} className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                  <Link 
+                    to={link.href} 
+                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm"
+                  >
                     {link.label}
                   </Link>
                 </li>
@@ -125,9 +149,9 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Trust Badges */}
-        <div className="mt-12 pt-8 border-t border-primary-foreground/10">
-          <div className="flex flex-wrap justify-center gap-6 mb-8">
+        {/* Trust Badges - TryAuri Style */}
+        <div className="mt-16 pt-8 border-t border-primary-foreground/10">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-8">
             {trustBadges.map((badge) => (
               <span key={badge} className="flex items-center gap-2 text-sm text-primary-foreground/70">
                 <span className="w-2 h-2 rounded-full bg-accent" />
@@ -135,6 +159,8 @@ export function Footer() {
               </span>
             ))}
           </div>
+          
+          {/* Copyright */}
           <p className="text-center text-primary-foreground/50 text-sm">
             © {new Date().getFullYear()} Neuvie. All rights reserved.
           </p>

@@ -1,135 +1,215 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingCart, User, Search } from 'lucide-react';
+import { Menu, X, ShoppingCart, User, Search, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useCartStore } from '@/stores/cartStore';
 import { CartDrawer } from '@/components/cart/CartDrawer';
 import { cn } from '@/lib/utils';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
-  { href: '/', label: 'Home' },
   { href: '/shop', label: 'Shop' },
   { href: '/science', label: 'Science' },
   { href: '/about', label: 'About' },
-  { href: '/faqs', label: 'FAQs' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/faqs', label: 'FAQ' },
+  { href: '/contact', label: 'Contact Us' },
 ];
+
+// Countdown Timer Component
+function CountdownTimer() {
+  const [timeLeft, setTimeLeft] = useState({
+    hours: 23,
+    minutes: 59,
+    seconds: 59,
+  });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev.seconds > 0) {
+          return { ...prev, seconds: prev.seconds - 1 };
+        } else if (prev.minutes > 0) {
+          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
+        } else if (prev.hours > 0) {
+          return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
+        }
+        return { hours: 23, minutes: 59, seconds: 59 };
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const formatNumber = (num: number) => num.toString().padStart(2, '0');
+
+  return (
+    <div className="flex items-center gap-1">
+      <span className="bg-background text-foreground px-2 py-0.5 rounded text-sm font-bold">
+        {formatNumber(timeLeft.hours)} HRS
+      </span>
+      <span className="text-primary-foreground">:</span>
+      <span className="bg-background text-foreground px-2 py-0.5 rounded text-sm font-bold">
+        {formatNumber(timeLeft.minutes)} MIN
+      </span>
+      <span className="text-primary-foreground">:</span>
+      <span className="bg-background text-foreground px-2 py-0.5 rounded text-sm font-bold">
+        {formatNumber(timeLeft.seconds)} SEC
+      </span>
+    </div>
+  );
+}
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const totalItems = useCartStore((state) => state.totalItems());
   const setCartOpen = useCartStore((state) => state.setOpen);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
-      <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur-md border-b border-border/50">
-        {/* Announcement Bar */}
-        <div className="bg-primary text-primary-foreground text-center py-2 text-sm font-medium">
-          <span>FREE SHIPPING ON ORDERS OVER $50 • </span>
-          <span className="text-accent font-bold">60-DAY MONEY-BACK GUARANTEE</span>
+      <header className="sticky top-0 z-50 w-full">
+        {/* Announcement Bar - TryAuri Style */}
+        <div className="bg-primary text-primary-foreground py-2.5">
+          <div className="container-wide flex items-center justify-center gap-4 flex-wrap">
+            <span className="font-semibold text-sm tracking-wide">
+              HOLIDAY SALE: UP TO{' '}
+              <span className="text-accent font-bold">45% OFF</span>
+            </span>
+            <CountdownTimer />
+          </div>
         </div>
 
-        {/* Main Navigation */}
-        <nav className="container-wide">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <Link to="/" className="flex items-center">
-              <span className="font-display text-3xl md:text-4xl font-bold text-primary tracking-tight">
-                Neuvie
-              </span>
-            </Link>
-
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className={cn(
-                    "text-sm font-medium transition-colors hover:text-primary relative py-2",
-                    location.pathname === link.href 
-                      ? "text-primary after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary" 
-                      : "text-foreground/70"
-                  )}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-
-            {/* Right Side Actions */}
-            <div className="flex items-center gap-2 md:gap-4">
-              {/* Search */}
-              <Button variant="ghost" size="icon" className="hidden md:flex">
-                <Search className="h-5 w-5" />
-              </Button>
-
-              {/* Account */}
-              <Link to="/account">
-                <Button variant="ghost" size="icon">
-                  <User className="h-5 w-5" />
-                </Button>
+        {/* Main Navigation - TryAuri Style */}
+        <nav className={cn(
+          "bg-background transition-all duration-300",
+          scrolled ? "shadow-md" : "border-b border-border/30"
+        )}>
+          <div className="container-wide">
+            <div className="flex items-center justify-between h-20">
+              {/* Logo - 50% larger as requested */}
+              <Link to="/" className="flex items-center">
+                <span className="font-display text-4xl md:text-5xl font-bold text-primary tracking-tight">
+                  Neuvie
+                </span>
               </Link>
 
-              {/* Cart */}
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="relative"
-                onClick={() => setCartOpen(true)}
-              >
-                <ShoppingCart className="h-5 w-5" />
-                {totalItems > 0 && (
-                  <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-accent text-accent-foreground text-xs font-bold flex items-center justify-center">
-                    {totalItems}
-                  </span>
-                )}
-              </Button>
+              {/* Desktop Navigation - Centered */}
+              <div className="hidden lg:flex items-center gap-10">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className={cn(
+                      "text-sm font-medium transition-colors hover:text-primary relative py-2",
+                      location.pathname === link.href 
+                        ? "text-primary" 
+                        : "text-foreground/80"
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
 
-              {/* Mobile Menu Toggle */}
-              <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-                <SheetTrigger asChild className="lg:hidden">
-                  <Button variant="ghost" size="icon">
-                    <Menu className="h-6 w-6" />
+              {/* Right Side Actions */}
+              <div className="flex items-center gap-1 md:gap-3">
+                {/* Search */}
+                <Button variant="ghost" size="icon" className="hidden md:flex h-10 w-10">
+                  <Search className="h-5 w-5" />
+                </Button>
+
+                {/* Account */}
+                <Link to="/account">
+                  <Button variant="ghost" size="icon" className="h-10 w-10">
+                    <User className="h-5 w-5" />
                   </Button>
-                </SheetTrigger>
-                <SheetContent side="right" className="w-full sm:w-[400px] p-0">
-                  <div className="flex flex-col h-full">
-                    <div className="flex items-center justify-between p-6 border-b">
-                      <span className="font-display text-2xl font-bold text-primary">Neuvie</span>
-                      <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)}>
-                        <X className="h-6 w-6" />
-                      </Button>
-                    </div>
-                    <nav className="flex-1 p-6">
-                      <div className="flex flex-col gap-4">
-                        {navLinks.map((link) => (
+                </Link>
+
+                {/* Cart */}
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="relative h-10 w-10"
+                  onClick={() => setCartOpen(true)}
+                >
+                  <ShoppingCart className="h-5 w-5" />
+                  {totalItems > 0 && (
+                    <span className="absolute -top-0.5 -right-0.5 h-5 w-5 rounded-full bg-accent text-accent-foreground text-xs font-bold flex items-center justify-center">
+                      {totalItems}
+                    </span>
+                  )}
+                </Button>
+
+                {/* Mobile Menu Toggle - TryAuri Hamburger */}
+                <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+                  <SheetTrigger asChild className="lg:hidden">
+                    <Button variant="ghost" size="icon" className="h-10 w-10">
+                      <Menu className="h-6 w-6" />
+                    </Button>
+                  </SheetTrigger>
+                  <SheetContent side="right" className="w-full sm:w-[400px] p-0 bg-background">
+                    <div className="flex flex-col h-full">
+                      {/* Mobile Header */}
+                      <div className="flex items-center justify-between p-6 border-b border-border">
+                        <Link to="/" onClick={() => setMobileMenuOpen(false)}>
+                          <span className="font-display text-3xl font-bold text-primary">Neuvie</span>
+                        </Link>
+                        <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)}>
+                          <X className="h-6 w-6" />
+                        </Button>
+                      </div>
+
+                      {/* Mobile Navigation Links */}
+                      <nav className="flex-1 overflow-y-auto">
+                        <div className="p-6 space-y-1">
                           <Link
-                            key={link.href}
-                            to={link.href}
+                            to="/"
                             className={cn(
-                              "text-lg font-medium py-3 border-b border-border/50 transition-colors",
-                              location.pathname === link.href ? "text-primary" : "text-foreground/70"
+                              "block py-4 text-lg font-medium border-b border-border/50 transition-colors",
+                              location.pathname === "/" ? "text-primary" : "text-foreground"
                             )}
                             onClick={() => setMobileMenuOpen(false)}
                           >
-                            {link.label}
+                            Home
                           </Link>
-                        ))}
+                          {navLinks.map((link) => (
+                            <Link
+                              key={link.href}
+                              to={link.href}
+                              className={cn(
+                                "block py-4 text-lg font-medium border-b border-border/50 transition-colors",
+                                location.pathname === link.href ? "text-primary" : "text-foreground"
+                              )}
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              {link.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </nav>
+
+                      {/* Mobile CTA */}
+                      <div className="p-6 border-t border-border bg-muted/30">
+                        <Link to="/shop" onClick={() => setMobileMenuOpen(false)}>
+                          <Button className="w-full bg-primary text-primary-foreground h-14 text-lg font-semibold rounded-lg">
+                            Shop Now →
+                          </Button>
+                        </Link>
                       </div>
-                    </nav>
-                    <div className="p-6 border-t">
-                      <Link to="/shop" onClick={() => setMobileMenuOpen(false)}>
-                        <Button className="w-full btn-primary">
-                          Shop Now →
-                        </Button>
-                      </Link>
                     </div>
-                  </div>
-                </SheetContent>
-              </Sheet>
+                  </SheetContent>
+                </Sheet>
+              </div>
             </div>
           </div>
         </nav>
