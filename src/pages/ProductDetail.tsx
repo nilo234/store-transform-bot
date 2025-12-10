@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Minus, Plus, ShoppingCart, ChevronLeft, Check, Truck, Shield, RotateCcw } from 'lucide-react';
+import { Minus, Plus, ShoppingCart, ChevronLeft, Check, Truck, Shield, RotateCcw, Leaf, AlertCircle } from 'lucide-react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
@@ -9,77 +9,13 @@ import { fetchProductByHandle, ShopifyProduct } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { Skeleton } from '@/components/ui/skeleton';
 import { toast } from 'sonner';
-
-// Get benefits based on product title
-const getProductBenefits = (title: string): string[] => {
-  const lowerTitle = title.toLowerCase();
-  if (lowerTitle.includes('digestive') || lowerTitle.includes('gut')) {
-    return ['Supports healthy digestion', 'Promotes gut balance', 'Reduces bloating', 'Enhances nutrient absorption'];
-  }
-  if (lowerTitle.includes('hair') || lowerTitle.includes('skin')) {
-    return ['Promotes hair growth', 'Strengthens nails', 'Supports skin elasticity', 'Enhances natural glow'];
-  }
-  if (lowerTitle.includes('mushroom') || lowerTitle.includes('focus')) {
-    return ['Enhances mental clarity', 'Supports concentration', 'Boosts cognitive function', 'Reduces brain fog'];
-  }
-  if (lowerTitle.includes('cognitive') || lowerTitle.includes('relax')) {
-    return ['Promotes relaxation', 'Reduces stress', 'Supports calm mood', 'Enhances mental clarity'];
-  }
-  if (lowerTitle.includes('bone')) {
-    return ['Strengthens bones', 'Supports calcium absorption', 'Promotes joint health', 'Enhances mobility'];
-  }
-  if (lowerTitle.includes('hangover')) {
-    return ['Supports liver function', 'Replenishes electrolytes', 'Reduces morning discomfort', 'Promotes recovery'];
-  }
-  if (lowerTitle.includes('iron')) {
-    return ['Supports energy levels', 'Promotes healthy blood', 'Reduces fatigue', 'Enhances oxygen transport'];
-  }
-  if (lowerTitle.includes('sleep')) {
-    return ['Promotes restful sleep', 'Reduces time to fall asleep', 'Supports sleep quality', 'Wake refreshed'];
-  }
-  if (lowerTitle.includes('energy')) {
-    return ['Boosts natural energy', 'Enhances focus', 'No jitters or crash', 'Sustained alertness'];
-  }
-  return ['Premium ingredients', 'Science-backed formula', 'Third-party tested', 'Made in USA'];
-};
-
-// Get key ingredients based on product title
-const getKeyIngredients = (title: string): Array<{ name: string; benefit: string }> => {
-  const lowerTitle = title.toLowerCase();
-  if (lowerTitle.includes('digestive') || lowerTitle.includes('gut')) {
-    return [
-      { name: 'Probiotics', benefit: 'Gut bacteria balance' },
-      { name: 'Digestive Enzymes', benefit: 'Nutrient breakdown' },
-      { name: 'Ginger Extract', benefit: 'Digestive comfort' },
-    ];
-  }
-  if (lowerTitle.includes('hair') || lowerTitle.includes('skin')) {
-    return [
-      { name: 'Biotin', benefit: 'Hair & nail growth' },
-      { name: 'Vitamin C', benefit: 'Collagen synthesis' },
-      { name: 'Vitamin E', benefit: 'Skin protection' },
-    ];
-  }
-  if (lowerTitle.includes('mushroom') || lowerTitle.includes('focus')) {
-    return [
-      { name: "Lion's Mane", benefit: 'Cognitive support' },
-      { name: 'Reishi', benefit: 'Mental clarity' },
-      { name: 'Cordyceps', benefit: 'Energy & focus' },
-    ];
-  }
-  if (lowerTitle.includes('cognitive') || lowerTitle.includes('relax')) {
-    return [
-      { name: 'L-Theanine', benefit: 'Calm focus' },
-      { name: 'Ashwagandha', benefit: 'Stress relief' },
-      { name: 'GABA', benefit: 'Relaxation' },
-    ];
-  }
-  return [
-    { name: 'Premium Blend', benefit: 'Optimal support' },
-    { name: 'Natural Extracts', benefit: 'Pure ingredients' },
-    { name: 'Essential Vitamins', benefit: 'Daily nutrition' },
-  ];
-};
+import { findProductContent, ProductContent } from '@/data/productContent';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function ProductDetail() {
   const { handle } = useParams<{ handle: string }>();
@@ -116,7 +52,7 @@ export default function ProductDetail() {
       selectedOptions: firstVariant.selectedOptions,
     });
     
-    toast.success('Added to cart!', {
+    toast.success('In den Warenkorb gelegt!', {
       description: `${quantity}x ${product.title}`,
       position: 'top-center',
     });
@@ -150,9 +86,9 @@ export default function ProductDetail() {
         <Navbar />
         <main className="flex-1 flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-2xl font-bold mb-4">Product not found</h1>
+            <h1 className="text-2xl font-bold mb-4">Produkt nicht gefunden</h1>
             <Link to="/shop" className="text-primary hover:underline">
-              ← Back to shop
+              ← Zurück zum Shop
             </Link>
           </div>
         </main>
@@ -163,9 +99,10 @@ export default function ProductDetail() {
 
   const price = parseFloat(product.priceRange.minVariantPrice.amount);
   const originalPrice = price * 1.42;
-  const benefits = getProductBenefits(product.title);
-  const ingredients = getKeyIngredients(product.title);
   const images = product.images.edges;
+  
+  // Get German product content
+  const productContent = findProductContent(product.title) || findProductContent(product.handle);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -176,7 +113,7 @@ export default function ProductDetail() {
         <div className="container-wide py-4">
           <Link to="/shop" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
             <ChevronLeft className="h-4 w-4" />
-            Back to Shop
+            Zurück zum Shop
           </Link>
         </div>
 
@@ -192,12 +129,16 @@ export default function ProductDetail() {
             >
               {/* Main Image */}
               <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-b from-muted/50 to-card">
-                {images[selectedImage] && (
+                {images[selectedImage] ? (
                   <img
                     src={images[selectedImage].node.url}
                     alt={images[selectedImage].node.altText || product.title}
                     className="w-full h-full object-cover"
                   />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-muted/20">
+                    <span className="text-6xl">💊</span>
+                  </div>
                 )}
               </div>
               
@@ -231,40 +172,57 @@ export default function ProductDetail() {
               transition={{ duration: 0.5, delay: 0.1 }}
             >
               {/* Badge */}
-              <span className="badge-discount inline-block">42% OFF</span>
+              <span className="badge-discount inline-block">42% RABATT</span>
 
               {/* Title */}
               <h1 className="font-display text-3xl md:text-4xl font-bold">{product.title}</h1>
 
               {/* Price */}
               <div className="flex items-center gap-4">
-                <span className="text-3xl font-bold text-primary">${price.toFixed(2)}</span>
-                <span className="text-xl text-muted-foreground line-through">${originalPrice.toFixed(2)}</span>
+                <span className="text-3xl font-bold text-primary">€{price.toFixed(2)}</span>
+                <span className="text-xl text-muted-foreground line-through">€{originalPrice.toFixed(2)}</span>
                 <span className="text-sm bg-accent/20 text-accent px-2 py-1 rounded-full font-medium">
-                  Save ${(originalPrice - price).toFixed(2)}
+                  Spare €{(originalPrice - price).toFixed(2)}
                 </span>
               </div>
 
-              {/* Description */}
+              {/* Short Description */}
               <p className="text-muted-foreground leading-relaxed">
-                {product.description || 'Premium quality supplement crafted with science-backed ingredients to support your wellness journey. Each serving is designed for optimal absorption and effectiveness.'}
+                {productContent?.shortDescription || product.description || 'Premium Nahrungsergänzungsmittel mit wissenschaftlich fundierten Inhaltsstoffen für dein Wohlbefinden.'}
               </p>
 
               {/* Benefits */}
-              <div className="space-y-3">
-                <h3 className="font-semibold">Benefits:</h3>
-                <ul className="grid grid-cols-2 gap-2">
-                  {benefits.map((benefit, index) => (
-                    <li key={index} className="flex items-center gap-2 text-sm">
-                      <Check className="h-4 w-4 text-primary flex-shrink-0" />
-                      {benefit}
-                    </li>
+              {productContent && (
+                <div className="space-y-3">
+                  <h3 className="font-semibold text-lg">Was dieses Produkt bewirken kann:</h3>
+                  <ul className="space-y-2">
+                    {productContent.benefits.map((benefit, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                        <div>
+                          <span className="font-medium">{benefit.headline}:</span>{' '}
+                          <span className="text-muted-foreground">{benefit.description}</span>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Properties/Badges */}
+              {productContent && (
+                <div className="flex flex-wrap gap-2">
+                  {productContent.properties.map((prop, index) => (
+                    <span key={index} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-muted rounded-full text-sm">
+                      <Leaf className="h-3.5 w-3.5 text-primary" />
+                      {prop}
+                    </span>
                   ))}
-                </ul>
-              </div>
+                </div>
+              )}
 
               {/* Quantity & Add to Cart */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <div className="flex items-center gap-3 bg-muted rounded-full p-1">
                   <Button
                     variant="ghost"
@@ -291,7 +249,7 @@ export default function ProductDetail() {
                   size="lg"
                 >
                   <ShoppingCart className="h-5 w-5" />
-                  Add to Cart
+                  In den Warenkorb
                 </Button>
               </div>
 
@@ -299,46 +257,113 @@ export default function ProductDetail() {
               <div className="grid grid-cols-3 gap-4 pt-6 border-t border-border">
                 <div className="text-center">
                   <Truck className="h-6 w-6 mx-auto mb-2 text-primary" />
-                  <p className="text-xs text-muted-foreground">Free Shipping<br />Over $50</p>
+                  <p className="text-xs text-muted-foreground">Kostenloser Versand<br />ab €50</p>
                 </div>
                 <div className="text-center">
                   <Shield className="h-6 w-6 mx-auto mb-2 text-primary" />
-                  <p className="text-xs text-muted-foreground">Third-Party<br />Tested</p>
+                  <p className="text-xs text-muted-foreground">Laborgeprüft<br />& Zertifiziert</p>
                 </div>
                 <div className="text-center">
                   <RotateCcw className="h-6 w-6 mx-auto mb-2 text-primary" />
-                  <p className="text-xs text-muted-foreground">60-Day<br />Guarantee</p>
+                  <p className="text-xs text-muted-foreground">60 Tage<br />Geld-zurück</p>
                 </div>
               </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Key Ingredients Section */}
-        <section className="py-16 bg-muted/30">
-          <div className="container-wide">
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-center mb-12">
-              Key Ingredients
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              {ingredients.map((ingredient, index) => (
-                <motion.div 
-                  key={index}
-                  className="bg-card rounded-2xl p-6 text-center shadow-soft"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-2xl">🌿</span>
+        {/* Detailed Product Information */}
+        {productContent && (
+          <section className="py-16 bg-muted/30">
+            <div className="container-wide">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="font-display text-2xl md:text-3xl font-bold text-center mb-12">
+                  Produktdetails
+                </h2>
+
+                <Accordion type="single" collapsible className="space-y-4">
+                  {/* Product Description */}
+                  <AccordionItem value="description" className="bg-card rounded-xl border-none">
+                    <AccordionTrigger className="px-6 py-4 hover:no-underline">
+                      <span className="font-semibold text-lg">Produktbeschreibung</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-6 pb-6">
+                      <div className="space-y-4 text-muted-foreground">
+                        {productContent.longDescription.map((paragraph, index) => (
+                          <p key={index}>{paragraph}</p>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Usage */}
+                  <AccordionItem value="usage" className="bg-card rounded-xl border-none">
+                    <AccordionTrigger className="px-6 py-4 hover:no-underline">
+                      <span className="font-semibold text-lg">Anwendung</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-6 pb-6">
+                      <p className="text-muted-foreground">{productContent.usage}</p>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Ingredients */}
+                  <AccordionItem value="ingredients" className="bg-card rounded-xl border-none">
+                    <AccordionTrigger className="px-6 py-4 hover:no-underline">
+                      <span className="font-semibold text-lg">Inhaltsstoffe</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-6 pb-6">
+                      <div className="flex flex-wrap gap-2">
+                        {productContent.ingredients.map((ingredient, index) => (
+                          <span key={index} className="px-3 py-1.5 bg-muted rounded-full text-sm">
+                            {ingredient}
+                          </span>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Supplement Facts */}
+                  <AccordionItem value="supplement-facts" className="bg-card rounded-xl border-none">
+                    <AccordionTrigger className="px-6 py-4 hover:no-underline">
+                      <span className="font-semibold text-lg">Nährwertangaben</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-6 pb-6">
+                      <div className="overflow-x-auto">
+                        <table className="w-full">
+                          <thead>
+                            <tr className="border-b border-border">
+                              <th className="text-left py-2 font-semibold">Nährstoff</th>
+                              <th className="text-right py-2 font-semibold">Menge pro Strip</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {productContent.supplementFacts.map((fact, index) => (
+                              <tr key={index} className="border-b border-border/50">
+                                <td className="py-2 text-muted-foreground">{fact.nutrient}</td>
+                                <td className="py-2 text-right">{fact.amount}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                        <p className="text-xs text-muted-foreground mt-3">* Tagesdosis nicht festgelegt</p>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+
+                {/* Disclaimer */}
+                <div className="mt-8 p-6 bg-card rounded-xl">
+                  <div className="flex gap-4">
+                    <AlertCircle className="h-5 w-5 text-muted-foreground flex-shrink-0 mt-0.5" />
+                    <p className="text-sm text-muted-foreground italic">
+                      {productContent.disclaimer}
+                    </p>
                   </div>
-                  <h3 className="font-semibold text-lg mb-2">{ingredient.name}</h3>
-                  <p className="text-sm text-muted-foreground">{ingredient.benefit}</p>
-                </motion.div>
-              ))}
+                </div>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
       </main>
 
       <Footer />
