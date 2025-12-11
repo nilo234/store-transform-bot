@@ -12,50 +12,66 @@ interface ProductCardProps {
   index?: number;
 }
 
-// Get category badge based on product title
+// Get category badge based on product title - 13 Neuvie Strips products
 const getCategoryBadge = (title: string): { label: string; color: string } => {
   const lowerTitle = title.toLowerCase();
-  if (lowerTitle.includes('energy') || lowerTitle.includes('focus') || lowerTitle.includes('mushroom')) {
+  // Performance & Energy: Mushroom Focus, Libido Support, Energy
+  if (lowerTitle.includes('energy') || lowerTitle.includes('mushroom') || lowerTitle.includes('libido')) {
     return { label: 'PERFORMANCE', color: 'text-primary' };
   }
-  if (lowerTitle.includes('hair') || lowerTitle.includes('skin') || lowerTitle.includes('nail')) {
+  // Beauty & Skin: Beauty + Collagen, Hair Skin & Nails
+  if (lowerTitle.includes('hair') || lowerTitle.includes('skin') || lowerTitle.includes('nail') || lowerTitle.includes('beauty') || lowerTitle.includes('collagen')) {
     return { label: 'BEAUTY', color: 'text-accent' };
   }
-  if (lowerTitle.includes('sleep') || lowerTitle.includes('relax') || lowerTitle.includes('cognitive')) {
+  // Sleep & Relax: Cognitive Relax, Sleep
+  if (lowerTitle.includes('sleep') || lowerTitle.includes('cognitive') || lowerTitle.includes('relax')) {
     return { label: 'RELAX', color: 'text-purple-600' };
   }
+  // Immunity & Health: Everything else
   return { label: 'WELLNESS', color: 'text-primary' };
 };
 
-// Get ingredient icons based on product title
+// Get ingredient icons based on product title - all 13 products
 const getIngredientIcons = (title: string): string[] => {
   const lowerTitle = title.toLowerCase();
-  if (lowerTitle.includes('digestive') || lowerTitle.includes('gut')) {
-    return ['🦠 Probiotic', '🧬 Enzymes', '🌿 Ginger'];
-  }
-  if (lowerTitle.includes('hair') || lowerTitle.includes('skin')) {
-    return ['💊 Biotin', '🍊 Vitamin C', '✨ Vitamin E'];
-  }
-  if (lowerTitle.includes('mushroom') || lowerTitle.includes('focus')) {
-    return ["🍄 Lion's Mane", '🍄 Reishi', '🍄 Cordyceps'];
-  }
-  if (lowerTitle.includes('cognitive') || lowerTitle.includes('relax')) {
-    return ['🧘 L-Theanine', '🌿 Ashwagandha', '💆 GABA'];
+  if (lowerTitle.includes('hangover')) {
+    return ['🌿 Curcuma', '🍇 Grape Extract', '🌱 Phyllanthus'];
   }
   if (lowerTitle.includes('bone')) {
-    return ['☀️ Vitamin D3', '💚 Vitamin K2', '🦴 Calcium'];
+    return ['☀️ Vitamin D3', '💚 Vitamin K2', '🫐 Raspberry'];
   }
-  if (lowerTitle.includes('hangover')) {
-    return ['🌿 Milk Thistle', '🧬 Electrolytes', '🌿 Ginger'];
+  if (lowerTitle.includes('cognitive') || lowerTitle.includes('relax')) {
+    return ['🧘 L-Theanine', '💆 GABA', '💊 Vitamin B6'];
+  }
+  if (lowerTitle.includes('mushroom') || lowerTitle.includes('focus')) {
+    return ["🍄 Lion's Mane", '🍄 Cordyceps', '🍄 Maitake'];
+  }
+  if (lowerTitle.includes('libido')) {
+    return ['🍄 Cordyceps', '⛰️ Shilajit', '🦪 Oyster Peptide'];
+  }
+  if (lowerTitle.includes('probiotic') || lowerTitle.includes('metabolism')) {
+    return ['🦠 10B CFU', '🌿 Prebiotic', '🍇 Mixed Berry'];
+  }
+  if (lowerTitle.includes('beauty') || lowerTitle.includes('collagen')) {
+    return ['✨ Collagen', '💊 Vitamin E', '🥭 Mango'];
+  }
+  if (lowerTitle.includes('hair') || lowerTitle.includes('skin') || lowerTitle.includes('nail')) {
+    return ['💊 Biotin 5000mcg', '🌿 Folate', '☀️ Vitamin D3'];
+  }
+  if (lowerTitle.includes('digestive') || lowerTitle.includes('gut')) {
+    return ['🦠 B. Coagulans', '🧬 Protease', '🍍 Bromelain'];
+  }
+  if (lowerTitle.includes('appetite') || lowerTitle.includes('weight')) {
+    return ['🧡 Saffron', '💊 Chromium', '🔬 Molybdenum'];
   }
   if (lowerTitle.includes('iron')) {
-    return ['💪 Iron', '🍊 Vitamin C', '💊 Folate'];
-  }
-  if (lowerTitle.includes('sleep')) {
-    return ['🌙 Melatonin', '🧘 L-Theanine', '🌸 Passionflower'];
+    return ['💪 Iron 19mg', '🌿 Folate', '🫐 Raspberry'];
   }
   if (lowerTitle.includes('energy')) {
     return ['⚡ Caffeine', '🧘 L-Theanine', '💊 B12'];
+  }
+  if (lowerTitle.includes('sleep')) {
+    return ['🌙 Melatonin', '🌿 Valerian', '💜 Lavender'];
   }
   return ['🌿 Natural', '✨ Premium', '🔬 Tested'];
 };

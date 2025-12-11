@@ -16,32 +16,30 @@ export interface ProductContent {
 }
 
 export const productContentMap: Record<string, ProductContent> = {
-  // Hangover Strips
+  // 1. Hangover Strips
   'hangover': {
     handle: 'hangover',
     seoTitle: 'Hangover Strips Mango-Orange | Natürliche Erholung | Neuvie',
     metaDescription: 'Neuvie Hangover Strips mit Kurkuma, Dattelextrakt & Traubenkernextrakt. Unterstützt Leber, Flüssigkeitsbalance & natürliche Erholung. Mango-Orange Geschmack.',
-    shortDescription: 'Deine natürliche Unterstützung nach einer langen Nacht. Die Hangover Strips kombinieren bewährte Pflanzenextrakte, die deinen Körper bei der Regeneration unterstützen können.',
+    shortDescription: 'Das Produkt wurde mit ayurvedischen Zutaten entwickelt, um den Körper bei den Nachwirkungen einer Nacht zu unterstützen. Bestes Ergebnis: 1 Strip vor dem Schlafengehen. Unterstützt Hydratation, erholsamen Schlaf und Reduzierung gelegentlicher Kopfschmerzen.',
     benefits: [
-      { headline: 'Natürliche Erholung', description: 'Ausgewählte Pflanzenextrakte können deinen Körper bei der natürlichen Regeneration unterstützen.' },
-      { headline: 'Leberunterstützung', description: 'Inhaltsstoffe wie Kurkuma und Phyllanthus können die normale Leberfunktion unterstützen.' },
-      { headline: 'Flüssigkeitsbalance', description: 'Kann dazu beitragen, den normalen Flüssigkeitshaushalt zu unterstützen.' },
-      { headline: 'Entzündungsreaktion', description: 'Kurkuma kann eine gesunde Entzündungsreaktion fördern.' },
+      { headline: 'Natural rescue for multiple symptoms', description: 'Supports headaches, disturbed sleep, and general discomfort after drinking.' },
+      { headline: 'Healthy inflammatory response', description: 'Curcuma Longa, Cichorium Intybus & Phyllanthus Emblica support normal inflammatory processes.' },
+      { headline: 'Liver protection and support', description: 'Andrographis Paniculata + Phyllanthus Niruri may help support normal liver function.' },
+      { headline: 'Supports normal fluid balance', description: 'Formulated to maintain hydration and support overall well-being.' },
     ],
     longDescription: [
-      'Die Neuvie Hangover Strips wurden speziell entwickelt, um deinen Körper nach einer anstrengenden Nacht zu unterstützen. Mit einer einzigartigen Kombination aus traditionellen Pflanzenextrakten bieten sie eine praktische Lösung für unterwegs.',
-      'Unsere Formel enthält Kurkuma-Extrakt, der für seine unterstützenden Eigenschaften bekannt ist, sowie Dattelextrakt und Traubenkernextrakt. Ergänzt wird die Rezeptur durch Andrographis, Zichorien-Extrakt und Phyllanthus-Extrakte.',
-      'Der erfrischende Mango-Orange Geschmack macht die Einnahme angenehm. Die Strips lösen sich schnell auf der Zunge auf – ganz ohne Wasser.',
-      'Ideal für alle, die eine natürliche Unterstützung suchen und dabei auf hochwertige, pflanzliche Inhaltsstoffe setzen möchten.',
+      'Our Hangover Oral Strips are crafted with a blend of ingredients inspired by traditional Ayurvedic practices, designed to support general wellness. These strips are formulated with a focus on the traditional use of each ingredient, aiming to contribute to your overall well-being.',
+      'Support for General Wellness: While individual experiences may vary, our strips are formulated with the intent to support aspects of wellness that can be challenged after social activities. They are designed with a focus on traditional, natural ingredients.',
+      'Traditionally inspired ingredients: The inclusion of Curcuma Longa (Curcumin), Cichorium Intybus, and Phyllanthus Niruri are also included for their traditional use in supporting general liver health.',
+      'Aiming to Support Well-Being: Our product is intended to be a part of your wellness routine, potentially supporting the body\'s natural ability to maintain cognitive clarity, preserve normal fluid levels, and support restoration for restful sleep.',
     ],
-    usage: 'Bei Bedarf 1 Strip auf die Zunge legen und auflösen lassen. Kann nach einer durchfeierten Nacht oder bei Bedarf eingenommen werden.',
+    usage: '1 Strip vor dem Schlafengehen auf die Zunge legen und auflösen lassen.',
     ingredients: [
-      'Pullulan', 'Phoenix Dactylifera Extrakt (Dattel)', 'Curcuma Longa Extrakt (Kurkuma)', 
-      'Andrographis Paniculata Extrakt', 'Cichorium Intybus Extrakt (Zichorie)', 
-      'Vitis Vinifera Extrakt (Traube)', 'Phyllanthus Niruri Extrakt', 
-      'Phyllanthus Emblica Extrakt', 'Cellulose', 'Mannitol', 
-      'Süßholzextrakt', 'Lecithin', 'Äpfelsäure', 'Mango-Aroma', 
-      'Stevia Glycoside', 'Orangen-Aroma'
+      'Pullulan', 'Phoenix Dactylifera extract', 'Curcuma Longa extract', 'Andrographis paniculata extract',
+      'Cichorium intybus extract', 'Vitis Vinifera extract', 'Phyllanthus Niruri extract',
+      'Phyllanthus Emblica extract', 'Cellulose', 'Mannitol', 'Licorice extract',
+      'Lecithin', 'Malic acid', 'Mango flavor', 'Stevia glycosides', 'Orange flavor'
     ],
     supplementFacts: [
       { nutrient: 'Phoenix Dactylifera Extrakt', amount: '*' },
@@ -54,26 +52,28 @@ export const productContentMap: Record<string, ProductContent> = {
     disclaimer: 'Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene und abwechslungsreiche Ernährung sowie eine gesunde Lebensweise. Die empfohlene tägliche Verzehrmenge nicht überschreiten. Außerhalb der Reichweite von kleinen Kindern aufbewahren. Kühl und trocken lagern.',
   },
 
-  // Bone Support Strips
+  // 2. Bone Support Strips
   'bone': {
     handle: 'bone',
     seoTitle: 'Bone Support Strips Himbeere | Vitamin D3 + K2 | Neuvie',
     metaDescription: 'Neuvie Bone Support Strips mit Vitamin D3 (2000 IU) & K2 (200 mcg). Unterstützt Knochen, Kalziumaufnahme & Immunsystem. Praktisch für unterwegs.',
-    shortDescription: 'Deine tägliche Unterstützung für starke Knochen. Die Kombination aus Vitamin D3 und K2 kann zur Erhaltung normaler Knochen beitragen.',
+    shortDescription: 'Bone Support Strips kombinieren Vitamin D3 und Vitamin K2 in einem schnell auflösenden, aromatisierten Strip zur Unterstützung der natürlichen Knochenfunktion. Hilft bei normalem Kalziumstoffwechsel, unterstützt Knochen- & Immunsystem.',
     benefits: [
-      { headline: 'Kalziumtransport', description: 'Vitamin K2 kann dazu beitragen, Kalzium dorthin zu transportieren, wo es gebraucht wird – in die Knochen.' },
-      { headline: 'Kalziumaufnahme', description: 'Vitamin D3 unterstützt die normale Aufnahme von Kalzium aus der Nahrung.' },
-      { headline: 'Praktisch für unterwegs', description: 'Die Strips sind ideal für alle, die ihre Vitamine auch unterwegs einnehmen möchten.' },
-      { headline: 'Immunsystem', description: 'Vitamin D trägt zu einer normalen Funktion des Immunsystems bei.' },
+      { headline: 'Essential for Bone Support', description: 'Vitamin K2 hilft beim Kalziumtransport & stärkt Knochen.' },
+      { headline: 'Supports Bone Strength', description: 'Vitamin D3 trägt zur Aufnahme & Verwertung von Kalzium bei.' },
+      { headline: 'Perfect for On-the-Go Wellness', description: 'Raspberry-flavored strips, anytime, anywhere.' },
+      { headline: 'Helps Maintain Normal Immune Function', description: 'Vitamin D3 unterstützt zusätzlich ein normales Immunsystem.' },
     ],
     longDescription: [
-      'Die Neuvie Bone Support Strips kombinieren zwei essentielle Vitamine, die synergistisch zusammenarbeiten können: Vitamin D3 und Vitamin K2.',
-      'Vitamin D3 ist bekannt dafür, die Aufnahme von Kalzium zu unterstützen, während Vitamin K2 dazu beitragen kann, das aufgenommene Kalzium zu den Knochen zu transportieren. Diese Kombination macht die Strips zu einer durchdachten Ergänzung für deine Knochengesundheit.',
-      'Mit 2000 IU Vitamin D3 und 200 mcg Vitamin K2 pro Strip erhältst du eine sinnvolle Dosierung in einer praktischen Form. Der fruchtige Himbeergeschmack macht die tägliche Einnahme zum Vergnügen.',
-      'Besonders in den Wintermonaten, wenn die Sonneneinstrahlung geringer ist, kann eine Ergänzung mit Vitamin D sinnvoll sein.',
+      'Support your wellness routine with Bone Support Strips, a convenient and easy-to-take oral supplement formulated with Vitamin D3 and Vitamin K2. These essential nutrients play complementary roles in helping to maintain normal calcium absorption and supporting the body\'s natural bone health processes.',
+      'Vitamin D3 and Vitamin K2 work together to support the body\'s natural calcium utilization and bone maintenance functions. These essential nutrients also play complementary roles in helping to maintain healthy calcium metabolism and contribute to the support of strong bones and teeth.',
     ],
-    usage: '1 Strip täglich auf die Zunge legen und auflösen lassen. Idealerweise zu einer Mahlzeit einnehmen.',
-    ingredients: ['Vitamin D3 (2000 IU)', 'Vitamin K2 (200 mcg)', 'Pullulan', 'Lecithin', 'Himbeer-Aroma'],
+    usage: '1 Strip täglich auf die Zunge legen und auflösen lassen.',
+    ingredients: [
+      'Vitamin D3 (Cholecalciferol) (2000 IU)', 'Vitamin K2 (Menaquinone) (200 mcg)',
+      'Pullulan', 'Cellulose', 'Lecithin', 'Raspberry Flavor', 'Malic Acid',
+      'Erythritol', 'Sorbitol Syrup', 'Stevia Glycosides'
+    ],
     supplementFacts: [
       { nutrient: 'Vitamin D3', amount: '2000 IU (50 mcg)' },
       { nutrient: 'Vitamin K2 (MK-7)', amount: '200 mcg' },
@@ -82,55 +82,64 @@ export const productContentMap: Record<string, ProductContent> = {
     disclaimer: 'Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene und abwechslungsreiche Ernährung sowie eine gesunde Lebensweise. Die empfohlene tägliche Verzehrmenge nicht überschreiten. Außerhalb der Reichweite von kleinen Kindern aufbewahren.',
   },
 
-  // Cognitive Relax Strips
+  // 3. Cognitive Relax Strips
   'cognitive': {
     handle: 'cognitive',
     seoTitle: 'Cognitive Relax Strips Erdbeere-Minze | L-Theanin + GABA | Neuvie',
     metaDescription: 'Neuvie Cognitive Relax Strips mit L-Theanin (50mg), GABA (25mg) & Vitamin B6. Unterstützt Entspannung, Fokus & Nervensystem. Erdbeere-Minze Geschmack.',
-    shortDescription: 'Finde deine innere Ruhe, ohne müde zu werden. Die Cognitive Relax Strips können dich dabei unterstützen, entspannt und fokussiert zu bleiben.',
+    shortDescription: 'Cognitive Relax Strips kombinieren L-Theanine, GABA und Vitamin B6 in einem schnell auflösenden, aromatisierten Strip, der den Körper dabei unterstützt Stressreaktionen zu regulieren, mentale Klarheit zu fördern und das Nervensystem zu unterstützen. Einnahme: 1 Strip täglich, jederzeit.',
     benefits: [
-      { headline: 'Ruhe & Fokus', description: 'L-Theanin kann dabei helfen, einen Zustand entspannter Aufmerksamkeit zu fördern.' },
-      { headline: 'Stressregulation', description: 'GABA ist ein natürlicher Neurotransmitter, der zur Entspannung beitragen kann.' },
-      { headline: 'Nervensystem', description: 'Vitamin B6 trägt zu einer normalen Funktion des Nervensystems bei.' },
-      { headline: 'Mentale Balance', description: 'Die Kombination der Inhaltsstoffe kann die mentale Balance unterstützen.' },
+      { headline: 'Supports a Calm, Focused Mind', description: 'L-Theanine fördert mentale Ruhe und Klarheit.' },
+      { headline: 'Encourages Mental Wellbeing', description: 'GABA unterstützt die körpereigene Stressregulation.' },
+      { headline: 'Promotes Nervous System Wellness', description: 'Vitamin B6 trägt zur Funktion des Nervensystems bei.' },
+      { headline: 'Quick-Dissolving, Anytime Support', description: 'Einfache Einnahme — unterwegs oder zuhause.' },
     ],
     longDescription: [
-      'Die Neuvie Cognitive Relax Strips wurden für alle entwickelt, die in stressigen Situationen einen kühlen Kopf bewahren möchten. Die einzigartige Formel kombiniert L-Theanin, GABA und Vitamin B6.',
-      'L-Theanin, eine Aminosäure die natürlich in Teeblättern vorkommt, ist bekannt für ihre beruhigenden Eigenschaften, ohne dabei müde zu machen. GABA ist ein wichtiger Neurotransmitter, der natürlicherweise im Gehirn vorkommt.',
-      'Vitamin B6 ergänzt die Formel und trägt zu einer normalen Funktion des Nervensystems bei. Die Kombination dieser drei Inhaltsstoffe kann synergistisch wirken.',
-      'Der angenehme Erdbeere-Minze Geschmack sorgt für ein erfrischendes Erlebnis. Ideal vor wichtigen Meetings, Prüfungen oder einfach zum Entspannen nach einem langen Tag.',
+      'Find a moment of calm with Cognitive Relax Strips, thoughtfully formulated with L-Theanine from Green Tea, GABA, and Vitamin B6. These oral strips are designed to support your body\'s natural response to occasional stress and promote cognitive wellness as part of a balanced, mindful lifestyle.',
+      'L-Theanine, an amino acid found in green tea, is known for supporting a calm, relaxed state while helping to maintain mental clarity.',
+      'GABA, a naturally occurring compound in the body, plays a role in supporting normal nervous system activity, combined with Vitamin B6, which contributes to normal energy metabolism and nervous system function.',
+      'Together, these nutrients work together to promote everyday balance.',
     ],
-    usage: '1-2 Strips bei Bedarf auf die Zunge legen und auflösen lassen. Nicht mehr als 4 Strips pro Tag.',
-    ingredients: ['L-Theanin (50 mg)', 'GABA (25 mg)', 'Vitamin B6 (8 mg)', 'Pullulan', 'Lecithin', 'Erdbeer-Aroma', 'Pfefferminz-Aroma'],
+    usage: '1 Strip täglich auf die Zunge legen und auflösen lassen.',
+    ingredients: [
+      'Green Tea L-Theanine (50 mg)', 'GABA (25 mg)', 'Vitamin B6 (8 mg)',
+      'Pullulan', 'Mannitol', 'Cellulose', 'Strawberry Flavor', 'Lecithin',
+      'Malic Acid', 'Monk Fruit Extract', 'Pectin', 'Erythritol', 'Peppermint Flavor', 'Stevia Glycosides'
+    ],
     supplementFacts: [
       { nutrient: 'L-Theanin', amount: '50 mg' },
       { nutrient: 'GABA', amount: '25 mg' },
-      { nutrient: 'Vitamin B6', amount: '8 mg (571% NRV*)' },
+      { nutrient: 'Vitamin B6', amount: '8 mg' },
     ],
     properties: ['Vegan', 'Glutenfrei', 'Non-GMO', 'Koffeinfrei', 'Ohne künstliche Süßstoffe'],
-    disclaimer: 'Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene und abwechslungsreiche Ernährung sowie eine gesunde Lebensweise. Die empfohlene tägliche Verzehrmenge nicht überschreiten. Außerhalb der Reichweite von kleinen Kindern aufbewahren. *NRV = Nährstoffbezugswerte',
+    disclaimer: 'Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene und abwechslungsreiche Ernährung sowie eine gesunde Lebensweise. Die empfohlene tägliche Verzehrmenge nicht überschreiten. Außerhalb der Reichweite von kleinen Kindern aufbewahren.',
   },
 
-  // Mushroom Focus Strips
+  // 4. Mushroom Focus Strips
   'mushroom': {
     handle: 'mushroom',
     seoTitle: 'Mushroom Focus Strips Schokolade | Lion\'s Mane + Cordyceps | Neuvie',
     metaDescription: 'Neuvie Mushroom Focus Strips mit Lion\'s Mane, Cordyceps, Maitake & Shiitake. Unterstützt Fokus, Energie & kognitive Funktion. Schokoladen-Geschmack.',
-    shortDescription: 'Die Kraft der Vitalpilze für deinen Fokus. Unsere Mushroom Focus Strips kombinieren vier kraftvolle Pilzextrakte für mentale Klarheit und Energie.',
+    shortDescription: 'Support your focus, energy & everyday mental wellness with Mushroom Focus Strips, blending a curated mix of Lion\'s Mane, Maitake, Cordyceps and Shiitake mushroom extracts in a rich chocolate-flavored strip. Zero-fuss, quick-dissolving oral strip.',
     benefits: [
-      { headline: 'Fokus & Konzentration', description: 'Lion\'s Mane ist bekannt dafür, die kognitive Funktion und den Fokus unterstützen zu können.' },
-      { headline: 'Natürliche Energie', description: 'Cordyceps wird traditionell verwendet, um die natürliche Energie zu fördern.' },
-      { headline: 'Immununterstützung', description: 'Maitake und Shiitake können das Immunsystem auf natürliche Weise unterstützen.' },
-      { headline: 'Antioxidative Eigenschaften', description: 'Die enthaltenen Pilzextrakte besitzen natürliche antioxidative Eigenschaften.' },
+      { headline: 'Cognitive Support from Lion\'s Mane', description: 'Traditionally used to support focus & cognitive wellness.' },
+      { headline: 'Stamina-Promoting Cordyceps', description: 'Supports natural energy metabolism and stamina.' },
+      { headline: 'Maitake & Shiitake Wellness Boost', description: 'Promotes immune balance & antioxidant support.' },
+      { headline: 'Chocolate Flavor, Zero Fuss', description: 'Quick-dissolving oral strips — no capsules, no water needed.' },
     ],
     longDescription: [
-      'Die Neuvie Mushroom Focus Strips bringen die Kraft traditioneller Vitalpilze in eine moderne, praktische Form. Unsere Formel vereint vier der bekanntesten Functional Mushrooms.',
-      'Lion\'s Mane (Löwenmähne) wird seit Jahrhunderten in der traditionellen Medizin verwendet und ist bekannt für seine potenziell unterstützende Wirkung auf die kognitive Funktion. Cordyceps wird traditionell für seine energiefördernden Eigenschaften geschätzt.',
-      'Ergänzt werden diese durch Maitake und Shiitake – zwei Pilze, die für ihre immununterstützenden und antioxidativen Eigenschaften bekannt sind. Zusammen bilden sie eine kraftvolle Kombination.',
-      'Der leckere Schokoladengeschmack macht die tägliche Einnahme zum Genuss. Ideal für alle, die ihre mentale Performance auf natürliche Weise unterstützen möchten.',
+      'Sharp your mental clarity and overall wellness with Mushroom Focus Strips, a convenient and flavorful way to support your routine.',
+      'These smooth, chocolate-flavored oral strips dissolve easily on your tongue, delivering a curated blend of functional mushroom extracts traditionally valued for their role in promoting normal cognitive function and daily vitality.',
+      'Each strip combines: Lion\'s Mane – long history in supporting cognitive function and focus, Maitake – immune support, Cordyceps – stamina, energy metabolism, Shiitake – immune balance, antioxidant support.',
+      'Perfect for a busy day, these strips make it easy to incorporate mushroom-powered support into your wellness routine—anytime, no water or capsules needed.',
     ],
-    usage: '1 Strip täglich auf die Zunge legen und auflösen lassen. Kann morgens oder bei Bedarf eingenommen werden.',
-    ingredients: ['Lion\'s Mane Extrakt (50 mg)', 'Maitake Extrakt (25 mg)', 'Cordyceps Extrakt (25 mg)', 'Shiitake Extrakt (20 mg)', 'Pullulan', 'Lecithin', 'Kakao-Aroma'],
+    usage: '1 Strip täglich auf die Zunge legen und auflösen lassen.',
+    ingredients: [
+      'Hericium Erinaceus (Lion\'s Mane) (50 mg)', 'Grifola Frondosa (Maitake) (25 mg)',
+      'Cordyceps Sinensis (Cordyceps) (25 mg)', 'Lentinus Edodes (Shiitake) (20 mg)',
+      'Pullulan', 'Cellulose', 'Lecithin', 'Chocolate Flavor', 'Monk Fruit Extract',
+      'Medium-Chain Triglycerides', 'Xanthan Gum', 'Stevia Glycosides'
+    ],
     supplementFacts: [
       { nutrient: 'Lion\'s Mane Extrakt', amount: '50 mg' },
       { nutrient: 'Maitake Extrakt', amount: '25 mg' },
@@ -141,26 +150,30 @@ export const productContentMap: Record<string, ProductContent> = {
     disclaimer: 'Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene und abwechslungsreiche Ernährung sowie eine gesunde Lebensweise. Die empfohlene tägliche Verzehrmenge nicht überschreiten. Außerhalb der Reichweite von kleinen Kindern aufbewahren.',
   },
 
-  // Libido Support Strips
+  // 5. Libido Support Strips
   'libido': {
     handle: 'libido',
     seoTitle: 'Libido Support Strips Schokolade | Cordyceps + Shilajit | Neuvie',
     metaDescription: 'Neuvie Libido Support Strips mit Cordyceps, Shilajit & Austernpeptid. Unterstützt Vitalität, Ausdauer & sexuelles Wohlbefinden. Diskret & praktisch.',
-    shortDescription: 'Natürliche Unterstützung für deine Vitalität. Die Libido Support Strips kombinieren traditionelle Inhaltsstoffe, die das sexuelle Wohlbefinden unterstützen können.',
+    shortDescription: 'Libido Support Strips unterstützen Stamina, Energy, Vitality und das allgemeine Wohlbefinden. Mit Cordyceps militaris, Shilajit und Oyster Peptide — in einem schnell auflösenden, chocolate-flavored Strip. Ideal für tägliche Routine und aktiven Lifestyle.',
     benefits: [
-      { headline: 'Ausdauer & Energie', description: 'Cordyceps wird traditionell verwendet, um Ausdauer und körperliche Leistungsfähigkeit zu unterstützen.' },
-      { headline: 'Sexuelles Wohlbefinden', description: 'Austernpeptid ist bekannt für seine unterstützende Wirkung auf das sexuelle Wohlbefinden.' },
-      { headline: 'Mineralstoffversorgung', description: 'Shilajit ist reich an natürlichen Mineralien und Fulvinsäuren.' },
-      { headline: 'Natürliche Vitalität', description: 'Die Kombination kann die natürliche Vitalität auf verschiedene Weise unterstützen.' },
+      { headline: 'Cordyceps for Active Vitality', description: 'Traditionally used to support stamina & endurance.' },
+      { headline: 'Marine-Derived Peptides', description: 'Support overall sexual wellness & nutrient balance.' },
+      { headline: 'Shilajit\'s Natural Support', description: 'Provides minerals that contribute to sexual wellness.' },
+      { headline: 'Rich Chocolate Flavor', description: 'Quick-dissolving, enjoyable, no capsules, no water.' },
     ],
     longDescription: [
-      'Die Neuvie Libido Support Strips wurden entwickelt, um die natürliche Vitalität und das Wohlbefinden zu unterstützen. Unsere Formel kombiniert drei kraftvolle natürliche Inhaltsstoffe.',
-      'Cordyceps Militaris ist ein Vitalpilz, der in der traditionellen Medizin für seine energiefördernden und ausdauersteigernden Eigenschaften geschätzt wird. Er kann dazu beitragen, die körperliche Leistungsfähigkeit zu unterstützen.',
-      'Shilajit ist ein natürliches Harz aus dem Himalaya, reich an Mineralien und Fulvinsäuren. Es wird traditionell verwendet, um die allgemeine Vitalität zu fördern.',
-      'Austernpeptid ergänzt die Formel mit natürlichen Aminosäuren und Spurenelementen. Der dezente Schokoladengeschmack sorgt für eine angenehme Einnahme.',
+      'Add a little extra vitality to your wellness routine with our Libido Support Strips, specially crafted for adults looking to maintain healthy energy, stamina, and sexual wellness as part of a balanced lifestyle.',
+      'Each strip delivers a blend of Cordyceps militaris, Shilajit, and Oyster Peptide — ingredients traditionally valued for supporting normal endurance, energy metabolism, and sexual function.',
+      'Cordyceps militaris is associated with promoting stamina and vitality, while Shilajit provides naturally wellness-supportive minerals.',
+      'These chocolate-flavored oral strips dissolve easily on your tongue, offering a simple and discreet way to support your energy, vitality, and overall wellness as part of your healthy lifestyle.',
     ],
     usage: '1-2 Strips bei Bedarf auf die Zunge legen und auflösen lassen. Nicht mehr als 2 Strips pro Tag.',
-    ingredients: ['Cordyceps Militaris Extrakt (50 mg)', 'Shilajit Extrakt (50 mg)', 'Austernpeptid (20 mg)', 'Pullulan', 'Lecithin', 'Kakao-Aroma'],
+    ingredients: [
+      'Cordyceps Militaris (50 mg)', 'Asphaltum Punjabinum (Shilajit) (50 mg)', 'Oyster Peptide (20 mg)',
+      'Pullulan', 'Cellulose', 'Monk Fruit Extract', 'Lecithin', 'Chocolate Flavor',
+      'Erythritol', 'Sorbitol', 'Stevia Glycosides'
+    ],
     supplementFacts: [
       { nutrient: 'Cordyceps Militaris Extrakt', amount: '50 mg' },
       { nutrient: 'Shilajit Extrakt', amount: '50 mg' },
@@ -170,26 +183,30 @@ export const productContentMap: Record<string, ProductContent> = {
     disclaimer: 'Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene und abwechslungsreiche Ernährung sowie eine gesunde Lebensweise. Die empfohlene tägliche Verzehrmenge nicht überschreiten. Außerhalb der Reichweite von kleinen Kindern aufbewahren. Nicht für Kinder und Jugendliche geeignet.',
   },
 
-  // Probiotic + Metabolism Strips
+  // 6. Probiotic + Metabolism Strips
   'probiotic': {
     handle: 'probiotic',
     seoTitle: 'Probiotic + Metabolism Strips | 10 Mrd. KBE | Neuvie',
     metaDescription: 'Neuvie Probiotic + Metabolism Strips mit 10 Mrd. KBE Bifidobacterium lactis, Polydextrose & Mönchsfrucht. Unterstützt Darmflora & Stoffwechsel.',
-    shortDescription: 'Dein täglicher Begleiter für eine gesunde Darmflora. Mit 10 Milliarden koloniebildenden Einheiten und Präbiotika für eine optimale Synergie.',
+    shortDescription: 'Probiotic + Metabolism Strips bieten eine einfache, schnelle und wohlschmeckende Unterstützung für die Verdauungsgesundheit. Jeder Strip liefert 10 Billion CFU Probiotika plus Prebiotic Fiber zur Förderung eines gesunden Gleichgewichts der Darmflora. Mit Mixed-Berry Geschmack.',
     benefits: [
-      { headline: '10 Milliarden KBE', description: 'Jeder Strip enthält 10 Milliarden koloniebildende Einheiten Bifidobacterium lactis.' },
-      { headline: 'Probiotisch-präbiotische Synergie', description: 'Die Kombination aus Pro- und Präbiotika kann die Darmflora optimal unterstützen.' },
-      { headline: 'Jederzeit einnehmbar', description: 'Die praktischen Strips können flexibel und ohne Wasser eingenommen werden.' },
-      { headline: 'Leckerer Beerengeschmack', description: 'Der fruchtige Mixed Berry Geschmack macht die tägliche Einnahme angenehm.' },
+      { headline: 'Daily Digestive Support', description: '10 Billion CFU unterstützen eine gesunde Darmflora & Verdauung.' },
+      { headline: 'Probiotic + Prebiotic Synergy', description: 'Probiotische Bakterien + Präbiotische Faser → stärkerer Effekt.' },
+      { headline: 'Anytime, Anywhere Convenience', description: 'Dissolving strips – keine Kapseln, kein Wasser nötig.' },
+      { headline: 'Refreshing Flavor Experience', description: 'Mixed Berry, leicht und natürlich süß – perfekt für die tägliche Routine.' },
     ],
     longDescription: [
-      'Die Neuvie Probiotic + Metabolism Strips bieten eine innovative Möglichkeit, deine Darmgesundheit zu unterstützen. Mit 10 Milliarden KBE Bifidobacterium lactis pro Strip erhältst du eine effektive Dosis probiotischer Kulturen.',
-      'Das Besondere an unserer Formel ist die Kombination aus Probiotika und Präbiotika. Polydextrose dient als Nahrung für die guten Darmbakterien und kann so deren Wirkung unterstützen.',
-      'Bifidobacterium lactis ist einer der am besten erforschten probiotischen Stämme und kann zur Aufrechterhaltung einer gesunden Darmflora beitragen.',
-      'Gesüßt mit natürlichem Mönchsfruchtextrakt – ohne Zucker und ohne künstliche Süßstoffe. Der Mixed Berry Geschmack macht die tägliche Einnahme zum Vergnügen.',
+      'Probiotic + Metabolism Strips are designed to make supporting your digestive wellness effortless. Each strip contains Bifidobacterium lactis, a probiotic that helps support a healthy balance of gut bacteria, combined with prebiotic fiber that fuels beneficial bacteria.',
+      'Together, they work in harmony to promote digestive balance as part of your overall health routine.',
+      'These strips dissolve on your tongue in seconds — no water required. Their portable design makes them a convenient option for travel, work, or on-the-go lifestyles.',
+      'With a light mixed berry flavor, you can enjoy daily digestive support in a form that feels fresh and easy to use. Formulated with natural sweeteners like monk fruit extract and stevia, they offer a clean-tasting experience without added sugars.',
     ],
     usage: '1 Strip täglich auf die Zunge legen und auflösen lassen. Idealerweise morgens auf nüchternen Magen.',
-    ingredients: ['Polydextrose (30 mg)', 'Bifidobacterium lactis (10 Mrd. KBE)', 'Mönchsfruchtextrakt', 'Pullulan', 'Lecithin', 'Natürliches Beerenaroma'],
+    ingredients: [
+      'Polydextrose (30mg)', 'Bifidobacterium lactis 25.7mg (10 Billion CFU)',
+      'Pullulan', 'Cellulose', 'Mixed Berry Flavor', 'Sunflower Lecithin',
+      'Monk Fruit Extract', 'Erythritol', 'Medium Chain Triglycerides', 'Malic Acid', 'Stevia Glycosides'
+    ],
     supplementFacts: [
       { nutrient: 'Bifidobacterium lactis', amount: '10 Mrd. KBE' },
       { nutrient: 'Polydextrose', amount: '30 mg' },
@@ -198,120 +215,229 @@ export const productContentMap: Record<string, ProductContent> = {
     disclaimer: 'Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene und abwechslungsreiche Ernährung sowie eine gesunde Lebensweise. Die empfohlene tägliche Verzehrmenge nicht überschreiten. Außerhalb der Reichweite von kleinen Kindern aufbewahren. Kühl und trocken lagern.',
   },
 
-  // Beauty + Collagen Strips
+  // 7. Beauty + Collagen Strips
   'beauty': {
     handle: 'beauty',
     seoTitle: 'Beauty + Collagen Strips Mango | Kollagen + Vitamin E | Neuvie',
     metaDescription: 'Neuvie Beauty + Collagen Strips mit 100mg Kollagenpeptiden & Vitamin E. Unterstützt Hautelastizität, Haare & Nägel. Leckerer Mango-Geschmack.',
-    shortDescription: 'Schönheit von innen. Die Beauty + Collagen Strips können Haut, Haare und Nägel mit wertvollen Kollagenpeptiden und Vitamin E unterstützen.',
+    shortDescription: 'Beauty + Collagen Strips unterstützen die natürliche Kollagenproduktion, Hautelastizität und antioxidativen Zellschutz durch Kollagen Peptide und Vitamin E – in einem fruchtigen Mango-Flavor. Schnell auf der Zunge auflösend, ideal für eine tägliche Beauty-Routine.',
     benefits: [
-      { headline: 'Hautelastizität', description: 'Kollagenpeptide können dazu beitragen, die natürliche Elastizität der Haut zu unterstützen.' },
-      { headline: 'Antioxidativer Schutz', description: 'Vitamin E trägt dazu bei, die Zellen vor oxidativem Stress zu schützen.' },
-      { headline: 'Haare & Nägel', description: 'Die Formel kann das Wachstum gesunder Haare und Nägel unterstützen.' },
-      { headline: 'Praktische Einnahme', description: 'Keine großen Kapseln oder Pulver – einfach auf der Zunge auflösen lassen.' },
+      { headline: 'Promotes Skin Elasticity', description: 'Kollagenpeptide unterstützen die natürliche Hautstruktur.' },
+      { headline: 'Antioxidant Support for Skin Wellness', description: 'Vitamin E schützt Zellen vor oxidativem Stress.' },
+      { headline: 'Delicious, Mess-Free Beauty Support', description: 'Fruchtiges Mango-Aroma, oral dissolving – keine Kapseln, kein Wasser.' },
+      { headline: 'Supports Healthy Hair & Nail Appearance', description: 'Kollagen liefert Bausteine für Haare & Nägel.' },
     ],
     longDescription: [
-      'Die Neuvie Beauty + Collagen Strips wurden entwickelt, um deine natürliche Schönheit von innen zu unterstützen. Mit 100 mg Kollagenpeptiden pro Strip erhältst du eine wertvolle Ergänzung für deine Beauty-Routine.',
-      'Kollagen ist das häufigste Protein im menschlichen Körper und ein wichtiger Bestandteil von Haut, Haaren und Nägeln. Mit zunehmendem Alter nimmt die körpereigene Kollagenproduktion ab – hier können Kollagenpeptide unterstützend wirken.',
-      'Vitamin E ergänzt die Formel mit seinen antioxidativen Eigenschaften. Es trägt dazu bei, die Zellen vor oxidativem Stress zu schützen.',
-      'Der tropische Mango-Geschmack macht die tägliche Einnahme zum Genuss. Ideal als Ergänzung zu deiner täglichen Hautpflege-Routine.',
+      'Beauty + Collagen Strips bieten eine einfache Möglichkeit, die tägliche Beauty- und Wellnessroutine zu unterstützen.',
+      'Jeder Strip kombiniert: Collagen Peptides (100 mg) – unterstützen die körpereigene Kollagenstruktur und damit Haut, Haare und Gelenke, Vitamin E – wirkt antioxidativ und schützt die Hautzellen.',
+      'Die Strips lösen sich ohne Wasser sofort auf und bieten ein angenehmes Mango-Aroma. Ideal für alle, die eine einfache, schnelle und mobile Beauty-Lösung suchen.',
     ],
     usage: '1 Strip täglich auf die Zunge legen und auflösen lassen. Für optimale Ergebnisse regelmäßig über einen längeren Zeitraum einnehmen.',
-    ingredients: ['Kollagenpeptide (100 mg)', 'Vitamin E (6 mg)', 'Pullulan', 'Lecithin', 'Mango-Aroma'],
+    ingredients: [
+      'Collagen Peptide (100 mg)', 'Vitamin E (6 mg)',
+      'Pullulan', 'Cellulose', 'Lecithin', 'Mango Flavor', 'Malic Acid', 'Pectin', 'Monk Fruit Extract', 'Stevia Glycosides'
+    ],
     supplementFacts: [
       { nutrient: 'Kollagenpeptide', amount: '100 mg' },
-      { nutrient: 'Vitamin E', amount: '6 mg (50% NRV*)' },
+      { nutrient: 'Vitamin E', amount: '6 mg' },
     ],
     properties: ['Glutenfrei', 'Non-GMO', 'Ohne künstliche Farbstoffe', 'Ohne Zuckerzusatz'],
-    disclaimer: 'Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene und abwechslungsreiche Ernährung sowie eine gesunde Lebensweise. Die empfohlene tägliche Verzehrmenge nicht überschreiten. Außerhalb der Reichweite von kleinen Kindern aufbewahren. *NRV = Nährstoffbezugswerte',
+    disclaimer: 'Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene und abwechslungsreiche Ernährung sowie eine gesunde Lebensweise. Die empfohlene tägliche Verzehrmenge nicht überschreiten. Außerhalb der Reichweite von kleinen Kindern aufbewahren.',
   },
 
-  // Hair, Skin & Nails Strips
+  // 8. Hair, Skin & Nails Strips
   'hair': {
     handle: 'hair',
     seoTitle: 'Hair, Skin & Nails Strips Orange | Biotin 5000 mcg | Neuvie',
     metaDescription: 'Neuvie Hair, Skin & Nails Strips mit Biotin (5000 mcg), Folat & Vitamin D3. Unterstützt Haarwachstum, Hautgesundheit & starke Nägel.',
-    shortDescription: 'Die Rundum-Versorgung für Haare, Haut und Nägel. Mit hochdosiertem Biotin und weiteren essentiellen Vitaminen für dein strahlendes Äußeres.',
+    shortDescription: 'Support your natural glow with Hair, Skin and Nails Strips – formuliert mit Biotin, Folate und Vitamin D3. Diese schnell auflösenden orange-flavored Strips unterstützen die normale Stärke von Haaren sowie das allgemeine Wohlbefinden von Haut, Haaren und Nägeln. Einfach 1 Strip pro Tag – ohne Wasser.',
     benefits: [
-      { headline: 'Biotin für Haare', description: 'Biotin trägt zur Erhaltung normaler Haare bei.' },
-      { headline: 'Zellgesundheit', description: 'Folat hat eine Funktion bei der Zellteilung und kann so die Hauterneuerung unterstützen.' },
-      { headline: 'Vitamin D3', description: 'Vitamin D trägt zur Erhaltung normaler Haut bei.' },
-      { headline: 'Starke Nägel', description: 'Die Kombination der Vitamine kann zur Festigkeit der Nägel beitragen.' },
+      { headline: 'Tasty, On-the-Go Care', description: 'Orange-flavored, dissolves quickly — perfect for mobile beauty routine.' },
+      { headline: 'Folate for Cellular Wellness', description: 'Supports healthy cell function and skin vitality.' },
+      { headline: 'Daily Sunshine in a Strip', description: 'Vitamin D3 unterstützt die Calciumaufnahme & das allgemeine Wohlbefinden.' },
+      { headline: 'Biotin for Beauty Support', description: 'Biotin spielt eine wichtige Rolle bei natürlicher Haar-, Haut- & Nagelgesundheit.' },
     ],
     longDescription: [
-      'Die Neuvie Hair, Skin & Nails Strips bieten eine umfassende Versorgung mit wichtigen Vitaminen für dein äußeres Erscheinungsbild. Mit 5000 mcg Biotin pro Strip erhältst du eine hochdosierte Unterstützung.',
-      'Biotin, auch bekannt als Vitamin B7 oder Vitamin H, trägt zur Erhaltung normaler Haare und Haut bei. Es ist ein wasserlösliches Vitamin, das täglich zugeführt werden sollte.',
-      'Folat (Vitamin B9) hat eine wichtige Funktion bei der Zellteilung und kann so die natürliche Hauterneuerung unterstützen. Vitamin D3 ergänzt die Formel und trägt zur Erhaltung normaler Haut bei.',
-      'Der frische Orangengeschmack macht die tägliche Einnahme angenehm. Perfekt für alle, die ihre natürliche Schönheit von innen unterstützen möchten.',
+      'Nourish your natural beauty from within with our Hair, Skin and Nails Strips — a convenient, on-the-go supplement designed to support normal hair strength, skin vitality, and nail health.',
+      'These quick-dissolving, orange-flavored oral strips provide key nutrients to support your hair, skin and nail wellness as part of your daily routine — all in a simple, easy-to-take format.',
+      'Each strip contains 5,000 mcg of Biotin, a key nutrient known to support the body\'s normal processes for maintaining healthy hair, skin, and nails. Paired with Folate (Vitamin B9) and Vitamin D3, this thoughtful combination helps promote overall wellness and supports cellular health as part of a balanced lifestyle.',
+      'To use, simply place one strip on your tongue and allow it to dissolve completely — no water required.',
     ],
     usage: '1 Strip täglich auf die Zunge legen und auflösen lassen. Für sichtbare Ergebnisse wird eine regelmäßige Einnahme über mindestens 8-12 Wochen empfohlen.',
-    ingredients: ['Biotin (5000 mcg)', 'Vitamin B9 / Folat (400 mcg)', 'Vitamin D3 (200 mcg)', 'Pullulan', 'Lecithin', 'Orangen-Aroma'],
+    ingredients: [
+      'Biotin (5000 mcg)', 'Vitamin B9 (Folate) (400 mcg)', 'Vitamin D3 (Cholecalciferol) (200 mcg)',
+      'Pullulan', 'Cellulose', 'Mannitol', 'Monk Fruit Extract', 'Orange Flavor', 'Malic Acid', 'Lecithin', 'Stevia Glycosides'
+    ],
     supplementFacts: [
-      { nutrient: 'Biotin', amount: '5000 mcg (10.000% NRV*)' },
-      { nutrient: 'Folat (Vitamin B9)', amount: '400 mcg (200% NRV*)' },
+      { nutrient: 'Biotin', amount: '5000 mcg' },
+      { nutrient: 'Folat (Vitamin B9)', amount: '400 mcg' },
       { nutrient: 'Vitamin D3', amount: '200 mcg' },
     ],
     properties: ['Vegan', 'Glutenfrei', 'Non-GMO', 'Laktosefrei', 'Ohne Zuckerzusatz'],
-    disclaimer: 'Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene und abwechslungsreiche Ernährung sowie eine gesunde Lebensweise. Die empfohlene tägliche Verzehrmenge nicht überschreiten. Außerhalb der Reichweite von kleinen Kindern aufbewahren. *NRV = Nährstoffbezugswerte',
+    disclaimer: 'Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene und abwechslungsreiche Ernährung sowie eine gesunde Lebensweise. Die empfohlene tägliche Verzehrmenge nicht überschreiten. Außerhalb der Reichweite von kleinen Kindern aufbewahren.',
   },
 
-  // Digestive + Gut Health Strips
+  // 9. Digestive + Gut Health Strips
   'digestive': {
     handle: 'digestive',
     seoTitle: 'Digestive + Gut Health Strips | Probiotika + Enzyme | Neuvie',
     metaDescription: 'Neuvie Digestive + Gut Health Strips mit Bacillus Coagulans (10 Mrd. KBE), Protease, Papain & Bromelain. Unterstützt Verdauung & Darmgesundheit.',
-    shortDescription: 'Deine tägliche Unterstützung für eine gesunde Verdauung. Probiotische Kulturen und natürliche Enzyme arbeiten zusammen für dein Wohlbefinden.',
+    shortDescription: 'Digestive + Gut Health Strips unterstützen die Darmgesundheit mit einer Kombination aus Probiotika und Verdauungsenzymen — in einem schnell auflösenden, mixed-berry flavored Strip. Perfekt für unterwegs, ohne Wasser, leicht einzunehmen.',
     benefits: [
-      { headline: 'Darmflora-Balance', description: 'Bacillus Coagulans kann zur Aufrechterhaltung einer gesunden Darmflora beitragen.' },
-      { headline: 'Verdauungsunterstützung', description: 'Natürliche Enzyme wie Protease, Papain und Bromelain können die Verdauung unterstützen.' },
-      { headline: 'Nährstoffaufnahme', description: 'Eine gesunde Verdauung kann die Aufnahme von Nährstoffen optimieren.' },
-      { headline: 'Wohlbefinden', description: 'Eine ausgeglichene Darmflora kann zum allgemeinen Wohlbefinden beitragen.' },
+      { headline: 'Supports Normal Gut Balance', description: 'Bacillus Coagulans unterstützt ein gesundes Mikrobiom.' },
+      { headline: 'Aids Natural Protein Digestion', description: 'Enzyme wie Protease, Papain & Bromelain fördern die natürliche Eiweißverdauung.' },
+      { headline: 'Fast-Dissolving Convenience', description: 'Auf der Zunge in Sekunden — perfekt für unterwegs.' },
+      { headline: 'Gut Health Made Simple', description: 'Eine tägliche Portion Verdauungsunterstützung, einfach & portable.' },
     ],
     longDescription: [
-      'Die Neuvie Digestive + Gut Health Strips kombinieren probiotische Kulturen mit natürlichen Verdauungsenzymen für eine umfassende Unterstützung deines Verdauungssystems.',
-      'Bacillus Coagulans ist ein sporenbildender Probiotikum-Stamm, der besonders resistent gegenüber Magensäure ist. Mit 10 Milliarden KBE pro Strip erhältst du eine effektive Menge dieser wertvollen Bakterien.',
-      'Die Enzyme Protease, Papain und Bromelain können die Verdauung von Proteinen unterstützen. Papain stammt aus der Papaya, Bromelain aus der Ananas – beide werden traditionell für ihre verdauungsfördernden Eigenschaften geschätzt.',
-      'Der fruchtige Mixed Berry Geschmack macht die tägliche Einnahme angenehm. Ideal nach den Mahlzeiten oder bei Verdauungsbeschwerden.',
+      'Support your daily digestive wellness with our Digestive + Gut Health Strips, specially designed for easy, on-the-go use.',
+      'Each strip delivers a unique blend of probiotics and digestive enzymes that help maintain normal gut flora balance and support natural digestion.',
+      'Featuring Bacillus Coagulans, a widely studied probiotic strain, these strips help maintain healthy gut microflora, supporting normal digestive function. Combined with a blend of enzymes like Protease, Papain, and Bromelain, they assist in the breakdown of proteins and support the body\'s natural digestive processes.',
+      'With a refreshing mixed berry flavor and fast-dissolving format, these strips make digestive support easy, mess-free, and enjoyable wherever life takes you.',
     ],
     usage: '1 Strip nach einer Mahlzeit auf die Zunge legen und auflösen lassen. Bei Bedarf bis zu 2 Strips täglich.',
-    ingredients: ['Bacillus Coagulans (10 Mrd. KBE)', 'Protease', 'Papain', 'Bromelain', 'Pullulan', 'Lecithin', 'Natürliches Beerenaroma'],
+    ingredients: [
+      'Bacillus Coagulans 10 Billion CFU (50 mg)', 'Digestive Enzymatic Blend (Protease 10 mg, Papain 10 mg, Bromelain 10 mg)',
+      'Pullulan', 'Mannitol', 'Monk Fruit Extract', 'Cellulose', 'Lecithin', 'Mixed Berry Flavor', 'Stevia Glycosides'
+    ],
     supplementFacts: [
       { nutrient: 'Bacillus Coagulans', amount: '10 Mrd. KBE' },
-      { nutrient: 'Protease', amount: '*' },
-      { nutrient: 'Papain', amount: '*' },
-      { nutrient: 'Bromelain', amount: '*' },
+      { nutrient: 'Protease', amount: '10 mg' },
+      { nutrient: 'Papain', amount: '10 mg' },
+      { nutrient: 'Bromelain', amount: '10 mg' },
     ],
     properties: ['Vegan', 'Glutenfrei', 'Non-GMO', 'Laktosefrei', 'Ohne künstliche Farbstoffe'],
     disclaimer: 'Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene und abwechslungsreiche Ernährung sowie eine gesunde Lebensweise. Die empfohlene tägliche Verzehrmenge nicht überschreiten. Außerhalb der Reichweite von kleinen Kindern aufbewahren.',
   },
 
-  // Appetite Balance & Weight Support Strips
+  // 10. Appetite Balance & Weight Support Strips
   'appetite': {
     handle: 'appetite',
     seoTitle: 'Appetite Balance & Weight Support Strips | Chrom + Safran | Neuvie',
     metaDescription: 'Neuvie Appetite Balance Strips mit Chrom (75 mcg), Molybdän (100 mcg) & Safran. Unterstützt normalen Blutzuckerspiegel & Appetitbalance.',
-    shortDescription: 'Natürliche Unterstützung für ein ausgewogenes Essverhalten. Mit Chrom, das zur Aufrechterhaltung eines normalen Blutzuckerspiegels beiträgt.',
+    shortDescription: 'Appetite Balance & Weight Support Strips bieten eine einfache, schnell einnehmbare Möglichkeit, die Ernährung und das tägliche Wohlbefinden zu unterstützen. Mit Saffron, Chromium und Molybdenum – für bewusste Essgewohnheiten, Metabolismus-Unterstützung und tägliche Vitalität.',
     benefits: [
-      { headline: 'Blutzuckerbalance', description: 'Chrom trägt zur Aufrechterhaltung eines normalen Blutzuckerspiegels bei.' },
-      { headline: 'Stoffwechselunterstützung', description: 'Molybdän trägt zu einem normalen Stoffwechsel von schwefelhaltigen Aminosäuren bei.' },
-      { headline: 'Natürliche Balance', description: 'Safranextrakt wird traditionell verwendet, um das emotionale Wohlbefinden zu unterstützen.' },
-      { headline: 'Heißhunger-Management', description: 'Die Formel kann dabei helfen, Heißhungerattacken natürlich zu regulieren.' },
+      { headline: 'Nutrient Support for Daily Wellness', description: 'Molybdenum unterstützt natürliche Enzymaktivität im Körper.' },
+      { headline: 'Helps Maintain Normal Blood Sugar Levels', description: 'Chromium unterstützt Glukosestoffwechsel & stabile Werte.' },
+      { headline: 'Botanical Support for Balance', description: 'Saffron trägt zu emotionaler Balance & Wohlbefinden bei.' },
+      { headline: 'Convenient On-the-Go Format', description: 'Dissolving strip – portable, schnell, leicht einzunehmen.' },
     ],
     longDescription: [
-      'Die Neuvie Appetite Balance & Weight Support Strips wurden entwickelt, um ein gesundes Essverhalten auf natürliche Weise zu unterstützen. Die einzigartige Formel kombiniert Spurenelemente mit wertvollem Safranextrakt.',
-      'Chrom ist ein essentielles Spurenelement, das zur Aufrechterhaltung eines normalen Blutzuckerspiegels beiträgt. Ein stabiler Blutzuckerspiegel kann helfen, Heißhungerattacken zu reduzieren.',
-      'Molybdän ist ebenfalls ein essentielles Spurenelement und trägt zu einem normalen Stoffwechsel bei. Safran wird seit Jahrhunderten in der traditionellen Medizin verwendet und kann das emotionale Wohlbefinden unterstützen.',
-      'Der fruchtige Mixed Berry Geschmack macht die Einnahme angenehm. Ideal als Teil eines ganzheitlichen Ansatzes für ein gesundes Gewichtsmanagement.',
+      'Discover an easy and convenient way to stay on track with your wellness goals through Appetite Balance & Weight Support Strips.',
+      'Each strip contains a thoughtful blend of Saffron extract, Chromium, and Molybdenum to support balanced nutrition and overall well-being.',
+      'Saffron has been traditionally used in wellness practices and is recognized for supporting balance in part of daily routines. Chromium supports normal macronutrient metabolism and helps maintain healthy blood sugar levels already within the normal range. Molybdenum contributes to essential nutrient metabolism and plays a role in overall wellness.',
+      'These strips dissolve quickly on the tongue and are designed for adults who follow a health-conscious, active lifestyle — anytime, anywhere.',
     ],
     usage: '1 Strip vor einer Mahlzeit auf die Zunge legen und auflösen lassen. Bis zu 2 Strips täglich.',
-    ingredients: ['Chrom (75 mcg)', 'Molybdän (100 mcg)', 'Safranextrakt (10 mg)', 'Pullulan', 'Lecithin', 'Natürliches Beerenaroma'],
+    ingredients: [
+      'Chromium (as Chromium Picolinate) (75 mcg)', 'Molybdenum (as Molybdenum Glycinate 400 mcg) (100 mcg)',
+      'Crocus sativus (Saffron) (10 mg)', 'Pullulan', 'Cellulose', 'Malic Acid',
+      'Sorbitol Syrup', 'Lecithin', 'Mixed Berry Flavor', 'Stevia Glycosides'
+    ],
     supplementFacts: [
-      { nutrient: 'Chrom', amount: '75 mcg (188% NRV*)' },
-      { nutrient: 'Molybdän', amount: '100 mcg (200% NRV*)' },
+      { nutrient: 'Chrom', amount: '75 mcg' },
+      { nutrient: 'Molybdän', amount: '100 mcg' },
       { nutrient: 'Safranextrakt', amount: '10 mg' },
     ],
     properties: ['Vegan', 'Glutenfrei', 'Non-GMO', 'Zuckerfrei', 'Ohne künstliche Süßstoffe'],
-    disclaimer: 'Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene und abwechslungsreiche Ernährung sowie eine gesunde Lebensweise. Die empfohlene tägliche Verzehrmenge nicht überschreiten. Außerhalb der Reichweite von kleinen Kindern aufbewahren. *NRV = Nährstoffbezugswerte. Dieses Produkt ist nicht als Ersatz für eine kalorienreduzierte Ernährung gedacht.',
+    disclaimer: 'Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene und abwechslungsreiche Ernährung sowie eine gesunde Lebensweise. Die empfohlene tägliche Verzehrmenge nicht überschreiten. Außerhalb der Reichweite von kleinen Kindern aufbewahren. Dieses Produkt ist nicht als Ersatz für eine kalorienreduzierte Ernährung gedacht.',
+  },
+
+  // 11. Iron Strips
+  'iron': {
+    handle: 'iron',
+    seoTitle: 'Iron Strips Himbeere | Eisen + Folat | Neuvie',
+    metaDescription: 'Neuvie Iron Strips mit Eisen (19 mg) & Folat (400 mcg). Unterstützt rote Blutkörperchen, Sauerstofftransport & Energieproduktion. Himbeere Geschmack.',
+    shortDescription: 'Promote your daily wellness with Iron Strips, a raspberry-flavored oral supplement designed to support normal energy and overall vitality. Easy-to-use, convenient and water-free.',
+    benefits: [
+      { headline: 'Supports red blood cell formation', description: 'Eisen trägt zur normalen Bildung roter Blutkörperchen bei.' },
+      { headline: 'Supports oxygen transport', description: 'Eisen unterstützt den normalen Sauerstofftransport im Körper.' },
+      { headline: 'Supports energy production', description: 'Trägt zum normalen Energiestoffwechsel bei.' },
+      { headline: 'Supports healthy cell formation', description: 'Folat unterstützt die normale Zellteilung.' },
+    ],
+    longDescription: [
+      'Support your everyday wellness with our iron strips, a convenient and gentle way to maintain normal energy levels and overall vitality. Designed for busy lifestyles, these quick-dissolving, raspberry-flavored oral strips provide key nutrients involved in red blood cell formation in an easy-to-take, water-free format.',
+      'Each strip provides 19 mg of iron, an important mineral that plays a role in the body\'s normal red blood cell production and oxygen transport. Paired with 400 mcg of folate, this formula helps support healthy cell formation and general wellness as part of a balanced diet and active lifestyle.',
+    ],
+    usage: '1 Strip täglich auf die Zunge legen und auflösen lassen.',
+    ingredients: [
+      'Iron (as Ferric Saccharate) (19 mg)', 'Vitamin B9 (Folate) (400 mcg)',
+      'Pullulan', 'Cellulose', 'Lecithin', 'Raspberry Flavor', 'Monk Fruit Extract',
+      'Citric Acid', 'Medium-Chain Triglycerides', 'Xanthan Gum', 'Stevia Glycosides'
+    ],
+    supplementFacts: [
+      { nutrient: 'Eisen (als Eisensaccharat)', amount: '19 mg' },
+      { nutrient: 'Folat (Vitamin B9)', amount: '400 mcg' },
+    ],
+    properties: ['Vegan', 'Glutenfrei', 'Non-GMO', 'Laktosefrei', 'Ohne Zuckerzusatz'],
+    disclaimer: 'Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene und abwechslungsreiche Ernährung sowie eine gesunde Lebensweise. Die empfohlene tägliche Verzehrmenge nicht überschreiten. Außerhalb der Reichweite von kleinen Kindern aufbewahren.',
+  },
+
+  // 12. Energy Strips
+  'energy': {
+    handle: 'energy',
+    seoTitle: 'Energy Strips Cranberry | Koffein + L-Theanin | Neuvie',
+    metaDescription: 'Neuvie Energy Strips mit Koffein (50 mg), L-Theanin (30 mg) & Vitamin B12. Unterstützt Fokus, Ausdauer & mentale Klarheit. Ohne Crash.',
+    shortDescription: 'Energy Oral Strips sind speziell für Menschen entwickelt, die einen natürlichen, schnellen Energieschub benötigen — ohne Zuckercrash oder Jitter wie bei Energy-Drinks. Unterstützt Fokus, Ausdauer, mentale Klarheit und stabile Energie.',
+    benefits: [
+      { headline: 'Enhanced Focus', description: 'Die Kombination aus Koffein und L-Theanin fördert konzentrierte Aufmerksamkeit.' },
+      { headline: 'Increased Physical Endurance', description: 'Unterstützt die körperliche Ausdauer und Leistungsfähigkeit.' },
+      { headline: 'Mental Clarity', description: 'Vitamin B12 trägt zur normalen kognitiven Funktion bei.' },
+      { headline: 'No Crashes / No Jitters', description: 'Stabile Energiefreisetzung ohne den typischen Energy-Drink-Crash.' },
+    ],
+    longDescription: [
+      'Energy Strips provide a convenient way to support focus, energy, and daily performance. These dissolvable Cranberry-flavored strips combine caffeine, L-theanine, and vitamin B12 to deliver fast-acting support for mental clarity and endurance.',
+      'The formulation is designed to provide stable, jitter-free energy without the typical crash associated with sugary drinks.',
+      'Perfect for athletes, professionals, students, and anyone seeking a fast and controlled energy boost.',
+    ],
+    usage: '1 Strip bei Bedarf auf die Zunge legen und auflösen lassen. Nicht mehr als 3 Strips pro Tag.',
+    ingredients: [
+      'Caffeine (50 mg)', 'L-Theanine (30 mg)', 'Vitamin B12 (50 mcg)',
+      'Pullulan', 'Mannitol', 'Cellulose', 'Cranberry Flavor', 'Lecithin',
+      'Malic Acid', 'Pectin', 'Erythritol', 'Stevia Glycosides', 'Methylcobalamin'
+    ],
+    supplementFacts: [
+      { nutrient: 'Koffein', amount: '50 mg' },
+      { nutrient: 'L-Theanin', amount: '30 mg' },
+      { nutrient: 'Vitamin B12', amount: '50 mcg' },
+    ],
+    properties: ['Vegan', 'Glutenfrei', 'Non-GMO', 'Zuckerfrei', 'Ohne künstliche Farbstoffe'],
+    disclaimer: 'Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene und abwechslungsreiche Ernährung sowie eine gesunde Lebensweise. Die empfohlene tägliche Verzehrmenge nicht überschreiten. Nicht für Kinder, Schwangere und stillende Mütter geeignet. Enthält Koffein.',
+  },
+
+  // 13. Sleep Strips
+  'sleep': {
+    handle: 'sleep',
+    seoTitle: 'Sleep Strips Himbeere | Melatonin + Baldrian | Neuvie',
+    metaDescription: 'Neuvie Sleep Strips mit Melatonin (5 mg), Baldrian, Kamille, Lavendel & Hibiskus. Unterstützt erholsamen Schlaf. Nicht-abhängig machend.',
+    shortDescription: 'Diese sanfte Mischung aus nicht-abhängig machenden Pflanzenextrakten wurde entwickelt, um einen gesunden Schlaf-Wach-Rhythmus zu unterstützen. Hilft bei erholsamem Schlaf, stressbedingten Schlafstörungen und gesundem Schlafzyklus.',
+    benefits: [
+      { headline: 'Enhanced Sleep Quality', description: 'Melatonin trägt dazu bei, die Einschlafzeit zu verkürzen.' },
+      { headline: 'Stress Reduction', description: 'Baldrian und Kamille können zur Entspannung beitragen.' },
+      { headline: 'Improved Non-REM Sleep', description: 'Unterstützt die tieferen Schlafphasen für echte Erholung.' },
+      { headline: 'Non-Addictive Formula', description: 'Sanfte, pflanzliche Formel ohne Abhängigkeitspotenzial.' },
+    ],
+    longDescription: [
+      'Sleep Strips were created to help support relaxation and natural sleep cycles. The combination of valerian, chamomile, lavender, hibiscus, and melatonin offers a gentle nighttime formula designed to calm the mind and support restful sleep.',
+      'These quick-dissolving Raspberry-flavored strips are perfect for busy individuals seeking a natural alternative to traditional sleep aids.',
+      'Their non-addictive formula makes them suitable for consistent nightly use to promote well-being and next-day energy.',
+    ],
+    usage: '1 Strip 30 Minuten vor dem Schlafengehen auf die Zunge legen und auflösen lassen.',
+    ingredients: [
+      'Valerian Extract (10 mg)', 'Lavender (5 mg)', 'Chamomile (5 mg)',
+      'Hibiscus Extract (5 mg)', 'Melatonin (5 mg)', 'Sorbitol (30 mg)',
+      'Medium Chain Triglycerides', 'Steviol Glycosides', 'Xylitol', 'Erythritol',
+      'Natural Flavors', 'Pectin', 'Citric Acid'
+    ],
+    supplementFacts: [
+      { nutrient: 'Baldrianextrakt', amount: '10 mg' },
+      { nutrient: 'Lavendel', amount: '5 mg' },
+      { nutrient: 'Kamille', amount: '5 mg' },
+      { nutrient: 'Hibiskus-Extrakt', amount: '5 mg' },
+      { nutrient: 'Melatonin', amount: '5 mg' },
+    ],
+    properties: ['Vegan', 'Glutenfrei', 'Non-GMO', 'Nicht-abhängig machend', 'Ohne künstliche Farbstoffe'],
+    disclaimer: 'Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene und abwechslungsreiche Ernährung sowie eine gesunde Lebensweise. Die empfohlene tägliche Verzehrmenge nicht überschreiten. Nicht für Kinder, Schwangere und stillende Mütter geeignet. Nicht vor dem Autofahren oder Bedienen von Maschinen einnehmen.',
   },
 };
 
@@ -337,6 +463,9 @@ export const findProductContent = (handleOrTitle: string): ProductContent | null
   if (searchTerm.includes('hair') || searchTerm.includes('skin') || searchTerm.includes('nail')) return productContentMap['hair'];
   if (searchTerm.includes('digestive') || searchTerm.includes('gut')) return productContentMap['digestive'];
   if (searchTerm.includes('appetite') || searchTerm.includes('weight')) return productContentMap['appetite'];
+  if (searchTerm.includes('iron') || searchTerm.includes('eisen')) return productContentMap['iron'];
+  if (searchTerm.includes('energy') || searchTerm.includes('energie')) return productContentMap['energy'];
+  if (searchTerm.includes('sleep') || searchTerm.includes('schlaf')) return productContentMap['sleep'];
   
   return null;
 };

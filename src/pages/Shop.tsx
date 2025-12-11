@@ -9,25 +9,29 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { cn } from '@/lib/utils';
 
 const categories = [
-  { id: 'all', label: 'All Products', count: 9 },
-  { id: 'performance', label: 'Performance & Energy', count: 2 },
-  { id: 'beauty', label: 'Beauty & Skin', count: 1 },
+  { id: 'all', label: 'All Products', count: 13 },
+  { id: 'performance', label: 'Performance & Energy', count: 3 },
+  { id: 'beauty', label: 'Beauty & Skin', count: 2 },
   { id: 'sleep', label: 'Sleep & Relax', count: 2 },
-  { id: 'immunity', label: 'Immunity & Health', count: 4 },
+  { id: 'immunity', label: 'Immunity & Health', count: 6 },
 ];
 
-// Map products to categories
+// Map products to categories based on 13 Neuvie Strips products
 const getCategoryForProduct = (title: string): string => {
   const lowerTitle = title.toLowerCase();
-  if (lowerTitle.includes('energy') || lowerTitle.includes('focus') || lowerTitle.includes('mushroom')) {
+  // Performance & Energy: Mushroom Focus, Libido Support, Energy
+  if (lowerTitle.includes('energy') || lowerTitle.includes('mushroom') || lowerTitle.includes('libido')) {
     return 'performance';
   }
-  if (lowerTitle.includes('hair') || lowerTitle.includes('skin') || lowerTitle.includes('nail')) {
+  // Beauty & Skin: Beauty + Collagen, Hair Skin & Nails
+  if (lowerTitle.includes('hair') || lowerTitle.includes('skin') || lowerTitle.includes('nail') || lowerTitle.includes('beauty') || lowerTitle.includes('collagen')) {
     return 'beauty';
   }
-  if (lowerTitle.includes('sleep') || lowerTitle.includes('relax') || lowerTitle.includes('cognitive')) {
+  // Sleep & Relax: Cognitive Relax, Sleep
+  if (lowerTitle.includes('sleep') || lowerTitle.includes('cognitive') || lowerTitle.includes('relax')) {
     return 'sleep';
   }
+  // Immunity & Health: Hangover, Bone, Probiotic, Digestive, Appetite, Iron
   return 'immunity';
 };
 
