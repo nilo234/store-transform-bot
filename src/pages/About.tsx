@@ -6,30 +6,30 @@ import { Check, Leaf, Heart, Award, Users } from 'lucide-react';
 const values = [
   {
     icon: Leaf,
-    title: 'Natural Ingredients',
-    description: 'We source only the finest natural ingredients, ensuring every product is free from artificial additives and harmful chemicals.',
+    title: 'Premium Ingredients',
+    description: 'We source only the finest natural ingredients from trusted suppliers worldwide. Every ingredient is verified for purity and potency.',
   },
   {
     icon: Award,
-    title: 'Science-Backed',
-    description: 'Our formulas are developed by experts using clinically studied dosages for maximum effectiveness.',
+    title: 'Science-Backed Formulas',
+    description: 'Our strips are developed by experts using clinically studied dosages. No fillers, no fluff—just ingredients that work.',
   },
   {
     icon: Heart,
     title: 'Quality First',
-    description: 'Every batch is third-party tested for purity, potency, and safety. We never compromise on quality.',
+    description: 'Every batch is third-party tested for purity, potency, and safety. We exceed industry standards because you deserve the best.',
   },
   {
     icon: Users,
     title: 'Customer Focused',
-    description: 'Your wellness journey is our priority. We stand behind every product with our 60-day guarantee.',
+    description: 'Your wellness journey is our priority. We stand behind every product with our 60-day money-back guarantee.',
   },
 ];
 
 const stats = [
   { number: '50,000+', label: 'Happy Customers' },
   { number: '99%', label: 'Satisfaction Rate' },
-  { number: '9', label: 'Premium Products' },
+  { number: '13', label: 'Premium Strips' },
   { number: '60 Days', label: 'Money-Back Guarantee' },
 ];
 
@@ -39,7 +39,7 @@ export default function About() {
       <Navbar />
       
       <main className="flex-1">
-        {/* Hero Section - TryAuri Style */}
+        {/* Hero Section */}
         <section className="py-20 md:py-28 bg-gradient-to-b from-muted/50 to-background">
           <div className="container-wide">
             <div className="max-w-3xl mx-auto text-center">
@@ -56,7 +56,7 @@ export default function About() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
               >
-                At Neuvie, we believe that wellness should be simple, effective, and delicious. Our mission is to create premium supplements that help you feel your best every day.
+                We believe wellness should be simple, effective, and fit seamlessly into your life. That's why we created fast-dissolving oral strips with science-backed ingredients—supplements you can take anywhere, anytime.
               </motion.p>
             </div>
           </div>
@@ -76,13 +76,13 @@ export default function About() {
                 </h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    Neuvie was born from a simple belief: everyone deserves access to premium, effective supplements that actually work.
+                    Neuvie was born from a simple frustration: supplements are inconvenient. Pills are hard to swallow, powders are messy, and most products are filled with unnecessary additives.
                   </p>
                   <p>
-                    We noticed that the supplement industry was full of products with questionable ingredients, ineffective dosages, and confusing labels. We set out to change that.
+                    We set out to create a better way. Our fast-dissolving oral strips deliver premium, science-backed ingredients in a format that fits your lifestyle. No water needed. No pills to choke on. Just place a strip on your tongue and go.
                   </p>
                   <p>
-                    Today, Neuvie is trusted by over 50,000 customers who've discovered the difference that quality makes. Every product is crafted with science-backed ingredients, third-party tested for purity, and designed for maximum absorption.
+                    Today, Neuvie offers 13 unique strips—from Energy and Focus to Sleep and Beauty—each formulated to deliver real results. Trusted by over 50,000 customers worldwide, we're proving that effective wellness doesn't have to be complicated.
                   </p>
                 </div>
               </motion.div>
@@ -93,13 +93,13 @@ export default function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-                <span className="text-8xl">🌿</span>
+                <span className="text-8xl">💊</span>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* Stats Section - TryAuri Style */}
+        {/* Stats Section */}
         <section className="py-20 bg-primary text-primary-foreground">
           <div className="container-wide">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -175,10 +175,10 @@ export default function About() {
                 {[
                   'Third-party tested for purity and potency',
                   'Clinically studied ingredient dosages',
-                  'No artificial colors, flavors, or preservatives',
-                  'Manufactured in GMP-certified facilities',
+                  'Fast-dissolving oral strip format',
+                  'No artificial colors or preservatives',
+                  'Non-GMO and ethically sourced ingredients',
                   '60-day money-back guarantee',
-                  'Responsive customer support team',
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3 bg-card p-4 rounded-xl shadow-soft">
                     <Check className="h-5 w-5 text-primary flex-shrink-0" />

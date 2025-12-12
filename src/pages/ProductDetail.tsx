@@ -52,7 +52,7 @@ export default function ProductDetail() {
       selectedOptions: firstVariant.selectedOptions,
     });
     
-    toast.success('In den Warenkorb gelegt!', {
+    toast.success('Added to Cart!', {
       description: `${quantity}x ${product.title}`,
       position: 'top-center',
     });
@@ -86,9 +86,9 @@ export default function ProductDetail() {
         <Navbar />
         <main className="flex-1 flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-2xl font-bold mb-4">Produkt nicht gefunden</h1>
+            <h1 className="text-2xl font-bold mb-4">Product Not Found</h1>
             <Link to="/shop" className="text-primary hover:underline">
-              ← Zurück zum Shop
+              ← Back to Shop
             </Link>
           </div>
         </main>
@@ -101,7 +101,7 @@ export default function ProductDetail() {
   const originalPrice = price * 1.42;
   const images = product.images.edges;
   
-  // Get German product content
+  // Get product content
   const productContent = findProductContent(product.title) || findProductContent(product.handle);
 
   return (
@@ -113,7 +113,7 @@ export default function ProductDetail() {
         <div className="container-wide py-4">
           <Link to="/shop" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
             <ChevronLeft className="h-4 w-4" />
-            Zurück zum Shop
+            Back to Shop
           </Link>
         </div>
 
@@ -172,7 +172,7 @@ export default function ProductDetail() {
               transition={{ duration: 0.5, delay: 0.1 }}
             >
               {/* Badge */}
-              <span className="badge-discount inline-block">42% RABATT</span>
+              <span className="badge-discount inline-block">42% OFF</span>
 
               {/* Title */}
               <h1 className="font-display text-3xl md:text-4xl font-bold">{product.title}</h1>
@@ -182,19 +182,19 @@ export default function ProductDetail() {
                 <span className="text-3xl font-bold text-primary">€{price.toFixed(2)}</span>
                 <span className="text-xl text-muted-foreground line-through">€{originalPrice.toFixed(2)}</span>
                 <span className="text-sm bg-accent/20 text-accent px-2 py-1 rounded-full font-medium">
-                  Spare €{(originalPrice - price).toFixed(2)}
+                  Save €{(originalPrice - price).toFixed(2)}
                 </span>
               </div>
 
               {/* Short Description */}
               <p className="text-muted-foreground leading-relaxed">
-                {productContent?.shortDescription || product.description || 'Premium Nahrungsergänzungsmittel mit wissenschaftlich fundierten Inhaltsstoffen für dein Wohlbefinden.'}
+                {productContent?.shortDescription || product.description || 'Premium oral strip with science-backed ingredients. Fast-dissolving, no water needed.'}
               </p>
 
               {/* Benefits */}
               {productContent && (
                 <div className="space-y-3">
-                  <h3 className="font-semibold text-lg">Was dieses Produkt bewirken kann:</h3>
+                  <h3 className="font-semibold text-lg">What This Product May Support:</h3>
                   <ul className="space-y-2">
                     {productContent.benefits.map((benefit, index) => (
                       <li key={index} className="flex items-start gap-3">
@@ -249,7 +249,7 @@ export default function ProductDetail() {
                   size="lg"
                 >
                   <ShoppingCart className="h-5 w-5" />
-                  In den Warenkorb
+                  Add to Cart
                 </Button>
               </div>
 
@@ -257,15 +257,15 @@ export default function ProductDetail() {
               <div className="grid grid-cols-3 gap-4 pt-6 border-t border-border">
                 <div className="text-center">
                   <Truck className="h-6 w-6 mx-auto mb-2 text-primary" />
-                  <p className="text-xs text-muted-foreground">Kostenloser Versand<br />ab €50</p>
+                  <p className="text-xs text-muted-foreground">Free Shipping<br />on €50+</p>
                 </div>
                 <div className="text-center">
                   <Shield className="h-6 w-6 mx-auto mb-2 text-primary" />
-                  <p className="text-xs text-muted-foreground">Laborgeprüft<br />& Zertifiziert</p>
+                  <p className="text-xs text-muted-foreground">Third-Party<br />Tested</p>
                 </div>
                 <div className="text-center">
                   <RotateCcw className="h-6 w-6 mx-auto mb-2 text-primary" />
-                  <p className="text-xs text-muted-foreground">60 Tage<br />Geld-zurück</p>
+                  <p className="text-xs text-muted-foreground">60-Day<br />Guarantee</p>
                 </div>
               </div>
             </motion.div>
@@ -278,14 +278,14 @@ export default function ProductDetail() {
             <div className="container-wide">
               <div className="max-w-4xl mx-auto">
                 <h2 className="font-display text-2xl md:text-3xl font-bold text-center mb-12">
-                  Produktdetails
+                  Product Details
                 </h2>
 
                 <Accordion type="single" collapsible className="space-y-4">
                   {/* Product Description */}
                   <AccordionItem value="description" className="bg-card rounded-xl border-none">
                     <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                      <span className="font-semibold text-lg">Produktbeschreibung</span>
+                      <span className="font-semibold text-lg">Description</span>
                     </AccordionTrigger>
                     <AccordionContent className="px-6 pb-6">
                       <div className="space-y-4 text-muted-foreground">
@@ -299,7 +299,7 @@ export default function ProductDetail() {
                   {/* Usage */}
                   <AccordionItem value="usage" className="bg-card rounded-xl border-none">
                     <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                      <span className="font-semibold text-lg">Anwendung</span>
+                      <span className="font-semibold text-lg">How to Use</span>
                     </AccordionTrigger>
                     <AccordionContent className="px-6 pb-6">
                       <p className="text-muted-foreground">{productContent.usage}</p>
@@ -309,7 +309,7 @@ export default function ProductDetail() {
                   {/* Ingredients */}
                   <AccordionItem value="ingredients" className="bg-card rounded-xl border-none">
                     <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                      <span className="font-semibold text-lg">Inhaltsstoffe</span>
+                      <span className="font-semibold text-lg">Ingredients</span>
                     </AccordionTrigger>
                     <AccordionContent className="px-6 pb-6">
                       <div className="flex flex-wrap gap-2">
@@ -325,15 +325,15 @@ export default function ProductDetail() {
                   {/* Supplement Facts */}
                   <AccordionItem value="supplement-facts" className="bg-card rounded-xl border-none">
                     <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                      <span className="font-semibold text-lg">Nährwertangaben</span>
+                      <span className="font-semibold text-lg">Supplement Facts</span>
                     </AccordionTrigger>
                     <AccordionContent className="px-6 pb-6">
                       <div className="overflow-x-auto">
                         <table className="w-full">
                           <thead>
                             <tr className="border-b border-border">
-                              <th className="text-left py-2 font-semibold">Nährstoff</th>
-                              <th className="text-right py-2 font-semibold">Menge pro Strip</th>
+                              <th className="text-left py-2 font-semibold">Nutrient</th>
+                              <th className="text-right py-2 font-semibold">Amount per Strip</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -345,7 +345,7 @@ export default function ProductDetail() {
                             ))}
                           </tbody>
                         </table>
-                        <p className="text-xs text-muted-foreground mt-3">* Tagesdosis nicht festgelegt</p>
+                        <p className="text-xs text-muted-foreground mt-3">* Daily value not established</p>
                       </div>
                     </AccordionContent>
                   </AccordionItem>

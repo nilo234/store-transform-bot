@@ -32,25 +32,25 @@ const socialLinks = [
 ];
 
 const trustBadges = [
-  '3rd Party Tested',
+  'Third-Party Tested',
   'Non-GMO',
   'Ethically Sourced',
-  'Made in USA',
-  'CGMP Certified',
+  'Made in India',
+  'Fast-Dissolving',
 ];
 
 export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
-      {/* Newsletter Section - TryAuri Style */}
+      {/* Newsletter Section */}
       <div className="border-b border-primary-foreground/10">
         <div className="container-wide py-16">
           <div className="max-w-xl mx-auto text-center">
             <h3 className="font-display text-2xl md:text-3xl font-bold mb-4">
-              Join the Neuvie Family
+              Join the Neuvie Community
             </h3>
             <p className="text-primary-foreground/70 mb-8 text-base">
-              Get 15% off your first order and stay updated on new products and wellness tips.
+              Get 15% off your first order plus exclusive access to new products and wellness tips.
             </p>
             <form className="flex gap-3 max-w-md mx-auto">
               <Input 
@@ -70,7 +70,7 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Main Footer - TryAuri Style */}
+      {/* Main Footer */}
       <div className="container-wide py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
           {/* Brand Column */}
@@ -79,10 +79,10 @@ export function Footer() {
               <span className="font-display text-4xl font-bold">Neuvie</span>
             </Link>
             <p className="text-primary-foreground/70 mb-8 max-w-sm text-sm leading-relaxed">
-              Premium supplements crafted with science-backed ingredients to help you feel your best, naturally.
+              Fast-dissolving oral strips with science-backed ingredients. The future of supplements—convenient, effective, and designed for your lifestyle.
             </p>
             
-            {/* Social Links - TryAuri Style */}
+            {/* Social Links */}
             <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <a 
@@ -149,7 +149,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Trust Badges - TryAuri Style */}
+        {/* Trust Badges */}
         <div className="mt-16 pt-8 border-t border-primary-foreground/10">
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-8">
             {trustBadges.map((badge) => (

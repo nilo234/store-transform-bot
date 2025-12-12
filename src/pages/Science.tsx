@@ -4,74 +4,74 @@ import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Shield, Leaf, FlaskConical, Award, Check, ExternalLink } from 'lucide-react';
 
-// Proven Purity sections - TryAuri Style
+// Proven Purity sections
 const puritySections = [
   { 
     icon: Leaf, 
     title: 'SOURCING', 
-    description: 'We source only the finest ingredients from trusted, ethical suppliers around the world. Every ingredient is traceable and verified for purity.' 
+    description: 'We source only the finest ingredients from trusted, ethical suppliers worldwide. Every ingredient is traceable and verified for purity before it reaches our formulations.' 
   },
   { 
     icon: FlaskConical, 
     title: 'EFFICACY', 
-    description: 'Our formulas are developed by experts using clinically studied dosages. We use bioavailable forms for maximum absorption and effectiveness.' 
+    description: 'Our strips are formulated with clinically studied dosages. We use bioavailable forms of each ingredient for maximum absorption and effectiveness.' 
   },
   { 
     icon: Shield, 
     title: 'QUALITY', 
-    description: 'Every batch is third-party tested for purity, potency, and safety. We exceed industry standards to ensure you get the best.' 
+    description: 'Every batch is third-party tested for purity, potency, and safety. We exceed industry standards to ensure you get exactly what the label promises.' 
   },
 ];
 
-// Product test cards - TryAuri Style
+// Product test cards
 const testCards = [
-  { name: 'Digestive + Gut Health', status: 'Passed', date: 'Dec 2024' },
-  { name: 'Hair, Skin & Nails', status: 'Passed', date: 'Dec 2024' },
+  { name: 'Energy Strips', status: 'Passed', date: 'Dec 2024' },
   { name: 'Mushroom Focus', status: 'Passed', date: 'Dec 2024' },
-  { name: 'Cognitive Relax', status: 'Passed', date: 'Dec 2024' },
+  { name: 'Sleep Strips', status: 'Passed', date: 'Dec 2024' },
+  { name: 'Hair, Skin & Nails', status: 'Passed', date: 'Dec 2024' },
 ];
 
-// Quality badges - TryAuri Style
+// Quality badges
 const qualityBadges = [
   'Ethically Sourced',
-  'Satisfaction Guaranteed',
-  'Maximum Quality',
   'Third-Party Tested',
   'Non-GMO',
-  'Free from Heavy Metals',
+  'No Artificial Colors',
+  'Clinically Dosed',
+  'Fast-Dissolving',
 ];
 
-// Ingredients breakdown - TryAuri Style
+// Ingredients breakdown for key products
 const ingredientBreakdown = [
   {
-    product: 'Digestive + Gut Health',
-    ingredients: ['Probiotics', 'Digestive Enzymes', 'Ginger Root'],
-    icon: '🦠',
-  },
-  {
-    product: 'Hair, Skin & Nails',
-    ingredients: ['Biotin', 'Vitamin C', 'Vitamin E'],
-    icon: '✨',
+    product: 'Energy Strips',
+    ingredients: ['Caffeine (50mg)', 'L-Theanine (30mg)', 'Vitamin B12'],
+    icon: '⚡',
   },
   {
     product: 'Mushroom Focus',
-    ingredients: ["Lion's Mane", 'Reishi', 'Cordyceps'],
+    ingredients: ["Lion's Mane", 'Cordyceps', 'Maitake', 'Shiitake'],
     icon: '🍄',
   },
   {
+    product: 'Sleep Strips',
+    ingredients: ['Melatonin (5mg)', 'Valerian', 'Chamomile', 'Lavender'],
+    icon: '🌙',
+  },
+  {
     product: 'Cognitive Relax',
-    ingredients: ['L-Theanine', 'Ashwagandha', 'GABA'],
+    ingredients: ['L-Theanine (50mg)', 'GABA (25mg)', 'Vitamin B6'],
     icon: '🧘',
   },
   {
-    product: 'Bone Support',
-    ingredients: ['Vitamin D3', 'Vitamin K2', 'Calcium'],
-    icon: '🦴',
+    product: 'Hair, Skin & Nails',
+    ingredients: ['Biotin (5000mcg)', 'Folate', 'Vitamin D3'],
+    icon: '✨',
   },
   {
-    product: 'Hangover Relief',
-    ingredients: ['Milk Thistle', 'Ginger', 'Electrolytes'],
-    icon: '💧',
+    product: 'Digestive + Gut',
+    ingredients: ['Bacillus Coagulans (10B CFU)', 'Protease', 'Bromelain'],
+    icon: '🦠',
   },
 ];
 
@@ -81,7 +81,7 @@ export default function Science() {
       <Navbar />
       
       <main className="flex-1">
-        {/* Hero Section - TryAuri Style */}
+        {/* Hero Section */}
         <section className="py-20 md:py-28 bg-gradient-to-b from-muted/50 to-background">
           <div className="container-wide text-center">
             <motion.h1 
@@ -97,12 +97,12 @@ export default function Science() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              Find out how we transform cutting-edge science into powerful supplements through research, quality, and innovation.
+              Every Neuvie strip is formulated with clinically studied ingredients at effective dosages. We combine cutting-edge science with premium sourcing to create supplements that actually deliver results.
             </motion.p>
           </div>
         </section>
 
-        {/* Proven Purity Section - TryAuri Style */}
+        {/* Proven Purity Section */}
         <section className="py-20">
           <div className="container-wide">
             <motion.h2 
@@ -135,7 +135,7 @@ export default function Science() {
           </div>
         </section>
 
-        {/* Third-Party Testing Section - TryAuri Style */}
+        {/* Third-Party Testing Section */}
         <section className="py-20 bg-muted/30">
           <div className="container-wide">
             <motion.div 
@@ -145,10 +145,10 @@ export default function Science() {
               viewport={{ once: true }}
             >
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-                PURE INGREDIENTS
+                THIRD-PARTY TESTED
               </h2>
               <p className="text-muted-foreground text-lg">
-                Every product is third-party tested for purity and potency.
+                Every product batch is independently tested for purity, potency, and safety.
               </p>
             </motion.div>
 
@@ -182,7 +182,7 @@ export default function Science() {
           </div>
         </section>
 
-        {/* Quality Badges Section - TryAuri Style */}
+        {/* Quality Badges Section */}
         <section className="py-20">
           <div className="container-wide">
             <motion.h2 
@@ -213,7 +213,7 @@ export default function Science() {
           </div>
         </section>
 
-        {/* Ingredient Breakdown Section - TryAuri Style */}
+        {/* Ingredient Breakdown Section */}
         <section className="py-20 bg-muted/30">
           <div className="container-wide">
             <motion.div 
@@ -223,10 +223,10 @@ export default function Science() {
               viewport={{ once: true }}
             >
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-                DIRECT FROM MOTHER NATURE
+                WHAT'S INSIDE OUR STRIPS
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Each product is carefully formulated with premium, science-backed ingredients.
+                Each strip is carefully formulated with premium, science-backed ingredients at effective dosages.
               </p>
             </motion.div>
 
@@ -258,7 +258,7 @@ export default function Science() {
           </div>
         </section>
 
-        {/* CTA Section - TryAuri Style */}
+        {/* CTA Section */}
         <section className="py-20 bg-primary text-primary-foreground">
           <div className="container-wide text-center">
             <motion.h2 
@@ -276,7 +276,7 @@ export default function Science() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              Explore our clinical studies and research documentation.
+              Experience the difference that quality ingredients and effective dosages make.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
