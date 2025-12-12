@@ -1,67 +1,67 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Star, Check, ChevronRight, Leaf, Shield, FlaskConical, Award } from 'lucide-react';
+import { ArrowRight, Star, Check, ChevronRight } from 'lucide-react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { ProductCard } from '@/components/shop/ProductCard';
 import { Button } from '@/components/ui/button';
 import { fetchProducts, ShopifyProduct } from '@/lib/shopify';
 
-// Trust badges for marquee - TryAuri style
+// Trust badges for marquee
 const marqueeItems = [
-  { icon: '✓', text: '3rd Party Tested' },
-  { icon: '✓', text: 'Naturally Flavored' },
-  { icon: '✓', text: 'Gluten-Free' },
-  { icon: '✓', text: 'CGMP Certified' },
-  { icon: '✓', text: '3rd Party Tested' },
-  { icon: '✓', text: 'Naturally Flavored' },
-  { icon: '✓', text: 'Gluten-Free' },
-  { icon: '✓', text: 'CGMP Certified' },
+  { icon: '✓', text: 'Third-Party Tested' },
+  { icon: '✓', text: 'Fast-Dissolving Strips' },
+  { icon: '✓', text: 'No Water Needed' },
+  { icon: '✓', text: 'Science-Backed' },
+  { icon: '✓', text: 'Third-Party Tested' },
+  { icon: '✓', text: 'Fast-Dissolving Strips' },
+  { icon: '✓', text: 'No Water Needed' },
+  { icon: '✓', text: 'Science-Backed' },
 ];
 
-// Benefits section - TryAuri style
+// Benefits section aligned with Neuvie strips
 const benefits = [
   {
-    icon: '🧠',
-    title: 'Supports Focus & Memory',
-    description: "Our unique blend of Lion's Mane and adaptogenic mushrooms enhances cognitive function and mental clarity."
+    icon: '💊',
+    title: 'Fast-Dissolving Strips',
+    description: 'No water, no pills, no hassle. Our oral strips dissolve on your tongue in seconds for quick, convenient supplementation anywhere.'
   },
   {
-    icon: '💪',
-    title: 'Boosts Natural Energy',
-    description: 'Feel energized throughout the day with our carefully formulated supplements that support sustained vitality.'
+    icon: '🧬',
+    title: 'Science-Backed Formulas',
+    description: 'Every strip is formulated with clinically studied ingredients at effective dosages to deliver real, noticeable results.'
   },
   {
-    icon: '🌙',
-    title: 'Promotes Restful Sleep',
-    description: 'Natural ingredients like L-Theanine and Passionflower help you fall asleep faster and wake refreshed.'
+    icon: '🌿',
+    title: 'Premium Ingredients',
+    description: 'From Lion\'s Mane to Biotin, we source only the highest quality, natural ingredients for maximum bioavailability.'
   },
   {
-    icon: '🛡️',
-    title: 'Immune System Support',
-    description: 'Powerful antioxidants and vitamins work together to strengthen your natural defenses.'
+    icon: '✅',
+    title: 'Third-Party Tested',
+    description: 'Every batch is independently tested for purity, potency, and safety. We never compromise on quality.'
   }
 ];
 
-// Testimonials - TryAuri style
+// Testimonials
 const testimonials = [
   {
     name: 'Sarah M.',
     image: null,
-    content: 'Amazing! These gummies have transformed my daily routine. I feel more focused and energized throughout the day.',
+    content: 'The Energy Strips are a game-changer! Clean energy without the jitters or crash. Perfect for my morning workout.',
     rating: 5,
   },
   {
     name: 'James R.',
     image: null,
-    content: "Finally, supplements that actually work! The focus gummies are incredible - I've noticed a real difference in my concentration.",
+    content: "I've been using the Mushroom Focus Strips for a month and my concentration has improved dramatically. Love the chocolate flavor!",
     rating: 5,
   },
   {
     name: 'Emily K.',
     image: null,
-    content: 'Love the quality and taste! My hair and nails have never looked better after using the Hair, Skin & Nails gummies.',
+    content: 'The Hair, Skin & Nails Strips are so convenient. My nails are stronger and my hair looks healthier than ever.',
     rating: 5,
   },
 ];
@@ -84,21 +84,19 @@ export default function Index() {
       <Navbar />
       
       <main className="flex-1">
-        {/* Hero Section - TryAuri Style with Split Layout */}
+        {/* Hero Section */}
         <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-          {/* Background - Subtle gradient */}
           <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-muted/40" />
           
           <div className="container-wide relative z-10 py-12 lg:py-0">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-              {/* Hero Content - Left Side */}
+              {/* Hero Content */}
               <motion.div
                 initial={{ opacity: 0, x: -40 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
                 className="order-2 lg:order-1"
               >
-                {/* Rating Badge - TryAuri Style */}
                 <div className="inline-flex items-center gap-2 mb-6">
                   <div className="flex">
                     {[...Array(5)].map((_, i) => (
@@ -106,17 +104,19 @@ export default function Index() {
                     ))}
                   </div>
                   <span className="text-sm text-muted-foreground font-medium">
-                    | Over 50k+ Customers Worldwide!
+                    | Trusted by 50,000+ Customers
                   </span>
                 </div>
 
-                {/* Main Headline - TryAuri Style */}
                 <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-6">
-                  Premium Supplements{' '}
-                  <span className="text-accent">Backed by Science</span>
+                  Wellness Strips That{' '}
+                  <span className="text-accent">Actually Work</span>
                 </h1>
 
-                {/* CTA Button - TryAuri Style */}
+                <p className="text-lg text-muted-foreground mb-8 max-w-lg">
+                  Fast-dissolving oral strips with science-backed ingredients. No water needed. No pills to swallow. Just place on your tongue and feel the difference.
+                </p>
+
                 <Link to="/shop">
                   <Button className="bg-primary hover:bg-primary/90 text-primary-foreground h-14 px-10 text-lg font-semibold rounded-lg group">
                     SHOP NOW
@@ -124,12 +124,10 @@ export default function Index() {
                   </Button>
                 </Link>
 
-                {/* Guarantee Text */}
                 <p className="mt-6 text-sm text-muted-foreground font-medium">
-                  60-Day Money-Back Guarantee***
+                  60-Day Money-Back Guarantee
                 </p>
 
-                {/* Customer Avatars with Quote - TryAuri Style */}
                 <div className="mt-8 flex items-center gap-4">
                   <div className="flex -space-x-3">
                     {[1, 2, 3].map((i) => (
@@ -142,12 +140,12 @@ export default function Index() {
                     ))}
                   </div>
                   <p className="text-sm italic text-foreground/80 max-w-[200px]">
-                    "Amazing! It does wonders for my mind and body!"
+                    "Finally, supplements I can actually take on the go!"
                   </p>
                 </div>
               </motion.div>
 
-              {/* Hero Image - Right Side - TryAuri Floating Products Style */}
+              {/* Hero Image */}
               <motion.div
                 className="relative order-1 lg:order-2"
                 initial={{ opacity: 0, x: 40 }}
@@ -155,10 +153,8 @@ export default function Index() {
                 transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
               >
                 <div className="relative aspect-[4/3] lg:aspect-square">
-                  {/* Background Shape */}
                   <div className="absolute inset-0 bg-gradient-to-br from-muted/60 to-muted/30 rounded-3xl" />
                   
-                  {/* Floating Product Mockups */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="grid grid-cols-3 gap-4 p-8">
                       {[1, 2, 3, 4, 5].map((i) => (
@@ -171,10 +167,10 @@ export default function Index() {
                           whileHover={{ y: -5, scale: 1.02 }}
                         >
                           <div className="aspect-[3/4] bg-gradient-to-b from-primary/10 to-accent/10 rounded-xl flex items-center justify-center">
-                            <span className="text-4xl">🍬</span>
+                            <span className="text-4xl">💊</span>
                           </div>
                           <p className="text-[10px] text-center mt-2 font-medium text-muted-foreground">
-                            Neuvie
+                            Neuvie Strip
                           </p>
                         </motion.div>
                       ))}
@@ -186,7 +182,7 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Marquee Section - TryAuri Style (Dark Background) */}
+        {/* Marquee Section */}
         <section className="py-4 bg-primary text-primary-foreground overflow-hidden">
           <div className="flex animate-marquee">
             {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, index) => (
@@ -198,10 +194,9 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Best Sellers Section - TryAuri Style */}
+        {/* Best Sellers Section */}
         <section className="py-20 md:py-28 bg-background">
           <div className="container-wide">
-            {/* Section Header - Centered, TryAuri Style */}
             <div className="text-center mb-12">
               <motion.h2 
                 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
@@ -218,11 +213,10 @@ export default function Index() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
               >
-                Fuel your best self with our gummy supplements.
+                Our most popular wellness strips, trusted by thousands.
               </motion.p>
             </div>
 
-            {/* Products Grid - 4 columns on desktop like TryAuri */}
             {isLoading ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[...Array(4)].map((_, i) => (
@@ -242,7 +236,6 @@ export default function Index() {
               </div>
             )}
 
-            {/* View All Button */}
             <motion.div 
               className="text-center mt-12"
               initial={{ opacity: 0, y: 20 }}
@@ -254,7 +247,7 @@ export default function Index() {
                   variant="outline" 
                   className="h-12 px-8 text-base font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-lg"
                 >
-                  View All Products
+                  View All 13 Products
                   <ChevronRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -262,7 +255,7 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Benefits Section - TryAuri Style */}
+        {/* Benefits Section */}
         <section className="py-20 bg-muted/30">
           <div className="container-wide">
             <div className="text-center mb-12">
@@ -272,7 +265,7 @@ export default function Index() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                THE NEUVIE DIFFERENCE
+                WHY NEUVIE STRIPS?
               </motion.h2>
               <motion.p 
                 className="text-muted-foreground text-lg max-w-2xl mx-auto"
@@ -281,7 +274,7 @@ export default function Index() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
               >
-                Our supplements are crafted with premium ingredients to deliver real results you can feel.
+                The future of supplements is here. Fast, effective, and incredibly convenient.
               </motion.p>
             </div>
 
@@ -304,7 +297,7 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Testimonials Section - TryAuri Style */}
+        {/* Testimonials Section */}
         <section className="py-20 bg-background">
           <div className="container-wide">
             <div className="text-center mb-12">
@@ -323,7 +316,7 @@ export default function Index() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
               >
-                Join thousands of happy customers who've transformed their wellness.
+                Join thousands who have made Neuvie part of their daily routine.
               </motion.p>
             </div>
 
@@ -337,17 +330,14 @@ export default function Index() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  {/* Stars */}
                   <div className="flex mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} className="h-5 w-5 fill-accent text-accent" />
                     ))}
                   </div>
                   
-                  {/* Quote */}
                   <p className="text-foreground mb-6 leading-relaxed">"{testimonial.content}"</p>
                   
-                  {/* Author */}
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
                       <span className="font-semibold text-primary text-lg">{testimonial.name[0]}</span>
@@ -363,7 +353,7 @@ export default function Index() {
           </div>
         </section>
 
-        {/* CTA Section - TryAuri Style */}
+        {/* CTA Section */}
         <section className="py-24 bg-primary text-primary-foreground">
           <div className="container-wide text-center">
             <motion.h2 
@@ -372,7 +362,7 @@ export default function Index() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Ready to Transform Your Wellness?
+              Ready to Feel the Difference?
             </motion.h2>
             <motion.p 
               className="text-primary-foreground/80 text-lg mb-10 max-w-2xl mx-auto"
@@ -381,7 +371,7 @@ export default function Index() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              Join over 50,000 customers who've discovered the Neuvie difference. 
+              Discover 13 premium wellness strips designed for your lifestyle. 
               Try risk-free with our 60-day money-back guarantee.
             </motion.p>
             <motion.div
@@ -392,7 +382,7 @@ export default function Index() {
             >
               <Link to="/shop">
                 <Button className="bg-accent hover:bg-accent/90 text-accent-foreground h-14 px-12 text-lg font-semibold rounded-lg group">
-                  SHOP NOW
+                  SHOP ALL STRIPS
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>

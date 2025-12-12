@@ -80,7 +80,7 @@ export default function Shop() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              Shop All Products
+              Shop All Strips
             </motion.h1>
             <motion.p 
               className="text-lg text-muted-foreground max-w-2xl mx-auto"
@@ -88,7 +88,7 @@ export default function Shop() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              Premium supplements crafted with science-backed ingredients to support your wellness journey.
+              13 premium oral strips with science-backed ingredients. Fast-dissolving, convenient, and designed to fit your lifestyle.
             </motion.p>
           </div>
         </section>
@@ -155,8 +155,8 @@ export default function Shop() {
               {[
                 { icon: '🧪', label: 'Third-Party Tested' },
                 { icon: '🌿', label: 'Non-GMO' },
-                { icon: '✨', label: 'Premium Quality' },
-                { icon: '🇺🇸', label: 'Made in USA' },
+                { icon: '💊', label: 'Fast-Dissolving' },
+                { icon: '🇮🇳', label: 'Made in India' },
                 { icon: '💯', label: '60-Day Guarantee' },
               ].map((badge) => (
                 <div key={badge.label} className="flex items-center gap-2 text-muted-foreground">

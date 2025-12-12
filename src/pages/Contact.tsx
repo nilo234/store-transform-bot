@@ -33,7 +33,7 @@ export default function Contact() {
       <Navbar />
       
       <main className="flex-1">
-        {/* Hero Section - TryAuri Style */}
+        {/* Hero Section */}
         <section className="py-20 md:py-28 bg-gradient-to-b from-muted/50 to-background">
           <div className="container-wide text-center">
             <motion.h1 
@@ -49,12 +49,12 @@ export default function Contact() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+              Have questions about our strips or your order? We're here to help. Send us a message and we'll respond as soon as possible.
             </motion.p>
           </div>
         </section>
 
-        {/* Contact Methods - TryAuri Style */}
+        {/* Contact Methods */}
         <section className="py-12">
           <div className="container-wide">
             <div className="grid md:grid-cols-3 gap-6 mb-16">
@@ -78,7 +78,7 @@ export default function Contact() {
           </div>
         </section>
 
-        {/* Contact Form - TryAuri Style */}
+        {/* Contact Form */}
         <section className="py-12 pb-20">
           <div className="container-wide max-w-2xl">
             <motion.div
