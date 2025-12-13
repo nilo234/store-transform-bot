@@ -297,8 +297,90 @@ export default function Index() {
           </div>
         </section>
 
+        {/* How to Use Section */}
+        <section className="py-20 md:py-28 bg-background">
+          <div className="container-wide">
+            <div className="text-center mb-16">
+              <motion.h2 
+                className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                HOW TO USE
+              </motion.h2>
+              <motion.p 
+                className="text-muted-foreground text-lg max-w-xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+              >
+                Simple. Fast. Effective. Just 30 seconds to wellness.
+              </motion.p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-4xl mx-auto">
+              {[
+                { step: '01', icon: '📦', title: 'Remove Strip', description: 'Tear open the pouch and remove one strip' },
+                { step: '02', icon: '👅', title: 'Place on Tongue', description: 'Place the strip under your tongue' },
+                { step: '03', icon: '⏱️', title: 'Wait 30 Seconds', description: 'Let it dissolve completely' },
+                { step: '04', icon: '✨', title: 'Feel the Effects', description: 'Ingredients absorb directly into your system' }
+              ].map((item, index) => (
+                <motion.div
+                  key={item.step}
+                  className="relative text-center"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.15 }}
+                >
+                  {/* Connector Line - Hidden on first item and mobile */}
+                  {index > 0 && (
+                    <div className="hidden md:block absolute top-12 -left-4 md:-left-8 w-8 md:w-16 h-px bg-border" />
+                  )}
+                  
+                  {/* Step Number */}
+                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 text-xs font-bold text-primary/60 tracking-widest">
+                    {item.step}
+                  </div>
+                  
+                  {/* Icon Container */}
+                  <div className="relative w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-muted/50 to-muted border-2 border-border/50 flex items-center justify-center">
+                    <span className="text-3xl md:text-4xl">{item.icon}</span>
+                    
+                    {/* Subtle ring animation */}
+                    <motion.div
+                      className="absolute inset-0 rounded-full border-2 border-primary/20"
+                      animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0, 0.5] }}
+                      transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
+                    />
+                  </div>
+                  
+                  {/* Text */}
+                  <h3 className="font-display font-semibold text-base md:text-lg mb-2">{item.title}</h3>
+                  <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                </motion.div>
+              ))}
+            </div>
+            
+            {/* Additional Info */}
+            <motion.div 
+              className="mt-12 text-center"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+            >
+              <p className="text-sm text-muted-foreground italic">
+                No water needed • No pills to swallow • Take anywhere, anytime
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
         {/* Testimonials Section */}
-        <section className="py-20 bg-background">
+        <section className="py-20 bg-muted/20">
           <div className="container-wide">
             <div className="text-center mb-12">
               <motion.h2 
