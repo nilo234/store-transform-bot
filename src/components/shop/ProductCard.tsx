@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { ShopifyProduct } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
+import { JudgeMePreviewBadge } from '@/components/reviews/JudgeMeReviews';
 
 interface ProductCardProps {
   product: ShopifyProduct;
@@ -177,6 +178,11 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             <span className={`text-xs font-bold ${categoryBadge.color} uppercase tracking-wider`}>
               {categoryBadge.label}
             </span>
+
+            {/* Judge.me Star Rating */}
+            <div className="mt-1.5">
+              <JudgeMePreviewBadge productId={node.id} />
+            </div>
 
             {/* Title */}
             <h3 className="font-display text-lg font-semibold mt-1.5 mb-3 text-foreground group-hover:text-primary transition-colors line-clamp-2 leading-tight">
