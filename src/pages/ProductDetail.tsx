@@ -369,7 +369,8 @@ export default function ProductDetail() {
         {/* Judge.me Reviews Section */}
         <JudgeMeReviews 
           productId={product.id} 
-          productHandle={product.handle} 
+          productHandle={product.handle}
+          productTitle={product.title}
         />
       </main>
 
