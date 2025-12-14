@@ -10,47 +10,57 @@ interface JudgeMeReviewsProps {
 }
 
 // Judge.me widget component for Shopify reviews
-// Works with custom React storefronts
 export const JudgeMeReviews = ({ productId, productHandle, productTitle }: JudgeMeReviewsProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const scriptLoaded = useRef(false);
+  const initialized = useRef(false);
 
   useEffect(() => {
-    // Extract numeric ID from GraphQL ID (gid://shopify/Product/123456789 -> 123456789)
+    if (initialized.current) return;
+    initialized.current = true;
+
+    // Extract numeric ID from GraphQL ID
     const numericId = productId.includes('gid://') 
       ? productId.split('/').pop() 
       : productId;
 
-    // Load Judge.me scripts if not already loaded
-    if (!scriptLoaded.current) {
-      // Main Judge.me widget script
-      const widgetScript = document.createElement('script');
-      widgetScript.src = `https://cdn.judge.me/widget_preloader.js`;
-      widgetScript.async = true;
-      document.head.appendChild(widgetScript);
+    // Set up Judge.me global configuration
+    (window as any).jdgm = (window as any).jdgm || {};
+    (window as any).jdgm.SHOP_DOMAIN = SHOP_DOMAIN;
+    (window as any).jdgm.PLATFORM = 'shopify';
+    (window as any).jdgm.PUBLIC_TOKEN = '';
 
-      // Shop-specific configuration script
-      const shopScript = document.createElement('script');
-      shopScript.src = `https://cdn.judge.me/assets/installed.js`;
-      shopScript.async = true;
-      shopScript.setAttribute('data-shop-domain', SHOP_DOMAIN);
-      document.head.appendChild(shopScript);
+    // Load the main Judge.me widget script
+    const script = document.createElement('script');
+    script.src = `https://cdn.judge.me/widget_preloader.js`;
+    script.async = true;
+    script.setAttribute('data-shop-domain', SHOP_DOMAIN);
+    script.setAttribute('data-platform', 'shopify');
+    document.head.appendChild(script);
 
-      scriptLoaded.current = true;
-    }
+    // Load shop-specific Judge.me assets
+    const shopScript = document.createElement('script');
+    shopScript.src = `https://cdn.judge.me/shopify_v2.js?shop=${SHOP_DOMAIN}`;
+    shopScript.async = true;
+    document.head.appendChild(shopScript);
 
-    // Set up Judge.me configuration on window
-    (window as any).jdgmSettings = {
-      shop_domain: SHOP_DOMAIN,
+    // Also load the CSS
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = `https://cdn.judge.me/shopify_v2.css?shop=${SHOP_DOMAIN}`;
+    document.head.appendChild(link);
+
+    return () => {
+      // Cleanup handled by browser
     };
+  }, [productId]);
 
-    // Refresh widgets when component updates
+  // Refresh widgets when product changes
+  useEffect(() => {
     const refreshTimer = setTimeout(() => {
-      if (typeof (window as any).jdgm !== 'undefined') {
-        (window as any).jdgm.SHOP_DOMAIN = SHOP_DOMAIN;
+      if (typeof (window as any).jdgm !== 'undefined' && (window as any).jdgm.refreshWidgets) {
         (window as any).jdgm.refreshWidgets();
       }
-    }, 1000);
+    }, 1500);
 
     return () => clearTimeout(refreshTimer);
   }, [productId, productHandle]);
@@ -80,20 +90,11 @@ export const JudgeMeReviews = ({ productId, productHandle, productTitle }: Judge
             data-handle={productHandle}
           />
 
-          {/* Judge.me Preview Badge (shows star rating) */}
+          {/* Judge.me All Reviews Widget as fallback */}
           <div 
-            className="jdgm-preview-badge mt-8 text-center"
-            data-id={numericId}
+            className="jdgm-widget jdgm-all-reviews-widget mt-8"
+            data-product-id={numericId}
           />
-
-          {/* Fallback message while Judge.me initializes */}
-          <noscript>
-            <div className="bg-card rounded-2xl p-8 text-center">
-              <p className="text-muted-foreground">
-                Please enable JavaScript to view customer reviews.
-              </p>
-            </div>
-          </noscript>
         </div>
       </div>
     </section>
