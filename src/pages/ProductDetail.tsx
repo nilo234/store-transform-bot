@@ -10,6 +10,7 @@ import { useCartStore } from '@/stores/cartStore';
 import { Skeleton } from '@/components/ui/skeleton';
 import { toast } from 'sonner';
 import { findProductContent, ProductContent } from '@/data/productContent';
+import { JudgeMeReviews } from '@/components/reviews/JudgeMeReviews';
 import {
   Accordion,
   AccordionContent,
@@ -364,6 +365,12 @@ export default function ProductDetail() {
             </div>
           </section>
         )}
+
+        {/* Judge.me Reviews Section */}
+        <JudgeMeReviews 
+          productId={product.id} 
+          productHandle={product.handle} 
+        />
       </main>
 
       <Footer />

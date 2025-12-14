@@ -7,6 +7,7 @@ import { Footer } from '@/components/layout/Footer';
 import { ProductCard } from '@/components/shop/ProductCard';
 import { Button } from '@/components/ui/button';
 import { fetchProducts, ShopifyProduct } from '@/lib/shopify';
+import { VideoTutorial } from '@/components/home/VideoTutorial';
 
 // Trust badges for marquee
 const marqueeItems = [
@@ -376,6 +377,12 @@ export default function Index() {
                 No water needed • No pills to swallow • Take anywhere, anytime
               </p>
             </motion.div>
+
+            {/* Video Tutorial */}
+            <VideoTutorial 
+              // videoSrc="YOUR_VIDEO_URL_HERE" // Uncomment and add your video URL
+              // posterImage="/path/to/thumbnail.jpg" // Optional thumbnail
+            />
           </div>
         </section>
 
