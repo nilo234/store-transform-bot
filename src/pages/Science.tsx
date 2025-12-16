@@ -41,37 +41,126 @@ const qualityBadges = [
   'Fast-Dissolving',
 ];
 
-// Ingredients breakdown for key products
+// All 13 products with their ingredients and science-backed benefits
 const ingredientBreakdown = [
   {
-    product: 'Energy Strips',
-    ingredients: ['Caffeine (50mg)', 'L-Theanine (30mg)', 'Vitamin B12'],
-    icon: '⚡',
+    product: 'Hangover Strips',
+    icon: '🍹',
+    ingredients: [
+      { name: 'Curcumin (Curcuma Longa)', benefit: 'Supports healthy inflammatory response and liver detoxification' },
+      { name: 'Date Extract', benefit: 'Rich in antioxidants, supports natural recovery processes' },
+      { name: 'Grape Seed Extract', benefit: 'Powerful antioxidant that helps protect cells from oxidative stress' },
+      { name: 'Andrographis', benefit: 'Traditional herb supporting liver function and immune health' },
+      { name: 'Phyllanthus', benefit: 'Ayurvedic herb traditionally used for liver support' },
+    ],
   },
   {
-    product: 'Mushroom Focus',
-    ingredients: ["Lion's Mane", 'Cordyceps', 'Maitake', 'Shiitake'],
+    product: 'Bone Support Strips',
+    icon: '🦴',
+    ingredients: [
+      { name: 'Vitamin D3 (2000 IU)', benefit: 'Essential for calcium absorption and bone mineralization' },
+      { name: 'Vitamin K2 (MK-7) (200 mcg)', benefit: 'Directs calcium to bones and teeth, prevents arterial calcification' },
+    ],
+  },
+  {
+    product: 'Cognitive Relax Strips',
+    icon: '🧘',
+    ingredients: [
+      { name: 'L-Theanine (50 mg)', benefit: 'Promotes calm focus without drowsiness, found naturally in green tea' },
+      { name: 'GABA (25 mg)', benefit: 'Neurotransmitter that supports relaxation and reduces nervous tension' },
+      { name: 'Vitamin B6 (8 mg)', benefit: 'Essential for neurotransmitter synthesis and nervous system function' },
+    ],
+  },
+  {
+    product: 'Mushroom Focus Strips',
     icon: '🍄',
+    ingredients: [
+      { name: "Lion's Mane (50 mg)", benefit: 'Supports cognitive function, memory, and nerve growth factor production' },
+      { name: 'Cordyceps (25 mg)', benefit: 'Traditional adaptogen supporting energy metabolism and endurance' },
+      { name: 'Maitake (25 mg)', benefit: 'Rich in beta-glucans, supports immune function and metabolic health' },
+      { name: 'Shiitake (20 mg)', benefit: 'Contains lentinan for immune support and antioxidant protection' },
+    ],
+  },
+  {
+    product: 'Libido Support Strips',
+    icon: '🔥',
+    ingredients: [
+      { name: 'Cordyceps Militaris (50 mg)', benefit: 'Traditionally used to support vitality, stamina, and energy' },
+      { name: 'Shilajit (50 mg)', benefit: 'Mineral-rich compound supporting testosterone and cellular energy' },
+      { name: 'Oyster Peptide (20 mg)', benefit: 'Marine-derived zinc source supporting reproductive health' },
+    ],
+  },
+  {
+    product: 'Probiotic + Metabolism Strips',
+    icon: '🦠',
+    ingredients: [
+      { name: 'Bifidobacterium lactis (10B CFU)', benefit: 'Clinically studied probiotic supporting gut health and digestion' },
+      { name: 'Polydextrose (30 mg)', benefit: 'Prebiotic fiber that feeds beneficial gut bacteria' },
+    ],
+  },
+  {
+    product: 'Beauty + Collagen Strips',
+    icon: '✨',
+    ingredients: [
+      { name: 'Collagen Peptides (100 mg)', benefit: 'Building blocks for skin elasticity, hydration, and firmness' },
+      { name: 'Vitamin E (6 mg)', benefit: 'Powerful antioxidant protecting skin cells from oxidative damage' },
+    ],
+  },
+  {
+    product: 'Hair, Skin & Nails Strips',
+    icon: '💇',
+    ingredients: [
+      { name: 'Biotin (5000 mcg)', benefit: 'Essential B-vitamin for keratin production and healthy hair growth' },
+      { name: 'Folate (400 mcg)', benefit: 'Supports cell division and tissue growth for skin renewal' },
+      { name: 'Vitamin D3 (200 mcg)', benefit: 'Supports hair follicle cycling and skin cell regeneration' },
+    ],
+  },
+  {
+    product: 'Digestive + Gut Health Strips',
+    icon: '🌿',
+    ingredients: [
+      { name: 'Bacillus Coagulans (10B CFU)', benefit: 'Spore-forming probiotic with enhanced survivability and gut colonization' },
+      { name: 'Protease (10 mg)', benefit: 'Enzyme breaking down proteins for improved nutrient absorption' },
+      { name: 'Papain (10 mg)', benefit: 'Natural enzyme from papaya supporting protein digestion' },
+      { name: 'Bromelain (10 mg)', benefit: 'Pineapple-derived enzyme aiding digestion and reducing bloating' },
+    ],
+  },
+  {
+    product: 'Appetite Balance Strips',
+    icon: '⚖️',
+    ingredients: [
+      { name: 'Chromium (75 mcg)', benefit: 'Essential mineral supporting healthy blood sugar metabolism' },
+      { name: 'Molybdenum (100 mcg)', benefit: 'Trace mineral supporting enzyme activity and detoxification' },
+      { name: 'Saffron Extract (10 mg)', benefit: 'Clinically studied for mood support and appetite regulation' },
+    ],
+  },
+  {
+    product: 'Iron Strips',
+    icon: '💪',
+    ingredients: [
+      { name: 'Iron (Ferric Saccharate) (19 mg)', benefit: 'Highly absorbable form supporting red blood cell production' },
+      { name: 'Folate (400 mcg)', benefit: 'Works synergistically with iron for healthy cell formation' },
+    ],
+  },
+  {
+    product: 'Energy Strips',
+    icon: '⚡',
+    ingredients: [
+      { name: 'Caffeine (50 mg)', benefit: 'Natural stimulant for alertness and physical performance' },
+      { name: 'L-Theanine (30 mg)', benefit: 'Smooths caffeine response, prevents jitters and crash' },
+      { name: 'Vitamin B12 (50 mcg)', benefit: 'Essential for energy metabolism and neurological function' },
+    ],
   },
   {
     product: 'Sleep Strips',
-    ingredients: ['Melatonin (5mg)', 'Valerian', 'Chamomile', 'Lavender'],
     icon: '🌙',
-  },
-  {
-    product: 'Cognitive Relax',
-    ingredients: ['L-Theanine (50mg)', 'GABA (25mg)', 'Vitamin B6'],
-    icon: '🧘',
-  },
-  {
-    product: 'Hair, Skin & Nails',
-    ingredients: ['Biotin (5000mcg)', 'Folate', 'Vitamin D3'],
-    icon: '✨',
-  },
-  {
-    product: 'Digestive + Gut',
-    ingredients: ['Bacillus Coagulans (10B CFU)', 'Protease', 'Bromelain'],
-    icon: '🦠',
+    ingredients: [
+      { name: 'Melatonin (5 mg)', benefit: 'Hormone regulating sleep-wake cycle, reduces time to fall asleep' },
+      { name: 'Valerian Extract (10 mg)', benefit: 'Traditional herb promoting relaxation and sleep quality' },
+      { name: 'Chamomile (5 mg)', benefit: 'Calming botanical supporting restful, restorative sleep' },
+      { name: 'Lavender (5 mg)', benefit: 'Aromatherapeutic herb reducing anxiety and promoting calm' },
+      { name: 'Hibiscus (5 mg)', benefit: 'Antioxidant-rich flower supporting relaxation' },
+    ],
   },
 ];
 
@@ -213,7 +302,7 @@ export default function Science() {
           </div>
         </section>
 
-        {/* Ingredient Breakdown Section */}
+        {/* Direct From Mother Nature - All 13 Products */}
         <section className="py-20 bg-muted/30">
           <div className="container-wide">
             <motion.div 
@@ -223,10 +312,10 @@ export default function Science() {
               viewport={{ once: true }}
             >
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-                WHAT'S INSIDE OUR STRIPS
+                DIRECT FROM MOTHER NATURE
               </h2>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Each strip is carefully formulated with premium, science-backed ingredients at effective dosages.
+              <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+                Our 13 science-backed formulas feature premium vitamins, minerals, and botanical extracts—each selected for proven efficacy and optimal bioavailability.
               </p>
             </motion.div>
 
@@ -234,21 +323,28 @@ export default function Science() {
               {ingredientBreakdown.map((item, index) => (
                 <motion.div 
                   key={item.product} 
-                  className="bg-card rounded-2xl p-6 shadow-soft"
+                  className="bg-card rounded-2xl p-6 shadow-soft border border-border/50 hover:shadow-card transition-shadow"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
+                  transition={{ delay: index * 0.03 }}
                 >
-                  <div className="flex items-center gap-3 mb-4">
+                  <div className="flex items-center gap-3 mb-5">
                     <span className="text-3xl">{item.icon}</span>
-                    <h4 className="font-semibold text-foreground">{item.product}</h4>
+                    <h4 className="font-display font-semibold text-foreground text-lg">{item.product}</h4>
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     {item.ingredients.map((ingredient) => (
-                      <div key={ingredient} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Check className="h-4 w-4 text-primary" />
-                        {ingredient}
+                      <div key={ingredient.name} className="border-l-2 border-primary/30 pl-3">
+                        <div className="flex items-start gap-2">
+                          <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                          <div>
+                            <span className="font-medium text-foreground text-sm">{ingredient.name}</span>
+                            <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">
+                              {ingredient.benefit}
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     ))}
                   </div>
