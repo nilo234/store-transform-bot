@@ -3,6 +3,7 @@
 
 export interface ProductContent {
   handle: string;
+  flavor: string;
   seoTitle: string;
   metaDescription: string;
   shortDescription: string;
@@ -19,6 +20,7 @@ export const productContentMap: Record<string, ProductContent> = {
   // 1. Hangover Strips
   'hangover': {
     handle: 'hangover',
+    flavor: 'Mango–Orange',
     seoTitle: 'Hangover Strips Mango-Orange | Natural Recovery | Neuvie',
     metaDescription: 'Neuvie Hangover Strips with Curcumin, Date Extract & Grape Seed Extract. Supports liver function, hydration & natural recovery. Mango-Orange flavor.',
     shortDescription: 'Our Hangover Strips are formulated with Ayurvedic ingredients to support your body after a night out. For best results, take 1 strip before bed. Supports hydration, restful sleep, and helps reduce occasional discomfort.',
@@ -57,6 +59,7 @@ export const productContentMap: Record<string, ProductContent> = {
   // 2. Bone Support Strips
   'bone': {
     handle: 'bone',
+    flavor: 'Raspberry',
     seoTitle: 'Bone Support Strips Raspberry | Vitamin D3 + K2 | Neuvie',
     metaDescription: 'Neuvie Bone Support Strips with Vitamin D3 (2000 IU) & K2 (200 mcg). Supports bone health, calcium absorption & immune function. Convenient strip format.',
     shortDescription: 'Bone Support Strips combine Vitamin D3 and K2 in a fast-dissolving, raspberry-flavored strip. Supports normal calcium metabolism, bone strength, and immune function—anytime, anywhere.',
@@ -88,6 +91,7 @@ export const productContentMap: Record<string, ProductContent> = {
   // 3. Cognitive Relax Strips
   'cognitive': {
     handle: 'cognitive',
+    flavor: 'Strawberry + Peppermint',
     seoTitle: 'Cognitive Relax Strips Strawberry-Mint | L-Theanine + GABA | Neuvie',
     metaDescription: 'Neuvie Cognitive Relax Strips with L-Theanine (50mg), GABA (25mg) & Vitamin B6. Supports relaxation, focus & nervous system. Strawberry-Mint flavor.',
     shortDescription: 'Cognitive Relax Strips combine L-Theanine, GABA, and Vitamin B6 in a fast-dissolving strip that supports stress management, mental clarity, and nervous system wellness. Take 1 strip daily—anytime you need calm focus.',
@@ -121,6 +125,7 @@ export const productContentMap: Record<string, ProductContent> = {
   // 4. Mushroom Focus Strips
   'mushroom': {
     handle: 'mushroom',
+    flavor: 'Chocolate',
     seoTitle: 'Mushroom Focus Strips Chocolate | Lion\'s Mane + Cordyceps | Neuvie',
     metaDescription: 'Neuvie Mushroom Focus Strips with Lion\'s Mane, Cordyceps, Maitake & Shiitake. Supports focus, energy & cognitive function. Rich chocolate flavor.',
     shortDescription: 'Support your focus, energy & mental wellness with Mushroom Focus Strips. A curated blend of Lion\'s Mane, Maitake, Cordyceps, and Shiitake in a rich chocolate-flavored strip. Zero-fuss, quick-dissolving.',
@@ -156,6 +161,7 @@ export const productContentMap: Record<string, ProductContent> = {
   // 5. Libido Support Strips
   'libido': {
     handle: 'libido',
+    flavor: 'Chocolate',
     seoTitle: 'Libido Support Strips Chocolate | Cordyceps + Shilajit | Neuvie',
     metaDescription: 'Neuvie Libido Support Strips with Cordyceps, Shilajit & Oyster Peptide. Supports vitality, stamina & sexual wellness. Discreet and convenient.',
     shortDescription: 'Libido Support Strips support Stamina, Energy, Vitality and overall well-being. With Cordyceps militaris, Shilajit and Oyster Peptide—in a fast-dissolving, chocolate-flavored strip. Ideal for daily routine and active lifestyle.',
@@ -189,6 +195,7 @@ export const productContentMap: Record<string, ProductContent> = {
   // 6. Probiotic + Metabolism Strips
   'probiotic': {
     handle: 'probiotic',
+    flavor: 'Mixed Berry',
     seoTitle: 'Probiotic + Metabolism Strips | 10 Billion CFU | Neuvie',
     metaDescription: 'Neuvie Probiotic + Metabolism Strips with 10 Billion CFU Bifidobacterium lactis & Prebiotic Fiber. Supports gut health & digestion.',
     shortDescription: 'Probiotic + Metabolism Strips offer easy, delicious support for digestive health. Each strip delivers 10 Billion CFU probiotics plus Prebiotic Fiber to promote a healthy gut microbiome. Mixed-Berry flavor, ideal for on-the-go—without water.',
@@ -222,6 +229,7 @@ export const productContentMap: Record<string, ProductContent> = {
   // 7. Beauty + Collagen Strips
   'beauty': {
     handle: 'beauty',
+    flavor: 'Mango',
     seoTitle: 'Beauty + Collagen Strips Mango | Collagen + Vitamin E | Neuvie',
     metaDescription: 'Neuvie Beauty + Collagen Strips with 100mg Collagen Peptides & Vitamin E. Supports skin elasticity, hair & nails. Delicious mango flavor.',
     shortDescription: 'Beauty + Collagen Strips support natural collagen production, skin elasticity, and antioxidant cell protection through Collagen Peptides and Vitamin E—in a fruity Mango-Flavor. Fast-dissolving, easy for on-the-go, ideal for a daily beauty routine.',
@@ -252,6 +260,7 @@ export const productContentMap: Record<string, ProductContent> = {
   // 8. Hair, Skin & Nails Strips
   'hair': {
     handle: 'hair',
+    flavor: 'Orange',
     seoTitle: 'Hair, Skin & Nails Strips Orange | Biotin 5000 mcg | Neuvie',
     metaDescription: 'Neuvie Hair, Skin & Nails Strips with Biotin (5000 mcg), Folate & Vitamin D3. Supports hair growth, skin vitality & strong nails. Orange flavor.',
     shortDescription: 'Support your natural glow with Hair, Skin and Nails Strips—formulated with Biotin, Folate and Vitamin D3. These fast-dissolving orange-flavored Strips support normal hair strength and overall well-being of skin, hair and nails. Just 1 strip daily—without water.',
@@ -284,6 +293,7 @@ export const productContentMap: Record<string, ProductContent> = {
   // 9. Digestive + Gut Health Strips
   'digestive': {
     handle: 'digestive',
+    flavor: 'Mixed Berry',
     seoTitle: 'Digestive + Gut Health Strips | Probiotics + Enzymes | Neuvie',
     metaDescription: 'Neuvie Digestive + Gut Health Strips with Bacillus Coagulans (10 Billion CFU), Protease, Papain & Bromelain. Supports digestion & gut health.',
     shortDescription: 'Digestive + Gut Health Strips support gut health with a combination of probiotics and digestive enzymes—in a fast-dissolving, mixed-berry flavored Strip. Perfect for on-the-go, without water, easy to take.',
@@ -317,6 +327,7 @@ export const productContentMap: Record<string, ProductContent> = {
   // 10. Appetite Balance & Weight Support Strips
   'appetite': {
     handle: 'appetite',
+    flavor: 'Mixed Berry',
     seoTitle: 'Appetite Balance & Weight Support Strips | Chromium + Saffron | Neuvie',
     metaDescription: 'Neuvie Appetite Balance Strips with Chromium (75 mcg), Molybdenum (100 mcg) & Saffron. Supports normal blood sugar levels & appetite balance.',
     shortDescription: 'Appetite Balance & Weight Support Strips offer an easy, fast-dissolving way to support nutrition and daily well-being. With Saffron, Chromium and Molybdenum—for mindful eating habits, metabolism support and daily vitality.',
@@ -352,6 +363,7 @@ export const productContentMap: Record<string, ProductContent> = {
   // 11. Iron Strips
   'iron': {
     handle: 'iron',
+    flavor: 'Raspberry',
     seoTitle: 'Iron Strips Raspberry | Iron + Folate | Neuvie',
     metaDescription: 'Neuvie Iron Strips with Iron (19 mg) & Folate (400 mcg). Supports red blood cell formation, oxygen transport & energy. Raspberry flavor.',
     shortDescription: 'Promote your daily wellness with Iron Strips, a raspberry-flavored oral supplement designed to support normal energy and overall vitality. Easy-to-use, convenient and water-free.',
@@ -383,6 +395,7 @@ export const productContentMap: Record<string, ProductContent> = {
   // 12. Energy Strips
   'energy': {
     handle: 'energy',
+    flavor: 'Cranberry',
     seoTitle: 'Energy Strips Cranberry | Caffeine + L-Theanine | Neuvie',
     metaDescription: 'Neuvie Energy Strips with Caffeine (50 mg), L-Theanine (30 mg) & Vitamin B12. Supports focus, endurance & mental clarity. No crash, no jitters.',
     shortDescription: 'Energy Oral Strips are designed for people who need a natural, fast energy boost—without the sugar crash or jitters of energy drinks. Supports focus, endurance, mental clarity, and stable energy.',
@@ -416,6 +429,7 @@ export const productContentMap: Record<string, ProductContent> = {
   // 13. Sleep Strips
   'sleep': {
     handle: 'sleep',
+    flavor: 'Raspberry',
     seoTitle: 'Sleep Strips Raspberry | Melatonin + Valerian | Neuvie',
     metaDescription: 'Neuvie Sleep Strips with Melatonin (5 mg), Valerian, Chamomile, Lavender & Hibiscus. Supports restful sleep. Non-habit forming.',
     shortDescription: 'This gentle blend of non-habit forming botanical extracts was developed to support a healthy sleep-wake rhythm. Helps with restful sleep, stress-related sleep issues, and healthy sleep patterns.',

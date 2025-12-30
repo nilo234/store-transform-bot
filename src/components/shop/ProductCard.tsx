@@ -7,6 +7,7 @@ import { ShopifyProduct } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
 import { JudgeMePreviewBadge } from '@/components/reviews/JudgeMeReviews';
+import { findProductContent } from '@/data/productContent';
 
 interface ProductCardProps {
   product: ShopifyProduct;
@@ -88,6 +89,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
   const originalPrice = price * 1.42; // Show as if 42% off like TryAuri
   const categoryBadge = getCategoryBadge(node.title);
   const ingredientIcons = getIngredientIcons(node.title);
+  const productContent = findProductContent(node.title) || findProductContent(node.handle);
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -185,9 +187,18 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             </div>
 
             {/* Title */}
-            <h3 className="font-display text-lg font-semibold mt-1.5 mb-3 text-foreground group-hover:text-primary transition-colors line-clamp-2 leading-tight">
+            <h3 className="font-display text-lg font-semibold mt-1.5 mb-2 text-foreground group-hover:text-primary transition-colors line-clamp-2 leading-tight">
               {node.title}
             </h3>
+
+            {/* Flavor Badge - Prominent */}
+            {productContent?.flavor && (
+              <div className="mb-3">
+                <span className="inline-flex items-center gap-1 text-xs font-semibold bg-primary/10 text-primary px-2 py-1 rounded-full">
+                  🍃 {productContent.flavor}
+                </span>
+              </div>
+            )}
 
             {/* Ingredient Icons - TryAuri Style */}
             <div className="flex flex-wrap gap-1.5 mb-4">
