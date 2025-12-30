@@ -178,6 +178,16 @@ export default function ProductDetail() {
               {/* Title */}
               <h1 className="font-display text-3xl md:text-4xl font-bold">{product.title}</h1>
 
+              {/* Flavor Badge - Prominent Position */}
+              {productContent?.flavor && (
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-full text-sm font-semibold">
+                    <span className="text-lg">🍃</span>
+                    Flavor: {productContent.flavor}
+                  </span>
+                </div>
+              )}
+
               {/* Price */}
               <div className="flex items-center gap-4">
                 <span className="text-3xl font-bold text-primary">€{price.toFixed(2)}</span>
