@@ -8,6 +8,7 @@ import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
 import { JudgeMePreviewBadge } from '@/components/reviews/JudgeMeReviews';
 import { findProductContent } from '@/data/productContent';
+import { getFlavorIcon } from '@/lib/flavorIcons';
 
 interface ProductCardProps {
   product: ShopifyProduct;
@@ -191,14 +192,18 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
               {node.title}
             </h3>
 
-            {/* Flavor Badge - Prominent */}
-            {productContent?.flavor && (
-              <div className="mb-3">
-                <span className="inline-flex items-center gap-1 text-xs font-semibold bg-primary/10 text-primary px-2 py-1 rounded-full">
-                  🍃 {productContent.flavor}
-                </span>
-              </div>
-            )}
+            {/* Flavor Badge - Prominent with custom icon */}
+            {productContent?.flavor && (() => {
+              const flavorStyle = getFlavorIcon(productContent.flavor);
+              return (
+                <div className="mb-3">
+                  <span className={`inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full ${flavorStyle.color}`}>
+                    <span className="text-sm">{flavorStyle.emoji}</span>
+                    {productContent.flavor}
+                  </span>
+                </div>
+              );
+            })()}
 
             {/* Ingredient Icons - TryAuri Style */}
             <div className="flex flex-wrap gap-1.5 mb-4">
