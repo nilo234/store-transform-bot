@@ -2,109 +2,103 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Neuvie Design System - Inspired by TryAuri's clean, premium aesthetic */
+/* Neuvie Design System - Strict Black & White */
 
 @layer base {
   :root {
-    /* Brand Colors - Warm, Natural, Premium */
-    --background: 45 30% 98%;
-    --foreground: 30 20% 12%;
+    /* Strict Black & White - Pure Colors Only */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
 
-    --card: 45 25% 96%;
-    --card-foreground: 30 20% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 30 20% 12%;
+    --popover-foreground: 0 0% 0%;
 
-    /* Primary - Deep Forest Green */
-    --primary: 158 35% 25%;
-    --primary-foreground: 45 30% 98%;
+    /* Primary - Pure Black */
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Warm Cream */
-    --secondary: 45 40% 92%;
-    --secondary-foreground: 30 20% 12%;
+    /* Secondary - Pure White */
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 0 0% 0%;
 
-    /* Muted - Soft Sage */
-    --muted: 150 15% 90%;
-    --muted-foreground: 150 10% 40%;
+    /* Muted - Pure White */
+    --muted: 0 0% 100%;
+    --muted-foreground: 0 0% 0%;
 
-    /* Accent - Golden Honey */
-    --accent: 38 80% 55%;
-    --accent-foreground: 30 20% 12%;
+    /* Accent - Pure Black */
+    --accent: 0 0% 0%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 0% 0%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 45 20% 88%;
-    --input: 45 20% 88%;
-    --ring: 158 35% 25%;
+    --border: 0 0% 0%;
+    --input: 0 0% 0%;
+    --ring: 0 0% 0%;
 
-    --radius: 0.75rem;
+    --radius: 0px;
 
-    /* Custom Design Tokens */
-    --font-display: 'Playfair Display', serif;
-    --font-body: 'Inter', sans-serif;
+    /* Font */
+    --font-body: 'Inter', system-ui, sans-serif;
     
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(45 30% 98%) 0%, hsl(150 20% 95%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(45 25% 97%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(158 35% 25%) 0%, hsl(158 40% 30%) 100%);
-    
-    /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(30 20% 12% / 0.08);
-    --shadow-card: 0 8px 32px -8px hsl(30 20% 12% / 0.12);
-    --shadow-elevated: 0 20px 60px -15px hsl(30 20% 12% / 0.2);
+    /* Shadows - Minimal */
+    --shadow-soft: 0 2px 8px -2px hsl(0 0% 0% / 0.1);
+    --shadow-card: 0 4px 16px -4px hsl(0 0% 0% / 0.1);
+    --shadow-elevated: 0 8px 32px -8px hsl(0 0% 0% / 0.15);
 
     /* Sidebar */
-    --sidebar-background: 45 30% 98%;
-    --sidebar-foreground: 30 20% 12%;
-    --sidebar-primary: 158 35% 25%;
-    --sidebar-primary-foreground: 45 30% 98%;
-    --sidebar-accent: 45 40% 92%;
-    --sidebar-accent-foreground: 30 20% 12%;
-    --sidebar-border: 45 20% 88%;
-    --sidebar-ring: 158 35% 25%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 0 0% 0%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 100%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 0%;
+    --sidebar-ring: 0 0% 0%;
   }
 
   .dark {
-    --background: 30 15% 8%;
-    --foreground: 45 30% 95%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
 
-    --card: 30 15% 12%;
-    --card-foreground: 45 30% 95%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 30 15% 10%;
-    --popover-foreground: 45 30% 95%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 158 45% 45%;
-    --primary-foreground: 30 15% 8%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 30 15% 18%;
-    --secondary-foreground: 45 30% 95%;
+    --secondary: 0 0% 0%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 30 10% 20%;
-    --muted-foreground: 45 15% 60%;
+    --muted: 0 0% 0%;
+    --muted-foreground: 0 0% 100%;
 
-    --accent: 38 80% 55%;
-    --accent-foreground: 30 15% 8%;
+    --accent: 0 0% 100%;
+    --accent-foreground: 0 0% 0%;
 
-    --destructive: 0 62% 45%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 0% 100%;
+    --destructive-foreground: 0 0% 0%;
 
-    --border: 30 10% 20%;
-    --input: 30 10% 20%;
-    --ring: 158 45% 45%;
+    --border: 0 0% 100%;
+    --input: 0 0% 100%;
+    --ring: 0 0% 100%;
 
-    --sidebar-background: 30 15% 8%;
-    --sidebar-foreground: 45 30% 95%;
-    --sidebar-primary: 158 45% 45%;
-    --sidebar-primary-foreground: 30 15% 8%;
-    --sidebar-accent: 30 15% 18%;
-    --sidebar-accent-foreground: 45 30% 95%;
-    --sidebar-border: 30 10% 20%;
-    --sidebar-ring: 158 45% 45%;
+    --sidebar-background: 0 0% 0%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 0%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 100%;
+    --sidebar-ring: 0 0% 100%;
   }
 }
 
@@ -118,13 +112,36 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body antialiased;
+    @apply bg-background text-foreground antialiased;
     font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.5;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
+  h1 {
+    font-family: var(--font-body);
+    @apply font-bold tracking-tight;
+    font-size: 48px;
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-family: var(--font-body);
     @apply font-semibold tracking-tight;
+    font-size: 36px;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-family: var(--font-body);
+    @apply font-semibold tracking-tight;
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  h4, h5, h6 {
+    font-family: var(--font-body);
+    @apply font-medium tracking-tight;
   }
 }
 
@@ -134,36 +151,27 @@
   }
 
   .btn-primary {
-    @apply bg-primary text-primary-foreground px-8 py-4 rounded-full font-medium 
-           transition-all duration-300 hover:shadow-lg hover:scale-[1.02] 
-           active:scale-[0.98];
+    @apply bg-primary text-primary-foreground px-8 py-4 font-medium 
+           transition-all duration-300 hover:opacity-80 
+           active:scale-[0.98] border border-foreground;
   }
 
   .btn-secondary {
-    @apply bg-secondary text-secondary-foreground px-6 py-3 rounded-full font-medium 
-           border border-border transition-all duration-300 hover:bg-muted;
+    @apply bg-secondary text-secondary-foreground px-6 py-3 font-medium 
+           border border-foreground transition-all duration-300 hover:bg-primary hover:text-primary-foreground;
   }
 
   .card-product {
-    @apply bg-card rounded-2xl overflow-hidden transition-all duration-500 
-           hover:-translate-y-1;
-    box-shadow: var(--shadow-card);
-  }
-  
-  .card-product:hover {
-    box-shadow: var(--shadow-elevated);
+    @apply bg-card overflow-hidden transition-all duration-500 
+           hover:-translate-y-1 border border-foreground;
   }
 
   .badge-discount {
-    @apply bg-accent text-accent-foreground px-3 py-1 rounded-full text-sm font-semibold;
+    @apply bg-primary text-primary-foreground px-3 py-1 text-sm font-semibold border border-foreground;
   }
 
   .marquee {
     @apply flex gap-8 animate-marquee;
-  }
-
-  .text-gradient {
-    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
   }
 }
 
