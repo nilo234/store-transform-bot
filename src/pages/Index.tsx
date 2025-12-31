@@ -5,6 +5,7 @@ import { ArrowRight, Star, Check, ChevronRight } from 'lucide-react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { ProductCard } from '@/components/shop/ProductCard';
+import { BundleSection } from '@/components/shop/BundleSection';
 import { Button } from '@/components/ui/button';
 import { fetchProducts, ShopifyProduct } from '@/lib/shopify';
 import { VideoTutorial } from '@/components/home/VideoTutorial';
@@ -194,6 +195,9 @@ export default function Index() {
             ))}
           </div>
         </section>
+
+        {/* Bundle Section - Above Best Sellers */}
+        <BundleSection />
 
         {/* Best Sellers Section */}
         <section className="py-20 md:py-28 bg-background">
