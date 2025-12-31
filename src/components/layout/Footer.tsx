@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Twitter, ArrowRight } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import neuvieLogo from '@/assets/neuvie-logo.png';
 
 const footerLinks = {
   shop: [
@@ -76,7 +77,11 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
-              <span className="font-display text-4xl font-bold">Neuvie</span>
+              <img 
+                src={neuvieLogo} 
+                alt="Neuvie Nutrition" 
+                className="h-12 w-auto brightness-0 invert"
+              />
             </Link>
             <p className="text-primary-foreground/70 mb-8 max-w-sm text-sm leading-relaxed">
               Fast-dissolving oral strips with science-backed ingredients. The future of supplements—convenient, effective, and designed for your lifestyle.

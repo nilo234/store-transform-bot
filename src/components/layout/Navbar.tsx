@@ -7,7 +7,7 @@ import { useCartStore } from '@/stores/cartStore';
 import { CartDrawer } from '@/components/cart/CartDrawer';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
-
+import neuvieLogo from '@/assets/neuvie-logo.png';
 const navLinks = [
   { href: '/shop', label: 'Shop' },
   { href: '/science', label: 'Science' },
@@ -98,9 +98,11 @@ export function Navbar() {
             <div className="flex items-center justify-between h-20">
               {/* Logo - 50% larger as requested */}
               <Link to="/" className="flex items-center">
-                <span className="font-display text-4xl md:text-5xl font-bold text-primary tracking-tight">
-                  Neuvie
-                </span>
+                <img 
+                  src={neuvieLogo} 
+                  alt="Neuvie Nutrition" 
+                  className="h-10 md:h-14 w-auto"
+                />
               </Link>
 
               {/* Desktop Navigation - Centered */}
@@ -162,7 +164,7 @@ export function Navbar() {
                       {/* Mobile Header */}
                       <div className="flex items-center justify-between p-6 border-b border-border">
                         <Link to="/" onClick={() => setMobileMenuOpen(false)}>
-                          <span className="font-display text-3xl font-bold text-primary">Neuvie</span>
+                          <img src={neuvieLogo} alt="Neuvie Nutrition" className="h-8 w-auto" />
                         </Link>
                         <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)}>
                           <X className="h-6 w-6" />
