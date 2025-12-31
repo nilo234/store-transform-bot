@@ -83,7 +83,7 @@ export default function Terms() {
               <div className="bg-card rounded-xl p-8">
                 <h2 className="font-display text-2xl font-bold mb-4">5. Returns and Refunds</h2>
                 <p className="text-muted-foreground">
-                  We offer a 60-day money-back guarantee on all orders. Please see our Returns Policy for complete details on how to initiate a return and receive a refund.
+                  We offer a 14-day money-back guarantee on all orders. Please see our Returns Policy for complete details on how to initiate a return and receive a refund.
                 </p>
               </div>
 

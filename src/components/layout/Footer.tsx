@@ -36,7 +36,7 @@ const trustBadges = [
   'Third-Party Tested',
   'Non-GMO',
   'Ethically Sourced',
-  'Made in India',
+  'Made in USA',
   'Fast-Dissolving',
 ];
 
