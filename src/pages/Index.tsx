@@ -4,8 +4,12 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Star, Check, ChevronRight } from 'lucide-react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { AnnouncementBar } from '@/components/layout/AnnouncementBar';
 import { ProductCard } from '@/components/shop/ProductCard';
 import { BundleSection } from '@/components/shop/BundleSection';
+import { BenefitsTabs } from '@/components/home/BenefitsTabs';
+import { TestimonialsCarousel } from '@/components/home/TestimonialsCarousel';
+import { WhyNeuvie } from '@/components/home/WhyNeuvie';
 import { Button } from '@/components/ui/button';
 import { fetchProducts, ShopifyProduct } from '@/lib/shopify';
 import { VideoTutorial } from '@/components/home/VideoTutorial';
@@ -16,56 +20,12 @@ const marqueeItems = [
   { icon: '✓', text: 'Fast-Dissolving Strips' },
   { icon: '✓', text: 'No Water Needed' },
   { icon: '✓', text: 'Science-Backed' },
+  { icon: '✓', text: 'Non-GMO' },
   { icon: '✓', text: 'Third-Party Tested' },
   { icon: '✓', text: 'Fast-Dissolving Strips' },
   { icon: '✓', text: 'No Water Needed' },
   { icon: '✓', text: 'Science-Backed' },
-];
-
-// Benefits section aligned with Neuvie strips
-const benefits = [
-  {
-    icon: '💊',
-    title: 'Fast-Dissolving Strips',
-    description: 'No water, no pills, no hassle. Our oral strips dissolve on your tongue in seconds for quick, convenient supplementation anywhere.'
-  },
-  {
-    icon: '🧬',
-    title: 'Science-Backed Formulas',
-    description: 'Every strip is formulated with clinically studied ingredients at effective dosages to deliver real, noticeable results.'
-  },
-  {
-    icon: '🌿',
-    title: 'Premium Ingredients',
-    description: 'From Lion\'s Mane to Biotin, we source only the highest quality, natural ingredients for maximum bioavailability.'
-  },
-  {
-    icon: '✅',
-    title: 'Third-Party Tested',
-    description: 'Every batch is independently tested for purity, potency, and safety. We never compromise on quality.'
-  }
-];
-
-// Testimonials
-const testimonials = [
-  {
-    name: 'Sarah M.',
-    image: null,
-    content: 'The Energy Strips are a game-changer! Clean energy without the jitters or crash. Perfect for my morning workout.',
-    rating: 5,
-  },
-  {
-    name: 'James R.',
-    image: null,
-    content: "I've been using the Mushroom Focus Strips for a month and my concentration has improved dramatically. Love the chocolate flavor!",
-    rating: 5,
-  },
-  {
-    name: 'Emily K.',
-    image: null,
-    content: 'The Hair, Skin & Nails Strips are so convenient. My nails are stronger and my hair looks healthier than ever.',
-    rating: 5,
-  },
+  { icon: '✓', text: 'Non-GMO' },
 ];
 
 export default function Index() {
@@ -83,6 +43,7 @@ export default function Index() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <AnnouncementBar />
       <Navbar />
       
       <main className="flex-1">
@@ -260,47 +221,8 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Benefits Section */}
-        <section className="py-20 bg-muted/30">
-          <div className="container-wide">
-            <div className="text-center mb-12">
-              <motion.h2 
-                className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                WHY NEUVIE STRIPS?
-              </motion.h2>
-              <motion.p 
-                className="text-muted-foreground text-lg max-w-2xl mx-auto"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-              >
-                The future of supplements is here. Fast, effective, and incredibly convenient.
-              </motion.p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {benefits.map((benefit, index) => (
-                <motion.div
-                  key={benefit.title}
-                  className="bg-card rounded-2xl p-8 text-center shadow-soft hover:shadow-card transition-shadow"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <span className="text-5xl mb-6 block">{benefit.icon}</span>
-                  <h3 className="font-display font-semibold text-xl mb-3">{benefit.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{benefit.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* Benefits Tabs Section - Auri-style expandable */}
+        <BenefitsTabs />
 
         {/* How to Use Section */}
         <section className="py-20 md:py-28 bg-background">
@@ -390,61 +312,11 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Testimonials Section */}
-        <section className="py-20 bg-muted/20">
-          <div className="container-wide">
-            <div className="text-center mb-12">
-              <motion.h2 
-                className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                WHAT OUR CUSTOMERS SAY
-              </motion.h2>
-              <motion.p 
-                className="text-muted-foreground text-lg"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-              >
-                Join thousands who have made Neuvie part of their daily routine.
-              </motion.p>
-            </div>
+        {/* Why Neuvie Section */}
+        <WhyNeuvie />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <motion.div
-                  key={testimonial.name}
-                  className="bg-card rounded-2xl p-8 shadow-soft"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-accent text-accent" />
-                    ))}
-                  </div>
-                  
-                  <p className="text-foreground mb-6 leading-relaxed">"{testimonial.content}"</p>
-                  
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                      <span className="font-semibold text-primary text-lg">{testimonial.name[0]}</span>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-sm">{testimonial.name}</p>
-                      <p className="text-xs text-muted-foreground">Verified Buyer</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* Testimonials Carousel - Enhanced with verified badges */}
+        <TestimonialsCarousel />
 
         {/* CTA Section */}
         <section className="py-24 bg-primary text-primary-foreground">
