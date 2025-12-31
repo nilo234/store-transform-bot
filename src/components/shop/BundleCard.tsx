@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Plus, Clock, Package } from 'lucide-react';
+import { Plus, Clock, Package, Copy, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
-import { Bundle } from '@/data/bundles';
+import { Bundle, productInfo } from '@/data/bundles';
 
 interface BundleCardProps {
   bundle: Bundle;
@@ -50,59 +50,84 @@ function CountdownTimer() {
 
 export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const [codeCopied, setCodeCopied] = useState(false);
   const addItem = useCartStore((state) => state.addItem);
+
+  const handleCopyCode = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    navigator.clipboard.writeText(bundle.discountCode);
+    setCodeCopied(true);
+    toast.success('Discount code copied!', {
+      description: `Use "${bundle.discountCode}" at checkout for ${bundle.discountPercent}% off`,
+      position: 'top-center',
+    });
+    setTimeout(() => setCodeCopied(false), 2000);
+  };
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
 
-    // Create a bundle cart item
-    addItem({
-      product: {
-        node: {
-          id: `bundle-${bundle.id}`,
-          title: `${bundle.name} ${bundle.emoji}`,
-          description: bundle.tagline,
-          handle: bundle.id,
-          priceRange: {
-            minVariantPrice: {
-              amount: bundle.salePrice.toString(),
-              currencyCode: 'USD',
-            },
-          },
-          images: { edges: [] },
-          variants: {
-            edges: [
-              {
-                node: {
-                  id: `bundle-variant-${bundle.id}`,
-                  title: bundle.packSize,
-                  price: {
-                    amount: bundle.salePrice.toString(),
-                    currencyCode: 'USD',
-                  },
-                  availableForSale: true,
-                  selectedOptions: [{ name: 'Pack', value: bundle.packSize }],
+    // Add each real product to cart
+    bundle.variantIds.forEach((variantId) => {
+      const info = productInfo[variantId];
+      if (info) {
+        addItem({
+          product: {
+            node: {
+              id: `product-${variantId}`,
+              title: info.title,
+              description: '',
+              handle: info.title.toLowerCase().replace(/\s+/g, '-'),
+              priceRange: {
+                minVariantPrice: {
+                  amount: info.price,
+                  currencyCode: 'USD',
                 },
               },
-            ],
+              images: { edges: [] },
+              variants: {
+                edges: [
+                  {
+                    node: {
+                      id: variantId,
+                      title: 'Default Title',
+                      price: {
+                        amount: info.price,
+                        currencyCode: 'USD',
+                      },
+                      availableForSale: true,
+                      selectedOptions: [{ name: 'Title', value: 'Default Title' }],
+                    },
+                  },
+                ],
+              },
+              options: [{ name: 'Title', values: ['Default Title'] }],
+            },
           },
-          options: [{ name: 'Pack', values: [bundle.packSize] }],
-        },
-      },
-      variantId: `bundle-variant-${bundle.id}`,
-      variantTitle: bundle.packSize,
-      price: {
-        amount: bundle.salePrice.toString(),
-        currencyCode: 'USD',
-      },
-      quantity: 1,
-      selectedOptions: [{ name: 'Pack', value: bundle.packSize }],
+          variantId: variantId,
+          variantTitle: 'Default Title',
+          price: {
+            amount: info.price,
+            currencyCode: 'USD',
+          },
+          quantity: 1,
+          selectedOptions: [{ name: 'Title', value: 'Default Title' }],
+        });
+      }
     });
 
     toast.success('Bundle added to cart!', {
-      description: `${bundle.name} - ${bundle.packSize}`,
+      description: (
+        <div className="space-y-1">
+          <p>{bundle.name} - {bundle.packSize}</p>
+          <p className="text-xs font-semibold text-primary">
+            Use code "{bundle.discountCode}" at checkout for {bundle.discountPercent}% off!
+          </p>
+        </div>
+      ),
       position: 'top-center',
+      duration: 5000,
     });
   };
 
@@ -189,6 +214,20 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
                 ${bundle.salePrice.toFixed(2)}
               </span>
             </div>
+
+            {/* Discount Code */}
+            <button
+              onClick={handleCopyCode}
+              className="mt-3 w-full flex items-center justify-center gap-2 bg-background/80 hover:bg-background border border-dashed border-primary/50 rounded-lg py-2 px-3 transition-colors"
+            >
+              <span className="text-xs text-muted-foreground">Code:</span>
+              <span className="font-mono font-bold text-primary">{bundle.discountCode}</span>
+              {codeCopied ? (
+                <Check className="h-3.5 w-3.5 text-green-500" />
+              ) : (
+                <Copy className="h-3.5 w-3.5 text-muted-foreground" />
+              )}
+            </button>
           </div>
 
           {/* Add to Cart Button */}
