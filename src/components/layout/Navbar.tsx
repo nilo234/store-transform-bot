@@ -7,7 +7,7 @@ import { useCartStore } from '@/stores/cartStore';
 import { CartDrawer } from '@/components/cart/CartDrawer';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
-import neuvieLogo from '@/assets/neuvie-logo.png';
+import neuvieLogo from '@/assets/neuvie-navbar-logo.png';
 const navLinks = [
   { href: '/shop', label: 'Shop' },
   { href: '/science', label: 'Science' },
