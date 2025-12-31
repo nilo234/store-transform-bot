@@ -1,7 +1,8 @@
-import { Minus, Plus, Trash2, ExternalLink, Loader2, ShoppingCart } from 'lucide-react';
+import { Minus, Plus, Trash2, ExternalLink, Loader2, ShoppingCart, RefreshCw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { useCartStore } from '@/stores/cartStore';
+import { Badge } from '@/components/ui/badge';
 
 export function CartDrawer() {
   const { 
@@ -71,8 +72,16 @@ export function CartDrawer() {
                         {item.variantTitle !== 'Default Title' && (
                           <p className="text-xs text-muted-foreground mt-1">{item.variantTitle}</p>
                         )}
+                        {item.isSubscription && (
+                          <Badge variant="secondary" className="mt-1.5 bg-accent/10 text-accent border-accent/20 gap-1">
+                            <RefreshCw className="h-3 w-3" />
+                            {item.subscriptionFrequency === 'monthly' ? 'Monthly' : 
+                             item.subscriptionFrequency === 'bimonthly' ? 'Every 2 Mo' : 'Every 3 Mo'}
+                            {item.subscriptionDiscount && ` (-${item.subscriptionDiscount}%)`}
+                          </Badge>
+                        )}
                         <p className="font-semibold text-primary mt-2">
-                          ${parseFloat(item.price.amount).toFixed(2)}
+                          €{parseFloat(item.price.amount).toFixed(2)}
                         </p>
                       </div>
                       
@@ -116,7 +125,7 @@ export function CartDrawer() {
                 <div className="flex justify-between items-center mb-4">
                   <span className="text-lg font-medium">Subtotal</span>
                   <span className="text-2xl font-bold text-primary">
-                    ${totalPrice().toFixed(2)}
+                    €{totalPrice().toFixed(2)}
                   </span>
                 </div>
                 <p className="text-sm text-muted-foreground mb-4">
