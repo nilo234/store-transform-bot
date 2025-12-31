@@ -15,6 +15,10 @@ export interface CartItem {
     name: string;
     value: string;
   }>;
+  // Subscription fields
+  isSubscription?: boolean;
+  subscriptionFrequency?: string;
+  subscriptionDiscount?: number;
 }
 
 interface CartStore {

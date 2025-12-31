@@ -11,6 +11,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { toast } from 'sonner';
 import { findProductContent, ProductContent } from '@/data/productContent';
 import { JudgeMeReviews } from '@/components/reviews/JudgeMeReviews';
+import { SubscriptionToggle, PurchaseType } from '@/components/shop/SubscriptionToggle';
 import {
   Accordion,
   AccordionContent,
@@ -24,6 +25,12 @@ export default function ProductDetail() {
   const [isLoading, setIsLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [purchaseSelection, setPurchaseSelection] = useState<{
+    type: PurchaseType;
+    frequency?: string;
+    discount: number;
+    finalPrice: number;
+  } | null>(null);
   
   const addItem = useCartStore((state) => state.addItem);
 
@@ -44,17 +51,33 @@ export default function ProductDetail() {
     const firstVariant = product.variants.edges[0]?.node;
     if (!firstVariant) return;
     
+    const basePrice = parseFloat(firstVariant.price.amount);
+    const isSubscription = purchaseSelection?.type === 'subscribe';
+    const finalPrice = isSubscription && purchaseSelection?.finalPrice 
+      ? purchaseSelection.finalPrice 
+      : basePrice;
+    
     addItem({
       product: { node: product },
       variantId: firstVariant.id,
       variantTitle: firstVariant.title,
-      price: firstVariant.price,
+      price: {
+        amount: finalPrice.toString(),
+        currencyCode: firstVariant.price.currencyCode,
+      },
       quantity,
       selectedOptions: firstVariant.selectedOptions,
+      isSubscription,
+      subscriptionFrequency: purchaseSelection?.frequency,
+      subscriptionDiscount: purchaseSelection?.discount,
     });
     
+    const subscriptionLabel = isSubscription 
+      ? ` (${purchaseSelection?.frequency} subscription)` 
+      : '';
+    
     toast.success('Added to Cart!', {
-      description: `${quantity}x ${product.title}`,
+      description: `${quantity}x ${product.title}${subscriptionLabel}`,
       position: 'top-center',
     });
   };
@@ -222,6 +245,14 @@ export default function ProductDetail() {
                 </div>
               )}
 
+              {/* Subscription Toggle */}
+              <div className="pt-4 border-t border-border">
+                <SubscriptionToggle 
+                  basePrice={price} 
+                  onSelectionChange={setPurchaseSelection}
+                />
+              </div>
+
               {/* Quantity & Add to Cart */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <div className="flex items-center gap-3 bg-muted rounded-full p-1">
@@ -250,7 +281,7 @@ export default function ProductDetail() {
                   size="lg"
                 >
                   <ShoppingCart className="h-5 w-5" />
-                  Add to Cart
+                  {purchaseSelection?.type === 'subscribe' ? 'Subscribe & Save' : 'Add to Cart'}
                 </Button>
               </div>
 
