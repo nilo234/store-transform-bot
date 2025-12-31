@@ -1,5 +1,39 @@
-// Bundle data for Neuvie™ - 8 High-Converting Bundles
+// Bundle data for Neuvie™ - 8 High-Converting Bundles with real Shopify products
 export type BundleCategory = 'all' | 'performance' | 'wellness' | 'beauty';
+
+// Real Shopify product variant IDs
+export const shopifyVariants = {
+  mushroomFocus: 'gid://shopify/ProductVariant/48022272737499',
+  energy: 'gid://shopify/ProductVariant/48044984664283',
+  libidoSupport: 'gid://shopify/ProductVariant/48044984598747',
+  probiotic: 'gid://shopify/ProductVariant/48041865248987',
+  digestive: 'gid://shopify/ProductVariant/48022270673115',
+  iron: 'gid://shopify/ProductVariant/48044984631515',
+  boneSupport: 'gid://shopify/ProductVariant/48041863217371',
+  appetite: 'gid://shopify/ProductVariant/48041865380059',
+  beautyCollagen: 'gid://shopify/ProductVariant/48041865314523',
+  hairSkinNails: 'gid://shopify/ProductVariant/48022272573659',
+  sleep: 'gid://shopify/ProductVariant/48044984697051',
+  cognitiveRelax: 'gid://shopify/ProductVariant/48022272868571',
+  hangover: 'gid://shopify/ProductVariant/48044984369371',
+};
+
+// Product info for cart display
+export const productInfo: Record<string, { title: string; price: string }> = {
+  [shopifyVariants.mushroomFocus]: { title: 'Mushroom Focus Strips', price: '34.99' },
+  [shopifyVariants.energy]: { title: 'Energy Strips', price: '27.99' },
+  [shopifyVariants.libidoSupport]: { title: 'Libido Support Strips', price: '34.99' },
+  [shopifyVariants.probiotic]: { title: 'Probiotic + Metabolism Strips', price: '34.99' },
+  [shopifyVariants.digestive]: { title: 'Digestive + Gut Health Strips', price: '34.99' },
+  [shopifyVariants.iron]: { title: 'Iron Strips', price: '24.99' },
+  [shopifyVariants.boneSupport]: { title: 'Bone Support Strips', price: '24.99' },
+  [shopifyVariants.appetite]: { title: 'Appetite Balance & Weight Support Strips', price: '32.99' },
+  [shopifyVariants.beautyCollagen]: { title: 'Beauty + Collagen Strips', price: '39.99' },
+  [shopifyVariants.hairSkinNails]: { title: 'Hair, Skin & Nails Strips', price: '34.99' },
+  [shopifyVariants.sleep]: { title: 'Sleep Strips', price: '26.99' },
+  [shopifyVariants.cognitiveRelax]: { title: 'Cognitive Relax Strips', price: '34.99' },
+  [shopifyVariants.hangover]: { title: 'Hangover Strips', price: '29.99' },
+};
 
 export interface Bundle {
   id: string;
@@ -8,11 +42,13 @@ export interface Bundle {
   packSize: string;
   category: BundleCategory;
   products: string[];
+  variantIds: string[]; // Real Shopify variant IDs
   originalPrice: number;
   salePrice: number;
   savings: number;
   discountPercent: number;
   tagline: string;
+  discountCode: string; // Shopify discount code
   badge?: string;
 }
 
@@ -24,11 +60,13 @@ export const bundles: Bundle[] = [
     packSize: '3-Pack',
     category: 'performance',
     products: ['Mushroom Focus', 'Energy', 'Libido Support Strips'],
-    originalPrice: 104.97,
+    variantIds: [shopifyVariants.mushroomFocus, shopifyVariants.energy, shopifyVariants.libidoSupport],
+    originalPrice: 97.97, // 34.99 + 27.99 + 34.99
     salePrice: 79.99,
-    savings: 25,
+    savings: 18,
     discountPercent: 24,
     tagline: 'Max Focus + Energy + Drive All Day',
+    discountCode: 'FOCUS24',
     badge: 'BEST SELLER',
   },
   {
@@ -38,11 +76,13 @@ export const bundles: Bundle[] = [
     packSize: '2-Pack',
     category: 'performance',
     products: ['Mushroom Focus', 'Energy Strips'],
-    originalPrice: 69.98,
+    variantIds: [shopifyVariants.mushroomFocus, shopifyVariants.energy],
+    originalPrice: 62.98, // 34.99 + 27.99
     salePrice: 54.99,
-    savings: 15,
+    savings: 8,
     discountPercent: 21,
     tagline: 'Pre-Workout Focus & Energy Boost',
+    discountCode: 'ATHLETE21',
   },
   {
     id: 'complete-gut-health',
@@ -51,11 +91,13 @@ export const bundles: Bundle[] = [
     packSize: '4-Pack',
     category: 'wellness',
     products: ['Probiotic', 'Metabolism', 'Digestive', 'Iron Strips'],
-    originalPrice: 139.92,
+    variantIds: [shopifyVariants.probiotic, shopifyVariants.digestive, shopifyVariants.iron, shopifyVariants.appetite],
+    originalPrice: 127.96, // 34.99 + 34.99 + 24.99 + 32.99
     salePrice: 99.99,
-    savings: 40,
+    savings: 28,
     discountPercent: 29,
     tagline: 'Full Gut Reset + Nutrient Absorption',
+    discountCode: 'GUT29',
     badge: 'POPULAR',
   },
   {
@@ -65,11 +107,13 @@ export const bundles: Bundle[] = [
     packSize: '4-Pack',
     category: 'wellness',
     products: ['Bone Support', 'Probiotic', 'Appetite', 'Iron'],
-    originalPrice: 129.92,
+    variantIds: [shopifyVariants.boneSupport, shopifyVariants.probiotic, shopifyVariants.appetite, shopifyVariants.iron],
+    originalPrice: 117.96, // 24.99 + 34.99 + 32.99 + 24.99
     salePrice: 94.99,
-    savings: 35,
+    savings: 23,
     discountPercent: 27,
     tagline: 'Daily Foundation for Optimal Health',
+    discountCode: 'WELLNESS27',
   },
   {
     id: 'beauty-glow',
@@ -78,11 +122,13 @@ export const bundles: Bundle[] = [
     packSize: '3-Pack',
     category: 'beauty',
     products: ['Beauty Collagen', 'Hair Skin Nails', 'Bone Support'],
-    originalPrice: 99.97,
+    variantIds: [shopifyVariants.beautyCollagen, shopifyVariants.hairSkinNails, shopifyVariants.boneSupport],
+    originalPrice: 99.97, // 39.99 + 34.99 + 24.99
     salePrice: 74.99,
     savings: 25,
     discountPercent: 25,
     tagline: 'Inside-Out Beauty Transformation',
+    discountCode: 'BEAUTY25',
   },
   {
     id: 'sleep-recover',
@@ -91,11 +137,13 @@ export const bundles: Bundle[] = [
     packSize: '2-Pack',
     category: 'wellness',
     products: ['Sleep', 'Cognitive Relax Strips'],
-    originalPrice: 69.98,
+    variantIds: [shopifyVariants.sleep, shopifyVariants.cognitiveRelax],
+    originalPrice: 61.98, // 26.99 + 34.99
     salePrice: 54.99,
-    savings: 15,
+    savings: 7,
     discountPercent: 21,
     tagline: 'Deep Sleep + Morning Recovery',
+    discountCode: 'SLEEP21',
   },
   {
     id: 'best-value-mega',
@@ -103,12 +151,21 @@ export const bundles: Bundle[] = [
     emoji: '🎁',
     packSize: '6-Pack',
     category: 'wellness',
-    products: ['Any 6 Strips', '(Performance/Wellness/Beauty mix)'],
-    originalPrice: 209.94,
+    products: ['Focus', 'Energy', 'Probiotic', 'Sleep', 'Beauty', 'Iron'],
+    variantIds: [
+      shopifyVariants.mushroomFocus,
+      shopifyVariants.energy,
+      shopifyVariants.probiotic,
+      shopifyVariants.sleep,
+      shopifyVariants.beautyCollagen,
+      shopifyVariants.iron,
+    ],
+    originalPrice: 198.94, // 34.99 + 27.99 + 34.99 + 26.99 + 39.99 + 24.99
     salePrice: 149.99,
-    savings: 60,
+    savings: 49,
     discountPercent: 29,
     tagline: '6-Month Supply - Best Deal!',
+    discountCode: 'MEGA29',
     badge: 'BEST VALUE',
   },
   {
@@ -118,11 +175,19 @@ export const bundles: Bundle[] = [
     packSize: '5-Pack',
     category: 'performance',
     products: ['Hangover', 'Sleep', 'Probiotic', 'Energy', 'Mushroom Focus'],
-    originalPrice: 174.95,
+    variantIds: [
+      shopifyVariants.hangover,
+      shopifyVariants.sleep,
+      shopifyVariants.probiotic,
+      shopifyVariants.energy,
+      shopifyVariants.mushroomFocus,
+    ],
+    originalPrice: 154.95, // 29.99 + 26.99 + 34.99 + 27.99 + 34.99
     salePrice: 124.99,
-    savings: 50,
+    savings: 30,
     discountPercent: 29,
     tagline: 'Party Recovery + Fresh Start 2026',
+    discountCode: 'NEWYEAR29',
     badge: 'LIMITED',
   },
 ];
