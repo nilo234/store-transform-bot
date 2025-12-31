@@ -4,7 +4,8 @@ import { Plus, Clock, Package, Copy, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
-import { Bundle, productInfo, bundleImages } from '@/data/bundles';
+import { Bundle, productInfo } from '@/data/bundles';
+import { useBundleImages } from '@/hooks/useBundleImages';
 
 interface BundleCardProps {
   bundle: Bundle;
@@ -52,6 +53,7 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [codeCopied, setCodeCopied] = useState(false);
   const addItem = useCartStore((state) => state.addItem);
+  const { images: shopifyImages, isLoading: imagesLoading } = useBundleImages(bundle.variantIds);
 
   const handleCopyCode = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -143,7 +145,7 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* Bundle Image */}
+        {/* Bundle Image - Shopify Product Images Grid */}
         <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-b from-muted/30 to-card">
           {/* Badges Row - positioned over image */}
           <div className="absolute top-4 left-4 right-4 z-10 flex items-start justify-between">
@@ -161,13 +163,39 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
             )}
           </div>
 
-          {/* Image */}
-          <motion.img
-            src={bundleImages[bundle.id]}
-            alt={bundle.name}
-            className="w-full h-full object-cover transition-transform duration-500"
-            animate={{ scale: isHovered ? 1.05 : 1 }}
-          />
+          {/* Product Images Grid */}
+          {imagesLoading ? (
+            <div className="w-full h-full flex items-center justify-center bg-muted/50">
+              <div className="animate-pulse text-muted-foreground">Loading...</div>
+            </div>
+          ) : shopifyImages.length > 0 ? (
+            <motion.div 
+              className="w-full h-full grid gap-1 p-2"
+              style={{
+                gridTemplateColumns: shopifyImages.length === 1 ? '1fr' : 
+                  shopifyImages.length === 2 ? 'repeat(2, 1fr)' :
+                  shopifyImages.length <= 4 ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)',
+                gridTemplateRows: shopifyImages.length <= 2 ? '1fr' :
+                  shopifyImages.length <= 4 ? 'repeat(2, 1fr)' : 'repeat(2, 1fr)',
+              }}
+              animate={{ scale: isHovered ? 1.02 : 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              {shopifyImages.slice(0, 6).map((imgUrl, idx) => (
+                <div key={idx} className="relative overflow-hidden rounded-lg bg-white">
+                  <img
+                    src={imgUrl}
+                    alt={`${bundle.name} product ${idx + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+            </motion.div>
+          ) : (
+            <div className="w-full h-full flex items-center justify-center bg-muted/30">
+              <span className="text-6xl">{bundle.emoji}</span>
+            </div>
+          )}
 
           {/* Countdown Timer - positioned at bottom of image */}
           <div className="absolute bottom-4 left-4 bg-background/90 backdrop-blur-sm rounded-lg px-3 py-1.5 shadow-sm">
