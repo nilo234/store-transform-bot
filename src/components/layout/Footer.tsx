@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Twitter, ArrowRight } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import neuvieLogo from '@/assets/neuvie-logo.png';
+import neuvieFooterLogo from '@/assets/neuvie-footer-logo.png';
 
 const footerLinks = {
   shop: [
@@ -78,9 +78,9 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
               <img 
-                src={neuvieLogo} 
+                src={neuvieFooterLogo} 
                 alt="Neuvie Nutrition" 
-                className="h-12 w-auto brightness-0 invert"
+                className="h-14 w-auto brightness-0 invert"
               />
             </Link>
             <p className="text-primary-foreground/70 mb-8 max-w-sm text-sm leading-relaxed">
