@@ -7,7 +7,7 @@ const certifications = [
   { icon: '🌿', label: 'Non-GMO' },
   { icon: '✅', label: 'Third-Party Tested' },
   { icon: '🧪', label: 'Clinically Dosed' },
-  { icon: '🇮🇳', label: 'Made in India' },
+  { icon: '🇺🇸', label: 'Made in USA' },
 ];
 
 const features = [

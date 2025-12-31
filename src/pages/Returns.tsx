@@ -25,12 +25,12 @@ export default function Returns() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              We stand behind our products with a 60-day money-back guarantee.
+              We stand behind our products with a 14-day money-back guarantee.
             </motion.p>
           </div>
         </section>
 
-        {/* 60-Day Guarantee Hero */}
+        {/* 14-Day Guarantee Hero */}
         <section className="py-16 bg-primary text-primary-foreground">
           <div className="container-wide text-center">
             <motion.div
@@ -42,10 +42,10 @@ export default function Returns() {
                 <Shield className="h-10 w-10" />
               </div>
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-                60-Day Money-Back Guarantee
+                14-Day Money-Back Guarantee
               </h2>
               <p className="text-primary-foreground/80 max-w-2xl text-lg">
-                Not satisfied with your purchase? No problem. We offer a full refund within 60 days of purchase—no questions asked.
+                Not satisfied with your purchase? No problem. We offer a full refund within 14 days of purchase—no questions asked.
               </p>
             </motion.div>
           </div>
@@ -112,7 +112,7 @@ export default function Returns() {
               </h2>
               <div className="space-y-4">
                 {[
-                  'Returns accepted within 60 days of purchase',
+                  'Returns accepted within 14 days of purchase',
                   'Products must be in original packaging',
                   'Opened products are still eligible for return',
                   'Free return shipping for domestic orders',

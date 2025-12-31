@@ -297,7 +297,7 @@ export default function ProductDetail() {
                 </div>
                 <div className="text-center">
                   <RotateCcw className="h-6 w-6 mx-auto mb-2 text-primary" />
-                  <p className="text-xs text-muted-foreground">60-Day<br />Guarantee</p>
+                  <p className="text-xs text-muted-foreground">14-Day<br />Guarantee</p>
                 </div>
               </div>
             </motion.div>

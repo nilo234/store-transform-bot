@@ -88,7 +88,7 @@ export default function Index() {
                 </Link>
 
                 <p className="mt-6 text-sm text-muted-foreground font-medium">
-                  60-Day Money-Back Guarantee
+                  14-Day Money-Back Guarantee
                 </p>
 
                 <div className="mt-8 flex items-center gap-4">
@@ -337,7 +337,7 @@ export default function Index() {
               transition={{ delay: 0.1 }}
             >
               Discover 13 premium wellness strips designed for your lifestyle. 
-              Try risk-free with our 60-day money-back guarantee.
+              Try risk-free with our 14-day money-back guarantee.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}

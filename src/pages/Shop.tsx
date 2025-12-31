@@ -156,8 +156,8 @@ export default function Shop() {
                 { icon: '🧪', label: 'Third-Party Tested' },
                 { icon: '🌿', label: 'Non-GMO' },
                 { icon: '💊', label: 'Fast-Dissolving' },
-                { icon: '🇮🇳', label: 'Made in India' },
-                { icon: '💯', label: '60-Day Guarantee' },
+                { icon: '🇺🇸', label: 'Made in USA' },
+                { icon: '💯', label: '14-Day Guarantee' },
               ].map((badge) => (
                 <div key={badge.label} className="flex items-center gap-2 text-muted-foreground">
                   <span className="text-2xl">{badge.icon}</span>
