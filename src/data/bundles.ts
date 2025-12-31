@@ -1,6 +1,16 @@
 // Bundle data for Neuvie™ - 8 High-Converting Bundles with real Shopify products
 export type BundleCategory = 'all' | 'performance' | 'wellness' | 'beauty';
 
+// Bundle images
+import ultimateFocusImg from '@/assets/bundles/ultimate-focus-stack.jpg';
+import athletePerformanceImg from '@/assets/bundles/athlete-performance.jpg';
+import completeGutHealthImg from '@/assets/bundles/complete-gut-health.jpg';
+import dailyWellnessImg from '@/assets/bundles/daily-wellness.jpg';
+import beautyGlowImg from '@/assets/bundles/beauty-glow.jpg';
+import sleepRecoverImg from '@/assets/bundles/sleep-recover.jpg';
+import bestValueMegaImg from '@/assets/bundles/best-value-mega.jpg';
+import newYearResetImg from '@/assets/bundles/new-year-reset.jpg';
+
 // Real Shopify product variant IDs
 export const shopifyVariants = {
   mushroomFocus: 'gid://shopify/ProductVariant/48022272737499',
@@ -16,6 +26,18 @@ export const shopifyVariants = {
   sleep: 'gid://shopify/ProductVariant/48044984697051',
   cognitiveRelax: 'gid://shopify/ProductVariant/48022272868571',
   hangover: 'gid://shopify/ProductVariant/48044984369371',
+};
+
+// Bundle images map
+export const bundleImages: Record<string, string> = {
+  'ultimate-focus-stack': ultimateFocusImg,
+  'athlete-performance': athletePerformanceImg,
+  'complete-gut-health': completeGutHealthImg,
+  'daily-wellness': dailyWellnessImg,
+  'beauty-glow': beautyGlowImg,
+  'sleep-recover': sleepRecoverImg,
+  'best-value-mega': bestValueMegaImg,
+  'new-year-reset': newYearResetImg,
 };
 
 // Product info for cart display
