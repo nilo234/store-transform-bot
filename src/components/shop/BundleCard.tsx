@@ -4,7 +4,7 @@ import { Plus, Clock, Package, Copy, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
-import { Bundle, productInfo } from '@/data/bundles';
+import { Bundle, productInfo, bundleImages } from '@/data/bundles';
 
 interface BundleCardProps {
   bundle: Bundle;
@@ -143,10 +143,10 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* Header with Badge */}
-        <div className="relative bg-gradient-to-br from-primary/10 via-primary/5 to-accent/10 p-6 pb-4">
-          {/* Badges Row */}
-          <div className="flex items-start justify-between mb-3">
+        {/* Bundle Image */}
+        <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-b from-muted/30 to-card">
+          {/* Badges Row - positioned over image */}
+          <div className="absolute top-4 left-4 right-4 z-10 flex items-start justify-between">
             {/* Pack Size Badge */}
             <div className="bg-primary text-primary-foreground px-3 py-1.5 rounded-lg text-sm font-bold shadow-sm flex items-center gap-1.5">
               <Package className="h-3.5 w-3.5" />
@@ -161,16 +161,28 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
             )}
           </div>
 
-          {/* Bundle Name with Emoji */}
-          <div className="flex items-center gap-2 mb-2">
-            <span className="text-3xl">{bundle.emoji}</span>
+          {/* Image */}
+          <motion.img
+            src={bundleImages[bundle.id]}
+            alt={bundle.name}
+            className="w-full h-full object-cover transition-transform duration-500"
+            animate={{ scale: isHovered ? 1.05 : 1 }}
+          />
+
+          {/* Countdown Timer - positioned at bottom of image */}
+          <div className="absolute bottom-4 left-4 bg-background/90 backdrop-blur-sm rounded-lg px-3 py-1.5 shadow-sm">
+            <CountdownTimer />
+          </div>
+        </div>
+
+        {/* Bundle Name with Emoji */}
+        <div className="px-6 pt-4 pb-2">
+          <div className="flex items-center gap-2">
+            <span className="text-2xl">{bundle.emoji}</span>
             <h3 className="font-display text-lg font-bold text-foreground leading-tight">
               {bundle.name}
             </h3>
           </div>
-
-          {/* Countdown Timer */}
-          <CountdownTimer />
         </div>
 
         {/* Products List */}
