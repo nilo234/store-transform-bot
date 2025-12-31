@@ -45,15 +45,15 @@ function CountdownTimer() {
 
   return (
     <div className="flex items-center gap-1">
-      <span className="bg-background text-foreground px-2 py-0.5 text-sm font-bold border border-foreground">
+      <span className="bg-white text-[hsl(150,35%,15%)] px-2 py-0.5 text-sm font-bold rounded-sm">
         {formatNumber(timeLeft.hours)} HRS
       </span>
-      <span className="text-primary-foreground">:</span>
-      <span className="bg-background text-foreground px-2 py-0.5 text-sm font-bold border border-foreground">
+      <span className="text-white">:</span>
+      <span className="bg-white text-[hsl(150,35%,15%)] px-2 py-0.5 text-sm font-bold rounded-sm">
         {formatNumber(timeLeft.minutes)} MIN
       </span>
-      <span className="text-primary-foreground">:</span>
-      <span className="bg-background text-foreground px-2 py-0.5 text-sm font-bold border border-foreground">
+      <span className="text-white">:</span>
+      <span className="bg-white text-[hsl(150,35%,15%)] px-2 py-0.5 text-sm font-bold rounded-sm">
         {formatNumber(timeLeft.seconds)} SEC
       </span>
     </div>
@@ -78,21 +78,21 @@ export function Navbar() {
   return (
     <>
       <header className="sticky top-0 z-50 w-full">
-        {/* Announcement Bar */}
-        <div className="bg-primary text-primary-foreground py-2.5">
+        {/* Announcement Bar - Auri Style Dark Green */}
+        <div className="bg-[hsl(150,35%,15%)] text-white py-2.5">
           <div className="container-wide flex items-center justify-center gap-4 flex-wrap">
             <span className="font-semibold text-sm tracking-wide">
               HOLIDAY SALE: UP TO{' '}
-              <span className="font-bold underline">45% OFF</span>
+              <span className="font-bold text-[hsl(43,30%,75%)]">45% OFF</span>
             </span>
             <CountdownTimer />
           </div>
         </div>
 
-        {/* Main Navigation */}
+        {/* Main Navigation - White Background */}
         <nav className={cn(
-          "bg-background transition-all duration-300 border-b border-foreground",
-          scrolled && "shadow-soft"
+          "bg-white transition-all duration-300 border-b border-[hsl(40,20%,88%)]",
+          scrolled && "shadow-md"
         )}>
           <div className="container-wide">
             <div className="flex items-center justify-between h-20">
