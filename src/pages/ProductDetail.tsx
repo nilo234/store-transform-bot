@@ -10,7 +10,6 @@ import { useCartStore } from '@/stores/cartStore';
 import { Skeleton } from '@/components/ui/skeleton';
 import { toast } from 'sonner';
 import { findProductContent, ProductContent } from '@/data/productContent';
-import { getFlavorIcon } from '@/lib/flavorIcons';
 import { JudgeMeReviews } from '@/components/reviews/JudgeMeReviews';
 import {
   Accordion,
@@ -178,19 +177,6 @@ export default function ProductDetail() {
 
               {/* Title */}
               <h1 className="font-display text-3xl md:text-4xl font-bold">{product.title}</h1>
-
-              {/* Flavor Badge - Prominent Position with custom icon */}
-              {productContent?.flavor && (() => {
-                const flavorStyle = getFlavorIcon(productContent.flavor);
-                return (
-                  <div className="flex items-center gap-2">
-                    <span className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold ${flavorStyle.color}`}>
-                      <span className="text-xl">{flavorStyle.emoji}</span>
-                      Flavor: {productContent.flavor}
-                    </span>
-                  </div>
-                );
-              })()}
 
               {/* Price */}
               <div className="flex items-center gap-4">

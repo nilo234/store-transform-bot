@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingCart, User, Search } from 'lucide-react';
+import { Menu, X, ShoppingCart, User, Search, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useCartStore } from '@/stores/cartStore';
 import { CartDrawer } from '@/components/cart/CartDrawer';
 import { cn } from '@/lib/utils';
-import neuvieLogo from '@/assets/neuvie-logo.png';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
   { href: '/shop', label: 'Shop' },
@@ -45,15 +45,15 @@ function CountdownTimer() {
 
   return (
     <div className="flex items-center gap-1">
-      <span className="bg-white text-[hsl(150,35%,15%)] px-2 py-0.5 text-sm font-bold rounded-sm">
+      <span className="bg-background text-foreground px-2 py-0.5 rounded text-sm font-bold">
         {formatNumber(timeLeft.hours)} HRS
       </span>
-      <span className="text-white">:</span>
-      <span className="bg-white text-[hsl(150,35%,15%)] px-2 py-0.5 text-sm font-bold rounded-sm">
+      <span className="text-primary-foreground">:</span>
+      <span className="bg-background text-foreground px-2 py-0.5 rounded text-sm font-bold">
         {formatNumber(timeLeft.minutes)} MIN
       </span>
-      <span className="text-white">:</span>
-      <span className="bg-white text-[hsl(150,35%,15%)] px-2 py-0.5 text-sm font-bold rounded-sm">
+      <span className="text-primary-foreground">:</span>
+      <span className="bg-background text-foreground px-2 py-0.5 rounded text-sm font-bold">
         {formatNumber(timeLeft.seconds)} SEC
       </span>
     </div>
@@ -78,31 +78,29 @@ export function Navbar() {
   return (
     <>
       <header className="sticky top-0 z-50 w-full">
-        {/* Announcement Bar - Auri Style Dark Green */}
-        <div className="bg-[hsl(150,35%,15%)] text-white py-2.5">
+        {/* Announcement Bar - TryAuri Style */}
+        <div className="bg-primary text-primary-foreground py-2.5">
           <div className="container-wide flex items-center justify-center gap-4 flex-wrap">
             <span className="font-semibold text-sm tracking-wide">
               HOLIDAY SALE: UP TO{' '}
-              <span className="font-bold text-[hsl(43,30%,75%)]">45% OFF</span>
+              <span className="text-accent font-bold">45% OFF</span>
             </span>
             <CountdownTimer />
           </div>
         </div>
 
-        {/* Main Navigation - White Background */}
+        {/* Main Navigation - TryAuri Style */}
         <nav className={cn(
-          "bg-white transition-all duration-300 border-b border-[hsl(40,20%,88%)]",
-          scrolled && "shadow-md"
+          "bg-background transition-all duration-300",
+          scrolled ? "shadow-md" : "border-b border-border/30"
         )}>
           <div className="container-wide">
             <div className="flex items-center justify-between h-20">
-              {/* Logo */}
+              {/* Logo - 50% larger as requested */}
               <Link to="/" className="flex items-center">
-                <img 
-                  src={neuvieLogo} 
-                  alt="Neuvie Nutrition" 
-                  className="h-12 md:h-14 w-auto"
-                />
+                <span className="font-display text-4xl md:text-5xl font-bold text-primary tracking-tight">
+                  Neuvie
+                </span>
               </Link>
 
               {/* Desktop Navigation - Centered */}
@@ -112,16 +110,13 @@ export function Navbar() {
                     key={link.href}
                     to={link.href}
                     className={cn(
-                      "text-sm font-medium transition-all hover:opacity-60 relative py-2 uppercase tracking-wide",
+                      "text-sm font-medium transition-colors hover:text-primary relative py-2",
                       location.pathname === link.href 
-                        ? "text-foreground" 
-                        : "text-foreground"
+                        ? "text-primary" 
+                        : "text-foreground/80"
                     )}
                   >
                     {link.label}
-                    {location.pathname === link.href && (
-                      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-foreground" />
-                    )}
                   </Link>
                 ))}
               </div>
@@ -129,13 +124,13 @@ export function Navbar() {
               {/* Right Side Actions */}
               <div className="flex items-center gap-1 md:gap-3">
                 {/* Search */}
-                <Button variant="ghost" size="icon" className="hidden md:flex h-10 w-10 hover:bg-transparent hover:opacity-60">
+                <Button variant="ghost" size="icon" className="hidden md:flex h-10 w-10">
                   <Search className="h-5 w-5" />
                 </Button>
 
                 {/* Account */}
                 <Link to="/account">
-                  <Button variant="ghost" size="icon" className="h-10 w-10 hover:bg-transparent hover:opacity-60">
+                  <Button variant="ghost" size="icon" className="h-10 w-10">
                     <User className="h-5 w-5" />
                   </Button>
                 </Link>
@@ -144,36 +139,32 @@ export function Navbar() {
                 <Button 
                   variant="ghost" 
                   size="icon" 
-                  className="relative h-10 w-10 hover:bg-transparent hover:opacity-60"
+                  className="relative h-10 w-10"
                   onClick={() => setCartOpen(true)}
                 >
                   <ShoppingCart className="h-5 w-5" />
                   {totalItems > 0 && (
-                    <span className="absolute -top-0.5 -right-0.5 h-5 w-5 bg-foreground text-background text-xs font-bold flex items-center justify-center">
+                    <span className="absolute -top-0.5 -right-0.5 h-5 w-5 rounded-full bg-accent text-accent-foreground text-xs font-bold flex items-center justify-center">
                       {totalItems}
                     </span>
                   )}
                 </Button>
 
-                {/* Mobile Menu Toggle */}
+                {/* Mobile Menu Toggle - TryAuri Hamburger */}
                 <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                   <SheetTrigger asChild className="lg:hidden">
-                    <Button variant="ghost" size="icon" className="h-10 w-10 hover:bg-transparent hover:opacity-60">
+                    <Button variant="ghost" size="icon" className="h-10 w-10">
                       <Menu className="h-6 w-6" />
                     </Button>
                   </SheetTrigger>
-                  <SheetContent side="right" className="w-full sm:w-[400px] p-0 bg-background border-l border-foreground">
+                  <SheetContent side="right" className="w-full sm:w-[400px] p-0 bg-background">
                     <div className="flex flex-col h-full">
                       {/* Mobile Header */}
-                      <div className="flex items-center justify-between p-6 border-b border-foreground">
+                      <div className="flex items-center justify-between p-6 border-b border-border">
                         <Link to="/" onClick={() => setMobileMenuOpen(false)}>
-                          <img 
-                            src={neuvieLogo} 
-                            alt="Neuvie Nutrition" 
-                            className="h-10 w-auto"
-                          />
+                          <span className="font-display text-3xl font-bold text-primary">Neuvie</span>
                         </Link>
-                        <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)} className="hover:bg-transparent hover:opacity-60">
+                        <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)}>
                           <X className="h-6 w-6" />
                         </Button>
                       </div>
@@ -184,8 +175,8 @@ export function Navbar() {
                           <Link
                             to="/"
                             className={cn(
-                              "block py-4 text-lg font-medium border-b border-foreground/20 transition-colors uppercase tracking-wide",
-                              location.pathname === "/" ? "text-foreground" : "text-foreground"
+                              "block py-4 text-lg font-medium border-b border-border/50 transition-colors",
+                              location.pathname === "/" ? "text-primary" : "text-foreground"
                             )}
                             onClick={() => setMobileMenuOpen(false)}
                           >
@@ -196,8 +187,8 @@ export function Navbar() {
                               key={link.href}
                               to={link.href}
                               className={cn(
-                                "block py-4 text-lg font-medium border-b border-foreground/20 transition-colors uppercase tracking-wide",
-                                location.pathname === link.href ? "text-foreground" : "text-foreground"
+                                "block py-4 text-lg font-medium border-b border-border/50 transition-colors",
+                                location.pathname === link.href ? "text-primary" : "text-foreground"
                               )}
                               onClick={() => setMobileMenuOpen(false)}
                             >
@@ -208,9 +199,9 @@ export function Navbar() {
                       </nav>
 
                       {/* Mobile CTA */}
-                      <div className="p-6 border-t border-foreground">
+                      <div className="p-6 border-t border-border bg-muted/30">
                         <Link to="/shop" onClick={() => setMobileMenuOpen(false)}>
-                          <Button className="w-full bg-primary text-primary-foreground h-14 text-lg font-semibold border border-foreground">
+                          <Button className="w-full bg-primary text-primary-foreground h-14 text-lg font-semibold rounded-lg">
                             Shop Now →
                           </Button>
                         </Link>

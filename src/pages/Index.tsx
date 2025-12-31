@@ -85,10 +85,9 @@ export default function Index() {
       <Navbar />
       
       <main className="flex-1">
-        {/* Hero Section - Auri Style with Dark Forest Green Background */}
-        <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-[hsl(150,35%,15%)]">
-          {/* Background gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(150,35%,15%)] via-[hsl(150,35%,15%)] to-transparent" />
+        {/* Hero Section */}
+        <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-muted/40" />
           
           <div className="container-wide relative z-10 py-12 lg:py-0">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -102,33 +101,32 @@ export default function Index() {
                 <div className="inline-flex items-center gap-2 mb-6">
                   <div className="flex">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-[hsl(43,30%,75%)] text-[hsl(43,30%,75%)]" />
+                      <Star key={i} className="h-4 w-4 fill-accent text-accent" />
                     ))}
                   </div>
-                  <span className="text-sm text-white/80 font-medium">
+                  <span className="text-sm text-muted-foreground font-medium">
                     | Trusted by 50,000+ Customers
                   </span>
                 </div>
 
-                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-6 text-white">
-                  WELLNESS STRIPS{' '}
-                  <br />
-                  <span className="text-[hsl(0,70%,55%)]">UP TO 45% OFF</span>
+                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-6">
+                  Wellness Strips That{' '}
+                  <span className="text-accent">Actually Work</span>
                 </h1>
 
-                <p className="text-lg text-white/80 mb-8 max-w-lg">
+                <p className="text-lg text-muted-foreground mb-8 max-w-lg">
                   Fast-dissolving oral strips with science-backed ingredients. No water needed. No pills to swallow. Just place on your tongue and feel the difference.
                 </p>
 
                 <Link to="/shop">
-                  <Button className="bg-[hsl(43,30%,75%)] hover:bg-[hsl(43,30%,70%)] text-[hsl(150,35%,12%)] h-14 px-10 text-lg font-bold rounded-sm group border-0">
+                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground h-14 px-10 text-lg font-semibold rounded-lg group">
                     SHOP NOW
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </Link>
 
-                <p className="mt-6 text-sm text-white/70 font-medium">
-                  60-Day Money-Back Guarantee***
+                <p className="mt-6 text-sm text-muted-foreground font-medium">
+                  60-Day Money-Back Guarantee
                 </p>
 
                 <div className="mt-8 flex items-center gap-4">
@@ -136,45 +134,48 @@ export default function Index() {
                     {[1, 2, 3].map((i) => (
                       <div 
                         key={i} 
-                        className="w-12 h-12 rounded-full bg-[hsl(43,30%,75%)]/20 border-2 border-[hsl(150,35%,15%)] flex items-center justify-center overflow-hidden"
+                        className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 border-2 border-background flex items-center justify-center"
                       >
                         <span className="text-lg">👤</span>
                       </div>
                     ))}
                   </div>
-                  <p className="text-sm italic text-white/80 max-w-[200px]">
-                    "Amazing! It does wonders for my mind and body!"
+                  <p className="text-sm italic text-foreground/80 max-w-[200px]">
+                    "Finally, supplements I can actually take on the go!"
                   </p>
                 </div>
               </motion.div>
 
-              {/* Hero Image - Product Display */}
+              {/* Hero Image */}
               <motion.div
                 className="relative order-1 lg:order-2"
                 initial={{ opacity: 0, x: 40 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
               >
-                <div className="relative aspect-[4/3] lg:aspect-square flex items-center justify-center">
-                  {/* Floating product cards in Auri style */}
-                  <div className="grid grid-cols-3 gap-3 p-4">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <motion.div
-                        key={i}
-                        className="bg-white rounded-lg p-3 shadow-xl"
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.3 + i * 0.1 }}
-                        whileHover={{ y: -5, scale: 1.02 }}
-                      >
-                        <div className="aspect-[3/4] bg-gradient-to-b from-[hsl(40,30%,97%)] to-[hsl(40,20%,95%)] rounded flex items-center justify-center">
-                          <span className="text-3xl">💊</span>
-                        </div>
-                        <p className="text-[9px] text-center mt-2 font-medium text-[hsl(150,30%,15%)]">
-                          Neuvie Strip
-                        </p>
-                      </motion.div>
-                    ))}
+                <div className="relative aspect-[4/3] lg:aspect-square">
+                  <div className="absolute inset-0 bg-gradient-to-br from-muted/60 to-muted/30 rounded-3xl" />
+                  
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="grid grid-cols-3 gap-4 p-8">
+                      {[1, 2, 3, 4, 5].map((i) => (
+                        <motion.div
+                          key={i}
+                          className="bg-background/80 backdrop-blur-sm rounded-2xl p-4 shadow-lg"
+                          initial={{ y: 20, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{ delay: 0.3 + i * 0.1 }}
+                          whileHover={{ y: -5, scale: 1.02 }}
+                        >
+                          <div className="aspect-[3/4] bg-gradient-to-b from-primary/10 to-accent/10 rounded-xl flex items-center justify-center">
+                            <span className="text-4xl">💊</span>
+                          </div>
+                          <p className="text-[10px] text-center mt-2 font-medium text-muted-foreground">
+                            Neuvie Strip
+                          </p>
+                        </motion.div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -182,11 +183,11 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Marquee Section - Auri Style Green Bar */}
-        <section className="py-3 bg-[hsl(150,35%,15%)] border-y border-[hsl(43,30%,75%)]/30 overflow-hidden">
+        {/* Marquee Section */}
+        <section className="py-4 bg-primary text-primary-foreground overflow-hidden">
           <div className="flex animate-marquee">
             {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, index) => (
-              <span key={index} className="mx-8 whitespace-nowrap font-medium flex items-center gap-2 text-[hsl(43,30%,75%)]">
+              <span key={index} className="mx-8 whitespace-nowrap font-medium flex items-center gap-2">
                 <Check className="h-4 w-4" />
                 {item.text}
               </span>

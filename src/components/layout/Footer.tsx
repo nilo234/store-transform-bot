@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Twitter, ArrowRight } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import neuvieLogo from '@/assets/neuvie-logo.png';
 
 const footerLinks = {
   shop: [
@@ -42,26 +41,26 @@ const trustBadges = [
 
 export function Footer() {
   return (
-    <footer className="bg-[hsl(150,35%,15%)] text-white">
+    <footer className="bg-primary text-primary-foreground">
       {/* Newsletter Section */}
-      <div className="border-b border-white/20">
+      <div className="border-b border-primary-foreground/10">
         <div className="container-wide py-16">
           <div className="max-w-xl mx-auto text-center">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
+            <h3 className="font-display text-2xl md:text-3xl font-bold mb-4">
               Join the Neuvie Community
             </h3>
-            <p className="text-white/80 mb-8 text-base">
+            <p className="text-primary-foreground/70 mb-8 text-base">
               Get 15% off your first order plus exclusive access to new products and wellness tips.
             </p>
             <form className="flex gap-3 max-w-md mx-auto">
               <Input 
                 type="email"
                 placeholder="Enter your email" 
-                className="h-12 bg-white text-[hsl(150,35%,15%)] placeholder:text-[hsl(150,35%,15%)]/50 border-0 flex-1 rounded-sm"
+                className="h-12 bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 rounded-lg flex-1"
               />
               <Button 
                 type="submit"
-                className="h-12 bg-[hsl(43,30%,75%)] text-[hsl(150,35%,15%)] hover:bg-[hsl(43,30%,70%)] px-6 font-semibold border-0 rounded-sm"
+                className="h-12 bg-accent hover:bg-accent/90 text-accent-foreground px-6 font-semibold rounded-lg"
               >
                 Subscribe
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -77,13 +76,9 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
-              <img 
-                src={neuvieLogo} 
-                alt="Neuvie Nutrition" 
-                className="h-14 w-auto brightness-0 invert"
-              />
+              <span className="font-display text-4xl font-bold">Neuvie</span>
             </Link>
-            <p className="text-white/80 mb-8 max-w-sm text-sm leading-relaxed">
+            <p className="text-primary-foreground/70 mb-8 max-w-sm text-sm leading-relaxed">
               Fast-dissolving oral strips with science-backed ingredients. The future of supplements—convenient, effective, and designed for your lifestyle.
             </p>
             
@@ -93,7 +88,7 @@ export function Footer() {
                 <a 
                   key={social.label}
                   href={social.href} 
-                  className="w-10 h-10 border border-white/40 rounded-sm flex items-center justify-center transition-opacity hover:opacity-60"
+                  className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center transition-colors"
                   aria-label={social.label}
                 >
                   <social.icon className="h-5 w-5" />
@@ -104,13 +99,13 @@ export function Footer() {
 
           {/* Shop Links */}
           <div>
-            <h4 className="font-semibold text-lg mb-6 uppercase tracking-wide text-white">Shop</h4>
+            <h4 className="font-semibold text-lg mb-6">Shop</h4>
             <ul className="space-y-4">
               {footerLinks.shop.map((link) => (
                 <li key={link.href}>
                   <Link 
                     to={link.href} 
-                    className="text-white/70 hover:text-white transition-colors text-sm"
+                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm"
                   >
                     {link.label}
                   </Link>
@@ -121,13 +116,13 @@ export function Footer() {
 
           {/* Company Links */}
           <div>
-            <h4 className="font-semibold text-lg mb-6 uppercase tracking-wide text-white">Company</h4>
+            <h4 className="font-semibold text-lg mb-6">Company</h4>
             <ul className="space-y-4">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
                   <Link 
                     to={link.href} 
-                    className="text-white/70 hover:text-white transition-colors text-sm"
+                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm"
                   >
                     {link.label}
                   </Link>
@@ -138,13 +133,13 @@ export function Footer() {
 
           {/* Support Links */}
           <div>
-            <h4 className="font-semibold text-lg mb-6 uppercase tracking-wide text-white">Support</h4>
+            <h4 className="font-semibold text-lg mb-6">Support</h4>
             <ul className="space-y-4">
               {footerLinks.support.map((link) => (
                 <li key={link.href}>
                   <Link 
                     to={link.href} 
-                    className="text-white/70 hover:text-white transition-colors text-sm"
+                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm"
                   >
                     {link.label}
                   </Link>
@@ -155,18 +150,18 @@ export function Footer() {
         </div>
 
         {/* Trust Badges */}
-        <div className="mt-16 pt-8 border-t border-white/20">
+        <div className="mt-16 pt-8 border-t border-primary-foreground/10">
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-8">
             {trustBadges.map((badge) => (
-              <span key={badge} className="flex items-center gap-2 text-sm text-white/70">
-                <span className="w-1.5 h-1.5 bg-[hsl(43,30%,75%)] rounded-full" />
+              <span key={badge} className="flex items-center gap-2 text-sm text-primary-foreground/70">
+                <span className="w-2 h-2 rounded-full bg-accent" />
                 {badge}
               </span>
             ))}
           </div>
           
           {/* Copyright */}
-          <p className="text-center text-white/50 text-sm">
+          <p className="text-center text-primary-foreground/50 text-sm">
             © {new Date().getFullYear()} Neuvie. All rights reserved.
           </p>
         </div>

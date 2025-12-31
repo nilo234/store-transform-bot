@@ -2,111 +2,109 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Neuvie Design System - TryAuri-Inspired Theme */
+/* Neuvie Design System - Inspired by TryAuri's clean, premium aesthetic */
 
 @layer base {
   :root {
-    /* Auri Theme - Exact Match */
-    --background: 0 0% 100%;
-    --foreground: 150 30% 15%;
+    /* Brand Colors - Warm, Natural, Premium */
+    --background: 45 30% 98%;
+    --foreground: 30 20% 12%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 150 30% 15%;
+    --card: 45 25% 96%;
+    --card-foreground: 30 20% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 150 30% 15%;
+    --popover-foreground: 30 20% 12%;
 
-    /* Primary - Gold/Beige CTA (Auri buttons) */
-    --primary: 43 30% 75%;
-    --primary-foreground: 150 35% 12%;
+    /* Primary - Deep Forest Green */
+    --primary: 158 35% 25%;
+    --primary-foreground: 45 30% 98%;
 
-    /* Secondary - Light warm gray */
-    --secondary: 40 25% 96%;
-    --secondary-foreground: 150 30% 20%;
+    /* Secondary - Warm Cream */
+    --secondary: 45 40% 92%;
+    --secondary-foreground: 30 20% 12%;
 
-    /* Muted - Soft backgrounds */
-    --muted: 40 20% 96%;
-    --muted-foreground: 150 15% 45%;
+    /* Muted - Soft Sage */
+    --muted: 150 15% 90%;
+    --muted-foreground: 150 10% 40%;
 
-    /* Accent - Gold highlight */
-    --accent: 43 35% 88%;
-    --accent-foreground: 43 40% 30%;
+    /* Accent - Golden Honey */
+    --accent: 38 80% 55%;
+    --accent-foreground: 30 20% 12%;
 
-    --destructive: 0 72% 51%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 40 20% 88%;
-    --input: 40 20% 88%;
-    --ring: 43 30% 75%;
+    --border: 45 20% 88%;
+    --input: 45 20% 88%;
+    --ring: 158 35% 25%;
 
-    --radius: 0.375rem;
+    --radius: 0.75rem;
 
-    /* Font */
-    --font-body: 'Inter', system-ui, sans-serif;
+    /* Custom Design Tokens */
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(45 30% 98%) 0%, hsl(150 20% 95%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(45 25% 97%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(158 35% 25%) 0%, hsl(158 40% 30%) 100%);
     
     /* Shadows */
-    --shadow-soft: 0 2px 8px -2px hsl(150 30% 15% / 0.06);
-    --shadow-card: 0 4px 16px -4px hsl(150 30% 15% / 0.08);
-    --shadow-elevated: 0 8px 32px -8px hsl(150 30% 15% / 0.12);
-
-    /* Auri specific colors */
-    --auri-forest: 150 35% 15%;
-    --auri-forest-dark: 150 40% 10%;
-    --auri-gold: 43 30% 75%;
-    --auri-gold-dark: 43 35% 55%;
-    --auri-cream: 40 30% 97%;
-    --auri-red: 0 70% 55%;
+    --shadow-soft: 0 4px 20px -4px hsl(30 20% 12% / 0.08);
+    --shadow-card: 0 8px 32px -8px hsl(30 20% 12% / 0.12);
+    --shadow-elevated: 0 20px 60px -15px hsl(30 20% 12% / 0.2);
 
     /* Sidebar */
-    --sidebar-background: 150 35% 12%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 43 30% 75%;
-    --sidebar-primary-foreground: 150 35% 12%;
-    --sidebar-accent: 150 30% 18%;
-    --sidebar-accent-foreground: 43 30% 80%;
-    --sidebar-border: 150 25% 20%;
-    --sidebar-ring: 43 30% 75%;
+    --sidebar-background: 45 30% 98%;
+    --sidebar-foreground: 30 20% 12%;
+    --sidebar-primary: 158 35% 25%;
+    --sidebar-primary-foreground: 45 30% 98%;
+    --sidebar-accent: 45 40% 92%;
+    --sidebar-accent-foreground: 30 20% 12%;
+    --sidebar-border: 45 20% 88%;
+    --sidebar-ring: 158 35% 25%;
   }
 
   .dark {
-    --background: 150 35% 12%;
-    --foreground: 40 25% 95%;
+    --background: 30 15% 8%;
+    --foreground: 45 30% 95%;
 
-    --card: 150 30% 16%;
-    --card-foreground: 40 25% 95%;
+    --card: 30 15% 12%;
+    --card-foreground: 45 30% 95%;
 
-    --popover: 150 30% 16%;
-    --popover-foreground: 40 25% 95%;
+    --popover: 30 15% 10%;
+    --popover-foreground: 45 30% 95%;
 
-    --primary: 43 30% 75%;
-    --primary-foreground: 150 35% 12%;
+    --primary: 158 45% 45%;
+    --primary-foreground: 30 15% 8%;
 
-    --secondary: 150 25% 20%;
-    --secondary-foreground: 40 25% 90%;
+    --secondary: 30 15% 18%;
+    --secondary-foreground: 45 30% 95%;
 
-    --muted: 150 25% 18%;
-    --muted-foreground: 40 20% 60%;
+    --muted: 30 10% 20%;
+    --muted-foreground: 45 15% 60%;
 
-    --accent: 150 30% 22%;
-    --accent-foreground: 43 30% 80%;
+    --accent: 38 80% 55%;
+    --accent-foreground: 30 15% 8%;
 
-    --destructive: 0 65% 55%;
+    --destructive: 0 62% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 150 25% 22%;
-    --input: 150 25% 22%;
-    --ring: 43 30% 75%;
+    --border: 30 10% 20%;
+    --input: 30 10% 20%;
+    --ring: 158 45% 45%;
 
-    --sidebar-background: 150 40% 8%;
-    --sidebar-foreground: 40 25% 95%;
-    --sidebar-primary: 43 30% 75%;
-    --sidebar-primary-foreground: 150 35% 12%;
-    --sidebar-accent: 150 30% 18%;
-    --sidebar-accent-foreground: 43 30% 80%;
-    --sidebar-border: 150 25% 22%;
-    --sidebar-ring: 43 30% 75%;
+    --sidebar-background: 30 15% 8%;
+    --sidebar-foreground: 45 30% 95%;
+    --sidebar-primary: 158 45% 45%;
+    --sidebar-primary-foreground: 30 15% 8%;
+    --sidebar-accent: 30 15% 18%;
+    --sidebar-accent-foreground: 45 30% 95%;
+    --sidebar-border: 30 10% 20%;
+    --sidebar-ring: 158 45% 45%;
   }
 }
 
@@ -120,36 +118,13 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground font-body antialiased;
     font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.5;
   }
 
-  h1 {
-    font-family: var(--font-body);
-    @apply font-bold tracking-tight;
-    font-size: 48px;
-    line-height: 1.1;
-  }
-
-  h2 {
-    font-family: var(--font-body);
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
     @apply font-semibold tracking-tight;
-    font-size: 36px;
-    line-height: 1.2;
-  }
-
-  h3 {
-    font-family: var(--font-body);
-    @apply font-semibold tracking-tight;
-    font-size: 24px;
-    line-height: 1.3;
-  }
-
-  h4, h5, h6 {
-    font-family: var(--font-body);
-    @apply font-medium tracking-tight;
   }
 }
 
@@ -159,27 +134,36 @@
   }
 
   .btn-primary {
-    @apply bg-primary text-primary-foreground px-8 py-4 font-medium rounded-full
-           transition-all duration-300 hover:opacity-90 hover:shadow-lg
+    @apply bg-primary text-primary-foreground px-8 py-4 rounded-full font-medium 
+           transition-all duration-300 hover:shadow-lg hover:scale-[1.02] 
            active:scale-[0.98];
   }
 
   .btn-secondary {
-    @apply bg-secondary text-secondary-foreground px-6 py-3 font-medium rounded-full
-           border border-border transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:border-primary;
+    @apply bg-secondary text-secondary-foreground px-6 py-3 rounded-full font-medium 
+           border border-border transition-all duration-300 hover:bg-muted;
   }
 
   .card-product {
-    @apply bg-card overflow-hidden transition-all duration-500 rounded-2xl
-           hover:-translate-y-1 hover:shadow-xl border border-border;
+    @apply bg-card rounded-2xl overflow-hidden transition-all duration-500 
+           hover:-translate-y-1;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .card-product:hover {
+    box-shadow: var(--shadow-elevated);
   }
 
   .badge-discount {
-    @apply bg-primary text-primary-foreground px-3 py-1 text-sm font-semibold rounded-full;
+    @apply bg-accent text-accent-foreground px-3 py-1 rounded-full text-sm font-semibold;
   }
 
   .marquee {
     @apply flex gap-8 animate-marquee;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
   }
 }
 

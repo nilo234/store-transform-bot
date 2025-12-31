@@ -7,8 +7,6 @@ import { ShopifyProduct } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
 import { JudgeMePreviewBadge } from '@/components/reviews/JudgeMeReviews';
-import { findProductContent } from '@/data/productContent';
-import { getFlavorIcon } from '@/lib/flavorIcons';
 
 interface ProductCardProps {
   product: ShopifyProduct;
@@ -90,7 +88,6 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
   const originalPrice = price * 1.42; // Show as if 42% off like TryAuri
   const categoryBadge = getCategoryBadge(node.title);
   const ingredientIcons = getIngredientIcons(node.title);
-  const productContent = findProductContent(node.title) || findProductContent(node.handle);
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -121,120 +118,107 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
     >
       <Link to={`/product/${node.handle}`}>
         <div 
-          className="bg-white rounded-lg overflow-hidden transition-all duration-500 hover:-translate-y-1 group cursor-pointer border border-[hsl(40,20%,88%)] hover:shadow-xl"
+          className="bg-card rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 group cursor-pointer border border-border/50 hover:border-border hover:shadow-elevated"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          {/* Image Container - Auri Style */}
-          <div className="relative aspect-square overflow-hidden bg-[hsl(40,30%,97%)]">
-            {/* Servings Badge - Top Left - Auri Style */}
-            <div className="absolute top-3 left-3 z-10">
-              <div className="bg-white rounded px-2.5 py-1.5 text-center border border-[hsl(40,20%,88%)] shadow-sm">
-                <span className="text-base font-bold text-[hsl(150,30%,15%)] block leading-none">x30</span>
-                <span className="text-[9px] font-medium text-[hsl(150,15%,45%)] uppercase tracking-wide">SERVINGS</span>
+          {/* Image Container - TryAuri Style */}
+          <div className="relative aspect-square overflow-hidden bg-gradient-to-b from-muted/30 to-card">
+            {/* Servings Badge - Top Left - TryAuri Style */}
+            <div className="absolute top-4 left-4 z-10">
+              <div className="bg-background/95 backdrop-blur-sm rounded-lg px-3 py-2 text-center border border-border/50 shadow-sm">
+                <span className="text-lg font-bold text-foreground block leading-none">x30</span>
+                <span className="text-[10px] font-medium text-muted-foreground uppercase tracking-wide">SERVINGS</span>
               </div>
             </div>
 
-            {/* Discount Badge - Top Right - Auri Style Red */}
-            <div className="absolute top-3 right-3 z-10">
-              <span className="bg-[hsl(0,70%,55%)] text-white px-2.5 py-1 rounded text-xs font-bold shadow-sm">
+            {/* Discount Badge - Top Right - TryAuri Style */}
+            <div className="absolute top-4 right-4 z-10">
+              <span className="bg-accent text-accent-foreground px-3 py-1.5 rounded-lg text-sm font-bold shadow-sm">
                 42% OFF
               </span>
             </div>
 
             {/* Product Image */}
-            <div className="w-full h-full flex items-center justify-center p-6">
+            <div className="w-full h-full flex items-center justify-center p-8">
               {firstImage ? (
                 <motion.img
                   src={firstImage.url}
                   alt={firstImage.altText || node.title}
                   className="w-full h-full object-contain transition-transform duration-500"
-                  animate={{ scale: isHovered ? 1.05 : 1 }}
+                  animate={{ scale: isHovered ? 1.08 : 1 }}
                 />
               ) : (
-                <div className="w-full h-full bg-gradient-to-b from-[hsl(40,30%,97%)] to-[hsl(40,25%,94%)] flex items-center justify-center rounded">
-                  <span className="text-6xl">💊</span>
+                <div className="w-full h-full bg-gradient-to-b from-primary/5 to-accent/5 flex items-center justify-center rounded-xl">
+                  <span className="text-7xl">🍬</span>
                 </div>
               )}
             </div>
 
-            {/* Quick Add Button - Shows on Hover - Auri Style */}
+            {/* Quick Add Button - Shows on Hover - TryAuri Style */}
             <motion.div 
-              className="absolute inset-x-3 bottom-3"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 10 }}
-              transition={{ duration: 0.2 }}
+              className="absolute inset-x-4 bottom-4"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 15 }}
+              transition={{ duration: 0.25 }}
             >
               <Button 
                 onClick={handleAddToCart}
-                className="w-full bg-[hsl(43,30%,75%)] hover:bg-[hsl(43,30%,70%)] text-[hsl(150,35%,12%)] h-11 font-bold rounded-sm flex items-center justify-center gap-2 border-0"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-12 font-semibold rounded-lg flex items-center justify-center gap-2"
               >
-                <Plus className="h-4 w-4" />
+                <Plus className="h-5 w-5" />
                 Quick Add
               </Button>
             </motion.div>
           </div>
 
-          {/* Product Info - Auri Style */}
-          <div className="p-4">
+          {/* Product Info - TryAuri Style */}
+          <div className="p-5">
             {/* Category Badge */}
-            <span className="text-[10px] font-bold text-[hsl(150,35%,15%)] uppercase tracking-wider">
+            <span className={`text-xs font-bold ${categoryBadge.color} uppercase tracking-wider`}>
               {categoryBadge.label}
             </span>
 
             {/* Judge.me Star Rating */}
-            <div className="mt-1">
+            <div className="mt-1.5">
               <JudgeMePreviewBadge productId={node.id} />
             </div>
 
             {/* Title */}
-            <h3 className="font-semibold text-base mt-1.5 mb-2 text-[hsl(150,30%,15%)] group-hover:text-[hsl(150,35%,25%)] transition-colors line-clamp-2 leading-snug">
+            <h3 className="font-display text-lg font-semibold mt-1.5 mb-3 text-foreground group-hover:text-primary transition-colors line-clamp-2 leading-tight">
               {node.title}
             </h3>
 
-            {/* Flavor Badge - Auri Style */}
-            {productContent?.flavor && (() => {
-              const flavorStyle = getFlavorIcon(productContent.flavor);
-              return (
-                <div className="mb-2.5">
-                  <span className="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded bg-[hsl(40,30%,95%)] text-[hsl(150,30%,25%)]">
-                    <span className="text-xs">{flavorStyle.emoji}</span>
-                    {productContent.flavor}
-                  </span>
-                </div>
-              );
-            })()}
-
-            {/* Ingredient Icons - Auri Style */}
-            <div className="flex flex-wrap gap-1 mb-3">
+            {/* Ingredient Icons - TryAuri Style */}
+            <div className="flex flex-wrap gap-1.5 mb-4">
               {ingredientIcons.slice(0, 3).map((icon, i) => (
                 <span 
                   key={i} 
-                  className="text-[10px] bg-[hsl(40,25%,94%)] px-2 py-0.5 rounded text-[hsl(150,15%,40%)] font-medium"
+                  className="text-xs bg-muted/80 px-2.5 py-1 rounded-full text-muted-foreground font-medium"
                 >
                   {icon}
                 </span>
               ))}
             </div>
 
-            {/* Price - Auri Style */}
-            <div className="flex items-baseline gap-2">
-              <span className="text-lg font-bold text-[hsl(150,35%,15%)]">
+            {/* Price - TryAuri Style */}
+            <div className="flex items-baseline gap-2.5">
+              <span className="text-xl font-bold text-primary">
                 ${price.toFixed(2)}
               </span>
-              <span className="text-sm text-[hsl(150,15%,55%)] line-through">
+              <span className="text-sm text-muted-foreground line-through">
                 ${originalPrice.toFixed(2)}
               </span>
             </div>
 
             {/* Pack Info */}
-            <p className="text-[10px] text-[hsl(150,15%,50%)] mt-1.5 font-medium uppercase tracking-wide">
+            <p className="text-xs text-muted-foreground mt-2 font-medium">
               1 PACK • 30 Servings
             </p>
 
-            {/* Shop Now Link - Auri Style */}
-            <div className="mt-3 pt-3 border-t border-[hsl(40,20%,90%)]">
-              <span className="text-xs font-bold text-[hsl(150,35%,15%)] group-hover:text-[hsl(43,35%,50%)] transition-colors inline-flex items-center gap-1">
+            {/* Shop Now Link - TryAuri Style */}
+            <div className="mt-4 pt-4 border-t border-border/50">
+              <span className="text-sm font-bold text-primary group-hover:text-accent transition-colors inline-flex items-center gap-1">
                 Shop Now
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </span>
