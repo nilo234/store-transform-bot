@@ -12,12 +12,59 @@ import { toast } from 'sonner';
 import { findProductContent, ProductContent } from '@/data/productContent';
 import { JudgeMeReviews } from '@/components/reviews/JudgeMeReviews';
 import { SubscriptionToggle, PurchaseType } from '@/components/shop/SubscriptionToggle';
+import { StockIndicator } from '@/components/product/StockIndicator';
+import { ValueProposition } from '@/components/product/ValueProposition';
+import { InlineTestimonial } from '@/components/product/InlineTestimonial';
+import { ClinicalResults } from '@/components/product/ClinicalResults';
+import { ComparisonTable } from '@/components/product/ComparisonTable';
+import { IngredientSpotlight } from '@/components/product/IngredientSpotlight';
+import { BundleUpsell } from '@/components/product/BundleUpsell';
+import { ProductFAQs } from '@/components/product/ProductFAQs';
+import { GuaranteeSection } from '@/components/product/GuaranteeSection';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
+// Testimonials per product category
+const productTestimonials: Record<string, { quote: string; author: string }> = {
+  mushroom: {
+    quote: "After the first week, my focus improved dramatically and I feel more mentally sharp throughout the day. Love the chocolate flavor!",
+    author: "Michael R."
+  },
+  energy: {
+    quote: "Finally, an energy supplement that doesn't give me jitters! I take it every morning and feel powered up all day.",
+    author: "Sarah K."
+  },
+  sleep: {
+    quote: "I've struggled with sleep for years. These strips helped me fall asleep faster and wake up refreshed. Game changer!",
+    author: "David L."
+  },
+  cognitive: {
+    quote: "Perfect for stressful workdays. I feel calmer and more focused without any drowsiness. Highly recommend!",
+    author: "Emma T."
+  },
+  immunity: {
+    quote: "I haven't missed a day of work in months since starting these. My immune system feels stronger than ever.",
+    author: "James P."
+  },
+  default: {
+    quote: "These strips are so convenient and actually taste great. I've never been more consistent with my supplements!",
+    author: "Lisa M."
+  }
+};
+
+// Get product type for matching components
+const getProductType = (handle: string): string => {
+  if (handle?.includes('mushroom') || handle?.includes('focus')) return 'mushroom';
+  if (handle?.includes('energy') || handle?.includes('b12')) return 'energy';
+  if (handle?.includes('sleep') || handle?.includes('melatonin')) return 'sleep';
+  if (handle?.includes('cognitive') || handle?.includes('relax')) return 'cognitive';
+  if (handle?.includes('immunity') || handle?.includes('vitamin-c')) return 'immunity';
+  return 'default';
+};
 
 export default function ProductDetail() {
   const { handle } = useParams<{ handle: string }>();
@@ -82,6 +129,10 @@ export default function ProductDetail() {
     });
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   if (isLoading) {
     return (
       <div className="min-h-screen flex flex-col">
@@ -124,6 +175,8 @@ export default function ProductDetail() {
   const price = parseFloat(product.priceRange.minVariantPrice.amount);
   const originalPrice = price * 1.42;
   const images = product.images.edges;
+  const productType = getProductType(handle || '');
+  const testimonial = productTestimonials[productType] || productTestimonials.default;
   
   // Get product content
   const productContent = findProductContent(product.title) || findProductContent(product.handle);
@@ -152,7 +205,22 @@ export default function ProductDetail() {
               transition={{ duration: 0.5 }}
             >
               {/* Main Image */}
-              <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-b from-muted/50 to-card">
+              <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-b from-muted/50 to-card relative">
+                {/* Servings Badge */}
+                <div className="absolute top-4 left-4 z-10">
+                  <div className="bg-card/90 backdrop-blur-sm rounded-lg px-3 py-2 border border-border/50">
+                    <span className="text-2xl font-bold text-foreground">x30</span>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide">Strips</p>
+                  </div>
+                </div>
+                
+                {/* Sale Badge */}
+                <div className="absolute top-4 right-4 z-10">
+                  <span className="bg-primary text-primary-foreground text-sm font-semibold px-3 py-1.5 rounded-full">
+                    42% OFF
+                  </span>
+                </div>
+
                 {images[selectedImage] ? (
                   <img
                     src={images[selectedImage].node.url}
@@ -190,63 +258,37 @@ export default function ProductDetail() {
 
             {/* Product Info */}
             <motion.div 
-              className="space-y-6"
+              className="space-y-5"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              {/* Badge */}
-              <span className="badge-discount inline-block">42% OFF</span>
-
-              {/* Title */}
-              <h1 className="font-display text-3xl md:text-4xl font-bold">{product.title}</h1>
-
-              {/* Price */}
-              <div className="flex items-center gap-4">
-                <span className="text-3xl font-bold text-primary">€{price.toFixed(2)}</span>
-                <span className="text-xl text-muted-foreground line-through">€{originalPrice.toFixed(2)}</span>
-                <span className="text-sm bg-accent/20 text-accent px-2 py-1 rounded-full font-medium">
-                  Save €{(originalPrice - price).toFixed(2)}
-                </span>
+              {/* Title & Subtitle */}
+              <div>
+                <h1 className="font-display text-3xl md:text-4xl font-bold">{product.title}</h1>
+                <p className="text-muted-foreground mt-1">
+                  {productContent?.shortDescription?.split('.')[0] || 'Premium oral strip'}
+                </p>
               </div>
 
-              {/* Short Description */}
-              <p className="text-muted-foreground leading-relaxed">
-                {productContent?.shortDescription || product.description || 'Premium oral strip with science-backed ingredients. Fast-dissolving, no water needed.'}
-              </p>
-
-              {/* Benefits */}
-              {productContent && (
-                <div className="space-y-3">
-                  <h3 className="font-semibold text-lg">What This Product May Support:</h3>
-                  <ul className="space-y-2">
-                    {productContent.benefits.map((benefit, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                        <div>
-                          <span className="font-medium">{benefit.headline}:</span>{' '}
-                          <span className="text-muted-foreground">{benefit.description}</span>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
+              {/* Price Block */}
+              <div className="bg-muted/30 rounded-xl p-4 space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <span className="text-3xl font-bold text-primary">€{price.toFixed(2)}</span>
+                    <span className="text-lg text-muted-foreground line-through">€{originalPrice.toFixed(2)}</span>
+                  </div>
+                  <span className="bg-accent text-accent-foreground text-sm font-bold px-3 py-1 rounded-full">
+                    42% OFF TODAY
+                  </span>
                 </div>
-              )}
-
-              {/* Properties/Badges */}
-              {productContent && (
-                <div className="flex flex-wrap gap-2">
-                  {productContent.properties.map((prop, index) => (
-                    <span key={index} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-muted rounded-full text-sm">
-                      <Leaf className="h-3.5 w-3.5 text-primary" />
-                      {prop}
-                    </span>
-                  ))}
-                </div>
-              )}
+                
+                {/* Stock Indicator */}
+                <StockIndicator percentSold={83} />
+              </div>
 
               {/* Subscription Toggle */}
-              <div className="pt-4 border-t border-border">
+              <div className="pt-2">
                 <SubscriptionToggle 
                   basePrice={price} 
                   onSelectionChange={setPurchaseSelection}
@@ -254,39 +296,95 @@ export default function ProductDetail() {
               </div>
 
               {/* Quantity & Add to Cart */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <div className="flex items-center gap-3 bg-muted rounded-full p-1">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="h-10 w-10 rounded-full"
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
+              <div className="flex flex-col gap-3 pt-2">
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3 bg-muted rounded-full p-1">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-10 w-10 rounded-full"
+                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                    >
+                      <Minus className="h-4 w-4" />
+                    </Button>
+                    <span className="w-12 text-center font-semibold text-lg">{quantity}</span>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-10 w-10 rounded-full"
+                      onClick={() => setQuantity(quantity + 1)}
+                    >
+                      <Plus className="h-4 w-4" />
+                    </Button>
+                  </div>
+                  
+                  <Button 
+                    onClick={handleAddToCart}
+                    className="flex-1 btn-primary text-lg gap-2 h-12"
+                    size="lg"
                   >
-                    <Minus className="h-4 w-4" />
-                  </Button>
-                  <span className="w-12 text-center font-semibold text-lg">{quantity}</span>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="h-10 w-10 rounded-full"
-                    onClick={() => setQuantity(quantity + 1)}
-                  >
-                    <Plus className="h-4 w-4" />
+                    <ShoppingCart className="h-5 w-5" />
+                    {purchaseSelection?.type === 'subscribe' ? 'Subscribe & Save' : 'Add to Cart'} →
                   </Button>
                 </div>
                 
-                <Button 
-                  onClick={handleAddToCart}
-                  className="flex-1 btn-primary text-lg gap-2"
-                  size="lg"
-                >
-                  <ShoppingCart className="h-5 w-5" />
-                  {purchaseSelection?.type === 'subscribe' ? 'Subscribe & Save' : 'Add to Cart'}
-                </Button>
+                <p className="text-center text-sm text-muted-foreground">
+                  Ships FREE today • Fast 3-5 day delivery
+                </p>
               </div>
 
+              {/* Value Proposition Block */}
+              <ValueProposition 
+                servings={30} 
+                subscriptionPrice={purchaseSelection?.finalPrice ? `€${purchaseSelection.finalPrice.toFixed(2)}` : "€12.99"} 
+              />
+
+              {/* Inline Testimonial */}
+              <InlineTestimonial 
+                quote={testimonial.quote}
+                author={testimonial.author}
+                isVerified={true}
+              />
+
+              {/* Quick Info Accordions */}
+              <Accordion type="single" collapsible className="space-y-2">
+                <AccordionItem value="description" className="bg-muted/30 rounded-xl border-none px-4">
+                  <AccordionTrigger className="py-3 hover:no-underline">
+                    <span className="font-medium">Description</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-4 text-sm text-muted-foreground">
+                    {productContent?.longDescription?.[0] || product.description}
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="ingredients" className="bg-muted/30 rounded-xl border-none px-4">
+                  <AccordionTrigger className="py-3 hover:no-underline">
+                    <span className="font-medium">Ingredients</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-4">
+                    <div className="flex flex-wrap gap-1.5">
+                      {productContent?.ingredients?.map((ingredient, index) => (
+                        <span key={index} className="px-2 py-1 bg-background rounded text-xs text-muted-foreground">
+                          {ingredient}
+                        </span>
+                      )) || <span className="text-sm text-muted-foreground">See product packaging for full ingredient list.</span>}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="shipping" className="bg-muted/30 rounded-xl border-none px-4">
+                  <AccordionTrigger className="py-3 hover:no-underline">
+                    <span className="font-medium">Shipping & Guarantee</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-4 text-sm text-muted-foreground space-y-2">
+                    <p><strong>Shipping:</strong> Orders ship within 1 business day. Delivery typically 3-5 business days.</p>
+                    <p><strong>14-Day Guarantee:</strong> Not satisfied? Contact hello@neuvie.com for a full refund on your first order.</p>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+
               {/* Trust Badges */}
-              <div className="grid grid-cols-3 gap-4 pt-6 border-t border-border">
+              <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
                 <div className="text-center">
                   <Truck className="h-6 w-6 mx-auto mb-2 text-primary" />
                   <p className="text-xs text-muted-foreground">Free Shipping<br />on €50+</p>
@@ -300,9 +398,30 @@ export default function ProductDetail() {
                   <p className="text-xs text-muted-foreground">14-Day<br />Guarantee</p>
                 </div>
               </div>
+
+              {/* Properties/Badges */}
+              {productContent && (
+                <div className="flex flex-wrap gap-2">
+                  {productContent.properties.map((prop, index) => (
+                    <span key={index} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-muted rounded-full text-sm">
+                      <Leaf className="h-3.5 w-3.5 text-primary" />
+                      {prop}
+                    </span>
+                  ))}
+                </div>
+              )}
             </motion.div>
           </div>
         </section>
+
+        {/* Clinical Results Section */}
+        <ClinicalResults productType={productType} />
+
+        {/* Comparison Table */}
+        <ComparisonTable onCtaClick={scrollToTop} />
+
+        {/* Ingredient Spotlight */}
+        <IngredientSpotlight productHandle={productType} />
 
         {/* Detailed Product Information */}
         {productContent && (
@@ -314,10 +433,30 @@ export default function ProductDetail() {
                 </h2>
 
                 <Accordion type="single" collapsible className="space-y-4">
-                  {/* Product Description */}
-                  <AccordionItem value="description" className="bg-card rounded-xl border-none">
+                  {/* Benefits */}
+                  <AccordionItem value="benefits" className="bg-card rounded-xl border-none">
                     <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                      <span className="font-semibold text-lg">Description</span>
+                      <span className="font-semibold text-lg">Benefits</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-6 pb-6">
+                      <ul className="space-y-3">
+                        {productContent.benefits.map((benefit, index) => (
+                          <li key={index} className="flex items-start gap-3">
+                            <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <span className="font-medium">{benefit.headline}:</span>{' '}
+                              <span className="text-muted-foreground">{benefit.description}</span>
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Product Description */}
+                  <AccordionItem value="description-full" className="bg-card rounded-xl border-none">
+                    <AccordionTrigger className="px-6 py-4 hover:no-underline">
+                      <span className="font-semibold text-lg">Full Description</span>
                     </AccordionTrigger>
                     <AccordionContent className="px-6 pb-6">
                       <div className="space-y-4 text-muted-foreground">
@@ -335,22 +474,6 @@ export default function ProductDetail() {
                     </AccordionTrigger>
                     <AccordionContent className="px-6 pb-6">
                       <p className="text-muted-foreground">{productContent.usage}</p>
-                    </AccordionContent>
-                  </AccordionItem>
-
-                  {/* Ingredients */}
-                  <AccordionItem value="ingredients" className="bg-card rounded-xl border-none">
-                    <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                      <span className="font-semibold text-lg">Ingredients</span>
-                    </AccordionTrigger>
-                    <AccordionContent className="px-6 pb-6">
-                      <div className="flex flex-wrap gap-2">
-                        {productContent.ingredients.map((ingredient, index) => (
-                          <span key={index} className="px-3 py-1.5 bg-muted rounded-full text-sm">
-                            {ingredient}
-                          </span>
-                        ))}
-                      </div>
                     </AccordionContent>
                   </AccordionItem>
 
@@ -396,6 +519,15 @@ export default function ProductDetail() {
             </div>
           </section>
         )}
+
+        {/* Guarantee Section */}
+        <GuaranteeSection />
+
+        {/* Bundle Upsell */}
+        <BundleUpsell currentProductHandle={handle} />
+
+        {/* Product FAQs */}
+        <ProductFAQs productHandle={productType} />
 
         {/* Judge.me Reviews Section */}
         <JudgeMeReviews 
