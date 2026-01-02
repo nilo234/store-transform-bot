@@ -201,7 +201,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
               ))}
             </div>
 
-            {/* Price - TryAuri Style */}
+            {/* Price - US Market Optimized */}
             <div className="flex items-baseline gap-2.5">
               <span className="text-xl font-bold text-primary">
                 ${price.toFixed(2)}
@@ -209,11 +209,14 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
               <span className="text-sm text-muted-foreground line-through">
                 ${originalPrice.toFixed(2)}
               </span>
+              <span className="text-xs font-bold text-accent bg-accent/10 px-2 py-0.5 rounded">
+                SAVE ${(originalPrice - price).toFixed(2)}
+              </span>
             </div>
 
             {/* Pack Info */}
             <p className="text-xs text-muted-foreground mt-2 font-medium">
-              1 PACK • 30 Servings
+              1 PACK • 30 Servings • Ships Free on $50+
             </p>
 
             {/* Shop Now Link - TryAuri Style */}

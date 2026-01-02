@@ -1,11 +1,11 @@
-import { Package, Truck, Gift, RefreshCw, BookOpen, Shield } from 'lucide-react';
+import { Package, Truck, Gift, RefreshCw, BookOpen, Shield, Zap } from 'lucide-react';
 
 interface ValuePropositionProps {
   servings?: number;
   subscriptionPrice?: string;
 }
 
-export const ValueProposition = ({ servings = 30, subscriptionPrice = "€12.99" }: ValuePropositionProps) => {
+export const ValueProposition = ({ servings = 30, subscriptionPrice = "$12.99" }: ValuePropositionProps) => {
   const perks = [
     {
       icon: Package,
@@ -14,8 +14,8 @@ export const ValueProposition = ({ servings = 30, subscriptionPrice = "€12.99"
     },
     {
       icon: Truck,
-      title: "FREE Shipping",
-      subtitle: "On orders €50+"
+      title: "FREE US Shipping",
+      subtitle: "On orders $50+"
     },
     {
       icon: Gift,
@@ -23,19 +23,19 @@ export const ValueProposition = ({ servings = 30, subscriptionPrice = "€12.99"
       subtitle: "With subscription"
     },
     {
-      icon: BookOpen,
-      title: "FREE Wellness Guide",
-      subtitle: "Digital download"
+      icon: Zap,
+      title: "5x Faster Absorption",
+      subtitle: "vs. pills & capsules"
     },
     {
       icon: RefreshCw,
-      title: "Auto-Refill Available",
-      subtitle: `Every 4 weeks at ${subscriptionPrice}`
+      title: "Subscribe & Save 20%",
+      subtitle: `Auto-refill at ${subscriptionPrice}`
     },
     {
       icon: Shield,
-      title: "14-Day Guarantee",
-      subtitle: "Risk-free trial"
+      title: "60-Day Guarantee",
+      subtitle: "Full refund, no questions"
     }
   ];
 

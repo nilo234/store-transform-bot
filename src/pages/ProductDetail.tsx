@@ -271,15 +271,15 @@ export default function ProductDetail() {
                 </p>
               </div>
 
-              {/* Price Block */}
+              {/* Price Block - US Market Optimized */}
               <div className="bg-muted/30 rounded-xl p-4 space-y-3">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <span className="text-3xl font-bold text-primary">€{price.toFixed(2)}</span>
-                    <span className="text-lg text-muted-foreground line-through">€{originalPrice.toFixed(2)}</span>
+                    <span className="text-3xl font-bold text-primary">${price.toFixed(2)}</span>
+                    <span className="text-lg text-muted-foreground line-through">${originalPrice.toFixed(2)}</span>
                   </div>
                   <span className="bg-accent text-accent-foreground text-sm font-bold px-3 py-1 rounded-full">
-                    42% OFF TODAY
+                    SAVE ${(originalPrice - price).toFixed(2)}
                   </span>
                 </div>
                 
@@ -329,7 +329,7 @@ export default function ProductDetail() {
                 </div>
                 
                 <p className="text-center text-sm text-muted-foreground">
-                  Ships FREE today • Fast 3-5 day delivery
+                  ✓ Ships FREE today • ✓ Fast 2-5 day US delivery
                 </p>
               </div>
 
