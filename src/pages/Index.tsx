@@ -13,6 +13,12 @@ import { WhyNeuvie } from '@/components/home/WhyNeuvie';
 import { Button } from '@/components/ui/button';
 import { fetchProducts, ShopifyProduct } from '@/lib/shopify';
 import { VideoTutorial } from '@/components/home/VideoTutorial';
+import { IngredientSpotlight } from '@/components/home/IngredientSpotlight';
+import { SocialProofPhotos } from '@/components/home/SocialProofPhotos';
+import { HomepageFAQs } from '@/components/home/HomepageFAQs';
+import { GuaranteeSection } from '@/components/home/GuaranteeSection';
+import { PressLogos } from '@/components/home/PressLogos';
+import { NewReleases } from '@/components/home/NewReleases';
 
 // Trust badges for marquee
 const marqueeItems = [
@@ -88,7 +94,7 @@ export default function Index() {
                 </Link>
 
                 <p className="mt-6 text-sm text-muted-foreground font-medium">
-                  14-Day Money-Back Guarantee
+                  60-Day Money-Back Guarantee***
                 </p>
 
                 <div className="mt-8 flex items-center gap-4">
@@ -156,6 +162,9 @@ export default function Index() {
             ))}
           </div>
         </section>
+
+        {/* Press Logos - Authority */}
+        <PressLogos />
 
         {/* Bundle Section - Above Best Sellers */}
         <BundleSection />
@@ -312,11 +321,26 @@ export default function Index() {
           </div>
         </section>
 
+        {/* Ingredient Spotlight - "Inside the Strips" */}
+        <IngredientSpotlight />
+
         {/* Why Neuvie Section */}
         <WhyNeuvie />
 
         {/* Testimonials Carousel - Enhanced with verified badges */}
         <TestimonialsCarousel />
+
+        {/* Social Proof Photos */}
+        <SocialProofPhotos />
+
+        {/* New Releases Section */}
+        <NewReleases />
+
+        {/* Homepage FAQs */}
+        <HomepageFAQs />
+
+        {/* 60-Day Guarantee Section */}
+        <GuaranteeSection />
 
         {/* CTA Section */}
         <section className="py-24 bg-primary text-primary-foreground">
