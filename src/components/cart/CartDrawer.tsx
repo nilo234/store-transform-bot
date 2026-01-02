@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { FreeShippingBar } from './FreeShippingBar';
 import { CartUrgencyBanner } from './CartUrgencyBanner';
 import { SecureCheckoutBadges } from './SecureCheckoutBadges';
+import { CartUpsell } from './CartUpsell';
 
 export function CartDrawer() {
   const { 
@@ -150,6 +151,9 @@ export function CartDrawer() {
                     </span>
                   </div>
                 </div>
+
+                {/* Customers Also Bought Upsell */}
+                <CartUpsell />
               </div>
               
               {/* Fixed checkout section */}
