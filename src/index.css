@@ -191,4 +191,9 @@
       transform: translateY(0);
     }
   }
+
+  /* Slow marquee for social proof photos */
+  .animate-marquee-slow {
+    animation: marquee 30s linear infinite;
+  }
 }
