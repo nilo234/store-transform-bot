@@ -1,8 +1,11 @@
-import { Minus, Plus, Trash2, ExternalLink, Loader2, ShoppingCart, RefreshCw } from 'lucide-react';
+import { Minus, Plus, Trash2, ExternalLink, Loader2, ShoppingCart, RefreshCw, Gift } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { useCartStore } from '@/stores/cartStore';
 import { Badge } from '@/components/ui/badge';
+import { FreeShippingBar } from './FreeShippingBar';
+import { CartUrgencyBanner } from './CartUrgencyBanner';
+import { SecureCheckoutBadges } from './SecureCheckoutBadges';
 
 export function CartDrawer() {
   const { 
@@ -29,6 +32,10 @@ export function CartDrawer() {
     }
   };
 
+  const cartTotal = totalPrice();
+  const originalTotal = cartTotal * 1.42; // Show savings
+  const totalSavings = originalTotal - cartTotal;
+
   return (
     <Sheet open={isOpen} onOpenChange={setOpen}>
       <SheetContent className="w-full sm:max-w-lg flex flex-col h-full p-0">
@@ -52,11 +59,21 @@ export function CartDrawer() {
             </div>
           ) : (
             <>
+              {/* Urgency Banner */}
+              <div className="px-6 pt-4">
+                <CartUrgencyBanner />
+              </div>
+
+              {/* Free Shipping Progress */}
+              <div className="px-6 pt-4">
+                <FreeShippingBar currentTotal={cartTotal} threshold={50} currencySymbol="$" />
+              </div>
+
               {/* Scrollable items area */}
               <div className="flex-1 overflow-y-auto px-6 py-4">
                 <div className="space-y-4">
                   {items.map((item) => (
-                    <div key={item.variantId} className="flex gap-4 p-4 bg-card rounded-xl">
+                    <div key={item.variantId} className="flex gap-4 p-4 bg-card rounded-xl border border-border/50">
                       <div className="w-20 h-20 bg-muted rounded-lg overflow-hidden flex-shrink-0">
                         {item.product.node.images?.edges?.[0]?.node && (
                           <img
@@ -80,9 +97,14 @@ export function CartDrawer() {
                             {item.subscriptionDiscount && ` (-${item.subscriptionDiscount}%)`}
                           </Badge>
                         )}
-                        <p className="font-semibold text-primary mt-2">
-                          €{parseFloat(item.price.amount).toFixed(2)}
-                        </p>
+                        <div className="flex items-center gap-2 mt-2">
+                          <span className="font-semibold text-primary">
+                            ${parseFloat(item.price.amount).toFixed(2)}
+                          </span>
+                          <span className="text-xs text-muted-foreground line-through">
+                            ${(parseFloat(item.price.amount) * 1.42).toFixed(2)}
+                          </span>
+                        </div>
                       </div>
                       
                       <div className="flex flex-col items-end gap-2 flex-shrink-0">
@@ -118,23 +140,47 @@ export function CartDrawer() {
                     </div>
                   ))}
                 </div>
+
+                {/* Gift Message */}
+                <div className="mt-4 p-3 bg-accent/10 rounded-lg border border-accent/20">
+                  <div className="flex items-center gap-2">
+                    <Gift className="w-4 h-4 text-accent" />
+                    <span className="text-sm font-medium text-foreground">
+                      FREE wellness guide included with every order!
+                    </span>
+                  </div>
+                </div>
               </div>
               
               {/* Fixed checkout section */}
-              <div className="flex-shrink-0 px-6 py-6 border-t bg-background">
-                <div className="flex justify-between items-center mb-4">
-                  <span className="text-lg font-medium">Subtotal</span>
-                  <span className="text-2xl font-bold text-primary">
-                    €{totalPrice().toFixed(2)}
-                  </span>
+              <div className="flex-shrink-0 px-6 py-6 border-t bg-background space-y-4">
+                {/* Savings Highlight */}
+                {totalSavings > 0 && (
+                  <div className="bg-primary/10 rounded-lg p-3 text-center">
+                    <span className="text-sm font-semibold text-primary">
+                      🎉 You're saving ${totalSavings.toFixed(2)} on this order!
+                    </span>
+                  </div>
+                )}
+
+                <div className="flex justify-between items-center">
+                  <div>
+                    <span className="text-lg font-medium">Subtotal</span>
+                    <p className="text-xs text-muted-foreground">Shipping calculated at checkout</p>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-2xl font-bold text-primary">
+                      ${cartTotal.toFixed(2)}
+                    </span>
+                    <p className="text-sm text-muted-foreground line-through">
+                      ${originalTotal.toFixed(2)}
+                    </p>
+                  </div>
                 </div>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Shipping and taxes calculated at checkout
-                </p>
                 
                 <Button 
                   onClick={handleCheckout}
-                  className="w-full btn-primary text-base" 
+                  className="w-full btn-primary text-base h-14" 
                   size="lg"
                   disabled={items.length === 0 || isLoading}
                 >
@@ -145,11 +191,14 @@ export function CartDrawer() {
                     </>
                   ) : (
                     <>
-                      Checkout
+                      Secure Checkout
                       <ExternalLink className="w-4 h-4 ml-2" />
                     </>
                   )}
                 </Button>
+
+                {/* Secure Checkout Badges */}
+                <SecureCheckoutBadges />
               </div>
             </>
           )}
