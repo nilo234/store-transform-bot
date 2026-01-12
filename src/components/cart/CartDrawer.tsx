@@ -21,25 +21,22 @@ export function CartDrawer() {
     totalPrice,
   } = useCartStore();
 
-  const handleCheckout = async () => {
+  const handleCheckout = async (e?: React.MouseEvent | React.TouchEvent) => {
+    // Prevent double-firing on touch devices
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    
     try {
-      // Safari iOS fix: Open blank window BEFORE async call (user gesture context)
-      const checkoutWindow = window.open('about:blank', '_self');
-      
       const checkoutUrl = await createCheckout();
       
-      if (checkoutUrl && checkoutWindow) {
-        checkoutWindow.location.href = checkoutUrl;
-      } else if (checkoutUrl) {
-        // Fallback: use setTimeout for iOS Safari compatibility
-        setTimeout(() => {
-          window.location.href = checkoutUrl;
-        }, 100);
+      if (checkoutUrl) {
+        // Direct navigation - most reliable for iOS Safari
+        window.location.assign(checkoutUrl);
       }
     } catch (error) {
       console.error('Checkout failed:', error);
-      // Reset page if checkout fails
-      window.location.reload();
     }
   };
 
@@ -194,13 +191,10 @@ export function CartDrawer() {
                 
                 <Button 
                   onClick={handleCheckout}
-                  onTouchEnd={(e) => {
-                    e.preventDefault();
-                    handleCheckout();
-                  }}
-                  className="w-full btn-primary text-sm md:text-base h-12 md:h-14 touch-manipulation active:scale-[0.98] transition-transform" 
+                  className="w-full btn-primary text-sm md:text-base h-12 md:h-14 touch-manipulation active:scale-[0.98] transition-transform select-none" 
                   size="lg"
                   disabled={items.length === 0 || isLoading}
+                  type="button"
                 >
                   {isLoading ? (
                     <>
