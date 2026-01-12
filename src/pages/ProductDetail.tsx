@@ -21,6 +21,7 @@ import { IngredientSpotlight } from '@/components/product/IngredientSpotlight';
 import { BundleUpsell } from '@/components/product/BundleUpsell';
 import { ProductFAQs } from '@/components/product/ProductFAQs';
 import { GuaranteeSection } from '@/components/product/GuaranteeSection';
+import { ProductJsonLd, BreadcrumbJsonLd } from '@/components/seo';
 import {
   Accordion,
   AccordionContent,
@@ -181,8 +182,19 @@ export default function ProductDetail() {
   // Get product content
   const productContent = findProductContent(product.title) || findProductContent(product.handle);
 
+  // Breadcrumb items for JSON-LD
+  const breadcrumbItems = [
+    { name: 'Home', url: 'https://neuvie.com' },
+    { name: 'Shop', url: 'https://neuvie.com/shop' },
+    { name: product.title, url: `https://neuvie.com/product/${product.handle}` }
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
+      {/* SEO JSON-LD */}
+      <ProductJsonLd product={product} />
+      <BreadcrumbJsonLd items={breadcrumbItems} />
+      
       <Navbar />
       
       <main className="flex-1">

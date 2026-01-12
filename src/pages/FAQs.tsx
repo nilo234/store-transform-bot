@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { FAQJsonLd } from '@/components/seo';
 
 const faqs = [
   { 
@@ -55,8 +56,17 @@ const faqs = [
 ];
 
 export default function FAQs() {
+  // Transform FAQs for JSON-LD
+  const faqJsonLdData = faqs.map(faq => ({
+    question: faq.q,
+    answer: faq.a
+  }));
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      {/* SEO JSON-LD */}
+      <FAQJsonLd faqs={faqJsonLdData} />
+      
       <Navbar />
       
       <main className="flex-1">
