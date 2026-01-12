@@ -107,7 +107,7 @@ export function Navbar() {
                 <img 
                   src={neuvieLogo} 
                   alt="Neuvie Nutrition" 
-                  className="h-10 md:h-[3.75rem] lg:h-[5.25rem] w-auto"
+                  className="h-20 md:h-[3.75rem] lg:h-[5.25rem] w-auto"
                 />
               </Link>
 

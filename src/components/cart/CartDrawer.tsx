@@ -25,8 +25,8 @@ export function CartDrawer() {
     try {
       const checkoutUrl = await createCheckout();
       if (checkoutUrl) {
-        window.open(checkoutUrl, '_blank');
-        setOpen(false);
+        // Use location.href for mobile compatibility (avoids popup blocker)
+        window.location.href = checkoutUrl;
       }
     } catch (error) {
       console.error('Checkout failed:', error);
