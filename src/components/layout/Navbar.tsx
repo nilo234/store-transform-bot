@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useCartStore } from '@/stores/cartStore';
 import { CartDrawer } from '@/components/cart/CartDrawer';
+import { SearchModal } from '@/components/search/SearchModal';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 import neuvieLogo from '@/assets/neuvie-navbar-logo.png';
@@ -66,6 +67,7 @@ function CountdownTimer() {
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const totalItems = useCartStore((state) => state.totalItems());
@@ -130,7 +132,7 @@ export function Navbar() {
               {/* Right Side Actions */}
               <div className="flex items-center gap-1 md:gap-3">
                 {/* Search */}
-                <Button variant="ghost" size="icon" className="hidden md:flex h-10 w-10">
+                <Button variant="ghost" size="icon" className="h-10 w-10" onClick={() => setSearchOpen(true)}>
                   <Search className="h-5 w-5" />
                 </Button>
 
@@ -223,6 +225,9 @@ export function Navbar() {
 
       {/* Cart Drawer */}
       <CartDrawer />
+      
+      {/* Search Modal */}
+      <SearchModal open={searchOpen} onOpenChange={setSearchOpen} />
     </>
   );
 }
