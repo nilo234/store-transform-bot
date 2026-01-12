@@ -23,13 +23,23 @@ export function CartDrawer() {
 
   const handleCheckout = async () => {
     try {
+      // Safari iOS fix: Open blank window BEFORE async call (user gesture context)
+      const checkoutWindow = window.open('about:blank', '_self');
+      
       const checkoutUrl = await createCheckout();
-      if (checkoutUrl) {
-        // Use location.href for mobile compatibility (avoids popup blocker)
-        window.location.href = checkoutUrl;
+      
+      if (checkoutUrl && checkoutWindow) {
+        checkoutWindow.location.href = checkoutUrl;
+      } else if (checkoutUrl) {
+        // Fallback: use setTimeout for iOS Safari compatibility
+        setTimeout(() => {
+          window.location.href = checkoutUrl;
+        }, 100);
       }
     } catch (error) {
       console.error('Checkout failed:', error);
+      // Reset page if checkout fails
+      window.location.reload();
     }
   };
 
