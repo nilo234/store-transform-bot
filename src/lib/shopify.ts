@@ -252,26 +252,50 @@ export async function fetchProductByHandle(handle: string): Promise<ShopifyProdu
 
 // Create checkout
 export async function createStorefrontCheckout(items: Array<{ variantId: string; quantity: number }>): Promise<string> {
+  if (items.length === 0) {
+    throw new Error('No items in cart');
+  }
+
   const lines = items.map(item => ({
     quantity: item.quantity,
     merchandiseId: item.variantId,
   }));
+
+  console.log('Creating checkout with lines:', lines);
 
   const cartData = await storefrontApiRequest(CART_CREATE_MUTATION, {
     input: { lines },
   });
 
   if (!cartData) {
+    toast.error("Checkout failed", {
+      description: "Unable to connect to Shopify. Please try again.",
+    });
     throw new Error('Failed to create checkout');
   }
 
   if (cartData.data.cartCreate.userErrors.length > 0) {
-    throw new Error(`Cart creation failed: ${cartData.data.cartCreate.userErrors.map((e: { message: string }) => e.message).join(', ')}`);
+    const errorMessages = cartData.data.cartCreate.userErrors.map((e: { message: string }) => e.message).join(', ');
+    console.error('Cart creation user errors:', cartData.data.cartCreate.userErrors);
+    toast.error("Checkout failed", {
+      description: errorMessages,
+    });
+    throw new Error(`Cart creation failed: ${errorMessages}`);
   }
 
   const cart = cartData.data.cartCreate.cart;
   
+  if (!cart) {
+    toast.error("Checkout failed", {
+      description: "Products may not be available for sale. Please try again.",
+    });
+    throw new Error('No cart returned from Shopify - products may not be available for sale');
+  }
+  
   if (!cart.checkoutUrl) {
+    toast.error("Checkout failed", {
+      description: "No checkout URL available. Products may be out of stock.",
+    });
     throw new Error('No checkout URL returned from Shopify');
   }
 
