@@ -43,25 +43,25 @@ const trustBadges = [
 export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
-      {/* Newsletter Section */}
+      {/* Newsletter Section - Mobile optimized */}
       <div className="border-b border-primary-foreground/10">
-        <div className="container-wide py-16">
+        <div className="container-wide py-10 md:py-16 px-4 md:px-6">
           <div className="max-w-xl mx-auto text-center">
-            <h3 className="font-display text-2xl md:text-3xl font-bold mb-4">
+            <h3 className="font-display text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4">
               Join the Neuvie Community
             </h3>
-            <p className="text-primary-foreground/70 mb-8 text-base">
+            <p className="text-primary-foreground/70 mb-6 md:mb-8 text-sm md:text-base">
               Get 15% off your first order plus exclusive access to new products and wellness tips.
             </p>
-            <form className="flex gap-3 max-w-md mx-auto">
+            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <Input 
                 type="email"
                 placeholder="Enter your email" 
-                className="h-12 bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 rounded-lg flex-1"
+                className="h-11 md:h-12 bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 rounded-lg flex-1"
               />
               <Button 
                 type="submit"
-                className="h-12 bg-accent hover:bg-accent/90 text-accent-foreground px-6 font-semibold rounded-lg"
+                className="h-11 md:h-12 bg-accent hover:bg-accent/90 text-accent-foreground px-6 font-semibold rounded-lg w-full sm:w-auto"
               >
                 Subscribe
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -71,19 +71,19 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Main Footer */}
-      <div className="container-wide py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
-          {/* Brand Column */}
-          <div className="lg:col-span-2">
-            <Link to="/" className="inline-block mb-6">
+      {/* Main Footer - Mobile optimized */}
+      <div className="container-wide py-10 md:py-16 px-4 md:px-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8">
+          {/* Brand Column - Full width on mobile */}
+          <div className="col-span-2 lg:col-span-2">
+            <Link to="/" className="inline-block mb-4 md:mb-6">
               <img 
                 src={neuvieFooterLogo} 
                 alt="Neuvie Nutrition" 
-                className="h-[3.75rem] md:h-[5.25rem] w-auto brightness-0 invert"
+                className="h-10 md:h-[3.75rem] lg:h-[5.25rem] w-auto brightness-0 invert"
               />
             </Link>
-            <p className="text-primary-foreground/70 mb-8 max-w-sm text-sm leading-relaxed">
+            <p className="text-primary-foreground/70 mb-6 md:mb-8 max-w-sm text-xs md:text-sm leading-relaxed">
               Fast-dissolving oral strips with science-backed ingredients. The future of supplements—convenient, effective, and designed for your lifestyle.
             </p>
             
@@ -93,10 +93,10 @@ export function Footer() {
                 <a 
                   key={social.label}
                   href={social.href} 
-                  className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center transition-colors"
+                  className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center transition-colors"
                   aria-label={social.label}
                 >
-                  <social.icon className="h-5 w-5" />
+                  <social.icon className="h-4 w-4 md:h-5 md:w-5" />
                 </a>
               ))}
             </div>
@@ -104,13 +104,13 @@ export function Footer() {
 
           {/* Shop Links */}
           <div>
-            <h4 className="font-semibold text-lg mb-6">Shop</h4>
-            <ul className="space-y-4">
+            <h4 className="font-semibold text-sm md:text-lg mb-4 md:mb-6">Shop</h4>
+            <ul className="space-y-2.5 md:space-y-4">
               {footerLinks.shop.map((link) => (
                 <li key={link.href}>
                   <Link 
                     to={link.href} 
-                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm"
+                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-xs md:text-sm"
                   >
                     {link.label}
                   </Link>
@@ -121,13 +121,13 @@ export function Footer() {
 
           {/* Company Links */}
           <div>
-            <h4 className="font-semibold text-lg mb-6">Company</h4>
-            <ul className="space-y-4">
+            <h4 className="font-semibold text-sm md:text-lg mb-4 md:mb-6">Company</h4>
+            <ul className="space-y-2.5 md:space-y-4">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
                   <Link 
                     to={link.href} 
-                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm"
+                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-xs md:text-sm"
                   >
                     {link.label}
                   </Link>
@@ -136,15 +136,15 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Support Links */}
-          <div>
-            <h4 className="font-semibold text-lg mb-6">Support</h4>
-            <ul className="space-y-4">
+          {/* Support Links - Full width on mobile */}
+          <div className="col-span-2 md:col-span-1">
+            <h4 className="font-semibold text-sm md:text-lg mb-4 md:mb-6">Support</h4>
+            <ul className="grid grid-cols-2 md:grid-cols-1 gap-2.5 md:gap-4">
               {footerLinks.support.map((link) => (
                 <li key={link.href}>
                   <Link 
                     to={link.href} 
-                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm"
+                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-xs md:text-sm"
                   >
                     {link.label}
                   </Link>
@@ -154,19 +154,19 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Trust Badges */}
-        <div className="mt-16 pt-8 border-t border-primary-foreground/10">
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-8">
+        {/* Trust Badges - Mobile optimized */}
+        <div className="mt-10 md:mt-16 pt-6 md:pt-8 border-t border-primary-foreground/10">
+          <div className="flex flex-wrap justify-center gap-x-4 md:gap-x-8 gap-y-2 md:gap-y-4 mb-6 md:mb-8">
             {trustBadges.map((badge) => (
-              <span key={badge} className="flex items-center gap-2 text-sm text-primary-foreground/70">
-                <span className="w-2 h-2 rounded-full bg-accent" />
+              <span key={badge} className="flex items-center gap-1.5 md:gap-2 text-[10px] md:text-sm text-primary-foreground/70">
+                <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-accent" />
                 {badge}
               </span>
             ))}
           </div>
           
           {/* Copyright */}
-          <p className="text-center text-primary-foreground/50 text-sm">
+          <p className="text-center text-primary-foreground/50 text-[10px] md:text-sm">
             © {new Date().getFullYear()} Neuvie. All rights reserved.
           </p>
         </div>

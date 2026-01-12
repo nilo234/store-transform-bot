@@ -54,116 +54,116 @@ export default function Index() {
       <Navbar />
       
       <main className="flex-1">
-        {/* Hero Section - Conversion Optimized */}
-        <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+        {/* Hero Section - Conversion Optimized + Mobile First */}
+        <section className="relative min-h-[70vh] md:min-h-[85vh] flex items-center overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-muted/40" />
           
-          <div className="container-wide relative z-10 py-12 lg:py-0">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div className="container-wide relative z-10 py-8 md:py-12 lg:py-0 px-4 md:px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-16 items-center">
               {/* Hero Content */}
               <motion.div
                 initial={{ opacity: 0, x: -40 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
-                className="order-2 lg:order-1"
+                className="order-2 lg:order-1 text-center lg:text-left"
               >
                 {/* Social Proof Header */}
-                <div className="inline-flex items-center gap-2 mb-4">
+                <div className="inline-flex items-center gap-2 mb-3 md:mb-4">
                   <div className="flex">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-accent text-accent" />
+                      <Star key={i} className="h-3.5 w-3.5 md:h-4 md:w-4 fill-accent text-accent" />
                     ))}
                   </div>
-                  <span className="text-sm text-muted-foreground font-medium">
+                  <span className="text-xs md:text-sm text-muted-foreground font-medium">
                     4.9/5 from 12,847 Reviews
                   </span>
                 </div>
 
                 {/* Orders Counter */}
-                <div className="mb-6">
+                <div className="mb-4 md:mb-6">
                   <OrdersCounter />
                 </div>
 
-                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-6">
+                <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-4 md:mb-6">
                   Feel the Difference in{' '}
                   <span className="text-accent">30 Seconds</span>
                 </h1>
 
-                <p className="text-lg text-muted-foreground mb-6 max-w-lg">
+                <p className="text-base md:text-lg text-muted-foreground mb-4 md:mb-6 max-w-lg mx-auto lg:mx-0">
                   Premium dissolving wellness strips with clinically studied ingredients. 
                   5x faster absorption than pills. No water needed.
                 </p>
 
-                {/* Trust Points */}
-                <div className="flex flex-wrap gap-4 mb-8">
-                  <div className="flex items-center gap-2 text-sm">
+                {/* Trust Points - Stack on mobile */}
+                <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-2 sm:gap-4 mb-6 md:mb-8">
+                  <div className="flex items-center justify-center lg:justify-start gap-2 text-xs sm:text-sm">
                     <Shield className="h-4 w-4 text-primary" />
                     <span className="font-medium">60-Day Guarantee</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm">
+                  <div className="flex items-center justify-center lg:justify-start gap-2 text-xs sm:text-sm">
                     <Truck className="h-4 w-4 text-primary" />
                     <span className="font-medium">Free US Shipping $50+</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm">
+                  <div className="flex items-center justify-center lg:justify-start gap-2 text-xs sm:text-sm">
                     <Clock className="h-4 w-4 text-primary" />
                     <span className="font-medium">Ships Within 24hrs</span>
                   </div>
                 </div>
 
-                <Link to="/shop">
-                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground h-14 px-10 text-lg font-semibold rounded-lg group">
+                <Link to="/shop" className="block">
+                  <Button className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground h-12 sm:h-14 px-8 sm:px-10 text-base sm:text-lg font-semibold rounded-lg group">
                     SHOP BEST SELLERS
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </Link>
 
-                <p className="mt-4 text-sm text-muted-foreground">
-                  ✓ 60-Day Money-Back Guarantee • ✓ Free Returns • ✓ Cancel Anytime
+                <p className="mt-3 md:mt-4 text-xs sm:text-sm text-muted-foreground">
+                  ✓ 60-Day Money-Back Guarantee • ✓ Free Returns
                 </p>
 
-                {/* Real Customer Quote */}
-                <div className="mt-8 flex items-center gap-4">
+                {/* Real Customer Quote - Hide on smallest mobile */}
+                <div className="mt-6 md:mt-8 hidden sm:flex items-center justify-center lg:justify-start gap-4">
                   <div className="flex -space-x-3">
                     {[1, 2, 3, 4, 5].map((i) => (
                       <div 
                         key={i} 
-                        className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 border-2 border-background flex items-center justify-center"
+                        className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 border-2 border-background flex items-center justify-center"
                       >
-                        <span className="text-sm">👤</span>
+                        <span className="text-xs md:text-sm">👤</span>
                       </div>
                     ))}
                   </div>
-                  <p className="text-sm italic text-foreground/80 max-w-[220px]">
+                  <p className="text-xs md:text-sm italic text-foreground/80 max-w-[200px] md:max-w-[220px] text-left">
                     "Finally, supplements that actually work. I noticed results in just 3 days!"
                   </p>
                 </div>
               </motion.div>
 
-              {/* Hero Image */}
+              {/* Hero Image - Smaller on mobile */}
               <motion.div
                 className="relative order-1 lg:order-2"
                 initial={{ opacity: 0, x: 40 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
               >
-                <div className="relative aspect-[4/3] lg:aspect-square">
-                  <div className="absolute inset-0 bg-gradient-to-br from-muted/60 to-muted/30 rounded-3xl" />
+                <div className="relative aspect-[4/3] sm:aspect-square max-w-[280px] sm:max-w-none mx-auto">
+                  <div className="absolute inset-0 bg-gradient-to-br from-muted/60 to-muted/30 rounded-2xl md:rounded-3xl" />
                   
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="grid grid-cols-3 gap-4 p-8">
+                    <div className="grid grid-cols-3 gap-2 sm:gap-4 p-4 sm:p-8">
                       {[1, 2, 3, 4, 5].map((i) => (
                         <motion.div
                           key={i}
-                          className="bg-background/80 backdrop-blur-sm rounded-2xl p-4 shadow-lg"
+                          className="bg-background/80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-2 sm:p-4 shadow-lg"
                           initial={{ y: 20, opacity: 0 }}
                           animate={{ y: 0, opacity: 1 }}
                           transition={{ delay: 0.3 + i * 0.1 }}
                           whileHover={{ y: -5, scale: 1.02 }}
                         >
-                          <div className="aspect-[3/4] bg-gradient-to-b from-primary/10 to-accent/10 rounded-xl flex items-center justify-center">
-                            <span className="text-4xl">💊</span>
+                          <div className="aspect-[3/4] bg-gradient-to-b from-primary/10 to-accent/10 rounded-lg sm:rounded-xl flex items-center justify-center">
+                            <span className="text-2xl sm:text-4xl">💊</span>
                           </div>
-                          <p className="text-[10px] text-center mt-2 font-medium text-muted-foreground">
+                          <p className="text-[8px] sm:text-[10px] text-center mt-1 sm:mt-2 font-medium text-muted-foreground">
                             Neuvie Strip
                           </p>
                         </motion.div>
@@ -176,12 +176,12 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Marquee Section */}
-        <section className="py-4 bg-primary text-primary-foreground overflow-hidden">
+        {/* Marquee Section - Mobile optimized */}
+        <section className="py-3 md:py-4 bg-primary text-primary-foreground overflow-hidden">
           <div className="flex animate-marquee">
             {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, index) => (
-              <span key={index} className="mx-8 whitespace-nowrap font-medium flex items-center gap-2">
-                <Check className="h-4 w-4" />
+              <span key={index} className="mx-4 md:mx-8 whitespace-nowrap text-xs md:text-sm font-medium flex items-center gap-1.5 md:gap-2">
+                <Check className="h-3 w-3 md:h-4 md:w-4" />
                 {item.text}
               </span>
             ))}
@@ -194,12 +194,12 @@ export default function Index() {
         {/* Bundle Section - Above Best Sellers */}
         <BundleSection />
 
-        {/* Best Sellers Section */}
-        <section className="py-20 md:py-28 bg-background">
-          <div className="container-wide">
-            <div className="text-center mb-12">
+        {/* Best Sellers Section - Mobile optimized */}
+        <section className="py-12 md:py-20 lg:py-28 bg-background">
+          <div className="container-wide px-4 md:px-6">
+            <div className="text-center mb-8 md:mb-12">
               <motion.h2 
-                className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+                className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -207,7 +207,7 @@ export default function Index() {
                 BEST SELLERS
               </motion.h2>
               <motion.p 
-                className="text-muted-foreground text-lg"
+                className="text-muted-foreground text-sm md:text-lg"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -218,26 +218,26 @@ export default function Index() {
             </div>
 
             {isLoading ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
                 {[...Array(4)].map((_, i) => (
-                  <div key={i} className="aspect-[3/4] bg-muted rounded-2xl animate-pulse" />
+                  <div key={i} className="aspect-[3/4] bg-muted rounded-xl md:rounded-2xl animate-pulse" />
                 ))}
               </div>
             ) : products.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
                 {products.map((product, index) => (
                   <ProductCard key={product.node.id} product={product} index={index} />
                 ))}
               </div>
             ) : (
-              <div className="text-center py-16">
+              <div className="text-center py-12 md:py-16">
                 <p className="text-muted-foreground mb-4">No products found.</p>
                 <p className="text-sm text-muted-foreground">Products will appear here once added to your Shopify store.</p>
               </div>
             )}
 
             <motion.div 
-              className="text-center mt-12"
+              className="text-center mt-8 md:mt-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -245,10 +245,10 @@ export default function Index() {
               <Link to="/shop">
                 <Button 
                   variant="outline" 
-                  className="h-12 px-8 text-base font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-lg"
+                  className="w-full sm:w-auto h-11 md:h-12 px-6 md:px-8 text-sm md:text-base font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-lg"
                 >
                   View All 13 Products
-                  <ChevronRight className="ml-2 h-5 w-5" />
+                  <ChevronRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                 </Button>
               </Link>
             </motion.div>

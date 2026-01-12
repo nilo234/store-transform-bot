@@ -71,11 +71,11 @@ export default function Shop() {
       <Navbar />
       
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-b from-muted/50 to-background py-16 md:py-24">
-          <div className="container-wide text-center">
+        {/* Hero Section - Mobile optimized */}
+        <section className="bg-gradient-to-b from-muted/50 to-background py-10 md:py-16 lg:py-24">
+          <div className="container-wide text-center px-4 md:px-6">
             <motion.h1 
-              className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
+              className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 md:mb-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -83,7 +83,7 @@ export default function Shop() {
               Shop All Strips
             </motion.h1>
             <motion.p 
-              className="text-lg text-muted-foreground max-w-2xl mx-auto"
+              className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -93,53 +93,55 @@ export default function Shop() {
           </div>
         </section>
 
-        {/* Category Filters */}
-        <section className="border-b border-border sticky top-[136px] bg-background/95 backdrop-blur-md z-40">
-          <div className="container-wide">
-            <div className="flex items-center gap-2 py-4 overflow-x-auto scrollbar-hide">
+        {/* Category Filters - Mobile optimized with horizontal scroll */}
+        <section className="border-b border-border sticky top-[100px] md:top-[136px] bg-background/95 backdrop-blur-md z-40">
+          <div className="container-wide px-3 md:px-6">
+            <div className="flex items-center gap-2 py-3 md:py-4 overflow-x-auto scrollbar-hide -mx-3 px-3 md:mx-0 md:px-0">
               {categories.map((category) => (
                 <button
                   key={category.id}
                   onClick={() => handleCategoryChange(category.id)}
                   className={cn(
-                    "px-5 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300",
+                    "px-3 md:px-5 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-medium whitespace-nowrap transition-all duration-300 flex-shrink-0",
                     activeCategory === category.id
                       ? "bg-primary text-primary-foreground shadow-lg"
                       : "bg-muted text-muted-foreground hover:bg-muted/80"
                   )}
                 >
-                  {category.label} ({category.count})
+                  <span className="hidden sm:inline">{category.label}</span>
+                  <span className="sm:hidden">{category.label.split(' ')[0]}</span>
+                  <span className="ml-1">({category.count})</span>
                 </button>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Products Grid */}
-        <section className="py-12 md:py-16">
-          <div className="container-wide">
+        {/* Products Grid - Mobile optimized 2-column */}
+        <section className="py-6 md:py-12 lg:py-16">
+          <div className="container-wide px-3 md:px-6">
             {isLoading ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
                 {[...Array(8)].map((_, i) => (
-                  <div key={i} className="space-y-4">
-                    <Skeleton className="aspect-square rounded-2xl" />
-                    <Skeleton className="h-4 w-3/4" />
-                    <Skeleton className="h-4 w-1/2" />
+                  <div key={i} className="space-y-3 md:space-y-4">
+                    <Skeleton className="aspect-square rounded-xl md:rounded-2xl" />
+                    <Skeleton className="h-3 md:h-4 w-3/4" />
+                    <Skeleton className="h-3 md:h-4 w-1/2" />
                   </div>
                 ))}
               </div>
             ) : filteredProducts.length === 0 ? (
-              <div className="text-center py-16">
-                <p className="text-lg text-muted-foreground mb-4">No products found in this category.</p>
+              <div className="text-center py-12 md:py-16">
+                <p className="text-base md:text-lg text-muted-foreground mb-4">No products found in this category.</p>
                 <button 
                   onClick={() => handleCategoryChange('all')}
-                  className="text-primary font-medium hover:underline"
+                  className="text-primary font-medium hover:underline text-sm md:text-base"
                 >
                   View all products
                 </button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
                 {filteredProducts.map((product, index) => (
                   <ProductCard key={product.node.id} product={product} index={index} />
                 ))}
@@ -148,20 +150,23 @@ export default function Shop() {
           </div>
         </section>
 
-        {/* Trust Badges */}
-        <section className="py-12 bg-muted/30">
-          <div className="container-wide">
-            <div className="flex flex-wrap justify-center gap-8 md:gap-16">
+        {/* Trust Badges - Mobile optimized */}
+        <section className="py-8 md:py-12 bg-muted/30">
+          <div className="container-wide px-4 md:px-6">
+            <div className="grid grid-cols-3 md:flex md:flex-wrap justify-center gap-4 md:gap-8 lg:gap-16">
               {[
-                { icon: '🧪', label: 'Third-Party Tested' },
-                { icon: '🌿', label: 'Non-GMO' },
-                { icon: '💊', label: 'Fast-Dissolving' },
-                { icon: '🇺🇸', label: 'Made in USA' },
-                { icon: '💯', label: '14-Day Guarantee' },
+                { icon: '🧪', label: 'Third-Party Tested', shortLabel: 'Lab Tested' },
+                { icon: '🌿', label: 'Non-GMO', shortLabel: 'Non-GMO' },
+                { icon: '💊', label: 'Fast-Dissolving', shortLabel: 'Fast-Acting' },
+                { icon: '🇺🇸', label: 'Made in USA', shortLabel: 'USA Made' },
+                { icon: '💯', label: '14-Day Guarantee', shortLabel: 'Guaranteed' },
               ].map((badge) => (
-                <div key={badge.label} className="flex items-center gap-2 text-muted-foreground">
-                  <span className="text-2xl">{badge.icon}</span>
-                  <span className="text-sm font-medium">{badge.label}</span>
+                <div key={badge.label} className="flex flex-col md:flex-row items-center gap-1 md:gap-2 text-muted-foreground text-center">
+                  <span className="text-xl md:text-2xl">{badge.icon}</span>
+                  <span className="text-[10px] md:text-sm font-medium leading-tight">
+                    <span className="hidden md:inline">{badge.label}</span>
+                    <span className="md:hidden">{badge.shortLabel}</span>
+                  </span>
                 </div>
               ))}
             </div>

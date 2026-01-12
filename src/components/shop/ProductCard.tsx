@@ -114,33 +114,33 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.5, delay: index * 0.05 }}
     >
       <Link to={`/product/${node.handle}`}>
         <div 
-          className="bg-card rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 group cursor-pointer border border-border/50 hover:border-border hover:shadow-elevated"
+          className="bg-card rounded-xl md:rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 group cursor-pointer border border-border/50 hover:border-border hover:shadow-elevated"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          {/* Image Container - TryAuri Style */}
+          {/* Image Container - Mobile optimized */}
           <div className="relative aspect-square overflow-hidden bg-gradient-to-b from-muted/30 to-card">
-            {/* Servings Badge - Top Left - TryAuri Style */}
-            <div className="absolute top-4 left-4 z-10">
-              <div className="bg-background/95 backdrop-blur-sm rounded-lg px-3 py-2 text-center border border-border/50 shadow-sm">
-                <span className="text-lg font-bold text-foreground block leading-none">x30</span>
-                <span className="text-[10px] font-medium text-muted-foreground uppercase tracking-wide">SERVINGS</span>
+            {/* Servings Badge - Top Left - Mobile optimized */}
+            <div className="absolute top-2 md:top-4 left-2 md:left-4 z-10">
+              <div className="bg-background/95 backdrop-blur-sm rounded-md md:rounded-lg px-2 md:px-3 py-1 md:py-2 text-center border border-border/50 shadow-sm">
+                <span className="text-sm md:text-lg font-bold text-foreground block leading-none">x30</span>
+                <span className="text-[8px] md:text-[10px] font-medium text-muted-foreground uppercase tracking-wide">STRIPS</span>
               </div>
             </div>
 
-            {/* Discount Badge - Top Right - TryAuri Style */}
-            <div className="absolute top-4 right-4 z-10">
-              <span className="bg-accent text-accent-foreground px-3 py-1.5 rounded-lg text-sm font-bold shadow-sm">
+            {/* Discount Badge - Top Right - Mobile optimized */}
+            <div className="absolute top-2 md:top-4 right-2 md:right-4 z-10">
+              <span className="bg-accent text-accent-foreground px-2 md:px-3 py-1 md:py-1.5 rounded-md md:rounded-lg text-xs md:text-sm font-bold shadow-sm">
                 42% OFF
               </span>
             </div>
 
             {/* Product Image */}
-            <div className="w-full h-full flex items-center justify-center p-8">
+            <div className="w-full h-full flex items-center justify-center p-4 md:p-8">
               {firstImage ? (
                 <motion.img
                   src={firstImage.url}
@@ -149,48 +149,49 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
                   animate={{ scale: isHovered ? 1.08 : 1 }}
                 />
               ) : (
-                <div className="w-full h-full bg-gradient-to-b from-primary/5 to-accent/5 flex items-center justify-center rounded-xl">
-                  <span className="text-7xl">🍬</span>
+                <div className="w-full h-full bg-gradient-to-b from-primary/5 to-accent/5 flex items-center justify-center rounded-lg md:rounded-xl">
+                  <span className="text-5xl md:text-7xl">🍬</span>
                 </div>
               )}
             </div>
 
-            {/* Quick Add Button - Shows on Hover - TryAuri Style */}
+            {/* Quick Add Button - Shows on Hover/Tap */}
             <motion.div 
-              className="absolute inset-x-4 bottom-4"
+              className="absolute inset-x-2 md:inset-x-4 bottom-2 md:bottom-4"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 15 }}
               transition={{ duration: 0.25 }}
             >
               <Button 
                 onClick={handleAddToCart}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-12 font-semibold rounded-lg flex items-center justify-center gap-2"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-10 md:h-12 text-sm md:text-base font-semibold rounded-lg flex items-center justify-center gap-1.5 md:gap-2"
               >
-                <Plus className="h-5 w-5" />
-                Quick Add
+                <Plus className="h-4 w-4 md:h-5 md:w-5" />
+                <span className="hidden sm:inline">Quick Add</span>
+                <span className="sm:hidden">Add</span>
               </Button>
             </motion.div>
           </div>
 
-          {/* Product Info - TryAuri Style */}
-          <div className="p-5">
+          {/* Product Info - Mobile optimized */}
+          <div className="p-3 md:p-5">
             {/* Category Badge */}
-            <span className={`text-xs font-bold ${categoryBadge.color} uppercase tracking-wider`}>
+            <span className={`text-[10px] md:text-xs font-bold ${categoryBadge.color} uppercase tracking-wider`}>
               {categoryBadge.label}
             </span>
 
             {/* Judge.me Star Rating */}
-            <div className="mt-1.5">
+            <div className="mt-1 md:mt-1.5">
               <JudgeMePreviewBadge productId={node.id} />
             </div>
 
             {/* Title */}
-            <h3 className="font-display text-lg font-semibold mt-1.5 mb-3 text-foreground group-hover:text-primary transition-colors line-clamp-2 leading-tight">
+            <h3 className="font-display text-sm md:text-lg font-semibold mt-1 md:mt-1.5 mb-2 md:mb-3 text-foreground group-hover:text-primary transition-colors line-clamp-2 leading-tight">
               {node.title}
             </h3>
 
-            {/* Ingredient Icons - TryAuri Style */}
-            <div className="flex flex-wrap gap-1.5 mb-4">
+            {/* Ingredient Icons - Hidden on mobile, show on larger screens */}
+            <div className="hidden sm:flex flex-wrap gap-1.5 mb-4">
               {ingredientIcons.slice(0, 3).map((icon, i) => (
                 <span 
                   key={i} 
@@ -201,26 +202,27 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
               ))}
             </div>
 
-            {/* Price - US Market Optimized */}
-            <div className="flex items-baseline gap-2.5">
-              <span className="text-xl font-bold text-primary">
+            {/* Price - Mobile optimized */}
+            <div className="flex flex-wrap items-baseline gap-1 md:gap-2.5">
+              <span className="text-base md:text-xl font-bold text-primary">
                 ${price.toFixed(2)}
               </span>
-              <span className="text-sm text-muted-foreground line-through">
+              <span className="text-xs md:text-sm text-muted-foreground line-through">
                 ${originalPrice.toFixed(2)}
               </span>
-              <span className="text-xs font-bold text-accent bg-accent/10 px-2 py-0.5 rounded">
+              <span className="hidden sm:inline text-xs font-bold text-accent bg-accent/10 px-2 py-0.5 rounded">
                 SAVE ${(originalPrice - price).toFixed(2)}
               </span>
             </div>
 
-            {/* Pack Info */}
-            <p className="text-xs text-muted-foreground mt-2 font-medium">
-              1 PACK • 30 Servings • Ships Free on $50+
+            {/* Pack Info - Simplified on mobile */}
+            <p className="text-[10px] md:text-xs text-muted-foreground mt-1.5 md:mt-2 font-medium">
+              <span className="sm:hidden">30 Strips • Free Ship $50+</span>
+              <span className="hidden sm:inline">1 PACK • 30 Servings • Ships Free on $50+</span>
             </p>
 
-            {/* Shop Now Link - TryAuri Style */}
-            <div className="mt-4 pt-4 border-t border-border/50">
+            {/* Shop Now Link - Hidden on mobile */}
+            <div className="hidden md:block mt-4 pt-4 border-t border-border/50">
               <span className="text-sm font-bold text-primary group-hover:text-accent transition-colors inline-flex items-center gap-1">
                 Shop Now
                 <span className="transition-transform group-hover:translate-x-1">→</span>
