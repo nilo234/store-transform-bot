@@ -156,8 +156,8 @@ export function CartDrawer() {
                 <CartUpsell />
               </div>
               
-              {/* Fixed checkout section - Mobile optimized */}
-              <div className="flex-shrink-0 px-4 md:px-6 py-4 md:py-6 border-t bg-background space-y-3 md:space-y-4">
+              {/* Fixed checkout section - Mobile optimized with safe area */}
+              <div className="flex-shrink-0 px-4 md:px-6 py-4 md:py-6 pb-[calc(1rem+env(safe-area-inset-bottom))] md:pb-6 border-t bg-background space-y-3 md:space-y-4 relative z-50">
                 {/* Savings Highlight */}
                 {totalSavings > 0 && (
                   <div className="bg-primary/10 rounded-lg p-2.5 md:p-3 text-center">
@@ -184,7 +184,11 @@ export function CartDrawer() {
                 
                 <Button 
                   onClick={handleCheckout}
-                  className="w-full btn-primary text-sm md:text-base h-12 md:h-14" 
+                  onTouchEnd={(e) => {
+                    e.preventDefault();
+                    handleCheckout();
+                  }}
+                  className="w-full btn-primary text-sm md:text-base h-12 md:h-14 touch-manipulation active:scale-[0.98] transition-transform" 
                   size="lg"
                   disabled={items.length === 0 || isLoading}
                 >
