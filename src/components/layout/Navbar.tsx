@@ -45,17 +45,20 @@ function CountdownTimer() {
   const formatNumber = (num: number) => num.toString().padStart(2, '0');
 
   return (
-    <div className="flex items-center gap-1">
-      <span className="bg-background text-foreground px-2 py-0.5 rounded text-sm font-bold">
-        {formatNumber(timeLeft.hours)} HRS
+    <div className="flex items-center gap-0.5 md:gap-1 text-[10px] md:text-sm">
+      <span className="bg-background text-foreground px-1.5 md:px-2 py-0.5 rounded font-bold">
+        {formatNumber(timeLeft.hours)}
+        <span className="hidden md:inline"> HRS</span>
       </span>
       <span className="text-primary-foreground">:</span>
-      <span className="bg-background text-foreground px-2 py-0.5 rounded text-sm font-bold">
-        {formatNumber(timeLeft.minutes)} MIN
+      <span className="bg-background text-foreground px-1.5 md:px-2 py-0.5 rounded font-bold">
+        {formatNumber(timeLeft.minutes)}
+        <span className="hidden md:inline"> MIN</span>
       </span>
       <span className="text-primary-foreground">:</span>
-      <span className="bg-background text-foreground px-2 py-0.5 rounded text-sm font-bold">
-        {formatNumber(timeLeft.seconds)} SEC
+      <span className="bg-background text-foreground px-1.5 md:px-2 py-0.5 rounded font-bold">
+        {formatNumber(timeLeft.seconds)}
+        <span className="hidden md:inline"> SEC</span>
       </span>
     </div>
   );
@@ -79,30 +82,30 @@ export function Navbar() {
   return (
     <>
       <header className="sticky top-0 z-50 w-full">
-        {/* Announcement Bar - TryAuri Style */}
-        <div className="bg-primary text-primary-foreground py-2.5">
-          <div className="container-wide flex items-center justify-center gap-4 flex-wrap">
-            <span className="font-semibold text-sm tracking-wide">
-              HOLIDAY SALE: UP TO{' '}
+        {/* Announcement Bar - Mobile optimized */}
+        <div className="bg-primary text-primary-foreground py-2 md:py-2.5">
+          <div className="container-wide flex items-center justify-center gap-2 md:gap-4 flex-wrap px-3 md:px-6">
+            <span className="font-semibold text-xs md:text-sm tracking-wide">
+              SALE: UP TO{' '}
               <span className="text-accent font-bold">45% OFF</span>
             </span>
             <CountdownTimer />
           </div>
         </div>
 
-        {/* Main Navigation - TryAuri Style */}
+        {/* Main Navigation - Mobile optimized */}
         <nav className={cn(
           "bg-background transition-all duration-300",
           scrolled ? "shadow-md" : "border-b border-border/30"
         )}>
-          <div className="container-wide">
-            <div className="flex items-center justify-between h-20">
-              {/* Logo - 50% larger as requested */}
+          <div className="container-wide px-3 md:px-6">
+            <div className="flex items-center justify-between h-14 md:h-20">
+              {/* Logo - Responsive sizing */}
               <Link to="/" className="flex items-center">
                 <img 
                   src={neuvieLogo} 
                   alt="Neuvie Nutrition" 
-                  className="h-[3.75rem] md:h-[5.25rem] w-auto"
+                  className="h-10 md:h-[3.75rem] lg:h-[5.25rem] w-auto"
                 />
               </Link>
 
