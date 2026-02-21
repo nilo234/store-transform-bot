@@ -80,8 +80,8 @@ export const BundleUpsell = ({ currentProductHandle }: BundleUpsellProps) => {
                 </div>
 
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-2xl font-bold text-primary">€{bundle.salePrice.toFixed(2)}</span>
-                  <span className="text-muted-foreground line-through">€{bundle.originalPrice.toFixed(2)}</span>
+                  <span className="text-2xl font-bold text-primary">${bundle.salePrice.toFixed(2)}</span>
+                  <span className="text-muted-foreground line-through">${bundle.originalPrice.toFixed(2)}</span>
                 </div>
 
                 <Link to="/bundles">

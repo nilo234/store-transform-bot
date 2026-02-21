@@ -89,7 +89,7 @@ export function SubscriptionToggle({ basePrice, onSelectionChange }: Subscriptio
                 <span className="font-semibold">One-Time</span>
               </div>
               <p className="text-lg font-bold text-foreground mt-1">
-                €{basePrice.toFixed(2)}
+                ${basePrice.toFixed(2)}
               </p>
             </div>
           </div>
@@ -130,10 +130,10 @@ export function SubscriptionToggle({ basePrice, onSelectionChange }: Subscriptio
               </div>
               <div className="flex items-baseline gap-2 mt-1">
                 <span className="text-lg font-bold text-accent">
-                  €{finalPrice.toFixed(2)}
-                </span>
-                <span className="text-sm text-muted-foreground line-through">
-                  €{basePrice.toFixed(2)}
+                   ${finalPrice.toFixed(2)}
+                 </span>
+                 <span className="text-sm text-muted-foreground line-through">
+                   ${basePrice.toFixed(2)}
                 </span>
               </div>
               <div className="flex items-center gap-1 mt-1">
