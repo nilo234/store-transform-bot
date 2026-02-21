@@ -26,11 +26,11 @@ export function CartUpsell() {
     return firstVariant && !cartVariantIds.includes(firstVariant.id);
   }).slice(0, 3);
 
-  const handleQuickAdd = (product: ShopifyProduct) => {
+  const handleQuickAdd = async (product: ShopifyProduct) => {
     const variant = product.node.variants?.edges?.[0]?.node;
     if (!variant) return;
 
-    addItem({
+    await addItem({
       product,
       variantId: variant.id,
       variantTitle: variant.title,

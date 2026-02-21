@@ -148,46 +148,53 @@ const PRODUCT_BY_HANDLE_QUERY = `
   }
 `;
 
+// ── Cart Mutations ──────────────────────────────────────────────────────
+
+const CART_QUERY = `
+  query cart($id: ID!) {
+    cart(id: $id) { id totalQuantity }
+  }
+`;
+
 const CART_CREATE_MUTATION = `
   mutation cartCreate($input: CartInput!) {
     cartCreate(input: $input) {
       cart {
         id
         checkoutUrl
-        totalQuantity
-        cost {
-          totalAmount {
-            amount
-            currencyCode
-          }
-        }
-        lines(first: 100) {
-          edges {
-            node {
-              id
-              quantity
-              merchandise {
-                ... on ProductVariant {
-                  id
-                  title
-                  price {
-                    amount
-                    currencyCode
-                  }
-                  product {
-                    title
-                    handle
-                  }
-                }
-              }
-            }
-          }
-        }
+        lines(first: 100) { edges { node { id merchandise { ... on ProductVariant { id } } } } }
       }
-      userErrors {
-        field
-        message
+      userErrors { field message }
+    }
+  }
+`;
+
+const CART_LINES_ADD_MUTATION = `
+  mutation cartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {
+    cartLinesAdd(cartId: $cartId, lines: $lines) {
+      cart {
+        id
+        lines(first: 100) { edges { node { id merchandise { ... on ProductVariant { id } } } } }
       }
+      userErrors { field message }
+    }
+  }
+`;
+
+const CART_LINES_UPDATE_MUTATION = `
+  mutation cartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {
+    cartLinesUpdate(cartId: $cartId, lines: $lines) {
+      cart { id }
+      userErrors { field message }
+    }
+  }
+`;
+
+const CART_LINES_REMOVE_MUTATION = `
+  mutation cartLinesRemove($cartId: ID!, $lineIds: [ID!]!) {
+    cartLinesRemove(cartId: $cartId, lineIds: $lineIds) {
+      cart { id }
+      userErrors { field message }
     }
   }
 `;
@@ -200,10 +207,7 @@ export async function storefrontApiRequest(query: string, variables: Record<stri
       'Content-Type': 'application/json',
       'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_TOKEN
     },
-    body: JSON.stringify({
-      query,
-      variables,
-    }),
+    body: JSON.stringify({ query, variables }),
   });
 
   if (response.status === 402) {
@@ -226,7 +230,8 @@ export async function storefrontApiRequest(query: string, variables: Record<stri
   return data;
 }
 
-// Fetch all products
+// ── Product Fetching ────────────────────────────────────────────────────
+
 export async function fetchProducts(limit: number = 20, query?: string): Promise<ShopifyProduct[]> {
   try {
     const data = await storefrontApiRequest(PRODUCTS_QUERY, { first: limit, query });
@@ -238,7 +243,6 @@ export async function fetchProducts(limit: number = 20, query?: string): Promise
   }
 }
 
-// Fetch single product by handle
 export async function fetchProductByHandle(handle: string): Promise<ShopifyProduct['node'] | null> {
   try {
     const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle });
@@ -250,56 +254,105 @@ export async function fetchProductByHandle(handle: string): Promise<ShopifyProdu
   }
 }
 
-// Create checkout
-export async function createStorefrontCheckout(items: Array<{ variantId: string; quantity: number }>): Promise<string> {
-  if (items.length === 0) {
-    throw new Error('No items in cart');
+// ── Cart API Functions ──────────────────────────────────────────────────
+
+function formatCheckoutUrl(checkoutUrl: string): string {
+  try {
+    const url = new URL(checkoutUrl);
+    url.searchParams.set('channel', 'online_store');
+    return url.toString();
+  } catch {
+    return checkoutUrl;
   }
+}
 
-  const lines = items.map(item => ({
-    quantity: item.quantity,
-    merchandiseId: item.variantId,
-  }));
+interface UserError {
+  field: string[] | null;
+  message: string;
+}
 
-  console.log('Creating checkout with lines:', lines);
+function isCartNotFoundError(userErrors: UserError[]): boolean {
+  return userErrors.some(e =>
+    e.message.toLowerCase().includes('cart not found') ||
+    e.message.toLowerCase().includes('does not exist')
+  );
+}
 
-  const cartData = await storefrontApiRequest(CART_CREATE_MUTATION, {
-    input: { lines },
+export async function createShopifyCart(variantId: string, quantity: number): Promise<{ cartId: string; checkoutUrl: string; lineId: string } | null> {
+  const data = await storefrontApiRequest(CART_CREATE_MUTATION, {
+    input: { lines: [{ quantity, merchandiseId: variantId }] },
   });
 
-  if (!cartData) {
-    toast.error("Checkout failed", {
-      description: "Unable to connect to Shopify. Please try again.",
-    });
-    throw new Error('Failed to create checkout');
+  if (data?.data?.cartCreate?.userErrors?.length > 0) {
+    console.error('Cart creation failed:', data.data.cartCreate.userErrors);
+    toast.error("Checkout failed", { description: data.data.cartCreate.userErrors[0].message });
+    return null;
   }
 
-  if (cartData.data.cartCreate.userErrors.length > 0) {
-    const errorMessages = cartData.data.cartCreate.userErrors.map((e: { message: string }) => e.message).join(', ');
-    console.error('Cart creation user errors:', cartData.data.cartCreate.userErrors);
-    toast.error("Checkout failed", {
-      description: errorMessages,
-    });
-    throw new Error(`Cart creation failed: ${errorMessages}`);
+  const cart = data?.data?.cartCreate?.cart;
+  if (!cart?.checkoutUrl) return null;
+
+  const lineId = cart.lines.edges[0]?.node?.id;
+  if (!lineId) return null;
+
+  return { cartId: cart.id, checkoutUrl: formatCheckoutUrl(cart.checkoutUrl), lineId };
+}
+
+export async function addLineToShopifyCart(cartId: string, variantId: string, quantity: number): Promise<{ success: boolean; lineId?: string; cartNotFound?: boolean }> {
+  const data = await storefrontApiRequest(CART_LINES_ADD_MUTATION, {
+    cartId,
+    lines: [{ quantity, merchandiseId: variantId }],
+  });
+
+  const userErrors: UserError[] = data?.data?.cartLinesAdd?.userErrors || [];
+  if (isCartNotFoundError(userErrors)) return { success: false, cartNotFound: true };
+  if (userErrors.length > 0) {
+    console.error('Add line failed:', userErrors);
+    return { success: false };
   }
 
-  const cart = cartData.data.cartCreate.cart;
-  
-  if (!cart) {
-    toast.error("Checkout failed", {
-      description: "Products may not be available for sale. Please try again.",
-    });
-    throw new Error('No cart returned from Shopify - products may not be available for sale');
-  }
-  
-  if (!cart.checkoutUrl) {
-    toast.error("Checkout failed", {
-      description: "No checkout URL available. Products may be out of stock.",
-    });
-    throw new Error('No checkout URL returned from Shopify');
-  }
+  const lines = data?.data?.cartLinesAdd?.cart?.lines?.edges || [];
+  const newLine = lines.find((l: { node: { id: string; merchandise: { id: string } } }) => l.node.merchandise.id === variantId);
+  return { success: true, lineId: newLine?.node?.id };
+}
 
-  const url = new URL(cart.checkoutUrl);
-  url.searchParams.set('channel', 'online_store');
-  return url.toString();
+export async function updateShopifyCartLine(cartId: string, lineId: string, quantity: number): Promise<{ success: boolean; cartNotFound?: boolean }> {
+  const data = await storefrontApiRequest(CART_LINES_UPDATE_MUTATION, {
+    cartId,
+    lines: [{ id: lineId, quantity }],
+  });
+
+  const userErrors: UserError[] = data?.data?.cartLinesUpdate?.userErrors || [];
+  if (isCartNotFoundError(userErrors)) return { success: false, cartNotFound: true };
+  if (userErrors.length > 0) {
+    console.error('Update line failed:', userErrors);
+    return { success: false };
+  }
+  return { success: true };
+}
+
+export async function removeLineFromShopifyCart(cartId: string, lineId: string): Promise<{ success: boolean; cartNotFound?: boolean }> {
+  const data = await storefrontApiRequest(CART_LINES_REMOVE_MUTATION, {
+    cartId,
+    lineIds: [lineId],
+  });
+
+  const userErrors: UserError[] = data?.data?.cartLinesRemove?.userErrors || [];
+  if (isCartNotFoundError(userErrors)) return { success: false, cartNotFound: true };
+  if (userErrors.length > 0) {
+    console.error('Remove line failed:', userErrors);
+    return { success: false };
+  }
+  return { success: true };
+}
+
+export async function fetchShopifyCart(cartId: string): Promise<{ exists: boolean }> {
+  try {
+    const data = await storefrontApiRequest(CART_QUERY, { id: cartId });
+    if (!data) return { exists: true }; // API error (402) - preserve local cart
+    const cart = data?.data?.cart;
+    return { exists: !!(cart && cart.totalQuantity > 0) };
+  } catch {
+    return { exists: true }; // Network error - preserve local cart
+  }
 }

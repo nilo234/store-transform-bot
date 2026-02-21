@@ -93,7 +93,7 @@ export default function ProductDetail() {
     loadProduct();
   }, [handle]);
 
-  const handleAddToCart = () => {
+  const handleAddToCart = async () => {
     if (!product) return;
     
     const firstVariant = product.variants.edges[0]?.node;
@@ -105,13 +105,13 @@ export default function ProductDetail() {
       ? purchaseSelection.finalPrice 
       : basePrice;
     
-    addItem({
+    await addItem({
       product: { node: product },
       variantId: firstVariant.id,
       variantTitle: firstVariant.title,
       price: {
         amount: finalPrice.toString(),
-        currencyCode: firstVariant.price.currencyCode,
+        currencyCode: 'USD',
       },
       quantity,
       selectedOptions: firstVariant.selectedOptions,
@@ -348,7 +348,7 @@ export default function ProductDetail() {
               {/* Value Proposition Block */}
               <ValueProposition 
                 servings={30} 
-                subscriptionPrice={purchaseSelection?.finalPrice ? `€${purchaseSelection.finalPrice.toFixed(2)}` : "€12.99"} 
+                subscriptionPrice={purchaseSelection?.finalPrice ? `$${purchaseSelection.finalPrice.toFixed(2)}` : "$27.99"} 
               />
 
               {/* Inline Testimonial */}
@@ -399,7 +399,7 @@ export default function ProductDetail() {
               <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
                 <div className="text-center">
                   <Truck className="h-6 w-6 mx-auto mb-2 text-primary" />
-                  <p className="text-xs text-muted-foreground">Free Shipping<br />on €50+</p>
+                  <p className="text-xs text-muted-foreground">Free Shipping<br />on $50+</p>
                 </div>
                 <div className="text-center">
                   <Shield className="h-6 w-6 mx-auto mb-2 text-primary" />
