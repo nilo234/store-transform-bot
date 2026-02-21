@@ -7,7 +7,7 @@ const shippingInfo = [
   {
     icon: Truck,
     title: 'Free Shipping',
-    description: 'Enjoy free standard shipping on all orders over €50. No code needed—discount applies automatically at checkout.',
+    description: 'Enjoy free standard shipping on all orders over $50. No code needed—discount applies automatically at checkout.',
   },
   {
     icon: Clock,

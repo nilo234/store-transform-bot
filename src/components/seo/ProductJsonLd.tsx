@@ -73,7 +73,7 @@ export function ProductJsonLd({ product }: ProductJsonLdProps) {
           "shippingRate": {
             "@type": "MonetaryAmount",
             "value": "0",
-            "currency": "EUR"
+            "currency": "USD"
           },
           "shippingDestination": {
             "@type": "DefinedRegion",
