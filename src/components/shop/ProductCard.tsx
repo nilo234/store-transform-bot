@@ -89,13 +89,13 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
   const categoryBadge = getCategoryBadge(node.title);
   const ingredientIcons = getIngredientIcons(node.title);
 
-  const handleAddToCart = (e: React.MouseEvent) => {
+  const handleAddToCart = async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     
     if (!firstVariant) return;
     
-    addItem({
+    await addItem({
       product,
       variantId: firstVariant.id,
       variantTitle: firstVariant.title,

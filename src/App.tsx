@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LiveChatWidget } from "@/components/chat/LiveChatWidget";
 import { ExitIntentPopup } from "@/components/popups/ExitIntentPopup";
 import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/seo";
+import { useCartSync } from "@/hooks/useCartSync";
 import Index from "./pages/Index";
 import Shop from "./pages/Shop";
 import Bundles from "./pages/Bundles";
@@ -22,6 +23,11 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+function AppContent() {
+  useCartSync();
+  return null;
+}
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -30,6 +36,7 @@ const App = () => (
       <OrganizationJsonLd />
       <WebsiteJsonLd />
       <BrowserRouter>
+        <AppContent />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/shop" element={<Shop />} />

@@ -1,6 +1,7 @@
+import { useEffect } from 'react';
 import { Minus, Plus, Trash2, ExternalLink, Loader2, ShoppingCart, RefreshCw, Gift } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { useCartStore } from '@/stores/cartStore';
 import { Badge } from '@/components/ui/badge';
 import { FreeShippingBar } from './FreeShippingBar';
@@ -9,39 +10,35 @@ import { SecureCheckoutBadges } from './SecureCheckoutBadges';
 import { CartUpsell } from './CartUpsell';
 
 export function CartDrawer() {
-  const { 
-    items, 
+  const {
+    items,
     isOpen,
-    isLoading, 
+    isLoading,
+    isSyncing,
     setOpen,
-    updateQuantity, 
-    removeItem, 
-    createCheckout,
+    updateQuantity,
+    removeItem,
+    getCheckoutUrl,
+    syncCart,
     totalItems,
     totalPrice,
   } = useCartStore();
 
-  const handleCheckout = async (e?: React.MouseEvent | React.TouchEvent) => {
-    // Prevent double-firing on touch devices
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-    
-    try {
-      const checkoutUrl = await createCheckout();
-      
-      if (checkoutUrl) {
-        // Direct navigation - most reliable for iOS Safari
-        window.location.assign(checkoutUrl);
-      }
-    } catch (error) {
-      console.error('Checkout failed:', error);
+  // Sync cart with Shopify when drawer opens
+  useEffect(() => {
+    if (isOpen) syncCart();
+  }, [isOpen, syncCart]);
+
+  const handleCheckout = () => {
+    const checkoutUrl = getCheckoutUrl();
+    if (checkoutUrl) {
+      window.open(checkoutUrl, '_blank');
+      setOpen(false);
     }
   };
 
   const cartTotal = totalPrice();
-  const originalTotal = cartTotal * 1.42; // Show savings
+  const originalTotal = cartTotal * 1.42;
   const totalSavings = originalTotal - cartTotal;
 
   return (
@@ -51,8 +48,11 @@ export function CartDrawer() {
           <SheetTitle className="font-display text-lg md:text-xl">
             Cart ({totalItems()})
           </SheetTitle>
+          <SheetDescription className="sr-only">
+            Your shopping cart items
+          </SheetDescription>
         </SheetHeader>
-        
+
         <div className="flex flex-col flex-1 min-h-0">
           {items.length === 0 ? (
             <div className="flex-1 flex items-center justify-center">
@@ -91,7 +91,7 @@ export function CartDrawer() {
                           />
                         )}
                       </div>
-                      
+
                       <div className="flex-1 min-w-0">
                         <h4 className="font-medium text-xs md:text-sm truncate">{item.product.node.title}</h4>
                         {item.variantTitle !== 'Default Title' && (
@@ -100,7 +100,7 @@ export function CartDrawer() {
                         {item.isSubscription && (
                           <Badge variant="secondary" className="mt-1 md:mt-1.5 bg-accent/10 text-accent border-accent/20 gap-1 text-[10px] md:text-xs py-0.5">
                             <RefreshCw className="h-2.5 w-2.5 md:h-3 md:w-3" />
-                            {item.subscriptionFrequency === 'monthly' ? 'Monthly' : 
+                            {item.subscriptionFrequency === 'monthly' ? 'Monthly' :
                              item.subscriptionFrequency === 'bimonthly' ? '2 Mo' : '3 Mo'}
                             {item.subscriptionDiscount && ` -${item.subscriptionDiscount}%`}
                           </Badge>
@@ -114,23 +114,25 @@ export function CartDrawer() {
                           </span>
                         </div>
                       </div>
-                      
+
                       <div className="flex flex-col items-end gap-1.5 md:gap-2 flex-shrink-0">
                         <Button
                           variant="ghost"
                           size="icon"
                           className="h-7 w-7 md:h-8 md:w-8 text-muted-foreground hover:text-destructive"
                           onClick={() => removeItem(item.variantId)}
+                          disabled={isLoading}
                         >
                           <Trash2 className="h-3.5 w-3.5 md:h-4 md:w-4" />
                         </Button>
-                        
+
                         <div className="flex items-center gap-0.5 md:gap-1 bg-muted rounded-lg">
                           <Button
                             variant="ghost"
                             size="icon"
                             className="h-7 w-7 md:h-8 md:w-8"
                             onClick={() => updateQuantity(item.variantId, item.quantity - 1)}
+                            disabled={isLoading}
                           >
                             <Minus className="h-3 w-3" />
                           </Button>
@@ -140,6 +142,7 @@ export function CartDrawer() {
                             size="icon"
                             className="h-7 w-7 md:h-8 md:w-8"
                             onClick={() => updateQuantity(item.variantId, item.quantity + 1)}
+                            disabled={isLoading}
                           >
                             <Plus className="h-3 w-3" />
                           </Button>
@@ -162,8 +165,8 @@ export function CartDrawer() {
                 {/* Customers Also Bought Upsell */}
                 <CartUpsell />
               </div>
-              
-              {/* Fixed checkout section - Mobile optimized with safe area */}
+
+              {/* Fixed checkout section */}
               <div className="flex-shrink-0 px-4 md:px-6 py-4 md:py-6 pb-[calc(1rem+env(safe-area-inset-bottom))] md:pb-6 border-t bg-background space-y-3 md:space-y-4 relative z-50">
                 {/* Savings Highlight */}
                 {totalSavings > 0 && (
@@ -188,18 +191,18 @@ export function CartDrawer() {
                     </p>
                   </div>
                 </div>
-                
-                <Button 
+
+                <Button
                   onClick={handleCheckout}
-                  className="w-full btn-primary text-sm md:text-base h-12 md:h-14 touch-manipulation active:scale-[0.98] transition-transform select-none" 
+                  className="w-full btn-primary text-sm md:text-base h-12 md:h-14 touch-manipulation active:scale-[0.98] transition-transform select-none"
                   size="lg"
-                  disabled={items.length === 0 || isLoading}
+                  disabled={items.length === 0 || isLoading || isSyncing}
                   type="button"
                 >
-                  {isLoading ? (
+                  {isLoading || isSyncing ? (
                     <>
                       <Loader2 className="w-4 h-4 md:w-5 md:h-5 mr-2 animate-spin" />
-                      Creating...
+                      Processing...
                     </>
                   ) : (
                     <>
