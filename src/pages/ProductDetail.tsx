@@ -21,7 +21,7 @@ import { IngredientSpotlight } from '@/components/product/IngredientSpotlight';
 import { BundleUpsell } from '@/components/product/BundleUpsell';
 import { ProductFAQs } from '@/components/product/ProductFAQs';
 import { GuaranteeSection } from '@/components/product/GuaranteeSection';
-import { ProductJsonLd, BreadcrumbJsonLd } from '@/components/seo';
+import { ProductJsonLd, BreadcrumbJsonLd, PageMeta } from '@/components/seo';
 import {
   Accordion,
   AccordionContent,
@@ -191,7 +191,11 @@ export default function ProductDetail() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* SEO JSON-LD */}
+      {/* SEO */}
+      <PageMeta
+        title={`${product.title} – Fast-Dissolving Strip | NEUVIE™`}
+        description={`${product.description?.slice(0, 120) || `Shop ${product.title} by NEUVIE™. Premium dissolving wellness strip with clinically studied ingredients. $34.99. Free shipping $50+.`}`}
+      />
       <ProductJsonLd product={product} />
       <BreadcrumbJsonLd items={breadcrumbItems} />
       

@@ -1,10 +1,15 @@
 import { motion } from 'framer-motion';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { PageMeta } from '@/components/seo';
 
 export default function Terms() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <PageMeta
+        title="Terms of Service | NEUVIE™ Nutrition"
+        description="Read NEUVIE™'s terms and conditions for using our website and purchasing our dissolving wellness strips. Updated 2025."
+      />
       <Navbar />
       
       <main className="flex-1">

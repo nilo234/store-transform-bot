@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Check, Leaf, Heart, Award, Users } from 'lucide-react';
+import { PageMeta } from '@/components/seo';
 
 const values = [
   {
@@ -36,6 +37,10 @@ const stats = [
 export default function About() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <PageMeta
+        title="About NEUVIE™ – Our Story & Mission"
+        description="Learn how NEUVIE™ is transforming wellness with fast-dissolving oral strips. Premium ingredients, third-party tested, trusted by 50,000+ customers worldwide."
+      />
       <Navbar />
       
       <main className="flex-1">
