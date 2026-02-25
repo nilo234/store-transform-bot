@@ -20,6 +20,7 @@ import { GuaranteeSection } from '@/components/home/GuaranteeSection';
 import { PressLogos } from '@/components/home/PressLogos';
 import { NewReleases } from '@/components/home/NewReleases';
 import { OrdersCounter } from '@/components/home/OrdersCounter';
+import { PageMeta } from '@/components/seo';
 
 // Trust badges for marquee
 const marqueeItems = [
@@ -50,6 +51,10 @@ export default function Index() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <PageMeta
+        title="Dissolving Wellness Strips – 5x Faster Absorption | NEUVIE™"
+        description="Shop NEUVIE™ fast-dissolving wellness strips with clinically studied ingredients. 5x faster absorption than pills. Free US shipping on $50+. 60-day guarantee."
+      />
       <AnnouncementBar />
       <Navbar />
       

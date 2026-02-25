@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Sparkles, Zap, Heart, Leaf } from 'lucide-react';
@@ -7,12 +7,12 @@ import { Footer } from '@/components/layout/Footer';
 import { BundleCard } from '@/components/shop/BundleCard';
 import { bundles, BundleCategory } from '@/data/bundles';
 import { cn } from '@/lib/utils';
+import { PageMeta } from '@/components/seo';
 
 // SEO meta tags
 const SEO = {
-  title: 'Neuvie Bundles - Save Up to 29% on Wellness Strip Bundles',
-  description: 'Shop Neuvie bundle deals and save up to 29%. Curated wellness strip bundles for focus, energy, beauty, sleep & gut health. Free shipping on orders $50+.',
-  keywords: 'neuvie bundles, nutrition strips bundle, wellness bundles, supplement bundles, vitamin strip packs',
+  title: 'Wellness Strip Bundles – Save Up to 29% | NEUVIE™',
+  description: 'Save up to 29% with curated NEUVIE™ bundles. Energy, focus, beauty, sleep & gut health strip packs. Free US shipping on orders $50+. 14-day guarantee.',
 };
 
 // Category filter options
@@ -27,33 +27,6 @@ export default function Bundles() {
   const [searchParams, setSearchParams] = useSearchParams();
   const initialCategory = (searchParams.get('category') as BundleCategory) || 'all';
   const [activeCategory, setActiveCategory] = useState<BundleCategory>(initialCategory);
-
-  // Update document title for SEO
-  useEffect(() => {
-    document.title = SEO.title;
-    
-    // Update meta description
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', SEO.description);
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = SEO.description;
-      document.head.appendChild(meta);
-    }
-
-    // Update meta keywords
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', SEO.keywords);
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'keywords';
-      meta.content = SEO.keywords;
-      document.head.appendChild(meta);
-    }
-  }, []);
 
   // Filter bundles by category
   const filteredBundles = useMemo(() => {
@@ -73,6 +46,7 @@ export default function Bundles() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <PageMeta title={SEO.title} description={SEO.description} />
       <Navbar />
 
       <main className="flex-1">

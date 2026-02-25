@@ -7,6 +7,7 @@ import { ProductCard } from '@/components/shop/ProductCard';
 import { fetchProducts, ShopifyProduct } from '@/lib/shopify';
 import { Skeleton } from '@/components/ui/skeleton';
 import { cn } from '@/lib/utils';
+import { PageMeta } from '@/components/seo';
 
 const categories = [
   { id: 'all', label: 'All Products', count: 13 },
@@ -68,6 +69,10 @@ export default function Shop() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <PageMeta
+        title="Shop All 13 Wellness Strips | NEUVIE™"
+        description="Browse all 13 premium dissolving wellness strips. Energy, focus, sleep, beauty & immunity. $34.99 each. Free US shipping on orders $50+. Third-party tested."
+      />
       <Navbar />
       
       <main className="flex-1">

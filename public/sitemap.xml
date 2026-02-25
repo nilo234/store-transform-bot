@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://neuvie.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuvie.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuvie.com/" />
+  </url>
+  <url>
+    <loc>https://neuvie.com/shop</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuvie.com/shop" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuvie.com/shop" />
+  </url>
+  <url>
+    <loc>https://neuvie.com/bundles</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuvie.com/bundles" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuvie.com/bundles" />
+  </url>
+  <url>
+    <loc>https://neuvie.com/science</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuvie.com/science" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuvie.com/science" />
+  </url>
+  <url>
+    <loc>https://neuvie.com/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuvie.com/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuvie.com/about" />
+  </url>
+  <url>
+    <loc>https://neuvie.com/faqs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuvie.com/faqs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuvie.com/faqs" />
+  </url>
+  <url>
+    <loc>https://neuvie.com/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuvie.com/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuvie.com/contact" />
+  </url>
+  <url>
+    <loc>https://neuvie.com/shipping</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuvie.com/shipping" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuvie.com/shipping" />
+  </url>
+  <url>
+    <loc>https://neuvie.com/returns</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://neuvie.com/returns" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuvie.com/returns" />
+  </url>
+  <url>
+    <loc>https://neuvie.com/privacy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://neuvie.com/terms</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+</urlset>

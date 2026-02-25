@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { FAQJsonLd } from '@/components/seo';
+import { FAQJsonLd, PageMeta } from '@/components/seo';
 
 const faqs = [
   { 
@@ -64,7 +64,11 @@ export default function FAQs() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      {/* SEO JSON-LD */}
+      {/* SEO */}
+      <PageMeta
+        title="Frequently Asked Questions | NEUVIE™ Strips"
+        description="Get answers about NEUVIE™ dissolving strips – how they work, ingredients, shipping, returns & more. Third-party tested, 14-day guarantee. Contact our team anytime."
+      />
       <FAQJsonLd faqs={faqJsonLdData} />
       
       <Navbar />

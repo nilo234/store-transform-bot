@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Mail, MessageSquare, Clock, Send } from 'lucide-react';
+import { PageMeta } from '@/components/seo';
 
 const contactMethods = [
   {
@@ -30,6 +31,10 @@ const contactMethods = [
 export default function Contact() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <PageMeta
+        title="Contact Us – Get Help Fast | NEUVIE™"
+        description="Questions about your order or our wellness strips? Reach NEUVIE™ support via email or live chat. We respond within 24 hours. We're here to help."
+      />
       <Navbar />
       
       <main className="flex-1">

@@ -3,6 +3,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Shield, Leaf, FlaskConical, Award, Check, ExternalLink } from 'lucide-react';
+import { PageMeta } from '@/components/seo';
 
 // Proven Purity sections
 const puritySections = [
@@ -167,6 +168,10 @@ const ingredientBreakdown = [
 export default function Science() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <PageMeta
+        title="Science Behind Dissolving Strips | NEUVIE™"
+        description="Clinically studied ingredients at effective dosages. Third-party tested for purity & potency. Discover the science behind NEUVIE™ fast-dissolving wellness strips."
+      />
       <Navbar />
       
       <main className="flex-1">

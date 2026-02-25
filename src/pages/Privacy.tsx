@@ -1,10 +1,15 @@
 import { motion } from 'framer-motion';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { PageMeta } from '@/components/seo';
 
 export default function Privacy() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <PageMeta
+        title="Privacy Policy | NEUVIE™ Nutrition"
+        description="Read NEUVIE™'s privacy policy. Learn how we collect, use, and protect your personal information when you shop our wellness strips."
+      />
       <Navbar />
       
       <main className="flex-1">

@@ -2,10 +2,15 @@ import { motion } from 'framer-motion';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { RotateCcw, Shield, Check, Mail } from 'lucide-react';
+import { PageMeta } from '@/components/seo';
 
 export default function Returns() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <PageMeta
+        title="Returns & Refund Policy | NEUVIE™"
+        description="14-day money-back guarantee on all NEUVIE™ orders. Easy returns, no hassle. Contact support@neuvie.com for a full refund on your first order."
+      />
       <Navbar />
       
       <main className="flex-1">

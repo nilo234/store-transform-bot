@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Truck, Clock, Globe, Package } from 'lucide-react';
+import { PageMeta } from '@/components/seo';
 
 const shippingInfo = [
   {
@@ -29,6 +30,10 @@ const shippingInfo = [
 export default function Shipping() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <PageMeta
+        title="Shipping Policy – Free US Shipping $50+ | NEUVIE™"
+        description="Free US shipping on orders $50+. Ships within 1 business day. 3-5 day delivery. International shipping available. Learn about NEUVIE™ shipping rates."
+      />
       <Navbar />
       
       <main className="flex-1">
