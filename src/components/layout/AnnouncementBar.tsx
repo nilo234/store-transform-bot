@@ -10,12 +10,14 @@ interface AnnouncementBarProps {
   endDate?: Date;
 }
 
+const DEFAULT_END_DATE = new Date(new Date().setDate(new Date().getDate() + 3));
+
 export function AnnouncementBar({
   message = "NEW YEAR SALE",
   linkText = "SHOP NOW",
   linkHref = "/shop",
   showCountdown = true,
-  endDate = new Date(new Date().setDate(new Date().getDate() + 3)), // 3 days from now
+  endDate = DEFAULT_END_DATE,
 }: AnnouncementBarProps) {
   const [isVisible, setIsVisible] = useState(true);
   const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 0, seconds: 0 });
