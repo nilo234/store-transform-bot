@@ -13,7 +13,7 @@ const comparisonData: ComparisonRow[] = [
   { feature: 'Fast-Dissolving Format', neuvie: true, traditional: false },
   { feature: 'Absorption Time', neuvie: '30 seconds', traditional: '30-60 minutes' },
   { feature: 'No Water Needed', neuvie: true, traditional: false },
-  { feature: '5x Higher Bioavailability', neuvie: true, traditional: false },
+  { feature: '5x Faster Absorption*', neuvie: true, traditional: false },
   { feature: 'Pocket-Friendly Packaging', neuvie: true, traditional: false },
   { feature: 'Third-Party Lab Tested', neuvie: true, traditional: 'Sometimes' },
   { feature: 'Great Taste', neuvie: true, traditional: false },
@@ -116,7 +116,7 @@ export function ComparisonAuriSection() {
           >
             <Link to="/shop">
               <Button className="btn-primary gap-2 h-12 md:h-14 px-8 text-base md:text-lg">
-                Try Neuvie Today
+                Try Neuvie Risk-Free
                 <ArrowRight className="h-5 w-5" />
               </Button>
             </Link>

@@ -126,7 +126,7 @@ export function SubscriptionToggle({ basePrice, onSelectionChange }: Subscriptio
             <div>
               <div className="flex items-center gap-2">
                 <RefreshCw className="h-4 w-4 text-accent" />
-                <span className="font-semibold">Subscribe</span>
+                <span className="font-semibold">Subscribe & Save</span>
               </div>
               <div className="flex items-baseline gap-2 mt-1">
                 <span className="text-lg font-bold text-accent">

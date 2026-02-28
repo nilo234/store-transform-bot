@@ -1,23 +1,15 @@
-import { motion } from 'framer-motion';
+import { Check, Truck } from 'lucide-react';
 
-interface StockIndicatorProps {
-  percentSold?: number;
-}
-
-export const StockIndicator = ({ percentSold = 83 }: StockIndicatorProps) => {
+export const StockIndicator = () => {
   return (
-    <div className="space-y-1.5">
-      <div className="flex justify-between text-sm">
-        <span className="text-destructive font-medium">Low Stock</span>
-        <span className="text-muted-foreground">{percentSold}% Sold</span>
+    <div className="flex items-center gap-4 text-sm">
+      <div className="flex items-center gap-1.5 text-primary">
+        <Check className="h-4 w-4" />
+        <span className="font-medium">In Stock</span>
       </div>
-      <div className="h-2 bg-muted rounded-full overflow-hidden">
-        <motion.div 
-          className="h-full bg-gradient-to-r from-primary to-accent rounded-full"
-          initial={{ width: 0 }}
-          animate={{ width: `${percentSold}%` }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        />
+      <div className="flex items-center gap-1.5 text-muted-foreground">
+        <Truck className="h-4 w-4" />
+        <span>Ships within 1–2 business days</span>
       </div>
     </div>
   );

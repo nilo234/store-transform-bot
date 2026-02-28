@@ -117,7 +117,7 @@ export default function Index() {
 
                 <Link to="/shop" className="block">
                   <Button className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground h-12 sm:h-14 px-8 sm:px-10 text-base sm:text-lg font-semibold rounded-lg group">
-                    SHOP BEST SELLERS
+                    Shop Best Sellers
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </Link>
@@ -139,7 +139,7 @@ export default function Index() {
                     ))}
                   </div>
                   <p className="text-xs md:text-sm italic text-foreground/80 max-w-[200px] md:max-w-[220px] text-left">
-                    "Finally, supplements that actually work. I noticed results in just 3 days!"
+                    "So convenient—I finally stay consistent with my supplements. Love the format!"
                   </p>
                 </div>
               </motion.div>
@@ -412,7 +412,7 @@ export default function Index() {
             >
               <Link to="/shop">
                 <Button className="bg-accent hover:bg-accent/90 text-accent-foreground h-14 px-12 text-lg font-semibold rounded-lg group">
-                  START YOUR WELLNESS JOURNEY
+                  Shop Wellness Strips
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>

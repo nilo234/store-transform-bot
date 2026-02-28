@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Gift, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -15,7 +14,6 @@ export function ExitIntentPopup() {
   const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
-    // Check if popup has been shown before
     const popupShown = localStorage.getItem('neuvie_exit_popup_shown');
     if (popupShown) {
       setHasShown(true);
@@ -23,7 +21,6 @@ export function ExitIntentPopup() {
     }
 
     const handleMouseLeave = (e: MouseEvent) => {
-      // Only trigger when mouse leaves through the top of the viewport
       if (e.clientY <= 0 && !hasShown) {
         setIsOpen(true);
         setHasShown(true);
@@ -31,7 +28,6 @@ export function ExitIntentPopup() {
       }
     };
 
-    // Also trigger after 30 seconds if user hasn't interacted
     const timer = setTimeout(() => {
       if (!hasShown) {
         setIsOpen(true);
@@ -53,14 +49,11 @@ export function ExitIntentPopup() {
     if (!email) return;
 
     setIsSubmitting(true);
-
-    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
-
     setIsSubmitting(false);
     setIsSuccess(true);
 
-    toast.success('Discount code sent!', {
+    toast.success('Welcome to Neuvie!', {
       description: 'Check your email for your 15% off code.',
       position: 'top-center',
     });
@@ -77,7 +70,6 @@ export function ExitIntentPopup() {
           <DialogTitle>Get 15% Off Your First Order</DialogTitle>
         </DialogHeader>
 
-        {/* Close Button */}
         <button
           onClick={() => setIsOpen(false)}
           className="absolute top-4 right-4 z-10 p-2 rounded-full bg-background/80 hover:bg-background transition-colors"
@@ -86,7 +78,6 @@ export function ExitIntentPopup() {
           <X className="h-4 w-4" />
         </button>
 
-        {/* Content */}
         <div className="relative">
           {/* Top Banner */}
           <div className="bg-primary text-primary-foreground p-6 text-center">
@@ -104,7 +95,7 @@ export function ExitIntentPopup() {
               transition={{ delay: 0.3 }}
               className="font-display text-2xl md:text-3xl font-bold mb-2"
             >
-              Wait! Don't Leave Empty-Handed
+              Welcome to Neuvie
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -129,7 +120,7 @@ export function ExitIntentPopup() {
                   className="space-y-4"
                 >
                   <p className="text-center text-muted-foreground text-sm mb-4">
-                    Enter your email to receive your exclusive discount code.
+                    Join 50,000+ customers. Enter your email for a welcome discount.
                   </p>
 
                   <Input
@@ -154,7 +145,7 @@ export function ExitIntentPopup() {
                       />
                     ) : (
                       <>
-                        Get My 15% Off
+                        Get 15% Off
                         <ArrowRight className="ml-2 h-5 w-5" />
                       </>
                     )}
@@ -165,7 +156,7 @@ export function ExitIntentPopup() {
                     onClick={() => setIsOpen(false)}
                     className="w-full text-center text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    No thanks, I'll pay full price
+                    Maybe later
                   </button>
                 </motion.form>
               ) : (
@@ -183,7 +174,7 @@ export function ExitIntentPopup() {
                   >
                     <span className="text-3xl">🎉</span>
                   </motion.div>
-                  <h3 className="font-display text-xl font-bold mb-2">You're In!</h3>
+                  <h3 className="font-display text-xl font-bold mb-2">Welcome!</h3>
                   <p className="text-muted-foreground text-sm">
                     Check your email for your discount code.
                   </p>
@@ -196,7 +187,7 @@ export function ExitIntentPopup() {
               <div className="flex justify-center gap-6 text-xs text-muted-foreground">
                 <span>✓ 60-Day Guarantee</span>
                 <span>✓ Free Shipping $50+</span>
-                <span>✓ Fast Delivery</span>
+                <span>✓ Made in USA</span>
               </div>
             </div>
           </div>
