@@ -32,27 +32,27 @@ import {
 // Testimonials per product category
 const productTestimonials: Record<string, { quote: string; author: string }> = {
   mushroom: {
-    quote: "After the first week, my focus improved dramatically and I feel more mentally sharp throughout the day. Love the chocolate flavor!",
+    quote: "I've made the Mushroom Focus Strips part of my daily work routine. Love the chocolate flavor and how easy they are to take.",
     author: "Michael R."
   },
   energy: {
-    quote: "Finally, an energy supplement that doesn't give me jitters! I take it every morning and feel powered up all day.",
+    quote: "The Energy Strips are perfect for my morning routine—clean energy without the jitters. So much easier than swallowing pills.",
     author: "Sarah K."
   },
   sleep: {
-    quote: "I've struggled with sleep for years. These strips helped me fall asleep faster and wake up refreshed. Game changer!",
+    quote: "The Sleep Strips have become part of my nightly routine. Easy to take, great flavor, and I love the dissolving format.",
     author: "David L."
   },
   cognitive: {
-    quote: "Perfect for stressful workdays. I feel calmer and more focused without any drowsiness. Highly recommend!",
+    quote: "Perfect for after a long workday. I enjoy the strawberry-mint flavor and love how convenient the strip format is.",
     author: "Emma T."
   },
   immunity: {
-    quote: "I haven't missed a day of work in months since starting these. My immune system feels stronger than ever.",
+    quote: "I've been taking these daily for months. Love that they're third-party tested and made in the USA. Great quality.",
     author: "James P."
   },
   default: {
-    quote: "These strips are so convenient and actually taste great. I've never been more consistent with my supplements!",
+    quote: "These strips are so convenient and taste great. I've never been more consistent with my supplement routine!",
     author: "Lisa M."
   }
 };
@@ -300,7 +300,7 @@ export default function ProductDetail() {
                 </div>
                 
                 {/* Stock Indicator */}
-                <StockIndicator percentSold={83} />
+                <StockIndicator />
               </div>
 
               {/* Subscription Toggle */}
@@ -340,7 +340,7 @@ export default function ProductDetail() {
                     size="lg"
                   >
                     <ShoppingCart className="h-5 w-5" />
-                    {purchaseSelection?.type === 'subscribe' ? 'Subscribe & Save' : 'Add to Cart'} →
+                    {purchaseSelection?.type === 'subscribe' ? 'Subscribe & Save' : 'Add to Cart'}
                   </Button>
                 </div>
                 
@@ -393,8 +393,8 @@ export default function ProductDetail() {
                     <span className="font-medium">Shipping & Guarantee</span>
                   </AccordionTrigger>
                   <AccordionContent className="pb-4 text-sm text-muted-foreground space-y-2">
-                    <p><strong>Shipping:</strong> Orders ship within 1 business day. Delivery typically 3-5 business days.</p>
-                    <p><strong>14-Day Guarantee:</strong> Not satisfied? Contact hello@neuvie.com for a full refund on your first order.</p>
+                    <p><strong>Shipping:</strong> Orders ship within 1–2 business days. Delivery typically 3–5 business days.</p>
+                    <p><strong>60-Day Guarantee:</strong> Not satisfied? Contact hello@neuvie.com for a full refund on your first order — no questions asked.</p>
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -411,7 +411,7 @@ export default function ProductDetail() {
                 </div>
                 <div className="text-center">
                   <RotateCcw className="h-6 w-6 mx-auto mb-2 text-primary" />
-                  <p className="text-xs text-muted-foreground">14-Day<br />Guarantee</p>
+                  <p className="text-xs text-muted-foreground">60-Day<br />Guarantee</p>
                 </div>
               </div>
 

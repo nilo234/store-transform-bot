@@ -63,7 +63,7 @@ export function Footer() {
                 type="submit"
                 className="h-11 md:h-12 bg-accent hover:bg-accent/90 text-accent-foreground px-6 font-semibold rounded-lg w-full sm:w-auto"
               >
-                Subscribe
+                Join Us
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </form>
@@ -166,6 +166,9 @@ export function Footer() {
           </div>
           
           {/* Copyright */}
+          <p className="text-center text-primary-foreground/50 text-[10px] md:text-xs mb-2">
+            *These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
+          </p>
           <p className="text-center text-primary-foreground/50 text-[10px] md:text-sm">
             © {new Date().getFullYear()} Neuvie. All rights reserved.
           </p>

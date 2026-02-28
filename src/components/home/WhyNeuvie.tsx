@@ -14,17 +14,17 @@ const features = [
   {
     icon: Leaf,
     title: 'Premium Sourcing',
-    description: 'We source the highest quality ingredients from trusted suppliers worldwide. Every ingredient is traceable and verified for purity.',
+    description: 'We source high-quality ingredients from trusted suppliers worldwide. Every ingredient is traceable and verified for purity.',
   },
   {
     icon: FlaskConical,
-    title: 'Science-Backed',
-    description: 'Our strips are formulated with clinically studied dosages. No fillers, no fluff—just ingredients proven to work.',
+    title: 'Science-Backed Formulas',
+    description: 'Our strips are formulated with clinically studied ingredients at meaningful dosages. No fillers, no unnecessary additives.',
   },
   {
     icon: Shield,
-    title: 'Quality Guaranteed',
-    description: 'Every batch is independently tested for purity, potency, and safety. We exceed industry standards, guaranteed.',
+    title: 'Quality You Can Trust',
+    description: 'Every batch is independently tested for purity, potency, and safety by third-party labs. Made in a GMP-certified facility in the USA.',
   },
 ];
 
@@ -48,7 +48,7 @@ export function WhyNeuvie() {
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
               We believe wellness should be simple, effective, and fit seamlessly into your life. 
               Our fast-dissolving oral strips deliver premium, science-backed ingredients in a format 
-              that goes wherever you go. No water. No pills. Just results.
+              that goes wherever you go. No water. No pills. Just place and dissolve.
             </p>
             
             {/* Feature list */}
