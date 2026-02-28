@@ -1,21 +1,40 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Check, ChevronRight, Shield, Truck, FlaskConical, Leaf, Award, Eye } from 'lucide-react';
+import { ArrowRight, Star, Check, ChevronRight, Shield, Truck, Clock } from 'lucide-react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { AnnouncementBar } from '@/components/layout/AnnouncementBar';
 import { ProductCard } from '@/components/shop/ProductCard';
+import { BundleSection } from '@/components/shop/BundleSection';
+import { BenefitsTabs } from '@/components/home/BenefitsTabs';
+import { TestimonialsCarousel } from '@/components/home/TestimonialsCarousel';
+import { WhyNeuvie } from '@/components/home/WhyNeuvie';
 import { Button } from '@/components/ui/button';
 import { fetchProducts, ShopifyProduct } from '@/lib/shopify';
+import { VideoTutorial } from '@/components/home/VideoTutorial';
+import { IngredientSpotlight } from '@/components/home/IngredientSpotlight';
+import { SocialProofPhotos } from '@/components/home/SocialProofPhotos';
 import { HomepageFAQs } from '@/components/home/HomepageFAQs';
+import { GuaranteeSection } from '@/components/home/GuaranteeSection';
+import { PressLogos } from '@/components/home/PressLogos';
+import { NewReleases } from '@/components/home/NewReleases';
+import { OrdersCounter } from '@/components/home/OrdersCounter';
 import { PageMeta } from '@/components/seo';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
+
+// Trust badges for marquee
+const marqueeItems = [
+  { icon: '✓', text: 'Third-Party Lab Tested' },
+  { icon: '✓', text: 'Fast-Dissolving Strips' },
+  { icon: '✓', text: 'No Water Needed' },
+  { icon: '✓', text: 'Clinically Studied Ingredients' },
+  { icon: '✓', text: 'Non-GMO & Gluten-Free' },
+  { icon: '✓', text: 'Made in USA' },
+  { icon: '✓', text: 'Third-Party Lab Tested' },
+  { icon: '✓', text: 'Fast-Dissolving Strips' },
+  { icon: '✓', text: 'No Water Needed' },
+  { icon: '✓', text: 'Clinically Studied Ingredients' },
+];
 
 export default function Index() {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
@@ -33,86 +52,127 @@ export default function Index() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="Dissolving Wellness Strips – Science-Backed Ingredients | NEUVIE™"
-        description="NEUVIE™ dissolving wellness strips deliver clinically studied ingredients through fast oral absorption. Transparent formulas, third-party tested, made in the USA."
+        title="Dissolving Wellness Strips – 5x Faster Absorption | NEUVIE™"
+        description="Shop NEUVIE™ fast-dissolving wellness strips with clinically studied ingredients. 5x faster absorption than pills. Free US shipping on $50+. 60-day guarantee."
       />
       <AnnouncementBar />
       <Navbar />
-
+      
       <main className="flex-1">
-
-        {/* ─────────────────────────────────────────────
-            SECTION 1 — HERO
-            Imagery: Close-up of a single strip on a fingertip against
-            a clean, light background. Natural light, shallow depth of
-            field. No stocky lifestyle models — focus on the product itself.
-        ───────────────────────────────────────────── */}
-        <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-center overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/10 to-muted/30" />
-
-          <div className="container-wide relative z-10 py-12 md:py-0 px-4 md:px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-              {/* Copy */}
+        {/* Hero Section - Conversion Optimized + Mobile First */}
+        <section className="relative min-h-[70vh] md:min-h-[85vh] flex items-center overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-muted/40" />
+          
+          <div className="container-wide relative z-10 py-8 md:py-12 lg:py-0 px-4 md:px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-16 items-center">
+              {/* Hero Content */}
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                initial={{ opacity: 0, x: -40 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
                 className="order-2 lg:order-1 text-center lg:text-left"
               >
-                <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] mb-5">
-                  Wellness that dissolves{' '}
-                  <span className="text-accent">on your tongue</span>
-                </h1>
-
-                <p className="text-base md:text-lg text-muted-foreground mb-6 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-                  Clinically studied ingredients in a fast-dissolving strip.
-                  No pills, no water, no guesswork — just place, dissolve, and go.
-                </p>
-
-                {/* Trust points */}
-                <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-3 sm:gap-5 mb-8">
-                  <span className="flex items-center justify-center lg:justify-start gap-2 text-sm">
-                    <Shield className="h-4 w-4 text-primary" />
-                    <span className="font-medium">60-day money-back guarantee</span>
-                  </span>
-                  <span className="flex items-center justify-center lg:justify-start gap-2 text-sm">
-                    <Truck className="h-4 w-4 text-primary" />
-                    <span className="font-medium">Free US shipping on $50+</span>
+                {/* Social Proof Header */}
+                <div className="inline-flex items-center gap-2 mb-3 md:mb-4">
+                  <div className="flex">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-3.5 w-3.5 md:h-4 md:w-4 fill-accent text-accent" />
+                    ))}
+                  </div>
+                  <span className="text-xs md:text-sm text-muted-foreground font-medium">
+                    4.9/5 from 12,847 Reviews
                   </span>
                 </div>
 
-                {/* 2 CTAs */}
-                <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-                  <Link to="/shop">
-                    <Button className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8 text-base font-semibold rounded-lg group">
-                      Shop wellness strips
-                      <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                    </Button>
-                  </Link>
-                  <Link to="/science">
-                    <Button variant="outline" className="w-full sm:w-auto h-12 px-8 text-base font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-lg">
-                      See how it works
-                    </Button>
-                  </Link>
+                {/* Orders Counter */}
+                <div className="mb-4 md:mb-6">
+                  <OrdersCounter />
+                </div>
+
+                <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-4 md:mb-6">
+                  Feel the Difference in{' '}
+                  <span className="text-accent">30 Seconds</span>
+                </h1>
+
+                <p className="text-base md:text-lg text-muted-foreground mb-4 md:mb-6 max-w-lg mx-auto lg:mx-0">
+                  Premium dissolving wellness strips with clinically studied ingredients. 
+                  5x faster absorption than pills. No water needed.
+                </p>
+
+                {/* Trust Points - Stack on mobile */}
+                <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-2 sm:gap-4 mb-6 md:mb-8">
+                  <div className="flex items-center justify-center lg:justify-start gap-2 text-xs sm:text-sm">
+                    <Shield className="h-4 w-4 text-primary" />
+                    <span className="font-medium">60-Day Guarantee</span>
+                  </div>
+                  <div className="flex items-center justify-center lg:justify-start gap-2 text-xs sm:text-sm">
+                    <Truck className="h-4 w-4 text-primary" />
+                    <span className="font-medium">Free US Shipping $50+</span>
+                  </div>
+                  <div className="flex items-center justify-center lg:justify-start gap-2 text-xs sm:text-sm">
+                    <Clock className="h-4 w-4 text-primary" />
+                    <span className="font-medium">Ships Within 24hrs</span>
+                  </div>
+                </div>
+
+                <Link to="/shop" className="block">
+                  <Button className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground h-12 sm:h-14 px-8 sm:px-10 text-base sm:text-lg font-semibold rounded-lg group">
+                    Shop Best Sellers
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </Link>
+
+                <p className="mt-3 md:mt-4 text-xs sm:text-sm text-muted-foreground">
+                  ✓ 60-Day Money-Back Guarantee • ✓ Free Returns
+                </p>
+
+                {/* Real Customer Quote - Hide on smallest mobile */}
+                <div className="mt-6 md:mt-8 hidden sm:flex items-center justify-center lg:justify-start gap-4">
+                  <div className="flex -space-x-3">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <div 
+                        key={i} 
+                        className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 border-2 border-background flex items-center justify-center"
+                      >
+                        <span className="text-xs md:text-sm">👤</span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-xs md:text-sm italic text-foreground/80 max-w-[200px] md:max-w-[220px] text-left">
+                    "So convenient—I finally stay consistent with my supplements. Love the format!"
+                  </p>
                 </div>
               </motion.div>
 
-              {/* Visual placeholder */}
+              {/* Hero Image - Smaller on mobile */}
               <motion.div
                 className="relative order-1 lg:order-2"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.15 }}
+                initial={{ opacity: 0, x: 40 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
               >
-                {/* Imagery note: Replace with a high-res product photo — 
-                    a single strip held between two fingers, bright natural light,
-                    neutral linen or marble surface. Avoid busy backgrounds. */}
-                <div className="relative aspect-[4/3] sm:aspect-square max-w-md mx-auto">
-                  <div className="absolute inset-0 bg-gradient-to-br from-muted/50 to-muted/20 rounded-3xl" />
+                <div className="relative aspect-[4/3] sm:aspect-square max-w-[280px] sm:max-w-none mx-auto">
+                  <div className="absolute inset-0 bg-gradient-to-br from-muted/60 to-muted/30 rounded-2xl md:rounded-3xl" />
+                  
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <span className="text-7xl md:text-8xl block mb-4">💧</span>
-                      <p className="text-sm text-muted-foreground font-medium">Product hero image</p>
+                    <div className="grid grid-cols-3 gap-2 sm:gap-4 p-4 sm:p-8">
+                      {[1, 2, 3, 4, 5].map((i) => (
+                        <motion.div
+                          key={i}
+                          className="bg-background/80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-2 sm:p-4 shadow-lg"
+                          initial={{ y: 20, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{ delay: 0.3 + i * 0.1 }}
+                          whileHover={{ y: -5, scale: 1.02 }}
+                        >
+                          <div className="aspect-[3/4] bg-gradient-to-b from-primary/10 to-accent/10 rounded-lg sm:rounded-xl flex items-center justify-center">
+                            <span className="text-2xl sm:text-4xl">💊</span>
+                          </div>
+                          <p className="text-[8px] sm:text-[10px] text-center mt-1 sm:mt-2 font-medium text-muted-foreground">
+                            Neuvie Strip
+                          </p>
+                        </motion.div>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -121,314 +181,244 @@ export default function Index() {
           </div>
         </section>
 
-        {/* ─────────────────────────────────────────────
-            SECTION 2 — HOW STRIPS WORK
-            Imagery: Step-by-step illustrations or short-form photos.
-            Step 1 — pouch being torn open (top-down flat lay).
-            Step 2 — strip placed on tongue (close-up, clean).
-            Step 3 — person going about their day (natural, candid).
-        ───────────────────────────────────────────── */}
-        <section className="py-16 md:py-24 bg-muted/30">
-          <div className="container-wide px-4 md:px-6">
-            <motion.div
-              className="text-center mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-3">
-                How It Works
-              </h2>
-              <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto">
-                Three steps, about 30 seconds, no water needed.
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              {[
-                {
-                  step: '1',
-                  icon: '📦',
-                  title: 'Open the pouch',
-                  description: 'Each individually sealed strip stays fresh until you\'re ready.',
-                },
-                {
-                  step: '2',
-                  icon: '👅',
-                  title: 'Place on your tongue',
-                  description: 'The strip dissolves in about 30 seconds. Ingredients are absorbed through the oral mucosa.',
-                },
-                {
-                  step: '3',
-                  icon: '✨',
-                  title: 'Go about your day',
-                  description: 'No water, no swallowing pills. Take it anywhere — at your desk, on a run, or before bed.',
-                },
-              ].map((item, index) => (
-                <motion.div
-                  key={item.step}
-                  className="text-center"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.12 }}
-                >
-                  <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 rounded-full bg-background border-2 border-border/50 flex items-center justify-center shadow-soft">
-                    <span className="text-3xl md:text-4xl">{item.icon}</span>
-                  </div>
-                  <span className="text-xs font-bold text-primary/60 tracking-widest uppercase mb-1 block">
-                    Step {item.step}
-                  </span>
-                  <h3 className="font-display font-semibold text-lg mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mx-auto">
-                    {item.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.p
-              className="text-center text-xs text-muted-foreground mt-10 italic"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-            >
-              Oral-mucosal delivery allows ingredients to enter the bloodstream without passing through the digestive system first.
-            </motion.p>
+        {/* Marquee Section - Mobile optimized */}
+        <section className="py-3 md:py-4 bg-primary text-primary-foreground overflow-hidden">
+          <div className="flex animate-marquee">
+            {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, index) => (
+              <span key={index} className="mx-4 md:mx-8 whitespace-nowrap text-xs md:text-sm font-medium flex items-center gap-1.5 md:gap-2">
+                <Check className="h-3 w-3 md:h-4 md:w-4" />
+                {item.text}
+              </span>
+            ))}
           </div>
         </section>
 
-        {/* ─────────────────────────────────────────────
-            SECTION 3 — WHY NEUVIE (proof points)
-            Imagery: Lab/testing facility photography or flat-lay of
-            ingredient powders in petri dishes. Certificates and lab
-            reports (blurred) in the background. Clean, editorial feel.
-        ───────────────────────────────────────────── */}
-        <section className="py-16 md:py-24 bg-background">
-          <div className="container-wide px-4 md:px-6">
-            <motion.div
-              className="text-center mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-3">
-                Why NEUVIE
-              </h2>
-              <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto">
-                What goes into our strips — and what doesn't.
-              </p>
-            </motion.div>
+        {/* Press Logos - Authority */}
+        <PressLogos />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {[
-                {
-                  icon: FlaskConical,
-                  title: 'Clinically studied ingredients',
-                  description: 'Every formula uses ingredients backed by published research at meaningful dosages. No proprietary blends — full transparency on every label.',
-                  evidence: '[Link to ingredient research page]',
-                },
-                {
-                  icon: Shield,
-                  title: 'Third-party tested',
-                  description: 'Each batch is independently tested for purity, potency, and contaminants by an accredited lab. Certificates of analysis available on request.',
-                  evidence: '[Link to COA or lab partner page]',
-                },
-                {
-                  icon: Leaf,
-                  title: 'Clean formula',
-                  description: 'Non-GMO, no artificial colors, no unnecessary fillers. We publish every ingredient on the label — active and inactive.',
-                  evidence: '[Link to full ingredient list per product]',
-                },
-                {
-                  icon: Award,
-                  title: 'GMP-certified, made in the USA',
-                  description: 'Manufactured in a GMP-certified facility following FDA guidelines for dietary supplements. Domestically sourced where possible.',
-                  evidence: '[GMP certification badge / facility info]',
-                },
-                {
-                  icon: Eye,
-                  title: 'Full label transparency',
-                  description: 'No proprietary blends. Every ingredient and its dosage is listed clearly so you know exactly what you\'re taking.',
-                  evidence: '[Link to view product labels]',
-                },
-              ].map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  className="bg-card rounded-2xl p-6 border border-border/50 shadow-soft"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.08 }}
-                >
-                  <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                    <item.icon className="h-5 w-5 text-primary" />
-                  </div>
-                  <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                    {item.description}
-                  </p>
-                  <p className="text-xs text-primary/70 italic">{item.evidence}</p>
-                </motion.div>
-              ))}
+        {/* Bundle Section - Above Best Sellers */}
+        <BundleSection />
+
+        {/* Best Sellers Section - Mobile optimized */}
+        <section className="py-12 md:py-20 lg:py-28 bg-background">
+          <div className="container-wide px-4 md:px-6">
+            <div className="text-center mb-8 md:mb-12">
+              <motion.h2 
+                className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                BEST SELLERS
+              </motion.h2>
+              <motion.p 
+                className="text-muted-foreground text-sm md:text-lg"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+              >
+                Our most popular wellness strips, trusted by thousands.
+              </motion.p>
             </div>
-          </div>
-        </section>
-
-        {/* ─────────────────────────────────────────────
-            SECTION 4 — BEST SELLERS (short preview)
-            Imagery: Product packaging shot per card — consistent
-            white/light background, same angle, same lighting across
-            all four. Think Ritual or AG1 product photography.
-        ───────────────────────────────────────────── */}
-        <section className="py-16 md:py-24 bg-muted/20">
-          <div className="container-wide px-4 md:px-6">
-            <motion.div
-              className="text-center mb-10"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-3">
-                Best Sellers
-              </h2>
-              <p className="text-muted-foreground text-base md:text-lg">
-                Our most popular strips, chosen by thousands of customers.
-              </p>
-            </motion.div>
 
             {isLoading ? (
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
                 {[...Array(4)].map((_, i) => (
-                  <div key={i} className="aspect-[3/4] bg-muted rounded-2xl animate-pulse" />
+                  <div key={i} className="aspect-[3/4] bg-muted rounded-xl md:rounded-2xl animate-pulse" />
                 ))}
               </div>
             ) : products.length > 0 ? (
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
                 {products.map((product, index) => (
                   <ProductCard key={product.node.id} product={product} index={index} />
                 ))}
               </div>
             ) : (
-              <div className="text-center py-12">
-                <p className="text-muted-foreground mb-2">Products will appear here once added to your store.</p>
+              <div className="text-center py-12 md:py-16">
+                <p className="text-muted-foreground mb-4">No products found.</p>
+                <p className="text-sm text-muted-foreground">Products will appear here once added to your Shopify store.</p>
               </div>
             )}
 
-            <motion.div
-              className="text-center mt-10"
-              initial={{ opacity: 0, y: 15 }}
+            <motion.div 
+              className="text-center mt-8 md:mt-12"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
               <Link to="/shop">
-                <Button
-                  variant="outline"
-                  className="h-11 px-8 text-sm font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-lg"
+                <Button 
+                  variant="outline" 
+                  className="w-full sm:w-auto h-11 md:h-12 px-6 md:px-8 text-sm md:text-base font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-lg"
                 >
-                  View all products
-                  <ChevronRight className="ml-2 h-4 w-4" />
+                  View All 13 Products
+                  <ChevronRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                 </Button>
               </Link>
             </motion.div>
           </div>
         </section>
 
-        {/* ─────────────────────────────────────────────
-            SECTION 5 — FAQ (6 questions)
-            No imagery needed — clean text accordion.
-        ───────────────────────────────────────────── */}
-        <section className="py-16 md:py-24 bg-background">
-          <div className="container-wide px-4 md:px-6">
-            <motion.div
-              className="text-center mb-10"
+        {/* Benefits Tabs Section - Auri-style expandable */}
+        <BenefitsTabs />
+
+        {/* How to Use Section */}
+        <section className="py-20 md:py-28 bg-background">
+          <div className="container-wide">
+            <div className="text-center mb-16">
+              <motion.h2 
+                className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                HOW TO USE
+              </motion.h2>
+              <motion.p 
+                className="text-muted-foreground text-lg max-w-xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+              >
+                Simple. Fast. Effective. Just 30 seconds to wellness.
+              </motion.p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-4xl mx-auto">
+              {[
+                { step: '01', icon: '📦', title: 'Remove Strip', description: 'Tear open the pouch and remove one strip' },
+                { step: '02', icon: '👅', title: 'Place on Tongue', description: 'Place the strip under your tongue' },
+                { step: '03', icon: '⏱️', title: 'Wait 30 Seconds', description: 'Let it dissolve completely' },
+                { step: '04', icon: '✨', title: 'Feel the Effects', description: 'Ingredients absorb directly into your system' }
+              ].map((item, index) => (
+                <motion.div
+                  key={item.step}
+                  className="relative text-center"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.15 }}
+                >
+                  {/* Connector Line - Hidden on first item and mobile */}
+                  {index > 0 && (
+                    <div className="hidden md:block absolute top-12 -left-4 md:-left-8 w-8 md:w-16 h-px bg-border" />
+                  )}
+                  
+                  {/* Step Number */}
+                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 text-xs font-bold text-primary/60 tracking-widest">
+                    {item.step}
+                  </div>
+                  
+                  {/* Icon Container */}
+                  <div className="relative w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-muted/50 to-muted border-2 border-border/50 flex items-center justify-center">
+                    <span className="text-3xl md:text-4xl">{item.icon}</span>
+                    
+                    {/* Subtle ring animation */}
+                    <motion.div
+                      className="absolute inset-0 rounded-full border-2 border-primary/20"
+                      animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0, 0.5] }}
+                      transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
+                    />
+                  </div>
+                  
+                  {/* Text */}
+                  <h3 className="font-display font-semibold text-base md:text-lg mb-2">{item.title}</h3>
+                  <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                </motion.div>
+              ))}
+            </div>
+            
+            {/* Additional Info */}
+            <motion.div 
+              className="mt-12 text-center"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+            >
+              <p className="text-sm text-muted-foreground italic">
+                No water needed • No pills to swallow • Take anywhere, anytime
+              </p>
+            </motion.div>
+
+            {/* Video Tutorial */}
+            <VideoTutorial 
+              // videoSrc="YOUR_VIDEO_URL_HERE" // Uncomment and add your video URL
+              // posterImage="/path/to/thumbnail.jpg" // Optional thumbnail
+            />
+          </div>
+        </section>
+
+        {/* Ingredient Spotlight - "Inside the Strips" */}
+        <IngredientSpotlight />
+
+        {/* Why Neuvie Section */}
+        <WhyNeuvie />
+
+        {/* Testimonials Carousel - Enhanced with verified badges */}
+        <TestimonialsCarousel />
+
+        {/* Social Proof Photos */}
+        <SocialProofPhotos />
+
+        {/* New Releases Section */}
+        <NewReleases />
+
+        {/* Homepage FAQs */}
+        <HomepageFAQs />
+
+        {/* 60-Day Guarantee Section */}
+        <GuaranteeSection />
+
+        {/* CTA Section - Conversion Optimized */}
+        <section className="py-24 bg-primary text-primary-foreground">
+          <div className="container-wide text-center">
+            <motion.h2 
+              className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-3">
-                Frequently Asked Questions
-              </h2>
-              <p className="text-muted-foreground">
-                Straightforward answers — no fine print.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="max-w-3xl mx-auto"
+              Join 50,000+ Happy Customers
+            </motion.h2>
+            <motion.p 
+              className="text-primary-foreground/80 text-lg mb-6 max-w-2xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              <Accordion type="single" collapsible className="space-y-3">
-                {[
-                  {
-                    q: 'What are dissolving wellness strips?',
-                    a: 'Thin, oral strips that dissolve on your tongue in about 30 seconds. The active ingredients are absorbed through the lining of your mouth, which means they don\'t have to pass through your digestive system first.',
-                  },
-                  {
-                    q: 'What ingredients do you use?',
-                    a: 'Every product uses clinically studied ingredients at transparent dosages — no proprietary blends. Full ingredient lists, including inactive ingredients, are published on each product page. Common actives include Vitamin D3, B12, Iron, Lion\'s Mane, Melatonin, and Biotin.',
-                  },
-                  {
-                    q: 'Are the strips tested by a third party?',
-                    a: 'Yes. Every batch is independently tested for purity, potency, and contaminants by an accredited laboratory. We can provide Certificates of Analysis on request — email hello@neuvie.com.',
-                  },
-                  {
-                    q: 'How is this different from a pill or gummy?',
-                    a: 'Oral strips dissolve and absorb through the oral mucosa, bypassing the digestive tract. This can support faster absorption for certain ingredients. They\'re also more portable — no water, no chewing, no aftertaste.',
-                  },
-                  {
-                    q: 'What is your return policy?',
-                    a: 'We offer a 60-day money-back guarantee on your first order. If you\'re not satisfied, email us and we\'ll process a full refund — no hoops, no fine print.',
-                  },
-                  {
-                    q: 'Do you ship outside the US?',
-                    a: 'Currently we ship within the United States only. Orders over $50 qualify for free standard shipping (3–5 business days). We typically ship within 1–2 business days of ordering.',
-                  },
-                ].map((faq, index) => (
-                  <AccordionItem
-                    key={index}
-                    value={`faq-${index}`}
-                    className="bg-card rounded-xl border border-border/50 px-6 shadow-soft"
-                  >
-                    <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline py-5">
-                      {faq.q}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
-                      {faq.a}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </motion.div>
-
+              Experience premium wellness strips trusted by thousands. 
+              Try risk-free with our 60-day money-back guarantee.
+            </motion.p>
             <motion.div
-              className="text-center mt-8"
+              className="flex flex-wrap justify-center gap-4 mb-10"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
+              transition={{ delay: 0.15 }}
+            >
+              <span className="text-sm text-primary-foreground/70">✓ Free Shipping on $50+</span>
+              <span className="text-sm text-primary-foreground/70">✓ 60-Day Guarantee</span>
+              <span className="text-sm text-primary-foreground/70">✓ Cancel Anytime</span>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <Link to="/faqs" className="text-primary hover:text-accent transition-colors font-medium text-sm">
-                View all FAQs →
+              <Link to="/shop">
+                <Button className="bg-accent hover:bg-accent/90 text-accent-foreground h-14 px-12 text-lg font-semibold rounded-lg group">
+                  Shop Wellness Strips
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </Button>
               </Link>
             </motion.div>
           </div>
         </section>
-
-        {/* ─────────────────────────────────────────────
-            SECTION 6 — FOOTER MICROCOPY
-            Handled by <Footer /> component, which already includes:
-            - Free US shipping on orders $50+
-            - 60-day money-back guarantee
-            - Secure checkout (256-bit SSL)
-            - hello@neuvie.com support
-            - FDA disclaimer
-            - Links to Shipping, Returns, Privacy, Terms
-        ───────────────────────────────────────────── */}
-
       </main>
 
       <Footer />
