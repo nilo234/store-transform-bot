@@ -13,7 +13,7 @@ const values = [
   {
     icon: Award,
     title: 'Science-Backed Formulas',
-    description: 'Our strips are developed by experts using clinically studied dosages. No fillers, no fluff—just ingredients that work.',
+    description: 'Our strips are developed by experts using clinically studied dosages. No fillers, no fluff—just purposeful ingredients.',
   },
   {
     icon: Heart,
@@ -23,7 +23,7 @@ const values = [
   {
     icon: Users,
     title: 'Customer Focused',
-    description: 'Your wellness journey is our priority. We stand behind every product with our 14-day money-back guarantee.',
+    description: 'Your wellness journey is our priority. We stand behind every product with our 60-day money-back guarantee.',
   },
 ];
 
@@ -31,7 +31,7 @@ const stats = [
   { number: '50,000+', label: 'Happy Customers' },
   { number: '99%', label: 'Satisfaction Rate' },
   { number: '13', label: 'Premium Strips' },
-  { number: '14 Days', label: 'Money-Back Guarantee' },
+  { number: '60 Days', label: 'Money-Back Guarantee' },
 ];
 
 export default function About() {
@@ -87,7 +87,7 @@ export default function About() {
                     We set out to create a better way. Our fast-dissolving oral strips deliver premium, science-backed ingredients in a format that fits your lifestyle. No water needed. No pills to choke on. Just place a strip on your tongue and go.
                   </p>
                   <p>
-                    Today, Neuvie offers 13 unique strips—from Energy and Focus to Sleep and Beauty—each formulated to deliver real results. Trusted by over 50,000 customers worldwide, we're proving that effective wellness doesn't have to be complicated.
+                    Today, Neuvie offers 13 unique strips—from Energy and Focus to Sleep and Beauty—each formulated to support your wellness goals. Trusted by over 50,000 customers, we're showing that effective supplementation doesn't have to be complicated.
                   </p>
                 </div>
               </motion.div>
@@ -183,7 +183,7 @@ export default function About() {
                   'Fast-dissolving oral strip format',
                   'No artificial colors or preservatives',
                   'Non-GMO and ethically sourced ingredients',
-                  '14-day money-back guarantee',
+                  '60-day money-back guarantee — no questions asked',
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3 bg-card p-4 rounded-xl shadow-soft">
                     <Check className="h-5 w-5 text-primary flex-shrink-0" />
