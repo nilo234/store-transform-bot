@@ -48,7 +48,7 @@ const ingredientBreakdown = [
     product: 'Hangover Strips',
     icon: '🍹',
     ingredients: [
-      { name: 'Curcumin (Curcuma Longa)', benefit: 'Supports healthy inflammatory response and liver detoxification' },
+      { name: 'Curcumin (Curcuma Longa)', benefit: 'Supports healthy inflammatory response and liver function' },
       { name: 'Date Extract', benefit: 'Rich in antioxidants, supports natural recovery processes' },
       { name: 'Grape Seed Extract', benefit: 'Powerful antioxidant that helps protect cells from oxidative stress' },
       { name: 'Andrographis', benefit: 'Traditional herb supporting liver function and immune health' },
@@ -131,7 +131,7 @@ const ingredientBreakdown = [
     icon: '⚖️',
     ingredients: [
       { name: 'Chromium (75 mcg)', benefit: 'Essential mineral supporting healthy blood sugar metabolism' },
-      { name: 'Molybdenum (100 mcg)', benefit: 'Trace mineral supporting enzyme activity and detoxification' },
+      { name: 'Molybdenum (100 mcg)', benefit: 'Trace mineral supporting enzyme activity and metabolic processes' },
       { name: 'Saffron Extract (10 mg)', benefit: 'Clinically studied for mood support and appetite regulation' },
     ],
   },
@@ -191,7 +191,7 @@ export default function Science() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              Every Neuvie strip is formulated with clinically studied ingredients at effective dosages. We combine cutting-edge science with premium sourcing to create supplements that actually deliver results.
+              Every Neuvie strip is formulated with clinically studied ingredients at effective dosages. We combine thoughtful science with premium sourcing to create supplements designed to support your wellness.
             </motion.p>
           </div>
         </section>
@@ -320,7 +320,7 @@ export default function Science() {
                 DIRECT FROM MOTHER NATURE
               </h2>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-                Our 13 science-backed formulas feature premium vitamins, minerals, and botanical extracts—each selected for proven efficacy and optimal bioavailability.
+                Our 13 science-backed formulas feature premium vitamins, minerals, and botanical extracts—each selected for quality and optimal bioavailability.
               </p>
             </motion.div>
 

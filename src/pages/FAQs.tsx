@@ -19,7 +19,7 @@ const faqs = [
   },
   { 
     q: 'Do you offer a money-back guarantee?', 
-    a: 'Absolutely. We offer a 14-day money-back guarantee on all orders. If you\'re not completely satisfied with your purchase, simply contact us for a full refund—no questions asked.' 
+    a: 'Absolutely. We offer a 60-day money-back guarantee on all orders. If you\'re not completely satisfied with your purchase, simply contact us for a full refund—no questions asked.' 
   },
   { 
     q: 'Are Neuvie strips vegan?', 
