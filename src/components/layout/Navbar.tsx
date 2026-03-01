@@ -23,15 +23,20 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showBanner, setShowBanner] = useState(true);
   const location = useLocation();
   const totalItems = useCartStore((state) => state.totalItems());
   const setCartOpen = useCartStore((state) => state.setOpen);
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 10);
+      setShowBanner(currentScrollY < lastScrollY || currentScrollY < 10);
+      lastScrollY = currentScrollY;
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -39,9 +44,12 @@ export function Navbar() {
     <>
       <header className="sticky top-0 z-50 w-full">
         {/* Announcement Bar */}
-        <div className="bg-primary text-primary-foreground py-2 md:py-2.5">
+        <div className={cn(
+          "bg-primary text-primary-foreground overflow-hidden transition-all duration-300",
+          showBanner ? "max-h-12 py-2 md:py-2.5" : "max-h-0 py-0"
+        )}>
           <div className="container-wide flex items-center justify-center px-3 md:px-6">
-            <span className="font-medium text-xs md:text-sm tracking-wide">
+            <span className="font-medium text-xs md:text-sm tracking-wide whitespace-nowrap">
               Free US Shipping on Orders $50+ · 14-Day Money-Back Guarantee
             </span>
           </div>
