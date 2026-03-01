@@ -93,7 +93,7 @@ export function WhyNeuvie() {
               <img 
                 src={hairSkinNailsImg} 
                 alt="Neuvie Hair, Skin and Nails Strips - Citrus Gleam" 
-                className="w-full h-auto object-cover"
+                className="w-full h-[400px] md:h-[500px] lg:h-auto object-cover object-center"
               />
             </div>
             
