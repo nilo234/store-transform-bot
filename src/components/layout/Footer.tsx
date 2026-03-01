@@ -43,7 +43,33 @@ const trustBadges = [
 export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
-      {/* Newsletter Section - Mobile optimized */}
+      {/* Newsletter Section */}
+      <div className="border-b border-primary-foreground/10">
+        <div className="container-wide py-10 md:py-16 px-4 md:px-6">
+          <div className="max-w-xl mx-auto text-center">
+            <h3 className="font-display text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4">
+              Join the Neuvie Community
+            </h3>
+            <p className="text-primary-foreground/70 mb-6 md:mb-8 text-sm md:text-base">
+              Get 15% off your first order plus exclusive access to new products and wellness tips.
+            </p>
+            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <Input 
+                type="email"
+                placeholder="Enter your email" 
+                className="h-11 md:h-12 bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 rounded-lg flex-1"
+              />
+              <Button 
+                type="submit"
+                className="h-11 md:h-12 bg-accent hover:bg-accent/90 text-accent-foreground px-6 font-semibold rounded-lg w-full sm:w-auto"
+              >
+                Join Us
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </form>
+          </div>
+        </div>
+      </div>
 
       {/* Main Footer - Mobile optimized */}
       <div className="container-wide py-10 md:py-16 px-4 md:px-6">
