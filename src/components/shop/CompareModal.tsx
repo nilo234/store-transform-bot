@@ -79,7 +79,7 @@ export function CompareModal({ open, onOpenChange, products, onRemoveProduct }: 
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl w-[95vw] max-h-[90vh] p-0 gap-0 overflow-hidden">
+      <DialogContent hideClose className="max-w-4xl w-[95vw] max-h-[90vh] p-0 gap-0 overflow-hidden">
         <DialogTitle className="sr-only">Compare Products</DialogTitle>
         
         {/* Header */}

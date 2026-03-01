@@ -65,7 +65,7 @@ export function ExitIntentPopup() {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="max-w-md p-0 gap-0 overflow-hidden border-0">
+      <DialogContent hideClose className="max-w-md p-0 gap-0 overflow-hidden border-0">
         <DialogHeader className="sr-only">
           <DialogTitle>Get 15% Off Your First Order</DialogTitle>
         </DialogHeader>
