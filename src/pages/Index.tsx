@@ -425,45 +425,6 @@ export default function Index() {
           </div>
         </section>
 
-        {/* ═══════════════════════════════════════════════
-            8. PRE-FOOTER — Email Capture
-        ═══════════════════════════════════════════════ */}
-        <section className="py-16 md:py-24 bg-primary text-primary-foreground">
-          <div className="container-wide text-center">
-            <motion.h2
-              className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-4"
-              {...fadeUp}
-            >
-              Join the Neuvie Community
-            </motion.h2>
-            <motion.p
-              className="text-primary-foreground/70 mb-8 max-w-md mx-auto text-sm md:text-base"
-              {...fadeUp}
-              transition={{ delay: 0.1 }}
-            >
-              Get 15% off your first order plus exclusive access to new products and wellness insights.
-            </motion.p>
-            <motion.form
-              className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-              {...fadeUp}
-              transition={{ delay: 0.15 }}
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 h-12 px-4 rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 text-sm focus:outline-none focus:ring-2 focus:ring-accent"
-              />
-              <Button type="submit" className="h-12 px-6 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-lg">
-                Join Us
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </motion.form>
-            <motion.p className="mt-4 text-[11px] text-primary-foreground/50" {...fadeUp} transition={{ delay: 0.2 }}>
-              No spam. Unsubscribe anytime. We respect your privacy.
-            </motion.p>
-          </div>
-        </section>
       </main>
 
       <Footer />
