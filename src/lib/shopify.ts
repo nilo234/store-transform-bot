@@ -199,6 +199,15 @@ const CART_LINES_REMOVE_MUTATION = `
   }
 `;
 
+const CART_DISCOUNT_CODES_UPDATE_MUTATION = `
+  mutation cartDiscountCodesUpdate($cartId: ID!, $discountCodes: [String!]!) {
+    cartDiscountCodesUpdate(cartId: $cartId, discountCodes: $discountCodes) {
+      cart { id checkoutUrl }
+      userErrors { field message }
+    }
+  }
+`;
+
 // API Helper
 export async function storefrontApiRequest(query: string, variables: Record<string, unknown> = {}) {
   const response = await fetch(SHOPIFY_STOREFRONT_URL, {
@@ -296,6 +305,79 @@ export async function createShopifyCart(variantId: string, quantity: number): Pr
   if (!lineId) return null;
 
   return { cartId: cart.id, checkoutUrl: formatCheckoutUrl(cart.checkoutUrl), lineId };
+}
+
+// Create cart with multiple lines at once (for bundles)
+export async function createShopifyCartMultiLines(
+  lines: Array<{ variantId: string; quantity: number }>
+): Promise<{ cartId: string; checkoutUrl: string; lineIds: Map<string, string> } | null> {
+  const data = await storefrontApiRequest(CART_CREATE_MUTATION, {
+    input: { lines: lines.map(l => ({ quantity: l.quantity, merchandiseId: l.variantId })) },
+  });
+
+  if (data?.data?.cartCreate?.userErrors?.length > 0) {
+    console.error('Cart creation failed:', data.data.cartCreate.userErrors);
+    toast.error("Checkout failed", { description: data.data.cartCreate.userErrors[0].message });
+    return null;
+  }
+
+  const cart = data?.data?.cartCreate?.cart;
+  if (!cart?.checkoutUrl) return null;
+
+  const lineIds = new Map<string, string>();
+  for (const edge of cart.lines.edges) {
+    lineIds.set(edge.node.merchandise.id, edge.node.id);
+  }
+
+  return { cartId: cart.id, checkoutUrl: formatCheckoutUrl(cart.checkoutUrl), lineIds };
+}
+
+// Add multiple lines at once (for bundles added to existing cart)
+export async function addMultipleLinesToShopifyCart(
+  cartId: string,
+  lines: Array<{ variantId: string; quantity: number }>
+): Promise<{ success: boolean; lineIds?: Map<string, string>; cartNotFound?: boolean }> {
+  const data = await storefrontApiRequest(CART_LINES_ADD_MUTATION, {
+    cartId,
+    lines: lines.map(l => ({ quantity: l.quantity, merchandiseId: l.variantId })),
+  });
+
+  const userErrors: UserError[] = data?.data?.cartLinesAdd?.userErrors || [];
+  if (isCartNotFoundError(userErrors)) return { success: false, cartNotFound: true };
+  if (userErrors.length > 0) {
+    console.error('Add lines failed:', userErrors);
+    return { success: false };
+  }
+
+  const edges = data?.data?.cartLinesAdd?.cart?.lines?.edges || [];
+  const lineIds = new Map<string, string>();
+  for (const edge of edges) {
+    lineIds.set(edge.node.merchandise.id, edge.node.id);
+  }
+  return { success: true, lineIds };
+}
+
+// Apply discount code to cart
+export async function applyDiscountToShopifyCart(
+  cartId: string,
+  discountCode: string
+): Promise<{ success: boolean; checkoutUrl?: string }> {
+  const data = await storefrontApiRequest(CART_DISCOUNT_CODES_UPDATE_MUTATION, {
+    cartId,
+    discountCodes: [discountCode],
+  });
+
+  const userErrors: UserError[] = data?.data?.cartDiscountCodesUpdate?.userErrors || [];
+  if (userErrors.length > 0) {
+    console.error('Discount code failed:', userErrors);
+    return { success: false };
+  }
+
+  const cart = data?.data?.cartDiscountCodesUpdate?.cart;
+  return {
+    success: true,
+    checkoutUrl: cart?.checkoutUrl ? formatCheckoutUrl(cart.checkoutUrl) : undefined,
+  };
 }
 
 export async function addLineToShopifyCart(cartId: string, variantId: string, quantity: number): Promise<{ success: boolean; lineId?: string; cartNotFound?: boolean }> {

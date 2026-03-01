@@ -52,7 +52,7 @@ function CountdownTimer() {
 export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [codeCopied, setCodeCopied] = useState(false);
-  const addItem = useCartStore((state) => state.addItem);
+  const isLoading = useCartStore((state) => state.isLoading);
   const { images: shopifyImages, isLoading: imagesLoading } = useBundleImages(bundle.variantIds);
 
   const handleCopyCode = (e: React.MouseEvent) => {
@@ -66,15 +66,18 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
     setTimeout(() => setCodeCopied(false), 2000);
   };
 
-  const handleAddToCart = (e: React.MouseEvent) => {
+  const handleAddToCart = async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
 
-    // Add each real product to cart
-    bundle.variantIds.forEach((variantId) => {
-      const info = productInfo[variantId];
-      if (info) {
-        addItem({
+    const bundleId = `bundle-${bundle.id}-${Date.now()}`;
+
+    // Build all bundle items with bundle metadata
+    const bundleItems = bundle.variantIds
+      .map((variantId) => {
+        const info = productInfo[variantId];
+        if (!info) return null;
+        return {
           product: {
             node: {
               id: `product-${variantId}`,
@@ -82,49 +85,44 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
               description: '',
               handle: info.title.toLowerCase().replace(/\s+/g, '-'),
               priceRange: {
-                minVariantPrice: {
-                  amount: info.price,
-                  currencyCode: 'USD',
-                },
+                minVariantPrice: { amount: info.price, currencyCode: 'USD' },
               },
               images: { edges: [] },
               variants: {
-                edges: [
-                  {
-                    node: {
-                      id: variantId,
-                      title: 'Default Title',
-                      price: {
-                        amount: info.price,
-                        currencyCode: 'USD',
-                      },
-                      availableForSale: true,
-                      selectedOptions: [{ name: 'Title', value: 'Default Title' }],
-                    },
+                edges: [{
+                  node: {
+                    id: variantId,
+                    title: 'Default Title',
+                    price: { amount: info.price, currencyCode: 'USD' },
+                    availableForSale: true,
+                    selectedOptions: [{ name: 'Title', value: 'Default Title' }],
                   },
-                ],
+                }],
               },
               options: [{ name: 'Title', values: ['Default Title'] }],
             },
-          },
-          variantId: variantId,
+          } as import('@/lib/shopify').ShopifyProduct,
+          variantId,
           variantTitle: 'Default Title',
-          price: {
-            amount: info.price,
-            currencyCode: 'USD',
-          },
+          price: { amount: info.price, currencyCode: 'USD' },
           quantity: 1,
           selectedOptions: [{ name: 'Title', value: 'Default Title' }],
-        });
-      }
-    });
+          bundleId,
+          bundleName: bundle.name,
+          bundleDiscountCode: bundle.discountCode,
+        };
+      })
+      .filter(Boolean) as Omit<import('@/stores/cartStore').CartItem, 'lineId'>[];
+
+    // Add all items as a bundle (single Shopify cart operation + auto-apply discount)
+    await useCartStore.getState().addBundle(bundleItems, bundle.discountCode);
 
     toast.success('Bundle added to cart!', {
       description: (
         <div className="space-y-1">
           <p>{bundle.name} - {bundle.packSize}</p>
           <p className="text-xs font-semibold text-primary">
-            Use code "{bundle.discountCode}" at checkout for {bundle.discountPercent}% off!
+            Discount code "{bundle.discountCode}" auto-applied!
           </p>
         </div>
       ),
