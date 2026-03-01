@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingCart, User, Search, ChevronDown } from 'lucide-react';
+import { Menu, X, ShoppingCart, Search, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useCartStore } from '@/stores/cartStore';
@@ -88,12 +88,7 @@ export function Navbar() {
                   <Search className="h-5 w-5" />
                 </Button>
 
-                {/* Account */}
-                <Link to="/account">
-                  <Button variant="ghost" size="icon" className="h-10 w-10">
-                    <User className="h-5 w-5" />
-                  </Button>
-                </Link>
+                {/* Account - hidden until auth is implemented */}
 
                 {/* Cart */}
                 <Button 

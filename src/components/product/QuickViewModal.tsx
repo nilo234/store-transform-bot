@@ -21,7 +21,7 @@ export function QuickViewModal({ product, open, onOpenChange }: QuickViewModalPr
   if (!product) return null;
 
   const price = parseFloat(product.node.priceRange.minVariantPrice.amount);
-  const originalPrice = price * 1.42;
+  const originalPrice = 49.99;
   const savings = originalPrice - price;
   const images = product.node.images.edges;
   const firstVariant = product.node.variants.edges[0]?.node;
@@ -60,7 +60,7 @@ export function QuickViewModal({ product, open, onOpenChange }: QuickViewModalPr
             {/* Sale Badge */}
             <div className="absolute top-4 right-4 z-10">
               <span className="bg-primary text-primary-foreground text-sm font-semibold px-3 py-1.5 rounded-full">
-                42% OFF
+                SAVE ${savings.toFixed(0)}
               </span>
             </div>
 
@@ -119,8 +119,8 @@ export function QuickViewModal({ product, open, onOpenChange }: QuickViewModalPr
             {/* Trust Points */}
             <div className="flex flex-wrap gap-3 mb-4">
               {[
-                { icon: Truck, text: 'Free Shipping' },
-                { icon: Shield, text: '60-Day Guarantee' },
+                { icon: Truck, text: 'Free Shipping on $50+' },
+                { icon: Shield, text: '14-Day Guarantee' },
                 { icon: Check, text: 'Lab Tested' },
               ].map((item) => (
                 <div key={item.text} className="flex items-center gap-1.5 text-xs text-muted-foreground">

@@ -125,9 +125,9 @@ export default function Index() {
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>
-                  <Link to="/shop?quiz=true">
+                  <Link to="/shop">
                     <Button variant="outline" className="w-full sm:w-auto h-13 px-8 text-base font-semibold rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                      Find Your Strip
+                      Browse Collection
                     </Button>
                   </Link>
                 </div>

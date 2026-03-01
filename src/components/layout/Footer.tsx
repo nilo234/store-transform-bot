@@ -7,10 +7,10 @@ import neuvieFooterLogo from '@/assets/neuvie-footer-logo.png';
 const footerLinks = {
   shop: [
     { label: 'All Products', href: '/shop' },
-    { label: 'Performance & Energy', href: '/shop?category=performance' },
-    { label: 'Beauty & Skin', href: '/shop?category=beauty' },
-    { label: 'Sleep & Relax', href: '/shop?category=sleep' },
-    { label: 'Immunity & Health', href: '/shop?category=immunity' },
+    { label: 'Performance & Energy', href: '/shop?goal=performance' },
+    { label: 'Beauty & Skin', href: '/shop?goal=beauty' },
+    { label: 'Sleep & Relax', href: '/shop?goal=relax' },
+    { label: 'Immunity & Health', href: '/shop?goal=wellness' },
   ],
   company: [
     { label: 'About Us', href: '/about' },
