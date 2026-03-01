@@ -1,4 +1,5 @@
 import { useEffect, useMemo } from 'react';
+import { sanitizeTitle } from '@/lib/shopify';
 import { Minus, Plus, Trash2, ExternalLink, Loader2, ShoppingCart, RefreshCw, Gift, X, Package } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from '@/components/ui/sheet';
@@ -261,7 +262,7 @@ function CartItemRow({
       </div>
 
       <div className="flex-1 min-w-0">
-        <h4 className={`font-medium ${compact ? 'text-[11px] md:text-xs' : 'text-xs md:text-sm'} truncate`}>{item.product.node.title}</h4>
+        <h4 className={`font-medium ${compact ? 'text-[11px] md:text-xs' : 'text-xs md:text-sm'} truncate`}>{sanitizeTitle(item.product.node.title)}</h4>
         {item.variantTitle !== 'Default Title' && (
           <p className="text-[10px] md:text-xs text-muted-foreground mt-0.5">{item.variantTitle}</p>
         )}

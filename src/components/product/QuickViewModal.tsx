@@ -4,7 +4,7 @@ import { Minus, Plus, ShoppingCart, X, Star, Truck, Shield, Check } from 'lucide
 import { Link } from 'react-router-dom';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { ShopifyProduct } from '@/lib/shopify';
+import { ShopifyProduct, sanitizeTitle, sanitizeHandle } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
 
@@ -39,7 +39,7 @@ export function QuickViewModal({ product, open, onOpenChange }: QuickViewModalPr
     });
 
     toast.success('Added to Cart!', {
-      description: `${quantity}x ${product.node.title}`,
+      description: `${quantity}x ${sanitizeTitle(product.node.title)}`,
       position: 'top-center',
     });
 
@@ -51,7 +51,7 @@ export function QuickViewModal({ product, open, onOpenChange }: QuickViewModalPr
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent hideClose className="max-w-3xl p-0 gap-0 overflow-hidden">
         <DialogHeader className="sr-only">
-          <DialogTitle>{product.node.title}</DialogTitle>
+          <DialogTitle>{sanitizeTitle(product.node.title)}</DialogTitle>
         </DialogHeader>
 
         <div className="grid md:grid-cols-2 gap-0">
@@ -98,7 +98,7 @@ export function QuickViewModal({ product, open, onOpenChange }: QuickViewModalPr
             </div>
 
             {/* Title */}
-            <h2 className="font-display text-2xl font-bold mb-2">{product.node.title}</h2>
+            <h2 className="font-display text-2xl font-bold mb-2">{sanitizeTitle(product.node.title)}</h2>
 
             {/* Description */}
             <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
@@ -165,7 +165,7 @@ export function QuickViewModal({ product, open, onOpenChange }: QuickViewModalPr
 
               {/* View Full Details */}
               <Link
-                to={`/product/${product.node.handle}`}
+                to={`/product/${sanitizeHandle(product.node.handle)}`}
                 onClick={() => onOpenChange(false)}
                 className="block text-center text-sm text-primary hover:underline font-medium"
               >

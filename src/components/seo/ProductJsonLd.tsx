@@ -39,7 +39,7 @@ export function ProductJsonLd({ product }: ProductJsonLdProps) {
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "Product",
-      "name": product.title,
+      "name": product.title.replace(/\bgummies\b/gi, 'Strips'),
       "description": product.description,
       "image": images,
       "brand": {

@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { sanitizeTitle } from '@/lib/shopify';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
@@ -331,7 +332,7 @@ export default function Shop() {
                 <div className="flex items-center gap-3 overflow-x-auto flex-1">
                   {compareProducts.map(p => (
                     <div key={p.node.id} className="flex items-center gap-2 bg-muted/50 rounded-full px-3 py-1.5 flex-shrink-0">
-                      <span className="text-xs font-medium truncate max-w-[120px]">{p.node.title}</span>
+                      <span className="text-xs font-medium truncate max-w-[120px]">{sanitizeTitle(p.node.title)}</span>
                       <button onClick={() => toggleCompare(p.node.id)} className="text-muted-foreground hover:text-foreground">
                         <X className="h-3.5 w-3.5" />
                       </button>

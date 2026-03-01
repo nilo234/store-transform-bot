@@ -10,7 +10,7 @@ const faqs = [
     a: 'Simply place one strip on your tongue and let it dissolve completely—usually within 30-60 seconds. No water needed! For best results, follow the specific instructions on each product.' 
   },
   { 
-    q: 'What makes oral strips better than pills or gummies?', 
+    q: 'What makes oral strips better than pills or capsules?', 
     a: 'Oral strips dissolve directly on your tongue, allowing for faster absorption compared to pills that need to be broken down in your stomach. Plus, they\'re incredibly convenient—no water needed, easy to take anywhere, and no choking on large capsules.' 
   },
   { 
