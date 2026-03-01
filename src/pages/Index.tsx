@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import productsLineup from '@/assets/neuvie-products-lineup.png';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Star, Check, ChevronRight, Shield, Truck, Clock } from 'lucide-react';
@@ -151,30 +152,13 @@ export default function Index() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
               >
-                <div className="relative aspect-[4/3] sm:aspect-square max-w-[280px] sm:max-w-none mx-auto">
-                  <div className="absolute inset-0 bg-gradient-to-br from-muted/60 to-muted/30 rounded-2xl md:rounded-3xl" />
-                  
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="grid grid-cols-3 gap-2 sm:gap-4 p-4 sm:p-8">
-                      {[1, 2, 3, 4, 5].map((i) => (
-                        <motion.div
-                          key={i}
-                          className="bg-background/80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-2 sm:p-4 shadow-lg"
-                          initial={{ y: 20, opacity: 0 }}
-                          animate={{ y: 0, opacity: 1 }}
-                          transition={{ delay: 0.3 + i * 0.1 }}
-                          whileHover={{ y: -5, scale: 1.02 }}
-                        >
-                          <div className="aspect-[3/4] bg-gradient-to-b from-primary/10 to-accent/10 rounded-lg sm:rounded-xl flex items-center justify-center">
-                            <span className="text-2xl sm:text-4xl">💊</span>
-                          </div>
-                          <p className="text-[8px] sm:text-[10px] text-center mt-1 sm:mt-2 font-medium text-muted-foreground">
-                            Neuvie Strip
-                          </p>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
+                <div className="relative max-w-[320px] sm:max-w-[480px] lg:max-w-none mx-auto">
+                  <img 
+                    src={productsLineup} 
+                    alt="Neuvie wellness strips product lineup – Beauty, Sleep, Libido Support, Hair Skin & Nails, and Energy strips" 
+                    className="w-full h-auto rounded-2xl md:rounded-3xl object-cover shadow-elevated"
+                    loading="eager"
+                  />
                 </div>
               </motion.div>
             </div>
