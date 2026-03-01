@@ -299,35 +299,9 @@ export default function Index() {
         </section>
 
         {/* ═══════════════════════════════════════════════
-            5. BUNDLES & VALUE — No Countdowns!
+            5. BENEFITS TABS
         ═══════════════════════════════════════════════ */}
-        <section className="py-16 md:py-24 bg-muted/15">
-          <div className="container-wide">
-            <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-3">
-                Curated Routines. Better Value.
-              </h2>
-              <p className="text-muted-foreground max-w-lg mx-auto">
-                Stack your wellness with our expert-curated bundles and enjoy more savings.
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-              {featuredBundles.map((bundle, index) => (
-                <BundleCard key={bundle.id} bundle={bundle} index={index} />
-              ))}
-            </div>
-
-            <motion.div className="mt-10 text-center" {...fadeUp}>
-              <Link to="/bundles">
-                <Button variant="outline" className="h-12 px-8 text-sm font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-lg">
-                  View All Bundles
-                  <ChevronRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </motion.div>
-          </div>
-        </section>
+        <BenefitsTabs />
 
         {/* ═══════════════════════════════════════════════
             6. SCIENCE & INGREDIENTS
@@ -371,7 +345,12 @@ export default function Index() {
         </section>
 
         {/* ═══════════════════════════════════════════════
-            7. SOCIAL PROOF — Reviews
+            7. WHY NEUVIE
+        ═══════════════════════════════════════════════ */}
+        <WhyNeuvie />
+
+        {/* ═══════════════════════════════════════════════
+            8. SOCIAL PROOF — Reviews
         ═══════════════════════════════════════════════ */}
         <section className="py-16 md:py-24 bg-muted/15 overflow-hidden">
           <div className="container-wide">
@@ -428,13 +407,40 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Benefits Tabs */}
-        <BenefitsTabs />
+        {/* ═══════════════════════════════════════════════
+            9. BUNDLES & VALUE
+        ═══════════════════════════════════════════════ */}
+        <section className="py-16 md:py-24 bg-background">
+          <div className="container-wide">
+            <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-3">
+                Curated Routines. Better Value.
+              </h2>
+              <p className="text-muted-foreground max-w-lg mx-auto">
+                Stack your wellness with our expert-curated bundles and enjoy more savings.
+              </p>
+            </motion.div>
 
-        {/* Why Neuvie */}
-        <WhyNeuvie />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+              {featuredBundles.map((bundle, index) => (
+                <BundleCard key={bundle.id} bundle={bundle} index={index} />
+              ))}
+            </div>
 
-        {/* Homepage FAQs */}
+            <motion.div className="mt-10 text-center" {...fadeUp}>
+              <Link to="/bundles">
+                <Button variant="outline" className="h-12 px-8 text-sm font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-lg">
+                  View All Bundles
+                  <ChevronRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════
+            10. FAQs
+        ═══════════════════════════════════════════════ */}
         <HomepageFAQs />
 
       </main>
