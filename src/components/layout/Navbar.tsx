@@ -30,11 +30,17 @@ export function Navbar() {
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
+    let ticking = false;
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setScrolled(currentScrollY > 10);
-      setShowBanner(currentScrollY < lastScrollY || currentScrollY < 10);
-      lastScrollY = currentScrollY;
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        setScrolled(currentScrollY > 10);
+        setShowBanner(currentScrollY < lastScrollY || currentScrollY < 10);
+        lastScrollY = currentScrollY;
+        ticking = false;
+      });
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -44,11 +50,14 @@ export function Navbar() {
     <>
       <header className="sticky top-0 z-50 w-full">
         {/* Announcement Bar */}
-        <div className={cn(
-          "bg-primary text-primary-foreground transition-all duration-300 ease-in-out",
-          showBanner ? "h-10 md:h-11 opacity-100" : "h-0 opacity-0 overflow-hidden"
-        )}>
-          <div className="container-wide flex items-center justify-center h-full px-3 md:px-6">
+        <div 
+          className="bg-primary text-primary-foreground overflow-hidden"
+          style={{
+            height: showBanner ? 40 : 0,
+            transition: 'height 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          }}
+        >
+          <div className="container-wide flex items-center justify-center h-10 px-3 md:px-6">
             <span className="font-medium text-xs md:text-sm tracking-wide whitespace-nowrap">
               Free US Shipping on Orders $50+ · 14-Day Money-Back Guarantee
             </span>
