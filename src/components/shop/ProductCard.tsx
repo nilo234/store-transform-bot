@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Plus, Scale } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { ShopifyProduct } from '@/lib/shopify';
+import { ShopifyProduct, sanitizeHandle, sanitizeTitle } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
 import { JudgeMePreviewBadge } from '@/components/reviews/JudgeMeReviews';
@@ -53,7 +53,7 @@ export function ProductCard({ product, index = 0, showCompare, isCompared, onTog
     });
 
     toast.success('Added to cart', {
-      description: node.title,
+      description: sanitizeTitle(node.title),
       position: 'top-center',
     });
   };
@@ -70,7 +70,7 @@ export function ProductCard({ product, index = 0, showCompare, isCompared, onTog
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.04 }}
     >
-      <Link to={`/product/${node.handle}`}>
+      <Link to={`/product/${sanitizeHandle(node.handle)}`}>
         <div
           className="bg-card rounded-xl md:rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1 group cursor-pointer border border-border/50 hover:border-border hover:shadow-elevated relative"
           onMouseEnter={() => setIsHovered(true)}
@@ -145,7 +145,7 @@ export function ProductCard({ product, index = 0, showCompare, isCompared, onTog
             </div>
 
             <h3 className="font-display text-sm md:text-base font-semibold mt-1 mb-1 text-foreground group-hover:text-primary transition-colors line-clamp-2 leading-tight">
-              {node.title}
+              {sanitizeTitle(node.title)}
             </h3>
 
             {/* Short benefit line — compliant, no hype */}

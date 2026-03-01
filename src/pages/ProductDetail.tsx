@@ -5,7 +5,7 @@ import { Minus, Plus, ShoppingCart, ChevronLeft, Check, Truck, Shield, RotateCcw
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
-import { fetchProductByHandle, ShopifyProduct } from '@/lib/shopify';
+import { fetchProductByHandle, ShopifyProduct, sanitizeTitle, sanitizeHandle, unsanitizeHandle } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { Skeleton } from '@/components/ui/skeleton';
 import { toast } from 'sonner';
@@ -86,7 +86,14 @@ export default function ProductDetail() {
     async function loadProduct() {
       if (!handle) return;
       setIsLoading(true);
-      const data = await fetchProductByHandle(handle);
+      // Try the handle as-is first, then try the "gummies" variant
+      let data = await fetchProductByHandle(handle);
+      if (!data) {
+        const gummiesHandle = unsanitizeHandle(handle);
+        if (gummiesHandle !== handle) {
+          data = await fetchProductByHandle(gummiesHandle);
+        }
+      }
       setProduct(data);
       setIsLoading(false);
     }
@@ -125,7 +132,7 @@ export default function ProductDetail() {
       : '';
     
     toast.success('Added to Cart!', {
-      description: `${quantity}x ${product.title}${subscriptionLabel}`,
+      description: `${quantity}x ${sanitizeTitle(product.title)}${subscriptionLabel}`,
       position: 'top-center',
     });
   };
@@ -186,15 +193,15 @@ export default function ProductDetail() {
   const breadcrumbItems = [
     { name: 'Home', url: 'https://neuvie.com' },
     { name: 'Shop', url: 'https://neuvie.com/shop' },
-    { name: product.title, url: `https://neuvie.com/product/${product.handle}` }
+    { name: sanitizeTitle(product.title), url: `https://neuvie.com/product/${sanitizeHandle(product.handle)}` }
   ];
 
   return (
     <div className="min-h-screen flex flex-col">
       {/* SEO */}
       <PageMeta
-        title={`${product.title} – Fast-Dissolving Strip | NEUVIE™`}
-        description={`${product.description?.slice(0, 120) || `Shop ${product.title} by NEUVIE™. Premium dissolving wellness strip with clinically studied ingredients. $34.99. Free shipping $50+.`}`}
+        title={`${sanitizeTitle(product.title)} – Fast-Dissolving Strip | NEUVIE™`}
+        description={`${product.description?.slice(0, 120) || `Shop ${sanitizeTitle(product.title)} by NEUVIE™. Premium dissolving wellness strip with clinically studied ingredients. $34.99. Free shipping $50+.`}`}
       />
       <ProductJsonLd product={product} />
       <BreadcrumbJsonLd items={breadcrumbItems} />
@@ -281,7 +288,7 @@ export default function ProductDetail() {
             >
               {/* Title & Subtitle */}
               <div>
-                <h1 className="font-display text-3xl md:text-4xl font-bold">{product.title}</h1>
+                <h1 className="font-display text-3xl md:text-4xl font-bold">{sanitizeTitle(product.title)}</h1>
                 <p className="text-muted-foreground mt-1">
                   {productContent?.shortDescription?.split('.')[0] || 'Premium oral strip'}
                 </p>
@@ -549,7 +556,7 @@ export default function ProductDetail() {
         <JudgeMeReviews 
           productId={product.id} 
           productHandle={product.handle}
-          productTitle={product.title}
+          productTitle={sanitizeTitle(product.title)}
         />
       </main>
 

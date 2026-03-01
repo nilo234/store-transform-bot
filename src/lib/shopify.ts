@@ -6,6 +6,21 @@ export const SHOPIFY_STORE_PERMANENT_DOMAIN = 'lovable-project-99js2.myshopify.c
 export const SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`;
 export const SHOPIFY_STOREFRONT_TOKEN = '5b5117e8b4cd010d1949167ae4d530b9';
 
+// ── Gummies → Strips sanitization ───────────────────────────────────────
+// Shopify handles may contain "gummies" but we display/route as "strips"
+export function sanitizeHandle(handle: string): string {
+  return handle.replace(/[-_]?gummies/gi, '-strips').replace(/--+/g, '-').replace(/-$/, '');
+}
+
+export function sanitizeTitle(title: string): string {
+  return title.replace(/\bgummies\b/gi, 'Strips');
+}
+
+// Convert a clean "strips" handle back to possible Shopify "gummies" handle
+export function unsanitizeHandle(handle: string): string {
+  return handle.replace(/[-_]?strips/gi, '-gummies').replace(/--+/g, '-').replace(/-$/, '');
+}
+
 // Types
 export interface ShopifyProduct {
   node: {
