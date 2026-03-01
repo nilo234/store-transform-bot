@@ -18,52 +18,6 @@ const navLinks = [
   { href: '/contact', label: 'Contact Us' },
 ];
 
-// Countdown Timer Component
-function CountdownTimer() {
-  const [timeLeft, setTimeLeft] = useState({
-    hours: 23,
-    minutes: 59,
-    seconds: 59,
-  });
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 };
-        } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-        } else if (prev.hours > 0) {
-          return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        }
-        return { hours: 23, minutes: 59, seconds: 59 };
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  const formatNumber = (num: number) => num.toString().padStart(2, '0');
-
-  return (
-    <div className="flex items-center gap-0.5 md:gap-1 text-[10px] md:text-sm">
-      <span className="bg-background text-foreground px-1.5 md:px-2 py-0.5 rounded font-bold">
-        {formatNumber(timeLeft.hours)}
-        <span className="hidden md:inline"> HRS</span>
-      </span>
-      <span className="text-primary-foreground">:</span>
-      <span className="bg-background text-foreground px-1.5 md:px-2 py-0.5 rounded font-bold">
-        {formatNumber(timeLeft.minutes)}
-        <span className="hidden md:inline"> MIN</span>
-      </span>
-      <span className="text-primary-foreground">:</span>
-      <span className="bg-background text-foreground px-1.5 md:px-2 py-0.5 rounded font-bold">
-        {formatNumber(timeLeft.seconds)}
-        <span className="hidden md:inline"> SEC</span>
-      </span>
-    </div>
-  );
-}
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -84,14 +38,12 @@ export function Navbar() {
   return (
     <>
       <header className="sticky top-0 z-50 w-full">
-        {/* Announcement Bar - Mobile optimized */}
+        {/* Announcement Bar */}
         <div className="bg-primary text-primary-foreground py-2 md:py-2.5">
-          <div className="container-wide flex items-center justify-center gap-2 md:gap-4 flex-wrap px-3 md:px-6">
-            <span className="font-semibold text-xs md:text-sm tracking-wide">
-              SALE: UP TO{' '}
-              <span className="text-accent font-bold">45% OFF</span>
+          <div className="container-wide flex items-center justify-center px-3 md:px-6">
+            <span className="font-medium text-xs md:text-sm tracking-wide">
+              Free US Shipping on Orders $50+ · 60-Day Money-Back Guarantee
             </span>
-            <CountdownTimer />
           </div>
         </div>
 
