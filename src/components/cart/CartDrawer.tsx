@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Minus, Plus, Trash2, ExternalLink, Loader2, ShoppingCart, RefreshCw, Gift } from 'lucide-react';
+import { Minus, Plus, Trash2, ExternalLink, Loader2, ShoppingCart, RefreshCw, Gift, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { useCartStore } from '@/stores/cartStore';
@@ -43,13 +43,24 @@ export function CartDrawer() {
   return (
     <Sheet open={isOpen} onOpenChange={setOpen}>
       <SheetContent className="w-full sm:max-w-lg flex flex-col h-full p-0">
-        <SheetHeader className="px-4 md:px-6 py-3 md:py-4 border-b">
-          <SheetTitle className="font-display text-lg md:text-xl">
-            Cart ({totalItems()})
-          </SheetTitle>
-          <SheetDescription className="sr-only">
-            Your shopping cart items
-          </SheetDescription>
+        <SheetHeader className="px-4 md:px-6 py-3 md:py-4 border-b flex flex-row items-center justify-between">
+          <div>
+            <SheetTitle className="font-display text-lg md:text-xl">
+              Cart ({totalItems()})
+            </SheetTitle>
+            <SheetDescription className="sr-only">
+              Your shopping cart items
+            </SheetDescription>
+          </div>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-8 w-8 rounded-full"
+            onClick={() => setOpen(false)}
+          >
+            <X className="h-4 w-4" />
+            <span className="sr-only">Close</span>
+          </Button>
         </SheetHeader>
 
         <div className="flex flex-col flex-1 min-h-0">
