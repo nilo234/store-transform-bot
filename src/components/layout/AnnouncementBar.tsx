@@ -32,7 +32,7 @@ export function AnnouncementBar({
             
             <span className="text-accent-foreground/70">—</span>
             
-            <span className="font-bold">Save up to 29% on bundles</span>
+            <span className="font-bold">Save up to 20% on bundles</span>
             
             <a 
               href={linkHref}
