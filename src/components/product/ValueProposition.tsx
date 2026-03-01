@@ -34,7 +34,7 @@ export const ValueProposition = ({ servings = 30, subscriptionPrice = "$12.99" }
     },
     {
       icon: Shield,
-      title: "60-Day Guarantee",
+      title: "14-Day Guarantee",
       subtitle: "Full refund, no questions"
     }
   ];

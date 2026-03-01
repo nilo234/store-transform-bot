@@ -12,7 +12,7 @@ const contactMethods = [
     icon: Mail,
     title: 'Email Us',
     description: 'Send us an email anytime',
-    value: 'support@neuvie.com',
+    value: 'hello@neuvie.com',
   },
   {
     icon: MessageSquare,

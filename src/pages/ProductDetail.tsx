@@ -174,7 +174,7 @@ export default function ProductDetail() {
   }
 
   const price = parseFloat(product.priceRange.minVariantPrice.amount);
-  const originalPrice = price * 1.42;
+  const originalPrice = 49.99; // Standard compare-at price
   const images = product.images.edges;
   const productType = getProductType(handle || '');
   const testimonial = productTestimonials[productType] || productTestimonials.default;
@@ -233,7 +233,7 @@ export default function ProductDetail() {
                 {/* Sale Badge */}
                 <div className="absolute top-4 right-4 z-10">
                   <span className="bg-primary text-primary-foreground text-sm font-semibold px-3 py-1.5 rounded-full">
-                    42% OFF
+                    SAVE ${(originalPrice - price).toFixed(0)}
                   </span>
                 </div>
 
@@ -394,7 +394,7 @@ export default function ProductDetail() {
                   </AccordionTrigger>
                   <AccordionContent className="pb-4 text-sm text-muted-foreground space-y-2">
                     <p><strong>Shipping:</strong> Orders ship within 1–2 business days. Delivery typically 3–5 business days.</p>
-                    <p><strong>60-Day Guarantee:</strong> Not satisfied? Contact hello@neuvie.com for a full refund on your first order — no questions asked.</p>
+                    <p><strong>14-Day Guarantee:</strong> Not satisfied? Contact hello@neuvie.com for a full refund on your first order — no questions asked.</p>
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -411,7 +411,7 @@ export default function ProductDetail() {
                 </div>
                 <div className="text-center">
                   <RotateCcw className="h-6 w-6 mx-auto mb-2 text-primary" />
-                  <p className="text-xs text-muted-foreground">60-Day<br />Guarantee</p>
+                  <p className="text-xs text-muted-foreground">14-Day<br />Guarantee</p>
                 </div>
               </div>
 

@@ -185,7 +185,7 @@ export function ExitIntentPopup() {
             {/* Trust Points */}
             <div className="mt-6 pt-4 border-t border-border">
               <div className="flex justify-center gap-6 text-xs text-muted-foreground">
-                <span>✓ 60-Day Guarantee</span>
+                <span>✓ 14-Day Guarantee</span>
                 <span>✓ Free Shipping $50+</span>
                 <span>✓ Made in USA</span>
               </div>

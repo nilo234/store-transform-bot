@@ -19,7 +19,7 @@ const faqs = [
   },
   { 
     q: 'Do you offer a money-back guarantee?', 
-    a: 'Absolutely. We offer a 60-day money-back guarantee on all orders. If you\'re not completely satisfied with your purchase, simply contact us for a full refund—no questions asked.' 
+    a: 'Absolutely. We offer a 14-day money-back guarantee on all orders. If you\'re not completely satisfied with your purchase, simply contact us for a full refund—no questions asked.' 
   },
   { 
     q: 'Are Neuvie strips vegan?', 
@@ -31,7 +31,7 @@ const faqs = [
   },
   { 
     q: 'Do you ship internationally?', 
-    a: 'We currently ship within the United States and select international destinations. Enter your address at checkout to see if we ship to your location, or sign up for our newsletter to be notified when we expand.' 
+    a: 'We currently ship within the United States only. We offer free shipping on all orders over $50. Orders typically arrive within 3-5 business days. Sign up for our newsletter to be notified when we expand to new markets.' 
   },
   { 
     q: 'Can I take multiple Neuvie products together?', 

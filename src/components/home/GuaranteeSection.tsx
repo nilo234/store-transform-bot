@@ -18,7 +18,7 @@ export function GuaranteeSection() {
           </div>
 
           <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-            60-DAY MONEY-BACK GUARANTEE
+            14-DAY MONEY-BACK GUARANTEE
           </h2>
 
           <p className="text-muted-foreground text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
@@ -29,7 +29,7 @@ export function GuaranteeSection() {
           </p>
 
           <p className="text-sm text-muted-foreground mb-8">
-            You're protected by our <span className="font-semibold text-primary">60-Day Money-Back Guarantee</span>. 
+            You're protected by our <span className="font-semibold text-primary">14-Day Money-Back Guarantee</span>. 
             Email us at{' '}
             <a href="mailto:hello@neuvie.com" className="text-primary hover:underline">
               hello@neuvie.com

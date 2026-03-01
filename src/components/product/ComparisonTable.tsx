@@ -82,7 +82,7 @@ export const ComparisonTable = ({ onCtaClick }: ComparisonTableProps) => {
               <Button onClick={onCtaClick} className="btn-primary" size="lg">
                 Try it risk-free
               </Button>
-              <p className="text-xs text-muted-foreground mt-2">60-Day Money-Back Guarantee — no questions asked</p>
+              <p className="text-xs text-muted-foreground mt-2">14-Day Money-Back Guarantee — no questions asked</p>
             </div>
           )}
         </div>

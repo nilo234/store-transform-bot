@@ -54,7 +54,7 @@ export function CartUpsell() {
       <div className="space-y-3">
         {upsellProducts.map((product) => {
           const price = parseFloat(product.node.priceRange?.minVariantPrice?.amount || '0');
-          const originalPrice = price * 1.42;
+          const originalPrice = 49.99;
           const image = product.node.images?.edges?.[0]?.node;
 
           return (

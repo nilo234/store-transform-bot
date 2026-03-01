@@ -37,7 +37,7 @@ export function SecureCheckoutBadges() {
       
       {/* Guarantee */}
       <p className="text-center text-xs text-muted-foreground">
-        ✓ 60-Day Money-Back Guarantee • ✓ Free Returns
+        ✓ 14-Day Money-Back Guarantee • ✓ Free Returns
       </p>
     </div>
   );

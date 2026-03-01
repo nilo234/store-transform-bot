@@ -58,9 +58,8 @@ const policySections = [
     icon: Globe,
     title: 'International Shipping',
     content: [
-      'We currently ship to Canada, the UK, and Australia. International shipping rates and delivery estimates are calculated at checkout based on your address.',
-      'International orders may be subject to customs duties, taxes, or import fees. These charges are determined by your country\'s customs office and are the responsibility of the recipient.',
-      'Estimated international delivery: 7\u201314 business days depending on destination and customs processing.',
+      'We currently ship within the United States only. We\'re exploring international shipping options and will announce availability through our newsletter.',
+      'Sign up for updates at the bottom of any page to be notified when we expand to new markets.',
     ],
   },
   {
@@ -144,7 +143,7 @@ export default function Shipping() {
                   { text: 'Free US shipping on orders $50+', icon: Truck },
                   { text: 'Ships within 1\u20132 business days', icon: Clock },
                   { text: 'Tracking included with every order', icon: ShieldCheck },
-                  { text: '60-day money-back guarantee', icon: Package },
+                  { text: '14-day money-back guarantee', icon: Package },
                 ].map((item) => (
                   <div key={item.text} className="flex items-center gap-3 bg-card rounded-xl p-4 text-left">
                     <item.icon className="w-5 h-5 text-primary flex-shrink-0" />

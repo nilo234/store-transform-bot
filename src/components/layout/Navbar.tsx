@@ -42,7 +42,7 @@ export function Navbar() {
         <div className="bg-primary text-primary-foreground py-2 md:py-2.5">
           <div className="container-wide flex items-center justify-center px-3 md:px-6">
             <span className="font-medium text-xs md:text-sm tracking-wide">
-              Free US Shipping on Orders $50+ · 60-Day Money-Back Guarantee
+              Free US Shipping on Orders $50+ · 14-Day Money-Back Guarantee
             </span>
           </div>
         </div>
