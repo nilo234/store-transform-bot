@@ -12,6 +12,9 @@ import { ProductCard } from '@/components/shop/ProductCard';
 import { BundleCard } from '@/components/shop/BundleCard';
 import { bundles } from '@/data/bundles';
 import { PageMeta } from '@/components/seo';
+import { BenefitsTabs } from '@/components/home/BenefitsTabs';
+import { WhyNeuvie } from '@/components/home/WhyNeuvie';
+import { HomepageFAQs } from '@/components/home/HomepageFAQs';
 
 // ─── DATA ──────────────────────────────────────────────
 const trustBar = [
@@ -424,6 +427,15 @@ export default function Index() {
             <div className="absolute right-0 top-0 bottom-4 w-8 bg-gradient-to-l from-muted/15 to-transparent pointer-events-none" />
           </div>
         </section>
+
+        {/* Benefits Tabs */}
+        <BenefitsTabs />
+
+        {/* Why Neuvie */}
+        <WhyNeuvie />
+
+        {/* Homepage FAQs */}
+        <HomepageFAQs />
 
       </main>
 
