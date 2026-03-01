@@ -80,7 +80,7 @@ export function Footer() {
               <img 
                 src={neuvieFooterLogo} 
                 alt="Neuvie Nutrition" 
-                className="h-10 md:h-[3.75rem] lg:h-[5.25rem] w-auto brightness-0 invert"
+                className="h-17 md:h-[3.75rem] lg:h-[5.25rem] w-auto brightness-0 invert"
               />
             </Link>
             <p className="text-primary-foreground/70 mb-6 md:mb-8 max-w-sm text-xs md:text-sm leading-relaxed">
