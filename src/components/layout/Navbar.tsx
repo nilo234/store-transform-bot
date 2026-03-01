@@ -45,10 +45,10 @@ export function Navbar() {
       <header className="sticky top-0 z-50 w-full">
         {/* Announcement Bar */}
         <div className={cn(
-          "bg-primary text-primary-foreground overflow-hidden transition-all duration-300",
-          showBanner ? "max-h-12 py-2 md:py-2.5" : "max-h-0 py-0"
+          "bg-primary text-primary-foreground transition-all duration-300 ease-in-out",
+          showBanner ? "h-10 md:h-11 opacity-100" : "h-0 opacity-0 overflow-hidden"
         )}>
-          <div className="container-wide flex items-center justify-center px-3 md:px-6">
+          <div className="container-wide flex items-center justify-center h-full px-3 md:px-6">
             <span className="font-medium text-xs md:text-sm tracking-wide whitespace-nowrap">
               Free US Shipping on Orders $50+ · 14-Day Money-Back Guarantee
             </span>
