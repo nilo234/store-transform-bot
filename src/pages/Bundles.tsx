@@ -11,8 +11,8 @@ import { PageMeta } from '@/components/seo';
 
 // SEO meta tags
 const SEO = {
-  title: 'Wellness Strip Bundles – Save Up to 29% | NEUVIE™',
-  description: 'Save up to 29% with curated NEUVIE™ bundles. Energy, focus, beauty, sleep & gut health strip packs. Free US shipping on orders $50+. 14-day guarantee.',
+  title: 'Wellness Strip Bundles – Save Up to 20% | NEUVIE™',
+  description: 'Save up to 20% with curated NEUVIE™ bundles. Energy, focus, beauty, sleep & gut health strip packs. Free US shipping on orders $50+. 14-day guarantee.',
 };
 
 // Category filter options
@@ -69,7 +69,7 @@ export default function Bundles() {
 
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
                 🎯 BUNDLES - SAVE UP TO{' '}
-                <span className="text-accent">29%</span>
+                <span className="text-accent">20%</span>
               </h1>
 
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
