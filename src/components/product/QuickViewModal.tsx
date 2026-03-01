@@ -49,7 +49,7 @@ export function QuickViewModal({ product, open, onOpenChange }: QuickViewModalPr
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-3xl p-0 gap-0 overflow-hidden">
+      <DialogContent hideClose className="max-w-3xl p-0 gap-0 overflow-hidden">
         <DialogHeader className="sr-only">
           <DialogTitle>{product.node.title}</DialogTitle>
         </DialogHeader>
