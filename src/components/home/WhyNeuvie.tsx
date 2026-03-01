@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Check, Sparkles, Shield, Leaf, FlaskConical } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import hairSkinNailsImg from '@/assets/neuvie-hair-skin-nails.png';
 
 const certifications = [
   { icon: '🌿', label: 'Non-GMO' },
@@ -88,28 +89,12 @@ export function WhyNeuvie() {
             viewport={{ once: true }}
           >
             {/* Visual card */}
-            <div className="bg-gradient-to-br from-muted/60 to-muted/30 rounded-3xl p-8 md:p-12 mb-8">
-              <div className="text-center mb-8">
-                <span className="text-6xl mb-4 block">💊</span>
-                <h3 className="font-display font-bold text-2xl mb-2">13 Premium Strips</h3>
-                <p className="text-muted-foreground">For every wellness need</p>
-              </div>
-              
-              {/* All products */}
-              <div className="grid grid-cols-3 gap-3">
-                {[
-                  'Energy', 'Sleep', 'Focus', 
-                  'Beauty', 'Hair', 'Gut',
-                  'Iron', 'Bone', 'Hangover'
-                ].map((product) => (
-                  <div 
-                    key={product}
-                    className="bg-background/80 backdrop-blur-sm rounded-xl p-3 text-center shadow-soft"
-                  >
-                    <span className="text-xs font-medium text-muted-foreground">{product}</span>
-                  </div>
-                ))}
-              </div>
+            <div className="rounded-3xl overflow-hidden mb-8">
+              <img 
+                src={hairSkinNailsImg} 
+                alt="Neuvie Hair, Skin and Nails Strips - Citrus Gleam" 
+                className="w-full h-auto object-cover"
+              />
             </div>
             
             {/* Certifications */}
