@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from '@/components/layout/Navbar';
@@ -11,7 +11,7 @@ import { PageMeta } from '@/components/seo';
 import { ChevronDown, SlidersHorizontal, X, Scale } from 'lucide-react';
 import { goalFilters, tagFilters, sortOptions, getProductGoal, getProductTags } from '@/data/shopFilters';
 import { Button } from '@/components/ui/button';
-
+import { CompareModal } from '@/components/shop/CompareModal';
 export default function Shop() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
@@ -19,6 +19,7 @@ export default function Shop() {
   const [showFilters, setShowFilters] = useState(false);
   const [compareList, setCompareList] = useState<string[]>([]);
   const [showCompare, setShowCompare] = useState(false);
+  const [compareModalOpen, setCompareModalOpen] = useState(false);
 
   const activeGoal = searchParams.get('goal') || 'all';
   const activeTags = searchParams.get('tags')?.split(',').filter(Boolean) || [];
@@ -355,10 +356,7 @@ export default function Shop() {
                     size="sm"
                     disabled={compareList.length < 2}
                     className="rounded-full text-xs"
-                    onClick={() => {
-                      // Future: navigate to comparison page
-                      // For now just scroll to top with info
-                    }}
+                    onClick={() => setCompareModalOpen(true)}
                   >
                     Compare {compareList.length} strips
                   </Button>
@@ -367,6 +365,17 @@ export default function Shop() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Compare Modal */}
+        <CompareModal
+          open={compareModalOpen}
+          onOpenChange={setCompareModalOpen}
+          products={compareProducts}
+          onRemoveProduct={(id) => {
+            toggleCompare(id);
+            if (compareProducts.length <= 2) setCompareModalOpen(false);
+          }}
+        />
 
         {/* Trust Badges */}
         <section className="py-8 md:py-12 bg-muted/30">
