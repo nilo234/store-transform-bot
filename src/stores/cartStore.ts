@@ -7,6 +7,9 @@ import {
   updateShopifyCartLine,
   removeLineFromShopifyCart,
   fetchShopifyCart,
+  createShopifyCartMultiLines,
+  addMultipleLinesToShopifyCart,
+  applyDiscountToShopifyCart,
 } from '@/lib/shopify';
 
 export interface CartItem {
@@ -27,6 +30,10 @@ export interface CartItem {
   isSubscription?: boolean;
   subscriptionFrequency?: string;
   subscriptionDiscount?: number;
+  // Bundle fields
+  bundleId?: string;
+  bundleName?: string;
+  bundleDiscountCode?: string;
 }
 
 interface CartStore {
@@ -39,8 +46,10 @@ interface CartStore {
 
   // Actions
   addItem: (item: Omit<CartItem, 'lineId'>) => Promise<void>;
+  addBundle: (items: Omit<CartItem, 'lineId'>[], discountCode: string) => Promise<void>;
   updateQuantity: (variantId: string, quantity: number) => Promise<void>;
   removeItem: (variantId: string) => Promise<void>;
+  removeBundle: (bundleId: string) => Promise<void>;
   clearCart: () => void;
   setOpen: (open: boolean) => void;
   syncCart: () => Promise<void>;
@@ -111,7 +120,63 @@ export const useCartStore = create<CartStore>()(
           set({ isLoading: false });
         }
 
-        // Open cart drawer
+      // Open cart drawer
+        set({ isOpen: true });
+      },
+
+      addBundle: async (bundleItems, discountCode) => {
+        const { cartId, clearCart } = get();
+
+        set({ isLoading: true });
+        try {
+          const lines = bundleItems.map(item => ({ variantId: item.variantId, quantity: item.quantity }));
+
+          if (!cartId) {
+            // Create new cart with all bundle items
+            const result = await createShopifyCartMultiLines(lines);
+            if (result) {
+              const newItems: CartItem[] = bundleItems.map(item => ({
+                ...item,
+                lineId: result.lineIds.get(item.variantId) ?? null,
+              }));
+              set({
+                cartId: result.cartId,
+                checkoutUrl: result.checkoutUrl,
+                items: newItems,
+              });
+
+              // Apply discount code
+              const discountResult = await applyDiscountToShopifyCart(result.cartId, discountCode);
+              if (discountResult.checkoutUrl) {
+                set({ checkoutUrl: discountResult.checkoutUrl });
+              }
+            }
+          } else {
+            // Add all bundle items to existing cart
+            const result = await addMultipleLinesToShopifyCart(cartId, lines);
+            if (result.success && result.lineIds) {
+              const currentItems = get().items;
+              const newItems: CartItem[] = bundleItems.map(item => ({
+                ...item,
+                lineId: result.lineIds!.get(item.variantId) ?? null,
+              }));
+              set({ items: [...currentItems, ...newItems] });
+
+              // Apply discount code
+              const discountResult = await applyDiscountToShopifyCart(cartId, discountCode);
+              if (discountResult.checkoutUrl) {
+                set({ checkoutUrl: discountResult.checkoutUrl });
+              }
+            } else if (result.cartNotFound) {
+              clearCart();
+            }
+          }
+        } catch (error) {
+          console.error('Failed to add bundle:', error);
+        } finally {
+          set({ isLoading: false });
+        }
+
         set({ isOpen: true });
       },
 
@@ -158,6 +223,28 @@ export const useCartStore = create<CartStore>()(
           }
         } catch (error) {
           console.error('Failed to remove item:', error);
+        } finally {
+          set({ isLoading: false });
+        }
+      },
+
+      removeBundle: async (bundleId) => {
+        const { items, cartId, clearCart } = get();
+        const bundleItems = items.filter(i => i.bundleId === bundleId);
+        if (!cartId || bundleItems.length === 0) return;
+
+        set({ isLoading: true });
+        try {
+          for (const item of bundleItems) {
+            if (item.lineId) {
+              await removeLineFromShopifyCart(cartId, item.lineId);
+            }
+          }
+          const currentItems = get().items;
+          const remaining = currentItems.filter(i => i.bundleId !== bundleId);
+          remaining.length === 0 ? clearCart() : set({ items: remaining });
+        } catch (error) {
+          console.error('Failed to remove bundle:', error);
         } finally {
           set({ isLoading: false });
         }

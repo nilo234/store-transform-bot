@@ -1,13 +1,38 @@
-import { useEffect } from 'react';
-import { Minus, Plus, Trash2, ExternalLink, Loader2, ShoppingCart, RefreshCw, Gift, X } from 'lucide-react';
+import { useEffect, useMemo } from 'react';
+import { Minus, Plus, Trash2, ExternalLink, Loader2, ShoppingCart, RefreshCw, Gift, X, Package } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from '@/components/ui/sheet';
-import { useCartStore } from '@/stores/cartStore';
+import { useCartStore, CartItem } from '@/stores/cartStore';
 import { Badge } from '@/components/ui/badge';
 import { FreeShippingBar } from './FreeShippingBar';
 import { CartUrgencyBanner } from './CartUrgencyBanner';
 import { SecureCheckoutBadges } from './SecureCheckoutBadges';
 import { CartUpsell } from './CartUpsell';
+
+// Group items into bundles and standalone items
+function useGroupedItems(items: CartItem[]) {
+  return useMemo(() => {
+    const bundles = new Map<string, { name: string; discountCode: string; items: CartItem[] }>();
+    const standalone: CartItem[] = [];
+
+    for (const item of items) {
+      if (item.bundleId) {
+        if (!bundles.has(item.bundleId)) {
+          bundles.set(item.bundleId, {
+            name: item.bundleName || 'Bundle',
+            discountCode: item.bundleDiscountCode || '',
+            items: [],
+          });
+        }
+        bundles.get(item.bundleId)!.items.push(item);
+      } else {
+        standalone.push(item);
+      }
+    }
+
+    return { bundles: Array.from(bundles.entries()), standalone };
+  }, [items]);
+}
 
 export function CartDrawer() {
   const {
@@ -18,11 +43,14 @@ export function CartDrawer() {
     setOpen,
     updateQuantity,
     removeItem,
+    removeBundle,
     getCheckoutUrl,
     syncCart,
     totalItems,
     totalPrice,
   } = useCartStore();
+
+  const { bundles, standalone } = useGroupedItems(items);
 
   // Sync cart with Shopify when drawer opens
   useEffect(() => {
@@ -90,75 +118,48 @@ export function CartDrawer() {
               {/* Scrollable items area */}
               <div className="flex-1 overflow-y-auto px-4 md:px-6 py-3 md:py-4">
                 <div className="space-y-3 md:space-y-4">
-                  {items.map((item) => (
-                    <div key={item.variantId} className="flex gap-3 md:gap-4 p-3 md:p-4 bg-card rounded-lg md:rounded-xl border border-border/50">
-                      <div className="w-16 h-16 md:w-20 md:h-20 bg-muted rounded-lg overflow-hidden flex-shrink-0">
-                        {item.product.node.images?.edges?.[0]?.node && (
-                          <img
-                            src={item.product.node.images.edges[0].node.url}
-                            alt={item.product.node.title}
-                            className="w-full h-full object-cover"
-                          />
-                        )}
-                      </div>
-
-                      <div className="flex-1 min-w-0">
-                        <h4 className="font-medium text-xs md:text-sm truncate">{item.product.node.title}</h4>
-                        {item.variantTitle !== 'Default Title' && (
-                          <p className="text-[10px] md:text-xs text-muted-foreground mt-0.5 md:mt-1">{item.variantTitle}</p>
-                        )}
-                        {item.isSubscription && (
-                          <Badge variant="secondary" className="mt-1 md:mt-1.5 bg-accent/10 text-accent border-accent/20 gap-1 text-[10px] md:text-xs py-0.5">
-                            <RefreshCw className="h-2.5 w-2.5 md:h-3 md:w-3" />
-                            {item.subscriptionFrequency === 'monthly' ? 'Monthly' :
-                             item.subscriptionFrequency === 'bimonthly' ? '2 Mo' : '3 Mo'}
-                            {item.subscriptionDiscount && ` -${item.subscriptionDiscount}%`}
+                  {/* Bundle Groups */}
+                  {bundles.map(([bundleId, bundle]) => (
+                    <div key={bundleId} className="bg-primary/5 rounded-xl border border-primary/20 overflow-hidden">
+                      {/* Bundle Header */}
+                      <div className="flex items-center justify-between px-3 md:px-4 py-2.5 bg-primary/10">
+                        <div className="flex items-center gap-2">
+                          <Package className="h-4 w-4 text-primary" />
+                          <span className="text-xs md:text-sm font-bold text-foreground">{bundle.name}</span>
+                          <Badge variant="secondary" className="bg-accent/20 text-accent text-[10px] border-0">
+                            {bundle.items.length}-Pack
                           </Badge>
-                        )}
-                        <div className="flex items-center gap-1.5 md:gap-2 mt-1.5 md:mt-2">
-                          <span className="font-semibold text-sm md:text-base text-primary">
-                            ${parseFloat(item.price.amount).toFixed(2)}
-                          </span>
-                          <span className="text-[10px] md:text-xs text-muted-foreground line-through">
-                            $49.99
-                          </span>
                         </div>
-                      </div>
-
-                      <div className="flex flex-col items-end gap-1.5 md:gap-2 flex-shrink-0">
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="h-7 w-7 md:h-8 md:w-8 text-muted-foreground hover:text-destructive"
-                          onClick={() => removeItem(item.variantId)}
+                          className="h-7 w-7 text-muted-foreground hover:text-destructive"
+                          onClick={() => removeBundle(bundleId)}
                           disabled={isLoading}
                         >
-                          <Trash2 className="h-3.5 w-3.5 md:h-4 md:w-4" />
+                          <Trash2 className="h-3.5 w-3.5" />
                         </Button>
-
-                        <div className="flex items-center gap-0.5 md:gap-1 bg-muted rounded-lg">
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            className="h-7 w-7 md:h-8 md:w-8"
-                            onClick={() => updateQuantity(item.variantId, item.quantity - 1)}
-                            disabled={isLoading}
-                          >
-                            <Minus className="h-3 w-3" />
-                          </Button>
-                          <span className="w-6 md:w-8 text-center text-xs md:text-sm font-medium">{item.quantity}</span>
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            className="h-7 w-7 md:h-8 md:w-8"
-                            onClick={() => updateQuantity(item.variantId, item.quantity + 1)}
-                            disabled={isLoading}
-                          >
-                            <Plus className="h-3 w-3" />
-                          </Button>
+                      </div>
+                      {/* Discount Code Applied */}
+                      {bundle.discountCode && (
+                        <div className="px-3 md:px-4 py-1.5 bg-accent/10 text-center">
+                          <span className="text-[10px] md:text-xs font-medium text-accent">
+                            ✅ Discount code "{bundle.discountCode}" auto-applied
+                          </span>
                         </div>
+                      )}
+                      {/* Bundle Items */}
+                      <div className="divide-y divide-border/30">
+                        {bundle.items.map((item) => (
+                          <CartItemRow key={item.variantId} item={item} isLoading={isLoading} updateQuantity={updateQuantity} removeItem={removeItem} compact />
+                        ))}
                       </div>
                     </div>
+                  ))}
+
+                  {/* Standalone Items */}
+                  {standalone.map((item) => (
+                    <CartItemRow key={item.variantId} item={item} isLoading={isLoading} updateQuantity={updateQuantity} removeItem={removeItem} />
                   ))}
                 </div>
 
@@ -190,7 +191,7 @@ export function CartDrawer() {
                 <div className="flex justify-between items-center">
                   <div>
                     <span className="text-base md:text-lg font-medium">Subtotal</span>
-                    <p className="text-[10px] md:text-xs text-muted-foreground">Shipping at checkout</p>
+                    <p className="text-[10px] md:text-xs text-muted-foreground">Discount applied at checkout</p>
                   </div>
                   <div className="text-right">
                     <span className="text-xl md:text-2xl font-bold text-primary">
@@ -230,5 +231,79 @@ export function CartDrawer() {
         </div>
       </SheetContent>
     </Sheet>
+  );
+}
+
+// Extracted cart item row component
+function CartItemRow({
+  item,
+  isLoading,
+  updateQuantity,
+  removeItem,
+  compact = false,
+}: {
+  item: CartItem;
+  isLoading: boolean;
+  updateQuantity: (variantId: string, quantity: number) => Promise<void>;
+  removeItem: (variantId: string) => Promise<void>;
+  compact?: boolean;
+}) {
+  return (
+    <div className={`flex gap-3 md:gap-4 ${compact ? 'px-3 md:px-4 py-2.5' : 'p-3 md:p-4 bg-card rounded-lg md:rounded-xl border border-border/50'}`}>
+      <div className={`${compact ? 'w-12 h-12 md:w-14 md:h-14' : 'w-16 h-16 md:w-20 md:h-20'} bg-muted rounded-lg overflow-hidden flex-shrink-0`}>
+        {item.product.node.images?.edges?.[0]?.node && (
+          <img
+            src={item.product.node.images.edges[0].node.url}
+            alt={item.product.node.title}
+            className="w-full h-full object-cover"
+          />
+        )}
+      </div>
+
+      <div className="flex-1 min-w-0">
+        <h4 className={`font-medium ${compact ? 'text-[11px] md:text-xs' : 'text-xs md:text-sm'} truncate`}>{item.product.node.title}</h4>
+        {item.variantTitle !== 'Default Title' && (
+          <p className="text-[10px] md:text-xs text-muted-foreground mt-0.5">{item.variantTitle}</p>
+        )}
+        {item.isSubscription && (
+          <Badge variant="secondary" className="mt-1 bg-accent/10 text-accent border-accent/20 gap-1 text-[10px] py-0.5">
+            <RefreshCw className="h-2.5 w-2.5" />
+            {item.subscriptionFrequency === 'monthly' ? 'Monthly' :
+             item.subscriptionFrequency === 'bimonthly' ? '2 Mo' : '3 Mo'}
+            {item.subscriptionDiscount && ` -${item.subscriptionDiscount}%`}
+          </Badge>
+        )}
+        <div className="flex items-center gap-1.5 mt-1">
+          <span className={`font-semibold ${compact ? 'text-xs' : 'text-sm md:text-base'} text-primary`}>
+            ${parseFloat(item.price.amount).toFixed(2)}
+          </span>
+          <span className="text-[10px] text-muted-foreground line-through">$49.99</span>
+        </div>
+      </div>
+
+      <div className="flex flex-col items-end gap-1.5 flex-shrink-0">
+        {!compact && (
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-7 w-7 text-muted-foreground hover:text-destructive"
+            onClick={() => removeItem(item.variantId)}
+            disabled={isLoading}
+          >
+            <Trash2 className="h-3.5 w-3.5" />
+          </Button>
+        )}
+
+        <div className="flex items-center gap-0.5 bg-muted rounded-lg">
+          <Button variant="ghost" size="icon" className="h-6 w-6 md:h-7 md:w-7" onClick={() => updateQuantity(item.variantId, item.quantity - 1)} disabled={isLoading}>
+            <Minus className="h-3 w-3" />
+          </Button>
+          <span className="w-6 text-center text-xs font-medium">{item.quantity}</span>
+          <Button variant="ghost" size="icon" className="h-6 w-6 md:h-7 md:w-7" onClick={() => updateQuantity(item.variantId, item.quantity + 1)} disabled={isLoading}>
+            <Plus className="h-3 w-3" />
+          </Button>
+        </div>
+      </div>
+    </div>
   );
 }
