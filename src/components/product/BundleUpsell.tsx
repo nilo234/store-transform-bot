@@ -14,17 +14,17 @@ const bundles = [
     name: "Daily Wellness Bundle",
     description: "Energy + Immunity + Focus",
     products: ["Energy", "Immunity", "Mushroom Focus"],
-    originalPrice: 44.97,
-    salePrice: 34.99,
-    savings: "22%",
+    originalPrice: 104.97,
+    salePrice: 84.99,
+    savings: "19%",
   },
   {
     name: "Complete Health Bundle",
     description: "Full spectrum wellness",
     products: ["Energy", "Sleep", "Immunity", "Probiotic"],
-    originalPrice: 59.96,
-    salePrice: 44.99,
-    savings: "25%",
+    originalPrice: 139.96,
+    salePrice: 114.99,
+    savings: "18%",
   },
 ];
 

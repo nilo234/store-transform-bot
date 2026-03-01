@@ -28,7 +28,7 @@ export function BundleSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            🎯 BUNDLES - SAVE UP TO 29%
+            🎯 BUNDLES - SAVE UP TO 20%
           </motion.h2>
 
           <motion.p
