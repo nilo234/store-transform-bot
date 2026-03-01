@@ -6,8 +6,8 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useCartStore } from '@/stores/cartStore';
 import { CartDrawer } from '@/components/cart/CartDrawer';
 import { SearchModal } from '@/components/search/SearchModal';
+import { AnnouncementBar } from '@/components/layout/AnnouncementBar';
 import { cn } from '@/lib/utils';
-import { motion, AnimatePresence } from 'framer-motion';
 import neuvieLogo from '@/assets/neuvie-navbar-logo.png';
 const navLinks = [
   { href: '/shop', label: 'Shop' },
@@ -23,24 +23,14 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [showBanner, setShowBanner] = useState(true);
+  
   const location = useLocation();
   const totalItems = useCartStore((state) => state.totalItems());
   const setCartOpen = useCartStore((state) => state.setOpen);
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
-    let ticking = false;
     const handleScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const currentScrollY = window.scrollY;
-        setScrolled(currentScrollY > 10);
-        setShowBanner(currentScrollY < lastScrollY || currentScrollY < 10);
-        lastScrollY = currentScrollY;
-        ticking = false;
-      });
+      setScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -49,20 +39,7 @@ export function Navbar() {
   return (
     <>
       <header className="sticky top-0 z-50 w-full">
-        {/* Announcement Bar */}
-        <div 
-          className="bg-primary text-primary-foreground overflow-hidden"
-          style={{
-            height: showBanner ? 40 : 0,
-            transition: 'height 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-          }}
-        >
-          <div className="container-wide flex items-center justify-center h-10 px-3 md:px-6">
-            <span className="font-medium text-xs md:text-sm tracking-wide whitespace-nowrap">
-              Free US Shipping on Orders $50+ · 14-Day Money-Back Guarantee
-            </span>
-          </div>
-        </div>
+        <AnnouncementBar />
 
         {/* Main Navigation - Mobile optimized */}
         <nav className={cn(

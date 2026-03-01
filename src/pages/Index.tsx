@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Star, Play, Check, ChevronRight, Leaf, ShieldCheck, FlaskConical, Flag } from 'lucide-react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
-import { AnnouncementBar } from '@/components/layout/AnnouncementBar';
+
 import { Button } from '@/components/ui/button';
 import { fetchProducts, ShopifyProduct } from '@/lib/shopify';
 import { ProductCard } from '@/components/shop/ProductCard';
@@ -86,7 +86,7 @@ export default function Index() {
         title="Premium Dissolving Wellness Strips | NEUVIE™"
         description="Fast-dissolving wellness strips with clinically studied ingredients. 5x faster absorption than pills. Free US shipping on $50+. 14-day money-back guarantee."
       />
-      <AnnouncementBar />
+      
       <Navbar />
 
       <main className="flex-1">
