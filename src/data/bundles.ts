@@ -43,18 +43,18 @@ export const bundleImages: Record<string, string> = {
 // Product info for cart display
 export const productInfo: Record<string, { title: string; price: string }> = {
   [shopifyVariants.mushroomFocus]: { title: 'Mushroom Focus Strips', price: '34.99' },
-  [shopifyVariants.energy]: { title: 'Energy Strips', price: '27.99' },
+  [shopifyVariants.energy]: { title: 'Energy Strips', price: '34.99' },
   [shopifyVariants.libidoSupport]: { title: 'Libido Support Strips', price: '34.99' },
   [shopifyVariants.probiotic]: { title: 'Probiotic + Metabolism Strips', price: '34.99' },
   [shopifyVariants.digestive]: { title: 'Digestive + Gut Health Strips', price: '34.99' },
-  [shopifyVariants.iron]: { title: 'Iron Strips', price: '24.99' },
-  [shopifyVariants.boneSupport]: { title: 'Bone Support Strips', price: '24.99' },
-  [shopifyVariants.appetite]: { title: 'Appetite Balance & Weight Support Strips', price: '32.99' },
-  [shopifyVariants.beautyCollagen]: { title: 'Beauty + Collagen Strips', price: '39.99' },
+  [shopifyVariants.iron]: { title: 'Iron Strips', price: '34.99' },
+  [shopifyVariants.boneSupport]: { title: 'Bone Support Strips', price: '34.99' },
+  [shopifyVariants.appetite]: { title: 'Appetite Balance & Weight Support Strips', price: '34.99' },
+  [shopifyVariants.beautyCollagen]: { title: 'Beauty + Collagen Strips', price: '34.99' },
   [shopifyVariants.hairSkinNails]: { title: 'Hair, Skin & Nails Strips', price: '34.99' },
-  [shopifyVariants.sleep]: { title: 'Sleep Strips', price: '26.99' },
+  [shopifyVariants.sleep]: { title: 'Sleep Strips', price: '34.99' },
   [shopifyVariants.cognitiveRelax]: { title: 'Cognitive Relax Strips', price: '34.99' },
-  [shopifyVariants.hangover]: { title: 'Hangover Strips', price: '29.99' },
+  [shopifyVariants.hangover]: { title: 'Hangover Strips', price: '34.99' },
 };
 
 export interface Bundle {
@@ -83,9 +83,9 @@ export const bundles: Bundle[] = [
     category: 'performance',
     products: ['Mushroom Focus', 'Energy', 'Libido Support Strips'],
     variantIds: [shopifyVariants.mushroomFocus, shopifyVariants.energy, shopifyVariants.libidoSupport],
-    originalPrice: 97.97, // 34.99 + 27.99 + 34.99
+    originalPrice: 104.97, // 3 × 34.99
     salePrice: 79.99,
-    savings: 18,
+    savings: 24.98,
     discountPercent: 24,
     tagline: 'Max Focus + Energy + Drive All Day',
     discountCode: 'FOCUS24',
@@ -99,9 +99,9 @@ export const bundles: Bundle[] = [
     category: 'performance',
     products: ['Mushroom Focus', 'Energy Strips'],
     variantIds: [shopifyVariants.mushroomFocus, shopifyVariants.energy],
-    originalPrice: 62.98, // 34.99 + 27.99
+    originalPrice: 69.98, // 2 × 34.99
     salePrice: 54.99,
-    savings: 8,
+    savings: 14.99,
     discountPercent: 21,
     tagline: 'Pre-Workout Focus & Energy Boost',
     discountCode: 'ATHLETE21',
@@ -112,11 +112,11 @@ export const bundles: Bundle[] = [
     emoji: '🌿',
     packSize: '4-Pack',
     category: 'wellness',
-    products: ['Probiotic', 'Metabolism', 'Digestive', 'Iron Strips'],
+    products: ['Probiotic', 'Digestive', 'Iron', 'Appetite Balance'],
     variantIds: [shopifyVariants.probiotic, shopifyVariants.digestive, shopifyVariants.iron, shopifyVariants.appetite],
-    originalPrice: 127.96, // 34.99 + 34.99 + 24.99 + 32.99
+    originalPrice: 139.96, // 4 × 34.99
     salePrice: 99.99,
-    savings: 28,
+    savings: 39.97,
     discountPercent: 29,
     tagline: 'Full Gut Reset + Nutrient Absorption',
     discountCode: 'GUT29',
@@ -128,11 +128,11 @@ export const bundles: Bundle[] = [
     emoji: '💪',
     packSize: '4-Pack',
     category: 'wellness',
-    products: ['Bone Support', 'Probiotic', 'Appetite', 'Iron'],
+    products: ['Bone Support', 'Probiotic', 'Appetite Balance', 'Iron'],
     variantIds: [shopifyVariants.boneSupport, shopifyVariants.probiotic, shopifyVariants.appetite, shopifyVariants.iron],
-    originalPrice: 117.96, // 24.99 + 34.99 + 32.99 + 24.99
-    salePrice: 94.99,
-    savings: 23,
+    originalPrice: 139.96, // 4 × 34.99
+    salePrice: 101.99,
+    savings: 37.97,
     discountPercent: 27,
     tagline: 'Daily Foundation for Optimal Health',
     discountCode: 'WELLNESS27',
@@ -145,9 +145,9 @@ export const bundles: Bundle[] = [
     category: 'beauty',
     products: ['Beauty Collagen', 'Hair Skin Nails', 'Bone Support'],
     variantIds: [shopifyVariants.beautyCollagen, shopifyVariants.hairSkinNails, shopifyVariants.boneSupport],
-    originalPrice: 99.97, // 39.99 + 34.99 + 24.99
-    salePrice: 74.99,
-    savings: 25,
+    originalPrice: 104.97, // 3 × 34.99
+    salePrice: 78.99,
+    savings: 25.98,
     discountPercent: 25,
     tagline: 'Inside-Out Beauty Transformation',
     discountCode: 'BEAUTY25',
@@ -160,9 +160,9 @@ export const bundles: Bundle[] = [
     category: 'wellness',
     products: ['Sleep', 'Cognitive Relax Strips'],
     variantIds: [shopifyVariants.sleep, shopifyVariants.cognitiveRelax],
-    originalPrice: 61.98, // 26.99 + 34.99
+    originalPrice: 69.98, // 2 × 34.99
     salePrice: 54.99,
-    savings: 7,
+    savings: 14.99,
     discountPercent: 21,
     tagline: 'Deep Sleep + Morning Recovery',
     discountCode: 'SLEEP21',
@@ -182,11 +182,11 @@ export const bundles: Bundle[] = [
       shopifyVariants.beautyCollagen,
       shopifyVariants.iron,
     ],
-    originalPrice: 198.94, // 34.99 + 27.99 + 34.99 + 26.99 + 39.99 + 24.99
+    originalPrice: 209.94, // 6 × 34.99
     salePrice: 149.99,
-    savings: 49,
+    savings: 59.95,
     discountPercent: 29,
-    tagline: '6-Month Supply - Best Deal!',
+    tagline: 'Our Best Deal — 6 Strips, Maximum Savings',
     discountCode: 'MEGA29',
     badge: 'BEST VALUE',
   },
@@ -204,9 +204,9 @@ export const bundles: Bundle[] = [
       shopifyVariants.energy,
       shopifyVariants.mushroomFocus,
     ],
-    originalPrice: 154.95, // 29.99 + 26.99 + 34.99 + 27.99 + 34.99
+    originalPrice: 174.95, // 5 × 34.99
     salePrice: 124.99,
-    savings: 30,
+    savings: 49.96,
     discountPercent: 29,
     tagline: 'Party Recovery + Fresh Start 2026',
     discountCode: 'NEWYEAR29',

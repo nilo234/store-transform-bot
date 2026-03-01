@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     question: 'What is your guarantee?',
-    answer: "We offer a 60-Day Money-Back Guarantee. If you're not completely satisfied with your results, simply email us and we'll refund your first order—no questions asked, no hoops to jump through.",
+    answer: "We offer a 14-Day Money-Back Guarantee. If you're not completely satisfied with your results, simply email us and we'll refund your first order—no questions asked, no hoops to jump through.",
   },
   {
     question: 'Do you ship internationally?',

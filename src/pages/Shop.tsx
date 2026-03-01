@@ -386,7 +386,7 @@ export default function Shop() {
                 { icon: '🌿', label: 'Non-GMO', shortLabel: 'Non-GMO' },
                 { icon: '🇺🇸', label: 'Made in USA', shortLabel: 'USA Made' },
                 { icon: '📦', label: 'Free Shipping on $50+', shortLabel: 'Free Ship' },
-                { icon: '↩️', label: '60-Day Money-Back Guarantee', shortLabel: '60-Day Return' },
+                { icon: '↩️', label: '14-Day Money-Back Guarantee', shortLabel: '14-Day Return' },
               ].map((badge) => (
                 <div key={badge.label} className="flex flex-col md:flex-row items-center gap-1 md:gap-2 text-muted-foreground text-center">
                   <span className="text-xl md:text-2xl">{badge.icon}</span>

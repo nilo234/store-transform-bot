@@ -84,7 +84,7 @@ export default function Index() {
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
         title="Premium Dissolving Wellness Strips | NEUVIE™"
-        description="Fast-dissolving wellness strips with clinically studied ingredients. 5x faster absorption than pills. Free US shipping on $50+. 60-day money-back guarantee."
+        description="Fast-dissolving wellness strips with clinically studied ingredients. 5x faster absorption than pills. Free US shipping on $50+. 14-day money-back guarantee."
       />
       <AnnouncementBar />
       <Navbar />
@@ -133,7 +133,7 @@ export default function Index() {
                 </div>
 
                 <p className="text-xs text-muted-foreground">
-                  ✓ 60-Day Money-Back Guarantee · ✓ Free Shipping on $50+
+                  ✓ 14-Day Money-Back Guarantee · ✓ Free Shipping on $50+
                 </p>
               </motion.div>
 

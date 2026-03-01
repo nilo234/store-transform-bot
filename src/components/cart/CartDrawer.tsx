@@ -38,8 +38,8 @@ export function CartDrawer() {
   };
 
   const cartTotal = totalPrice();
-  const originalTotal = cartTotal * 1.42;
-  const totalSavings = originalTotal - cartTotal;
+  const originalTotal = items.reduce((sum, item) => sum + (49.99 * item.quantity), 0);
+  const totalSavings = Math.max(0, originalTotal - cartTotal);
 
   return (
     <Sheet open={isOpen} onOpenChange={setOpen}>
@@ -110,7 +110,7 @@ export function CartDrawer() {
                             ${parseFloat(item.price.amount).toFixed(2)}
                           </span>
                           <span className="text-[10px] md:text-xs text-muted-foreground line-through">
-                            ${(parseFloat(item.price.amount) * 1.42).toFixed(2)}
+                            $49.99
                           </span>
                         </div>
                       </div>

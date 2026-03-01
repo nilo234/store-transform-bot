@@ -23,7 +23,7 @@ const values = [
   {
     icon: Users,
     title: 'Customer Focused',
-    description: 'Your wellness journey is our priority. We stand behind every product with our 60-day money-back guarantee.',
+    description: 'Your wellness journey is our priority. We stand behind every product with our 14-day money-back guarantee.',
   },
 ];
 
@@ -31,7 +31,7 @@ const stats = [
   { number: '50,000+', label: 'Happy Customers' },
   { number: '99%', label: 'Satisfaction Rate' },
   { number: '13', label: 'Premium Strips' },
-  { number: '60 Days', label: 'Money-Back Guarantee' },
+  { number: '14 Days', label: 'Money-Back Guarantee' },
 ];
 
 export default function About() {
@@ -183,7 +183,7 @@ export default function About() {
                   'Fast-dissolving oral strip format',
                   'No artificial colors or preservatives',
                   'Non-GMO and ethically sourced ingredients',
-                  '60-day money-back guarantee — no questions asked',
+                  '14-day money-back guarantee — no questions asked',
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3 bg-card p-4 rounded-xl shadow-soft">
                     <Check className="h-5 w-5 text-primary flex-shrink-0" />

@@ -9,7 +9,7 @@ export default function Returns() {
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
         title="Returns & Refund Policy | NEUVIE™"
-        description="14-day money-back guarantee on all NEUVIE™ orders. Easy returns, no hassle. Contact support@neuvie.com for a full refund on your first order."
+        description="14-day money-back guarantee on all NEUVIE™ orders. Easy returns, no hassle. Contact hello@neuvie.com for a full refund on your first order."
       />
       <Navbar />
       
@@ -76,7 +76,7 @@ export default function Returns() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg mb-2">Contact Us</h4>
-                    <p className="text-muted-foreground">Email support@neuvie.com with your order number and reason for return. We'll respond within 24 hours.</p>
+                    <p className="text-muted-foreground">Email hello@neuvie.com with your order number and reason for return. We'll respond within 24 hours.</p>
                   </div>
                 </div>
 
