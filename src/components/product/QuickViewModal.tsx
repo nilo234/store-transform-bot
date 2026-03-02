@@ -98,7 +98,7 @@ export function QuickViewModal({ product, open, onOpenChange }: QuickViewModalPr
             </div>
 
             {/* Title */}
-            <h2 className="font-display text-2xl font-bold mb-2">{sanitizeTitle(product.node.title)}</h2>
+            <h2 className="font-body text-2xl font-semibold mb-2" style={{ letterSpacing: '-0.02em' }}>{sanitizeTitle(product.node.title)}</h2>
 
             {/* Description */}
             <p className="text-muted-foreground text-sm mb-4 line-clamp-3">

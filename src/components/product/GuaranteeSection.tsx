@@ -16,7 +16,7 @@ export const GuaranteeSection = () => {
               <Shield className="w-8 h-8 text-primary" />
             </div>
             
-            <h2 className="font-display text-2xl md:text-3xl font-bold mb-4">
+            <h2 className="font-body text-2xl md:text-3xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
               14-Day Money-Back Guarantee
             </h2>
             

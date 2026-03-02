@@ -74,7 +74,7 @@ export const JudgeMeReviews = ({ productId, productHandle, productTitle }: Judge
     <section className="py-16 bg-muted/20">
       <div className="container-wide">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-center mb-4">
+          <h2 className="font-body text-2xl md:text-3xl font-semibold text-center mb-4" style={{ letterSpacing: '-0.02em' }}>
             Customer Reviews
           </h2>
           <p className="text-center text-muted-foreground mb-8">

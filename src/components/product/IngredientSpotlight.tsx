@@ -55,7 +55,7 @@ export const IngredientSpotlight = ({ ingredients, productHandle }: IngredientSp
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-display text-2xl md:text-3xl font-bold mb-4">
+            <h2 className="font-body text-2xl md:text-3xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
               Inside the Strips
             </h2>
             <p className="text-muted-foreground">

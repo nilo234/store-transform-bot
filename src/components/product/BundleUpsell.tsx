@@ -42,7 +42,7 @@ export const BundleUpsell = ({ currentProductHandle }: BundleUpsellProps) => {
             <span className="text-primary font-semibold text-sm uppercase tracking-wider">
               Save More
             </span>
-            <h2 className="font-display text-2xl md:text-3xl font-bold mt-2 mb-4">
+            <h2 className="font-body text-2xl md:text-3xl font-semibold mt-2 mb-4" style={{ letterSpacing: '-0.02em' }}>
               Bundle & Save Up To 25%
             </h2>
             <p className="text-muted-foreground">

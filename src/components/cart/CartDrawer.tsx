@@ -74,7 +74,7 @@ export function CartDrawer() {
       <SheetContent className="w-full sm:max-w-lg flex flex-col h-full p-0">
         <SheetHeader className="px-4 md:px-6 py-3 md:py-4 border-b flex flex-row items-center justify-between">
           <div>
-            <SheetTitle className="font-display text-lg md:text-xl">
+            <SheetTitle className="font-body text-lg md:text-xl font-semibold">
               Cart ({totalItems()})
             </SheetTitle>
             <SheetDescription className="sr-only">
