@@ -67,7 +67,7 @@ export default function Bundles() {
                 </span>
               </div>
 
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              <h1 className="font-body text-4xl md:text-5xl lg:text-6xl font-semibold mb-6" style={{ letterSpacing: '-0.02em' }}>
                 🎯 BUNDLES - SAVE UP TO{' '}
                 <span className="text-accent">20%</span>
               </h1>
@@ -151,7 +151,7 @@ export default function Bundles() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-display text-2xl md:text-3xl font-bold mb-4">
+              <h2 className="font-body text-2xl md:text-3xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
                 Not sure which bundle to choose?
               </h2>
               <p className="text-muted-foreground mb-6 max-w-xl mx-auto">

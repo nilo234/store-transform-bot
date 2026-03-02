@@ -179,8 +179,8 @@ export default function Science() {
         <section className="py-20 md:py-28 bg-gradient-to-b from-muted/50 to-background">
           <div className="container-wide text-center">
             <motion.h1 
-              className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-              initial={{ opacity: 0, y: 20 }}
+              className="font-body text-4xl md:text-5xl lg:text-6xl font-semibold mb-6"
+              style={{ letterSpacing: '-0.02em' }}
               animate={{ opacity: 1, y: 0 }}
             >
               THE SCIENCE BEHIND NEUVIE
@@ -200,7 +200,7 @@ export default function Science() {
         <section className="py-20">
           <div className="container-wide">
             <motion.h2 
-              className="font-display text-3xl md:text-4xl font-bold text-center mb-16"
+              className="font-body text-3xl md:text-4xl font-semibold text-center mb-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -221,7 +221,7 @@ export default function Science() {
                   <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
                     <section.icon className="h-8 w-8 text-primary" />
                   </div>
-                  <h3 className="font-display font-bold text-xl mb-4">{section.title}</h3>
+                  <h3 className="font-body font-semibold text-xl mb-4" style={{ letterSpacing: '-0.02em' }}>{section.title}</h3>
                   <p className="text-muted-foreground leading-relaxed text-sm">{section.description}</p>
                 </motion.div>
               ))}
@@ -238,7 +238,7 @@ export default function Science() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
+              <h2 className="font-body text-3xl md:text-4xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
                 THIRD-PARTY TESTED
               </h2>
               <p className="text-muted-foreground text-lg">
@@ -280,7 +280,7 @@ export default function Science() {
         <section className="py-20">
           <div className="container-wide">
             <motion.h2 
-              className="font-display text-3xl md:text-4xl font-bold text-center mb-12"
+              className="font-body text-3xl md:text-4xl font-semibold text-center mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -316,7 +316,7 @@ export default function Science() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
+              <h2 className="font-body text-3xl md:text-4xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
                 DIRECT FROM MOTHER NATURE
               </h2>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
@@ -336,7 +336,7 @@ export default function Science() {
                 >
                   <div className="flex items-center gap-3 mb-5">
                     <span className="text-3xl">{item.icon}</span>
-                    <h4 className="font-display font-semibold text-foreground text-lg">{item.product}</h4>
+                    <h4 className="font-body font-semibold text-foreground text-lg" style={{ letterSpacing: '-0.02em' }}>{item.product}</h4>
                   </div>
                   <div className="space-y-3">
                     {item.ingredients.map((ingredient) => (
@@ -363,7 +363,7 @@ export default function Science() {
         <section className="py-20 bg-primary text-primary-foreground">
           <div className="container-wide text-center">
             <motion.h2 
-              className="font-display text-3xl md:text-4xl font-bold mb-6"
+              className="font-body text-3xl md:text-4xl font-semibold mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
