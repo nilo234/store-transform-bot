@@ -49,8 +49,8 @@ export default function About() {
           <div className="container-wide">
             <div className="max-w-3xl mx-auto text-center">
               <motion.h1 
-                className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-                initial={{ opacity: 0, y: 20 }}
+                className="font-body text-4xl md:text-5xl lg:text-6xl font-semibold mb-6"
+                style={{ letterSpacing: '-0.02em' }}
                 animate={{ opacity: 1, y: 0 }}
               >
                 ABOUT NEUVIE
@@ -76,7 +76,7 @@ export default function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
+                <h2 className="font-body text-3xl md:text-4xl font-semibold mb-6" style={{ letterSpacing: '-0.02em' }}>
                   OUR STORY
                 </h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -117,7 +117,7 @@ export default function About() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <p className="font-display text-4xl md:text-5xl font-bold mb-2">{stat.number}</p>
+                  <p className="font-body text-4xl md:text-5xl font-semibold mb-2" style={{ letterSpacing: '-0.02em' }}>{stat.number}</p>
                   <p className="text-primary-foreground/70 text-sm">{stat.label}</p>
                 </motion.div>
               ))}
@@ -129,7 +129,7 @@ export default function About() {
         <section className="py-20">
           <div className="container-wide">
             <motion.h2 
-              className="font-display text-3xl md:text-4xl font-bold text-center mb-16"
+              className="font-body text-3xl md:text-4xl font-semibold text-center mb-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -163,7 +163,7 @@ export default function About() {
           <div className="container-wide">
             <div className="max-w-3xl mx-auto">
               <motion.h2 
-                className="font-display text-3xl md:text-4xl font-bold text-center mb-12"
+                className="font-body text-3xl md:text-4xl font-semibold text-center mb-12"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

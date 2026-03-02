@@ -120,8 +120,8 @@ export default function Shop() {
         <section className="bg-gradient-to-b from-muted/50 to-background py-10 md:py-16 lg:py-20">
           <div className="container-wide text-center px-4 md:px-6">
             <motion.h1
-              className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4"
-              initial={{ opacity: 0, y: 20 }}
+              className="font-body text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-3 md:mb-4"
+              style={{ letterSpacing: '-0.02em' }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
@@ -289,7 +289,7 @@ export default function Shop() {
               /* Empty State — calm, helpful */
               <div className="text-center py-16 md:py-24 max-w-md mx-auto">
                 <span className="text-4xl mb-4 block">🔍</span>
-                <h3 className="font-display text-lg md:text-xl font-semibold mb-2">No matching strips found</h3>
+                <h3 className="font-body text-lg md:text-xl font-semibold mb-2" style={{ letterSpacing: '-0.02em' }}>No matching strips found</h3>
                 <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
                   We don't have a strip matching those exact filters yet. Try adjusting your selection, 
                   or browse the full collection to find what works for you.
