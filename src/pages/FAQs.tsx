@@ -78,8 +78,8 @@ export default function FAQs() {
         <section className="py-20 md:py-28 bg-gradient-to-b from-muted/50 to-background">
           <div className="container-wide text-center">
             <motion.h1 
-              className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-              initial={{ opacity: 0, y: 20 }}
+              className="font-body text-4xl md:text-5xl lg:text-6xl font-semibold mb-6"
+              style={{ letterSpacing: '-0.02em' }}
               animate={{ opacity: 1, y: 0 }}
             >
               FREQUENTLY ASKED QUESTIONS
