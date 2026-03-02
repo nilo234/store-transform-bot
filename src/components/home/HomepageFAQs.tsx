@@ -40,7 +40,7 @@ export function HomepageFAQs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-3">
+          <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
             Frequently Asked Questions
           </h2>
           <p className="text-muted-foreground">

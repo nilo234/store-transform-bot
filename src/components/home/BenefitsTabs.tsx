@@ -53,7 +53,7 @@ export function BenefitsTabs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="font-body text-3xl md:text-4xl lg:text-5xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
             BENEFITS OF NEUVIE STRIPS
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">

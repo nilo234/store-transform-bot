@@ -17,7 +17,7 @@ export function GuaranteeSection() {
             <ShieldCheck className="w-10 h-10 text-primary" />
           </div>
 
-          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+          <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
             14-DAY MONEY-BACK GUARANTEE
           </h2>
 

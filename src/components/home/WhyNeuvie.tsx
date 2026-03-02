@@ -43,7 +43,7 @@ export function WhyNeuvie() {
             <span className="text-xs font-bold text-primary uppercase tracking-widest mb-4 block">
               Why Choose Us
             </span>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            <h2 className="font-body text-3xl md:text-4xl lg:text-5xl font-semibold mb-6" style={{ letterSpacing: '-0.02em' }}>
               WHY NEUVIE?
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
