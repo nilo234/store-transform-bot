@@ -18,8 +18,8 @@ export default function Returns() {
         <section className="py-20 md:py-28 bg-gradient-to-b from-muted/50 to-background">
           <div className="container-wide text-center">
             <motion.h1 
-              className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-              initial={{ opacity: 0, y: 20 }}
+              className="font-body text-4xl md:text-5xl lg:text-6xl font-semibold mb-6"
+              style={{ letterSpacing: '-0.02em' }}
               animate={{ opacity: 1, y: 0 }}
             >
               RETURNS & REFUNDS
@@ -46,7 +46,7 @@ export default function Returns() {
               <div className="w-20 h-20 bg-primary-foreground/10 rounded-full flex items-center justify-center mb-6">
                 <Shield className="h-10 w-10" />
               </div>
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
+              <h2 className="font-body text-3xl md:text-4xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
                 14-Day Money-Back Guarantee
               </h2>
               <p className="text-primary-foreground/80 max-w-2xl text-lg">
@@ -65,7 +65,7 @@ export default function Returns() {
               transition={{ delay: 0.2 }}
               className="space-y-8"
             >
-              <h2 className="font-display text-2xl md:text-3xl font-bold text-center mb-12">
+              <h2 className="font-body text-2xl md:text-3xl font-semibold text-center mb-12" style={{ letterSpacing: '-0.02em' }}>
                 How Returns Work
               </h2>
 
@@ -112,7 +112,7 @@ export default function Returns() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
-              <h2 className="font-display text-2xl md:text-3xl font-bold text-center mb-8">
+              <h2 className="font-body text-2xl md:text-3xl font-semibold text-center mb-8" style={{ letterSpacing: '-0.02em' }}>
                 Policy Details
               </h2>
               <div className="space-y-4">

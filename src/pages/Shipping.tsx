@@ -84,8 +84,8 @@ export default function Shipping() {
         <section className="py-20 md:py-28 bg-gradient-to-b from-muted/50 to-background">
           <div className="container-wide text-center">
             <motion.h1 
-              className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-              initial={{ opacity: 0, y: 20 }}
+              className="font-body text-4xl md:text-5xl lg:text-6xl font-semibold mb-6"
+              style={{ letterSpacing: '-0.02em' }}
               animate={{ opacity: 1, y: 0 }}
             >
               Shipping Policy
@@ -137,7 +137,7 @@ export default function Shipping() {
               transition={{ delay: 0.4 }}
               className="space-y-4"
             >
-              <h2 className="font-display text-xl md:text-2xl font-bold text-foreground mb-6">At a Glance</h2>
+              <h2 className="font-body text-xl md:text-2xl font-semibold text-foreground mb-6" style={{ letterSpacing: '-0.02em' }}>At a Glance</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {[
                   { text: 'Free US shipping on orders $50+', icon: Truck },
