@@ -52,6 +52,23 @@ export function PageMeta({ title, description, ogImage, noindex }: PageMetaProps
       document.head.appendChild(canonical);
     }
 
+    // Hreflang en-US
+    const setHreflang = (lang: string, href: string) => {
+      let link = document.querySelector(`link[hreflang="${lang}"]`) as HTMLLinkElement;
+      if (link) {
+        link.href = href;
+      } else {
+        link = document.createElement('link');
+        link.rel = 'alternate';
+        link.setAttribute('hreflang', lang);
+        link.href = href;
+        document.head.appendChild(link);
+      }
+    };
+    setHreflang('en-US', canonicalUrl);
+    setHreflang('en', canonicalUrl);
+    setHreflang('x-default', canonicalUrl);
+
     // Open Graph
     setMeta('property', 'og:title', title);
     setMeta('property', 'og:description', description);
@@ -59,6 +76,7 @@ export function PageMeta({ title, description, ogImage, noindex }: PageMetaProps
     setMeta('property', 'og:image', image);
     setMeta('property', 'og:type', 'website');
     setMeta('property', 'og:site_name', 'NEUVIE Nutrition');
+    setMeta('property', 'og:locale', 'en_US');
 
     // Twitter Card
     setMeta('name', 'twitter:title', title);

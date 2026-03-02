@@ -7,8 +7,8 @@ export default function Privacy() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="Privacy Policy | NEUVIE™ Nutrition"
-        description="Read NEUVIE™'s privacy policy. Learn how we collect, use, and protect your personal information when you shop our wellness strips."
+        title="Privacy Policy | NEUVIE™"
+        description="How NEUVIE™ collects, uses, and protects your personal information. Read our privacy policy."
       />
       <Navbar />
       

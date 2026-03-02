@@ -66,8 +66,8 @@ export default function FAQs() {
     <div className="min-h-screen flex flex-col bg-background">
       {/* SEO */}
       <PageMeta
-        title="Frequently Asked Questions | NEUVIE™ Strips"
-        description="Get answers about NEUVIE™ dissolving strips – how they work, ingredients, shipping, returns & more. Third-party tested, 14-day guarantee. Contact our team anytime."
+        title="Wellness Strips FAQ – Your Questions Answered | NEUVIE™"
+        description="How do NEUVIE™ dissolving strips work? Ingredients, shipping, returns & more. Third-party tested, 14-day guarantee. Get answers now."
       />
       <FAQJsonLd faqs={faqJsonLdData} />
       

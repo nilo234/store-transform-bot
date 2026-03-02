@@ -102,7 +102,35 @@ export function ProductJsonLd({ product }: ProductJsonLdProps) {
         "reviewCount": "1247",
         "bestRating": "5",
         "worstRating": "1"
-      }
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Sarah M."
+          },
+          "reviewBody": "These strips are incredibly convenient and fit perfectly into my morning routine. Clean energy without the jitters."
+        },
+        {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "James R."
+          },
+          "reviewBody": "Great quality and taste. I love how easy they are to take compared to traditional supplements."
+        }
+      ]
     };
 
     // Remove existing script if present

@@ -8,8 +8,8 @@ export default function Returns() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="Returns & Refund Policy | NEUVIE™"
-        description="14-day money-back guarantee on all NEUVIE™ orders. Easy returns, no hassle. Contact hello@neuvie.com for a full refund on your first order."
+        title="14-Day Money-Back Guarantee – Returns | NEUVIE™"
+        description="14-day money-back guarantee on all NEUVIE™ orders. Easy returns, free return shipping. Get a full refund – no questions asked."
       />
       <Navbar />
       

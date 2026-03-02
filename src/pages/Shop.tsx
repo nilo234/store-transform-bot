@@ -110,8 +110,8 @@ export default function Shop() {
   return (
     <div className="min-h-screen flex flex-col">
       <PageMeta
-        title="Shop All 13 Wellness Strips | NEUVIE™"
-        description="Browse 13 fast-dissolving wellness strips formulated with science-backed ingredients. Energy, focus, sleep, beauty & immunity. Free US shipping on orders $50+."
+        title="Buy Wellness Strips Online – All 13 Strips | NEUVIE™"
+        description="Shop 13 fast-dissolving wellness strips: energy, focus, sleep, beauty & immunity. Science-backed ingredients. Free US shipping on $50+. Order now!"
       />
       <Navbar />
 

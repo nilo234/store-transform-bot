@@ -200,8 +200,8 @@ export default function ProductDetail() {
     <div className="min-h-screen flex flex-col">
       {/* SEO */}
       <PageMeta
-        title={`${sanitizeTitle(product.title)} – Fast-Dissolving Strip | NEUVIE™`}
-        description={`${product.description?.slice(0, 120) || `Shop ${sanitizeTitle(product.title)} by NEUVIE™. Premium dissolving wellness strip with clinically studied ingredients. $34.99. Free shipping $50+.`}`}
+        title={`${sanitizeTitle(product.title)} – Buy Now $${price.toFixed(2)} | NEUVIE™`}
+        description={`Shop ${sanitizeTitle(product.title)} by NEUVIE™. Fast-dissolving strip with clinically studied ingredients. ⭐ 4.8/5 (1,247 reviews). Free US shipping on $50+.`}
       />
       <ProductJsonLd product={product} />
       <BreadcrumbJsonLd items={breadcrumbItems} />
