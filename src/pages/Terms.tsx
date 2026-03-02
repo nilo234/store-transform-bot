@@ -7,8 +7,8 @@ export default function Terms() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="Terms of Service | NEUVIE™ Nutrition"
-        description="Read NEUVIE™'s terms and conditions for using our website and purchasing our dissolving wellness strips. Updated 2025."
+        title="Terms of Service | NEUVIE™"
+        description="NEUVIE™ terms and conditions for using our website and purchasing dissolving wellness strips. Updated 2025."
       />
       <Navbar />
       

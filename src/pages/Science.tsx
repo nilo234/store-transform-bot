@@ -169,8 +169,8 @@ export default function Science() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="Science Behind Dissolving Strips | NEUVIE™"
-        description="Clinically studied ingredients at effective dosages. Third-party tested for purity & potency. Discover the science behind NEUVIE™ fast-dissolving wellness strips."
+        title="Science-Backed Supplement Strips – Research | NEUVIE™"
+        description="Clinically studied ingredients at effective dosages. Third-party tested for purity & potency. See the science behind NEUVIE™ dissolving strips."
       />
       <Navbar />
       

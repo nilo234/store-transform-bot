@@ -38,6 +38,7 @@ const trustBadges = [
   'Ethically Sourced',
   'Made in USA',
   'Fast-Dissolving',
+  'FDA-Registered Facility',
 ];
 
 export function Footer() {
@@ -167,10 +168,13 @@ export function Footer() {
           
           {/* Copyright */}
           <p className="text-center text-primary-foreground/50 text-[10px] md:text-xs mb-2">
-            *These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
+            *These statements have not been evaluated by the Food and Drug Administration (FDA). These products are not intended to diagnose, treat, cure, or prevent any disease. Manufactured in an FDA-registered, GMP-compliant facility in the United States.
+          </p>
+          <p className="text-center text-primary-foreground/50 text-[10px] md:text-xs mb-2">
+            All prices in USD ($). Shipping available within the United States only.
           </p>
           <p className="text-center text-primary-foreground/50 text-[10px] md:text-sm">
-            © {new Date().getFullYear()} Neuvie. All rights reserved.
+            © {new Date().getFullYear()} Neuvie Nutrition, Inc. All rights reserved.
           </p>
         </div>
       </div>
