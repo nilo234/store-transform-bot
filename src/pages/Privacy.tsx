@@ -17,9 +17,9 @@ export default function Privacy() {
         <section className="py-20 md:py-28 bg-gradient-to-b from-muted/50 to-background">
           <div className="container-wide text-center">
             <motion.h1 
-              className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+              className="font-body text-4xl md:text-5xl lg:text-6xl font-semibold mb-6"
+              style={{ letterSpacing: '-0.02em' }}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
             >
               PRIVACY POLICY
             </motion.h1>
@@ -53,7 +53,7 @@ export default function Privacy() {
             >
               <div className="space-y-8">
                 <div className="bg-card rounded-xl p-8">
-                  <h2 className="font-display text-2xl font-bold mb-4">Information We Collect</h2>
+                  <h2 className="font-body text-2xl font-semibold mb-4">Information We Collect</h2>
                   <p className="text-muted-foreground mb-4">We collect information you provide directly to us, such as:</p>
                   <ul className="list-disc list-inside text-muted-foreground space-y-2">
                     <li>Name and contact information when you create an account or place an order</li>
@@ -65,7 +65,7 @@ export default function Privacy() {
                 </div>
 
                 <div className="bg-card rounded-xl p-8">
-                  <h2 className="font-display text-2xl font-bold mb-4">How We Use Your Information</h2>
+                  <h2 className="font-body text-2xl font-semibold mb-4">How We Use Your Information</h2>
                   <p className="text-muted-foreground mb-4">We use the information we collect to:</p>
                   <ul className="list-disc list-inside text-muted-foreground space-y-2">
                     <li>Process and fulfill your orders</li>
@@ -78,28 +78,28 @@ export default function Privacy() {
                 </div>
 
                 <div className="bg-card rounded-xl p-8">
-                  <h2 className="font-display text-2xl font-bold mb-4">Information Sharing</h2>
+                  <h2 className="font-body text-2xl font-semibold mb-4">Information Sharing</h2>
                   <p className="text-muted-foreground">
                     We do not sell, trade, or rent your personal information to third parties. We may share your information with trusted service providers who assist us in operating our website, processing payments, and fulfilling orders. These providers are contractually obligated to keep your information confidential.
                   </p>
                 </div>
 
                 <div className="bg-card rounded-xl p-8">
-                  <h2 className="font-display text-2xl font-bold mb-4">Data Security</h2>
+                  <h2 className="font-body text-2xl font-semibold mb-4">Data Security</h2>
                   <p className="text-muted-foreground">
                     We implement industry-standard security measures to protect your personal information. All payment transactions are encrypted using SSL technology. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.
                   </p>
                 </div>
 
                 <div className="bg-card rounded-xl p-8">
-                  <h2 className="font-display text-2xl font-bold mb-4">Cookies</h2>
+                  <h2 className="font-body text-2xl font-semibold mb-4">Cookies</h2>
                   <p className="text-muted-foreground">
                     We use cookies and similar technologies to enhance your browsing experience, analyze site traffic, and personalize content. You can control cookies through your browser settings. Disabling cookies may affect certain features of our website.
                   </p>
                 </div>
 
                 <div className="bg-card rounded-xl p-8">
-                  <h2 className="font-display text-2xl font-bold mb-4">Your Rights</h2>
+                  <h2 className="font-body text-2xl font-semibold mb-4">Your Rights</h2>
                   <p className="text-muted-foreground mb-4">You have the right to:</p>
                   <ul className="list-disc list-inside text-muted-foreground space-y-2">
                     <li>Access and request a copy of your personal data</li>
@@ -111,7 +111,7 @@ export default function Privacy() {
                 </div>
 
                 <div className="bg-card rounded-xl p-8">
-                  <h2 className="font-display text-2xl font-bold mb-4">Contact Us</h2>
+                  <h2 className="font-body text-2xl font-semibold mb-4">Contact Us</h2>
                   <p className="text-muted-foreground">
                     If you have any questions about this Privacy Policy, please contact us at{' '}
                     <a href="mailto:privacy@neuvie.com" className="text-primary hover:underline">

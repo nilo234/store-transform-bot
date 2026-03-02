@@ -288,7 +288,7 @@ export default function ProductDetail() {
             >
               {/* Title & Subtitle */}
               <div>
-                <h1 className="font-display text-3xl md:text-4xl font-bold">{sanitizeTitle(product.title)}</h1>
+                <h1 className="font-body text-3xl md:text-4xl font-semibold" style={{ letterSpacing: '-0.02em' }}>{sanitizeTitle(product.title)}</h1>
                 <p className="text-muted-foreground mt-1">
                   {productContent?.shortDescription?.split('.')[0] || 'Premium oral strip'}
                 </p>
@@ -451,7 +451,7 @@ export default function ProductDetail() {
           <section className="py-16 bg-muted/30">
             <div className="container-wide">
               <div className="max-w-4xl mx-auto">
-                <h2 className="font-display text-2xl md:text-3xl font-bold text-center mb-12">
+                <h2 className="font-body text-2xl md:text-3xl font-semibold text-center mb-12" style={{ letterSpacing: '-0.02em' }}>
                   Product Details
                 </h2>
 

@@ -25,8 +25,8 @@ const NotFound = () => {
             animate={{ opacity: 1, y: 0 }}
           >
             <span className="text-8xl mb-6 block">🔍</span>
-            <h1 className="font-display text-6xl md:text-7xl font-bold mb-4 text-primary">404</h1>
-            <h2 className="font-display text-2xl md:text-3xl font-bold mb-4">Page Not Found</h2>
+            <h1 className="font-body text-6xl md:text-7xl font-semibold mb-4 text-primary" style={{ letterSpacing: '-0.02em' }}>404</h1>
+            <h2 className="font-body text-2xl md:text-3xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>Page Not Found</h2>
             <p className="text-muted-foreground mb-8 text-lg">
               Oops! The page you're looking for doesn't exist or has been moved.
             </p>

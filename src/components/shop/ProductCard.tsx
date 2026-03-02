@@ -144,7 +144,7 @@ export function ProductCard({ product, index = 0, showCompare, isCompared, onTog
               <JudgeMePreviewBadge productId={node.id} />
             </div>
 
-            <h3 className="font-display text-sm md:text-base font-semibold mt-1 mb-1 text-foreground group-hover:text-primary transition-colors line-clamp-2 leading-tight">
+            <h3 className="font-body text-sm md:text-base font-semibold mt-1 mb-1 text-foreground group-hover:text-primary transition-colors line-clamp-2 leading-tight">
               {sanitizeTitle(node.title)}
             </h3>
 

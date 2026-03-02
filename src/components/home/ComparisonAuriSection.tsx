@@ -30,7 +30,7 @@ export function ComparisonAuriSection() {
           viewport={{ once: true }}
           className="text-center mb-10 md:mb-12"
         >
-          <h2 className="font-display text-2xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="font-body text-2xl md:text-4xl lg:text-5xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
             WHY NEUVIE STRIPS?
           </h2>
           <p className="text-muted-foreground text-sm md:text-lg max-w-2xl mx-auto">

@@ -93,7 +93,7 @@ export function ExitIntentPopup() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="font-display text-2xl md:text-3xl font-bold mb-2"
+              className="font-body text-2xl md:text-3xl font-semibold mb-2"
             >
               Welcome to Neuvie
             </motion.h2>
@@ -174,7 +174,7 @@ export function ExitIntentPopup() {
                   >
                     <span className="text-3xl">🎉</span>
                   </motion.div>
-                  <h3 className="font-display text-xl font-bold mb-2">Welcome!</h3>
+                  <h3 className="font-body text-xl font-semibold mb-2">Welcome!</h3>
                   <p className="text-muted-foreground text-sm">
                     Check your email for your discount code.
                   </p>

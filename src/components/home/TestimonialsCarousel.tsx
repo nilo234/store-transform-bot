@@ -82,7 +82,7 @@ export function TestimonialsCarousel() {
           <span className="text-xs font-bold text-primary uppercase tracking-widest mb-4 block">
             Customer Reviews
           </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="font-body text-3xl md:text-4xl lg:text-5xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
             WHAT OUR CUSTOMERS ARE SAYING
           </h2>
           <p className="text-muted-foreground text-lg">
