@@ -107,7 +107,7 @@ export default function Index() {
                 transition={{ duration: 0.6, ease: 'easeOut' }}
                 className="order-2 lg:order-1 text-center lg:text-left"
               >
-                <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
+                <h1 className="font-body text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-semibold leading-[1.1] mb-6" style={{ letterSpacing: '-0.02em' }}>
                   Premium Wellness.{' '}
                   <span className="block">Fast-Dissolving.</span>
                   <span className="block text-accent">Science-Backed.</span>
@@ -181,7 +181,7 @@ export default function Index() {
         <section className="py-16 md:py-24 bg-background">
           <div className="container-wide">
             <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-3">
+              <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
                 Find Your Daily Support
               </h2>
               <p className="text-muted-foreground max-w-lg mx-auto">
@@ -195,7 +195,7 @@ export default function Index() {
                   <Link to={cat.href} className="block group">
                     <div className={`relative rounded-2xl bg-gradient-to-br ${cat.color} border border-border/40 p-6 md:p-8 text-center transition-all duration-300 hover:shadow-card hover:-translate-y-1`}>
                       <span className="text-3xl md:text-4xl block mb-3">{cat.emoji}</span>
-                      <h3 className="font-display font-semibold text-sm md:text-base mb-1">{cat.title}</h3>
+                      <h3 className="font-body font-semibold text-sm md:text-base mb-1" style={{ letterSpacing: '-0.02em' }}>{cat.title}</h3>
                       <p className="text-xs text-muted-foreground">{cat.description}</p>
                       <ChevronRight className="h-4 w-4 mx-auto mt-3 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
@@ -256,7 +256,7 @@ export default function Index() {
         <section className="py-16 md:py-24 bg-background">
           <div className="container-wide">
             <motion.div className="text-center mb-12 md:mb-16" {...fadeUp}>
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-3">
+              <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
                 Just 30 Seconds to Wellness
               </h2>
               <p className="text-muted-foreground max-w-md mx-auto">
@@ -278,7 +278,7 @@ export default function Index() {
                       {item.step}
                     </span>
                   </div>
-                  <h3 className="font-display font-semibold text-sm md:text-base mb-1">{item.title}</h3>
+                  <h3 className="font-body font-semibold text-sm md:text-base mb-1" style={{ letterSpacing: '-0.02em' }}>{item.title}</h3>
                   <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                 </motion.div>
               ))}
@@ -309,7 +309,7 @@ export default function Index() {
         <section className="py-16 md:py-24 bg-background">
           <div className="container-wide">
             <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-3">
+              <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
                 Premium Sourcing. Purposeful Ingredients.
               </h2>
               <p className="text-muted-foreground max-w-lg mx-auto">
@@ -355,7 +355,7 @@ export default function Index() {
         <section className="py-16 md:py-24 bg-muted/15 overflow-hidden">
           <div className="container-wide">
             <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-3">
+              <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
                 Join 50,000+ Happy Customers
               </h2>
               <div className="flex items-center justify-center gap-2 mb-2">
@@ -413,7 +413,7 @@ export default function Index() {
         <section className="py-16 md:py-24 bg-background">
           <div className="container-wide">
             <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-3">
+              <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
                 Curated Routines. Better Value.
               </h2>
               <p className="text-muted-foreground max-w-lg mx-auto">
