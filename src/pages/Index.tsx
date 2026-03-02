@@ -212,7 +212,7 @@ export default function Index() {
         <section className="py-16 md:py-24 bg-muted/15">
           <div className="container-wide">
             <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-3">
+              <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
                 Customer Favorites
               </h2>
               <p className="text-muted-foreground">
