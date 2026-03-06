@@ -26,10 +26,10 @@ const puritySections = [
 
 // Product test cards
 const testCards = [
-  { name: 'Energy Strips', status: 'Passed', date: 'Dec 2024' },
-  { name: 'Mushroom Focus', status: 'Passed', date: 'Dec 2024' },
-  { name: 'Sleep Strips', status: 'Passed', date: 'Dec 2024' },
-  { name: 'Hair, Skin & Nails', status: 'Passed', date: 'Dec 2024' },
+  { name: 'Energy Strips', status: 'Passed', date: 'Dec 2024', researchUrl: 'https://www.tandfonline.com/doi/abs/10.1080/10408398.2020.1781051' },
+  { name: 'Mushroom Focus', status: 'Passed', date: 'Dec 2024', researchUrl: 'https://pubmed.ncbi.nlm.nih.gov/38004235/' },
+  { name: 'Sleep Strips', status: 'Passed', date: 'Dec 2024', researchUrl: 'https://pubmed.ncbi.nlm.nih.gov/31619178/' },
+  { name: 'Hair, Skin & Nails', status: 'Passed', date: 'Dec 2024', researchUrl: 'https://pubmed.ncbi.nlm.nih.gov/28701385/' },
 ];
 
 // Quality badges
