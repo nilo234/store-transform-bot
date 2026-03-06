@@ -265,10 +265,10 @@ export default function Science() {
                   <h4 className="font-semibold text-foreground mb-2">{card.name}</h4>
                   <p className="text-xs text-muted-foreground">{card.date}</p>
                   <div className="mt-4 pt-4 border-t border-border/50">
-                    <span className="text-xs text-primary font-medium flex items-center gap-1 cursor-pointer hover:text-accent transition-colors">
-                      View Certificate
+                    <a href={card.researchUrl} target="_blank" rel="noopener noreferrer" className="text-xs text-primary font-medium flex items-center gap-1 hover:text-accent transition-colors">
+                      View Research
                       <ExternalLink className="h-3 w-3" />
-                    </span>
+                    </a>
                   </div>
                 </motion.div>
               ))}
