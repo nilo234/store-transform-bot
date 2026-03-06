@@ -26,10 +26,10 @@ const puritySections = [
 
 // Product test cards
 const testCards = [
-  { name: 'Energy Strips', status: 'Passed', date: 'Dec 2024' },
-  { name: 'Mushroom Focus', status: 'Passed', date: 'Dec 2024' },
-  { name: 'Sleep Strips', status: 'Passed', date: 'Dec 2024' },
-  { name: 'Hair, Skin & Nails', status: 'Passed', date: 'Dec 2024' },
+  { name: 'Energy Strips', status: 'Passed', date: 'Dec 2024', researchUrl: 'https://www.tandfonline.com/doi/abs/10.1080/10408398.2020.1781051' },
+  { name: 'Mushroom Focus', status: 'Passed', date: 'Dec 2024', researchUrl: 'https://pubmed.ncbi.nlm.nih.gov/38004235/' },
+  { name: 'Sleep Strips', status: 'Passed', date: 'Dec 2024', researchUrl: 'https://pubmed.ncbi.nlm.nih.gov/31619178/' },
+  { name: 'Hair, Skin & Nails', status: 'Passed', date: 'Dec 2024', researchUrl: 'https://pubmed.ncbi.nlm.nih.gov/28701385/' },
 ];
 
 // Quality badges
@@ -265,10 +265,10 @@ export default function Science() {
                   <h4 className="font-semibold text-foreground mb-2">{card.name}</h4>
                   <p className="text-xs text-muted-foreground">{card.date}</p>
                   <div className="mt-4 pt-4 border-t border-border/50">
-                    <span className="text-xs text-primary font-medium flex items-center gap-1 cursor-pointer hover:text-accent transition-colors">
-                      View Certificate
+                    <a href={card.researchUrl} target="_blank" rel="noopener noreferrer" className="text-xs text-primary font-medium flex items-center gap-1 hover:text-accent transition-colors">
+                      View Research
                       <ExternalLink className="h-3 w-3" />
-                    </span>
+                    </a>
                   </div>
                 </motion.div>
               ))}
