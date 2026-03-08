@@ -7,35 +7,35 @@ interface ClinicalResultsProps {
 
 const clinicalData: Record<string, { title: string; stats: Array<{ icon: any; label: string; percentage: number }> }> = {
   mushroom: {
-    title: "What people noticed after 60 days*",
+    title: "What people felt after choosing themselves for 60 days*",
     stats: [
-      { icon: Target, label: "Felt sharper and more focused", percentage: 78 },
-      { icon: Brain, label: "Experienced clearer thinking", percentage: 74 },
-      { icon: Zap, label: "Had more steady energy throughout the day", percentage: 70 },
+      { icon: Target, label: "Felt sharper and more present in their day", percentage: 78 },
+      { icon: Brain, label: "Noticed clearer, calmer thinking", percentage: 74 },
+      { icon: Zap, label: "Felt more steady energy without the crash", percentage: 70 },
     ]
   },
   energy: {
-    title: "What people noticed after 60 days*",
+    title: "What people felt after choosing themselves for 60 days*",
     stats: [
-      { icon: Zap, label: "Felt more energized without a crash", percentage: 82 },
-      { icon: Target, label: "Stayed focused longer", percentage: 76 },
-      { icon: Heart, label: "Felt less afternoon fatigue", percentage: 71 },
+      { icon: Zap, label: "Felt energized without relying on caffeine alone", percentage: 82 },
+      { icon: Target, label: "Stayed focused on what matters longer", percentage: 76 },
+      { icon: Heart, label: "Felt less drained by the afternoon", percentage: 71 },
     ]
   },
   sleep: {
-    title: "What people noticed after 60 days*",
+    title: "What people felt after choosing rest for 60 days*",
     stats: [
-      { icon: Heart, label: "Fell asleep easier and slept deeper", percentage: 85 },
-      { icon: Brain, label: "Felt calmer before bed", percentage: 79 },
-      { icon: Zap, label: "Woke up feeling actually rested", percentage: 72 },
+      { icon: Heart, label: "Fell asleep easier and woke up feeling cared for", percentage: 85 },
+      { icon: Brain, label: "Felt calmer and more at peace before bed", percentage: 79 },
+      { icon: Zap, label: "Woke up feeling like they actually rested", percentage: 72 },
     ]
   },
   default: {
-    title: "What people noticed after 60 days*",
+    title: "What people felt after showing up for themselves for 60 days*",
     stats: [
-      { icon: Heart, label: "Felt a noticeable difference in their wellbeing", percentage: 80 },
-      { icon: Target, label: "Made it part of their daily routine", percentage: 76 },
-      { icon: Zap, label: "Had more consistent energy", percentage: 72 },
+      { icon: Heart, label: "Felt a real difference in how they show up each day", percentage: 80 },
+      { icon: Target, label: "Made it a part of their self-care ritual", percentage: 76 },
+      { icon: Zap, label: "Felt more consistent, grounded energy", percentage: 72 },
     ]
   }
 };
