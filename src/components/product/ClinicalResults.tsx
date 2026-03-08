@@ -57,7 +57,7 @@ export const ClinicalResults = ({ productType = "default" }: ClinicalResultsProp
               {data.title}
             </h2>
             <p className="text-muted-foreground">
-              Based on a survey of real customers who used the product daily for 60 days.
+              Real people. Real consistency. Real results from showing up for themselves every day.
             </p>
           </motion.div>
 
