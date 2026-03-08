@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Shield, RotateCcw, Mail, CheckCircle2 } from 'lucide-react';
+import { Shield, RotateCcw, Mail } from 'lucide-react';
 
 export const GuaranteeSection = () => {
   return (
@@ -17,12 +17,12 @@ export const GuaranteeSection = () => {
             </div>
             
             <h2 className="font-body text-2xl md:text-3xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-              14-Day Money-Back Guarantee
+              Try it for 14 days. Love it or get your money back.
             </h2>
             
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              We'd be shocked if you didn't love Neuvie Strips. But in the unlikely event you're not 
-              100% satisfied, we'll refund your first order — no questions asked.
+              We\u2019d be surprised if you didn\u2019t feel the difference. But if it\u2019s not for you, 
+              email us within 14 days and we\u2019ll refund your first order \u2014 no questions, no hassle.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
@@ -30,27 +30,27 @@ export const GuaranteeSection = () => {
                 <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center mx-auto mb-2">
                   <Shield className="w-5 h-5 text-primary" />
                 </div>
-                <p className="text-sm font-medium text-foreground">Risk-Free Trial</p>
+                <p className="text-sm font-medium text-foreground">Zero risk</p>
                 <p className="text-xs text-muted-foreground">14 days to decide</p>
               </div>
               <div className="text-center">
                 <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center mx-auto mb-2">
                   <RotateCcw className="w-5 h-5 text-primary" />
                 </div>
-                <p className="text-sm font-medium text-foreground">Free Returns</p>
+                <p className="text-sm font-medium text-foreground">Free returns</p>
                 <p className="text-xs text-muted-foreground">US customers</p>
               </div>
               <div className="text-center">
                 <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center mx-auto mb-2">
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
-                <p className="text-sm font-medium text-foreground">24hr Support</p>
+                <p className="text-sm font-medium text-foreground">Real support</p>
                 <p className="text-xs text-muted-foreground">hello@neuvie.com</p>
               </div>
             </div>
 
             <p className="text-xs text-muted-foreground">
-              Valid for 14 days on your first order. Contact us at{' '}
+              Valid for 14 days on your first order. Reach us anytime at{' '}
               <a href="mailto:hello@neuvie.com" className="text-primary hover:underline">
                 hello@neuvie.com
               </a>

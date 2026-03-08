@@ -8,14 +8,14 @@ interface ComparisonTableProps {
 
 export const ComparisonTable = ({ onCtaClick }: ComparisonTableProps) => {
   const comparisons = [
-    { feature: "Tastes great", neuvie: true, others: false },
-    { feature: "Fast-dissolving (seconds)", neuvie: true, others: false },
+    { feature: "Actually tastes good", neuvie: true, others: false },
+    { feature: "Dissolves in seconds", neuvie: true, others: false },
     { feature: "No water needed", neuvie: true, others: false },
-    { feature: "Made in USA", neuvie: true, others: "varies" },
-    { feature: "Pocket-sized & portable", neuvie: true, others: false },
+    { feature: "Made in the USA", neuvie: true, others: "varies" as string | boolean },
+    { feature: "Fits in your pocket", neuvie: true, others: false },
     { feature: "No bitter aftertaste", neuvie: true, others: false },
-    { feature: "High bioavailability", neuvie: true, others: "varies" },
-    { feature: "Vegan & gluten-free", neuvie: true, others: "varies" },
+    { feature: "Fast absorption", neuvie: true, others: "varies" as string | boolean },
+    { feature: "Vegan & gluten-free", neuvie: true, others: "varies" as string | boolean },
   ];
 
   return (
@@ -29,11 +29,10 @@ export const ComparisonTable = ({ onCtaClick }: ComparisonTableProps) => {
             viewport={{ once: true }}
           >
             <h2 className="font-body text-2xl md:text-3xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-              Look Forward to Your Supplements
+              The supplement you\u2019ll actually look forward to.
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Most capsules and powders are easy to skip, hard to swallow, and leave a bad taste. 
-              Neuvie Strips are made to delight.
+              Pills are easy to skip. Powders are messy. Neuvie strips dissolve in seconds and taste like something you\u2019d choose \u2014 not something you have to force.
             </p>
           </motion.div>
 
@@ -45,7 +44,7 @@ export const ComparisonTable = ({ onCtaClick }: ComparisonTableProps) => {
           >
             {/* Header */}
             <div className="grid grid-cols-3 bg-muted/50">
-              <div className="p-4 font-medium text-muted-foreground">Feature</div>
+              <div className="p-4 font-medium text-muted-foreground"></div>
               <div className="p-4 text-center font-semibold text-primary border-x border-border/50">
                 Neuvie Strips
               </div>
@@ -82,7 +81,7 @@ export const ComparisonTable = ({ onCtaClick }: ComparisonTableProps) => {
               <Button onClick={onCtaClick} className="btn-primary" size="lg">
                 Try it risk-free
               </Button>
-              <p className="text-xs text-muted-foreground mt-2">14-Day Money-Back Guarantee — no questions asked</p>
+              <p className="text-xs text-muted-foreground mt-2">14-day money-back guarantee \u2014 no questions asked</p>
             </div>
           )}
         </div>

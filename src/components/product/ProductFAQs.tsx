@@ -18,36 +18,36 @@ interface ProductFAQsProps {
 
 const defaultFaqs: FAQ[] = [
   {
-    question: "When is the best time to take these strips?",
-    answer: "We recommend taking your strip in the morning to start your day right. But you can enjoy them whenever works best for your routine — morning, afternoon, or as directed on the product. Simply place on your tongue and let dissolve."
+    question: "When should I take my strip?",
+    answer: "Most people take theirs in the morning to start the day right. But there\u2019s no wrong time \u2014 whenever fits your routine. Just place it on your tongue and let it dissolve."
   },
   {
     question: "Will I actually feel a difference?",
-    answer: "Many customers report feeling noticeable benefits within the first few weeks of daily use.* These strips are designed for long-term wellness — consistency is key! For best results, take daily for at least 30 days."
+    answer: "Most customers notice something within the first few weeks of daily use.* These strips are designed for consistency \u2014 the longer you stick with it, the more you\u2019ll feel. Give it at least 30 days."
   },
   {
-    question: "Why are strips better than pills or powders?",
-    answer: "Strips dissolve in seconds, taste great, and require no water. They're portable, mess-free, and designed for optimal absorption. Unlike pills that can be hard to swallow or powders that taste bitter, Neuvie Strips make supplementation something you'll actually look forward to."
+    question: "Why strips instead of pills or powders?",
+    answer: "Strips dissolve in seconds, taste good, and don\u2019t need water. They\u2019re small enough to keep anywhere \u2014 your desk, your bag, your nightstand. It\u2019s the format that actually gets used."
   },
   {
-    question: "Are these safe to take every day?",
-    answer: "Yes — Neuvie Strips are crafted for daily use as part of a healthy lifestyle. Made in the USA with premium ingredients. If you have any medical conditions or are on medication, we recommend checking with your healthcare provider first.*"
+    question: "Is it safe to take every day?",
+    answer: "Yes \u2014 every Neuvie strip is designed for daily use. Made in the USA in a GMP-certified facility. If you have a medical condition or take medication, check with your doctor first.*"
   },
   {
     question: "What do they taste like?",
-    answer: "Each product has a delicious, natural flavor — no bitterness, no weird aftertaste. We use natural flavoring and sweeteners to make your daily supplement routine enjoyable."
+    answer: "Good. Really good. Each product has its own natural flavor \u2014 no bitterness, no chalky aftertaste. We use natural sweeteners to make this something you look forward to, not dread."
   },
   {
-    question: "Are these lab tested?",
-    answer: "Yes! Every batch is third-party tested for purity, potency, and safety. We believe in complete transparency. All our products are manufactured in cGMP-certified facilities in the USA."
+    question: "Are they independently tested?",
+    answer: "Every single batch is third-party tested for purity, potency, and safety. We don\u2019t skip steps. All products are manufactured in FDA-registered, cGMP-certified facilities in the USA."
   },
   {
-    question: "What is your return policy?",
-    answer: "We stand behind our products with a 14-day money-back guarantee. If you're not completely satisfied, simply contact us at hello@neuvie.com and we'll make it right — no hassle."
+    question: "What if it\u2019s not for me?",
+    answer: "No hard feelings. We offer a 14-day money-back guarantee on your first order. Just email hello@neuvie.com and we\u2019ll take care of it \u2014 no hoops, no hassle."
   },
   {
-    question: "Are these vegan and allergen-free?",
-    answer: "Most of our products are vegan, gluten-free, and non-GMO. Check the specific product details for allergen information. We never use artificial colors, gelatin, or unnecessary fillers."
+    question: "Are these vegan and allergen-friendly?",
+    answer: "Most of our strips are vegan, gluten-free, and non-GMO. Check the specific product page for full allergen details. We never use artificial colors, gelatin, or unnecessary fillers."
   }
 ];
 
@@ -55,21 +55,21 @@ const productSpecificFaqs: Record<string, FAQ[]> = {
   mushroom: [
     {
       question: "Are these made with real mushrooms?",
-      answer: "Yes! We use real functional mushroom extracts including Lion's Mane, Cordyceps, Maitake, and Shiitake. Each mushroom is carefully sourced and extracted for maximum potency and bioavailability."
+      answer: "Yes \u2014 real functional mushroom extracts including Lion\u2019s Mane, Cordyceps, Maitake, and Shiitake. Each one is carefully sourced and extracted for potency."
     },
     ...defaultFaqs.slice(0, 5)
   ],
   sleep: [
     {
-      question: "Will this make me groggy in the morning?",
-      answer: "No! Our sleep formula is designed to support restful sleep without next-day grogginess. Take 30 minutes before bed for best results."
+      question: "Will I feel groggy the next morning?",
+      answer: "No. The formula supports restful sleep without next-day heaviness. Take it about 30 minutes before bed for the best results."
     },
     ...defaultFaqs.slice(0, 5)
   ],
   energy: [
     {
       question: "Will this give me jitters like coffee?",
-      answer: "No! Our energy formula uses B-vitamins and natural ingredients that support sustained energy without the jitters or crash associated with caffeine."
+      answer: "Not at all. The energy comes from B-vitamins and natural ingredients that support steady, sustained energy \u2014 no spikes, no crashes."
     },
     ...defaultFaqs.slice(0, 5)
   ]
@@ -89,10 +89,10 @@ export const ProductFAQs = ({ productHandle, customFaqs }: ProductFAQsProps) => 
             viewport={{ once: true }}
           >
             <h2 className="font-body text-2xl md:text-3xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-              Frequently Asked Questions
+              Questions? We\u2019ve got you.
             </h2>
             <p className="text-muted-foreground">
-              Have questions? We've got answers. Still need help? Email us at{' '}
+              Still curious? Email us anytime at{' '}
               <a href="mailto:hello@neuvie.com" className="text-primary hover:underline">
                 hello@neuvie.com
               </a>
