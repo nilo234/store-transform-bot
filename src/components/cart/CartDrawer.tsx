@@ -191,10 +191,10 @@ export function CartDrawer() {
               {/* Fixed checkout section */}
               <div className="flex-shrink-0 px-4 md:px-6 py-4 md:py-6 pb-[calc(1rem+env(safe-area-inset-bottom))] md:pb-6 border-t bg-background space-y-3 md:space-y-4 relative z-50">
                 {/* Savings Highlight */}
-                {totalSavings > 0 && (
+                {bundleSavings > 0 && (
                   <div className="bg-primary/10 rounded-lg p-2.5 md:p-3 text-center">
                     <span className="text-xs md:text-sm font-semibold text-primary">
-                      🎉 You're saving ${totalSavings.toFixed(2)}!
+                      🎉 Bundle discount saves you ${bundleSavings.toFixed(2)}!
                     </span>
                   </div>
                 )}
@@ -202,15 +202,14 @@ export function CartDrawer() {
                 <div className="flex justify-between items-center">
                   <div>
                     <span className="text-base md:text-lg font-medium">Subtotal</span>
-                    <p className="text-[10px] md:text-xs text-muted-foreground">Discount applied at checkout</p>
+                    {bundleSavings > 0 && (
+                      <p className="text-[10px] md:text-xs text-muted-foreground">Bundle discount applied at checkout</p>
+                    )}
                   </div>
                   <div className="text-right">
                     <span className="text-xl md:text-2xl font-bold text-primary">
                       ${cartTotal.toFixed(2)}
                     </span>
-                    <p className="text-xs md:text-sm text-muted-foreground line-through">
-                      ${originalTotal.toFixed(2)}
-                    </p>
                   </div>
                 </div>
 
