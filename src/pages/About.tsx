@@ -285,7 +285,7 @@ export default function About() {
             >
               <Button className="btn-primary h-14 px-10 text-lg font-semibold gap-2" asChild>
                 <Link to="/shop">
-                  Shop Our Strips
+                  Start Your Ritual
                   <ArrowRight className="h-5 w-5" />
                 </Link>
               </Button>

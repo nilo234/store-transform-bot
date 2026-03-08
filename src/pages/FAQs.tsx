@@ -88,7 +88,7 @@ export default function FAQs() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              Everything you need to know about Neuvie strips. If you don't find your answer here, reach out — we're happy to help.
+              We want you to feel completely confident in what you're putting in your body. If you don't find your answer here, reach out — we're genuinely happy to help.
             </motion.p>
           </div>
         </section>

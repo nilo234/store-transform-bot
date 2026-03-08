@@ -370,10 +370,10 @@ export default function Science() {
               viewport={{ once: true }}
             >
               <h2 className="font-body text-3xl md:text-4xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-                THE RESEARCH
+                THE RESEARCH — SO YOU CAN DECIDE FOR YOURSELF
               </h2>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-                We don't ask you to trust us. We ask you to trust the science. Here are the peer-reviewed studies behind our key ingredients.
+                We don't ask you to trust us blindly. Here are the peer-reviewed studies behind our key ingredients. Your health, your choice, your confidence.
               </p>
             </motion.div>
 
