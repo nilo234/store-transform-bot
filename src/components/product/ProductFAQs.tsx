@@ -89,7 +89,7 @@ export const ProductFAQs = ({ productHandle, customFaqs }: ProductFAQsProps) => 
             viewport={{ once: true }}
           >
             <h2 className="font-body text-2xl md:text-3xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-              Questions? We\u2019ve got you.
+              Questions? We've got you.
             </h2>
             <p className="text-muted-foreground">
               Still curious? Email us anytime at{' '}

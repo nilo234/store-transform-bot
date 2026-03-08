@@ -449,7 +449,7 @@ export default function Science() {
               transition={{ delay: 0.2 }}
             >
               <Button className="bg-accent hover:bg-accent/90 text-accent-foreground h-14 px-10 text-lg font-semibold rounded-lg" asChild>
-                <Link to="/shop">Find Your Strip \u2192</Link>
+                <Link to="/shop">Find Your Strip →</Link>
               </Button>
             </motion.div>
           </div>

@@ -141,7 +141,7 @@ export default function Shipping() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {[
                   { text: 'Free US shipping on orders $50+', icon: Truck },
-                  { text: 'Ships within 1\u20132 business days', icon: Clock },
+                  { text: 'Ships within 1–2 business days', icon: Clock },
                   { text: 'Tracking included with every order', icon: ShieldCheck },
                   { text: '14-day money-back guarantee', icon: Package },
                 ].map((item) => (
