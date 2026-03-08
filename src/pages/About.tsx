@@ -69,7 +69,7 @@ export default function About() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
               >
-                We started Neuvie because we believed wellness could be simpler. Not easier to sell — easier to stick with. That meant rethinking the format, the ingredients, and the way a supplement fits into a real person's day.
+                We started Neuvie because we believed something simple: you're worth taking care of. Not in a complicated, time-consuming way. In a way that fits your actual life — and makes you feel good about the choice you're making for yourself.
               </motion.p>
             </div>
           </div>
