@@ -32,8 +32,8 @@ export default function Contact() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="Contact NEUVIE™ Support – We're Here to Help"
-        description="Questions about NEUVIE™ strips or your order? Email or live chat. We respond within 24 hours."
+        title="We're Here for You – Contact NEUVIE™"
+        description="Questions about your strips, your order, or anything else? We're real people who genuinely care. Reach out anytime."
       />
       <Navbar />
       
