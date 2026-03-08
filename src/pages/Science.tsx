@@ -286,7 +286,7 @@ export default function Science() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              QUALITY STANDARDS
+              THE STANDARDS YOUR BODY DESERVES
             </motion.h2>
             
             <motion.div 
