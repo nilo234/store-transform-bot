@@ -66,8 +66,17 @@ export function CartDrawer() {
   };
 
   const cartTotal = totalPrice();
-  const originalTotal = items.reduce((sum, item) => sum + (49.99 * item.quantity), 0);
-  const totalSavings = Math.max(0, originalTotal - cartTotal);
+
+  // Calculate bundle savings from actual bundle data
+  const bundleSavings = bundles.reduce((sum, [, bundle]) => {
+    const itemsTotal = bundle.items.reduce((s, item) => s + parseFloat(item.price.amount) * item.quantity, 0);
+    // Find matching bundle definition for savings info
+    const bundleDef = bundleDefinitions.find(b => b.name === bundle.name);
+    if (bundleDef) {
+      return sum + bundleDef.savings;
+    }
+    return sum;
+  }, 0);
 
   return (
     <Sheet open={isOpen} onOpenChange={setOpen}>
