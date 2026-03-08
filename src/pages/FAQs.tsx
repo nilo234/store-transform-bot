@@ -15,7 +15,7 @@ const faqs = [
   },
   { 
     q: 'Are your products third-party tested?', 
-    a: 'Yes. Every batch of Neuvie strips is independently tested by third-party labs for purity, potency, and safety. We believe in full transparency \u2014 what the label says is what you get.' 
+    a: 'Yes. Every batch of Neuvie strips is independently tested by third-party labs for purity, potency, and safety. We believe in full transparency — what the label says is what you get.' 
   },
   { 
     q: 'What if I\u2019m not happy with my order?', 
