@@ -14,18 +14,18 @@ const certifications = [
 const features = [
   {
     icon: Leaf,
-    title: 'Sourced with intention.',
-    description: "We don't cut corners on what goes in. Every ingredient is traceable, independently tested, and chosen because it works — not because it's cheap.",
+    title: 'Your body deserves the truth.',
+    description: "Every ingredient is traceable, independently tested, and chosen because it works. Not because it's trendy — because your body is worth more than shortcuts.",
   },
   {
     icon: FlaskConical,
-    title: 'Dosed to actually do something.',
-    description: "Formulated at levels that matter — not just enough to put the ingredient on the label. If it's in there, it's there for a reason.",
+    title: 'Real dosages. Real results.',
+    description: "We formulate at levels that are studied to make a difference. If it's in your strip, it's there because you deserve more than a label claim.",
   },
   {
     icon: Shield,
     title: 'Tested before it ever reaches you.',
-    description: 'Every single batch goes through independent third-party testing for purity, potency, and safety. Made in the USA. No exceptions, no shortcuts.',
+    description: "Every batch goes through independent third-party testing. Because the things you put in your body should never be a question mark. Made in the USA. Always.",
   },
 ];
 
