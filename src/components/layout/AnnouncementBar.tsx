@@ -9,8 +9,8 @@ interface AnnouncementBarProps {
 }
 
 export function AnnouncementBar({
-  message = "Free US shipping on $50+ orders",
-  linkText = "Start your routine",
+  message = "Your body deserves the best — free US shipping on $50+",
+  linkText = "Start your ritual",
   linkHref = "/shop",
 }: AnnouncementBarProps) {
   const [isVisible, setIsVisible] = useState(true);
