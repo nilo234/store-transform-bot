@@ -97,10 +97,10 @@ export function CartDrawer() {
             <div className="flex-1 flex items-center justify-center">
               <div className="text-center px-4 md:px-6">
                 <ShoppingCart className="h-12 w-12 md:h-16 md:w-16 text-muted-foreground mx-auto mb-3 md:mb-4" />
-                <p className="text-base md:text-lg font-medium text-foreground mb-2">Your cart is empty</p>
-                <p className="text-sm text-muted-foreground mb-5 md:mb-6">Add some products to get started!</p>
+                <p className="text-base md:text-lg font-medium text-foreground mb-2">Your cart is waiting for you</p>
+                <p className="text-sm text-muted-foreground mb-5 md:mb-6">You deserve something good today. Let's find it.</p>
                 <Button onClick={() => setOpen(false)} className="btn-primary h-11 md:h-12">
-                  Continue Shopping
+                  Explore Strips
                 </Button>
               </div>
             </div>

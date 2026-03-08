@@ -110,8 +110,8 @@ export default function Shop() {
   return (
     <div className="min-h-screen flex flex-col">
       <PageMeta
-        title="Buy Wellness Strips Online – All 13 Strips | NEUVIE™"
-        description="Shop 13 fast-dissolving wellness strips: energy, focus, sleep, beauty & immunity. Science-backed ingredients. Free US shipping on $50+. Order now!"
+        title="Shop Wellness Strips – Find What Your Body Needs | NEUVIE™"
+        description="13 dissolving wellness strips for energy, focus, sleep, beauty & immunity. Choose what feels right for your body. Free US shipping on $50+."
       />
       <Navbar />
 
@@ -124,18 +124,18 @@ export default function Shop() {
               style={{ letterSpacing: '-0.02em' }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-            >
-              Wellness Strips Collection
-            </motion.h1>
-            <motion.p
-              className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              13 fast-dissolving oral strips, each formulated with specific vitamins, minerals, and botanical extracts. 
-              No pills, no water — just place on your tongue and go.
-            </motion.p>
+             >
+               Your Body Deserves This
+             </motion.h1>
+             <motion.p
+               className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+               initial={{ opacity: 0, y: 20 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={{ duration: 0.5, delay: 0.1 }}
+             >
+               13 dissolving strips, each made with intention. No pills, no water — just a moment of care that fits into your real life. 
+               Because taking care of yourself shouldn't feel like one more thing on the list.
+             </motion.p>
             <motion.div
               className="flex flex-wrap justify-center gap-4 md:gap-6 mt-5 md:mt-8 text-xs md:text-sm text-muted-foreground"
               initial={{ opacity: 0 }}
@@ -289,10 +289,10 @@ export default function Shop() {
               /* Empty State — calm, helpful */
               <div className="text-center py-16 md:py-24 max-w-md mx-auto">
                 <span className="text-4xl mb-4 block">🔍</span>
-                <h3 className="font-body text-lg md:text-xl font-semibold mb-2" style={{ letterSpacing: '-0.02em' }}>No matching strips found</h3>
+                <h3 className="font-body text-lg md:text-xl font-semibold mb-2" style={{ letterSpacing: '-0.02em' }}>We don't have that exact match yet</h3>
                 <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                  We don't have a strip matching those exact filters yet. Try adjusting your selection, 
-                  or browse the full collection to find what works for you.
+                  But there might be something else that's perfect for you. 
+                  Take a look at the full collection — your body will tell you what it needs.
                 </p>
                 <Button
                   variant="outline"

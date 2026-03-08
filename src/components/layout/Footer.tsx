@@ -49,10 +49,10 @@ export function Footer() {
         <div className="container-wide py-10 md:py-16 px-4 md:px-6">
           <div className="max-w-xl mx-auto text-center">
             <h3 className="font-body text-xl md:text-2xl lg:text-3xl font-semibold mb-3 md:mb-4" style={{ letterSpacing: '-0.02em' }}>
-              Start here. Feel it for yourself.
+              You're worth this. Let's get started.
             </h3>
             <p className="text-primary-foreground/70 mb-6 md:mb-8 text-sm md:text-base">
-              Get 15% off your first order — plus honest wellness insights, new launches, and the occasional thing worth knowing. No spam, ever.
+              Get 15% off your first order — plus honest wellness insights and new launches. No spam, ever. Just us, showing up for you.
             </p>
             <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <Input 
@@ -64,7 +64,7 @@ export function Footer() {
                 type="submit"
                 className="h-11 md:h-12 bg-accent hover:bg-accent/90 text-accent-foreground px-6 font-semibold rounded-lg w-full sm:w-auto"
               >
-                Claim 15% Off
+                Yes, I'm Worth It
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </form>
@@ -85,7 +85,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-primary-foreground/70 mb-6 md:mb-8 max-w-sm text-xs md:text-sm leading-relaxed">
-              Wellness strips that dissolve in seconds. Designed for people who take care of themselves — without making it a part-time job.
+              30-second wellness strips for people who believe they're worth taking care of. Designed to fit your life — not the other way around.
             </p>
             
             {/* Social Links */}

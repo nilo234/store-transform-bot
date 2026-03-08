@@ -8,8 +8,8 @@ export default function Returns() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="14-Day Money-Back Guarantee – Returns | NEUVIE™"
-        description="14-day money-back guarantee on all NEUVIE™ orders. Easy returns, free return shipping. Get a full refund – no questions asked."
+        title="Feel Sure About Your Choice – Returns | NEUVIE™"
+        description="14-day guarantee on all NEUVIE™ orders. If it's not right for you, we'll make it right. No questions, no hassle."
       />
       <Navbar />
       
@@ -30,7 +30,7 @@ export default function Returns() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              We stand behind our products with a 14-day money-back guarantee.
+              We want you to feel completely confident in your choice. That's why every order is backed by our guarantee.
             </motion.p>
           </div>
         </section>
@@ -47,10 +47,10 @@ export default function Returns() {
                 <Shield className="h-10 w-10" />
               </div>
               <h2 className="font-body text-3xl md:text-4xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-                14-Day Money-Back Guarantee
+                You Should Feel Sure
               </h2>
               <p className="text-primary-foreground/80 max-w-2xl text-lg">
-                Not satisfied with your purchase? No problem. We offer a full refund within 14 days of purchase—no questions asked.
+                We believe taking care of yourself should feel good from the very first moment — including the moment you decide to try. If it's not right for you, we'll make it right. Full refund within 14 days. No questions.
               </p>
             </motion.div>
           </div>

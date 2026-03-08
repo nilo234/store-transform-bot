@@ -89,10 +89,10 @@ export const ProductFAQs = ({ productHandle, customFaqs }: ProductFAQsProps) => 
             viewport={{ once: true }}
           >
             <h2 className="font-body text-2xl md:text-3xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-              Questions? We've got you.
+              You have questions. That's a good thing.
             </h2>
             <p className="text-muted-foreground">
-              Still curious? Email us anytime at{' '}
+              Caring about what you put in your body is exactly the kind of person we made this for. Still curious? Email us at{' '}
               <a href="mailto:hello@neuvie.com" className="text-primary hover:underline">
                 hello@neuvie.com
               </a>

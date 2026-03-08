@@ -30,10 +30,10 @@ const values = [
 ];
 
 const stats = [
-  { number: '50,000+', label: 'Routines Started' },
-  { number: '99%', label: 'Satisfaction Rate' },
-  { number: '13', label: 'Unique Strips' },
-  { number: '14 Days', label: 'Money-Back Guarantee' },
+  { number: '50,000+', label: 'People Who Chose Themselves' },
+  { number: '99%', label: 'Felt Good About Their Choice' },
+  { number: '13', label: 'Ways to Show Up for You' },
+  { number: '14 Days', label: 'To Feel Sure — Guaranteed' },
 ];
 
 const team = [
@@ -46,8 +46,8 @@ export default function About() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="About NEUVIE™ – Our Mission & Story"
-        description="NEUVIE™ is transforming wellness with fast-dissolving oral strips. Premium ingredients, third-party tested. Learn more about our story."
+        title="About NEUVIE™ – Built for People Who Believe They're Worth It"
+        description="NEUVIE™ exists because taking care of yourself should be effortless, not optional. Learn our story, our values, and why we do what we do."
       />
       <Navbar />
       
@@ -69,7 +69,7 @@ export default function About() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
               >
-                We started Neuvie because we believed wellness could be simpler. Not easier to sell — easier to stick with. That meant rethinking the format, the ingredients, and the way a supplement fits into a real person's day.
+                We started Neuvie because we believed something simple: you're worth taking care of. Not in a complicated, time-consuming way. In a way that fits your actual life — and makes you feel good about the choice you're making for yourself.
               </motion.p>
             </div>
           </div>
@@ -86,7 +86,7 @@ export default function About() {
             >
               <Quote className="h-12 w-12 text-primary/30 mx-auto mb-6" />
               <blockquote className="font-body text-2xl md:text-3xl font-medium text-foreground leading-relaxed mb-6" style={{ letterSpacing: '-0.01em' }}>
-                "We built Neuvie because we were tired of supplements that were hard to take and easy to forget."
+                "We built Neuvie for the person who always puts everyone else first — and forgets that they deserve the same care."
               </blockquote>
               <p className="text-muted-foreground font-medium">&mdash; The Neuvie Team</p>
             </motion.div>
@@ -107,13 +107,13 @@ export default function About() {
                 </h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    It started with a simple observation: most supplements don't fail because of what's inside them. They fail because people stop taking them.
+                    It started with a question: why do most people stop taking their supplements?
                   </p>
                   <p>
-                    Pills are hard to swallow. Powders are messy. And most products are filled with things that don't need to be there. We wanted to create something different — a supplement that fits into your life so naturally, you actually keep using it.
+                    Not because they stopped caring about their health. Because the routine was too much. Too many pills, too much effort, too easy to forget. We wanted to create something that doesn't feel like a chore — something that feels like a small act of kindness toward yourself.
                   </p>
                   <p>
-                    Today, Neuvie offers 13 fast-dissolving strips — from Energy and Focus to Sleep and Beauty — each formulated with ingredients chosen for what they do, not how they sound. No water needed. No routine to remember. Just place, dissolve, and move on with your day.
+                    Today, Neuvie offers 13 fast-dissolving strips — from Energy and Focus to Sleep and Beauty. Each one is a 30-second ritual that says: I matter. My body matters. And I'm going to show up for myself today.
                   </p>
                 </div>
               </motion.div>
@@ -196,7 +196,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              WHAT WE STAND FOR
+              WHAT WE BELIEVE IN
             </motion.h2>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -230,7 +230,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                OUR PROMISE
+                OUR PROMISE TO YOU
               </motion.h2>
               
               <motion.div 
@@ -240,12 +240,12 @@ export default function About() {
                 viewport={{ once: true }}
               >
                 {[
-                  'Every batch independently tested for purity and potency',
-                  'Clinically studied ingredients at meaningful dosages',
-                  'Fast-dissolving strip format — no water, no pills',
-                  'No artificial colors, no preservatives, no fillers',
-                  'Non-GMO and ethically sourced ingredients',
-                  '14-day money-back guarantee — no questions asked',
+                  'Every batch independently tested — because your trust is everything',
+                  'Clinically studied ingredients at real dosages — nothing for show',
+                  'Dissolves in 30 seconds — self-care that fits your real life',
+                  'No artificial colors, no fillers — only what your body actually needs',
+                  'Non-GMO and ethically sourced — because you deserve the best',
+                  '14-day guarantee — because you should feel completely sure',
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3 bg-card p-4 rounded-xl shadow-soft">
                     <Check className="h-5 w-5 text-primary flex-shrink-0" />
@@ -266,7 +266,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Ready to feel the difference?
+              You already know you're worth it.
             </motion.h2>
             <motion.p
               className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto"
@@ -275,7 +275,7 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              Start with one strip. See how it fits your day.
+              This is just 30 seconds to prove it to yourself. Every day.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -285,7 +285,7 @@ export default function About() {
             >
               <Button className="btn-primary h-14 px-10 text-lg font-semibold gap-2" asChild>
                 <Link to="/shop">
-                  Shop Our Strips
+                  Start Your Ritual
                   <ArrowRight className="h-5 w-5" />
                 </Link>
               </Button>

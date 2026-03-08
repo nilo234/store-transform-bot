@@ -32,8 +32,8 @@ export default function Contact() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="Contact NEUVIE™ Support – We're Here to Help"
-        description="Questions about NEUVIE™ strips or your order? Email or live chat. We respond within 24 hours."
+        title="We're Here for You – Contact NEUVIE™"
+        description="Questions about your strips, your order, or anything else? We're real people who genuinely care. Reach out anytime."
       />
       <Navbar />
       
@@ -46,7 +46,7 @@ export default function Contact() {
               style={{ letterSpacing: '-0.02em' }}
               animate={{ opacity: 1, y: 0 }}
             >
-              GET IN TOUCH
+              WE'RE HERE FOR YOU
             </motion.h1>
             <motion.p 
               className="text-lg text-muted-foreground max-w-2xl mx-auto"
@@ -54,7 +54,7 @@ export default function Contact() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              Have a question about your order, our ingredients, or anything else? We're here and happy to help.
+              Whether it's about your order, our ingredients, or you just want to talk — we're real people who genuinely care about your experience. No scripts, no bots.
             </motion.p>
           </div>
         </section>

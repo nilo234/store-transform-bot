@@ -9,8 +9,8 @@ interface AnnouncementBarProps {
 }
 
 export function AnnouncementBar({
-  message = "Free US shipping on $50+ orders",
-  linkText = "Start your routine",
+  message = "Your body deserves the best — free US shipping on $50+",
+  linkText = "Start your ritual",
   linkHref = "/shop",
 }: AnnouncementBarProps) {
   const [isVisible, setIsVisible] = useState(true);
@@ -32,7 +32,7 @@ export function AnnouncementBar({
             
             <span className="text-accent-foreground/70">—</span>
             
-            <span className="font-bold">Subscribe and save 20% on every refill</span>
+            <span className="font-bold">Subscribe & save 20% — because consistency matters</span>
             
             <a 
               href={linkHref}

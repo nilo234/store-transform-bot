@@ -11,8 +11,8 @@ import { PageMeta } from '@/components/seo';
 
 // SEO meta tags
 const SEO = {
-  title: 'Wellness Strip Bundles – Save 20% Today | NEUVIE™',
-  description: 'Save up to 20% with curated NEUVIE™ strip bundles. Energy, beauty, sleep & gut health packs. Free US shipping $50+. Shop bundles now!',
+  title: 'Wellness Strip Bundles – Your Ritual, Your Way | NEUVIE™',
+  description: 'Build a self-care routine that fits your life. Curated NEUVIE™ strip bundles for energy, beauty, sleep & wellness. Free US shipping $50+.',
 };
 
 // Category filter options
@@ -63,18 +63,18 @@ export default function Bundles() {
               <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-6">
                 <Sparkles className="h-4 w-4" />
                 <span className="text-sm font-bold uppercase tracking-wide">
-                  Limited Time Bundles
+                  Curated Bundles
                 </span>
               </div>
 
               <h1 className="font-body text-4xl md:text-5xl lg:text-6xl font-semibold mb-6" style={{ letterSpacing: '-0.02em' }}>
-                🎯 BUNDLES - SAVE UP TO{' '}
-                <span className="text-accent">20%</span>
+                Build a routine that feels like{' '}
+                <span className="text-accent">you</span>
               </h1>
 
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Stack your wellness routine with our curated bundles. More strips, more savings. 
-                Build healthy habits while keeping more money in your pocket.
+                Your body doesn't need one thing — it needs a rhythm. These bundles are designed to support how you actually live, 
+                not how a label tells you to. And yes, they save you money too.
               </p>
 
               {/* Trust Badges */}
@@ -152,11 +152,11 @@ export default function Bundles() {
               viewport={{ once: true }}
             >
               <h2 className="font-body text-2xl md:text-3xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-                Not sure which bundle to choose?
+                Not sure where to start?
               </h2>
               <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-                Take our quick wellness quiz to find the perfect bundle for your goals, 
-                or contact our team for personalized recommendations.
+                That's okay. Everyone's body is different. Browse our individual strips or reach out — 
+                we're happy to help you find what feels right.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-4">
                 <a 

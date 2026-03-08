@@ -115,7 +115,7 @@ export function ExitIntentPopup() {
               transition={{ delay: 0.3 }}
               className="font-body text-2xl md:text-3xl font-semibold mb-2"
             >
-              Wait — Don't Leave Empty-Handed! 🎁
+              Before you go — a little something for you 💛
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -123,7 +123,7 @@ export function ExitIntentPopup() {
               transition={{ delay: 0.4 }}
               className="text-primary-foreground/80 text-lg"
             >
-              Get 10% off your first order. Use code <strong className="text-accent">SAVE10</strong> at checkout.
+              Take 10% off your first order — because choosing yourself deserves to be celebrated. Use code <strong className="text-accent">SAVE10</strong>.
             </motion.p>
           </div>
 
@@ -140,7 +140,7 @@ export function ExitIntentPopup() {
                   className="space-y-4"
                 >
                   <p className="text-center text-muted-foreground text-sm mb-4">
-                    Enter your email to claim your discount — valid for 24 hours.
+                    Enter your email and we'll send your welcome discount — valid for 24 hours.
                   </p>
 
                   <Input
@@ -165,7 +165,7 @@ export function ExitIntentPopup() {
                       />
                     ) : (
                       <>
-                        Claim My 10% Off
+                        Yes, I'm Worth It
                         <ArrowRight className="ml-2 h-5 w-5" />
                       </>
                     )}
@@ -176,7 +176,7 @@ export function ExitIntentPopup() {
                     onClick={() => setIsOpen(false)}
                     className="w-full text-center text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    No thanks, I'll pay full price.
+                    Maybe next time
                   </button>
                 </motion.form>
               ) : (

@@ -64,8 +64,8 @@ export default function FAQs() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="Wellness Strips FAQ – Your Questions Answered | NEUVIE™"
-        description="How do NEUVIE™ dissolving strips work? Ingredients, shipping, returns & more. Third-party tested, 14-day guarantee. Get answers now."
+        title="Your Questions, Answered – NEUVIE™ FAQ"
+        description="Everything you want to know about NEUVIE™ dissolving strips. Ingredients, shipping, returns & more. Because you deserve to feel sure."
       />
       <FAQJsonLd faqs={faqJsonLdData} />
       
@@ -80,7 +80,7 @@ export default function FAQs() {
               style={{ letterSpacing: '-0.02em' }}
               animate={{ opacity: 1, y: 0 }}
             >
-              FREQUENTLY ASKED QUESTIONS
+              YOUR QUESTIONS, ANSWERED
             </motion.h1>
             <motion.p 
               className="text-lg text-muted-foreground max-w-2xl mx-auto"
@@ -88,7 +88,7 @@ export default function FAQs() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              Everything you need to know about Neuvie strips. If you don't find your answer here, reach out — we're happy to help.
+              We want you to feel completely confident in what you're putting in your body. If you don't find your answer here, reach out — we're genuinely happy to help.
             </motion.p>
           </div>
         </section>

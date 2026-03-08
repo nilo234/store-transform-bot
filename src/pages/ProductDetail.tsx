@@ -33,27 +33,27 @@ import {
 // Testimonials per product category
 const productTestimonials: Record<string, { quote: string; author: string }> = {
   mushroom: {
-    quote: "I keep these on my desk now. The chocolate flavor is actually good, and I stopped reaching for my third coffee. That's saying something.",
+    quote: "I bought these because I wanted to be sharper at work. What surprised me was the feeling — like I was finally doing something intentional for myself. That mattered more than the focus.",
     author: "Michael R."
   },
   energy: {
-    quote: "I was skeptical — another energy supplement, right? But these actually stuck. No crash, no jitters. Just a steady morning that carries me through.",
+    quote: "I used to run on coffee and guilt. Now I take an Energy Strip in the morning and it feels like a tiny promise I keep with myself. The energy is great — but the ritual is what changed me.",
     author: "Sarah K."
   },
   sleep: {
-    quote: "Some nights my brain just won't stop. These help me land. I wake up feeling like I actually slept — not just lay there.",
+    quote: "For years I told myself I'd figure out my sleep 'eventually.' These strips were the first time I actually did something about it. I wake up feeling like I actually took care of myself.",
     author: "David L."
   },
   cognitive: {
-    quote: "After a long day, I used to feel completely fried. Now I take one of these and actually enjoy my evening instead of just surviving it.",
+    quote: "After giving all day to everyone else, I take a Cognitive Relax Strip and it's like saying: this moment is mine. That feeling of calm isn't just physical — it's permission to breathe.",
     author: "Emma T."
   },
   immunity: {
-    quote: "It's the one thing I don't skip. Knowing it's third-party tested and made in the US makes it easy to trust.",
+    quote: "I take these because my body does so much for me — the least I can do is give it something good in return. Knowing every batch is tested makes me feel like I'm making a real choice.",
     author: "James P."
   },
   default: {
-    quote: "I've tried pills, powders, gummies — nothing stuck. These are the first supplement I've taken every single day for three months straight.",
+    quote: "I never stuck with supplements before. But this is different — it's not a chore, it's a choice. 30 seconds to remind myself that I matter. And I do it every single day now.",
     author: "Lisa M."
   }
 };
@@ -202,8 +202,8 @@ export default function ProductDetail() {
     <div className="min-h-screen flex flex-col">
       {/* SEO */}
       <PageMeta
-        title={`${sanitizeTitle(product.title)} – $${price.toFixed(2)} | NEUVIE™`}
-        description={`${sanitizeTitle(product.title)} by NEUVIE™. Dissolves in 30 seconds. No water, no pills. Rated 4.8/5 from 1,247+ reviews. Free US shipping on $50+.`}
+        title={`${sanitizeTitle(product.title)} – Because You're Worth It | NEUVIE™`}
+        description={`${sanitizeTitle(product.title)} by NEUVIE™. 30 seconds of self-care that dissolves on your tongue. No water, no pills. Rated 4.8/5. Free US shipping on $50+.`}
       />
       <ProductJsonLd product={product} />
       <BreadcrumbJsonLd items={breadcrumbItems} />
@@ -354,7 +354,7 @@ export default function ProductDetail() {
                 </div>
                 
                 <p className="text-center text-sm text-muted-foreground">
-                  ✓ Ships free today · ✓ Arrives in 2–5 business days
+                  ✓ Ships free to your door · ✓ Arrives in 2–5 days
                 </p>
               </div>
 
@@ -403,7 +403,7 @@ export default function ProductDetail() {
                   </AccordionTrigger>
                   <AccordionContent className="pb-4 text-sm text-muted-foreground space-y-2">
                     <p><strong>Shipping:</strong> Orders ship within 1–2 business days. Most US orders arrive in 3–5 days.</p>
-                    <p><strong>14-day guarantee:</strong> If it's not for you, email hello@neuvie.com within 14 days. Full refund on your first order — no questions, no hassle.</p>
+                    <p><strong>Our promise:</strong> If it's not right for you, email hello@neuvie.com within 14 days. Full refund — because you should feel completely sure about what you put in your body.</p>
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -454,7 +454,7 @@ export default function ProductDetail() {
             <div className="container-wide">
               <div className="max-w-4xl mx-auto">
                 <h2 className="font-body text-2xl md:text-3xl font-semibold text-center mb-12" style={{ letterSpacing: '-0.02em' }}>
-                  Everything you need to know
+                  Everything you want to know — because you deserve to feel sure.
                 </h2>
 
                 <Accordion type="single" collapsible className="space-y-4">

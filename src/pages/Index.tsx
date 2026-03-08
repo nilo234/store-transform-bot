@@ -25,34 +25,34 @@ const trustBar = [
 ];
 
 const categories = [
-  { title: 'Performance & Energy', emoji: '⚡', description: 'For the days when you need to show up fully.', href: '/shop?category=performance', color: 'from-primary/10 to-primary/5' },
-  { title: 'Beauty & Skin', emoji: '✨', description: 'Because feeling good should show.', href: '/shop?category=beauty', color: 'from-accent/10 to-accent/5' },
-  { title: 'Sleep & Relax', emoji: '🌙', description: 'The night that makes tomorrow easier.', href: '/shop?category=sleep', color: 'from-muted to-muted/50' },
-  { title: 'Immunity & Health', emoji: '🛡️', description: 'The quiet foundation everything else is built on.', href: '/shop?category=immunity', color: 'from-primary/5 to-muted/30' },
+  { title: 'Performance & Energy', emoji: '⚡', description: 'For the mornings you choose to show up — fully.', href: '/shop?category=performance', color: 'from-primary/10 to-primary/5' },
+  { title: 'Beauty & Skin', emoji: '✨', description: 'Because how you feel inside deserves to show.', href: '/shop?category=beauty', color: 'from-accent/10 to-accent/5' },
+  { title: 'Sleep & Relax', emoji: '🌙', description: 'You carried the whole day. Let tonight carry you.', href: '/shop?category=sleep', color: 'from-muted to-muted/50' },
+  { title: 'Immunity & Health', emoji: '🛡️', description: 'The quiet act of protecting what matters most — you.', href: '/shop?category=immunity', color: 'from-primary/5 to-muted/30' },
 ];
 
 const howItWorks = [
-  { step: '01', icon: '📦', title: 'Open the pack', description: 'One strip is all you need.' },
-  { step: '02', icon: '👅', title: 'Place it on your tongue', description: "That's the whole instruction." },
-  { step: '03', icon: '⏱️', title: '30 seconds', description: 'No water. No mess. Just dissolve.' },
-  { step: '04', icon: '✨', title: 'Go live your day', description: 'Your body gets to work. You already moved on.' },
+  { step: '01', icon: '📦', title: 'Open the pack', description: 'A small moment, just for you.' },
+  { step: '02', icon: '👅', title: 'Place it on your tongue', description: 'No water. No effort. Just intention.' },
+  { step: '03', icon: '⏱️', title: '30 seconds', description: 'It dissolves. You chose yourself today.' },
+  { step: '04', icon: '✨', title: 'Go live your day', description: 'You already did the most important thing.' },
 ];
 
 const ingredients = [
-  { emoji: '🍄', name: "Lion's Mane", benefit: 'Mental clarity you can feel*' },
-  { emoji: '🌙', name: 'Melatonin', benefit: 'The off-switch your brain needs*' },
-  { emoji: '✨', name: 'Collagen', benefit: 'What shows up on the outside*' },
-  { emoji: '🌿', name: 'Ashwagandha', benefit: 'Stress without the spiral*' },
-  { emoji: '🍄', name: 'Cordyceps', benefit: 'Steady energy, no crash*' },
-  { emoji: '💊', name: 'Vitamin B12', benefit: 'The baseline that keeps everything else going*' },
+  { emoji: '🍄', name: "Lion's Mane", benefit: 'For the clarity you deserve*' },
+  { emoji: '🌙', name: 'Melatonin', benefit: "For the rest you've earned*" },
+  { emoji: '✨', name: 'Collagen', benefit: 'For the glow that starts within*' },
+  { emoji: '🌿', name: 'Ashwagandha', benefit: 'For the calm you owe yourself*' },
+  { emoji: '🍄', name: 'Cordyceps', benefit: 'For the energy that feels like you*' },
+  { emoji: '💊', name: 'Vitamin B12', benefit: 'For the foundation everything else needs*' },
 ];
 
 const reviews = [
-  { id: '1', name: 'Sarah M.', text: "I've tried every supplement brand out there. I was skeptical. But the Energy Strips actually stuck — not because I force myself, because I actually feel the difference.", rating: 5, product: 'Energy Strips' },
-  { id: '2', name: 'James R.', text: "One month in and these are just sitting on my desk now. The chocolate flavor is genuinely good. And the focus? I stop checking my phone every 10 minutes.", rating: 5, product: 'Mushroom Focus' },
-  { id: '3', name: 'Emily K.', text: "It's the first supplement I've ever been consistent with. That says everything. The strip format just removes every excuse.", rating: 5, product: 'Hair, Skin & Nails' },
-  { id: '4', name: 'Michael T.', text: "Some nights my brain just won't stop. These help me land. Not like a sleeping pill — more like a gentle dimmer switch.", rating: 5, product: 'Sleep Strips' },
-  { id: '5', name: 'Lisa P.', text: "I didn't expect to love a supplement. But the Cognitive Relax Strips after a long day? It's become my favorite 30 seconds.", rating: 5, product: 'Cognitive Relax' },
+  { id: '1', name: 'Sarah M.', text: "I started taking the Energy Strips because I wanted to stop relying on coffee. What I didn't expect was how much better I'd feel about actually doing something for myself every morning.", rating: 5, product: 'Energy Strips' },
+  { id: '2', name: 'James R.', text: "It's not even about the focus anymore. It's the fact that I take 30 seconds every day and it's mine. The Mushroom Focus just happens to make everything after that a little sharper.", rating: 5, product: 'Mushroom Focus' },
+  { id: '3', name: 'Emily K.', text: "I've always put everyone else first. The Hair, Skin & Nails Strips became the first thing I do just for me. My nails are stronger, my skin is clearer — but honestly, it's the feeling that changed.", rating: 5, product: 'Hair, Skin & Nails' },
+  { id: '4', name: 'Michael T.', text: "I used to feel guilty for taking time for myself. Now I take a Sleep Strip, and it's like telling my body: you did enough today. Rest now. That shift changed everything.", rating: 5, product: 'Sleep Strips' },
+  { id: '5', name: 'Lisa P.', text: "I didn't buy these because someone told me to. I bought them because I looked in the mirror and thought — I'm worth taking care of. Three months later, I still feel that way.", rating: 5, product: 'Cognitive Relax' },
 ];
 
 // Bundles to feature on homepage
@@ -83,8 +83,8 @@ export default function Index() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="Dissolving Wellness Strips – Science-Backed | NEUVIE™"
-        description="13 fast-dissolving supplement strips with clinically studied ingredients. 5x faster absorption than pills. Free US shipping $50+. Shop now!"
+        title="You Deserve to Feel This Good – Wellness Strips | NEUVIE™"
+        description="30 seconds. No pills. No excuses. 13 dissolving wellness strips made for people who believe they're worth taking care of. Free US shipping $50+."
       />
       
       <Navbar />
@@ -108,33 +108,33 @@ export default function Index() {
                 className="order-2 lg:order-1 text-center lg:text-left"
               >
                 <h1 className="font-body text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-semibold leading-[1.1] mb-6" style={{ letterSpacing: '-0.02em' }}>
-                  You take care of yourself.{' '}
-                  <span className="block">We make it effortless.</span>
-                  <span className="block text-accent">Every single day.</span>
+                  Your body does so much for you.{' '}
+                  <span className="block">This is how you give back.</span>
+                  <span className="block text-accent">30 seconds. Every day.</span>
                 </h1>
 
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-                  Wellness strips that dissolve in 30 seconds. No water. No pills. No excuses.
+                  You don't need another reminder to take care of yourself.
                   <br className="hidden md:block" />
-                  Just the best version of your morning — every single day.
+                  You need something that makes it effortless — so you actually do.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-6">
                   <Link to="/shop">
                     <Button className="w-full sm:w-auto h-13 px-8 text-base font-semibold rounded-lg group bg-primary hover:bg-primary/90 text-primary-foreground">
-                      Find Your Strip
+                      Start Your Ritual
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>
                   <Link to="/shop">
                     <Button variant="outline" className="w-full sm:w-auto h-13 px-8 text-base font-semibold rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                      Explore the Collection
+                      Explore What Fits You
                     </Button>
                   </Link>
                 </div>
 
                 <p className="text-xs text-muted-foreground">
-                  ✓ Try it for 14 days — or your money back, no questions. · ✓ Free shipping on orders $50+
+                  ✓ 14-day guarantee — because you should feel sure · ✓ Free shipping on $50+
                 </p>
               </motion.div>
 
@@ -173,7 +173,7 @@ export default function Index() {
                 ))}
               </div>
               <p className="text-center text-xs text-muted-foreground mt-4">
-                Every strip. Every batch. Zero compromises.
+                Because you deserve to know exactly what you're putting in your body.
               </p>
             </motion.div>
           </div>
@@ -186,10 +186,10 @@ export default function Index() {
           <div className="container-wide">
             <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
               <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
-                What does today need?
+                What does your body need today?
               </h2>
               <p className="text-muted-foreground max-w-lg mx-auto">
-                Every strip is built around one thing — helping you feel like yourself, at your best.
+                You already know the answer. We just made it easier to follow through.
               </p>
             </motion.div>
 
@@ -217,10 +217,10 @@ export default function Index() {
           <div className="container-wide">
             <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
               <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
-                What people come back for — every month.
+                The ones people keep coming back to.
               </h2>
               <p className="text-muted-foreground">
-                The strips that became a habit. Not because anyone told them to — because they felt the difference.
+                Not because they have to. Because it became the part of their day they actually look forward to.
               </p>
             </motion.div>
 
@@ -246,7 +246,7 @@ export default function Index() {
             <motion.div className="text-center mt-10" {...fadeUp}>
               <Link to="/shop">
                 <Button variant="outline" className="h-12 px-8 text-sm font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-lg">
-                  See the full collection →
+                  Find what's right for you →
                   <ChevronRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -261,10 +261,10 @@ export default function Index() {
           <div className="container-wide">
             <motion.div className="text-center mb-12 md:mb-16" {...fadeUp}>
               <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
-                The simplest thing you'll do for yourself today.
+                Taking care of yourself was never supposed to be hard.
               </h2>
               <p className="text-muted-foreground max-w-md mx-auto">
-                A ritual so easy, you'll actually keep it.
+                30 seconds. That's all it takes to tell your body: I've got you.
               </p>
             </motion.div>
 
@@ -314,10 +314,10 @@ export default function Index() {
           <div className="container-wide">
             <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
               <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
-                Ingredients you can actually trust.
+                You deserve to know what goes into your body.
               </h2>
               <p className="text-muted-foreground max-w-lg mx-auto">
-                We don't add things because they sound good on a label. Every ingredient earns its place.
+                Every ingredient is here because it works — not because it sounds impressive. Your trust matters more than our marketing.
               </p>
             </motion.div>
 
@@ -336,7 +336,7 @@ export default function Index() {
             <motion.div className="text-center mt-10" {...fadeUp}>
               <Link to="/science">
                 <Button variant="outline" className="h-12 px-8 text-sm font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-lg">
-                  See what's inside — and why →
+                  See the science behind it →
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -360,7 +360,7 @@ export default function Index() {
           <div className="container-wide">
             <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
               <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
-                From people who made it part of their day.
+                From people who decided they're worth it.
               </h2>
               <div className="flex items-center justify-center gap-2 mb-2">
                 <div className="flex">
@@ -368,7 +368,7 @@ export default function Index() {
                     <Star key={i} className="h-4 w-4 fill-accent text-accent" />
                   ))}
                 </div>
-                <span className="text-sm text-muted-foreground font-medium">4.9 out of 5 — from 2,400+ people who tried it, felt it, and stayed.</span>
+                <span className="text-sm text-muted-foreground font-medium">4.9 out of 5 — from 2,400+ people who chose themselves.</span>
               </div>
             </motion.div>
           </div>
@@ -418,10 +418,10 @@ export default function Index() {
           <div className="container-wide">
             <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
               <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
-                Build your routine. Save more.
+                Your routine, your way.
               </h2>
               <p className="text-muted-foreground max-w-lg mx-auto">
-                Pair your strips into a daily ritual — and keep more in your pocket.
+                Combine the strips that match your life. Taking care of yourself shouldn't cost more than it needs to.
               </p>
             </motion.div>
 

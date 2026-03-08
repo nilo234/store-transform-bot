@@ -170,8 +170,8 @@ export default function Science() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="Science-Backed Supplement Strips – Research | NEUVIE™"
-        description="Clinically studied ingredients at effective dosages. Third-party tested for purity & potency. See the science behind NEUVIE™ dissolving strips."
+        title="What Goes Into Your Body Matters – The Science | NEUVIE™"
+        description="You deserve to know exactly what you're taking. Clinically studied ingredients, third-party tested for purity & potency. See the science behind NEUVIE™."
       />
       <Navbar />
       
@@ -184,7 +184,7 @@ export default function Science() {
               style={{ letterSpacing: '-0.02em' }}
               animate={{ opacity: 1, y: 0 }}
             >
-              THE SCIENCE BEHIND NEUVIE
+              YOUR BODY DESERVES THE TRUTH
             </motion.h1>
             <motion.p 
               className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
@@ -192,7 +192,7 @@ export default function Science() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              Every ingredient is here for a reason. Clinically studied dosages, independently tested batches, and nothing you don't need. That's the standard — not the exception.
+              We believe you should know exactly what you're putting in your body — and why. Every ingredient, every dosage, every test result. Not because it looks good on a website, but because your trust is worth more than our marketing.
             </motion.p>
           </div>
         </section>
@@ -206,7 +206,7 @@ export default function Science() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              HOW WE DO THINGS
+              BECAUSE YOU DESERVE TO FEEL SURE
             </motion.h2>
             
             <div className="grid md:grid-cols-3 gap-8">
@@ -240,10 +240,10 @@ export default function Science() {
               viewport={{ once: true }}
             >
               <h2 className="font-body text-3xl md:text-4xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-                THIRD-PARTY TESTED
+                TESTED — FOR YOUR PEACE OF MIND
               </h2>
               <p className="text-muted-foreground text-lg">
-                Every batch is independently tested for purity, potency, and safety. Here are the results.
+                Every batch is independently verified. Because the things you put in your body should never be a guessing game.
               </p>
             </motion.div>
 
@@ -286,7 +286,7 @@ export default function Science() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              QUALITY STANDARDS
+              THE STANDARDS YOUR BODY DESERVES
             </motion.h2>
             
             <motion.div 
@@ -318,10 +318,10 @@ export default function Science() {
               viewport={{ once: true }}
             >
               <h2 className="font-body text-3xl md:text-4xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-                WHAT'S INSIDE EVERY STRIP
+                FULL TRANSPARENCY — BECAUSE YOU'RE WORTH IT
               </h2>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-                13 formulas. Every ingredient listed. Every dosage shown. Because you should know exactly what you're putting in your body.
+                13 formulas. Every ingredient listed. Every dosage shown. Your body does so much for you — the least we can do is be completely honest about what goes into it.
               </p>
             </motion.div>
 
@@ -370,10 +370,10 @@ export default function Science() {
               viewport={{ once: true }}
             >
               <h2 className="font-body text-3xl md:text-4xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-                THE RESEARCH
+                THE RESEARCH — SO YOU CAN DECIDE FOR YOURSELF
               </h2>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-                We don't ask you to trust us. We ask you to trust the science. Here are the peer-reviewed studies behind our key ingredients.
+                We don't ask you to trust us blindly. Here are the peer-reviewed studies behind our key ingredients. Your health, your choice, your confidence.
               </p>
             </motion.div>
 

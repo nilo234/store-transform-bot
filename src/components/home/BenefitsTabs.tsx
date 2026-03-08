@@ -15,29 +15,29 @@ const benefits: Benefit[] = [
     id: 'focus',
     icon: <Brain className="h-6 w-6" />,
     title: 'Supports Focus & Memory*',
-    subtitle: 'The clarity you want on your best days — available on all of them.',
-    description: "Our Mushroom Focus and Cognitive Relax strips contain Lion's Mane and L-Theanine — ingredients studied for their role in supporting concentration, memory, and mental clarity. Think of it as a quiet upgrade to your work or study routine.",
+    subtitle: 'For the moments you want to be fully present.',
+    description: "Your mind does incredible things for you every day. Our Mushroom Focus and Cognitive Relax strips contain Lion's Mane and L-Theanine — ingredients studied for their role in supporting clarity and memory. Think of it as giving your brain the same care it gives you.",
   },
   {
     id: 'energy',
     icon: <Zap className="h-6 w-6" />,
     title: 'Supports Natural Energy*',
-    subtitle: 'Energy that feels like you — not like a stimulant.',
-    description: "Our Energy Strips combine caffeine with L-Theanine for smooth, sustained energy without the jitters. Plus B12, which contributes to normal energy metabolism. Take on-the-go whenever you need to show up fully.",
+    subtitle: 'Energy that feels like you — not like something you borrowed.',
+    description: "You deserve to feel alive without relying on a third cup of coffee. Our Energy Strips combine caffeine with L-Theanine for smooth, steady energy. Plus B12 for normal energy metabolism. This is energy that respects your body.",
   },
   {
     id: 'immune',
     icon: <Shield className="h-6 w-6" />,
     title: 'Supports Immune Function*',
-    subtitle: 'The invisible work your body does, quietly supported.',
-    description: "From Iron Strips to Bone Support with Vitamin D3 and K2, our range provides essential nutrients that contribute to normal immune function. Our Digestive strips also support gut health — the quiet foundation of overall wellness.",
+    subtitle: 'Protecting yourself is an act of self-love.',
+    description: "Your immune system works hard for you every single day. From Iron Strips to Bone Support with Vitamin D3 and K2, our range provides the essential nutrients it needs. Because protecting yourself isn't just practical — it's personal.",
   },
   {
     id: 'beauty',
     icon: <Heart className="h-6 w-6" />,
     title: 'Beauty From Within*',
-    subtitle: 'What you put in shows up in how you look.',
-    description: "Our Beauty + Collagen and Hair, Skin & Nails strips deliver biotin (5000 mcg), collagen peptides, and vitamin E — nutrients that support healthy hair, skin, and nails as part of your daily routine.",
+    subtitle: 'When you nourish yourself, it shows.',
+    description: "Beauty isn't about perfection — it's about how you feel when you look in the mirror and know you're taking care of yourself. Our Beauty + Collagen and Hair, Skin & Nails strips deliver biotin, collagen peptides, and vitamin E to support that feeling from the inside out.",
   },
 ];
 
@@ -54,10 +54,10 @@ export function BenefitsTabs() {
           viewport={{ once: true }}
         >
           <span className="text-xs font-bold text-primary uppercase tracking-widest mb-4 block">
-            WHAT IT ACTUALLY FEELS LIKE
+            HOW IT FEELS TO CHOOSE YOURSELF
           </span>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Real benefits. Real moments. The kind of wellness that fits into your life — not the other way around.
+            Real benefits that fit into real life. Because wellness isn't about doing more — it's about caring enough to do something.
           </p>
         </motion.div>
 
