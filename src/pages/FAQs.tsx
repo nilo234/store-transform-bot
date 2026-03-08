@@ -43,7 +43,7 @@ const faqs = [
   },
   { 
     q: 'What makes Neuvie different?', 
-    a: "Three things: the format is easier to stick with than pills. The ingredients are dosed at levels that are studied to work. And every batch is independently tested \u2014 so you know exactly what you\u2019re getting." 
+    a: "Three things: the format is easier to stick with than pills. The ingredients are dosed at levels that are studied to work. And every batch is independently tested — so you know exactly what you're getting." 
   },
   { 
     q: 'How should I store my strips?', 
