@@ -56,7 +56,7 @@ export const IngredientSpotlight = ({ ingredients, productHandle }: IngredientSp
             viewport={{ once: true }}
           >
             <h2 className="font-body text-2xl md:text-3xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-              What\u2019s inside \u2014 and why it matters
+              What's inside — and why it matters
             </h2>
             <p className="text-muted-foreground">
               Every ingredient is here for a reason. No fillers. No fluff.

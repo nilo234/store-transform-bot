@@ -21,8 +21,8 @@ export const GuaranteeSection = () => {
             </h2>
             
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              We\u2019d be surprised if you didn\u2019t feel the difference. But if it\u2019s not for you, 
-              email us within 14 days and we\u2019ll refund your first order \u2014 no questions, no hassle.
+              We'd be surprised if you didn't feel the difference. But if it's not for you, 
+              email us within 14 days and we'll refund your first order — no questions, no hassle.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">

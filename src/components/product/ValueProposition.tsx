@@ -41,7 +41,7 @@ export const ValueProposition = ({ servings = 30, subscriptionPrice = "$12.99" }
 
   return (
     <div className="space-y-3">
-      <h4 className="font-semibold text-foreground">Here\u2019s what you get:</h4>
+      <h4 className="font-semibold text-foreground">Here's what you get:</h4>
       <div className="grid grid-cols-2 gap-3">
         {perks.map((perk, index) => (
           <div key={index} className="flex items-start gap-3 p-2 rounded-lg bg-muted/50">

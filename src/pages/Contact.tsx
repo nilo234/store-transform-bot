@@ -54,7 +54,7 @@ export default function Contact() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              Have a question about your order, our ingredients, or anything else? We\u2019re here and happy to help.
+              Have a question about your order, our ingredients, or anything else? We're here and happy to help.
             </motion.p>
           </div>
         </section>

@@ -42,7 +42,7 @@ const defaultFaqs: FAQ[] = [
     answer: "Every single batch is third-party tested for purity, potency, and safety. We don't skip steps. All products are manufactured in FDA-registered, cGMP-certified facilities in the USA."
   },
   {
-    question: "What if it\u2019s not for me?",
+    question: "What if it's not for me?",
     answer: "No hard feelings. We offer a 14-day money-back guarantee on your first order. Just email hello@neuvie.com and we'll take care of it — no hoops, no hassle."
   },
   {

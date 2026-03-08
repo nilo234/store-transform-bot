@@ -133,7 +133,7 @@ export default function FAQs() {
                 href="/contact" 
                 className="text-primary font-semibold hover:text-accent transition-colors inline-flex items-center gap-1"
               >
-                Get in touch \u2192
+                Get in touch →
               </a>
             </motion.div>
           </div>
