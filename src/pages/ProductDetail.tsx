@@ -562,6 +562,16 @@ export default function ProductDetail() {
         />
       </main>
 
+      {/* Sticky Add to Cart Bar */}
+      <StickyAddToCart
+        productTitle={sanitizeTitle(product.title)}
+        price={purchaseSelection?.finalPrice ?? price}
+        originalPrice={originalPrice}
+        onAddToCart={handleAddToCart}
+        isSubscription={purchaseSelection?.type === 'subscribe'}
+        addToCartRef={addToCartButtonRef}
+      />
+
       <Footer />
     </div>
   );

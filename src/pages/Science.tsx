@@ -359,6 +359,68 @@ export default function Science() {
           </div>
         </section>
 
+        {/* Research & References Section */}
+        <section className="py-20">
+          <div className="container-wide">
+            <motion.div 
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="font-body text-3xl md:text-4xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
+                PEER-REVIEWED SCIENCE BEHIND OUR INGREDIENTS
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+                Transparency matters. Here are the studies behind our key ingredients.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {[
+                { emoji: '🍄', name: "Lion's Mane", summary: "Supports cognitive function and nerve growth factor production. Studied for memory and focus benefits.", url: 'https://pubmed.ncbi.nlm.nih.gov/38004235/' },
+                { emoji: '🌙', name: 'Melatonin', summary: "Regulates the sleep-wake cycle and may reduce time to fall asleep. Widely studied for sleep support.", url: 'https://pubmed.ncbi.nlm.nih.gov/31619178/' },
+                { emoji: '✨', name: 'Collagen & Biotin', summary: "Supports skin elasticity, hair strength, and nail growth. Peer-reviewed for beauty benefits.", url: 'https://pubmed.ncbi.nlm.nih.gov/28701385/' },
+                { emoji: '🌿', name: 'Ashwagandha', summary: "Adaptogenic herb studied for stress reduction, cortisol regulation, and mental well-being.", url: 'https://pubmed.ncbi.nlm.nih.gov/32021735/' },
+                { emoji: '🍄', name: 'Cordyceps', summary: "Traditional mushroom studied for energy metabolism, endurance, and oxygen utilization.", url: 'https://pubmed.ncbi.nlm.nih.gov/35103413/' },
+                { emoji: '⚡', name: 'Caffeine + L-Theanine', summary: "Synergistic combination studied for clean energy, focus, and reduced jitter effects.", url: 'https://www.tandfonline.com/doi/abs/10.1080/10408398.2020.1781051' },
+              ].map((item, index) => (
+                <motion.div
+                  key={item.name}
+                  className="bg-card rounded-2xl p-6 shadow-soft border border-border/50 flex flex-col"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-3xl">{item.emoji}</span>
+                    <h4 className="font-body font-semibold text-lg text-foreground">{item.name}</h4>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">{item.summary}</p>
+                  <a 
+                    href={item.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-sm text-primary font-medium flex items-center gap-1 hover:text-accent transition-colors mt-auto"
+                  >
+                    View Study →
+                  </a>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.p 
+              className="text-xs text-muted-foreground text-center mt-10 max-w-3xl mx-auto italic"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+            >
+              All cited research is independent third-party science. References are provided for transparency. Individual results may vary. These statements have not been evaluated by the FDA.
+            </motion.p>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-20 bg-primary text-primary-foreground">
           <div className="container-wide text-center">
@@ -385,9 +447,8 @@ export default function Science() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground h-14 px-10 text-lg font-semibold rounded-lg">
-                VIEW RESEARCH
-                <ExternalLink className="ml-2 h-5 w-5" />
+              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground h-14 px-10 text-lg font-semibold rounded-lg" asChild>
+                <Link to="/shop">SHOP NOW</Link>
               </Button>
             </motion.div>
           </div>
