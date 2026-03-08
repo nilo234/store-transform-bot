@@ -31,7 +31,7 @@ const defaultFaqs: FAQ[] = [
   },
   {
     question: "Is it safe to take every day?",
-    answer: "Yes \u2014 every Neuvie strip is designed for daily use. Made in the USA in a GMP-certified facility. If you have a medical condition or take medication, check with your doctor first.*"
+    answer: "Yes — every Neuvie strip is designed for daily use. Made in the USA in a GMP-certified facility. If you have a medical condition or take medication, check with your doctor first.*"
   },
   {
     question: "What do they taste like?",
