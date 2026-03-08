@@ -46,8 +46,8 @@ export default function About() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="About NEUVIE™ – Our Mission & Story"
-        description="NEUVIE™ is transforming wellness with fast-dissolving oral strips. Premium ingredients, third-party tested. Learn more about our story."
+        title="About NEUVIE™ – Built for People Who Believe They're Worth It"
+        description="NEUVIE™ exists because taking care of yourself should be effortless, not optional. Learn our story, our values, and why we do what we do."
       />
       <Navbar />
       
