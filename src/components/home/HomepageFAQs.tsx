@@ -21,7 +21,7 @@ const faqs = [
     answer: 'Because the strip dissolves in your mouth, ingredients enter your system faster than traditional pills. Most people notice effects within 15–30 minutes, depending on the product. Energy Strips work within minutes.',
   },
   {
-    question: 'What if I don't like them?',
+    question: "What if I don\u2019t like them?",
     answer: "We offer a 14-day money-back guarantee. If you\u2019re not happy with your order, email us and we\u2019ll refund you \u2014 no questions asked, no hoops to jump through.",
   },
   {
