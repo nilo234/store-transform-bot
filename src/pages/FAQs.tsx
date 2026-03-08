@@ -7,7 +7,7 @@ import { FAQJsonLd, PageMeta } from '@/components/seo';
 const faqs = [
   { 
     q: 'How do I take Neuvie strips?', 
-    a: 'Place one strip on your tongue and let it dissolve \u2014 usually within 30\u201360 seconds. No water needed. For best results, follow the specific instructions on each product.' 
+    a: 'Place one strip on your tongue and let it dissolve — usually within 30–60 seconds. No water needed. For best results, follow the specific instructions on each product.' 
   },
   { 
     q: 'What makes strips better than pills?', 
