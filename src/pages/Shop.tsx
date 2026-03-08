@@ -124,18 +124,18 @@ export default function Shop() {
               style={{ letterSpacing: '-0.02em' }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-            >
-              Wellness Strips Collection
-            </motion.h1>
-            <motion.p
-              className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              13 fast-dissolving oral strips, each formulated with specific vitamins, minerals, and botanical extracts. 
-              No pills, no water — just place on your tongue and go.
-            </motion.p>
+             >
+               Your Body Deserves This
+             </motion.h1>
+             <motion.p
+               className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+               initial={{ opacity: 0, y: 20 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={{ duration: 0.5, delay: 0.1 }}
+             >
+               13 dissolving strips, each made with intention. No pills, no water — just a moment of care that fits into your real life. 
+               Because taking care of yourself shouldn't feel like one more thing on the list.
+             </motion.p>
             <motion.div
               className="flex flex-wrap justify-center gap-4 md:gap-6 mt-5 md:mt-8 text-xs md:text-sm text-muted-foreground"
               initial={{ opacity: 0 }}
