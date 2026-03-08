@@ -27,7 +27,7 @@ const faqs = [
   },
   { 
     q: 'How long until I notice a difference?', 
-    a: 'It depends on the product. Energy Strips work within minutes. For daily-use products like Hair, Skin & Nails or Sleep Strips, most people notice a difference within 2\u20134 weeks of consistent use.' 
+    a: 'It depends on the product. Energy Strips work within minutes. For daily-use products like Hair, Skin & Nails or Sleep Strips, most people notice a difference within 2–4 weeks of consistent use.' 
   },
   { 
     q: 'Do you ship internationally?', 
