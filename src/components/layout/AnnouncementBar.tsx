@@ -46,7 +46,7 @@ export function AnnouncementBar({
                 href={linkHref}
                 className="font-bold underline underline-offset-2"
               >
-                Save 20% →
+                Start your ritual →
               </a>
             </div>
         </div>
