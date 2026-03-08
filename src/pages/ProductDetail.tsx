@@ -321,7 +321,7 @@ export default function ProductDetail() {
               </div>
 
               {/* Quantity & Add to Cart */}
-              <div className="flex flex-col gap-3 pt-2">
+              <div ref={addToCartButtonRef} className="flex flex-col gap-3 pt-2">
                 <div className="flex items-center gap-4">
                   <div className="flex items-center gap-3 bg-muted rounded-full p-1">
                     <Button
