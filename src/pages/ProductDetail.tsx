@@ -402,8 +402,8 @@ export default function ProductDetail() {
                     <span className="font-medium">Shipping & returns</span>
                   </AccordionTrigger>
                   <AccordionContent className="pb-4 text-sm text-muted-foreground space-y-2">
-                    <p><strong>Shipping:</strong> Orders ship within 1\u20132 business days. Most US orders arrive in 3\u20135 days.</p>
-                    <p><strong>14-day guarantee:</strong> If it\u2019s not for you, email hello@neuvie.com within 14 days. Full refund on your first order \u2014 no questions, no hassle.</p>
+                    <p><strong>Shipping:</strong> Orders ship within 1–2 business days. Most US orders arrive in 3–5 days.</p>
+                    <p><strong>14-day guarantee:</strong> If it's not for you, email hello@neuvie.com within 14 days. Full refund on your first order — no questions, no hassle.</p>
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
