@@ -33,27 +33,27 @@ import {
 // Testimonials per product category
 const productTestimonials: Record<string, { quote: string; author: string }> = {
   mushroom: {
-    quote: "I keep these on my desk now. The chocolate flavor is actually good, and I stopped reaching for my third coffee. That's saying something.",
+    quote: "I bought these because I wanted to be sharper at work. What surprised me was the feeling — like I was finally doing something intentional for myself. That mattered more than the focus.",
     author: "Michael R."
   },
   energy: {
-    quote: "I was skeptical — another energy supplement, right? But these actually stuck. No crash, no jitters. Just a steady morning that carries me through.",
+    quote: "I used to run on coffee and guilt. Now I take an Energy Strip in the morning and it feels like a tiny promise I keep with myself. The energy is great — but the ritual is what changed me.",
     author: "Sarah K."
   },
   sleep: {
-    quote: "Some nights my brain just won't stop. These help me land. I wake up feeling like I actually slept — not just lay there.",
+    quote: "For years I told myself I'd figure out my sleep 'eventually.' These strips were the first time I actually did something about it. I wake up feeling like I actually took care of myself.",
     author: "David L."
   },
   cognitive: {
-    quote: "After a long day, I used to feel completely fried. Now I take one of these and actually enjoy my evening instead of just surviving it.",
+    quote: "After giving all day to everyone else, I take a Cognitive Relax Strip and it's like saying: this moment is mine. That feeling of calm isn't just physical — it's permission to breathe.",
     author: "Emma T."
   },
   immunity: {
-    quote: "It's the one thing I don't skip. Knowing it's third-party tested and made in the US makes it easy to trust.",
+    quote: "I take these because my body does so much for me — the least I can do is give it something good in return. Knowing every batch is tested makes me feel like I'm making a real choice.",
     author: "James P."
   },
   default: {
-    quote: "I've tried pills, powders, gummies — nothing stuck. These are the first supplement I've taken every single day for three months straight.",
+    quote: "I never stuck with supplements before. But this is different — it's not a chore, it's a choice. 30 seconds to remind myself that I matter. And I do it every single day now.",
     author: "Lisa M."
   }
 };
