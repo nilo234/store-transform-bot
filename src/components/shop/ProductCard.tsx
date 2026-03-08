@@ -104,9 +104,13 @@ export function ProductCard({ product, index = 0, showCompare, isCompared, onTog
             <div className="w-full h-full flex items-center justify-center p-4 md:p-8">
               {firstImage ? (
                 <motion.img
-                  src={firstImage.url}
+                  src={optimizeShopifyImage(firstImage.url, 400)}
                   alt={firstImage.altText || node.title}
                   className="w-full h-full object-contain"
+                  loading="lazy"
+                  decoding="async"
+                  width={400}
+                  height={400}
                   animate={{ scale: isHovered ? 1.05 : 1 }}
                   transition={{ duration: 0.4 }}
                 />

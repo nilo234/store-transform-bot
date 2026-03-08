@@ -21,6 +21,20 @@ export function unsanitizeHandle(handle: string): string {
   return handle.replace(/[-_]?strips/gi, '-gummies').replace(/--+/g, '-').replace(/-$/, '');
 }
 
+// ── Image Optimization ───────────────────────────────────────────────────
+// Append Shopify CDN width param for responsive images
+export function optimizeShopifyImage(url: string, width: number = 400): string {
+  if (!url || !url.includes('cdn.shopify.com')) return url;
+  try {
+    const u = new URL(url);
+    u.searchParams.set('width', String(width));
+    u.searchParams.set('quality', '80');
+    return u.toString();
+  } catch {
+    return url;
+  }
+}
+
 // Types
 export interface ShopifyProduct {
   node: {
