@@ -26,21 +26,29 @@ export function AnnouncementBar({
         className="bg-accent text-accent-foreground relative z-50"
       >
         <div className="container-wide py-2.5">
-          <div className="flex items-center justify-center gap-4 text-sm font-medium">
-            <span className="hidden sm:inline">{message}</span>
-            <span className="sm:hidden text-xs">{message}</span>
-            
-            <span className="text-accent-foreground/70">—</span>
-            
-            <span className="font-bold">Subscribe & save 20% — because consistency matters</span>
-            
-            <a 
-              href={linkHref}
-              className="ml-2 underline underline-offset-2 hover:no-underline font-semibold"
-            >
-              {linkText} →
-            </a>
-          </div>
+            {/* Desktop */}
+            <div className="hidden sm:flex items-center justify-center gap-4 text-sm font-medium">
+              <span>{message}</span>
+              <span className="text-accent-foreground/70">—</span>
+              <span className="font-bold">Subscribe & save 20%</span>
+              <a 
+                href={linkHref}
+                className="ml-2 underline underline-offset-2 hover:no-underline font-semibold"
+              >
+                {linkText} →
+              </a>
+            </div>
+            {/* Mobile */}
+            <div className="sm:hidden flex items-center justify-center gap-3 text-xs font-medium">
+              <span>Free shipping $50+</span>
+              <span className="text-accent-foreground/70">·</span>
+              <a 
+                href={linkHref}
+                className="font-bold underline underline-offset-2"
+              >
+                Save 20% →
+              </a>
+            </div>
         </div>
         
         <button
