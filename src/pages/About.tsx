@@ -266,7 +266,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Ready to feel the difference?
+              You already know you're worth it.
             </motion.h2>
             <motion.p
               className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto"
@@ -275,7 +275,7 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              Start with one strip. See how it fits your day.
+              This is just 30 seconds to prove it to yourself. Every day.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
