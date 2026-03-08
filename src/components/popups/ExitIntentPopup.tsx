@@ -140,7 +140,7 @@ export function ExitIntentPopup() {
                   className="space-y-4"
                 >
                   <p className="text-center text-muted-foreground text-sm mb-4">
-                    Enter your email to claim your discount — valid for 24 hours.
+                    Enter your email and we'll send your welcome discount — valid for 24 hours.
                   </p>
 
                   <Input
