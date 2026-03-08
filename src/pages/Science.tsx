@@ -454,9 +454,6 @@ export default function Science() {
             </motion.div>
           </div>
         </section>
-
-        {/* Gray Divider Strip */}
-        <div className="h-3 bg-muted/60" />
       </main>
 
       <Footer />
