@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Plus, Scale } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { ShopifyProduct, sanitizeHandle, sanitizeTitle } from '@/lib/shopify';
+import { ShopifyProduct, sanitizeHandle, sanitizeTitle, optimizeShopifyImage } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
 import { JudgeMePreviewBadge } from '@/components/reviews/JudgeMeReviews';
