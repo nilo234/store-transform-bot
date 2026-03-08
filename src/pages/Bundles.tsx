@@ -63,18 +63,18 @@ export default function Bundles() {
               <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-6">
                 <Sparkles className="h-4 w-4" />
                 <span className="text-sm font-bold uppercase tracking-wide">
-                  Limited Time Bundles
+                  Curated Bundles
                 </span>
               </div>
 
               <h1 className="font-body text-4xl md:text-5xl lg:text-6xl font-semibold mb-6" style={{ letterSpacing: '-0.02em' }}>
-                🎯 BUNDLES - SAVE UP TO{' '}
-                <span className="text-accent">20%</span>
+                Build a routine that feels like{' '}
+                <span className="text-accent">you</span>
               </h1>
 
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Stack your wellness routine with our curated bundles. More strips, more savings. 
-                Build healthy habits while keeping more money in your pocket.
+                Your body doesn't need one thing — it needs a rhythm. These bundles are designed to support how you actually live, 
+                not how a label tells you to. And yes, they save you money too.
               </p>
 
               {/* Trust Badges */}
