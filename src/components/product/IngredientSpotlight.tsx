@@ -27,7 +27,7 @@ const ingredientsByProduct: Record<string, Ingredient[]> = {
   ],
   sleep: [
     { name: "Melatonin", benefit: "The off-switch your brain needs at the end of the day", category: "SLEEP", icon: Sparkles },
-    { name: "L-Theanine", benefit: "Calm without drowsiness \u2014 just a quieter mind", category: "CALM", icon: Leaf },
+    { name: "L-Theanine", benefit: "Calm without drowsiness — just a quieter mind", category: "CALM", icon: Leaf },
     { name: "Magnesium", benefit: "Helps your muscles and nervous system unwind", category: "RECOVERY", icon: Heart },
   ],
   cognitive: [
