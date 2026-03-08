@@ -30,10 +30,10 @@ const values = [
 ];
 
 const stats = [
-  { number: '50,000+', label: 'Routines Started' },
-  { number: '99%', label: 'Satisfaction Rate' },
-  { number: '13', label: 'Unique Strips' },
-  { number: '14 Days', label: 'Money-Back Guarantee' },
+  { number: '50,000+', label: 'People Who Chose Themselves' },
+  { number: '99%', label: 'Felt Good About Their Choice' },
+  { number: '13', label: 'Ways to Show Up for You' },
+  { number: '14 Days', label: 'To Feel Sure — Guaranteed' },
 ];
 
 const team = [
