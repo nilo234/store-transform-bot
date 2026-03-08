@@ -6,7 +6,7 @@ import { StickyAddToCart } from '@/components/product/StickyAddToCart';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
-import { fetchProductByHandle, ShopifyProduct, sanitizeTitle, sanitizeHandle, unsanitizeHandle } from '@/lib/shopify';
+import { fetchProductByHandle, ShopifyProduct, sanitizeTitle, sanitizeHandle, unsanitizeHandle, optimizeShopifyImage } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { Skeleton } from '@/components/ui/skeleton';
 import { toast } from 'sonner';
