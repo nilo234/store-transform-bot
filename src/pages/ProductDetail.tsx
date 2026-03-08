@@ -74,6 +74,7 @@ export default function ProductDetail() {
   const [isLoading, setIsLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
+  const addToCartButtonRef = useRef<HTMLDivElement>(null);
   const [purchaseSelection, setPurchaseSelection] = useState<{
     type: PurchaseType;
     frequency?: string;
