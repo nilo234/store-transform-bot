@@ -43,7 +43,7 @@ const defaultFaqs: FAQ[] = [
   },
   {
     question: "What if it\u2019s not for me?",
-    answer: "No hard feelings. We offer a 14-day money-back guarantee on your first order. Just email hello@neuvie.com and we\u2019ll take care of it \u2014 no hoops, no hassle."
+    answer: "No hard feelings. We offer a 14-day money-back guarantee on your first order. Just email hello@neuvie.com and we'll take care of it — no hoops, no hassle."
   },
   {
     question: "Are these vegan and allergen-friendly?",
