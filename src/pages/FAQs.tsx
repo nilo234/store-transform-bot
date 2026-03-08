@@ -35,7 +35,7 @@ const faqs = [
   },
   { 
     q: 'Can I take more than one product?', 
-    a: "Absolutely \u2014 our products are designed to complement each other. Many people combine Energy Strips in the morning with Sleep Strips at night. If you have specific health concerns, check with your healthcare provider." 
+    a: "Absolutely — our products are designed to complement each other. Many people combine Energy Strips in the morning with Sleep Strips at night. If you have specific health concerns, check with your healthcare provider." 
   },
   { 
     q: 'Are there any side effects?', 
