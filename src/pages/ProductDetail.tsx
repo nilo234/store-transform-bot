@@ -454,7 +454,7 @@ export default function ProductDetail() {
             <div className="container-wide">
               <div className="max-w-4xl mx-auto">
                 <h2 className="font-body text-2xl md:text-3xl font-semibold text-center mb-12" style={{ letterSpacing: '-0.02em' }}>
-                  Product Details
+                  Everything you need to know
                 </h2>
 
                 <Accordion type="single" collapsible className="space-y-4">
