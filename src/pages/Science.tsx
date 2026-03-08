@@ -11,17 +11,17 @@ const puritySections = [
   { 
     icon: Leaf, 
     title: 'SOURCING', 
-    description: 'We source only the finest ingredients from trusted, ethical suppliers worldwide. Every ingredient is traceable and verified for purity before it reaches our formulations.' 
+    description: 'Every ingredient is traceable and verified before it enters a formula. We work with suppliers we trust — and test everything independently before we use it.' 
   },
   { 
     icon: FlaskConical, 
     title: 'EFFICACY', 
-    description: 'Our strips are formulated with clinically studied dosages. We use bioavailable forms of each ingredient for maximum absorption and effectiveness.' 
+    description: 'We formulate at dosages that are studied to work — not just enough to put on the label. Bioavailable forms, meaningful amounts, and no unnecessary extras.' 
   },
   { 
     icon: Shield, 
     title: 'QUALITY', 
-    description: 'Every batch is third-party tested for purity, potency, and safety. We exceed industry standards to ensure you get exactly what the label promises.' 
+    description: 'Every batch is independently tested by third-party labs for purity, potency, and safety. What the label says is exactly what you get. No exceptions.' 
   },
 ];
 
@@ -43,30 +43,30 @@ const qualityBadges = [
   'Fast-Dissolving',
 ];
 
-// All 13 products with their ingredients and science-backed benefits
+// All 13 products with their ingredients
 const ingredientBreakdown = [
   {
     product: 'Hangover Strips',
-    icon: '🍹',
+    icon: '\u{1F379}',
     ingredients: [
       { name: 'Curcumin (Curcuma Longa)', benefit: 'Supports healthy inflammatory response and liver function' },
       { name: 'Date Extract', benefit: 'Rich in antioxidants, supports natural recovery processes' },
-      { name: 'Grape Seed Extract', benefit: 'Powerful antioxidant that helps protect cells from oxidative stress' },
+      { name: 'Grape Seed Extract', benefit: 'Antioxidant that helps protect cells from oxidative stress' },
       { name: 'Andrographis', benefit: 'Traditional herb supporting liver function and immune health' },
       { name: 'Phyllanthus', benefit: 'Ayurvedic herb traditionally used for liver support' },
     ],
   },
   {
     product: 'Bone Support Strips',
-    icon: '🦴',
+    icon: '\u{1F9B4}',
     ingredients: [
       { name: 'Vitamin D3 (2000 IU)', benefit: 'Essential for calcium absorption and bone mineralization' },
-      { name: 'Vitamin K2 (MK-7) (200 mcg)', benefit: 'Directs calcium to bones and teeth, prevents arterial calcification' },
+      { name: 'Vitamin K2 (MK-7) (200 mcg)', benefit: 'Directs calcium to bones and teeth, supports arterial health' },
     ],
   },
   {
     product: 'Cognitive Relax Strips',
-    icon: '🧘',
+    icon: '\u{1F9D8}',
     ingredients: [
       { name: 'L-Theanine (50 mg)', benefit: 'Promotes calm focus without drowsiness, found naturally in green tea' },
       { name: 'GABA (25 mg)', benefit: 'Neurotransmitter that supports relaxation and reduces nervous tension' },
@@ -75,7 +75,7 @@ const ingredientBreakdown = [
   },
   {
     product: 'Mushroom Focus Strips',
-    icon: '🍄',
+    icon: '\u{1F344}',
     ingredients: [
       { name: "Lion's Mane (50 mg)", benefit: 'Supports cognitive function, memory, and nerve growth factor production' },
       { name: 'Cordyceps (25 mg)', benefit: 'Traditional adaptogen supporting energy metabolism and endurance' },
@@ -85,7 +85,7 @@ const ingredientBreakdown = [
   },
   {
     product: 'Libido Support Strips',
-    icon: '🔥',
+    icon: '\u{1F525}',
     ingredients: [
       { name: 'Cordyceps Militaris (50 mg)', benefit: 'Traditionally used to support vitality, stamina, and energy' },
       { name: 'Shilajit (50 mg)', benefit: 'Mineral-rich compound supporting testosterone and cellular energy' },
@@ -94,7 +94,7 @@ const ingredientBreakdown = [
   },
   {
     product: 'Probiotic + Metabolism Strips',
-    icon: '🦠',
+    icon: '\u{1F9A0}',
     ingredients: [
       { name: 'Bifidobacterium lactis (10B CFU)', benefit: 'Clinically studied probiotic supporting gut health and digestion' },
       { name: 'Polydextrose (30 mg)', benefit: 'Prebiotic fiber that feeds beneficial gut bacteria' },
@@ -102,15 +102,15 @@ const ingredientBreakdown = [
   },
   {
     product: 'Beauty + Collagen Strips',
-    icon: '✨',
+    icon: '\u2728',
     ingredients: [
       { name: 'Collagen Peptides (100 mg)', benefit: 'Building blocks for skin elasticity, hydration, and firmness' },
-      { name: 'Vitamin E (6 mg)', benefit: 'Powerful antioxidant protecting skin cells from oxidative damage' },
+      { name: 'Vitamin E (6 mg)', benefit: 'Antioxidant protecting skin cells from oxidative damage' },
     ],
   },
   {
     product: 'Hair, Skin & Nails Strips',
-    icon: '💇',
+    icon: '\u{1F487}',
     ingredients: [
       { name: 'Biotin (5000 mcg)', benefit: 'Essential B-vitamin for keratin production and healthy hair growth' },
       { name: 'Folate (400 mcg)', benefit: 'Supports cell division and tissue growth for skin renewal' },
@@ -119,7 +119,7 @@ const ingredientBreakdown = [
   },
   {
     product: 'Digestive + Gut Health Strips',
-    icon: '🌿',
+    icon: '\u{1F33F}',
     ingredients: [
       { name: 'Bacillus Coagulans (10B CFU)', benefit: 'Spore-forming probiotic with enhanced survivability and gut colonization' },
       { name: 'Protease (10 mg)', benefit: 'Enzyme breaking down proteins for improved nutrient absorption' },
@@ -129,7 +129,7 @@ const ingredientBreakdown = [
   },
   {
     product: 'Appetite Balance Strips',
-    icon: '⚖️',
+    icon: '\u2696\uFE0F',
     ingredients: [
       { name: 'Chromium (75 mcg)', benefit: 'Essential mineral supporting healthy blood sugar metabolism' },
       { name: 'Molybdenum (100 mcg)', benefit: 'Trace mineral supporting enzyme activity and metabolic processes' },
@@ -138,7 +138,7 @@ const ingredientBreakdown = [
   },
   {
     product: 'Iron Strips',
-    icon: '💪',
+    icon: '\u{1F4AA}',
     ingredients: [
       { name: 'Iron (Ferric Saccharate) (19 mg)', benefit: 'Highly absorbable form supporting red blood cell production' },
       { name: 'Folate (400 mcg)', benefit: 'Works synergistically with iron for healthy cell formation' },
@@ -146,7 +146,7 @@ const ingredientBreakdown = [
   },
   {
     product: 'Energy Strips',
-    icon: '⚡',
+    icon: '\u26A1',
     ingredients: [
       { name: 'Caffeine (50 mg)', benefit: 'Natural stimulant for alertness and physical performance' },
       { name: 'L-Theanine (30 mg)', benefit: 'Smooths caffeine response, prevents jitters and crash' },
@@ -155,7 +155,7 @@ const ingredientBreakdown = [
   },
   {
     product: 'Sleep Strips',
-    icon: '🌙',
+    icon: '\u{1F319}',
     ingredients: [
       { name: 'Melatonin (5 mg)', benefit: 'Hormone regulating sleep-wake cycle, reduces time to fall asleep' },
       { name: 'Valerian Extract (10 mg)', benefit: 'Traditional herb promoting relaxation and sleep quality' },
@@ -170,8 +170,8 @@ export default function Science() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="Science-Backed Supplement Strips – Research | NEUVIE™"
-        description="Clinically studied ingredients at effective dosages. Third-party tested for purity & potency. See the science behind NEUVIE™ dissolving strips."
+        title="Science-Backed Supplement Strips \u2013 Research | NEUVIE\u2122"
+        description="Clinically studied ingredients at effective dosages. Third-party tested for purity & potency. See the science behind NEUVIE\u2122 dissolving strips."
       />
       <Navbar />
       
@@ -192,7 +192,7 @@ export default function Science() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              Every Neuvie strip is formulated with clinically studied ingredients at effective dosages. We combine thoughtful science with premium sourcing to create supplements designed to support your wellness.
+              Every ingredient is here for a reason. Clinically studied dosages, independently tested batches, and nothing you don't need. That's the standard — not the exception.
             </motion.p>
           </div>
         </section>
@@ -206,7 +206,7 @@ export default function Science() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              PROVEN PURITY
+              HOW WE DO THINGS
             </motion.h2>
             
             <div className="grid md:grid-cols-3 gap-8">
@@ -243,7 +243,7 @@ export default function Science() {
                 THIRD-PARTY TESTED
               </h2>
               <p className="text-muted-foreground text-lg">
-                Every product batch is independently tested for purity, potency, and safety.
+                Every batch is independently tested for purity, potency, and safety. Here are the results.
               </p>
             </motion.div>
 
@@ -308,7 +308,7 @@ export default function Science() {
           </div>
         </section>
 
-        {/* Direct From Mother Nature - All 13 Products */}
+        {/* All 13 Products Ingredient Breakdown */}
         <section className="py-20 bg-muted/30">
           <div className="container-wide">
             <motion.div 
@@ -318,10 +318,10 @@ export default function Science() {
               viewport={{ once: true }}
             >
               <h2 className="font-body text-3xl md:text-4xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-                DIRECT FROM MOTHER NATURE
+                WHAT'S INSIDE EVERY STRIP
               </h2>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-                Our 13 science-backed formulas feature premium vitamins, minerals, and botanical extracts—each selected for quality and optimal bioavailability.
+                13 formulas. Every ingredient listed. Every dosage shown. Because you should know exactly what you're putting in your body.
               </p>
             </motion.div>
 
@@ -370,21 +370,21 @@ export default function Science() {
               viewport={{ once: true }}
             >
               <h2 className="font-body text-3xl md:text-4xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-                PEER-REVIEWED SCIENCE BEHIND OUR INGREDIENTS
+                THE RESEARCH
               </h2>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-                Transparency matters. Here are the studies behind our key ingredients.
+                We don't ask you to trust us. We ask you to trust the science. Here are the peer-reviewed studies behind our key ingredients.
               </p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {[
-                { emoji: '🍄', name: "Lion's Mane", summary: "Supports cognitive function and nerve growth factor production. Studied for memory and focus benefits.", url: 'https://pubmed.ncbi.nlm.nih.gov/38004235/' },
-                { emoji: '🌙', name: 'Melatonin', summary: "Regulates the sleep-wake cycle and may reduce time to fall asleep. Widely studied for sleep support.", url: 'https://pubmed.ncbi.nlm.nih.gov/31619178/' },
-                { emoji: '✨', name: 'Collagen & Biotin', summary: "Supports skin elasticity, hair strength, and nail growth. Peer-reviewed for beauty benefits.", url: 'https://pubmed.ncbi.nlm.nih.gov/28701385/' },
-                { emoji: '🌿', name: 'Ashwagandha', summary: "Adaptogenic herb studied for stress reduction, cortisol regulation, and mental well-being.", url: 'https://pubmed.ncbi.nlm.nih.gov/32021735/' },
-                { emoji: '🍄', name: 'Cordyceps', summary: "Traditional mushroom studied for energy metabolism, endurance, and oxygen utilization.", url: 'https://pubmed.ncbi.nlm.nih.gov/35103413/' },
-                { emoji: '⚡', name: 'Caffeine + L-Theanine', summary: "Synergistic combination studied for clean energy, focus, and reduced jitter effects.", url: 'https://www.tandfonline.com/doi/abs/10.1080/10408398.2020.1781051' },
+                { emoji: '\u{1F344}', name: "Lion's Mane", summary: "Supports cognitive function and nerve growth factor production. Studied for memory and focus benefits.", url: 'https://pubmed.ncbi.nlm.nih.gov/38004235/' },
+                { emoji: '\u{1F319}', name: 'Melatonin', summary: "Regulates the sleep-wake cycle and may reduce time to fall asleep. One of the most widely studied sleep ingredients.", url: 'https://pubmed.ncbi.nlm.nih.gov/31619178/' },
+                { emoji: '\u2728', name: 'Collagen & Biotin', summary: "Supports skin elasticity, hair strength, and nail growth. Peer-reviewed for beauty benefits.", url: 'https://pubmed.ncbi.nlm.nih.gov/28701385/' },
+                { emoji: '\u{1F33F}', name: 'Ashwagandha', summary: "Adaptogenic herb studied for stress reduction, cortisol regulation, and mental well-being.", url: 'https://pubmed.ncbi.nlm.nih.gov/32021735/' },
+                { emoji: '\u{1F344}', name: 'Cordyceps', summary: "Traditional mushroom studied for energy metabolism, endurance, and oxygen utilization.", url: 'https://pubmed.ncbi.nlm.nih.gov/35103413/' },
+                { emoji: '\u26A1', name: 'Caffeine + L-Theanine', summary: "Synergistic combination studied for clean energy, sustained focus, and reduced jitter effects.", url: 'https://www.tandfonline.com/doi/abs/10.1080/10408398.2020.1781051' },
               ].map((item, index) => (
                 <motion.div
                   key={item.name}
@@ -405,7 +405,7 @@ export default function Science() {
                     rel="noopener noreferrer" 
                     className="text-sm text-primary font-medium flex items-center gap-1 hover:text-accent transition-colors mt-auto"
                   >
-                    View Study →
+                    View Study \u2192
                   </a>
                 </motion.div>
               ))}
@@ -431,7 +431,7 @@ export default function Science() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Backed by Science, Trusted by Thousands
+              See what the right ingredients can do.
             </motion.h2>
             <motion.p 
               className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto"
@@ -440,7 +440,7 @@ export default function Science() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              Experience the difference that quality ingredients and effective dosages make.
+              Real dosages. Real testing. A format you'll actually use.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -449,7 +449,7 @@ export default function Science() {
               transition={{ delay: 0.2 }}
             >
               <Button className="bg-accent hover:bg-accent/90 text-accent-foreground h-14 px-10 text-lg font-semibold rounded-lg" asChild>
-                <Link to="/shop">SHOP NOW</Link>
+                <Link to="/shop">Find Your Strip \u2192</Link>
               </Button>
             </motion.div>
           </div>

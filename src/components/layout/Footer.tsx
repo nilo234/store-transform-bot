@@ -49,22 +49,22 @@ export function Footer() {
         <div className="container-wide py-10 md:py-16 px-4 md:px-6">
           <div className="max-w-xl mx-auto text-center">
             <h3 className="font-body text-xl md:text-2xl lg:text-3xl font-semibold mb-3 md:mb-4" style={{ letterSpacing: '-0.02em' }}>
-              Join the Neuvie Community
+              Start here. Feel it for yourself.
             </h3>
             <p className="text-primary-foreground/70 mb-6 md:mb-8 text-sm md:text-base">
-              Get 15% off your first order plus exclusive access to new products and wellness tips.
+              Get 15% off your first order — plus honest wellness insights, new launches, and the occasional thing worth knowing. No spam, ever.
             </p>
             <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <Input 
                 type="email"
-                placeholder="Enter your email" 
+                placeholder="Your email address" 
                 className="h-11 md:h-12 bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 rounded-lg flex-1"
               />
               <Button 
                 type="submit"
                 className="h-11 md:h-12 bg-accent hover:bg-accent/90 text-accent-foreground px-6 font-semibold rounded-lg w-full sm:w-auto"
               >
-                Join Us
+                Claim 15% Off
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </form>
@@ -72,10 +72,10 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Main Footer - Mobile optimized */}
+      {/* Main Footer */}
       <div className="container-wide py-10 md:py-16 px-4 md:px-6">
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8">
-          {/* Brand Column - Full width on mobile */}
+          {/* Brand Column */}
           <div className="col-span-2 lg:col-span-2">
             <Link to="/" className="inline-block mb-4 md:mb-6">
               <img 
@@ -85,7 +85,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-primary-foreground/70 mb-6 md:mb-8 max-w-sm text-xs md:text-sm leading-relaxed">
-              Fast-dissolving oral strips with science-backed ingredients. The future of supplements—convenient, effective, and designed for your lifestyle.
+              Wellness strips that dissolve in seconds. Designed for people who take care of themselves — without making it a part-time job.
             </p>
             
             {/* Social Links */}
@@ -137,7 +137,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Support Links - Full width on mobile */}
+          {/* Support Links */}
           <div className="col-span-2 md:col-span-1">
             <h4 className="font-semibold text-sm md:text-lg mb-4 md:mb-6">Support</h4>
             <ul className="grid grid-cols-2 md:grid-cols-1 gap-2.5 md:gap-4">
@@ -155,7 +155,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Trust Badges - Mobile optimized */}
+        {/* Trust Badges */}
         <div className="mt-10 md:mt-16 pt-6 md:pt-8 border-t border-primary-foreground/10">
           <div className="flex flex-wrap justify-center gap-x-4 md:gap-x-8 gap-y-2 md:gap-y-4 mb-6 md:mb-8">
             {trustBadges.map((badge) => (
@@ -168,10 +168,10 @@ export function Footer() {
           
           {/* Copyright */}
           <p className="text-center text-primary-foreground/50 text-[10px] md:text-xs mb-2">
-            *These statements have not been evaluated by the Food and Drug Administration (FDA). These products are not intended to diagnose, treat, cure, or prevent any disease. Manufactured in an FDA-registered, GMP-compliant facility in the United States.
+            These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease. Every Neuvie strip is manufactured in an FDA-registered, GMP-compliant facility in the United States.
           </p>
           <p className="text-center text-primary-foreground/50 text-[10px] md:text-xs mb-2">
-            All prices in USD ($). Shipping available within the United States only.
+            All prices in USD. We currently ship within the United States only.
           </p>
           <p className="text-center text-primary-foreground/50 text-[10px] md:text-sm">
             © {new Date().getFullYear()} Neuvie Nutrition, Inc. All rights reserved.

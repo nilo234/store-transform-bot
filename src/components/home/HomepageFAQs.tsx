@@ -9,24 +9,24 @@ import {
 
 const faqs = [
   {
-    question: 'How do Neuvie Strips work?',
-    answer: 'Simply place a strip on or under your tongue and let it dissolve in about 30 seconds. The active ingredients are absorbed directly through the oral mucosa, bypassing the digestive system for faster, more efficient absorption.',
+    question: 'How do Neuvie strips work?',
+    answer: 'Place a strip on your tongue and let it dissolve — about 30 seconds. The ingredients absorb directly through the oral tissue, so they get to work faster than a pill that has to travel through your digestive system first.',
   },
   {
-    question: 'Are Neuvie Strips safe?',
-    answer: 'Absolutely. All our strips are made with premium, non-GMO ingredients in a cGMP-certified facility in the USA. Every batch is third-party tested for purity and potency. No artificial colors, preservatives, or harmful additives.',
+    question: 'Are they safe?',
+    answer: 'Yes. Every Neuvie strip is made with non-GMO ingredients in a GMP-certified facility in the USA. Every batch is independently tested by a third-party lab for purity and potency. No artificial colors, no preservatives, no fillers.',
   },
   {
     question: 'How fast do they work?',
-    answer: 'Because strips dissolve directly in your mouth, ingredients can enter your bloodstream faster than traditional pills or capsules. Most people notice effects within 15-30 minutes, depending on the product.',
+    answer: 'Because the strip dissolves in your mouth, ingredients enter your system faster than traditional pills. Most people notice effects within 15–30 minutes, depending on the product. Energy Strips work within minutes.',
   },
   {
-    question: 'What is your guarantee?',
-    answer: "We offer a 14-Day Money-Back Guarantee. If you're not completely satisfied with your results, simply email us and we'll refund your first order—no questions asked, no hoops to jump through.",
+    question: "What if I don\u2019t like them?",
+    answer: "We offer a 14-day money-back guarantee. If you\u2019re not happy with your order, email us and we\u2019ll refund you \u2014 no questions asked, no hoops to jump through.",
   },
   {
-    question: 'Do you ship internationally?',
-    answer: 'Currently, we ship to the United States only. We offer free shipping on all orders over $50. Orders typically arrive within 3-5 business days.',
+    question: 'Do you ship outside the US?',
+    answer: 'Not yet — we currently ship within the United States only. Free shipping on all orders over $50. Sign up for our newsletter to be the first to know when we expand.',
   },
 ];
 
@@ -41,10 +41,10 @@ export function HomepageFAQs() {
           viewport={{ once: true }}
         >
           <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
-            Frequently Asked Questions
+            Questions? Good.
           </h2>
           <p className="text-muted-foreground">
-            Got questions? We've got answers.
+            Here are the ones we hear most.
           </p>
         </motion.div>
 
@@ -81,7 +81,7 @@ export function HomepageFAQs() {
           transition={{ delay: 0.2 }}
         >
           <Link to="/faqs" className="text-primary hover:text-accent transition-colors font-medium">
-            View All FAQs →
+            See all FAQs →
           </Link>
         </motion.div>
       </div>

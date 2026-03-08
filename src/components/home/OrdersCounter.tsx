@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Users, Package } from 'lucide-react';
+import { Users } from 'lucide-react';
 
 export function OrdersCounter() {
   return (
@@ -13,7 +13,7 @@ export function OrdersCounter() {
         <Users className="w-4 h-4 text-accent" />
       </div>
       <span className="text-sm font-semibold text-foreground">
-        Trusted by <span className="text-accent">50,000+</span> customers
+        Join <span className="text-accent">50,000+</span> daily routines
       </span>
     </motion.div>
   );

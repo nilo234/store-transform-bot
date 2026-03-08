@@ -17,7 +17,7 @@ const testimonials: Testimonial[] = [
   {
     id: '1',
     name: 'Sarah M.',
-    content: "The Energy Strips fit perfectly into my morning routine. Clean energy without the jitters—I love how simple they are to take.",
+    content: "I've tried every supplement brand out there. I was skeptical. But the Energy Strips actually stuck — not because I force myself, because I actually feel the difference.",
     rating: 5,
     product: 'Energy Strips',
     productHandle: 'energy-strips',
@@ -27,7 +27,7 @@ const testimonials: Testimonial[] = [
   {
     id: '2',
     name: 'James R.',
-    content: "I've been using the Mushroom Focus Strips for a month and really enjoy the chocolate flavor. They've become part of my daily work routine.",
+    content: "One month in and these are just sitting on my desk now. The chocolate flavor is genuinely good. And the focus? I stop checking my phone every 10 minutes.",
     rating: 5,
     product: 'Mushroom Focus Strips',
     productHandle: 'mushroom-focus-strips',
@@ -37,7 +37,7 @@ const testimonials: Testimonial[] = [
   {
     id: '3',
     name: 'Emily K.',
-    content: "The Hair, Skin & Nails Strips are so convenient. No more swallowing pills—I just place one on my tongue and go about my day.",
+    content: "It's the first supplement I've ever been consistent with. That says everything. The strip format just removes every excuse.",
     rating: 5,
     product: 'Hair, Skin & Nails Strips',
     productHandle: 'hair-skin-nails-strips',
@@ -47,7 +47,7 @@ const testimonials: Testimonial[] = [
   {
     id: '4',
     name: 'Michael T.',
-    content: "Love the Sleep Strips. They've become part of my bedtime routine—easy to take and the flavor is great. Highly recommend trying them.",
+    content: "Some nights my brain just won't stop. These help me land. Not like a sleeping pill — more like a gentle dimmer switch.",
     rating: 5,
     product: 'Sleep Strips',
     productHandle: 'sleep-strips',
@@ -57,7 +57,7 @@ const testimonials: Testimonial[] = [
   {
     id: '5',
     name: 'Lisa P.',
-    content: "At 45, I appreciate how easy the Cognitive Relax Strips are to take after a long day. The strawberry-mint flavor is a nice touch.",
+    content: "I didn't expect to love a supplement. But the Cognitive Relax Strips after a long day? It's become my favorite 30 seconds.",
     rating: 5,
     product: 'Cognitive Relax Strips',
     productHandle: 'cognitive-relax-strips',
@@ -67,7 +67,7 @@ const testimonials: Testimonial[] = [
   {
     id: '6',
     name: 'David H.',
-    content: "The Hangover Strips are so convenient—I keep a few in my wallet. Love that they dissolve fast and taste good. Great format for supplements.",
+    content: "I keep a few in my wallet for nights out. They dissolve fast, taste good, and I actually remember to take them. That's the whole point, right?",
     rating: 5,
     product: 'Hangover Strips',
     productHandle: 'hangover-strips',
@@ -105,7 +105,7 @@ export function TestimonialsCarousel() {
           </div>
           
           <p className="text-muted-foreground text-lg">
-            Based on <strong className="text-foreground">2,400+</strong> verified reviews
+            From <strong className="text-foreground">2,400+</strong> people who tried it, felt it, and stayed.
           </p>
         </motion.div>
       </div>
