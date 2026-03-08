@@ -314,10 +314,10 @@ export default function Index() {
           <div className="container-wide">
             <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
               <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
-                Ingredients you can actually trust.
+                You deserve to know what goes into your body.
               </h2>
               <p className="text-muted-foreground max-w-lg mx-auto">
-                We don't add things because they sound good on a label. Every ingredient earns its place.
+                Every ingredient is here because it works — not because it sounds impressive. Your trust matters more than our marketing.
               </p>
             </motion.div>
 
