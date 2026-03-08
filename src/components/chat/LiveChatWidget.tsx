@@ -38,8 +38,11 @@ const botResponses: Record<string, string> = {
 };
 
 export function LiveChatWidget() {
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>(initialMessages);
+
+  if (location.pathname !== '/') return null;
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [showForm, setShowForm] = useState(false);
