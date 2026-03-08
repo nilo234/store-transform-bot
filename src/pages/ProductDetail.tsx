@@ -49,7 +49,7 @@ const productTestimonials: Record<string, { quote: string; author: string }> = {
     author: "Emma T."
   },
   immunity: {
-    quote: "It\u2019s the one thing I don\u2019t skip. Knowing it\u2019s third-party tested and made in the US makes it easy to trust.",
+    quote: "It's the one thing I don't skip. Knowing it's third-party tested and made in the US makes it easy to trust.",
     author: "James P."
   },
   default: {
