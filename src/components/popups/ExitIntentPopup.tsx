@@ -165,7 +165,7 @@ export function ExitIntentPopup() {
                       />
                     ) : (
                       <>
-                        Claim My 10% Off
+                        Yes, I'm Worth It
                         <ArrowRight className="ml-2 h-5 w-5" />
                       </>
                     )}
