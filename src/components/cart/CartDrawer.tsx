@@ -287,7 +287,6 @@ function CartItemRow({
           <span className={`font-semibold ${compact ? 'text-xs' : 'text-sm md:text-base'} text-primary`}>
             ${parseFloat(item.price.amount).toFixed(2)}
           </span>
-          <span className="text-[10px] text-muted-foreground line-through">$49.99</span>
         </div>
       </div>
 
