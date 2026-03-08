@@ -80,7 +80,7 @@ export default function FAQs() {
               style={{ letterSpacing: '-0.02em' }}
               animate={{ opacity: 1, y: 0 }}
             >
-              FREQUENTLY ASKED QUESTIONS
+              YOUR QUESTIONS, ANSWERED
             </motion.h1>
             <motion.p 
               className="text-lg text-muted-foreground max-w-2xl mx-auto"
