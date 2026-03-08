@@ -27,7 +27,7 @@ const defaultFaqs: FAQ[] = [
   },
   {
     question: "Why strips instead of pills or powders?",
-    answer: "Strips dissolve in seconds, taste good, and don\u2019t need water. They\u2019re small enough to keep anywhere \u2014 your desk, your bag, your nightstand. It\u2019s the format that actually gets used."
+    answer: "Strips dissolve in seconds, taste good, and don't need water. They're small enough to keep anywhere — your desk, your bag, your nightstand. It's the format that actually gets used."
   },
   {
     question: "Is it safe to take every day?",
