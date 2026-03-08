@@ -240,12 +240,12 @@ export default function About() {
                 viewport={{ once: true }}
               >
                 {[
-                  'Every batch independently tested for purity and potency',
-                  'Clinically studied ingredients at meaningful dosages',
-                  'Fast-dissolving strip format — no water, no pills',
-                  'No artificial colors, no preservatives, no fillers',
-                  'Non-GMO and ethically sourced ingredients',
-                  '14-day money-back guarantee — no questions asked',
+                  'Every batch independently tested — because your trust is everything',
+                  'Clinically studied ingredients at real dosages — nothing for show',
+                  'Dissolves in 30 seconds — self-care that fits your real life',
+                  'No artificial colors, no fillers — only what your body actually needs',
+                  'Non-GMO and ethically sourced — because you deserve the best',
+                  '14-day guarantee — because you should feel completely sure',
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3 bg-card p-4 rounded-xl shadow-soft">
                     <Check className="h-5 w-5 text-primary flex-shrink-0" />
