@@ -248,9 +248,13 @@ export default function ProductDetail() {
 
                 {images[selectedImage] ? (
                   <img
-                    src={images[selectedImage].node.url}
+                    src={optimizeShopifyImage(images[selectedImage].node.url, 800)}
                     alt={images[selectedImage].node.altText || product.title}
                     className="w-full h-full object-contain"
+                    loading={selectedImage === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                    width={800}
+                    height={800}
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-muted/20">
