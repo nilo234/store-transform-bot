@@ -86,7 +86,7 @@ export default function About() {
             >
               <Quote className="h-12 w-12 text-primary/30 mx-auto mb-6" />
               <blockquote className="font-body text-2xl md:text-3xl font-medium text-foreground leading-relaxed mb-6" style={{ letterSpacing: '-0.01em' }}>
-                "We built Neuvie because we were tired of supplements that were hard to take and easy to forget."
+                "We built Neuvie for the person who always puts everyone else first — and forgets that they deserve the same care."
               </blockquote>
               <p className="text-muted-foreground font-medium">&mdash; The Neuvie Team</p>
             </motion.div>
