@@ -206,7 +206,7 @@ export default function Science() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              HOW WE DO THINGS
+              BECAUSE YOU DESERVE TO FEEL SURE
             </motion.h2>
             
             <div className="grid md:grid-cols-3 gap-8">
