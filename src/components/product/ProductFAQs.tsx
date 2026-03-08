@@ -19,31 +19,31 @@ interface ProductFAQsProps {
 const defaultFaqs: FAQ[] = [
   {
     question: "When should I take my strip?",
-    answer: "Most people take theirs in the morning to start the day right. But there\u2019s no wrong time \u2014 whenever fits your routine. Just place it on your tongue and let it dissolve."
+    answer: "Most people take theirs in the morning to start the day right. But there's no wrong time — whenever fits your routine. Just place it on your tongue and let it dissolve."
   },
   {
     question: "Will I actually feel a difference?",
-    answer: "Most customers notice something within the first few weeks of daily use.* These strips are designed for consistency \u2014 the longer you stick with it, the more you\u2019ll feel. Give it at least 30 days."
+    answer: "Most customers notice something within the first few weeks of daily use.* These strips are designed for consistency — the longer you stick with it, the more you'll feel. Give it at least 30 days."
   },
   {
     question: "Why strips instead of pills or powders?",
-    answer: "Strips dissolve in seconds, taste good, and don\u2019t need water. They\u2019re small enough to keep anywhere \u2014 your desk, your bag, your nightstand. It\u2019s the format that actually gets used."
+    answer: "Strips dissolve in seconds, taste good, and don't need water. They're small enough to keep anywhere — your desk, your bag, your nightstand. It's the format that actually gets used."
   },
   {
     question: "Is it safe to take every day?",
-    answer: "Yes \u2014 every Neuvie strip is designed for daily use. Made in the USA in a GMP-certified facility. If you have a medical condition or take medication, check with your doctor first.*"
+    answer: "Yes — every Neuvie strip is designed for daily use. Made in the USA in a GMP-certified facility. If you have a medical condition or take medication, check with your doctor first.*"
   },
   {
     question: "What do they taste like?",
-    answer: "Good. Really good. Each product has its own natural flavor \u2014 no bitterness, no chalky aftertaste. We use natural sweeteners to make this something you look forward to, not dread."
+    answer: "Good. Really good. Each product has its own natural flavor — no bitterness, no chalky aftertaste. We use natural sweeteners to make this something you look forward to, not dread."
   },
   {
     question: "Are they independently tested?",
-    answer: "Every single batch is third-party tested for purity, potency, and safety. We don\u2019t skip steps. All products are manufactured in FDA-registered, cGMP-certified facilities in the USA."
+    answer: "Every single batch is third-party tested for purity, potency, and safety. We don't skip steps. All products are manufactured in FDA-registered, cGMP-certified facilities in the USA."
   },
   {
-    question: "What if it\u2019s not for me?",
-    answer: "No hard feelings. We offer a 14-day money-back guarantee on your first order. Just email hello@neuvie.com and we\u2019ll take care of it \u2014 no hoops, no hassle."
+    question: "What if it's not for me?",
+    answer: "No hard feelings. We offer a 14-day money-back guarantee on your first order. Just email hello@neuvie.com and we'll take care of it — no hoops, no hassle."
   },
   {
     question: "Are these vegan and allergen-friendly?",
@@ -55,7 +55,7 @@ const productSpecificFaqs: Record<string, FAQ[]> = {
   mushroom: [
     {
       question: "Are these made with real mushrooms?",
-      answer: "Yes \u2014 real functional mushroom extracts including Lion\u2019s Mane, Cordyceps, Maitake, and Shiitake. Each one is carefully sourced and extracted for potency."
+      answer: "Yes — real functional mushroom extracts including Lion's Mane, Cordyceps, Maitake, and Shiitake. Each one is carefully sourced and extracted for potency."
     },
     ...defaultFaqs.slice(0, 5)
   ],
@@ -69,7 +69,7 @@ const productSpecificFaqs: Record<string, FAQ[]> = {
   energy: [
     {
       question: "Will this give me jitters like coffee?",
-      answer: "Not at all. The energy comes from B-vitamins and natural ingredients that support steady, sustained energy \u2014 no spikes, no crashes."
+      answer: "Not at all. The energy comes from B-vitamins and natural ingredients that support steady, sustained energy — no spikes, no crashes."
     },
     ...defaultFaqs.slice(0, 5)
   ]
@@ -89,7 +89,7 @@ export const ProductFAQs = ({ productHandle, customFaqs }: ProductFAQsProps) => 
             viewport={{ once: true }}
           >
             <h2 className="font-body text-2xl md:text-3xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-              Questions? We\u2019ve got you.
+              Questions? We've got you.
             </h2>
             <p className="text-muted-foreground">
               Still curious? Email us anytime at{' '}

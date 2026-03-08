@@ -9,7 +9,7 @@ export const StockIndicator = () => {
       </div>
       <div className="flex items-center gap-1.5 text-muted-foreground">
         <Truck className="h-4 w-4" />
-        <span>Ships within 1\u20132 business days</span>
+        <span>Ships within 1–2 business days</span>
       </div>
     </div>
   );

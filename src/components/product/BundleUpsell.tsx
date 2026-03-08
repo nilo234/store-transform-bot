@@ -93,7 +93,7 @@ export const BundleUpsell = ({ currentProductHandle }: BundleUpsellProps) => {
 
           <div className="text-center mt-8">
             <Link to="/bundles" className="text-primary hover:underline font-medium">
-              Browse all bundles \u2192
+              Browse all bundles →
             </Link>
           </div>
         </div>

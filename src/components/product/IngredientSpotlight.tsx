@@ -15,7 +15,7 @@ interface IngredientSpotlightProps {
 
 const ingredientsByProduct: Record<string, Ingredient[]> = {
   mushroom: [
-    { name: "Lion\u2019s Mane", benefit: "The clarity you want on your best days \u2014 available on all of them", category: "FOCUS", icon: Brain },
+    { name: "Lion's Mane", benefit: "The clarity you want on your best days — available on all of them", category: "FOCUS", icon: Brain },
     { name: "Cordyceps", benefit: "Steady energy that carries you through without a crash", category: "ENERGY", icon: Zap },
     { name: "Maitake", benefit: "Quietly supports your immune system, every single day", category: "IMMUNITY", icon: Shield },
     { name: "Shiitake", benefit: "Rich in antioxidants that help protect at the cellular level", category: "WELLNESS", icon: Heart },
@@ -27,18 +27,18 @@ const ingredientsByProduct: Record<string, Ingredient[]> = {
   ],
   sleep: [
     { name: "Melatonin", benefit: "The off-switch your brain needs at the end of the day", category: "SLEEP", icon: Sparkles },
-    { name: "L-Theanine", benefit: "Calm without drowsiness \u2014 just a quieter mind", category: "CALM", icon: Leaf },
+    { name: "L-Theanine", benefit: "Calm without drowsiness — just a quieter mind", category: "CALM", icon: Leaf },
     { name: "Magnesium", benefit: "Helps your muscles and nervous system unwind", category: "RECOVERY", icon: Heart },
   ],
   cognitive: [
-    { name: "L-Theanine", benefit: "Focused calm when your brain won\u2019t stop racing", category: "CALM", icon: Leaf },
-    { name: "GABA", benefit: "Supports your body\u2019s natural response to stress", category: "BALANCE", icon: Heart },
+    { name: "L-Theanine", benefit: "Focused calm when your brain won't stop racing", category: "CALM", icon: Leaf },
+    { name: "GABA", benefit: "Supports your body's natural response to stress", category: "BALANCE", icon: Heart },
     { name: "Vitamin B6", benefit: "Keeps your nervous system running smoothly", category: "NERVE", icon: Brain },
   ],
   default: [
-    { name: "Purposeful ingredients", benefit: "Every ingredient earns its place \u2014 nothing is there for show", category: "QUALITY", icon: Sparkles },
+    { name: "Purposeful ingredients", benefit: "Every ingredient earns its place — nothing is there for show", category: "QUALITY", icon: Sparkles },
     { name: "Fast-dissolving format", benefit: "Absorbs in seconds so your body can get to work", category: "DELIVERY", icon: Zap },
-    { name: "Natural flavors", benefit: "Tastes like something you\u2019d actually choose", category: "PURE", icon: Leaf },
+    { name: "Natural flavors", benefit: "Tastes like something you'd actually choose", category: "PURE", icon: Leaf },
   ],
 };
 
@@ -56,7 +56,7 @@ export const IngredientSpotlight = ({ ingredients, productHandle }: IngredientSp
             viewport={{ once: true }}
           >
             <h2 className="font-body text-2xl md:text-3xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-              What\u2019s inside \u2014 and why it matters
+              What's inside — and why it matters
             </h2>
             <p className="text-muted-foreground">
               Every ingredient is here for a reason. No fillers. No fluff.

@@ -18,7 +18,7 @@ const contactMethods = [
     icon: MessageSquare,
     title: 'Live Chat',
     description: 'Talk to a real person',
-    value: 'Available 9am \u2013 6pm EST',
+    value: 'Available 9am – 6pm EST',
   },
   {
     icon: Clock,
@@ -32,8 +32,8 @@ export default function Contact() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="Contact NEUVIE\u2122 Support \u2013 We\u2019re Here to Help"
-        description="Questions about NEUVIE\u2122 strips or your order? Email or live chat. We respond within 24 hours."
+        title="Contact NEUVIE™ Support – We're Here to Help"
+        description="Questions about NEUVIE™ strips or your order? Email or live chat. We respond within 24 hours."
       />
       <Navbar />
       
@@ -54,7 +54,7 @@ export default function Contact() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              Have a question about your order, our ingredients, or anything else? We\u2019re here and happy to help.
+              Have a question about your order, our ingredients, or anything else? We're here and happy to help.
             </motion.p>
           </div>
         </section>

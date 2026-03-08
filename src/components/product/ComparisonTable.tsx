@@ -29,10 +29,10 @@ export const ComparisonTable = ({ onCtaClick }: ComparisonTableProps) => {
             viewport={{ once: true }}
           >
             <h2 className="font-body text-2xl md:text-3xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-              The supplement you\u2019ll actually look forward to.
+              The supplement you'll actually look forward to.
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Pills are easy to skip. Powders are messy. Neuvie strips dissolve in seconds and taste like something you\u2019d choose \u2014 not something you have to force.
+              Pills are easy to skip. Powders are messy. Neuvie strips dissolve in seconds and taste like something you'd choose — not something you have to force.
             </p>
           </motion.div>
 
@@ -81,7 +81,7 @@ export const ComparisonTable = ({ onCtaClick }: ComparisonTableProps) => {
               <Button onClick={onCtaClick} className="btn-primary" size="lg">
                 Try it risk-free
               </Button>
-              <p className="text-xs text-muted-foreground mt-2">14-day money-back guarantee \u2014 no questions asked</p>
+              <p className="text-xs text-muted-foreground mt-2">14-day money-back guarantee — no questions asked</p>
             </div>
           )}
         </div>

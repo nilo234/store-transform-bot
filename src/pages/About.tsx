@@ -46,8 +46,8 @@ export default function About() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="About NEUVIE\u2122 \u2013 Our Mission & Story"
-        description="NEUVIE\u2122 is transforming wellness with fast-dissolving oral strips. Premium ingredients, third-party tested. Learn more about our story."
+        title="About NEUVIE™ – Our Mission & Story"
+        description="NEUVIE™ is transforming wellness with fast-dissolving oral strips. Premium ingredients, third-party tested. Learn more about our story."
       />
       <Navbar />
       

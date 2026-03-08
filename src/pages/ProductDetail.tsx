@@ -33,15 +33,15 @@ import {
 // Testimonials per product category
 const productTestimonials: Record<string, { quote: string; author: string }> = {
   mushroom: {
-    quote: "I keep these on my desk now. The chocolate flavor is actually good, and I stopped reaching for my third coffee. That\u2019s saying something.",
+    quote: "I keep these on my desk now. The chocolate flavor is actually good, and I stopped reaching for my third coffee. That's saying something.",
     author: "Michael R."
   },
   energy: {
-    quote: "I was skeptical \u2014 another energy supplement, right? But these actually stuck. No crash, no jitters. Just a steady morning that carries me through.",
+    quote: "I was skeptical — another energy supplement, right? But these actually stuck. No crash, no jitters. Just a steady morning that carries me through.",
     author: "Sarah K."
   },
   sleep: {
-    quote: "Some nights my brain just won\u2019t stop. These help me land. I wake up feeling like I actually slept \u2014 not just lay there.",
+    quote: "Some nights my brain just won't stop. These help me land. I wake up feeling like I actually slept — not just lay there.",
     author: "David L."
   },
   cognitive: {
@@ -49,11 +49,11 @@ const productTestimonials: Record<string, { quote: string; author: string }> = {
     author: "Emma T."
   },
   immunity: {
-    quote: "It\u2019s the one thing I don\u2019t skip. Knowing it\u2019s third-party tested and made in the US makes it easy to trust.",
+    quote: "It's the one thing I don't skip. Knowing it's third-party tested and made in the US makes it easy to trust.",
     author: "James P."
   },
   default: {
-    quote: "I\u2019ve tried pills, powders, gummies \u2014 nothing stuck. These are the first supplement I\u2019ve taken every single day for three months straight.",
+    quote: "I've tried pills, powders, gummies — nothing stuck. These are the first supplement I've taken every single day for three months straight.",
     author: "Lisa M."
   }
 };
@@ -202,8 +202,8 @@ export default function ProductDetail() {
     <div className="min-h-screen flex flex-col">
       {/* SEO */}
       <PageMeta
-        title={`${sanitizeTitle(product.title)} \u2013 $${price.toFixed(2)} | NEUVIE\u2122`}
-        description={`${sanitizeTitle(product.title)} by NEUVIE\u2122. Dissolves in 30 seconds. No water, no pills. Rated 4.8/5 from 1,247+ reviews. Free US shipping on $50+.`}
+        title={`${sanitizeTitle(product.title)} – $${price.toFixed(2)} | NEUVIE™`}
+        description={`${sanitizeTitle(product.title)} by NEUVIE™. Dissolves in 30 seconds. No water, no pills. Rated 4.8/5 from 1,247+ reviews. Free US shipping on $50+.`}
       />
       <ProductJsonLd product={product} />
       <BreadcrumbJsonLd items={breadcrumbItems} />
@@ -354,7 +354,7 @@ export default function ProductDetail() {
                 </div>
                 
                 <p className="text-center text-sm text-muted-foreground">
-                  \u2713 Ships free today \u00b7 \u2713 Arrives in 2\u20135 business days
+                  ✓ Ships free today · ✓ Arrives in 2–5 business days
                 </p>
               </div>
 
@@ -384,7 +384,7 @@ export default function ProductDetail() {
 
                 <AccordionItem value="ingredients" className="bg-muted/30 rounded-xl border-none px-4 data-[state=open]:bg-muted/50">
                   <AccordionTrigger className="py-3 hover:no-underline">
-                    <span className="font-medium">What\u2019s inside</span>
+                    <span className="font-medium">What's inside</span>
                   </AccordionTrigger>
                   <AccordionContent className="pb-4">
                     <div className="flex flex-wrap gap-1.5">
@@ -402,8 +402,8 @@ export default function ProductDetail() {
                     <span className="font-medium">Shipping & returns</span>
                   </AccordionTrigger>
                   <AccordionContent className="pb-4 text-sm text-muted-foreground space-y-2">
-                    <p><strong>Shipping:</strong> Orders ship within 1\u20132 business days. Most US orders arrive in 3\u20135 days.</p>
-                    <p><strong>14-day guarantee:</strong> If it\u2019s not for you, email hello@neuvie.com within 14 days. Full refund on your first order \u2014 no questions, no hassle.</p>
+                    <p><strong>Shipping:</strong> Orders ship within 1–2 business days. Most US orders arrive in 3–5 days.</p>
+                    <p><strong>14-day guarantee:</strong> If it's not for you, email hello@neuvie.com within 14 days. Full refund on your first order — no questions, no hassle.</p>
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -461,7 +461,7 @@ export default function ProductDetail() {
                   {/* Benefits */}
                   <AccordionItem value="benefits" className="bg-card rounded-xl border-none">
                     <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                      <span className="font-semibold text-lg">What you\u2019ll feel</span>
+                      <span className="font-semibold text-lg">What you'll feel</span>
                     </AccordionTrigger>
                     <AccordionContent className="px-6 pb-6">
                       <ul className="space-y-3">
@@ -505,7 +505,7 @@ export default function ProductDetail() {
                   {/* Supplement Facts */}
                   <AccordionItem value="supplement-facts" className="bg-card rounded-xl border-none">
                     <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                      <span className="font-semibold text-lg">What\u2019s in each strip</span>
+                      <span className="font-semibold text-lg">What's in each strip</span>
                     </AccordionTrigger>
                     <AccordionContent className="px-6 pb-6">
                       <div className="overflow-x-auto">

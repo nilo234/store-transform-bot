@@ -17,8 +17,8 @@ const policySections = [
     icon: Truck,
     title: 'Shipping Methods & Delivery Times',
     content: [
-      'Standard Shipping \u2014 3\u20135 business days, $4.99 flat rate.',
-      'Express Shipping \u2014 1\u20133 business days, $9.99 flat rate.',
+      'Standard Shipping — 3–5 business days, $4.99 flat rate.',
+      'Express Shipping — 1–3 business days, $9.99 flat rate.',
       'All delivery estimates begin once the order has shipped, not when it\'s placed. Delivery times are estimates, not guarantees, and may vary due to carrier volume or weather.',
     ],
   },
@@ -26,7 +26,7 @@ const policySections = [
     icon: Package,
     title: 'Free Shipping',
     content: [
-      'Orders of $50 or more ship free via standard shipping within the contiguous United States. No code needed \u2014 the discount applies automatically at checkout.',
+      'Orders of $50 or more ship free via standard shipping within the contiguous United States. No code needed — the discount applies automatically at checkout.',
       'Free shipping is not available for express delivery, PO boxes outside the contiguous US, or international orders.',
     ],
   },
@@ -35,7 +35,7 @@ const policySections = [
     title: 'Address Accuracy',
     content: [
       'Please double-check your shipping address before completing checkout. Once an order ships, we\'re unable to redirect it to a different address.',
-      'If a package is returned to us due to an incorrect or incomplete address, we\'ll reship it at no extra charge \u2014 just reach out to our support team.',
+      'If a package is returned to us due to an incorrect or incomplete address, we\'ll reship it at no extra charge — just reach out to our support team.',
     ],
   },
   {
@@ -50,7 +50,7 @@ const policySections = [
     icon: AlertTriangle,
     title: 'Lost or Damaged Packages',
     content: [
-      'If your package arrives damaged, please take a photo and email us at hello@neuvie.com within 7 days of delivery. We\'ll send a replacement or issue a full refund \u2014 your choice.',
+      'If your package arrives damaged, please take a photo and email us at hello@neuvie.com within 7 days of delivery. We\'ll send a replacement or issue a full refund — your choice.',
       'If tracking shows "delivered" but you haven\'t received your order, please check with neighbors and your building\'s mail area first. If it\'s still missing after 48 hours, contact us and we\'ll work with the carrier to resolve it.',
     ],
   },
@@ -141,7 +141,7 @@ export default function Shipping() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {[
                   { text: 'Free US shipping on orders $50+', icon: Truck },
-                  { text: 'Ships within 1\u20132 business days', icon: Clock },
+                  { text: 'Ships within 1–2 business days', icon: Clock },
                   { text: 'Tracking included with every order', icon: ShieldCheck },
                   { text: '14-day money-back guarantee', icon: Package },
                 ].map((item) => (
