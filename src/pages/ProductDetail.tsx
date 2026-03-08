@@ -275,9 +275,13 @@ export default function ProductDetail() {
                       }`}
                     >
                       <img
-                        src={img.node.url}
+                        src={optimizeShopifyImage(img.node.url, 100)}
                         alt={img.node.altText || `${product.title} ${index + 1}`}
                         className="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                        width={100}
+                        height={100}
                       />
                     </button>
                   ))}
