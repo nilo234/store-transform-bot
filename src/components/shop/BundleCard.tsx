@@ -6,6 +6,7 @@ import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
 import { Bundle, productInfo } from '@/data/bundles';
 import { useBundleImages } from '@/hooks/useBundleImages';
+import { optimizeShopifyImage } from '@/lib/shopify';
 
 interface BundleCardProps {
   bundle: Bundle;
