@@ -261,10 +261,10 @@ export default function Index() {
           <div className="container-wide">
             <motion.div className="text-center mb-12 md:mb-16" {...fadeUp}>
               <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
-                The simplest thing you'll do for yourself today.
+                Taking care of yourself was never supposed to be hard.
               </h2>
               <p className="text-muted-foreground max-w-md mx-auto">
-                A ritual so easy, you'll actually keep it.
+                30 seconds. That's all it takes to tell your body: I've got you.
               </p>
             </motion.div>
 
