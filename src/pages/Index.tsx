@@ -83,8 +83,8 @@ export default function Index() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="Dissolving Wellness Strips – Science-Backed | NEUVIE™"
-        description="13 fast-dissolving supplement strips with clinically studied ingredients. 5x faster absorption than pills. Free US shipping $50+. Shop now!"
+        title="You Deserve to Feel This Good – Wellness Strips | NEUVIE™"
+        description="30 seconds. No pills. No excuses. 13 dissolving wellness strips made for people who believe they're worth taking care of. Free US shipping $50+."
       />
       
       <Navbar />
