@@ -37,7 +37,7 @@ const productTestimonials: Record<string, { quote: string; author: string }> = {
     author: "Michael R."
   },
   energy: {
-    quote: "I was skeptical \u2014 another energy supplement, right? But these actually stuck. No crash, no jitters. Just a steady morning that carries me through.",
+    quote: "I was skeptical — another energy supplement, right? But these actually stuck. No crash, no jitters. Just a steady morning that carries me through.",
     author: "Sarah K."
   },
   sleep: {
