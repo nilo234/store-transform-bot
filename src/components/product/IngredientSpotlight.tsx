@@ -36,9 +36,9 @@ const ingredientsByProduct: Record<string, Ingredient[]> = {
     { name: "Vitamin B6", benefit: "Keeps your nervous system running smoothly", category: "NERVE", icon: Brain },
   ],
   default: [
-    { name: "Purposeful ingredients", benefit: "Every ingredient earns its place \u2014 nothing is there for show", category: "QUALITY", icon: Sparkles },
+    { name: "Purposeful ingredients", benefit: "Every ingredient earns its place — nothing is there for show", category: "QUALITY", icon: Sparkles },
     { name: "Fast-dissolving format", benefit: "Absorbs in seconds so your body can get to work", category: "DELIVERY", icon: Zap },
-    { name: "Natural flavors", benefit: "Tastes like something you\u2019d actually choose", category: "PURE", icon: Leaf },
+    { name: "Natural flavors", benefit: "Tastes like something you'd actually choose", category: "PURE", icon: Leaf },
   ],
 };
 
