@@ -64,7 +64,7 @@ export function Footer() {
                 type="submit"
                 className="h-11 md:h-12 bg-accent hover:bg-accent/90 text-accent-foreground px-6 font-semibold rounded-lg w-full sm:w-auto"
               >
-                Claim 15% Off
+                Yes, I'm Worth It
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </form>
