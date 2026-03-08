@@ -230,7 +230,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                OUR PROMISE
+                OUR PROMISE TO YOU
               </motion.h2>
               
               <motion.div 
