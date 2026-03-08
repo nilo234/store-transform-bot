@@ -360,7 +360,7 @@ export default function Index() {
           <div className="container-wide">
             <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
               <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
-                From people who made it part of their day.
+                From people who decided they're worth it.
               </h2>
               <div className="flex items-center justify-center gap-2 mb-2">
                 <div className="flex">
@@ -368,7 +368,7 @@ export default function Index() {
                     <Star key={i} className="h-4 w-4 fill-accent text-accent" />
                   ))}
                 </div>
-                <span className="text-sm text-muted-foreground font-medium">4.9 out of 5 — from 2,400+ people who tried it, felt it, and stayed.</span>
+                <span className="text-sm text-muted-foreground font-medium">4.9 out of 5 — from 2,400+ people who chose themselves.</span>
               </div>
             </motion.div>
           </div>
