@@ -240,10 +240,10 @@ export default function Science() {
               viewport={{ once: true }}
             >
               <h2 className="font-body text-3xl md:text-4xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-                THIRD-PARTY TESTED
+                TESTED — FOR YOUR PEACE OF MIND
               </h2>
               <p className="text-muted-foreground text-lg">
-                Every batch is independently tested for purity, potency, and safety. Here are the results.
+                Every batch is independently verified. Because the things you put in your body should never be a guessing game.
               </p>
             </motion.div>
 
