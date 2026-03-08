@@ -418,10 +418,10 @@ export default function Index() {
           <div className="container-wide">
             <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
               <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
-                Build your routine. Save more.
+                Your routine, your way.
               </h2>
               <p className="text-muted-foreground max-w-lg mx-auto">
-                Pair your strips into a daily ritual — and keep more in your pocket.
+                Combine the strips that match your life. Taking care of yourself shouldn't cost more than it needs to.
               </p>
             </motion.div>
 
