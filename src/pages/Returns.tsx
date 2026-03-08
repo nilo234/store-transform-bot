@@ -30,7 +30,7 @@ export default function Returns() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              We stand behind our products with a 14-day money-back guarantee.
+              We want you to feel completely confident in your choice. That's why every order is backed by our guarantee.
             </motion.p>
           </div>
         </section>
