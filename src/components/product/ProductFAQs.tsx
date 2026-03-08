@@ -55,7 +55,7 @@ const productSpecificFaqs: Record<string, FAQ[]> = {
   mushroom: [
     {
       question: "Are these made with real mushrooms?",
-      answer: "Yes \u2014 real functional mushroom extracts including Lion\u2019s Mane, Cordyceps, Maitake, and Shiitake. Each one is carefully sourced and extracted for potency."
+      answer: "Yes — real functional mushroom extracts including Lion's Mane, Cordyceps, Maitake, and Shiitake. Each one is carefully sourced and extracted for potency."
     },
     ...defaultFaqs.slice(0, 5)
   ],
