@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Minus, Plus, ShoppingCart, ChevronLeft, Check, Truck, Shield, RotateCcw, Leaf, AlertCircle } from 'lucide-react';
+import { StickyAddToCart } from '@/components/product/StickyAddToCart';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
@@ -73,6 +74,7 @@ export default function ProductDetail() {
   const [isLoading, setIsLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
+  const addToCartButtonRef = useRef<HTMLDivElement>(null);
   const [purchaseSelection, setPurchaseSelection] = useState<{
     type: PurchaseType;
     frequency?: string;
@@ -319,7 +321,7 @@ export default function ProductDetail() {
               </div>
 
               {/* Quantity & Add to Cart */}
-              <div className="flex flex-col gap-3 pt-2">
+              <div ref={addToCartButtonRef} className="flex flex-col gap-3 pt-2">
                 <div className="flex items-center gap-4">
                   <div className="flex items-center gap-3 bg-muted rounded-full p-1">
                     <Button
@@ -370,8 +372,8 @@ export default function ProductDetail() {
               />
 
               {/* Quick Info Accordions */}
-              <Accordion type="single" collapsible className="space-y-2">
-                <AccordionItem value="description" className="bg-muted/30 rounded-xl border-none px-4">
+              <Accordion type="multiple" defaultValue={["description", "ingredients"]} className="space-y-2">
+                <AccordionItem value="description" className="bg-muted/30 rounded-xl border-none px-4 data-[state=open]:bg-muted/50">
                   <AccordionTrigger className="py-3 hover:no-underline">
                     <span className="font-medium">Description</span>
                   </AccordionTrigger>
@@ -380,7 +382,7 @@ export default function ProductDetail() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="ingredients" className="bg-muted/30 rounded-xl border-none px-4">
+                <AccordionItem value="ingredients" className="bg-muted/30 rounded-xl border-none px-4 data-[state=open]:bg-muted/50">
                   <AccordionTrigger className="py-3 hover:no-underline">
                     <span className="font-medium">Ingredients</span>
                   </AccordionTrigger>
@@ -395,7 +397,7 @@ export default function ProductDetail() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="shipping" className="bg-muted/30 rounded-xl border-none px-4">
+                <AccordionItem value="shipping" className="bg-muted/30 rounded-xl border-none px-4 data-[state=open]:bg-muted/50">
                   <AccordionTrigger className="py-3 hover:no-underline">
                     <span className="font-medium">Shipping & Guarantee</span>
                   </AccordionTrigger>
@@ -559,6 +561,16 @@ export default function ProductDetail() {
           productTitle={sanitizeTitle(product.title)}
         />
       </main>
+
+      {/* Sticky Add to Cart Bar */}
+      <StickyAddToCart
+        productTitle={sanitizeTitle(product.title)}
+        price={purchaseSelection?.finalPrice ?? price}
+        originalPrice={originalPrice}
+        onAddToCart={handleAddToCart}
+        isSubscription={purchaseSelection?.type === 'subscribe'}
+        addToCartRef={addToCartButtonRef}
+      />
 
       <Footer />
     </div>

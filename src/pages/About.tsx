@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
-import { Check, Leaf, Heart, Award, Users } from 'lucide-react';
+import { Check, Leaf, Heart, Award, Users, Quote, ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { PageMeta } from '@/components/seo';
 
 const values = [
@@ -34,6 +36,12 @@ const stats = [
   { number: '14 Days', label: 'Money-Back Guarantee' },
 ];
 
+const team = [
+  { name: 'Alex M.', role: 'Co-Founder & CEO', bio: 'Passionate about making daily wellness effortless for everyone.', gradient: 'from-primary to-accent' },
+  { name: 'Jordan L.', role: 'Head of Product', bio: 'Obsessed with ingredient quality and innovative delivery formats.', gradient: 'from-blue-500 to-indigo-500' },
+  { name: 'Priya S.', role: 'Lead Scientist', bio: 'Ensures every formula is backed by real research and effective dosages.', gradient: 'from-rose-400 to-pink-500' },
+];
+
 export default function About() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -64,6 +72,24 @@ export default function About() {
                 We believe wellness should be simple, effective, and fit seamlessly into your life. That's why we created fast-dissolving oral strips with science-backed ingredients—supplements you can take anywhere, anytime.
               </motion.p>
             </div>
+          </div>
+        </section>
+
+        {/* Founder Quote */}
+        <section className="py-16 bg-muted/20">
+          <div className="container-wide">
+            <motion.div
+              className="max-w-3xl mx-auto text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <Quote className="h-12 w-12 text-primary/30 mx-auto mb-6" />
+              <blockquote className="font-body text-2xl md:text-3xl font-medium text-foreground leading-relaxed mb-6" style={{ letterSpacing: '-0.01em' }}>
+                "We built Neuvie because we were tired of supplements that were hard to take and easy to forget."
+              </blockquote>
+              <p className="text-muted-foreground font-medium">— The Neuvie Team</p>
+            </motion.div>
           </div>
         </section>
 
@@ -125,8 +151,44 @@ export default function About() {
           </div>
         </section>
 
-        {/* Values Section */}
+        {/* Meet the Team */}
         <section className="py-20">
+          <div className="container-wide">
+            <motion.h2 
+              className="font-body text-3xl md:text-4xl font-semibold text-center mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              MEET THE TEAM
+            </motion.h2>
+
+            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              {team.map((member, index) => (
+                <motion.div
+                  key={member.name}
+                  className="bg-card rounded-2xl p-8 text-center shadow-soft border border-border/50"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${member.gradient} flex items-center justify-center mx-auto mb-5 shadow-md`}>
+                    <span className="text-2xl font-bold text-white">
+                      {member.name.split(' ').map(n => n[0]).join('')}
+                    </span>
+                  </div>
+                  <h3 className="font-semibold text-lg text-foreground">{member.name}</h3>
+                  <p className="text-sm text-primary font-medium mb-3">{member.role}</p>
+                  <p className="text-sm text-muted-foreground">{member.bio}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Values Section */}
+        <section className="py-20 bg-muted/30">
           <div className="container-wide">
             <motion.h2 
               className="font-body text-3xl md:text-4xl font-semibold text-center mb-16"
@@ -159,7 +221,7 @@ export default function About() {
         </section>
 
         {/* Commitment Section */}
-        <section className="py-20 bg-muted/30">
+        <section className="py-20">
           <div className="container-wide">
             <div className="max-w-3xl mx-auto">
               <motion.h2 
@@ -192,6 +254,42 @@ export default function About() {
                 ))}
               </motion.div>
             </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-20 bg-muted/30">
+          <div className="container-wide text-center">
+            <motion.h2 
+              className="font-body text-3xl md:text-4xl font-semibold mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              Ready to Try Neuvie?
+            </motion.h2>
+            <motion.p
+              className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              Join 50,000+ customers who made wellness simple.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <Button className="btn-primary h-14 px-10 text-lg font-semibold gap-2" asChild>
+                <Link to="/shop">
+                  Shop Our Strips
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+              </Button>
+            </motion.div>
           </div>
         </section>
       </main>

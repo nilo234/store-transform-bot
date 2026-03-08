@@ -12,9 +12,9 @@ interface SubscriptionOption {
 }
 
 const subscriptionOptions: SubscriptionOption[] = [
-  { frequency: 'monthly', label: 'Every Month', discount: 15 },
-  { frequency: 'bimonthly', label: 'Every 2 Months', discount: 10 },
-  { frequency: 'quarterly', label: 'Every 3 Months', discount: 5 },
+  { frequency: 'monthly', label: 'Every Month', discount: 20 },
+  { frequency: 'bimonthly', label: 'Every 2 Months', discount: 15 },
+  { frequency: 'quarterly', label: 'Every 3 Months', discount: 10 },
 ];
 
 interface SubscriptionToggleProps {

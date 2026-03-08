@@ -10,6 +10,7 @@ interface Testimonial {
   product: string;
   productHandle: string;
   isVerified: boolean;
+  gradient: string;
 }
 
 const testimonials: Testimonial[] = [
@@ -21,6 +22,7 @@ const testimonials: Testimonial[] = [
     product: 'Energy Strips',
     productHandle: 'energy-strips',
     isVerified: true,
+    gradient: 'from-rose-400 to-pink-500',
   },
   {
     id: '2',
@@ -30,6 +32,7 @@ const testimonials: Testimonial[] = [
     product: 'Mushroom Focus Strips',
     productHandle: 'mushroom-focus-strips',
     isVerified: true,
+    gradient: 'from-blue-400 to-indigo-500',
   },
   {
     id: '3',
@@ -39,6 +42,7 @@ const testimonials: Testimonial[] = [
     product: 'Hair, Skin & Nails Strips',
     productHandle: 'hair-skin-nails-strips',
     isVerified: true,
+    gradient: 'from-amber-400 to-orange-500',
   },
   {
     id: '4',
@@ -48,6 +52,7 @@ const testimonials: Testimonial[] = [
     product: 'Sleep Strips',
     productHandle: 'sleep-strips',
     isVerified: true,
+    gradient: 'from-violet-400 to-purple-500',
   },
   {
     id: '5',
@@ -57,6 +62,7 @@ const testimonials: Testimonial[] = [
     product: 'Cognitive Relax Strips',
     productHandle: 'cognitive-relax-strips',
     isVerified: true,
+    gradient: 'from-teal-400 to-emerald-500',
   },
   {
     id: '6',
@@ -66,6 +72,7 @@ const testimonials: Testimonial[] = [
     product: 'Hangover Strips',
     productHandle: 'hangover-strips',
     isVerified: true,
+    gradient: 'from-cyan-400 to-blue-500',
   },
 ];
 
@@ -73,20 +80,32 @@ export function TestimonialsCarousel() {
   return (
     <section className="py-20 md:py-28 bg-background overflow-hidden">
       <div className="container-wide">
+        {/* Review Summary Bar */}
         <motion.div 
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-xs font-bold text-primary uppercase tracking-widest mb-4 block">
+          <span className="text-xs font-bold text-primary uppercase tracking-widest mb-6 block">
             Customer Reviews
           </span>
-          <h2 className="font-body text-3xl md:text-4xl lg:text-5xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-            WHAT OUR CUSTOMERS ARE SAYING
-          </h2>
+          
+          <div className="mb-6">
+            <span className="font-body text-5xl md:text-6xl font-bold text-foreground" style={{ letterSpacing: '-0.03em' }}>
+              4.9
+            </span>
+            <span className="text-2xl text-muted-foreground font-medium ml-1">/ 5</span>
+          </div>
+          
+          <div className="flex justify-center gap-1.5 mb-4">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="h-7 w-7 fill-accent text-accent" />
+            ))}
+          </div>
+          
           <p className="text-muted-foreground text-lg">
-            Join 50,000+ customers who've made Neuvie part of their daily routine.
+            Based on <strong className="text-foreground">2,400+</strong> verified reviews
           </p>
         </motion.div>
       </div>
@@ -129,8 +148,8 @@ export function TestimonialsCarousel() {
                 
                 {/* Author */}
                 <div className="flex items-center gap-3 pt-4 border-t border-border/50">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                    <span className="text-sm font-semibold text-primary">
+                  <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${testimonial.gradient} flex items-center justify-center shadow-sm`}>
+                    <span className="text-sm font-bold text-white">
                       {testimonial.name.charAt(0)}
                     </span>
                   </div>
@@ -152,24 +171,6 @@ export function TestimonialsCarousel() {
         {/* Fade edges */}
         <div className="absolute left-0 top-0 bottom-6 w-12 bg-gradient-to-r from-background to-transparent pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-6 w-12 bg-gradient-to-l from-background to-transparent pointer-events-none" />
-      </div>
-      
-      <div className="container-wide mt-8 text-center">
-        <motion.div
-          className="inline-flex items-center gap-4 bg-muted/50 rounded-full px-6 py-3"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="h-4 w-4 fill-accent text-accent" />
-            ))}
-          </div>
-          <span className="text-sm font-medium text-muted-foreground">
-            4.9/5 from 2,400+ reviews
-          </span>
-        </motion.div>
       </div>
     </section>
   );
