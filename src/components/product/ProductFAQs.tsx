@@ -19,7 +19,7 @@ interface ProductFAQsProps {
 const defaultFaqs: FAQ[] = [
   {
     question: "When should I take my strip?",
-    answer: "Most people take theirs in the morning to start the day right. But there\u2019s no wrong time \u2014 whenever fits your routine. Just place it on your tongue and let it dissolve."
+    answer: "Most people take theirs in the morning to start the day right. But there's no wrong time — whenever fits your routine. Just place it on your tongue and let it dissolve."
   },
   {
     question: "Will I actually feel a difference?",
