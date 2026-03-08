@@ -9,6 +9,7 @@ import { FreeShippingBar } from './FreeShippingBar';
 import { CartUrgencyBanner } from './CartUrgencyBanner';
 import { SecureCheckoutBadges } from './SecureCheckoutBadges';
 import { CartUpsell } from './CartUpsell';
+import { bundles as bundleDefinitions } from '@/data/bundles';
 
 // Group items into bundles and standalone items
 function useGroupedItems(items: CartItem[]) {
