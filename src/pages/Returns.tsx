@@ -47,10 +47,10 @@ export default function Returns() {
                 <Shield className="h-10 w-10" />
               </div>
               <h2 className="font-body text-3xl md:text-4xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-                14-Day Money-Back Guarantee
+                You Should Feel Sure
               </h2>
               <p className="text-primary-foreground/80 max-w-2xl text-lg">
-                Not satisfied with your purchase? No problem. We offer a full refund within 14 days of purchase—no questions asked.
+                We believe taking care of yourself should feel good from the very first moment — including the moment you decide to try. If it's not right for you, we'll make it right. Full refund within 14 days. No questions.
               </p>
             </motion.div>
           </div>

@@ -32,7 +32,7 @@ export function AnnouncementBar({
             
             <span className="text-accent-foreground/70">—</span>
             
-            <span className="font-bold">Subscribe and save 20% on every refill</span>
+            <span className="font-bold">Subscribe & save 20% — because consistency matters</span>
             
             <a 
               href={linkHref}

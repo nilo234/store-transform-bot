@@ -176,7 +176,7 @@ export function ExitIntentPopup() {
                     onClick={() => setIsOpen(false)}
                     className="w-full text-center text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    No thanks, I'll pay full price.
+                    Maybe next time
                   </button>
                 </motion.form>
               ) : (

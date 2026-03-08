@@ -85,7 +85,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-primary-foreground/70 mb-6 md:mb-8 max-w-sm text-xs md:text-sm leading-relaxed">
-              Wellness strips that dissolve in seconds. Designed for people who take care of themselves — without making it a part-time job.
+              30-second wellness strips for people who believe they're worth taking care of. Designed to fit your life — not the other way around.
             </p>
             
             {/* Social Links */}

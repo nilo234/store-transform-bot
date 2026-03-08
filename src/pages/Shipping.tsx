@@ -96,7 +96,7 @@ export default function Shipping() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              Clear, straightforward shipping information. No fine print, no surprises.
+              We want your strips to reach you as quickly and smoothly as possible. Here's everything you need to know — no fine print, no surprises.
             </motion.p>
           </div>
         </section>
