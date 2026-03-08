@@ -46,7 +46,7 @@ export default function Contact() {
               style={{ letterSpacing: '-0.02em' }}
               animate={{ opacity: 1, y: 0 }}
             >
-              GET IN TOUCH
+              WE'RE HERE FOR YOU
             </motion.h1>
             <motion.p 
               className="text-lg text-muted-foreground max-w-2xl mx-auto"
