@@ -481,7 +481,7 @@ export default function ProductDetail() {
                   {/* Product Description */}
                   <AccordionItem value="description-full" className="bg-card rounded-xl border-none">
                     <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                      <span className="font-semibold text-lg">Full Description</span>
+                      <span className="font-semibold text-lg">The full story</span>
                     </AccordionTrigger>
                     <AccordionContent className="px-6 pb-6">
                       <div className="space-y-4 text-muted-foreground">
