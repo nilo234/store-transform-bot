@@ -372,8 +372,8 @@ export default function ProductDetail() {
               />
 
               {/* Quick Info Accordions */}
-              <Accordion type="single" collapsible className="space-y-2">
-                <AccordionItem value="description" className="bg-muted/30 rounded-xl border-none px-4">
+              <Accordion type="multiple" defaultValue={["description", "ingredients"]} className="space-y-2">
+                <AccordionItem value="description" className="bg-muted/30 rounded-xl border-none px-4 data-[state=open]:bg-muted/50">
                   <AccordionTrigger className="py-3 hover:no-underline">
                     <span className="font-medium">Description</span>
                   </AccordionTrigger>
@@ -382,7 +382,7 @@ export default function ProductDetail() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="ingredients" className="bg-muted/30 rounded-xl border-none px-4">
+                <AccordionItem value="ingredients" className="bg-muted/30 rounded-xl border-none px-4 data-[state=open]:bg-muted/50">
                   <AccordionTrigger className="py-3 hover:no-underline">
                     <span className="font-medium">Ingredients</span>
                   </AccordionTrigger>
@@ -397,7 +397,7 @@ export default function ProductDetail() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="shipping" className="bg-muted/30 rounded-xl border-none px-4">
+                <AccordionItem value="shipping" className="bg-muted/30 rounded-xl border-none px-4 data-[state=open]:bg-muted/50">
                   <AccordionTrigger className="py-3 hover:no-underline">
                     <span className="font-medium">Shipping & Guarantee</span>
                   </AccordionTrigger>
