@@ -173,7 +173,7 @@ export default function Index() {
                 ))}
               </div>
               <p className="text-center text-xs text-muted-foreground mt-4">
-                Every strip. Every batch. Zero compromises.
+                Because you deserve to know exactly what you're putting in your body.
               </p>
             </motion.div>
           </div>
