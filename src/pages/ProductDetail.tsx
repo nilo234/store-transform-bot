@@ -41,7 +41,7 @@ const productTestimonials: Record<string, { quote: string; author: string }> = {
     author: "Sarah K."
   },
   sleep: {
-    quote: "Some nights my brain just won\u2019t stop. These help me land. I wake up feeling like I actually slept \u2014 not just lay there.",
+    quote: "Some nights my brain just won't stop. These help me land. I wake up feeling like I actually slept — not just lay there.",
     author: "David L."
   },
   cognitive: {
