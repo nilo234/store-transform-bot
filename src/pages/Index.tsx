@@ -40,7 +40,7 @@ const howItWorks = [
 
 const ingredients = [
   { emoji: '🍄', name: "Lion's Mane", benefit: 'For the clarity you deserve*' },
-  { emoji: '🌙', name: 'Melatonin', benefit: 'For the rest you've earned*' },
+  { emoji: '🌙', name: 'Melatonin', benefit: "For the rest you've earned*" },
   { emoji: '✨', name: 'Collagen', benefit: 'For the glow that starts within*' },
   { emoji: '🌿', name: 'Ashwagandha', benefit: 'For the calm you owe yourself*' },
   { emoji: '🍄', name: 'Cordyceps', benefit: 'For the energy that feels like you*' },
