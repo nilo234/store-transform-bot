@@ -33,27 +33,27 @@ import {
 // Testimonials per product category
 const productTestimonials: Record<string, { quote: string; author: string }> = {
   mushroom: {
-    quote: "I've made the Mushroom Focus Strips part of my daily work routine. Love the chocolate flavor and how easy they are to take.",
+    quote: "I keep these on my desk now. The chocolate flavor is actually good, and I stopped reaching for my third coffee. That\u2019s saying something.",
     author: "Michael R."
   },
   energy: {
-    quote: "The Energy Strips are perfect for my morning routine—clean energy without the jitters. So much easier than swallowing pills.",
+    quote: "I was skeptical \u2014 another energy supplement, right? But these actually stuck. No crash, no jitters. Just a steady morning that carries me through.",
     author: "Sarah K."
   },
   sleep: {
-    quote: "The Sleep Strips have become part of my nightly routine. Easy to take, great flavor, and I love the dissolving format.",
+    quote: "Some nights my brain just won\u2019t stop. These help me land. I wake up feeling like I actually slept \u2014 not just lay there.",
     author: "David L."
   },
   cognitive: {
-    quote: "Perfect for after a long workday. I enjoy the strawberry-mint flavor and love how convenient the strip format is.",
+    quote: "After a long day, I used to feel completely fried. Now I take one of these and actually enjoy my evening instead of just surviving it.",
     author: "Emma T."
   },
   immunity: {
-    quote: "I've been taking these daily for months. Love that they're third-party tested and made in the USA. Great quality.",
+    quote: "It\u2019s the one thing I don\u2019t skip. Knowing it\u2019s third-party tested and made in the US makes it easy to trust.",
     author: "James P."
   },
   default: {
-    quote: "These strips are so convenient and taste great. I've never been more consistent with my supplement routine!",
+    quote: "I\u2019ve tried pills, powders, gummies \u2014 nothing stuck. These are the first supplement I\u2019ve taken every single day for three months straight.",
     author: "Lisa M."
   }
 };
@@ -202,8 +202,8 @@ export default function ProductDetail() {
     <div className="min-h-screen flex flex-col">
       {/* SEO */}
       <PageMeta
-        title={`${sanitizeTitle(product.title)} – Buy Now $${price.toFixed(2)} | NEUVIE™`}
-        description={`Shop ${sanitizeTitle(product.title)} by NEUVIE™. Fast-dissolving strip with clinically studied ingredients. ⭐ 4.8/5 (1,247 reviews). Free US shipping on $50+.`}
+        title={`${sanitizeTitle(product.title)} \u2013 $${price.toFixed(2)} | NEUVIE\u2122`}
+        description={`${sanitizeTitle(product.title)} by NEUVIE\u2122. Dissolves in 30 seconds. No water, no pills. Rated 4.8/5 from 1,247+ reviews. Free US shipping on $50+.`}
       />
       <ProductJsonLd product={product} />
       <BreadcrumbJsonLd items={breadcrumbItems} />
@@ -291,8 +291,8 @@ export default function ProductDetail() {
               {/* Title & Subtitle */}
               <div>
                 <h1 className="font-body text-3xl md:text-4xl font-semibold" style={{ letterSpacing: '-0.02em' }}>{sanitizeTitle(product.title)}</h1>
-                <p className="text-muted-foreground mt-1">
-                  {productContent?.shortDescription?.split('.')[0] || 'Premium oral strip'}
+               <p className="text-muted-foreground mt-1">
+                  {productContent?.shortDescription?.split('.')[0] || 'Fast-dissolving wellness strip'}
                 </p>
               </div>
 
@@ -354,7 +354,7 @@ export default function ProductDetail() {
                 </div>
                 
                 <p className="text-center text-sm text-muted-foreground">
-                  ✓ Ships FREE today • ✓ Fast 2-5 day US delivery
+                  \u2713 Ships free today \u00b7 \u2713 Arrives in 2\u20135 business days
                 </p>
               </div>
 
@@ -375,7 +375,7 @@ export default function ProductDetail() {
               <Accordion type="multiple" defaultValue={["description", "ingredients"]} className="space-y-2">
                 <AccordionItem value="description" className="bg-muted/30 rounded-xl border-none px-4 data-[state=open]:bg-muted/50">
                   <AccordionTrigger className="py-3 hover:no-underline">
-                    <span className="font-medium">Description</span>
+                    <span className="font-medium">What it does</span>
                   </AccordionTrigger>
                   <AccordionContent className="pb-4 text-sm text-muted-foreground">
                     {productContent?.longDescription?.[0] || product.description}
@@ -384,7 +384,7 @@ export default function ProductDetail() {
 
                 <AccordionItem value="ingredients" className="bg-muted/30 rounded-xl border-none px-4 data-[state=open]:bg-muted/50">
                   <AccordionTrigger className="py-3 hover:no-underline">
-                    <span className="font-medium">Ingredients</span>
+                    <span className="font-medium">What\u2019s inside</span>
                   </AccordionTrigger>
                   <AccordionContent className="pb-4">
                     <div className="flex flex-wrap gap-1.5">
@@ -399,11 +399,11 @@ export default function ProductDetail() {
 
                 <AccordionItem value="shipping" className="bg-muted/30 rounded-xl border-none px-4 data-[state=open]:bg-muted/50">
                   <AccordionTrigger className="py-3 hover:no-underline">
-                    <span className="font-medium">Shipping & Guarantee</span>
+                    <span className="font-medium">Shipping & returns</span>
                   </AccordionTrigger>
                   <AccordionContent className="pb-4 text-sm text-muted-foreground space-y-2">
-                    <p><strong>Shipping:</strong> Orders ship within 1–2 business days. Delivery typically 3–5 business days.</p>
-                    <p><strong>14-Day Guarantee:</strong> Not satisfied? Contact hello@neuvie.com for a full refund on your first order — no questions asked.</p>
+                    <p><strong>Shipping:</strong> Orders ship within 1\u20132 business days. Most US orders arrive in 3\u20135 days.</p>
+                    <p><strong>14-day guarantee:</strong> If it\u2019s not for you, email hello@neuvie.com within 14 days. Full refund on your first order \u2014 no questions, no hassle.</p>
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -412,15 +412,15 @@ export default function ProductDetail() {
               <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
                 <div className="text-center">
                   <Truck className="h-6 w-6 mx-auto mb-2 text-primary" />
-                  <p className="text-xs text-muted-foreground">Free Shipping<br />on $50+</p>
+                  <p className="text-xs text-muted-foreground">Free shipping<br />on $50+</p>
                 </div>
                 <div className="text-center">
                   <Shield className="h-6 w-6 mx-auto mb-2 text-primary" />
-                  <p className="text-xs text-muted-foreground">Third-Party<br />Tested</p>
+                  <p className="text-xs text-muted-foreground">Independently<br />tested</p>
                 </div>
                 <div className="text-center">
                   <RotateCcw className="h-6 w-6 mx-auto mb-2 text-primary" />
-                  <p className="text-xs text-muted-foreground">14-Day<br />Guarantee</p>
+                  <p className="text-xs text-muted-foreground">14-day<br />money back</p>
                 </div>
               </div>
 
@@ -454,14 +454,14 @@ export default function ProductDetail() {
             <div className="container-wide">
               <div className="max-w-4xl mx-auto">
                 <h2 className="font-body text-2xl md:text-3xl font-semibold text-center mb-12" style={{ letterSpacing: '-0.02em' }}>
-                  Product Details
+                  Everything you need to know
                 </h2>
 
                 <Accordion type="single" collapsible className="space-y-4">
                   {/* Benefits */}
                   <AccordionItem value="benefits" className="bg-card rounded-xl border-none">
                     <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                      <span className="font-semibold text-lg">Benefits</span>
+                      <span className="font-semibold text-lg">What you\u2019ll feel</span>
                     </AccordionTrigger>
                     <AccordionContent className="px-6 pb-6">
                       <ul className="space-y-3">
@@ -481,7 +481,7 @@ export default function ProductDetail() {
                   {/* Product Description */}
                   <AccordionItem value="description-full" className="bg-card rounded-xl border-none">
                     <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                      <span className="font-semibold text-lg">Full Description</span>
+                      <span className="font-semibold text-lg">The full story</span>
                     </AccordionTrigger>
                     <AccordionContent className="px-6 pb-6">
                       <div className="space-y-4 text-muted-foreground">
@@ -495,7 +495,7 @@ export default function ProductDetail() {
                   {/* Usage */}
                   <AccordionItem value="usage" className="bg-card rounded-xl border-none">
                     <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                      <span className="font-semibold text-lg">How to Use</span>
+                      <span className="font-semibold text-lg">How to take it</span>
                     </AccordionTrigger>
                     <AccordionContent className="px-6 pb-6">
                       <p className="text-muted-foreground">{productContent.usage}</p>
@@ -505,7 +505,7 @@ export default function ProductDetail() {
                   {/* Supplement Facts */}
                   <AccordionItem value="supplement-facts" className="bg-card rounded-xl border-none">
                     <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                      <span className="font-semibold text-lg">Supplement Facts</span>
+                      <span className="font-semibold text-lg">What\u2019s in each strip</span>
                     </AccordionTrigger>
                     <AccordionContent className="px-6 pb-6">
                       <div className="overflow-x-auto">

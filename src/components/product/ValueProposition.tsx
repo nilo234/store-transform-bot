@@ -1,4 +1,4 @@
-import { Package, Truck, Gift, RefreshCw, BookOpen, Shield, Zap } from 'lucide-react';
+import { Package, Truck, Gift, RefreshCw, Shield, Zap } from 'lucide-react';
 
 interface ValuePropositionProps {
   servings?: number;
@@ -9,39 +9,39 @@ export const ValueProposition = ({ servings = 30, subscriptionPrice = "$12.99" }
   const perks = [
     {
       icon: Package,
-      title: `${servings} Strips Per Pack`,
-      subtitle: "30-day supply"
+      title: `${servings} strips per pack`,
+      subtitle: "A full month\u2019s worth"
     },
     {
       icon: Truck,
-      title: "FREE US Shipping",
+      title: "Free US shipping",
       subtitle: "On orders $50+"
     },
     {
       icon: Gift,
-      title: "FREE Mystery Gifts",
-      subtitle: "With subscription"
+      title: "Surprise extras",
+      subtitle: "Included with subscriptions"
     },
     {
       icon: Zap,
-      title: "5x Faster Absorption",
-      subtitle: "vs. pills & capsules"
+      title: "Absorbs in seconds",
+      subtitle: "Faster than pills or capsules"
     },
     {
       icon: RefreshCw,
-      title: "Subscribe & Save 20%",
-      subtitle: `Auto-refill at ${subscriptionPrice}`
+      title: "Subscribe & save 20%",
+      subtitle: `Auto-refill at ${subscriptionPrice}/mo`
     },
     {
       icon: Shield,
-      title: "14-Day Guarantee",
+      title: "14-day guarantee",
       subtitle: "Full refund, no questions"
     }
   ];
 
   return (
     <div className="space-y-3">
-      <h4 className="font-semibold text-foreground">Here's what you'll get:</h4>
+      <h4 className="font-semibold text-foreground">Here\u2019s what you get:</h4>
       <div className="grid grid-cols-2 gap-3">
         {perks.map((perk, index) => (
           <div key={index} className="flex items-start gap-3 p-2 rounded-lg bg-muted/50">

@@ -15,30 +15,30 @@ interface IngredientSpotlightProps {
 
 const ingredientsByProduct: Record<string, Ingredient[]> = {
   mushroom: [
-    { name: "Lion's Mane", benefit: "Supports mental clarity, focus, and memory function", category: "FOCUS", icon: Brain },
-    { name: "Cordyceps", benefit: "Revered for supporting cellular energy and stamina", category: "ENERGY", icon: Zap },
-    { name: "Maitake", benefit: "Contains beta-glucans that support immune health", category: "IMMUNITY", icon: Shield },
-    { name: "Shiitake", benefit: "Rich in antioxidants for cellular protection", category: "WELLNESS", icon: Heart },
+    { name: "Lion\u2019s Mane", benefit: "The clarity you want on your best days \u2014 available on all of them", category: "FOCUS", icon: Brain },
+    { name: "Cordyceps", benefit: "Steady energy that carries you through without a crash", category: "ENERGY", icon: Zap },
+    { name: "Maitake", benefit: "Quietly supports your immune system, every single day", category: "IMMUNITY", icon: Shield },
+    { name: "Shiitake", benefit: "Rich in antioxidants that help protect at the cellular level", category: "WELLNESS", icon: Heart },
   ],
   energy: [
-    { name: "Vitamin B12", benefit: "Essential for energy metabolism and red blood cell formation", category: "ENERGY", icon: Zap },
-    { name: "Green Tea Extract", benefit: "Natural caffeine for sustained energy without jitters", category: "FOCUS", icon: Brain },
-    { name: "Iron", benefit: "Supports oxygen transport and reduces fatigue", category: "VITALITY", icon: Heart },
+    { name: "Vitamin B12", benefit: "The baseline that keeps everything else going", category: "ENERGY", icon: Zap },
+    { name: "Green Tea Extract", benefit: "Sustained focus without the jittery edge", category: "FOCUS", icon: Brain },
+    { name: "Iron", benefit: "Supports oxygen flow so you feel less drained", category: "VITALITY", icon: Heart },
   ],
   sleep: [
-    { name: "Melatonin", benefit: "Helps regulate your natural sleep-wake cycle", category: "SLEEP", icon: Sparkles },
-    { name: "L-Theanine", benefit: "Promotes relaxation without drowsiness", category: "CALM", icon: Leaf },
-    { name: "Magnesium", benefit: "Supports muscle relaxation and nervous system", category: "RECOVERY", icon: Heart },
+    { name: "Melatonin", benefit: "The off-switch your brain needs at the end of the day", category: "SLEEP", icon: Sparkles },
+    { name: "L-Theanine", benefit: "Calm without drowsiness \u2014 just a quieter mind", category: "CALM", icon: Leaf },
+    { name: "Magnesium", benefit: "Helps your muscles and nervous system unwind", category: "RECOVERY", icon: Heart },
   ],
   cognitive: [
-    { name: "L-Theanine", benefit: "Promotes calm focus without drowsiness", category: "CALM", icon: Leaf },
-    { name: "GABA", benefit: "Supports your body's natural stress response", category: "BALANCE", icon: Heart },
-    { name: "Vitamin B6", benefit: "Contributes to normal nervous system function", category: "NERVE", icon: Brain },
+    { name: "L-Theanine", benefit: "Focused calm when your brain won\u2019t stop racing", category: "CALM", icon: Leaf },
+    { name: "GABA", benefit: "Supports your body\u2019s natural response to stress", category: "BALANCE", icon: Heart },
+    { name: "Vitamin B6", benefit: "Keeps your nervous system running smoothly", category: "NERVE", icon: Brain },
   ],
   default: [
-    { name: "Premium Ingredients", benefit: "Carefully selected for maximum effectiveness", category: "QUALITY", icon: Sparkles },
-    { name: "Fast-Dissolving Formula", benefit: "Rapid absorption for quick results", category: "DELIVERY", icon: Zap },
-    { name: "Natural Flavors", benefit: "Delicious taste without artificial additives", category: "PURE", icon: Leaf },
+    { name: "Purposeful ingredients", benefit: "Every ingredient earns its place \u2014 nothing is there for show", category: "QUALITY", icon: Sparkles },
+    { name: "Fast-dissolving format", benefit: "Absorbs in seconds so your body can get to work", category: "DELIVERY", icon: Zap },
+    { name: "Natural flavors", benefit: "Tastes like something you\u2019d actually choose", category: "PURE", icon: Leaf },
   ],
 };
 
@@ -56,10 +56,10 @@ export const IngredientSpotlight = ({ ingredients, productHandle }: IngredientSp
             viewport={{ once: true }}
           >
             <h2 className="font-body text-2xl md:text-3xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-              Inside the Strips
+              What\u2019s inside \u2014 and why it matters
             </h2>
             <p className="text-muted-foreground">
-              Powerful ingredients backed by science for your well-being
+              Every ingredient is here for a reason. No fillers. No fluff.
             </p>
           </motion.div>
 

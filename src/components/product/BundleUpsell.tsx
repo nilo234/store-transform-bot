@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion';
-import { ShoppingCart, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useCartStore } from '@/stores/cartStore';
-import { toast } from 'sonner';
 import { Link } from 'react-router-dom';
 
 interface BundleUpsellProps {
@@ -20,7 +18,7 @@ const bundles = [
   },
   {
     name: "Complete Health Bundle",
-    description: "Full spectrum wellness",
+    description: "Full spectrum, one routine",
     products: ["Energy", "Sleep", "Immunity", "Probiotic"],
     originalPrice: 139.96,
     salePrice: 114.99,
@@ -40,13 +38,13 @@ export const BundleUpsell = ({ currentProductHandle }: BundleUpsellProps) => {
             viewport={{ once: true }}
           >
             <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-              Save More
+              Better together
             </span>
             <h2 className="font-body text-2xl md:text-3xl font-semibold mt-2 mb-4" style={{ letterSpacing: '-0.02em' }}>
-              Bundle & Save Up To 25%
+              Build a routine that covers all the bases.
             </h2>
             <p className="text-muted-foreground">
-              Get more value with our curated wellness bundles
+              Combine strips and save up to 25% on curated bundles.
             </p>
           </motion.div>
 
@@ -66,7 +64,7 @@ export const BundleUpsell = ({ currentProductHandle }: BundleUpsellProps) => {
                     <p className="text-sm text-muted-foreground">{bundle.description}</p>
                   </div>
                   <span className="bg-accent/20 text-accent text-xs font-bold px-2 py-1 rounded-full">
-                    {bundle.savings} OFF
+                    {bundle.savings} off
                   </span>
                 </div>
 
@@ -86,7 +84,7 @@ export const BundleUpsell = ({ currentProductHandle }: BundleUpsellProps) => {
 
                 <Link to="/bundles">
                   <Button className="w-full btn-secondary" variant="outline">
-                    View Bundle
+                    See this bundle
                   </Button>
                 </Link>
               </motion.div>
@@ -95,7 +93,7 @@ export const BundleUpsell = ({ currentProductHandle }: BundleUpsellProps) => {
 
           <div className="text-center mt-8">
             <Link to="/bundles" className="text-primary hover:underline font-medium">
-              View All Bundles →
+              Browse all bundles \u2192
             </Link>
           </div>
         </div>

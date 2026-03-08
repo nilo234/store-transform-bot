@@ -7,35 +7,35 @@ interface ClinicalResultsProps {
 
 const clinicalData: Record<string, { title: string; stats: Array<{ icon: any; label: string; percentage: number }> }> = {
   mushroom: {
-    title: "Customer-reported benefits after 60 days*",
+    title: "What people noticed after 60 days*",
     stats: [
-      { icon: Target, label: "Reported improved focus", percentage: 78 },
-      { icon: Brain, label: "Felt greater mental clarity", percentage: 74 },
-      { icon: Zap, label: "Noticed more sustained energy", percentage: 70 },
+      { icon: Target, label: "Felt sharper and more focused", percentage: 78 },
+      { icon: Brain, label: "Experienced clearer thinking", percentage: 74 },
+      { icon: Zap, label: "Had more steady energy throughout the day", percentage: 70 },
     ]
   },
   energy: {
-    title: "Customer-reported benefits after 60 days*",
+    title: "What people noticed after 60 days*",
     stats: [
-      { icon: Zap, label: "Felt more energized", percentage: 82 },
-      { icon: Target, label: "Reported better focus", percentage: 76 },
-      { icon: Heart, label: "Noticed less fatigue", percentage: 71 },
+      { icon: Zap, label: "Felt more energized without a crash", percentage: 82 },
+      { icon: Target, label: "Stayed focused longer", percentage: 76 },
+      { icon: Heart, label: "Felt less afternoon fatigue", percentage: 71 },
     ]
   },
   sleep: {
-    title: "Customer-reported benefits after 60 days*",
+    title: "What people noticed after 60 days*",
     stats: [
-      { icon: Heart, label: "Reported better sleep quality", percentage: 85 },
-      { icon: Brain, label: "Felt more relaxed before bed", percentage: 79 },
-      { icon: Zap, label: "Felt more refreshed in the morning", percentage: 72 },
+      { icon: Heart, label: "Fell asleep easier and slept deeper", percentage: 85 },
+      { icon: Brain, label: "Felt calmer before bed", percentage: 79 },
+      { icon: Zap, label: "Woke up feeling actually rested", percentage: 72 },
     ]
   },
   default: {
-    title: "Customer-reported benefits after 60 days*",
+    title: "What people noticed after 60 days*",
     stats: [
-      { icon: Heart, label: "Reported overall wellness improvement", percentage: 80 },
-      { icon: Target, label: "Felt satisfied with the product", percentage: 76 },
-      { icon: Zap, label: "Noticed improved energy levels", percentage: 72 },
+      { icon: Heart, label: "Felt a noticeable difference in their wellbeing", percentage: 80 },
+      { icon: Target, label: "Made it part of their daily routine", percentage: 76 },
+      { icon: Zap, label: "Had more consistent energy", percentage: 72 },
     ]
   }
 };
@@ -57,7 +57,7 @@ export const ClinicalResults = ({ productType = "default" }: ClinicalResultsProp
               {data.title}
             </h2>
             <p className="text-muted-foreground">
-              Based on a survey of customers after 60 days of consistent use
+              Based on a survey of real customers who used the product daily for 60 days.
             </p>
           </motion.div>
 
@@ -83,7 +83,7 @@ export const ClinicalResults = ({ productType = "default" }: ClinicalResultsProp
           </div>
 
           <p className="text-xs text-muted-foreground text-center mt-8">
-            *Based on customer self-reported surveys. Individual experiences may vary. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
+            *Based on self-reported customer surveys. Individual results may vary. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
           </p>
         </div>
       </div>

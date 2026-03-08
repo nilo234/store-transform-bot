@@ -18,13 +18,13 @@ export const InlineTestimonial = ({
           <Star key={i} className="w-4 h-4 fill-accent text-accent" />
         ))}
       </div>
-      <p className="text-sm text-foreground italic mb-3">"{quote}"</p>
+      <p className="text-sm text-foreground italic mb-3">{"\u201C"}{quote}{"\u201D"}</p>
       <div className="flex items-center gap-2">
         <span className="text-sm font-medium text-foreground">{author}</span>
         {isVerified && (
           <span className="inline-flex items-center gap-1 text-xs text-primary">
             <BadgeCheck className="w-3.5 h-3.5" />
-            Verified Buyer
+            Verified buyer
           </span>
         )}
       </div>
