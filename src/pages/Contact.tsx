@@ -18,7 +18,7 @@ const contactMethods = [
     icon: MessageSquare,
     title: 'Live Chat',
     description: 'Talk to a real person',
-    value: 'Available 9am \u2013 6pm EST',
+    value: 'Available 9am – 6pm EST',
   },
   {
     icon: Clock,
