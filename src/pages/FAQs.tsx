@@ -54,7 +54,7 @@ const faqs = [
     a: "We recommend talking to your healthcare provider before starting any supplement during pregnancy or breastfeeding. Some products — especially those with caffeine or melatonin — may not be suitable." 
   },
 ];
-
+    
 export default function FAQs() {
   const faqJsonLdData = faqs.map(faq => ({
     question: faq.q,

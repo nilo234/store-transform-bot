@@ -53,7 +53,7 @@ const productTestimonials: Record<string, { quote: string; author: string }> = {
     author: "James P."
   },
   default: {
-    quote: "I\u2019ve tried pills, powders, gummies \u2014 nothing stuck. These are the first supplement I\u2019ve taken every single day for three months straight.",
+    quote: "I've tried pills, powders, gummies — nothing stuck. These are the first supplement I've taken every single day for three months straight.",
     author: "Lisa M."
   }
 };
