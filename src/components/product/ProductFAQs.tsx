@@ -35,7 +35,7 @@ const defaultFaqs: FAQ[] = [
   },
   {
     question: "What do they taste like?",
-    answer: "Good. Really good. Each product has its own natural flavor \u2014 no bitterness, no chalky aftertaste. We use natural sweeteners to make this something you look forward to, not dread."
+    answer: "Good. Really good. Each product has its own natural flavor — no bitterness, no chalky aftertaste. We use natural sweeteners to make this something you look forward to, not dread."
   },
   {
     question: "Are they independently tested?",
