@@ -115,7 +115,7 @@ export function ExitIntentPopup() {
               transition={{ delay: 0.3 }}
               className="font-body text-2xl md:text-3xl font-semibold mb-2"
             >
-              Wait — Don't Leave Empty-Handed! 🎁
+              Before you go — a little something for you 💛
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -123,7 +123,7 @@ export function ExitIntentPopup() {
               transition={{ delay: 0.4 }}
               className="text-primary-foreground/80 text-lg"
             >
-              Get 10% off your first order. Use code <strong className="text-accent">SAVE10</strong> at checkout.
+              Take 10% off your first order — because choosing yourself deserves to be celebrated. Use code <strong className="text-accent">SAVE10</strong>.
             </motion.p>
           </div>
 
