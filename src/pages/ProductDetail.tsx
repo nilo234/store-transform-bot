@@ -505,7 +505,7 @@ export default function ProductDetail() {
                   {/* Supplement Facts */}
                   <AccordionItem value="supplement-facts" className="bg-card rounded-xl border-none">
                     <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                      <span className="font-semibold text-lg">What\u2019s in each strip</span>
+                      <span className="font-semibold text-lg">What's in each strip</span>
                     </AccordionTrigger>
                     <AccordionContent className="px-6 pb-6">
                       <div className="overflow-x-auto">
