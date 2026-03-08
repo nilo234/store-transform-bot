@@ -9,45 +9,45 @@ import { PageMeta } from '@/components/seo';
 const values = [
   {
     icon: Leaf,
-    title: 'Premium Ingredients',
-    description: 'We source only the finest natural ingredients from trusted suppliers worldwide. Every ingredient is verified for purity and potency.',
+    title: 'Intentional Sourcing',
+    description: 'Every ingredient is traceable, independently verified, and chosen for what it does — not how it looks on a label.',
   },
   {
     icon: Award,
-    title: 'Science-Backed Formulas',
-    description: 'Our strips are developed by experts using clinically studied dosages. No fillers, no fluff—just purposeful ingredients.',
+    title: 'Real Dosages',
+    description: 'Formulated at levels that are studied to work. No pixie-dusting, no filler ingredients, no shortcuts.',
   },
   {
     icon: Heart,
-    title: 'Quality First',
-    description: 'Every batch is third-party tested for purity, potency, and safety. We exceed industry standards because you deserve the best.',
+    title: 'Tested, Then Tested Again',
+    description: 'Every batch goes through independent third-party testing for purity, potency, and safety before it ships.',
   },
   {
     icon: Users,
-    title: 'Customer Focused',
-    description: 'Your wellness journey is our priority. We stand behind every product with our 14-day money-back guarantee.',
+    title: 'Built Around You',
+    description: 'Your routine should be easy to keep. We designed every detail — format, flavor, packaging — with that in mind.',
   },
 ];
 
 const stats = [
-  { number: '50,000+', label: 'Happy Customers' },
+  { number: '50,000+', label: 'Routines Started' },
   { number: '99%', label: 'Satisfaction Rate' },
-  { number: '13', label: 'Premium Strips' },
+  { number: '13', label: 'Unique Strips' },
   { number: '14 Days', label: 'Money-Back Guarantee' },
 ];
 
 const team = [
-  { name: 'Alex M.', role: 'Co-Founder & CEO', bio: 'Passionate about making daily wellness effortless for everyone.', gradient: 'from-primary to-accent' },
-  { name: 'Jordan L.', role: 'Head of Product', bio: 'Obsessed with ingredient quality and innovative delivery formats.', gradient: 'from-blue-500 to-indigo-500' },
-  { name: 'Priya S.', role: 'Lead Scientist', bio: 'Ensures every formula is backed by real research and effective dosages.', gradient: 'from-rose-400 to-pink-500' },
+  { name: 'Alex M.', role: 'Co-Founder & CEO', bio: 'Believes wellness should fit your life — not the other way around.', gradient: 'from-primary to-accent' },
+  { name: 'Jordan L.', role: 'Head of Product', bio: 'Obsessed with finding the right ingredients in the right format.', gradient: 'from-blue-500 to-indigo-500' },
+  { name: 'Priya S.', role: 'Lead Scientist', bio: 'Makes sure every formula is backed by real research and effective dosages.', gradient: 'from-rose-400 to-pink-500' },
 ];
 
 export default function About() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="About NEUVIE™ – Our Mission & Story"
-        description="NEUVIE™ is transforming wellness with fast-dissolving oral strips. Premium ingredients, third-party tested, trusted by 50,000+ US customers. Learn more."
+        title="About NEUVIE\u2122 \u2013 Our Mission & Story"
+        description="NEUVIE\u2122 is transforming wellness with fast-dissolving oral strips. Premium ingredients, third-party tested. Learn more about our story."
       />
       <Navbar />
       
@@ -69,7 +69,7 @@ export default function About() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
               >
-                We believe wellness should be simple, effective, and fit seamlessly into your life. That's why we created fast-dissolving oral strips with science-backed ingredients—supplements you can take anywhere, anytime.
+                We started Neuvie because we believed wellness could be simpler. Not easier to sell — easier to stick with. That meant rethinking the format, the ingredients, and the way a supplement fits into a real person's day.
               </motion.p>
             </div>
           </div>
@@ -88,7 +88,7 @@ export default function About() {
               <blockquote className="font-body text-2xl md:text-3xl font-medium text-foreground leading-relaxed mb-6" style={{ letterSpacing: '-0.01em' }}>
                 "We built Neuvie because we were tired of supplements that were hard to take and easy to forget."
               </blockquote>
-              <p className="text-muted-foreground font-medium">— The Neuvie Team</p>
+              <p className="text-muted-foreground font-medium">&mdash; The Neuvie Team</p>
             </motion.div>
           </div>
         </section>
@@ -107,13 +107,13 @@ export default function About() {
                 </h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    Neuvie was born from a simple frustration: supplements are inconvenient. Pills are hard to swallow, powders are messy, and most products are filled with unnecessary additives.
+                    It started with a simple observation: most supplements don't fail because of what's inside them. They fail because people stop taking them.
                   </p>
                   <p>
-                    We set out to create a better way. Our fast-dissolving oral strips deliver premium, science-backed ingredients in a format that fits your lifestyle. No water needed. No pills to choke on. Just place a strip on your tongue and go.
+                    Pills are hard to swallow. Powders are messy. And most products are filled with things that don't need to be there. We wanted to create something different — a supplement that fits into your life so naturally, you actually keep using it.
                   </p>
                   <p>
-                    Today, Neuvie offers 13 unique strips—from Energy and Focus to Sleep and Beauty—each formulated to support your wellness goals. Trusted by over 50,000 customers, we're showing that effective supplementation doesn't have to be complicated.
+                    Today, Neuvie offers 13 fast-dissolving strips — from Energy and Focus to Sleep and Beauty — each formulated with ingredients chosen for what they do, not how they sound. No water needed. No routine to remember. Just place, dissolve, and move on with your day.
                   </p>
                 </div>
               </motion.div>
@@ -196,7 +196,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              OUR VALUES
+              WHAT WE STAND FOR
             </motion.h2>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -230,7 +230,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                OUR COMMITMENT TO YOU
+                OUR PROMISE
               </motion.h2>
               
               <motion.div 
@@ -240,10 +240,10 @@ export default function About() {
                 viewport={{ once: true }}
               >
                 {[
-                  'Third-party tested for purity and potency',
-                  'Clinically studied ingredient dosages',
-                  'Fast-dissolving oral strip format',
-                  'No artificial colors or preservatives',
+                  'Every batch independently tested for purity and potency',
+                  'Clinically studied ingredients at meaningful dosages',
+                  'Fast-dissolving strip format — no water, no pills',
+                  'No artificial colors, no preservatives, no fillers',
                   'Non-GMO and ethically sourced ingredients',
                   '14-day money-back guarantee — no questions asked',
                 ].map((item) => (
@@ -266,7 +266,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Ready to Try Neuvie?
+              Ready to feel the difference?
             </motion.h2>
             <motion.p
               className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto"
@@ -275,7 +275,7 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              Join 50,000+ customers who made wellness simple.
+              Start with one strip. See how it fits your day.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}

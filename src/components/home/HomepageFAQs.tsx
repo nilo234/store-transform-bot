@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     question: 'What if I don't like them?',
-    answer: "We offer a 14-day money-back guarantee. If you're not happy with your order, email us and we'll refund you — no questions asked, no hoops to jump through.",
+    answer: "We offer a 14-day money-back guarantee. If you\u2019re not happy with your order, email us and we\u2019ll refund you \u2014 no questions asked, no hoops to jump through.",
   },
   {
     question: 'Do you ship outside the US?',
