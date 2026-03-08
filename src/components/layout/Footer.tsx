@@ -49,10 +49,10 @@ export function Footer() {
         <div className="container-wide py-10 md:py-16 px-4 md:px-6">
           <div className="max-w-xl mx-auto text-center">
             <h3 className="font-body text-xl md:text-2xl lg:text-3xl font-semibold mb-3 md:mb-4" style={{ letterSpacing: '-0.02em' }}>
-              Start here. Feel it for yourself.
+              You're worth this. Let's get started.
             </h3>
             <p className="text-primary-foreground/70 mb-6 md:mb-8 text-sm md:text-base">
-              Get 15% off your first order — plus honest wellness insights, new launches, and the occasional thing worth knowing. No spam, ever.
+              Get 15% off your first order — plus honest wellness insights and new launches. No spam, ever. Just us, showing up for you.
             </p>
             <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <Input 
