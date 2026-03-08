@@ -405,7 +405,7 @@ export default function Science() {
                     rel="noopener noreferrer" 
                     className="text-sm text-primary font-medium flex items-center gap-1 hover:text-accent transition-colors mt-auto"
                   >
-                    View Study \u2192
+                    View Study →
                   </a>
                 </motion.div>
               ))}
