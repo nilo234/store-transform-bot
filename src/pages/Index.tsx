@@ -25,34 +25,34 @@ const trustBar = [
 ];
 
 const categories = [
-  { title: 'Performance & Energy', emoji: '⚡', description: 'For the days when you need to show up fully.', href: '/shop?category=performance', color: 'from-primary/10 to-primary/5' },
-  { title: 'Beauty & Skin', emoji: '✨', description: 'Because feeling good should show.', href: '/shop?category=beauty', color: 'from-accent/10 to-accent/5' },
-  { title: 'Sleep & Relax', emoji: '🌙', description: 'The night that makes tomorrow easier.', href: '/shop?category=sleep', color: 'from-muted to-muted/50' },
-  { title: 'Immunity & Health', emoji: '🛡️', description: 'The quiet foundation everything else is built on.', href: '/shop?category=immunity', color: 'from-primary/5 to-muted/30' },
+  { title: 'Performance & Energy', emoji: '⚡', description: 'For the mornings you choose to show up — fully.', href: '/shop?category=performance', color: 'from-primary/10 to-primary/5' },
+  { title: 'Beauty & Skin', emoji: '✨', description: 'Because how you feel inside deserves to show.', href: '/shop?category=beauty', color: 'from-accent/10 to-accent/5' },
+  { title: 'Sleep & Relax', emoji: '🌙', description: 'You carried the whole day. Let tonight carry you.', href: '/shop?category=sleep', color: 'from-muted to-muted/50' },
+  { title: 'Immunity & Health', emoji: '🛡️', description: 'The quiet act of protecting what matters most — you.', href: '/shop?category=immunity', color: 'from-primary/5 to-muted/30' },
 ];
 
 const howItWorks = [
-  { step: '01', icon: '📦', title: 'Open the pack', description: 'One strip is all you need.' },
-  { step: '02', icon: '👅', title: 'Place it on your tongue', description: "That's the whole instruction." },
-  { step: '03', icon: '⏱️', title: '30 seconds', description: 'No water. No mess. Just dissolve.' },
-  { step: '04', icon: '✨', title: 'Go live your day', description: 'Your body gets to work. You already moved on.' },
+  { step: '01', icon: '📦', title: 'Open the pack', description: 'A small moment, just for you.' },
+  { step: '02', icon: '👅', title: 'Place it on your tongue', description: 'No water. No effort. Just intention.' },
+  { step: '03', icon: '⏱️', title: '30 seconds', description: 'It dissolves. You chose yourself today.' },
+  { step: '04', icon: '✨', title: 'Go live your day', description: 'You already did the most important thing.' },
 ];
 
 const ingredients = [
-  { emoji: '🍄', name: "Lion's Mane", benefit: 'Mental clarity you can feel*' },
-  { emoji: '🌙', name: 'Melatonin', benefit: 'The off-switch your brain needs*' },
-  { emoji: '✨', name: 'Collagen', benefit: 'What shows up on the outside*' },
-  { emoji: '🌿', name: 'Ashwagandha', benefit: 'Stress without the spiral*' },
-  { emoji: '🍄', name: 'Cordyceps', benefit: 'Steady energy, no crash*' },
-  { emoji: '💊', name: 'Vitamin B12', benefit: 'The baseline that keeps everything else going*' },
+  { emoji: '🍄', name: "Lion's Mane", benefit: 'For the clarity you deserve*' },
+  { emoji: '🌙', name: 'Melatonin', benefit: 'For the rest you've earned*' },
+  { emoji: '✨', name: 'Collagen', benefit: 'For the glow that starts within*' },
+  { emoji: '🌿', name: 'Ashwagandha', benefit: 'For the calm you owe yourself*' },
+  { emoji: '🍄', name: 'Cordyceps', benefit: 'For the energy that feels like you*' },
+  { emoji: '💊', name: 'Vitamin B12', benefit: 'For the foundation everything else needs*' },
 ];
 
 const reviews = [
-  { id: '1', name: 'Sarah M.', text: "I've tried every supplement brand out there. I was skeptical. But the Energy Strips actually stuck — not because I force myself, because I actually feel the difference.", rating: 5, product: 'Energy Strips' },
-  { id: '2', name: 'James R.', text: "One month in and these are just sitting on my desk now. The chocolate flavor is genuinely good. And the focus? I stop checking my phone every 10 minutes.", rating: 5, product: 'Mushroom Focus' },
-  { id: '3', name: 'Emily K.', text: "It's the first supplement I've ever been consistent with. That says everything. The strip format just removes every excuse.", rating: 5, product: 'Hair, Skin & Nails' },
-  { id: '4', name: 'Michael T.', text: "Some nights my brain just won't stop. These help me land. Not like a sleeping pill — more like a gentle dimmer switch.", rating: 5, product: 'Sleep Strips' },
-  { id: '5', name: 'Lisa P.', text: "I didn't expect to love a supplement. But the Cognitive Relax Strips after a long day? It's become my favorite 30 seconds.", rating: 5, product: 'Cognitive Relax' },
+  { id: '1', name: 'Sarah M.', text: "I started taking the Energy Strips because I wanted to stop relying on coffee. What I didn't expect was how much better I'd feel about actually doing something for myself every morning.", rating: 5, product: 'Energy Strips' },
+  { id: '2', name: 'James R.', text: "It's not even about the focus anymore. It's the fact that I take 30 seconds every day and it's mine. The Mushroom Focus just happens to make everything after that a little sharper.", rating: 5, product: 'Mushroom Focus' },
+  { id: '3', name: 'Emily K.', text: "I've always put everyone else first. The Hair, Skin & Nails Strips became the first thing I do just for me. My nails are stronger, my skin is clearer — but honestly, it's the feeling that changed.", rating: 5, product: 'Hair, Skin & Nails' },
+  { id: '4', name: 'Michael T.', text: "I used to feel guilty for taking time for myself. Now I take a Sleep Strip, and it's like telling my body: you did enough today. Rest now. That shift changed everything.", rating: 5, product: 'Sleep Strips' },
+  { id: '5', name: 'Lisa P.', text: "I didn't buy these because someone told me to. I bought them because I looked in the mirror and thought — I'm worth taking care of. Three months later, I still feel that way.", rating: 5, product: 'Cognitive Relax' },
 ];
 
 // Bundles to feature on homepage
