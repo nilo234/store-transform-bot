@@ -69,7 +69,7 @@ const productSpecificFaqs: Record<string, FAQ[]> = {
   energy: [
     {
       question: "Will this give me jitters like coffee?",
-      answer: "Not at all. The energy comes from B-vitamins and natural ingredients that support steady, sustained energy \u2014 no spikes, no crashes."
+      answer: "Not at all. The energy comes from B-vitamins and natural ingredients that support steady, sustained energy — no spikes, no crashes."
     },
     ...defaultFaqs.slice(0, 5)
   ]
