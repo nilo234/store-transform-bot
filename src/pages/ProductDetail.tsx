@@ -33,27 +33,27 @@ import {
 // Testimonials per product category
 const productTestimonials: Record<string, { quote: string; author: string }> = {
   mushroom: {
-    quote: "I've made the Mushroom Focus Strips part of my daily work routine. Love the chocolate flavor and how easy they are to take.",
+    quote: "I keep these on my desk now. The chocolate flavor is actually good, and I stopped reaching for my third coffee. That\u2019s saying something.",
     author: "Michael R."
   },
   energy: {
-    quote: "The Energy Strips are perfect for my morning routine—clean energy without the jitters. So much easier than swallowing pills.",
+    quote: "I was skeptical \u2014 another energy supplement, right? But these actually stuck. No crash, no jitters. Just a steady morning that carries me through.",
     author: "Sarah K."
   },
   sleep: {
-    quote: "The Sleep Strips have become part of my nightly routine. Easy to take, great flavor, and I love the dissolving format.",
+    quote: "Some nights my brain just won\u2019t stop. These help me land. I wake up feeling like I actually slept \u2014 not just lay there.",
     author: "David L."
   },
   cognitive: {
-    quote: "Perfect for after a long workday. I enjoy the strawberry-mint flavor and love how convenient the strip format is.",
+    quote: "After a long day, I used to feel completely fried. Now I take one of these and actually enjoy my evening instead of just surviving it.",
     author: "Emma T."
   },
   immunity: {
-    quote: "I've been taking these daily for months. Love that they're third-party tested and made in the USA. Great quality.",
+    quote: "It\u2019s the one thing I don\u2019t skip. Knowing it\u2019s third-party tested and made in the US makes it easy to trust.",
     author: "James P."
   },
   default: {
-    quote: "These strips are so convenient and taste great. I've never been more consistent with my supplement routine!",
+    quote: "I\u2019ve tried pills, powders, gummies \u2014 nothing stuck. These are the first supplement I\u2019ve taken every single day for three months straight.",
     author: "Lisa M."
   }
 };
