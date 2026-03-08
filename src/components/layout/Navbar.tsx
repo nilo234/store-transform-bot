@@ -10,20 +10,20 @@ import { AnnouncementBar } from '@/components/layout/AnnouncementBar';
 import { cn } from '@/lib/utils';
 import neuvieLogo from '@/assets/neuvie-navbar-logo.png';
 const navLinks = [
-  { href: '/shop', label: 'Shop' },
-  { href: '/bundles', label: 'Bundles' },
-  { href: '/science', label: 'Science' },
-  { href: '/about', label: 'About' },
-  { href: '/faqs', label: 'FAQ' },
-  { href: '/contact', label: 'Contact Us' },
-];
+{ href: '/shop', label: 'Shop' },
+{ href: '/bundles', label: 'Bundles' },
+{ href: '/science', label: 'Science' },
+{ href: '/about', label: 'About' },
+{ href: '/faqs', label: 'FAQ' },
+{ href: '/contact', label: 'Contact Us' }];
+
 
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  
+
   const location = useLocation();
   const totalItems = useCartStore((state) => state.totalItems());
   const setCartOpen = useCartStore((state) => state.setOpen);
@@ -50,29 +50,29 @@ export function Navbar() {
             <div className="flex items-center justify-between h-14 md:h-20">
               {/* Logo - Responsive sizing */}
               <Link to="/" className="flex items-center">
-                <img 
-                  src={neuvieLogo} 
-                  alt="Neuvie Nutrition" 
-                  className="h-20 md:h-[3.75rem] lg:h-[5.25rem] w-auto"
-                />
+                <img
+                  src={neuvieLogo}
+                  alt="Neuvie Nutrition"
+                  className="h-20 md:h-[4.75rem] lg:h-[8.25rem] w-auto" />
+                
               </Link>
 
               {/* Desktop Navigation - Centered */}
               <div className="hidden lg:flex items-center gap-10">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    className={cn(
-                      "text-sm font-medium transition-colors hover:text-primary relative py-2",
-                      location.pathname === link.href 
-                        ? "text-primary" 
-                        : "text-foreground/80"
-                    )}
-                  >
+                {navLinks.map((link) =>
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className={cn(
+                    "text-sm font-medium transition-colors hover:text-primary relative py-2",
+                    location.pathname === link.href ?
+                    "text-primary" :
+                    "text-foreground/80"
+                  )}>
+                  
                     {link.label}
                   </Link>
-                ))}
+                )}
               </div>
 
               {/* Right Side Actions */}
@@ -85,18 +85,18 @@ export function Navbar() {
                 {/* Account - hidden until auth is implemented */}
 
                 {/* Cart */}
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
+                <Button
+                  variant="ghost"
+                  size="icon"
                   className="relative h-10 w-10"
-                  onClick={() => setCartOpen(true)}
-                >
+                  onClick={() => setCartOpen(true)}>
+                  
                   <ShoppingCart className="h-5 w-5" />
-                  {totalItems > 0 && (
-                    <span className="absolute -top-0.5 -right-0.5 h-5 w-5 rounded-full bg-accent text-accent-foreground text-xs font-bold flex items-center justify-center">
+                  {totalItems > 0 &&
+                  <span className="absolute -top-0.5 -right-0.5 h-5 w-5 rounded-full bg-accent text-accent-foreground text-xs font-bold flex items-center justify-center">
                       {totalItems}
                     </span>
-                  )}
+                  }
                 </Button>
 
                 {/* Mobile Menu Toggle - TryAuri Hamburger */}
@@ -127,23 +127,23 @@ export function Navbar() {
                               "block py-4 text-lg font-medium border-b border-border/50 transition-colors",
                               location.pathname === "/" ? "text-primary" : "text-foreground"
                             )}
-                            onClick={() => setMobileMenuOpen(false)}
-                          >
+                            onClick={() => setMobileMenuOpen(false)}>
+                            
                             Home
                           </Link>
-                          {navLinks.map((link) => (
-                            <Link
-                              key={link.href}
-                              to={link.href}
-                              className={cn(
-                                "block py-4 text-lg font-medium border-b border-border/50 transition-colors",
-                                location.pathname === link.href ? "text-primary" : "text-foreground"
-                              )}
-                              onClick={() => setMobileMenuOpen(false)}
-                            >
+                          {navLinks.map((link) =>
+                          <Link
+                            key={link.href}
+                            to={link.href}
+                            className={cn(
+                              "block py-4 text-lg font-medium border-b border-border/50 transition-colors",
+                              location.pathname === link.href ? "text-primary" : "text-foreground"
+                            )}
+                            onClick={() => setMobileMenuOpen(false)}>
+                            
                               {link.label}
                             </Link>
-                          ))}
+                          )}
                         </div>
                       </nav>
 
@@ -169,6 +169,6 @@ export function Navbar() {
       
       {/* Search Modal */}
       <SearchModal open={searchOpen} onOpenChange={setSearchOpen} />
-    </>
-  );
+    </>);
+
 }
