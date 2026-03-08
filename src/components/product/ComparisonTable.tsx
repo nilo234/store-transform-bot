@@ -32,7 +32,7 @@ export const ComparisonTable = ({ onCtaClick }: ComparisonTableProps) => {
               The supplement you'll actually look forward to.
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Pills are easy to skip. Powders are messy. Neuvie strips dissolve in seconds and taste like something you\u2019d choose \u2014 not something you have to force.
+              Pills are easy to skip. Powders are messy. Neuvie strips dissolve in seconds and taste like something you'd choose — not something you have to force.
             </p>
           </motion.div>
 
