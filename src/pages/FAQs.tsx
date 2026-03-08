@@ -11,7 +11,7 @@ const faqs = [
   },
   { 
     q: 'What makes strips better than pills?', 
-    a: "Strips dissolve directly on your tongue, so the ingredients absorb faster than a pill that needs to break down in your stomach. They\u2019re also easier to take \u2014 no water, no swallowing large capsules, and they go wherever you go." 
+    a: "Strips dissolve directly on your tongue, so the ingredients absorb faster than a pill that needs to break down in your stomach. They're also easier to take — no water, no swallowing large capsules, and they go wherever you go." 
   },
   { 
     q: 'Are your products third-party tested?', 
