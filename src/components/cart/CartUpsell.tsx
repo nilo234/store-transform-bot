@@ -71,7 +71,6 @@ export function CartUpsell() {
                     loading="lazy"
                     decoding="async"
                   />
-                  />
                 )}
               </div>
               <div className="flex-1 min-w-0">
