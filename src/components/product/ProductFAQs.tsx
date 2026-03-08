@@ -23,7 +23,7 @@ const defaultFaqs: FAQ[] = [
   },
   {
     question: "Will I actually feel a difference?",
-    answer: "Most customers notice something within the first few weeks of daily use.* These strips are designed for consistency \u2014 the longer you stick with it, the more you\u2019ll feel. Give it at least 30 days."
+    answer: "Most customers notice something within the first few weeks of daily use.* These strips are designed for consistency — the longer you stick with it, the more you'll feel. Give it at least 30 days."
   },
   {
     question: "Why strips instead of pills or powders?",
