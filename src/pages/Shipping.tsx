@@ -17,8 +17,8 @@ const policySections = [
     icon: Truck,
     title: 'Shipping Methods & Delivery Times',
     content: [
-      'Standard Shipping \u2014 3\u20135 business days, $4.99 flat rate.',
-      'Express Shipping \u2014 1\u20133 business days, $9.99 flat rate.',
+      'Standard Shipping — 3–5 business days, $4.99 flat rate.',
+      'Express Shipping — 1–3 business days, $9.99 flat rate.',
       'All delivery estimates begin once the order has shipped, not when it\'s placed. Delivery times are estimates, not guarantees, and may vary due to carrier volume or weather.',
     ],
   },
