@@ -46,7 +46,7 @@ export function LiveChatWidget() {
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
-  if (location.pathname !== '/') return null;
+  const isHomePage = location.pathname === '/';
 
   const handleSend = (text: string) => {
     if (!text.trim()) return;
