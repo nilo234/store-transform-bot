@@ -54,10 +54,10 @@ export function BenefitsTabs() {
           viewport={{ once: true }}
         >
           <span className="text-xs font-bold text-primary uppercase tracking-widest mb-4 block">
-            WHAT IT ACTUALLY FEELS LIKE
+            HOW IT FEELS TO CHOOSE YOURSELF
           </span>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Real benefits. Real moments. The kind of wellness that fits into your life — not the other way around.
+            Real benefits that fit into real life. Because wellness isn't about doing more — it's about caring enough to do something.
           </p>
         </motion.div>
 

@@ -92,7 +92,7 @@ export const ProductFAQs = ({ productHandle, customFaqs }: ProductFAQsProps) => 
               You have questions. That's a good thing.
             </h2>
             <p className="text-muted-foreground">
-              Still curious? Email us anytime at{' '}
+              Caring about what you put in your body is exactly the kind of person we made this for. Still curious? Email us at{' '}
               <a href="mailto:hello@neuvie.com" className="text-primary hover:underline">
                 hello@neuvie.com
               </a>

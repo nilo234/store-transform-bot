@@ -78,7 +78,7 @@ export function WhyNeuvie() {
             
             <Link to="/science">
               <Button variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                Read the science behind it →
+                See the science behind it →
                 <Sparkles className="ml-2 h-4 w-4" />
               </Button>
             </Link>
