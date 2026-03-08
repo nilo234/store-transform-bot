@@ -399,11 +399,11 @@ export default function ProductDetail() {
 
                 <AccordionItem value="shipping" className="bg-muted/30 rounded-xl border-none px-4 data-[state=open]:bg-muted/50">
                   <AccordionTrigger className="py-3 hover:no-underline">
-                    <span className="font-medium">Shipping & Guarantee</span>
+                    <span className="font-medium">Shipping & returns</span>
                   </AccordionTrigger>
                   <AccordionContent className="pb-4 text-sm text-muted-foreground space-y-2">
-                    <p><strong>Shipping:</strong> Orders ship within 1–2 business days. Delivery typically 3–5 business days.</p>
-                    <p><strong>14-Day Guarantee:</strong> Not satisfied? Contact hello@neuvie.com for a full refund on your first order — no questions asked.</p>
+                    <p><strong>Shipping:</strong> Orders ship within 1\u20132 business days. Most US orders arrive in 3\u20135 days.</p>
+                    <p><strong>14-day guarantee:</strong> If it\u2019s not for you, email hello@neuvie.com within 14 days. Full refund on your first order \u2014 no questions, no hassle.</p>
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
