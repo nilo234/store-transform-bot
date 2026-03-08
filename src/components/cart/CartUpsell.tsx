@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { fetchProducts, ShopifyProduct } from '@/lib/shopify';
+import { fetchProducts, ShopifyProduct, optimizeShopifyImage } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
 
@@ -65,9 +65,11 @@ export function CartUpsell() {
               <div className="w-12 h-12 bg-background rounded-md overflow-hidden flex-shrink-0">
                 {image && (
                   <img
-                    src={image.url}
+                    src={optimizeShopifyImage(image.url, 100)}
                     alt={image.altText || product.node.title}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                 )}
               </div>

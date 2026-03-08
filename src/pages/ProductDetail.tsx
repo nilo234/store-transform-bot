@@ -6,7 +6,7 @@ import { StickyAddToCart } from '@/components/product/StickyAddToCart';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
-import { fetchProductByHandle, ShopifyProduct, sanitizeTitle, sanitizeHandle, unsanitizeHandle } from '@/lib/shopify';
+import { fetchProductByHandle, ShopifyProduct, sanitizeTitle, sanitizeHandle, unsanitizeHandle, optimizeShopifyImage } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { Skeleton } from '@/components/ui/skeleton';
 import { toast } from 'sonner';
@@ -248,9 +248,13 @@ export default function ProductDetail() {
 
                 {images[selectedImage] ? (
                   <img
-                    src={images[selectedImage].node.url}
+                    src={optimizeShopifyImage(images[selectedImage].node.url, 800)}
                     alt={images[selectedImage].node.altText || product.title}
                     className="w-full h-full object-contain"
+                    loading={selectedImage === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                    width={800}
+                    height={800}
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-muted/20">
@@ -271,9 +275,13 @@ export default function ProductDetail() {
                       }`}
                     >
                       <img
-                        src={img.node.url}
+                        src={optimizeShopifyImage(img.node.url, 100)}
                         alt={img.node.altText || `${product.title} ${index + 1}`}
                         className="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                        width={100}
+                        height={100}
                       />
                     </button>
                   ))}
