@@ -318,10 +318,10 @@ export default function Science() {
               viewport={{ once: true }}
             >
               <h2 className="font-body text-3xl md:text-4xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-                WHAT'S INSIDE EVERY STRIP
+                FULL TRANSPARENCY — BECAUSE YOU'RE WORTH IT
               </h2>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-                13 formulas. Every ingredient listed. Every dosage shown. Because you should know exactly what you're putting in your body.
+                13 formulas. Every ingredient listed. Every dosage shown. Your body does so much for you — the least we can do is be completely honest about what goes into it.
               </p>
             </motion.div>
 
