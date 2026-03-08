@@ -7,12 +7,12 @@ interface Ingredient {
 }
 
 const ingredients: Ingredient[] = [
-  { emoji: '🍄', name: "Lion's Mane", benefit: 'Focus*' },
-  { emoji: '🍄', name: 'Cordyceps', benefit: 'Energy*' },
-  { emoji: '🌙', name: 'Melatonin', benefit: 'Sleep*' },
-  { emoji: '✨', name: 'Collagen', benefit: 'Beauty*' },
-  { emoji: '💊', name: 'B12', benefit: 'Vitality*' },
-  { emoji: '🌿', name: 'Ashwagandha', benefit: 'Calm*' },
+  { emoji: '🍄', name: "Lion's Mane", benefit: 'Mental clarity you can feel*' },
+  { emoji: '🍄', name: 'Cordyceps', benefit: 'Steady energy, no crash*' },
+  { emoji: '🌙', name: 'Melatonin', benefit: 'The off-switch your brain needs*' },
+  { emoji: '✨', name: 'Collagen', benefit: 'What shows up on the outside*' },
+  { emoji: '💊', name: 'B12', benefit: 'The baseline that keeps everything else going*' },
+  { emoji: '🌿', name: 'Ashwagandha', benefit: 'Stress without the spiral*' },
 ];
 
 export function IngredientSpotlight() {
@@ -29,7 +29,7 @@ export function IngredientSpotlight() {
             Inside the Strips
           </h2>
           <p className="text-muted-foreground">
-            Premium ingredients, clinically dosed for real results.
+            Every ingredient earns its place. No fillers, no fluff.
           </p>
         </motion.div>
 

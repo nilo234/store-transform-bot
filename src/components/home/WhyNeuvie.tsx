@@ -14,18 +14,18 @@ const certifications = [
 const features = [
   {
     icon: Leaf,
-    title: 'Premium Sourcing',
-    description: 'We source high-quality ingredients from trusted suppliers worldwide. Every ingredient is traceable and verified for purity.',
+    title: 'Sourced with intention.',
+    description: "We don't cut corners on what goes in. Every ingredient is traceable, independently tested, and chosen because it works — not because it's cheap.",
   },
   {
     icon: FlaskConical,
-    title: 'Science-Backed Formulas',
-    description: 'Our strips are formulated with clinically studied ingredients at meaningful dosages. No fillers, no unnecessary additives.',
+    title: 'Dosed to actually do something.',
+    description: "Formulated at levels that matter — not just enough to put the ingredient on the label. If it's in there, it's there for a reason.",
   },
   {
     icon: Shield,
-    title: 'Quality You Can Trust',
-    description: 'Every batch is independently tested for purity, potency, and safety by third-party labs. Made in a GMP-certified facility in the USA.',
+    title: 'Tested before it ever reaches you.',
+    description: 'Every single batch goes through independent third-party testing for purity, potency, and safety. Made in the USA. No exceptions, no shortcuts.',
   },
 ];
 
@@ -41,16 +41,18 @@ export function WhyNeuvie() {
             viewport={{ once: true }}
           >
             <span className="text-xs font-bold text-primary uppercase tracking-widest mb-4 block">
-              Why Choose Us
+              WHY NEUVIE?
             </span>
             <h2 className="font-body text-3xl md:text-4xl lg:text-5xl font-semibold mb-6" style={{ letterSpacing: '-0.02em' }}>
-              WHY NEUVIE?
+              Made for people who don't settle.
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              We believe wellness should be simple, effective, and fit seamlessly into your life. 
-              Our fast-dissolving oral strips deliver premium, science-backed ingredients in a format 
-              that goes wherever you go. No water. No pills. Just place and dissolve.
-            </p>
+            <div className="text-lg text-muted-foreground leading-relaxed mb-8 space-y-2">
+              <p>Most supplements end up forgotten in a drawer.</p>
+              <p>Not because people stop caring about their health. Because the routine was too complicated to keep.</p>
+              <p>Neuvie strips were built for the opposite.</p>
+              <p>No water. No pills. 30 seconds.</p>
+              <p className="font-medium text-foreground">Just you — taking care of you, every day.</p>
+            </div>
             
             {/* Feature list */}
             <div className="space-y-6 mb-8">
@@ -76,7 +78,7 @@ export function WhyNeuvie() {
             
             <Link to="/science">
               <Button variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                Learn About Our Science
+                Read the science behind it →
                 <Sparkles className="ml-2 h-4 w-4" />
               </Button>
             </Link>
@@ -100,7 +102,7 @@ export function WhyNeuvie() {
             {/* Certifications */}
             <div className="bg-card rounded-2xl p-6 shadow-soft">
               <p className="text-sm font-semibold text-center text-muted-foreground mb-4">
-                All our products are...
+                Every strip we make is...
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {certifications.map((cert) => (

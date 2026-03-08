@@ -15,29 +15,29 @@ const benefits: Benefit[] = [
     id: 'focus',
     icon: <Brain className="h-6 w-6" />,
     title: 'Supports Focus & Memory*',
-    subtitle: 'Cognitive Wellness',
-    description: "Our Mushroom Focus and Cognitive Relax strips contain Lion's Mane and L-Theanine—ingredients studied for their role in supporting concentration, memory function, and mental clarity. A great addition to your work or study routine.",
+    subtitle: 'The clarity you want on your best days — available on all of them.',
+    description: "Our Mushroom Focus and Cognitive Relax strips contain Lion's Mane and L-Theanine — ingredients studied for their role in supporting concentration, memory, and mental clarity. Think of it as a quiet upgrade to your work or study routine.",
   },
   {
     id: 'energy',
     icon: <Zap className="h-6 w-6" />,
     title: 'Supports Natural Energy*',
-    subtitle: 'Clean, Crash-Free Energy',
-    description: "Our Energy Strips combine caffeine with L-Theanine, designed to support smooth, sustained energy without the jitters. Plus B12, which contributes to normal energy metabolism. Take on-the-go whenever you need a pick-me-up.",
+    subtitle: 'Energy that feels like you — not like a stimulant.',
+    description: "Our Energy Strips combine caffeine with L-Theanine for smooth, sustained energy without the jitters. Plus B12, which contributes to normal energy metabolism. Take on-the-go whenever you need to show up fully.",
   },
   {
     id: 'immune',
     icon: <Shield className="h-6 w-6" />,
     title: 'Supports Immune Function*',
-    subtitle: 'Daily Wellness',
-    description: "From Iron Strips to Bone Support with Vitamin D3 and K2, our range provides essential nutrients that contribute to normal immune function. Our Digestive strips also support gut health, which plays an important role in overall wellness.",
+    subtitle: 'The invisible work your body does, quietly supported.',
+    description: "From Iron Strips to Bone Support with Vitamin D3 and K2, our range provides essential nutrients that contribute to normal immune function. Our Digestive strips also support gut health — the quiet foundation of overall wellness.",
   },
   {
     id: 'beauty',
     icon: <Heart className="h-6 w-6" />,
     title: 'Beauty From Within*',
-    subtitle: 'Hair, Skin & Nails',
-    description: "Our Beauty + Collagen and Hair, Skin & Nails strips deliver biotin (5000 mcg), collagen peptides, and vitamin E—nutrients that support healthy hair, skin, and nails as part of your daily routine.",
+    subtitle: 'What you put in shows up in how you look.',
+    description: "Our Beauty + Collagen and Hair, Skin & Nails strips deliver biotin (5000 mcg), collagen peptides, and vitamin E — nutrients that support healthy hair, skin, and nails as part of your daily routine.",
   },
 ];
 
@@ -53,11 +53,11 @@ export function BenefitsTabs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="font-body text-3xl md:text-4xl lg:text-5xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-            BENEFITS OF NEUVIE STRIPS
-          </h2>
+          <span className="text-xs font-bold text-primary uppercase tracking-widest mb-4 block">
+            WHAT IT ACTUALLY FEELS LIKE
+          </span>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Clinically studied ingredients for everyday wellness. Tap to learn more.
+            Real benefits. Real moments. The kind of wellness that fits into your life — not the other way around.
           </p>
         </motion.div>
 
