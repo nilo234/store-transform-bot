@@ -11,21 +11,21 @@ import sleepRecoverImg from '@/assets/bundles/sleep-recover.jpg';
 import bestValueMegaImg from '@/assets/bundles/best-value-mega.jpg';
 import newYearResetImg from '@/assets/bundles/new-year-reset.jpg';
 
-// Real Shopify product variant IDs
+// Real Shopify product variant IDs (ACTIVE products accessible via Storefront API)
 export const shopifyVariants = {
   mushroomFocus: 'gid://shopify/ProductVariant/48022272737499',
-  energy: 'gid://shopify/ProductVariant/48044984664283',
-  libidoSupport: 'gid://shopify/ProductVariant/48044984598747',
+  energy: 'gid://shopify/ProductVariant/48094622974171',
+  libidoSupport: 'gid://shopify/ProductVariant/48114369560795',
   probiotic: 'gid://shopify/ProductVariant/48041865248987',
-  digestive: 'gid://shopify/ProductVariant/48022270673115',
-  iron: 'gid://shopify/ProductVariant/48044984631515',
+  digestive: 'gid://shopify/ProductVariant/48094723768539',
+  iron: 'gid://shopify/ProductVariant/48094752899291',
   boneSupport: 'gid://shopify/ProductVariant/48041863217371',
-  appetite: 'gid://shopify/ProductVariant/48041865380059',
-  beautyCollagen: 'gid://shopify/ProductVariant/48041865314523',
-  hairSkinNails: 'gid://shopify/ProductVariant/48022272573659',
-  sleep: 'gid://shopify/ProductVariant/48044984697051',
+  appetite: 'gid://shopify/ProductVariant/48113482170587',
+  beautyCollagen: 'gid://shopify/ProductVariant/48114313330907',
+  hairSkinNails: 'gid://shopify/ProductVariant/48094573756635',
+  sleep: 'gid://shopify/ProductVariant/48094622056667',
   cognitiveRelax: 'gid://shopify/ProductVariant/48022272868571',
-  hangover: 'gid://shopify/ProductVariant/48044984369371',
+  hangover: 'gid://shopify/ProductVariant/48094361256155',
 };
 
 // Bundle images map
@@ -40,7 +40,7 @@ export const bundleImages: Record<string, string> = {
   'new-year-reset': newYearResetImg,
 };
 
-// Product info for cart display
+// Product info for cart display (standard price $34.99 for all strips)
 export const productInfo: Record<string, { title: string; price: string }> = {
   [shopifyVariants.mushroomFocus]: { title: 'Mushroom Focus Strips', price: '34.99' },
   [shopifyVariants.energy]: { title: 'Energy Strips', price: '34.99' },
@@ -48,7 +48,7 @@ export const productInfo: Record<string, { title: string; price: string }> = {
   [shopifyVariants.probiotic]: { title: 'Probiotic + Metabolism Strips', price: '34.99' },
   [shopifyVariants.digestive]: { title: 'Digestive + Gut Health Strips', price: '34.99' },
   [shopifyVariants.iron]: { title: 'Iron Strips', price: '34.99' },
-  [shopifyVariants.boneSupport]: { title: 'Bone Support Strips', price: '34.99' },
+  [shopifyVariants.boneSupport]: { title: 'Bone Support Strips', price: '24.99' },
   [shopifyVariants.appetite]: { title: 'Appetite Balance & Weight Support Strips', price: '34.99' },
   [shopifyVariants.beautyCollagen]: { title: 'Beauty + Collagen Strips', price: '34.99' },
   [shopifyVariants.hairSkinNails]: { title: 'Hair, Skin & Nails Strips', price: '34.99' },
@@ -130,9 +130,9 @@ export const bundles: Bundle[] = [
     category: 'wellness',
     products: ['Bone Support', 'Probiotic', 'Appetite Balance', 'Iron'],
     variantIds: [shopifyVariants.boneSupport, shopifyVariants.probiotic, shopifyVariants.appetite, shopifyVariants.iron],
-    originalPrice: 139.96,
-    salePrice: 114.99,
-    savings: 24.97,
+    originalPrice: 129.96,
+    salePrice: 106.99,
+    savings: 22.97,
     discountPercent: 18,
     tagline: 'Daily Foundation for Optimal Health',
     discountCode: 'WELLNESS18',
@@ -145,9 +145,9 @@ export const bundles: Bundle[] = [
     category: 'beauty',
     products: ['Beauty Collagen', 'Hair Skin Nails', 'Bone Support'],
     variantIds: [shopifyVariants.beautyCollagen, shopifyVariants.hairSkinNails, shopifyVariants.boneSupport],
-    originalPrice: 104.97,
-    salePrice: 84.99,
-    savings: 19.98,
+    originalPrice: 94.97,
+    salePrice: 76.99,
+    savings: 17.98,
     discountPercent: 19,
     tagline: 'Inside-Out Beauty Transformation',
     discountCode: 'BEAUTY19',

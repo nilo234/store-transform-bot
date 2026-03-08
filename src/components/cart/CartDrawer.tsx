@@ -9,6 +9,7 @@ import { FreeShippingBar } from './FreeShippingBar';
 import { CartUrgencyBanner } from './CartUrgencyBanner';
 import { SecureCheckoutBadges } from './SecureCheckoutBadges';
 import { CartUpsell } from './CartUpsell';
+import { bundles as bundleDefinitions } from '@/data/bundles';
 
 // Group items into bundles and standalone items
 function useGroupedItems(items: CartItem[]) {
@@ -66,8 +67,17 @@ export function CartDrawer() {
   };
 
   const cartTotal = totalPrice();
-  const originalTotal = items.reduce((sum, item) => sum + (49.99 * item.quantity), 0);
-  const totalSavings = Math.max(0, originalTotal - cartTotal);
+
+  // Calculate bundle savings from actual bundle data
+  const bundleSavings = bundles.reduce((sum, [, bundle]) => {
+    const itemsTotal = bundle.items.reduce((s, item) => s + parseFloat(item.price.amount) * item.quantity, 0);
+    // Find matching bundle definition for savings info
+    const bundleDef = bundleDefinitions.find(b => b.name === bundle.name);
+    if (bundleDef) {
+      return sum + bundleDef.savings;
+    }
+    return sum;
+  }, 0);
 
   return (
     <Sheet open={isOpen} onOpenChange={setOpen}>
@@ -120,7 +130,11 @@ export function CartDrawer() {
               <div className="flex-1 overflow-y-auto px-4 md:px-6 py-3 md:py-4">
                 <div className="space-y-3 md:space-y-4">
                   {/* Bundle Groups */}
-                  {bundles.map(([bundleId, bundle]) => (
+                  {bundles.map(([bundleId, bundle]) => {
+                    const bundleDef = bundleDefinitions.find(b => b.name === bundle.name);
+                    const bundleItemsTotal = bundle.items.reduce((s, item) => s + parseFloat(item.price.amount) * item.quantity, 0);
+                    
+                    return (
                     <div key={bundleId} className="bg-primary/5 rounded-xl border border-primary/20 overflow-hidden">
                       {/* Bundle Header */}
                       <div className="flex items-center justify-between px-3 md:px-4 py-2.5 bg-primary/10">
@@ -141,11 +155,22 @@ export function CartDrawer() {
                           <Trash2 className="h-3.5 w-3.5" />
                         </Button>
                       </div>
+                      {/* Bundle Pricing Summary */}
+                      {bundleDef && (
+                        <div className="px-3 md:px-4 py-2 bg-accent/5 flex items-center justify-between">
+                          <span className="text-[10px] md:text-xs text-muted-foreground">
+                            Bundle total: <span className="line-through">${bundleItemsTotal.toFixed(2)}</span>
+                          </span>
+                          <span className="text-xs md:text-sm font-bold text-primary">
+                            ${bundleDef.salePrice.toFixed(2)} <span className="text-[10px] font-normal text-accent">(-{bundleDef.discountPercent}%)</span>
+                          </span>
+                        </div>
+                      )}
                       {/* Discount Code Applied */}
                       {bundle.discountCode && (
                         <div className="px-3 md:px-4 py-1.5 bg-accent/10 text-center">
                           <span className="text-[10px] md:text-xs font-medium text-accent">
-                            ✅ Discount code "{bundle.discountCode}" auto-applied
+                            ✅ Discount code "{bundle.discountCode}" auto-applied at checkout
                           </span>
                         </div>
                       )}
@@ -156,7 +181,8 @@ export function CartDrawer() {
                         ))}
                       </div>
                     </div>
-                  ))}
+                    );
+                  })}
 
                   {/* Standalone Items */}
                   {standalone.map((item) => (
@@ -181,10 +207,10 @@ export function CartDrawer() {
               {/* Fixed checkout section */}
               <div className="flex-shrink-0 px-4 md:px-6 py-4 md:py-6 pb-[calc(1rem+env(safe-area-inset-bottom))] md:pb-6 border-t bg-background space-y-3 md:space-y-4 relative z-50">
                 {/* Savings Highlight */}
-                {totalSavings > 0 && (
+                {bundleSavings > 0 && (
                   <div className="bg-primary/10 rounded-lg p-2.5 md:p-3 text-center">
                     <span className="text-xs md:text-sm font-semibold text-primary">
-                      🎉 You're saving ${totalSavings.toFixed(2)}!
+                      🎉 Bundle discount saves you ${bundleSavings.toFixed(2)}!
                     </span>
                   </div>
                 )}
@@ -192,15 +218,14 @@ export function CartDrawer() {
                 <div className="flex justify-between items-center">
                   <div>
                     <span className="text-base md:text-lg font-medium">Subtotal</span>
-                    <p className="text-[10px] md:text-xs text-muted-foreground">Discount applied at checkout</p>
+                    {bundleSavings > 0 && (
+                      <p className="text-[10px] md:text-xs text-muted-foreground">Bundle discount applied at checkout</p>
+                    )}
                   </div>
                   <div className="text-right">
                     <span className="text-xl md:text-2xl font-bold text-primary">
                       ${cartTotal.toFixed(2)}
                     </span>
-                    <p className="text-xs md:text-sm text-muted-foreground line-through">
-                      ${originalTotal.toFixed(2)}
-                    </p>
                   </div>
                 </div>
 
@@ -278,7 +303,6 @@ function CartItemRow({
           <span className={`font-semibold ${compact ? 'text-xs' : 'text-sm md:text-base'} text-primary`}>
             ${parseFloat(item.price.amount).toFixed(2)}
           </span>
-          <span className="text-[10px] text-muted-foreground line-through">$49.99</span>
         </div>
       </div>
 
