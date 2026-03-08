@@ -184,7 +184,7 @@ export default function Science() {
               style={{ letterSpacing: '-0.02em' }}
               animate={{ opacity: 1, y: 0 }}
             >
-              THE SCIENCE BEHIND NEUVIE
+              YOUR BODY DESERVES THE TRUTH
             </motion.h1>
             <motion.p 
               className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
@@ -192,7 +192,7 @@ export default function Science() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              Every ingredient is here for a reason. Clinically studied dosages, independently tested batches, and nothing you don't need. That's the standard — not the exception.
+              We believe you should know exactly what you're putting in your body — and why. Every ingredient, every dosage, every test result. Not because it looks good on a website, but because your trust is worth more than our marketing.
             </motion.p>
           </div>
         </section>
