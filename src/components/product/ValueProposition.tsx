@@ -10,7 +10,7 @@ export const ValueProposition = ({ servings = 30, subscriptionPrice = "$12.99" }
     {
       icon: Package,
       title: `${servings} strips per pack`,
-      subtitle: "A full month\u2019s worth"
+      subtitle: "A full month's worth"
     },
     {
       icon: Truck,
