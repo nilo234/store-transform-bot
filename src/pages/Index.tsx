@@ -336,7 +336,7 @@ export default function Index() {
             <motion.div className="text-center mt-10" {...fadeUp}>
               <Link to="/science">
                 <Button variant="outline" className="h-12 px-8 text-sm font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-lg">
-                  See what's inside — and why →
+                  See the science behind it →
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
