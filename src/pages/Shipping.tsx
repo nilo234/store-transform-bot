@@ -50,7 +50,7 @@ const policySections = [
     icon: AlertTriangle,
     title: 'Lost or Damaged Packages',
     content: [
-      'If your package arrives damaged, please take a photo and email us at hello@neuvie.com within 7 days of delivery. We\'ll send a replacement or issue a full refund \u2014 your choice.',
+      'If your package arrives damaged, please take a photo and email us at hello@neuvie.com within 7 days of delivery. We\'ll send a replacement or issue a full refund — your choice.',
       'If tracking shows "delivered" but you haven\'t received your order, please check with neighbors and your building\'s mail area first. If it\'s still missing after 48 hours, contact us and we\'ll work with the carrier to resolve it.',
     ],
   },
