@@ -354,7 +354,7 @@ export default function ProductDetail() {
                 </div>
                 
                 <p className="text-center text-sm text-muted-foreground">
-                  ✓ Ships FREE today • ✓ Fast 2-5 day US delivery
+                  \u2713 Ships free today \u00b7 \u2713 Arrives in 2\u20135 business days
                 </p>
               </div>
 
