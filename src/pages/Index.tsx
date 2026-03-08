@@ -186,10 +186,10 @@ export default function Index() {
           <div className="container-wide">
             <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
               <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
-                What does today need?
+                What does your body need today?
               </h2>
               <p className="text-muted-foreground max-w-lg mx-auto">
-                Every strip is built around one thing — helping you feel like yourself, at your best.
+                You already know the answer. We just made it easier to follow through.
               </p>
             </motion.div>
 
