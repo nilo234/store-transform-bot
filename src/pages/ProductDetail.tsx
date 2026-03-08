@@ -495,7 +495,7 @@ export default function ProductDetail() {
                   {/* Usage */}
                   <AccordionItem value="usage" className="bg-card rounded-xl border-none">
                     <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                      <span className="font-semibold text-lg">How to Use</span>
+                      <span className="font-semibold text-lg">How to take it</span>
                     </AccordionTrigger>
                     <AccordionContent className="px-6 pb-6">
                       <p className="text-muted-foreground">{productContent.usage}</p>
