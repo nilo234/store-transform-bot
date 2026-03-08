@@ -75,8 +75,8 @@ export default function Shipping() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="Free US Shipping on $50+ – Shipping Policy | NEUVIE™"
-        description="Free US shipping on orders $50+. Ships within 1 business day. 3–5 day delivery with tracking. Learn about NEUVIE™ shipping."
+        title="Shipping That Respects Your Time – NEUVIE™"
+        description="Free US shipping on orders $50+. Ships within 1 business day. Because your self-care shouldn't wait."
       />
       <Navbar />
       
