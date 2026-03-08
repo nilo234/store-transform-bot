@@ -291,8 +291,8 @@ export default function ProductDetail() {
               {/* Title & Subtitle */}
               <div>
                 <h1 className="font-body text-3xl md:text-4xl font-semibold" style={{ letterSpacing: '-0.02em' }}>{sanitizeTitle(product.title)}</h1>
-                <p className="text-muted-foreground mt-1">
-                  {productContent?.shortDescription?.split('.')[0] || 'Premium oral strip'}
+               <p className="text-muted-foreground mt-1">
+                  {productContent?.shortDescription?.split('.')[0] || 'Fast-dissolving wellness strip'}
                 </p>
               </div>
 
