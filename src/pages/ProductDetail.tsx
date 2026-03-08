@@ -461,7 +461,7 @@ export default function ProductDetail() {
                   {/* Benefits */}
                   <AccordionItem value="benefits" className="bg-card rounded-xl border-none">
                     <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                      <span className="font-semibold text-lg">Benefits</span>
+                      <span className="font-semibold text-lg">What you\u2019ll feel</span>
                     </AccordionTrigger>
                     <AccordionContent className="px-6 pb-6">
                       <ul className="space-y-3">
