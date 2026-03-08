@@ -105,6 +105,8 @@ export function LiveChatWidget() {
     setFormData({ name: '', email: '', message: '' });
   };
 
+  if (!isHomePage) return null;
+
   return (
     <>
       {/* Chat Button */}
