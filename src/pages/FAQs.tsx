@@ -31,7 +31,7 @@ const faqs = [
   },
   { 
     q: 'Do you ship internationally?', 
-    a: 'We currently ship within the United States only. Free shipping on all orders over $50, with delivery in 3\u20135 business days. Sign up for our newsletter to know when we expand.' 
+    a: 'We currently ship within the United States only. Free shipping on all orders over $50, with delivery in 3–5 business days. Sign up for our newsletter to know when we expand.' 
   },
   { 
     q: 'Can I take more than one product?', 
