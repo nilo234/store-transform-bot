@@ -246,7 +246,7 @@ export default function Index() {
             <motion.div className="text-center mt-10" {...fadeUp}>
               <Link to="/shop">
                 <Button variant="outline" className="h-12 px-8 text-sm font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-lg">
-                  See the full collection →
+                  Find what's right for you →
                   <ChevronRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
