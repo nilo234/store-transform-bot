@@ -35,7 +35,7 @@ const policySections = [
     title: 'Address Accuracy',
     content: [
       'Please double-check your shipping address before completing checkout. Once an order ships, we\'re unable to redirect it to a different address.',
-      'If a package is returned to us due to an incorrect or incomplete address, we\'ll reship it at no extra charge \u2014 just reach out to our support team.',
+      'If a package is returned to us due to an incorrect or incomplete address, we\'ll reship it at no extra charge — just reach out to our support team.',
     ],
   },
   {
