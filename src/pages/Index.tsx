@@ -108,33 +108,33 @@ export default function Index() {
                 className="order-2 lg:order-1 text-center lg:text-left"
               >
                 <h1 className="font-body text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-semibold leading-[1.1] mb-6" style={{ letterSpacing: '-0.02em' }}>
-                  You take care of yourself.{' '}
-                  <span className="block">We make it effortless.</span>
-                  <span className="block text-accent">Every single day.</span>
+                  Your body does so much for you.{' '}
+                  <span className="block">This is how you give back.</span>
+                  <span className="block text-accent">30 seconds. Every day.</span>
                 </h1>
 
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-                  Wellness strips that dissolve in 30 seconds. No water. No pills. No excuses.
+                  You don't need another reminder to take care of yourself.
                   <br className="hidden md:block" />
-                  Just the best version of your morning — every single day.
+                  You need something that makes it effortless — so you actually do.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-6">
                   <Link to="/shop">
                     <Button className="w-full sm:w-auto h-13 px-8 text-base font-semibold rounded-lg group bg-primary hover:bg-primary/90 text-primary-foreground">
-                      Find Your Strip
+                      Start Your Ritual
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>
                   <Link to="/shop">
                     <Button variant="outline" className="w-full sm:w-auto h-13 px-8 text-base font-semibold rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                      Explore the Collection
+                      Explore What Fits You
                     </Button>
                   </Link>
                 </div>
 
                 <p className="text-xs text-muted-foreground">
-                  ✓ Try it for 14 days — or your money back, no questions. · ✓ Free shipping on orders $50+
+                  ✓ 14-day guarantee — because you should feel sure · ✓ Free shipping on $50+
                 </p>
               </motion.div>
 
