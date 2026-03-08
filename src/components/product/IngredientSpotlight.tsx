@@ -15,7 +15,7 @@ interface IngredientSpotlightProps {
 
 const ingredientsByProduct: Record<string, Ingredient[]> = {
   mushroom: [
-    { name: "Lion\u2019s Mane", benefit: "The clarity you want on your best days \u2014 available on all of them", category: "FOCUS", icon: Brain },
+    { name: "Lion's Mane", benefit: "The clarity you want on your best days — available on all of them", category: "FOCUS", icon: Brain },
     { name: "Cordyceps", benefit: "Steady energy that carries you through without a crash", category: "ENERGY", icon: Zap },
     { name: "Maitake", benefit: "Quietly supports your immune system, every single day", category: "IMMUNITY", icon: Shield },
     { name: "Shiitake", benefit: "Rich in antioxidants that help protect at the cellular level", category: "WELLNESS", icon: Heart },
