@@ -26,7 +26,7 @@ const policySections = [
     icon: Package,
     title: 'Free Shipping',
     content: [
-      'Orders of $50 or more ship free via standard shipping within the contiguous United States. No code needed \u2014 the discount applies automatically at checkout.',
+      'Orders of $50 or more ship free via standard shipping within the contiguous United States. No code needed — the discount applies automatically at checkout.',
       'Free shipping is not available for express delivery, PO boxes outside the contiguous US, or international orders.',
     ],
   },
