@@ -51,7 +51,7 @@ const faqs = [
   },
   { 
     q: 'Are your strips safe during pregnancy or breastfeeding?', 
-    a: "We recommend talking to your healthcare provider before starting any supplement during pregnancy or breastfeeding. Some products \u2014 especially those with caffeine or melatonin \u2014 may not be suitable." 
+    a: "We recommend talking to your healthcare provider before starting any supplement during pregnancy or breastfeeding. Some products — especially those with caffeine or melatonin — may not be suitable." 
   },
 ];
 
