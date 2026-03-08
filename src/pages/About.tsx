@@ -196,7 +196,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              WHAT WE STAND FOR
+              WHAT WE BELIEVE IN
             </motion.h2>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
