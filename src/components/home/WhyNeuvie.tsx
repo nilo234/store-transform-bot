@@ -44,14 +44,14 @@ export function WhyNeuvie() {
               WHY NEUVIE?
             </span>
             <h2 className="font-body text-3xl md:text-4xl lg:text-5xl font-semibold mb-6" style={{ letterSpacing: '-0.02em' }}>
-              Made for people who don't settle.
+              Because you're worth more than a pill you forget to take.
             </h2>
             <div className="text-lg text-muted-foreground leading-relaxed mb-8 space-y-2">
               <p>Most supplements end up forgotten in a drawer.</p>
-              <p>Not because people stop caring about their health. Because the routine was too complicated to keep.</p>
-              <p>Neuvie strips were built for the opposite.</p>
-              <p>No water. No pills. 30 seconds.</p>
-              <p className="font-medium text-foreground">Just you — taking care of you, every day.</p>
+              <p>Not because you stopped caring — because the experience was never built for your real life.</p>
+              <p>Neuvie strips were designed for the opposite.</p>
+              <p>No water. No pills. 30 seconds of intention.</p>
+              <p className="font-medium text-foreground">Just you — choosing yourself. Every single day.</p>
             </div>
             
             {/* Feature list */}
