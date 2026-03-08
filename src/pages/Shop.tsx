@@ -41,14 +41,14 @@ export default function Shop() {
 
     // Goal filter
     if (activeGoal !== 'all') {
-      result = result.filter(p => getProductGoal(p.node.title) === activeGoal);
+      result = result.filter((p) => getProductGoal(p.node.title) === activeGoal);
     }
 
     // Tag filters
     if (activeTags.length > 0) {
-      result = result.filter(p => {
+      result = result.filter((p) => {
         const tags = getProductTags(p.node.title);
-        return activeTags.every(t => tags.includes(t));
+        return activeTags.every((t) => tags.includes(t));
       });
     }
 
@@ -86,8 +86,8 @@ export default function Shop() {
 
   const toggleTag = (tagId: string) => {
     const current = new Set(activeTags);
-    if (current.has(tagId)) current.delete(tagId);
-    else current.add(tagId);
+    if (current.has(tagId)) current.delete(tagId);else
+    current.add(tagId);
     const arr = Array.from(current);
     updateParam('tags', arr.join(','));
   };
@@ -97,22 +97,22 @@ export default function Shop() {
   };
 
   const toggleCompare = (productId: string) => {
-    setCompareList(prev => {
-      if (prev.includes(productId)) return prev.filter(id => id !== productId);
+    setCompareList((prev) => {
+      if (prev.includes(productId)) return prev.filter((id) => id !== productId);
       if (prev.length >= 3) return prev; // max 3
       return [...prev, productId];
     });
   };
 
   const hasActiveFilters = activeGoal !== 'all' || activeTags.length > 0 || activeSort !== 'featured';
-  const compareProducts = products.filter(p => compareList.includes(p.node.id));
+  const compareProducts = products.filter((p) => compareList.includes(p.node.id));
 
   return (
     <div className="min-h-screen flex flex-col">
       <PageMeta
         title="Shop Wellness Strips – Find What Your Body Needs | NEUVIE™"
-        description="13 dissolving wellness strips for energy, focus, sleep, beauty & immunity. Choose what feels right for your body. Free US shipping on $50+."
-      />
+        description="13 dissolving wellness strips for energy, focus, sleep, beauty & immunity. Choose what feels right for your body. Free US shipping on $50+." />
+      
       <Navbar />
 
       <main className="flex-1">
@@ -123,16 +123,16 @@ export default function Shop() {
               className="font-body text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-3 md:mb-4"
               style={{ letterSpacing: '-0.02em' }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-             >
+              transition={{ duration: 0.5 }}>
+              
                Your Body Deserves This
              </motion.h1>
              <motion.p
-               className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
-               initial={{ opacity: 0, y: 20 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ duration: 0.5, delay: 0.1 }}
-             >
+              className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}>
+              
                13 dissolving strips, each made with intention. No pills, no water — just a moment of care that fits into your real life. 
                Because taking care of yourself shouldn't feel like one more thing on the list.
              </motion.p>
@@ -140,14 +140,14 @@ export default function Shop() {
               className="flex flex-wrap justify-center gap-4 md:gap-6 mt-5 md:mt-8 text-xs md:text-sm text-muted-foreground"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-            >
-              {['Third-party tested', 'Made in the USA', 'Non-GMO', 'Free shipping on $50+'].map(item => (
-                <span key={item} className="flex items-center gap-1.5">
+              transition={{ delay: 0.3 }}>
+              
+              {['Third-party tested', 'Made in the USA', 'Non-GMO', 'Free shipping on $50+'].map((item) =>
+              <span key={item} className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                   {item}
                 </span>
-              ))}
+              )}
             </motion.div>
           </div>
         </section>
@@ -158,21 +158,21 @@ export default function Shop() {
             <div className="flex items-center justify-between py-3 md:py-4">
               {/* Goal Filters — horizontal scroll on mobile */}
               <div className="flex items-center gap-2 overflow-x-auto scrollbar-hide flex-1 -mx-1 px-1">
-                {goalFilters.map(f => (
-                  <button
-                    key={f.id}
-                    onClick={() => updateParam('goal', f.id)}
-                    className={cn(
-                      "px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium whitespace-nowrap transition-all duration-200 flex-shrink-0",
-                      activeGoal === f.id
-                        ? "bg-primary text-primary-foreground shadow-sm"
-                        : "bg-muted/60 text-muted-foreground hover:bg-muted"
-                    )}
-                  >
+                {goalFilters.map((f) =>
+                <button
+                  key={f.id}
+                  onClick={() => updateParam('goal', f.id)}
+                  className={cn(
+                    "px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium whitespace-nowrap transition-all duration-200 flex-shrink-0",
+                    activeGoal === f.id ?
+                    "bg-primary text-primary-foreground shadow-sm" :
+                    "bg-muted/60 text-muted-foreground hover:bg-muted"
+                  )}>
+                  
                     <span className="hidden sm:inline">{f.label}</span>
                     <span className="sm:hidden">{f.shortLabel || f.label}</span>
                   </button>
-                ))}
+                )}
               </div>
 
               {/* Sort & Filter toggles */}
@@ -182,8 +182,8 @@ export default function Shop() {
                   className={cn(
                     "flex items-center gap-1.5 px-3 py-2 rounded-full text-xs md:text-sm font-medium transition-all",
                     showFilters ? "bg-primary text-primary-foreground" : "bg-muted/60 text-muted-foreground hover:bg-muted"
-                  )}
-                >
+                  )}>
+                  
                   <SlidersHorizontal className="h-3.5 w-3.5" />
                   <span className="hidden sm:inline">Filters</span>
                 </button>
@@ -195,20 +195,20 @@ export default function Shop() {
                     <ChevronDown className="h-3.5 w-3.5" />
                   </button>
                   <div className="absolute right-0 top-full mt-1 bg-card border border-border rounded-lg shadow-lg py-1 min-w-[180px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                    {sortOptions.map(s => (
-                      <button
-                        key={s.id}
-                        onClick={() => updateParam('sort', s.id)}
-                        className={cn(
-                          "w-full text-left px-4 py-2 text-sm transition-colors",
-                          activeSort === s.id
-                            ? "text-primary font-medium bg-primary/5"
-                            : "text-foreground hover:bg-muted/50"
-                        )}
-                      >
+                    {sortOptions.map((s) =>
+                    <button
+                      key={s.id}
+                      onClick={() => updateParam('sort', s.id)}
+                      className={cn(
+                        "w-full text-left px-4 py-2 text-sm transition-colors",
+                        activeSort === s.id ?
+                        "text-primary font-medium bg-primary/5" :
+                        "text-foreground hover:bg-muted/50"
+                      )}>
+                      
                         {s.label}
                       </button>
-                    ))}
+                    )}
                   </div>
                 </div>
               </div>
@@ -216,41 +216,41 @@ export default function Shop() {
 
             {/* Expandable tag filters */}
             <AnimatePresence>
-              {showFilters && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="overflow-hidden"
-                >
+              {showFilters &&
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="overflow-hidden">
+                
                   <div className="pb-3 flex flex-wrap items-center gap-2">
                     <span className="text-xs text-muted-foreground font-medium mr-1">Filter by:</span>
-                    {tagFilters.map(t => (
-                      <button
-                        key={t.id}
-                        onClick={() => toggleTag(t.id)}
-                        className={cn(
-                          "px-3 py-1.5 rounded-full text-xs font-medium transition-all border",
-                          activeTags.includes(t.id)
-                            ? "bg-primary/10 text-primary border-primary/30"
-                            : "bg-background text-muted-foreground border-border hover:border-primary/30"
-                        )}
-                      >
+                    {tagFilters.map((t) =>
+                  <button
+                    key={t.id}
+                    onClick={() => toggleTag(t.id)}
+                    className={cn(
+                      "px-3 py-1.5 rounded-full text-xs font-medium transition-all border",
+                      activeTags.includes(t.id) ?
+                      "bg-primary/10 text-primary border-primary/30" :
+                      "bg-background text-muted-foreground border-border hover:border-primary/30"
+                    )}>
+                    
                         {t.label}
                       </button>
-                    ))}
-                    {hasActiveFilters && (
-                      <button
-                        onClick={clearFilters}
-                        className="text-xs text-muted-foreground hover:text-foreground underline ml-2"
-                      >
+                  )}
+                    {hasActiveFilters &&
+                  <button
+                    onClick={clearFilters}
+                    className="text-xs text-muted-foreground hover:text-foreground underline ml-2">
+                    
                         Clear all
                       </button>
-                    )}
+                  }
                   </div>
                 </motion.div>
-              )}
+              }
             </AnimatePresence>
           </div>
         </section>
@@ -265,8 +265,8 @@ export default function Shop() {
             className={cn(
               "flex items-center gap-1.5 text-xs md:text-sm font-medium transition-colors",
               showCompare ? "text-primary" : "text-muted-foreground hover:text-foreground"
-            )}
-          >
+            )}>
+            
             <Scale className="h-3.5 w-3.5" />
             Compare{compareList.length > 0 && ` (${compareList.length}/3)`}
           </button>
@@ -275,19 +275,19 @@ export default function Shop() {
         {/* Products Grid */}
         <section className="py-4 md:py-8 lg:py-12">
           <div className="container-wide px-3 md:px-6">
-            {isLoading ? (
-              <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
-                {[...Array(8)].map((_, i) => (
-                  <div key={i} className="space-y-3">
+            {isLoading ?
+            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
+                {[...Array(8)].map((_, i) =>
+              <div key={i} className="space-y-3">
                     <Skeleton className="aspect-square rounded-xl" />
                     <Skeleton className="h-3 w-3/4" />
                     <Skeleton className="h-3 w-1/2" />
                   </div>
-                ))}
-              </div>
-            ) : filteredProducts.length === 0 ? (
-              /* Empty State — calm, helpful */
-              <div className="text-center py-16 md:py-24 max-w-md mx-auto">
+              )}
+              </div> :
+            filteredProducts.length === 0 ? (
+            /* Empty State — calm, helpful */
+            <div className="text-center py-16 md:py-24 max-w-md mx-auto">
                 <span className="text-4xl mb-4 block">🔍</span>
                 <h3 className="font-body text-lg md:text-xl font-semibold mb-2" style={{ letterSpacing: '-0.02em' }}>We don't have that exact match yet</h3>
                 <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
@@ -295,76 +295,76 @@ export default function Shop() {
                   Take a look at the full collection — your body will tell you what it needs.
                 </p>
                 <Button
-                  variant="outline"
-                  onClick={clearFilters}
-                  className="rounded-full"
-                >
+                variant="outline"
+                onClick={clearFilters}
+                className="rounded-full">
+                
                   View all 13 strips
                 </Button>
+              </div>) :
+
+            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
+                {filteredProducts.map((product, index) =>
+              <ProductCard
+                key={product.node.id}
+                product={product}
+                index={index}
+                showCompare={showCompare}
+                isCompared={compareList.includes(product.node.id)}
+                onToggleCompare={() => toggleCompare(product.node.id)} />
+
+              )}
               </div>
-            ) : (
-              <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
-                {filteredProducts.map((product, index) => (
-                  <ProductCard
-                    key={product.node.id}
-                    product={product}
-                    index={index}
-                    showCompare={showCompare}
-                    isCompared={compareList.includes(product.node.id)}
-                    onToggleCompare={() => toggleCompare(product.node.id)}
-                  />
-                ))}
-              </div>
-            )}
+            }
           </div>
         </section>
 
         {/* Compare Drawer */}
         <AnimatePresence>
-          {compareList.length > 0 && showCompare && (
-            <motion.div
-              initial={{ y: 100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 100, opacity: 0 }}
-              className="fixed bottom-0 inset-x-0 bg-card border-t border-border shadow-elevated z-50 p-4"
-            >
+          {compareList.length > 0 && showCompare &&
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 100, opacity: 0 }}
+            className="fixed bottom-0 inset-x-0 bg-card border-t border-border shadow-elevated z-50 p-4">
+            
               <div className="container-wide flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3 overflow-x-auto flex-1">
-                  {compareProducts.map(p => (
-                    <div key={p.node.id} className="flex items-center gap-2 bg-muted/50 rounded-full px-3 py-1.5 flex-shrink-0">
+                  {compareProducts.map((p) =>
+                <div key={p.node.id} className="flex items-center gap-2 bg-muted/50 rounded-full px-3 py-1.5 flex-shrink-0">
                       <span className="text-xs font-medium truncate max-w-[120px]">{sanitizeTitle(p.node.title)}</span>
                       <button onClick={() => toggleCompare(p.node.id)} className="text-muted-foreground hover:text-foreground">
                         <X className="h-3.5 w-3.5" />
                       </button>
                     </div>
-                  ))}
-                  {compareList.length < 3 && (
-                    <span className="text-xs text-muted-foreground whitespace-nowrap">
+                )}
+                  {compareList.length < 3 &&
+                <span className="text-xs text-muted-foreground whitespace-nowrap">
                       Select up to {3 - compareList.length} more
                     </span>
-                  )}
+                }
                 </div>
                 <div className="flex gap-2 flex-shrink-0">
                   <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => { setCompareList([]); setShowCompare(false); }}
-                    className="rounded-full text-xs"
-                  >
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {setCompareList([]);setShowCompare(false);}}
+                  className="rounded-full text-xs">
+                  
                     Clear
                   </Button>
                   <Button
-                    size="sm"
-                    disabled={compareList.length < 2}
-                    className="rounded-full text-xs"
-                    onClick={() => setCompareModalOpen(true)}
-                  >
+                  size="sm"
+                  disabled={compareList.length < 2}
+                  className="rounded-full text-xs"
+                  onClick={() => setCompareModalOpen(true)}>
+                  
                     Compare {compareList.length} strips
                   </Button>
                 </div>
               </div>
             </motion.div>
-          )}
+          }
         </AnimatePresence>
 
         {/* Compare Modal */}
@@ -375,34 +375,34 @@ export default function Shop() {
           onRemoveProduct={(id) => {
             toggleCompare(id);
             if (compareProducts.length <= 2) setCompareModalOpen(false);
-          }}
-        />
+          }} />
+        
 
         {/* Trust Badges */}
-        <section className="py-8 md:py-12 bg-muted/30">
+        <section className="py-8 md:py-12 bg-muted/30 my-[20px]">
           <div className="container-wide px-4 md:px-6">
             <div className="grid grid-cols-3 md:flex md:flex-wrap justify-center gap-4 md:gap-8 lg:gap-16">
               {[
-                { icon: '🧪', label: 'Third-Party Tested', shortLabel: 'Lab Tested' },
-                { icon: '🌿', label: 'Non-GMO', shortLabel: 'Non-GMO' },
-                { icon: '🇺🇸', label: 'Made in USA', shortLabel: 'USA Made' },
-                { icon: '📦', label: 'Free Shipping on $50+', shortLabel: 'Free Ship' },
-                { icon: '↩️', label: '14-Day Money-Back Guarantee', shortLabel: '14-Day Return' },
-              ].map((badge) => (
-                <div key={badge.label} className="flex flex-col md:flex-row items-center gap-1 md:gap-2 text-muted-foreground text-center">
+              { icon: '🧪', label: 'Third-Party Tested', shortLabel: 'Lab Tested' },
+              { icon: '🌿', label: 'Non-GMO', shortLabel: 'Non-GMO' },
+              { icon: '🇺🇸', label: 'Made in USA', shortLabel: 'USA Made' },
+              { icon: '📦', label: 'Free Shipping on $50+', shortLabel: 'Free Ship' },
+              { icon: '↩️', label: '14-Day Money-Back Guarantee', shortLabel: '14-Day Return' }].
+              map((badge) =>
+              <div key={badge.label} className="flex flex-col md:flex-row items-center gap-1 md:gap-2 text-muted-foreground text-center">
                   <span className="text-xl md:text-2xl">{badge.icon}</span>
                   <span className="text-[10px] md:text-sm font-medium leading-tight">
                     <span className="hidden md:inline">{badge.label}</span>
                     <span className="md:hidden">{badge.shortLabel}</span>
                   </span>
                 </div>
-              ))}
+              )}
             </div>
           </div>
         </section>
       </main>
 
       <Footer />
-    </div>
-  );
+    </div>);
+
 }
