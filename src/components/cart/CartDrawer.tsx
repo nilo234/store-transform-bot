@@ -130,7 +130,11 @@ export function CartDrawer() {
               <div className="flex-1 overflow-y-auto px-4 md:px-6 py-3 md:py-4">
                 <div className="space-y-3 md:space-y-4">
                   {/* Bundle Groups */}
-                  {bundles.map(([bundleId, bundle]) => (
+                  {bundles.map(([bundleId, bundle]) => {
+                    const bundleDef = bundleDefinitions.find(b => b.name === bundle.name);
+                    const bundleItemsTotal = bundle.items.reduce((s, item) => s + parseFloat(item.price.amount) * item.quantity, 0);
+                    
+                    return (
                     <div key={bundleId} className="bg-primary/5 rounded-xl border border-primary/20 overflow-hidden">
                       {/* Bundle Header */}
                       <div className="flex items-center justify-between px-3 md:px-4 py-2.5 bg-primary/10">
@@ -151,11 +155,22 @@ export function CartDrawer() {
                           <Trash2 className="h-3.5 w-3.5" />
                         </Button>
                       </div>
+                      {/* Bundle Pricing Summary */}
+                      {bundleDef && (
+                        <div className="px-3 md:px-4 py-2 bg-accent/5 flex items-center justify-between">
+                          <span className="text-[10px] md:text-xs text-muted-foreground">
+                            Bundle total: <span className="line-through">${bundleItemsTotal.toFixed(2)}</span>
+                          </span>
+                          <span className="text-xs md:text-sm font-bold text-primary">
+                            ${bundleDef.salePrice.toFixed(2)} <span className="text-[10px] font-normal text-accent">(-{bundleDef.discountPercent}%)</span>
+                          </span>
+                        </div>
+                      )}
                       {/* Discount Code Applied */}
                       {bundle.discountCode && (
                         <div className="px-3 md:px-4 py-1.5 bg-accent/10 text-center">
                           <span className="text-[10px] md:text-xs font-medium text-accent">
-                            ✅ Discount code "{bundle.discountCode}" auto-applied
+                            ✅ Discount code "{bundle.discountCode}" auto-applied at checkout
                           </span>
                         </div>
                       )}
@@ -166,7 +181,8 @@ export function CartDrawer() {
                         ))}
                       </div>
                     </div>
-                  ))}
+                    );
+                  })}
 
                   {/* Standalone Items */}
                   {standalone.map((item) => (
