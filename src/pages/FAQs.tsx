@@ -7,56 +7,55 @@ import { FAQJsonLd, PageMeta } from '@/components/seo';
 const faqs = [
   { 
     q: 'How do I take Neuvie strips?', 
-    a: 'Simply place one strip on your tongue and let it dissolve completely—usually within 30-60 seconds. No water needed! For best results, follow the specific instructions on each product.' 
+    a: 'Place one strip on your tongue and let it dissolve \u2014 usually within 30\u201360 seconds. No water needed. For best results, follow the specific instructions on each product.' 
   },
   { 
-    q: 'What makes oral strips better than pills or capsules?', 
-    a: 'Oral strips dissolve directly on your tongue, allowing for faster absorption compared to pills that need to be broken down in your stomach. Plus, they\'re incredibly convenient—no water needed, easy to take anywhere, and no choking on large capsules.' 
+    q: 'What makes strips better than pills?', 
+    a: "Strips dissolve directly on your tongue, so the ingredients absorb faster than a pill that needs to break down in your stomach. They\u2019re also easier to take \u2014 no water, no swallowing large capsules, and they go wherever you go." 
   },
   { 
     q: 'Are your products third-party tested?', 
-    a: 'Yes! Every batch of Neuvie strips is independently tested by third-party labs for purity, potency, and safety. We publish our test results for complete transparency.' 
+    a: 'Yes. Every batch of Neuvie strips is independently tested by third-party labs for purity, potency, and safety. We believe in full transparency \u2014 what the label says is what you get.' 
   },
   { 
-    q: 'Do you offer a money-back guarantee?', 
-    a: 'Absolutely. We offer a 14-day money-back guarantee on all orders. If you\'re not completely satisfied with your purchase, simply contact us for a full refund—no questions asked.' 
+    q: 'What if I\u2019m not happy with my order?', 
+    a: "We offer a 14-day money-back guarantee on all orders. If it\u2019s not working for you, email us and we\u2019ll refund you \u2014 no questions asked." 
   },
   { 
     q: 'Are Neuvie strips vegan?', 
-    a: 'Most of our strips are vegan, made with plant-based ingredients like pullulan. Please check the specific product page for detailed ingredient information and dietary certifications.' 
+    a: 'Most of our strips are vegan, made with plant-based ingredients like pullulan. Check the specific product page for detailed ingredient information and dietary notes.' 
   },
   { 
-    q: 'How long until I notice results?', 
-    a: 'It depends on the product. Energy Strips work within minutes. For supplements like Hair, Skin & Nails or Sleep Strips, most customers notice benefits within 2-4 weeks of consistent daily use.' 
+    q: 'How long until I notice a difference?', 
+    a: 'It depends on the product. Energy Strips work within minutes. For daily-use products like Hair, Skin & Nails or Sleep Strips, most people notice a difference within 2\u20134 weeks of consistent use.' 
   },
   { 
     q: 'Do you ship internationally?', 
-    a: 'We currently ship within the United States only. We offer free shipping on all orders over $50. Orders typically arrive within 3-5 business days. Sign up for our newsletter to be notified when we expand to new markets.' 
+    a: 'We currently ship within the United States only. Free shipping on all orders over $50, with delivery in 3\u20135 business days. Sign up for our newsletter to know when we expand.' 
   },
   { 
-    q: 'Can I take multiple Neuvie products together?', 
-    a: 'Yes, our products are designed to complement each other. Many customers combine Energy Strips in the morning with Sleep Strips at night. However, we recommend consulting with your healthcare provider if you have specific health concerns.' 
+    q: 'Can I take more than one product?', 
+    a: "Absolutely \u2014 our products are designed to complement each other. Many people combine Energy Strips in the morning with Sleep Strips at night. If you have specific health concerns, check with your healthcare provider." 
   },
   { 
     q: 'Are there any side effects?', 
-    a: 'Our strips are made with natural, carefully selected ingredients. Side effects are rare. However, if you experience any adverse reactions, discontinue use and consult your healthcare provider. Always check ingredients if you have known allergies.' 
+    a: 'Our strips are made with carefully selected ingredients, and side effects are rare. If you experience any adverse reactions, stop use and consult your healthcare provider. Always check ingredients if you have known allergies.' 
   },
   { 
-    q: 'What makes Neuvie different from other supplements?', 
-    a: 'Three things: format, quality, and transparency. Our fast-dissolving strips are more convenient than pills. We use premium, science-backed ingredients at clinically studied dosages. And every batch is third-party tested with results you can verify.' 
+    q: 'What makes Neuvie different?', 
+    a: "Three things: the format is easier to stick with than pills. The ingredients are dosed at levels that are studied to work. And every batch is independently tested \u2014 so you know exactly what you\u2019re getting." 
   },
   { 
     q: 'How should I store my strips?', 
-    a: 'Store your Neuvie strips in a cool, dry place away from direct sunlight. Keep the packaging sealed when not in use to maintain freshness and potency.' 
+    a: 'Keep them in a cool, dry place away from direct sunlight. Seal the packaging when not in use to maintain freshness.' 
   },
   { 
     q: 'Are your strips safe during pregnancy or breastfeeding?', 
-    a: 'We recommend consulting with your healthcare provider before taking any supplements during pregnancy or breastfeeding. Some products, like those containing caffeine or melatonin, may not be suitable.' 
+    a: "We recommend talking to your healthcare provider before starting any supplement during pregnancy or breastfeeding. Some products \u2014 especially those with caffeine or melatonin \u2014 may not be suitable." 
   },
 ];
 
 export default function FAQs() {
-  // Transform FAQs for JSON-LD
   const faqJsonLdData = faqs.map(faq => ({
     question: faq.q,
     answer: faq.a
@@ -64,10 +63,9 @@ export default function FAQs() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      {/* SEO */}
       <PageMeta
-        title="Wellness Strips FAQ – Your Questions Answered | NEUVIE™"
-        description="How do NEUVIE™ dissolving strips work? Ingredients, shipping, returns & more. Third-party tested, 14-day guarantee. Get answers now."
+        title="Wellness Strips FAQ \u2013 Your Questions Answered | NEUVIE\u2122"
+        description="How do NEUVIE\u2122 dissolving strips work? Ingredients, shipping, returns & more. Third-party tested, 14-day guarantee. Get answers now."
       />
       <FAQJsonLd faqs={faqJsonLdData} />
       
@@ -90,7 +88,7 @@ export default function FAQs() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              Everything you need to know about Neuvie strips. Can't find what you're looking for? Contact our support team.
+              Everything you need to know about Neuvie strips. If you don't find your answer here, reach out \u2014 we're happy to help.
             </motion.p>
           </div>
         </section>
@@ -129,13 +127,13 @@ export default function FAQs() {
               transition={{ delay: 0.3 }}
             >
               <p className="text-muted-foreground mb-4">
-                Still have questions?
+                Still have a question?
               </p>
               <a 
                 href="/contact" 
                 className="text-primary font-semibold hover:text-accent transition-colors inline-flex items-center gap-1"
               >
-                Contact our support team →
+                Get in touch \u2192
               </a>
             </motion.div>
           </div>

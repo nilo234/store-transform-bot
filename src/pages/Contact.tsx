@@ -10,20 +10,20 @@ import { PageMeta } from '@/components/seo';
 const contactMethods = [
   {
     icon: Mail,
-    title: 'Email Us',
-    description: 'Send us an email anytime',
+    title: 'Email',
+    description: 'Send us a message anytime',
     value: 'hello@neuvie.com',
   },
   {
     icon: MessageSquare,
     title: 'Live Chat',
-    description: 'Chat with our team',
-    value: 'Available 9am - 6pm EST',
+    description: 'Talk to a real person',
+    value: 'Available 9am \u2013 6pm EST',
   },
   {
     icon: Clock,
     title: 'Response Time',
-    description: 'We typically respond within',
+    description: 'We typically get back to you within',
     value: '24 hours',
   },
 ];
@@ -32,8 +32,8 @@ export default function Contact() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="Contact NEUVIE™ Support – We're Here to Help"
-        description="Questions about NEUVIE™ strips or your order? Email or live chat. We respond within 24 hours. Get help now."
+        title="Contact NEUVIE\u2122 Support \u2013 We\u2019re Here to Help"
+        description="Questions about NEUVIE\u2122 strips or your order? Email or live chat. We respond within 24 hours."
       />
       <Navbar />
       
@@ -46,7 +46,7 @@ export default function Contact() {
               style={{ letterSpacing: '-0.02em' }}
               animate={{ opacity: 1, y: 0 }}
             >
-              CONTACT US
+              GET IN TOUCH
             </motion.h1>
             <motion.p 
               className="text-lg text-muted-foreground max-w-2xl mx-auto"
@@ -54,7 +54,7 @@ export default function Contact() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              Have questions about our strips or your order? We're here to help. Send us a message and we'll respond as soon as possible.
+              Have a question about your order, our ingredients, or anything else? We\u2019re here and happy to help.
             </motion.p>
           </div>
         </section>
@@ -101,14 +101,14 @@ export default function Contact() {
                   <div>
                     <label className="text-sm font-medium mb-2 block">Your Name</label>
                     <Input 
-                      placeholder="John Doe" 
+                      placeholder="Jane Doe" 
                       className="h-12 rounded-lg"
                     />
                   </div>
                   <div>
                     <label className="text-sm font-medium mb-2 block">Email Address</label>
                     <Input 
-                      placeholder="john@example.com" 
+                      placeholder="jane@example.com" 
                       type="email" 
                       className="h-12 rounded-lg"
                     />
@@ -118,7 +118,7 @@ export default function Contact() {
                 <div>
                   <label className="text-sm font-medium mb-2 block">Subject</label>
                   <Input 
-                    placeholder="How can we help you?" 
+                    placeholder="What can we help with?" 
                     className="h-12 rounded-lg"
                   />
                 </div>
@@ -126,7 +126,7 @@ export default function Contact() {
                 <div>
                   <label className="text-sm font-medium mb-2 block">Message</label>
                   <Textarea 
-                    placeholder="Tell us more about your inquiry..." 
+                    placeholder="Tell us more..." 
                     rows={6} 
                     className="rounded-lg resize-none"
                   />

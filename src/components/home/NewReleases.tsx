@@ -10,9 +10,7 @@ export function NewReleases() {
 
   useEffect(() => {
     async function loadProducts() {
-      // Fetch products and take the last 4 as "new releases"
       const data = await fetchProducts(13);
-      // Get last 4 products as "newest"
       const newReleases = data.slice(-4);
       setProducts(newReleases);
       setIsLoading(false);
@@ -45,7 +43,7 @@ export function NewReleases() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            NEW RELEASES
+            NEW ADDITIONS
           </motion.h2>
 
           <motion.p
@@ -55,7 +53,7 @@ export function NewReleases() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            Check out our latest additions to the Neuvie family.
+            The latest additions to the Neuvie lineup.
           </motion.p>
         </div>
 
