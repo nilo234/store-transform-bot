@@ -31,8 +31,8 @@ const ingredientsByProduct: Record<string, Ingredient[]> = {
     { name: "Magnesium", benefit: "Helps your muscles and nervous system unwind", category: "RECOVERY", icon: Heart },
   ],
   cognitive: [
-    { name: "L-Theanine", benefit: "Focused calm when your brain won\u2019t stop racing", category: "CALM", icon: Leaf },
-    { name: "GABA", benefit: "Supports your body\u2019s natural response to stress", category: "BALANCE", icon: Heart },
+    { name: "L-Theanine", benefit: "Focused calm when your brain won't stop racing", category: "CALM", icon: Leaf },
+    { name: "GABA", benefit: "Supports your body's natural response to stress", category: "BALANCE", icon: Heart },
     { name: "Vitamin B6", benefit: "Keeps your nervous system running smoothly", category: "NERVE", icon: Brain },
   ],
   default: [
