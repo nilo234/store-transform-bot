@@ -152,11 +152,11 @@ export default function Bundles() {
               viewport={{ once: true }}
             >
               <h2 className="font-body text-2xl md:text-3xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-                Not sure which bundle to choose?
+                Not sure where to start?
               </h2>
               <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-                Take our quick wellness quiz to find the perfect bundle for your goals, 
-                or contact our team for personalized recommendations.
+                That's okay. Everyone's body is different. Browse our individual strips or reach out — 
+                we're happy to help you find what feels right.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-4">
                 <a 
