@@ -33,7 +33,7 @@ import {
 // Testimonials per product category
 const productTestimonials: Record<string, { quote: string; author: string }> = {
   mushroom: {
-    quote: "I keep these on my desk now. The chocolate flavor is actually good, and I stopped reaching for my third coffee. That\u2019s saying something.",
+    quote: "I keep these on my desk now. The chocolate flavor is actually good, and I stopped reaching for my third coffee. That's saying something.",
     author: "Michael R."
   },
   energy: {
