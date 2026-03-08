@@ -375,7 +375,7 @@ export default function ProductDetail() {
               <Accordion type="multiple" defaultValue={["description", "ingredients"]} className="space-y-2">
                 <AccordionItem value="description" className="bg-muted/30 rounded-xl border-none px-4 data-[state=open]:bg-muted/50">
                   <AccordionTrigger className="py-3 hover:no-underline">
-                    <span className="font-medium">Description</span>
+                    <span className="font-medium">What it does</span>
                   </AccordionTrigger>
                   <AccordionContent className="pb-4 text-sm text-muted-foreground">
                     {productContent?.longDescription?.[0] || product.description}
