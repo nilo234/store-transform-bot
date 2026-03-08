@@ -107,13 +107,13 @@ export default function About() {
                 </h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    It started with a simple observation: most supplements don't fail because of what's inside them. They fail because people stop taking them.
+                    It started with a question: why do most people stop taking their supplements?
                   </p>
                   <p>
-                    Pills are hard to swallow. Powders are messy. And most products are filled with things that don't need to be there. We wanted to create something different — a supplement that fits into your life so naturally, you actually keep using it.
+                    Not because they stopped caring about their health. Because the routine was too much. Too many pills, too much effort, too easy to forget. We wanted to create something that doesn't feel like a chore — something that feels like a small act of kindness toward yourself.
                   </p>
                   <p>
-                    Today, Neuvie offers 13 fast-dissolving strips — from Energy and Focus to Sleep and Beauty — each formulated with ingredients chosen for what they do, not how they sound. No water needed. No routine to remember. Just place, dissolve, and move on with your day.
+                    Today, Neuvie offers 13 fast-dissolving strips — from Energy and Focus to Sleep and Beauty. Each one is a 30-second ritual that says: I matter. My body matters. And I'm going to show up for myself today.
                   </p>
                 </div>
               </motion.div>
