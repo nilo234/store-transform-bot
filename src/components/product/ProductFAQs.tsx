@@ -39,7 +39,7 @@ const defaultFaqs: FAQ[] = [
   },
   {
     question: "Are they independently tested?",
-    answer: "Every single batch is third-party tested for purity, potency, and safety. We don\u2019t skip steps. All products are manufactured in FDA-registered, cGMP-certified facilities in the USA."
+    answer: "Every single batch is third-party tested for purity, potency, and safety. We don't skip steps. All products are manufactured in FDA-registered, cGMP-certified facilities in the USA."
   },
   {
     question: "What if it\u2019s not for me?",
