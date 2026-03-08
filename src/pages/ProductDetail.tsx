@@ -384,7 +384,7 @@ export default function ProductDetail() {
 
                 <AccordionItem value="ingredients" className="bg-muted/30 rounded-xl border-none px-4 data-[state=open]:bg-muted/50">
                   <AccordionTrigger className="py-3 hover:no-underline">
-                    <span className="font-medium">What\u2019s inside</span>
+                    <span className="font-medium">What's inside</span>
                   </AccordionTrigger>
                   <AccordionContent className="pb-4">
                     <div className="flex flex-wrap gap-1.5">
