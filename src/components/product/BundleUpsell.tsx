@@ -40,7 +40,7 @@ export const BundleUpsell = ({ currentProductHandle }: BundleUpsellProps) => {
             <span className="text-primary font-semibold text-sm uppercase tracking-wider">
               Better together
             </span>
-            <h2 className="font-body text-2xl md:text-3xl font-semibold mt-2 mb-4" style={{ letterSpacing: '-0.02em' }}>
+            <h2 className="font-display text-2xl md:text-3xl mt-2 mb-4" style={{ letterSpacing: '-0.02em' }}>
               Build a routine that covers all the bases.
             </h2>
             <p className="text-muted-foreground">
