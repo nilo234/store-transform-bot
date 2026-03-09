@@ -230,7 +230,7 @@ export default function ProductDetail() {
               transition={{ duration: 0.5 }}
             >
               {/* Main Image */}
-              <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-b from-muted/50 to-card relative">
+              <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-b from-secondary/50 to-card relative shadow-soft">
                 {/* Servings Badge */}
                 <div className="absolute top-4 left-4 z-10">
                   <div className="bg-card/90 backdrop-blur-sm rounded-lg px-3 py-2 border border-border/50">
@@ -298,14 +298,13 @@ export default function ProductDetail() {
             >
               {/* Title & Subtitle */}
               <div>
-                <h1 className="font-display text-3xl md:text-4xl"    <p className="text-muted-foreground mt-1">
-                  {productContent?.shortDescription?.split('.')[0] || 'Fast-dissolving wellness strip'}
+                <h1 className="font-display text-3xl md:text-4xl"                 {productContent?.shortDescription?.split('.')[0] || 'Fast-dissolving wellness strip'}
                 </p>
               </div>
 
               {/* Price Block - US Market Optimized */}
               <div className="bg-muted/30 rounded-xl p-4 space-y-3">
-            secondary/6v className="flex items-center justify-between">
+            secondary/6v className="flex items-center justifsecondary/6en">
                   <div className="flex items-center gap-3">
                     <span className="text-3xl font-bold text-primary">${price.toFixed(2)}</span>
                     <span className="text-lg text-muted-foreground line-through">${originalPrice.toFixed(2)}</span>
