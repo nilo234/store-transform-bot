@@ -456,10 +456,10 @@ export default function ProductDetail() {
 
         {/* Detailed Product Information */}
         {productContent && (
-          <section className="py-16 bg-muted/30">
+          <section className="py-16 bg-secondary/30">
             <div className="container-wide">
               <div className="max-w-4xl mx-auto">
-                <h2 className="font-body text-2xl md:text-3xl font-semibold text-center mb-12" style={{ letterSpacing: '-0.02em' }}>
+                <h2 className="font-display text-2xl md:text-3xl text-center mb-12">
                   Everything you want to know — because you deserve to feel sure.
                 </h2>
 

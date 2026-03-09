@@ -376,7 +376,7 @@ export default function Shop() {
         
 
         {/* Trust Badges */}
-        <section className="py-8 md:py-12 bg-muted/30 my-[20px]">
+        <section className="py-10 md:py-14 bg-secondary/30">
           <div className="container-wide px-4 md:px-6">
             <div className="grid grid-cols-3 md:flex md:flex-wrap justify-center gap-4 md:gap-8 lg:gap-16">
               {[
