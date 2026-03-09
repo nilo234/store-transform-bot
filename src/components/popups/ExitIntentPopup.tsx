@@ -193,7 +193,7 @@ export function ExitIntentPopup() {
                   >
                     <Copy className="h-7 w-7 text-green-600" />
                   </motion.div>
-                  <h3 className="font-body text-xdisplay text-xl SAVE10 Copied! 🎉</h3>
+                  <h3 className="font-display text-xl mb-2">Code SAVE10 Copied! 🎉</h3>
                   <p className="text-muted-foreground text-sm">
                     Valid for 24 hours. Happy shopping!
                   </p>
