@@ -3,6 +3,16 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { PageMeta } from '@/components/seo';
 
+const sections = [
+  { title: 'Information We Collect', content: 'We collect information you provide directly to us, such as:', list: ['Name and contact information when you create an account or place an order', 'Payment information to process transactions (securely processed by our payment providers)', 'Shipping address for order fulfillment', 'Communications when you contact our support team', 'Email address when you subscribe to our newsletter'] },
+  { title: 'How We Use Your Information', content: 'We use the information we collect to:', list: ['Process and fulfill your orders', 'Send order confirmations and shipping updates', 'Respond to your questions and provide customer support', 'Send promotional emails (with your consent)', 'Improve our website and services', 'Comply with legal obligations'] },
+  { title: 'Information Sharing', content: 'We do not sell, trade, or rent your personal information to third parties. We may share your information with trusted service providers who assist us in operating our website, processing payments, and fulfilling orders. These providers are contractually obligated to keep your information confidential.' },
+  { title: 'Data Security', content: 'We implement industry-standard security measures to protect your personal information. All payment transactions are encrypted using SSL technology. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.' },
+  { title: 'Cookies', content: 'We use cookies and similar technologies to enhance your browsing experience, analyze site traffic, and personalize content. You can control cookies through your browser settings. Disabling cookies may affect certain features of our website.' },
+  { title: 'Your Rights', content: 'You have the right to:', list: ['Access and request a copy of your personal data', 'Request correction of inaccurate information', 'Request deletion of your personal data', 'Opt out of marketing communications at any time', 'Lodge a complaint with a supervisory authority'] },
+  { title: 'Contact Us', content: 'If you have any questions about this Privacy Policy, please contact us at privacy@neuvie.com', email: 'privacy@neuvie.com' },
+];
+
 export default function Privacy() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -11,19 +21,19 @@ export default function Privacy() {
         description="How NEUVIE™ collects, uses, and protects your personal information. Read our privacy policy."
       />
       <Navbar />
-      
+
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="py-20 md:py-28 bg-gradient-to-b from-muted/50 to-background">
+        {/* Hero */}
+        <section className="py-20 md:py-28" style={{ background: 'var(--gradient-hero)' }}>
           <div className="container-wide text-center">
-            <motion.h1 
-              className="font-body text-4xl md:text-5xl lg:text-6xl font-semibold mb-6"
+            <motion.h1
+              className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold mb-6"
               style={{ letterSpacing: '-0.02em' }}
-              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
             >
-              PRIVACY POLICY
+              Privacy Policy
             </motion.h1>
-            <motion.p 
+            <motion.p
               className="text-lg text-muted-foreground max-w-2xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -31,7 +41,7 @@ export default function Privacy() {
             >
               Your privacy is important to us. This policy explains how we collect, use, and protect your information.
             </motion.p>
-            <motion.p 
+            <motion.p
               className="text-sm text-muted-foreground mt-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -42,85 +52,40 @@ export default function Privacy() {
           </div>
         </section>
 
-        {/* Policy Content */}
+        {/* Content */}
         <section className="py-20">
-          <div className="container-wide max-w-3xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="prose prose-lg max-w-none"
-            >
-              <div className="space-y-8">
-                <div className="bg-card rounded-xl p-8">
-                  <h2 className="font-body text-2xl font-semibold mb-4">Information We Collect</h2>
-                  <p className="text-muted-foreground mb-4">We collect information you provide directly to us, such as:</p>
-                  <ul className="list-disc list-inside text-muted-foreground space-y-2">
-                    <li>Name and contact information when you create an account or place an order</li>
-                    <li>Payment information to process transactions (securely processed by our payment providers)</li>
-                    <li>Shipping address for order fulfillment</li>
-                    <li>Communications when you contact our support team</li>
-                    <li>Email address when you subscribe to our newsletter</li>
-                  </ul>
-                </div>
-
-                <div className="bg-card rounded-xl p-8">
-                  <h2 className="font-body text-2xl font-semibold mb-4">How We Use Your Information</h2>
-                  <p className="text-muted-foreground mb-4">We use the information we collect to:</p>
-                  <ul className="list-disc list-inside text-muted-foreground space-y-2">
-                    <li>Process and fulfill your orders</li>
-                    <li>Send order confirmations and shipping updates</li>
-                    <li>Respond to your questions and provide customer support</li>
-                    <li>Send promotional emails (with your consent)</li>
-                    <li>Improve our website and services</li>
-                    <li>Comply with legal obligations</li>
-                  </ul>
-                </div>
-
-                <div className="bg-card rounded-xl p-8">
-                  <h2 className="font-body text-2xl font-semibold mb-4">Information Sharing</h2>
-                  <p className="text-muted-foreground">
-                    We do not sell, trade, or rent your personal information to third parties. We may share your information with trusted service providers who assist us in operating our website, processing payments, and fulfilling orders. These providers are contractually obligated to keep your information confidential.
-                  </p>
-                </div>
-
-                <div className="bg-card rounded-xl p-8">
-                  <h2 className="font-body text-2xl font-semibold mb-4">Data Security</h2>
-                  <p className="text-muted-foreground">
-                    We implement industry-standard security measures to protect your personal information. All payment transactions are encrypted using SSL technology. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.
-                  </p>
-                </div>
-
-                <div className="bg-card rounded-xl p-8">
-                  <h2 className="font-body text-2xl font-semibold mb-4">Cookies</h2>
-                  <p className="text-muted-foreground">
-                    We use cookies and similar technologies to enhance your browsing experience, analyze site traffic, and personalize content. You can control cookies through your browser settings. Disabling cookies may affect certain features of our website.
-                  </p>
-                </div>
-
-                <div className="bg-card rounded-xl p-8">
-                  <h2 className="font-body text-2xl font-semibold mb-4">Your Rights</h2>
-                  <p className="text-muted-foreground mb-4">You have the right to:</p>
-                  <ul className="list-disc list-inside text-muted-foreground space-y-2">
-                    <li>Access and request a copy of your personal data</li>
-                    <li>Request correction of inaccurate information</li>
-                    <li>Request deletion of your personal data</li>
-                    <li>Opt out of marketing communications at any time</li>
-                    <li>Lodge a complaint with a supervisory authority</li>
-                  </ul>
-                </div>
-
-                <div className="bg-card rounded-xl p-8">
-                  <h2 className="font-body text-2xl font-semibold mb-4">Contact Us</h2>
+          <div className="container-wide max-w-3xl space-y-8">
+            {sections.map((section, index) => (
+              <motion.div
+                key={section.title}
+                className="bg-card rounded-2xl p-8 border border-border/30 shadow-soft"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.05 * index }}
+              >
+                <h2 className="font-display text-xl md:text-2xl mb-4">{section.title}</h2>
+                {section.email ? (
                   <p className="text-muted-foreground">
                     If you have any questions about this Privacy Policy, please contact us at{' '}
-                    <a href="mailto:privacy@neuvie.com" className="text-primary hover:underline">
-                      privacy@neuvie.com
-                    </a>
+                    <a href={`mailto:${section.email}`} className="text-accent hover:underline">{section.email}</a>
                   </p>
-                </div>
-              </div>
-            </motion.div>
+                ) : (
+                  <>
+                    <p className="text-muted-foreground mb-4">{section.content}</p>
+                    {section.list && (
+                      <ul className="space-y-2">
+                        {section.list.map((item) => (
+                          <li key={item} className="flex items-start gap-2 text-muted-foreground">
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </>
+                )}
+              </motion.div>
+            ))}
           </div>
         </section>
       </main>
