@@ -208,7 +208,7 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
         <div className="px-6 pt-4 pb-2">
           <div className="flex items-center gap-2">
             <span className="text-2xl">{bundle.emoji}</span>
-            <h3 className="font-body text-lg font-semibold text-foreground leading-tight" style={{ letterSpacing: '-0.02em' }}>
+            <h3 className="text-lg font-semibold text-foreground leading-tight" style={{ letterSpacing: '-0.02em' }}>
               {bundle.name}
             </h3>
           </div>

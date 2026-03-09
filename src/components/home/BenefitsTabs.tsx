@@ -45,7 +45,7 @@ export function BenefitsTabs() {
   const [activeId, setActiveId] = useState<string | null>(null);
 
   return (
-    <section className="py-20 md:py-28 bg-muted/30">
+    <section className="py-20 md:py-28 bg-secondary/30">
       <div className="container-wide">
         <motion.div 
           className="text-center mb-12"

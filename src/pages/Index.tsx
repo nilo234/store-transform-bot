@@ -211,7 +211,7 @@ export default function Index() {
                   <Link to={cat.href} className="block group">
                     <div className={`relative rounded-2xl bg-gradient-to-br ${cat.color} border border-border/30 p-7 md:p-9 text-center transition-all duration-500 hover:shadow-card hover:-translate-y-1.5`}>
                       <span className="text-4xl md:text-5xl block mb-4">{cat.emoji}</span>
-                      <h3 className="font-semibold text-sm md:text-base mb-1.5">{cat.title}</h3>
+                      <h3 className="font-ext-sm md:text-base mb-1.5">{cat.title}</h3>
                       <p className="text-xs text-muted-foreground leading-relaxed">{cat.description}</p>
                       <ChevronRight className="h-4 w-4 mx-auto mt-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
@@ -293,7 +293,7 @@ export default function Index() {
                       {item.step}
                     </span>
                   </div>
-                  <h3 className="font-body font-semibold text-sm md:text-base mb-1">{item.title}</h3>
+                  <h3 className="font-body font-ext-sm md:text-base mb-1">{item.title}</h3>
                   <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                 </motion.div>
               ))}
