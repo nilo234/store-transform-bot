@@ -72,7 +72,7 @@ export function ProductCard({ product, index = 0, showCompare, isCompared, onTog
     >
       <Link to={`/product/${sanitizeHandle(node.handle)}`}>
         <div
-          className="bg-card rounded-xl md:rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1 group cursor-pointer border border-border/50 hover:border-border hover:shadow-elevated relative"
+          className="bg-card rounded-xl md:rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1.5 group cursor-pointer border border-border/30 hover:border-border/60 hover:shadow-elevated relative"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
