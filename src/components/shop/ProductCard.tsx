@@ -92,7 +92,8 @@ export function ProductCard({ product, index = 0, showCompare, isCompared, onTog
           )}
 
           {/* Image */}
-          <div className="relative aspect-square overflow-hidden bg-gradient-secondarysto-b from-to-b from-secondary  {/* Strips count */}
+          <div className="relative aspect-square overflow-hidden bg-gradient-to-b from-secondary/30 to-card">
+            {/* Strips count */}
             <div className={cn("absolute top-2 md:top-4 z-10", showCompare ? "left-10 md:left-12" : "left-2 md:left-4")}>
               <div className="bg-background/95 backdrop-blur-sm rounded-md px-2 py-1 md:px-3 md:py-1.5 text-center border border-border/50 shadow-sm">
                 <span className="text-xs md:text-sm font-bold text-foreground block leading-none">30</span>
