@@ -92,7 +92,7 @@ export function TestimonialsCarousel() {
           </span>
           
           <div className="mb-6">
-            <span className="font-body text-5xl md:text-6xl font-bold text-foreground" style={{ letterSpacing: '-0.03em' }}>
+            <span className="font-display text-5xl md:text-6xl text-foreground">
               4.9
             </span>
             <span className="text-2xl text-muted-foreground font-medium ml-1">/ 5</span>
