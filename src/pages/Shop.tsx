@@ -116,15 +116,15 @@ export default function Shop() {
       <Navbar />
 
       <main className="flex-1">
-        {/* Collection Intro — clinical, calm */}
-        <section className="bg-gradient-to-b from-muted/50 to-background py-10 md:py-16 lg:py-20">
-          <div className="container-wide text-center px-4 md:px-6">
+        {/* Collection Intro — warm, inviting */}
+        <section className="relative overflow-hidden py-14 md:py-20 lg:py-24">
+          <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
+          <div className="container-wide text-center px-4 md:px-6 relative z-10">
             <motion.h1
-              className="font-body text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-3 md:mb-4"
-              style={{ letterSpacing: '-0.02em' }}
+              className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 md:mb-5"
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}>
-              
                Your Body Deserves This
              </motion.h1>
              <motion.p
@@ -132,19 +132,16 @@ export default function Shop() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}>
-              
-               13 dissolving strips, each made with intention. No pills, no water — just a moment of care that fits into your real life. 
-               Because taking care of yourself shouldn't feel like one more thing on the list.
+               13 dissolving strips, each made with intention. No pills, no water — just a moment of care that fits into your real life.
              </motion.p>
             <motion.div
-              className="flex flex-wrap justify-center gap-4 md:gap-6 mt-5 md:mt-8 text-xs md:text-sm text-muted-foreground"
+              className="flex flex-wrap justify-center gap-4 md:gap-6 mt-6 md:mt-8 text-xs md:text-sm text-muted-foreground"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}>
-              
               {['Third-party tested', 'Made in the USA', 'Non-GMO', 'Free shipping on $50+'].map((item) =>
               <span key={item} className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                   {item}
                 </span>
               )}
@@ -289,7 +286,7 @@ export default function Shop() {
             /* Empty State — calm, helpful */
             <div className="text-center py-16 md:py-24 max-w-md mx-auto">
                 <span className="text-4xl mb-4 block">🔍</span>
-                <h3 className="font-body text-lg md:text-xl font-semibold mb-2" style={{ letterSpacing: '-0.02em' }}>We don't have that exact match yet</h3>
+                <h3 className="font-display text-lg md:text-xl mb-2">We don't have that exact match yet</h3>
                 <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
                   But there might be something else that's perfect for you. 
                   Take a look at the full collection — your body will tell you what it needs.
@@ -379,7 +376,7 @@ export default function Shop() {
         
 
         {/* Trust Badges */}
-        <section className="py-8 md:py-12 bg-muted/30 my-[20px]">
+        <section className="py-10 md:py-14 bg-secondary/30">
           <div className="container-wide px-4 md:px-6">
             <div className="grid grid-cols-3 md:flex md:flex-wrap justify-center gap-4 md:gap-8 lg:gap-16">
               {[

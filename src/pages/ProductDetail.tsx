@@ -230,7 +230,7 @@ export default function ProductDetail() {
               transition={{ duration: 0.5 }}
             >
               {/* Main Image */}
-              <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-b from-muted/50 to-card relative">
+              <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-b from-secondary/50 to-card relative shadow-soft">
                 {/* Servings Badge */}
                 <div className="absolute top-4 left-4 z-10">
                   <div className="bg-card/90 backdrop-blur-sm rounded-lg px-3 py-2 border border-border/50">
@@ -298,14 +298,14 @@ export default function ProductDetail() {
             >
               {/* Title & Subtitle */}
               <div>
-                <h1 className="font-body text-3xl md:text-4xl font-semibold" style={{ letterSpacing: '-0.02em' }}>{sanitizeTitle(product.title)}</h1>
+                <h1 className="font-display text-3xl md:text-4xl">{sanitizeTitle(product.title)}</h1>
                <p className="text-muted-foreground mt-1">
                   {productContent?.shortDescription?.split('.')[0] || 'Fast-dissolving wellness strip'}
                 </p>
               </div>
 
               {/* Price Block - US Market Optimized */}
-              <div className="bg-muted/30 rounded-xl p-4 space-y-3">
+              <div className="bg-secondary/60 rounded-xl p-4 space-y-3">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <span className="text-3xl font-bold text-primary">${price.toFixed(2)}</span>
@@ -417,17 +417,17 @@ export default function ProductDetail() {
               </Accordion>
 
               {/* Trust Badges */}
-              <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
-                <div className="text-center">
-                  <Truck className="h-6 w-6 mx-auto mb-2 text-primary" />
+              <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border/40">
+                <div className="text-center p-3 bg-secondary/40 rounded-xl">
+                  <Truck className="h-5 w-5 mx-auto mb-2 text-primary" />
                   <p className="text-xs text-muted-foreground">Free shipping<br />on $50+</p>
                 </div>
-                <div className="text-center">
-                  <Shield className="h-6 w-6 mx-auto mb-2 text-primary" />
+                <div className="text-center p-3 bg-secondary/40 rounded-xl">
+                  <Shield className="h-5 w-5 mx-auto mb-2 text-primary" />
                   <p className="text-xs text-muted-foreground">Independently<br />tested</p>
                 </div>
-                <div className="text-center">
-                  <RotateCcw className="h-6 w-6 mx-auto mb-2 text-primary" />
+                <div className="text-center p-3 bg-secondary/40 rounded-xl">
+                  <RotateCcw className="h-5 w-5 mx-auto mb-2 text-primary" />
                   <p className="text-xs text-muted-foreground">14-day<br />money back</p>
                 </div>
               </div>
@@ -458,10 +458,10 @@ export default function ProductDetail() {
 
         {/* Detailed Product Information */}
         {productContent && (
-          <section className="py-16 bg-muted/30">
+          <section className="py-16 bg-secondary/30">
             <div className="container-wide">
               <div className="max-w-4xl mx-auto">
-                <h2 className="font-body text-2xl md:text-3xl font-semibold text-center mb-12" style={{ letterSpacing: '-0.02em' }}>
+                <h2 className="font-display text-2xl md:text-3xl text-center mb-12">
                   Everything you want to know — because you deserve to feel sure.
                 </h2>
 
