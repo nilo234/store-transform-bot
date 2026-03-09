@@ -298,15 +298,14 @@ export default function ProductDetail() {
             >
               {/* Title & Subtitle */}
               <div>
-                <h1 className="font-display text-3xl md:text-4xl">{sanitizeTitle(product.title)}</h1>
-               <p className="text-muted-foreground mt-1">
+                <h1 className="font-display text-3xl md:text-4xl"    <p className="text-muted-foreground mt-1">
                   {productContent?.shortDescription?.split('.')[0] || 'Fast-dissolving wellness strip'}
                 </p>
               </div>
 
               {/* Price Block - US Market Optimized */}
               <div className="bg-muted/30 rounded-xl p-4 space-y-3">
-                <div className="flex items-center justify-between">
+            secondary/6v className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <span className="text-3xl font-bold text-primary">${price.toFixed(2)}</span>
                     <span className="text-lg text-muted-foreground line-through">${originalPrice.toFixed(2)}</span>
