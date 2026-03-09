@@ -64,13 +64,16 @@ export function Navbar() {
                   key={link.href}
                   to={link.href}
                   className={cn(
-                    "text-sm font-medium transition-colors hover:text-primary relative py-2",
+                    "text-sm font-body font-medium tracking-wide transition-colors hover:text-accent relative py-2",
                     location.pathname === link.href ?
-                    "text-primary" :
-                    "text-foreground/80"
+                    "text-accent" :
+                    "text-foreground/70"
                   )}>
                   
                     {link.label}
+                    {location.pathname === link.href && (
+                      <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent rounded-full" />
+                    )}
                   </Link>
                 )}
               </div>
@@ -148,9 +151,9 @@ export function Navbar() {
                       </nav>
 
                       {/* Mobile CTA */}
-                      <div className="p-6 border-t border-border bg-muted/30">
+                      <div className="p-6 border-t border-border bg-secondary/30">
                         <Link to="/shop" onClick={() => setMobileMenuOpen(false)}>
-                          <Button className="w-full bg-primary text-primary-foreground h-14 text-lg font-semibold rounded-lg">
+                          <Button className="w-full bg-accent text-accent-foreground h-14 text-lg font-display font-semibold rounded-xl shadow-glow">
                             Start Your Ritual →
                           </Button>
                         </Link>
