@@ -92,7 +92,7 @@ export function TestimonialsCarousel() {
           </span>
           
           <div className="mb-6">
-            <span className="font-body text-5xl md:text-6xl font-bold text-foreground" style={{ letterSpacing: '-0.03em' }}>
+            <span className="font-display text-5xl md:text-6xl text-foreground">
               4.9
             </span>
             <span className="text-2xl text-muted-foreground font-medium ml-1">/ 5</span>
@@ -156,7 +156,7 @@ export function TestimonialsCarousel() {
                   <div className="flex-1">
                     <p className="font-semibold text-foreground">{testimonial.name}</p>
                     {testimonial.isVerified && (
-                      <div className="flex items-center gap-1 text-green-600">
+                      <div className="flex items-center gap-1 text-primary">
                         <BadgeCheck className="h-3.5 w-3.5" />
                         <span className="text-xs font-medium">Verified Buyer</span>
                       </div>

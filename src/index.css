@@ -2,109 +2,111 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 
-/* Neuvie Design System - Inspired by TryAuri's clean, premium aesthetic */
+/* Neuvie Design System — Warm, Community-Driven Premium */
 
 @layer base {
   :root {
-    /* Brand Colors - Warm, Natural, Premium */
-    --background: 45 30% 98%;
-    --foreground: 30 20% 12%;
+    /* Brand Colors — Warm, Earthy, Inviting */
+    --background: 30 25% 97%;
+    --foreground: 25 30% 10%;
 
-    --card: 45 25% 96%;
-    --card-foreground: 30 20% 12%;
+    --card: 30 20% 95%;
+    --card-foreground: 25 30% 10%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 30 20% 12%;
+    --popover: 30 15% 99%;
+    --popover-foreground: 25 30% 10%;
 
-    /* Primary - Deep Forest Green */
-    --primary: 158 35% 25%;
-    --primary-foreground: 45 30% 98%;
+    /* Primary — Rich Warm Forest */
+    --primary: 155 32% 22%;
+    --primary-foreground: 30 25% 97%;
 
-    /* Secondary - Warm Cream */
-    --secondary: 45 40% 92%;
-    --secondary-foreground: 30 20% 12%;
+    /* Secondary — Warm Sand */
+    --secondary: 32 35% 93%;
+    --secondary-foreground: 25 30% 10%;
 
-    /* Muted - Soft Sage */
-    --muted: 150 15% 90%;
-    --muted-foreground: 150 10% 40%;
+    /* Muted — Soft Warm Sage */
+    --muted: 40 18% 91%;
+    --muted-foreground: 30 12% 45%;
 
-    /* Accent - Golden Honey */
-    --accent: 38 80% 55%;
-    --accent-foreground: 30 20% 12%;
+    /* Accent — Warm Terracotta-Gold */
+    --accent: 28 75% 52%;
+    --accent-foreground: 30 25% 97%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 45 20% 88%;
-    --input: 45 20% 88%;
-    --ring: 158 35% 25%;
+    --border: 32 18% 87%;
+    --input: 32 18% 87%;
+    --ring: 155 32% 22%;
 
-    --radius: 0.75rem;
+    --radius: 0.875rem;
 
     /* Custom Design Tokens */
-    --font-display: 'Playfair Display', serif;
-    --font-body: 'Inter', sans-serif;
+    --font-display: 'DM Serif Display', serif;
+    --font-body: 'DM Sans', sans-serif;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(45 30% 98%) 0%, hsl(150 20% 95%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(45 25% 97%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(158 35% 25%) 0%, hsl(158 40% 30%) 100%);
+    --gradient-hero: linear-gradient(160deg, hsl(30 25% 97%) 0%, hsl(32 30% 94%) 50%, hsl(40 20% 93%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(30 15% 99%) 0%, hsl(32 20% 95%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(155 32% 22%) 0%, hsl(155 38% 28%) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(28 75% 52% / 0.08) 0%, hsl(32 35% 93%) 100%);
     
-    /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(30 20% 12% / 0.08);
-    --shadow-card: 0 8px 32px -8px hsl(30 20% 12% / 0.12);
-    --shadow-elevated: 0 20px 60px -15px hsl(30 20% 12% / 0.2);
+    /* Shadows — Warmer tones */
+    --shadow-soft: 0 4px 20px -4px hsl(25 30% 10% / 0.06);
+    --shadow-card: 0 8px 32px -8px hsl(25 30% 10% / 0.1);
+    --shadow-elevated: 0 20px 60px -15px hsl(25 30% 10% / 0.16);
+    --shadow-glow: 0 0 40px -10px hsl(28 75% 52% / 0.15);
 
     /* Sidebar */
-    --sidebar-background: 45 30% 98%;
-    --sidebar-foreground: 30 20% 12%;
-    --sidebar-primary: 158 35% 25%;
-    --sidebar-primary-foreground: 45 30% 98%;
-    --sidebar-accent: 45 40% 92%;
-    --sidebar-accent-foreground: 30 20% 12%;
-    --sidebar-border: 45 20% 88%;
-    --sidebar-ring: 158 35% 25%;
+    --sidebar-background: 30 25% 97%;
+    --sidebar-foreground: 25 30% 10%;
+    --sidebar-primary: 155 32% 22%;
+    --sidebar-primary-foreground: 30 25% 97%;
+    --sidebar-accent: 32 35% 93%;
+    --sidebar-accent-foreground: 25 30% 10%;
+    --sidebar-border: 32 18% 87%;
+    --sidebar-ring: 155 32% 22%;
   }
 
   .dark {
-    --background: 30 15% 8%;
-    --foreground: 45 30% 95%;
+    --background: 25 18% 7%;
+    --foreground: 30 20% 93%;
 
-    --card: 30 15% 12%;
-    --card-foreground: 45 30% 95%;
+    --card: 25 15% 11%;
+    --card-foreground: 30 20% 93%;
 
-    --popover: 30 15% 10%;
-    --popover-foreground: 45 30% 95%;
+    --popover: 25 15% 9%;
+    --popover-foreground: 30 20% 93%;
 
-    --primary: 158 45% 45%;
-    --primary-foreground: 30 15% 8%;
+    --primary: 155 40% 42%;
+    --primary-foreground: 25 18% 7%;
 
-    --secondary: 30 15% 18%;
-    --secondary-foreground: 45 30% 95%;
+    --secondary: 25 12% 16%;
+    --secondary-foreground: 30 20% 93%;
 
-    --muted: 30 10% 20%;
-    --muted-foreground: 45 15% 60%;
+    --muted: 25 10% 18%;
+    --muted-foreground: 30 12% 58%;
 
-    --accent: 38 80% 55%;
-    --accent-foreground: 30 15% 8%;
+    --accent: 28 75% 52%;
+    --accent-foreground: 25 18% 7%;
 
     --destructive: 0 62% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 30 10% 20%;
-    --input: 30 10% 20%;
-    --ring: 158 45% 45%;
+    --border: 25 10% 18%;
+    --input: 25 10% 18%;
+    --ring: 155 40% 42%;
 
-    --sidebar-background: 30 15% 8%;
-    --sidebar-foreground: 45 30% 95%;
-    --sidebar-primary: 158 45% 45%;
-    --sidebar-primary-foreground: 30 15% 8%;
-    --sidebar-accent: 30 15% 18%;
-    --sidebar-accent-foreground: 45 30% 95%;
-    --sidebar-border: 30 10% 20%;
-    --sidebar-ring: 158 45% 45%;
+    --sidebar-background: 25 18% 7%;
+    --sidebar-foreground: 30 20% 93%;
+    --sidebar-primary: 155 40% 42%;
+    --sidebar-primary-foreground: 25 18% 7%;
+    --sidebar-accent: 25 12% 16%;
+    --sidebar-accent-foreground: 30 20% 93%;
+    --sidebar-border: 25 10% 18%;
+    --sidebar-ring: 155 40% 42%;
   }
 }
 
@@ -122,10 +124,16 @@
     font-family: var(--font-body);
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    @apply font-normal;
+    letter-spacing: -0.01em;
+  }
+
+  h4, h5, h6 {
     font-family: var(--font-body);
     @apply font-semibold;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
   }
 }
 

@@ -15,6 +15,7 @@ import { PageMeta } from '@/components/seo';
 import { BenefitsTabs } from '@/components/home/BenefitsTabs';
 import { WhyNeuvie } from '@/components/home/WhyNeuvie';
 import { HomepageFAQs } from '@/components/home/HomepageFAQs';
+import { CommunityRitual } from '@/components/home/CommunityRitual';
 
 // ─── DATA ──────────────────────────────────────────────
 const trustBar = [
@@ -33,7 +34,7 @@ const categories = [
 
 const howItWorks = [
   { step: '01', icon: '📦', title: 'Open the pack', description: 'A small moment, just for you.' },
-  { step: '02', icon: '👅', title: 'Place it on your tongue', description: 'No water. No effort. Just intention.' },
+  { step: '02', icon: '👅', title: 'Place on tongue', description: 'No water. No effort. Just intention.' },
   { step: '03', icon: '⏱️', title: '30 seconds', description: 'It dissolves. You chose yourself today.' },
   { step: '04', icon: '✨', title: 'Go live your day', description: 'You already did the most important thing.' },
 ];
@@ -55,7 +56,6 @@ const reviews = [
   { id: '5', name: 'Lisa P.', text: "I didn't buy these because someone told me to. I bought them because I looked in the mirror and thought — I'm worth taking care of. Three months later, I still feel that way.", rating: 5, product: 'Cognitive Relax' },
 ];
 
-// Bundles to feature on homepage
 const featuredBundles = bundles.filter(b =>
   ['daily-wellness', 'beauty-glow', 'sleep-recover', 'best-value-mega'].includes(b.id)
 );
@@ -92,61 +92,76 @@ export default function Index() {
       <main className="flex-1">
 
         {/* ═══════════════════════════════════════════════
-            1. HERO SECTION
+            1. HERO SECTION — Warm, Community-Driven
         ═══════════════════════════════════════════════ */}
         <section className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/10 to-muted/30" />
+          <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
 
-          <div className="container-wide relative z-10 py-16 md:py-24 lg:py-32">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+          <div className="container-wide relative z-10 py-20 md:py-28 lg:py-36">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
               {/* Copy */}
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, ease: 'easeOut' }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: 'easeOut' }}
                 className="order-2 lg:order-1 text-center lg:text-left"
               >
-                <h1 className="font-body text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-semibold leading-[1.1] mb-6" style={{ letterSpacing: '-0.02em' }}>
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-6"
+                >
+                  <span className="text-sm font-semibold">✨ Loved by 2,400+ people</span>
+                </motion.div>
+
+                <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-7xl leading-[1.08] mb-6">
                   Your body does so much for you.{' '}
-                  <span className="block">This is how you give back.</span>
-                  <span className="block text-accent">30 seconds. Every day.</span>
+                  <span className="block italic text-accent mt-2">This is how you give back.</span>
                 </h1>
 
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-                  You don't need another reminder to take care of yourself.
-                  <br className="hidden md:block" />
-                  You need something that makes it effortless — so you actually do.
+                  One strip. 30 seconds. No water, no pills — just a simple daily ritual 
+                  that says: <em className="text-foreground font-medium not-italic">I'm worth it.</em>
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-6">
+                <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-8">
                   <Link to="/shop">
-                    <Button className="w-full sm:w-auto h-13 px-8 text-base font-semibold rounded-lg group bg-primary hover:bg-primary/90 text-primary-foreground">
+                    <Button className="w-full sm:w-auto h-14 px-10 text-base font-semibold rounded-xl group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-elevated transition-all">
                       Start Your Ritual
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>
                   <Link to="/shop">
-                    <Button variant="outline" className="w-full sm:w-auto h-13 px-8 text-base font-semibold rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                    <Button variant="outline" className="w-full sm:w-auto h-14 px-10 text-base font-semibold rounded-xl border-2 border-primary/20 text-foreground hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all">
                       Explore What Fits You
                     </Button>
                   </Link>
                 </div>
 
-                <p className="text-xs text-muted-foreground">
-                  ✓ 14-day guarantee — because you should feel sure · ✓ Free shipping on $50+
-                </p>
+                <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-sm text-muted-foreground">
+                  <span className="flex items-center gap-1.5">
+                    <Check className="h-4 w-4 text-primary" />
+                    14-day money-back guarantee
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <Check className="h-4 w-4 text-primary" />
+                    Free shipping on $50+
+                  </span>
+                </div>
               </motion.div>
 
               {/* Hero Image */}
               <motion.div
                 className="order-1 lg:order-2"
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.93 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
+                transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
               >
-                <div className="relative mx-auto max-w-[360px] sm:max-w-[480px] lg:max-w-[584px]">
-                  <div className="aspect-square rounded-3xl overflow-hidden bg-muted/20">
+                <div className="relative mx-auto max-w-[380px] sm:max-w-[500px] lg:max-w-[580px]">
+                  <div className="absolute inset-0 bg-accent/10 rounded-[2rem] rotate-3 scale-[1.02]" />
+                  <div className="relative aspect-square rounded-[2rem] overflow-hidden shadow-elevated">
                     <img
                       src={productsLineup}
                       alt="Neuvie wellness strips lineup — Beauty, Sleep, Energy, Hair Skin & Nails, Libido Support"
@@ -160,9 +175,9 @@ export default function Index() {
 
             {/* Trust Bar */}
             <motion.div
-              className="mt-12 md:mt-16 pt-8 border-t border-border/50"
+              className="mt-16 md:mt-20 pt-8 border-t border-border/40"
               {...fadeUp}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 0.4 }}
             >
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-3xl mx-auto">
                 {trustBar.map((item) => (
@@ -172,9 +187,6 @@ export default function Index() {
                   </div>
                 ))}
               </div>
-              <p className="text-center text-xs text-muted-foreground mt-4">
-                Because you deserve to know exactly what you're putting in your body.
-              </p>
             </motion.div>
           </div>
         </section>
@@ -182,13 +194,13 @@ export default function Index() {
         {/* ═══════════════════════════════════════════════
             2. CATEGORY SECTION — Shop by Benefit
         ═══════════════════════════════════════════════ */}
-        <section className="py-16 md:py-24 bg-background">
+        <section className="py-20 md:py-28 bg-background">
           <div className="container-wide">
-            <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
-              <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
+            <motion.div className="text-center mb-12 md:mb-16" {...fadeUp}>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-4">
                 What does your body need today?
               </h2>
-              <p className="text-muted-foreground max-w-lg mx-auto">
+              <p className="text-muted-foreground text-lg max-w-lg mx-auto">
                 You already know the answer. We just made it easier to follow through.
               </p>
             </motion.div>
@@ -197,11 +209,11 @@ export default function Index() {
               {categories.map((cat, i) => (
                 <motion.div key={cat.title} {...fadeUp} transition={{ delay: i * 0.08 }}>
                   <Link to={cat.href} className="block group">
-                    <div className={`relative rounded-2xl bg-gradient-to-br ${cat.color} border border-border/40 p-6 md:p-8 text-center transition-all duration-300 hover:shadow-card hover:-translate-y-1`}>
-                      <span className="text-3xl md:text-4xl block mb-3">{cat.emoji}</span>
-                      <h3 className="font-body font-semibold text-sm md:text-base mb-1" style={{ letterSpacing: '-0.02em' }}>{cat.title}</h3>
-                      <p className="text-xs text-muted-foreground">{cat.description}</p>
-                      <ChevronRight className="h-4 w-4 mx-auto mt-3 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className={`relative rounded-2xl bg-gradient-to-br ${cat.color} border border-border/30 p-7 md:p-9 text-center transition-all duration-500 hover:shadow-card hover:-translate-y-1.5`}>
+                      <span className="text-4xl md:text-5xl block mb-4">{cat.emoji}</span>
+                      <h3 className="font-body font-semibold text-sm md:text-base mb-1.5">{cat.title}</h3>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{cat.description}</p>
+                      <ChevronRight className="h-4 w-4 mx-auto mt-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
                   </Link>
                 </motion.div>
@@ -213,14 +225,14 @@ export default function Index() {
         {/* ═══════════════════════════════════════════════
             3. BESTSELLERS
         ═══════════════════════════════════════════════ */}
-        <section className="py-16 md:py-24 bg-muted/15">
+        <section className="py-20 md:py-28 bg-secondary/40">
           <div className="container-wide">
-            <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
-              <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
+            <motion.div className="text-center mb-12 md:mb-16" {...fadeUp}>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-4">
                 The ones people keep coming back to.
               </h2>
-              <p className="text-muted-foreground">
-                Not because they have to. Because it became the part of their day they actually look forward to.
+              <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+                Not because they have to — because it became the part of their day they actually look forward to.
               </p>
             </motion.div>
 
@@ -243,11 +255,10 @@ export default function Index() {
               </div>
             )}
 
-            <motion.div className="text-center mt-10" {...fadeUp}>
+            <motion.div className="text-center mt-12" {...fadeUp}>
               <Link to="/shop">
-                <Button variant="outline" className="h-12 px-8 text-sm font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-lg">
+                <Button variant="outline" className="h-13 px-8 text-sm font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-xl">
                   Find what's right for you →
-                  <ChevronRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
             </motion.div>
@@ -257,18 +268,18 @@ export default function Index() {
         {/* ═══════════════════════════════════════════════
             4. HOW IT WORKS
         ═══════════════════════════════════════════════ */}
-        <section className="py-16 md:py-24 bg-background">
+        <section className="py-20 md:py-28 bg-background">
           <div className="container-wide">
-            <motion.div className="text-center mb-12 md:mb-16" {...fadeUp}>
-              <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
+            <motion.div className="text-center mb-14 md:mb-20" {...fadeUp}>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-4">
                 Taking care of yourself was never supposed to be hard.
               </h2>
-              <p className="text-muted-foreground max-w-md mx-auto">
-                30 seconds. That's all it takes to tell your body: I've got you.
+              <p className="text-muted-foreground text-lg max-w-md mx-auto">
+                30 seconds. That's all it takes to tell your body: <em>I've got you.</em>
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-4xl mx-auto">
               {howItWorks.map((item, i) => (
                 <motion.div
                   key={item.step}
@@ -276,24 +287,24 @@ export default function Index() {
                   {...fadeUp}
                   transition={{ delay: i * 0.1 }}
                 >
-                  <div className="relative w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 rounded-full bg-muted/50 border border-border/50 flex items-center justify-center">
-                    <span className="text-3xl md:text-4xl">{item.icon}</span>
-                    <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-primary text-primary-foreground text-[10px] font-bold flex items-center justify-center">
+                  <div className="relative w-24 h-24 md:w-28 md:h-28 mx-auto mb-5 rounded-2xl bg-secondary border border-border/30 flex items-center justify-center shadow-soft">
+                    <span className="text-4xl md:text-5xl">{item.icon}</span>
+                    <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center shadow-md">
                       {item.step}
                     </span>
                   </div>
-                  <h3 className="font-body font-semibold text-sm md:text-base mb-1" style={{ letterSpacing: '-0.02em' }}>{item.title}</h3>
+                  <h3 className="font-body font-semibold text-sm md:text-base mb-1">{item.title}</h3>
                   <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                 </motion.div>
               ))}
             </div>
 
             {/* Video Placeholder */}
-            <motion.div className="mt-14 md:mt-20 max-w-3xl mx-auto" {...fadeUp} transition={{ delay: 0.4 }}>
-              <div className="relative aspect-video rounded-2xl bg-muted/30 border border-border/50 overflow-hidden group cursor-pointer">
+            <motion.div className="mt-16 md:mt-24 max-w-3xl mx-auto" {...fadeUp} transition={{ delay: 0.4 }}>
+              <div className="relative aspect-video rounded-2xl bg-secondary border border-border/30 overflow-hidden group cursor-pointer shadow-card">
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary/90 text-primary-foreground flex items-center justify-center shadow-elevated group-hover:scale-110 transition-transform">
-                    <Play className="h-6 w-6 md:h-8 md:w-8 ml-1" fill="currentColor" />
+                  <div className="w-18 h-18 md:w-20 md:h-20 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-elevated group-hover:scale-110 transition-transform duration-500">
+                    <Play className="h-7 w-7 md:h-8 md:w-8 ml-1" fill="currentColor" />
                   </div>
                   <span className="text-sm font-medium text-muted-foreground">See it in action →</span>
                 </div>
@@ -310,34 +321,33 @@ export default function Index() {
         {/* ═══════════════════════════════════════════════
             6. SCIENCE & INGREDIENTS
         ═══════════════════════════════════════════════ */}
-        <section className="py-16 md:py-24 bg-background">
+        <section className="py-20 md:py-28 bg-background">
           <div className="container-wide">
-            <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
-              <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
+            <motion.div className="text-center mb-12 md:mb-16" {...fadeUp}>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-4">
                 You deserve to know what goes into your body.
               </h2>
-              <p className="text-muted-foreground max-w-lg mx-auto">
-                Every ingredient is here because it works — not because it sounds impressive. Your trust matters more than our marketing.
+              <p className="text-muted-foreground text-lg max-w-lg mx-auto">
+                Every ingredient is here because it works — not because it sounds impressive.
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-4 md:gap-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-6 md:gap-10 max-w-4xl mx-auto">
               {ingredients.map((ing, i) => (
                 <motion.div key={ing.name} className="text-center" {...fadeUp} transition={{ delay: i * 0.06 }}>
-                  <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-3 rounded-2xl bg-card border border-border/40 flex items-center justify-center shadow-soft hover:shadow-card transition-shadow">
-                    <span className="text-2xl md:text-3xl">{ing.emoji}</span>
+                  <div className="w-18 h-18 md:w-22 md:h-22 mx-auto mb-3 rounded-2xl bg-secondary border border-border/30 flex items-center justify-center shadow-soft hover:shadow-card hover:-translate-y-1 transition-all duration-500">
+                    <span className="text-3xl md:text-4xl">{ing.emoji}</span>
                   </div>
                   <h3 className="font-semibold text-sm text-foreground">{ing.name}</h3>
-                  <p className="text-xs text-primary font-medium mt-0.5">{ing.benefit}</p>
+                  <p className="text-xs text-accent font-medium mt-0.5">{ing.benefit}</p>
                 </motion.div>
               ))}
             </div>
 
-            <motion.div className="text-center mt-10" {...fadeUp}>
+            <motion.div className="text-center mt-12" {...fadeUp}>
               <Link to="/science">
-                <Button variant="outline" className="h-12 px-8 text-sm font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-lg">
+                <Button variant="outline" className="h-13 px-8 text-sm font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-xl">
                   See the science behind it →
-                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
             </motion.div>
@@ -354,18 +364,23 @@ export default function Index() {
         <WhyNeuvie />
 
         {/* ═══════════════════════════════════════════════
-            8. SOCIAL PROOF — Reviews
+            8. COMMUNITY RITUAL — NEW
         ═══════════════════════════════════════════════ */}
-        <section className="py-16 md:py-24 bg-muted/15 overflow-hidden">
+        <CommunityRitual />
+
+        {/* ═══════════════════════════════════════════════
+            9. SOCIAL PROOF — Reviews
+        ═══════════════════════════════════════════════ */}
+        <section className="py-20 md:py-28 bg-background overflow-hidden">
           <div className="container-wide">
-            <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
-              <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
+            <motion.div className="text-center mb-12 md:mb-16" {...fadeUp}>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-4">
                 From people who decided they're worth it.
               </h2>
-              <div className="flex items-center justify-center gap-2 mb-2">
+              <div className="flex items-center justify-center gap-3 mb-2">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-accent text-accent" />
+                    <Star key={i} className="h-5 w-5 fill-accent text-accent" />
                   ))}
                 </div>
                 <span className="text-sm text-muted-foreground font-medium">4.9 out of 5 — from 2,400+ people who chose themselves.</span>
@@ -379,20 +394,20 @@ export default function Index() {
               {reviews.map((review, i) => (
                 <motion.div
                   key={review.id}
-                  className="flex-shrink-0 w-[300px] md:w-[380px] snap-start"
+                  className="flex-shrink-0 w-[320px] md:w-[400px] snap-start"
                   {...fadeUp}
                   transition={{ delay: i * 0.08 }}
                 >
-                  <div className="bg-card rounded-2xl p-6 h-full border border-border/40 shadow-soft hover:shadow-card transition-shadow">
-                    <div className="flex gap-0.5 mb-3">
+                  <div className="bg-card rounded-2xl p-7 h-full border border-border/30 shadow-soft hover:shadow-card transition-all duration-500">
+                    <div className="flex gap-0.5 mb-4">
                       {[...Array(review.rating)].map((_, j) => (
-                        <Star key={j} className="h-3.5 w-3.5 fill-accent text-accent" />
+                        <Star key={j} className="h-4 w-4 fill-accent text-accent" />
                       ))}
                     </div>
-                    <p className="text-foreground text-sm leading-relaxed mb-5">"{review.text}"</p>
-                    <div className="flex items-center gap-3 pt-4 border-t border-border/40">
-                      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                        <span className="text-xs font-bold text-primary">{review.name.charAt(0)}</span>
+                    <p className="text-foreground leading-relaxed mb-6">"{review.text}"</p>
+                    <div className="flex items-center gap-3 pt-4 border-t border-border/30">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
+                        <span className="text-sm font-bold text-primary">{review.name.charAt(0)}</span>
                       </div>
                       <div>
                         <p className="font-semibold text-sm text-foreground">{review.name}</p>
@@ -406,21 +421,21 @@ export default function Index() {
                 </motion.div>
               ))}
             </div>
-            <div className="absolute left-0 top-0 bottom-4 w-8 bg-gradient-to-r from-muted/15 to-transparent pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-4 w-8 bg-gradient-to-l from-muted/15 to-transparent pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-4 w-12 bg-gradient-to-r from-background to-transparent pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-4 w-12 bg-gradient-to-l from-background to-transparent pointer-events-none" />
           </div>
         </section>
 
         {/* ═══════════════════════════════════════════════
-            9. BUNDLES & VALUE
+            10. BUNDLES & VALUE
         ═══════════════════════════════════════════════ */}
-        <section className="py-16 md:py-24 bg-background">
+        <section className="py-20 md:py-28 bg-secondary/40">
           <div className="container-wide">
-            <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
-              <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
+            <motion.div className="text-center mb-12 md:mb-16" {...fadeUp}>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-4">
                 Your routine, your way.
               </h2>
-              <p className="text-muted-foreground max-w-lg mx-auto">
+              <p className="text-muted-foreground text-lg max-w-lg mx-auto">
                 Combine the strips that match your life. Taking care of yourself shouldn't cost more than it needs to.
               </p>
             </motion.div>
@@ -431,9 +446,9 @@ export default function Index() {
               ))}
             </div>
 
-            <motion.div className="mt-10 text-center" {...fadeUp}>
+            <motion.div className="mt-12 text-center" {...fadeUp}>
               <Link to="/bundles">
-                <Button variant="outline" className="h-12 px-8 text-sm font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-lg">
+                <Button variant="outline" className="h-13 px-8 text-sm font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-xl">
                   View All Bundles
                   <ChevronRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -443,7 +458,7 @@ export default function Index() {
         </section>
 
         {/* ═══════════════════════════════════════════════
-            10. FAQs
+            11. FAQs
         ═══════════════════════════════════════════════ */}
         <HomepageFAQs />
 
