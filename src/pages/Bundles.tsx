@@ -9,13 +9,11 @@ import { bundles, BundleCategory } from '@/data/bundles';
 import { cn } from '@/lib/utils';
 import { PageMeta } from '@/components/seo';
 
-// SEO meta tags
 const SEO = {
   title: 'Wellness Strip Bundles – Your Ritual, Your Way | NEUVIE™',
   description: 'Build a self-care routine that fits your life. Curated NEUVIE™ strip bundles for energy, beauty, sleep & wellness. Free US shipping $50+.',
 };
 
-// Category filter options
 const categoryFilters: { id: BundleCategory; label: string; icon: React.ReactNode; count: number }[] = [
   { id: 'all', label: 'All Bundles', icon: <Sparkles className="h-4 w-4" />, count: bundles.length },
   { id: 'performance', label: 'Performance', icon: <Zap className="h-4 w-4" />, count: bundles.filter(b => b.category === 'performance').length },
@@ -28,13 +26,11 @@ export default function Bundles() {
   const initialCategory = (searchParams.get('category') as BundleCategory) || 'all';
   const [activeCategory, setActiveCategory] = useState<BundleCategory>(initialCategory);
 
-  // Filter bundles by category
   const filteredBundles = useMemo(() => {
     if (activeCategory === 'all') return bundles;
     return bundles.filter(bundle => bundle.category === activeCategory);
   }, [activeCategory]);
 
-  // Handle category change
   const handleCategoryChange = (category: BundleCategory) => {
     setActiveCategory(category);
     if (category === 'all') {
@@ -51,8 +47,9 @@ export default function Bundles() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative py-16 md:py-24 bg-gradient-to-b from-primary/5 via-background to-background overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent/10 via-transparent to-transparent" />
+        <section className="relative py-20 md:py-28 overflow-hidden">
+          <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent/8 via-transparent to-transparent" />
           
           <div className="container-wide relative z-10">
             <motion.div
@@ -62,31 +59,28 @@ export default function Bundles() {
             >
               <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-6">
                 <Sparkles className="h-4 w-4" />
-                <span className="text-sm font-bold uppercase tracking-wide">
-                  Curated Bundles
-                </span>
+                <span className="text-sm font-semibold">Curated Bundles</span>
               </div>
 
-              <h1 className="font-body text-4xl md:text-5xl lg:text-6xl font-semibold mb-6" style={{ letterSpacing: '-0.02em' }}>
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl mb-6">
                 Build a routine that feels like{' '}
-                <span className="text-accent">you</span>
+                <span className="text-accent italic">you</span>
               </h1>
 
-              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Your body doesn't need one thing — it needs a rhythm. These bundles are designed to support how you actually live, 
-                not how a label tells you to. And yes, they save you money too.
+              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+                Your body doesn't need one thing — it needs a rhythm. These bundles are designed to support how you actually live. 
+                And yes, they save you money too.
               </p>
 
-              {/* Trust Badges */}
               <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-sm text-muted-foreground">
                 <span className="flex items-center gap-2">
-                  <span className="text-primary">✓</span> Free Shipping $50+
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Free Shipping $50+
                 </span>
                 <span className="flex items-center gap-2">
-                  <span className="text-primary">✓</span> 14-Day Guarantee
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> 14-Day Guarantee
                 </span>
                 <span className="flex items-center gap-2">
-                  <span className="text-primary">✓</span> Subscribe & Save More
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Subscribe & Save More
                 </span>
               </div>
             </motion.div>
@@ -94,7 +88,7 @@ export default function Bundles() {
         </section>
 
         {/* Category Filters */}
-        <section className="py-8 border-b border-border/50 bg-background sticky top-[132px] z-40">
+        <section className="py-8 border-b border-border/30 bg-background/95 backdrop-blur-md sticky top-[132px] z-40">
           <div className="container-wide">
             <div className="flex flex-wrap items-center justify-center gap-3">
               {categoryFilters.map((filter) => (
@@ -105,7 +99,7 @@ export default function Bundles() {
                     "flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all",
                     activeCategory === filter.id
                       ? "bg-primary text-primary-foreground shadow-md"
-                      : "bg-muted/50 text-foreground hover:bg-muted"
+                      : "bg-secondary/60 text-foreground hover:bg-secondary"
                   )}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -127,7 +121,7 @@ export default function Bundles() {
         </section>
 
         {/* Bundle Grid */}
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-14 md:py-20 bg-background">
           <div className="container-wide">
             {filteredBundles.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -144,30 +138,31 @@ export default function Bundles() {
         </section>
 
         {/* Bottom CTA */}
-        <section className="py-16 bg-gradient-to-b from-muted/30 to-background">
-          <div className="container-wide text-center">
+        <section className="py-20 relative overflow-hidden">
+          <div className="absolute inset-0" style={{ background: 'var(--gradient-warm)' }} />
+          <div className="container-wide text-center relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-body text-2xl md:text-3xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
+              <h2 className="font-display text-3xl md:text-4xl mb-5">
                 Not sure where to start?
               </h2>
-              <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
+              <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
                 That's okay. Everyone's body is different. Browse our individual strips or reach out — 
                 we're happy to help you find what feels right.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-4">
                 <a 
                   href="/shop" 
-                  className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+                  className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-xl font-semibold hover:bg-primary/90 transition-all shadow-lg"
                 >
                   Browse All Products
                 </a>
                 <a 
                   href="/contact" 
-                  className="inline-flex items-center gap-2 bg-muted text-foreground px-6 py-3 rounded-lg font-semibold hover:bg-muted/80 transition-colors"
+                  className="inline-flex items-center gap-2 bg-secondary text-foreground px-8 py-3.5 rounded-xl font-semibold hover:bg-secondary/80 transition-all"
                 >
                   Contact Us
                 </a>
