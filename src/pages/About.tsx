@@ -38,8 +38,8 @@ const stats = [
 
 const team = [
   { name: 'Alex M.', role: 'Co-Founder & CEO', bio: 'Believes wellness should fit your life — not the other way around.', gradient: 'from-primary to-accent' },
-  { name: 'Jordan L.', role: 'Head of Product', bio: 'Obsessed with finding the right ingredients in the right format.', gradient: 'from-blue-500 to-indigo-500' },
-  { name: 'Priya S.', role: 'Lead Scientist', bio: 'Makes sure every formula is backed by real research and effective dosages.', gradient: 'from-rose-400 to-pink-500' },
+  { name: 'Jordan L.', role: 'Head of Product', bio: 'Obsessed with finding the right ingredients in the right format.', gradient: 'from-primary/70 to-primary' },
+  { name: 'Priya S.', role: 'Lead Scientist', bio: 'Makes sure every formula is backed by real research and effective dosages.', gradient: 'from-accent/70 to-accent' },
 ];
 
 export default function About() {
@@ -53,15 +53,16 @@ export default function About() {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-20 md:py-28 bg-gradient-to-b from-muted/50 to-background">
-          <div className="container-wide">
+        <section className="relative py-20 md:py-28 overflow-hidden">
+          <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
+          <div className="container-wide relative z-10">
             <div className="max-w-3xl mx-auto text-center">
               <motion.h1 
-                className="font-body text-4xl md:text-5xl lg:text-6xl font-semibold mb-6"
-                style={{ letterSpacing: '-0.02em' }}
+                className="font-display text-4xl md:text-5xl lg:text-6xl mb-6"
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                ABOUT NEUVIE
+                About Neuvie
               </motion.h1>
               <motion.p 
                 className="text-lg md:text-xl text-muted-foreground leading-relaxed"
@@ -76,7 +77,7 @@ export default function About() {
         </section>
 
         {/* Founder Quote */}
-        <section className="py-16 bg-muted/20">
+        <section className="py-16 md:py-20 bg-secondary/40">
           <div className="container-wide">
             <motion.div
               className="max-w-3xl mx-auto text-center"
@@ -84,8 +85,8 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <Quote className="h-12 w-12 text-primary/30 mx-auto mb-6" />
-              <blockquote className="font-body text-2xl md:text-3xl font-medium text-foreground leading-relaxed mb-6" style={{ letterSpacing: '-0.01em' }}>
+              <Quote className="h-12 w-12 text-accent/40 mx-auto mb-6" />
+              <blockquote className="font-display text-2xl md:text-3xl text-foreground leading-relaxed mb-6">
                 "We built Neuvie for the person who always puts everyone else first — and forgets that they deserve the same care."
               </blockquote>
               <p className="text-muted-foreground font-medium">&mdash; The Neuvie Team</p>
@@ -94,7 +95,7 @@ export default function About() {
         </section>
 
         {/* Story Section */}
-        <section className="py-20">
+        <section className="py-20 md:py-28">
           <div className="container-wide">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <motion.div
@@ -102,8 +103,8 @@ export default function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className="font-body text-3xl md:text-4xl font-semibold mb-6" style={{ letterSpacing: '-0.02em' }}>
-                  OUR STORY
+                <h2 className="font-display text-3xl md:text-4xl mb-6">
+                  Our Story
                 </h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
@@ -119,7 +120,7 @@ export default function About() {
               </motion.div>
               
               <motion.div
-                className="bg-gradient-to-br from-muted/60 to-muted/30 rounded-3xl aspect-square flex items-center justify-center"
+                className="bg-gradient-to-br from-secondary to-secondary/40 rounded-3xl aspect-square flex items-center justify-center border border-border/30 shadow-soft"
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -131,7 +132,7 @@ export default function About() {
         </section>
 
         {/* Stats Section */}
-        <section className="py-20 bg-primary text-primary-foreground">
+        <section className="py-20 md:py-28 bg-primary text-primary-foreground">
           <div className="container-wide">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
               {stats.map((stat, index) => (
@@ -143,7 +144,7 @@ export default function About() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <p className="font-body text-4xl md:text-5xl font-semibold mb-2" style={{ letterSpacing: '-0.02em' }}>{stat.number}</p>
+                  <p className="font-display text-4xl md:text-5xl mb-2">{stat.number}</p>
                   <p className="text-primary-foreground/70 text-sm">{stat.label}</p>
                 </motion.div>
               ))}
@@ -152,34 +153,34 @@ export default function About() {
         </section>
 
         {/* Meet the Team */}
-        <section className="py-20">
+        <section className="py-20 md:py-28">
           <div className="container-wide">
             <motion.h2 
-              className="font-body text-3xl md:text-4xl font-semibold text-center mb-16"
+              className="font-display text-3xl md:text-4xl text-center mb-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              MEET THE TEAM
+              Meet the Team
             </motion.h2>
 
             <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
               {team.map((member, index) => (
                 <motion.div
                   key={member.name}
-                  className="bg-card rounded-2xl p-8 text-center shadow-soft border border-border/50"
+                  className="bg-card rounded-2xl p-8 text-center shadow-soft border border-border/30 hover:shadow-card hover:-translate-y-1 transition-all duration-500"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
                   <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${member.gradient} flex items-center justify-center mx-auto mb-5 shadow-md`}>
-                    <span className="text-2xl font-bold text-white">
+                    <span className="text-2xl font-bold text-primary-foreground">
                       {member.name.split(' ').map(n => n[0]).join('')}
                     </span>
                   </div>
                   <h3 className="font-semibold text-lg text-foreground">{member.name}</h3>
-                  <p className="text-sm text-primary font-medium mb-3">{member.role}</p>
+                  <p className="text-sm text-accent font-medium mb-3">{member.role}</p>
                   <p className="text-sm text-muted-foreground">{member.bio}</p>
                 </motion.div>
               ))}
@@ -188,29 +189,29 @@ export default function About() {
         </section>
 
         {/* Values Section */}
-        <section className="py-20 bg-muted/30">
+        <section className="py-20 md:py-28 bg-secondary/30">
           <div className="container-wide">
             <motion.h2 
-              className="font-body text-3xl md:text-4xl font-semibold text-center mb-16"
+              className="font-display text-3xl md:text-4xl text-center mb-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              WHAT WE BELIEVE IN
+              What We Believe In
             </motion.h2>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {values.map((value, index) => (
                 <motion.div
                   key={value.title}
-                  className="bg-card rounded-2xl p-8 text-center shadow-soft"
+                  className="bg-card rounded-2xl p-8 text-center shadow-soft border border-border/30 hover:shadow-card hover:-translate-y-1 transition-all duration-500"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <value.icon className="h-7 w-7 text-primary" />
+                  <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <value.icon className="h-7 w-7 text-accent" />
                   </div>
                   <h3 className="font-semibold text-lg mb-3">{value.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{value.description}</p>
@@ -221,16 +222,16 @@ export default function About() {
         </section>
 
         {/* Commitment Section */}
-        <section className="py-20">
+        <section className="py-20 md:py-28">
           <div className="container-wide">
             <div className="max-w-3xl mx-auto">
               <motion.h2 
-                className="font-body text-3xl md:text-4xl font-semibold text-center mb-12"
+                className="font-display text-3xl md:text-4xl text-center mb-12"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                OUR PROMISE TO YOU
+                Our Promise to You
               </motion.h2>
               
               <motion.div 
@@ -247,7 +248,7 @@ export default function About() {
                   'Non-GMO and ethically sourced — because you deserve the best',
                   '14-day guarantee — because you should feel completely sure',
                 ].map((item) => (
-                  <div key={item} className="flex items-center gap-3 bg-card p-4 rounded-xl shadow-soft">
+                  <div key={item} className="flex items-center gap-3 bg-secondary/40 p-4 rounded-xl border border-border/30">
                     <Check className="h-5 w-5 text-primary flex-shrink-0" />
                     <span className="text-foreground">{item}</span>
                   </div>
@@ -258,10 +259,11 @@ export default function About() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-muted/30">
-          <div className="container-wide text-center">
+        <section className="py-20 md:py-28 relative overflow-hidden">
+          <div className="absolute inset-0" style={{ background: 'var(--gradient-warm)' }} />
+          <div className="container-wide text-center relative z-10">
             <motion.h2 
-              className="font-body text-3xl md:text-4xl font-semibold mb-6"
+              className="font-display text-3xl md:text-4xl mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -283,7 +285,7 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <Button className="btn-primary h-14 px-10 text-lg font-semibold gap-2" asChild>
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground h-14 px-10 text-lg font-semibold rounded-xl shadow-lg gap-2" asChild>
                 <Link to="/shop">
                   Start Your Ritual
                   <ArrowRight className="h-5 w-5" />

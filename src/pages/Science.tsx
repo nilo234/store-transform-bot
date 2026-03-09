@@ -6,26 +6,24 @@ import { Button } from '@/components/ui/button';
 import { Shield, Leaf, FlaskConical, Award, Check, ExternalLink } from 'lucide-react';
 import { PageMeta } from '@/components/seo';
 
-// Proven Purity sections
 const puritySections = [
   { 
     icon: Leaf, 
-    title: 'SOURCING', 
+    title: 'Sourcing', 
     description: 'Every ingredient is traceable and verified before it enters a formula. We work with suppliers we trust — and test everything independently before we use it.' 
   },
   { 
     icon: FlaskConical, 
-    title: 'EFFICACY', 
+    title: 'Efficacy', 
     description: 'We formulate at dosages that are studied to work — not just enough to put on the label. Bioavailable forms, meaningful amounts, and no unnecessary extras.' 
   },
   { 
     icon: Shield, 
-    title: 'QUALITY', 
+    title: 'Quality', 
     description: 'Every batch is independently tested by third-party labs for purity, potency, and safety. What the label says is exactly what you get. No exceptions.' 
   },
 ];
 
-// Product test cards
 const testCards = [
   { name: 'Energy Strips', status: 'Passed', date: 'Dec 2024', researchUrl: 'https://www.tandfonline.com/doi/abs/10.1080/10408398.2020.1781051' },
   { name: 'Mushroom Focus', status: 'Passed', date: 'Dec 2024', researchUrl: 'https://pubmed.ncbi.nlm.nih.gov/38004235/' },
@@ -33,7 +31,6 @@ const testCards = [
   { name: 'Hair, Skin & Nails', status: 'Passed', date: 'Dec 2024', researchUrl: 'https://pubmed.ncbi.nlm.nih.gov/28701385/' },
 ];
 
-// Quality badges
 const qualityBadges = [
   'Ethically Sourced',
   'Third-Party Tested',
@@ -43,11 +40,9 @@ const qualityBadges = [
   'Fast-Dissolving',
 ];
 
-// All 13 products with their ingredients
 const ingredientBreakdown = [
   {
-    product: 'Hangover Strips',
-    icon: '\u{1F379}',
+    product: 'Hangover Strips', icon: '\u{1F379}',
     ingredients: [
       { name: 'Curcumin (Curcuma Longa)', benefit: 'Supports healthy inflammatory response and liver function' },
       { name: 'Date Extract', benefit: 'Rich in antioxidants, supports natural recovery processes' },
@@ -57,16 +52,14 @@ const ingredientBreakdown = [
     ],
   },
   {
-    product: 'Bone Support Strips',
-    icon: '\u{1F9B4}',
+    product: 'Bone Support Strips', icon: '\u{1F9B4}',
     ingredients: [
       { name: 'Vitamin D3 (2000 IU)', benefit: 'Essential for calcium absorption and bone mineralization' },
       { name: 'Vitamin K2 (MK-7) (200 mcg)', benefit: 'Directs calcium to bones and teeth, supports arterial health' },
     ],
   },
   {
-    product: 'Cognitive Relax Strips',
-    icon: '\u{1F9D8}',
+    product: 'Cognitive Relax Strips', icon: '\u{1F9D8}',
     ingredients: [
       { name: 'L-Theanine (50 mg)', benefit: 'Promotes calm focus without drowsiness, found naturally in green tea' },
       { name: 'GABA (25 mg)', benefit: 'Neurotransmitter that supports relaxation and reduces nervous tension' },
@@ -74,8 +67,7 @@ const ingredientBreakdown = [
     ],
   },
   {
-    product: 'Mushroom Focus Strips',
-    icon: '\u{1F344}',
+    product: 'Mushroom Focus Strips', icon: '\u{1F344}',
     ingredients: [
       { name: "Lion's Mane (50 mg)", benefit: 'Supports cognitive function, memory, and nerve growth factor production' },
       { name: 'Cordyceps (25 mg)', benefit: 'Traditional adaptogen supporting energy metabolism and endurance' },
@@ -84,8 +76,7 @@ const ingredientBreakdown = [
     ],
   },
   {
-    product: 'Libido Support Strips',
-    icon: '\u{1F525}',
+    product: 'Libido Support Strips', icon: '\u{1F525}',
     ingredients: [
       { name: 'Cordyceps Militaris (50 mg)', benefit: 'Traditionally used to support vitality, stamina, and energy' },
       { name: 'Shilajit (50 mg)', benefit: 'Mineral-rich compound supporting testosterone and cellular energy' },
@@ -93,24 +84,21 @@ const ingredientBreakdown = [
     ],
   },
   {
-    product: 'Probiotic + Metabolism Strips',
-    icon: '\u{1F9A0}',
+    product: 'Probiotic + Metabolism Strips', icon: '\u{1F9A0}',
     ingredients: [
       { name: 'Bifidobacterium lactis (10B CFU)', benefit: 'Clinically studied probiotic supporting gut health and digestion' },
       { name: 'Polydextrose (30 mg)', benefit: 'Prebiotic fiber that feeds beneficial gut bacteria' },
     ],
   },
   {
-    product: 'Beauty + Collagen Strips',
-    icon: '\u2728',
+    product: 'Beauty + Collagen Strips', icon: '\u2728',
     ingredients: [
       { name: 'Collagen Peptides (100 mg)', benefit: 'Building blocks for skin elasticity, hydration, and firmness' },
       { name: 'Vitamin E (6 mg)', benefit: 'Antioxidant protecting skin cells from oxidative damage' },
     ],
   },
   {
-    product: 'Hair, Skin & Nails Strips',
-    icon: '\u{1F487}',
+    product: 'Hair, Skin & Nails Strips', icon: '\u{1F487}',
     ingredients: [
       { name: 'Biotin (5000 mcg)', benefit: 'Essential B-vitamin for keratin production and healthy hair growth' },
       { name: 'Folate (400 mcg)', benefit: 'Supports cell division and tissue growth for skin renewal' },
@@ -118,8 +106,7 @@ const ingredientBreakdown = [
     ],
   },
   {
-    product: 'Digestive + Gut Health Strips',
-    icon: '\u{1F33F}',
+    product: 'Digestive + Gut Health Strips', icon: '\u{1F33F}',
     ingredients: [
       { name: 'Bacillus Coagulans (10B CFU)', benefit: 'Spore-forming probiotic with enhanced survivability and gut colonization' },
       { name: 'Protease (10 mg)', benefit: 'Enzyme breaking down proteins for improved nutrient absorption' },
@@ -128,8 +115,7 @@ const ingredientBreakdown = [
     ],
   },
   {
-    product: 'Appetite Balance Strips',
-    icon: '\u2696\uFE0F',
+    product: 'Appetite Balance Strips', icon: '\u2696\uFE0F',
     ingredients: [
       { name: 'Chromium (75 mcg)', benefit: 'Essential mineral supporting healthy blood sugar metabolism' },
       { name: 'Molybdenum (100 mcg)', benefit: 'Trace mineral supporting enzyme activity and metabolic processes' },
@@ -137,16 +123,14 @@ const ingredientBreakdown = [
     ],
   },
   {
-    product: 'Iron Strips',
-    icon: '\u{1F4AA}',
+    product: 'Iron Strips', icon: '\u{1F4AA}',
     ingredients: [
       { name: 'Iron (Ferric Saccharate) (19 mg)', benefit: 'Highly absorbable form supporting red blood cell production' },
       { name: 'Folate (400 mcg)', benefit: 'Works synergistically with iron for healthy cell formation' },
     ],
   },
   {
-    product: 'Energy Strips',
-    icon: '\u26A1',
+    product: 'Energy Strips', icon: '\u26A1',
     ingredients: [
       { name: 'Caffeine (50 mg)', benefit: 'Natural stimulant for alertness and physical performance' },
       { name: 'L-Theanine (30 mg)', benefit: 'Smooths caffeine response, prevents jitters and crash' },
@@ -154,8 +138,7 @@ const ingredientBreakdown = [
     ],
   },
   {
-    product: 'Sleep Strips',
-    icon: '\u{1F319}',
+    product: 'Sleep Strips', icon: '\u{1F319}',
     ingredients: [
       { name: 'Melatonin (5 mg)', benefit: 'Hormone regulating sleep-wake cycle, reduces time to fall asleep' },
       { name: 'Valerian Extract (10 mg)', benefit: 'Traditional herb promoting relaxation and sleep quality' },
@@ -177,14 +160,15 @@ export default function Science() {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-20 md:py-28 bg-gradient-to-b from-muted/50 to-background">
-          <div className="container-wide text-center">
+        <section className="relative py-20 md:py-28 overflow-hidden">
+          <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
+          <div className="container-wide text-center relative z-10">
             <motion.h1 
-              className="font-body text-4xl md:text-5xl lg:text-6xl font-semibold mb-6"
-              style={{ letterSpacing: '-0.02em' }}
+              className="font-display text-4xl md:text-5xl lg:text-6xl mb-6"
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
-              YOUR BODY DESERVES THE TRUTH
+              Your Body Deserves the Truth
             </motion.h1>
             <motion.p 
               className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
@@ -198,31 +182,31 @@ export default function Science() {
         </section>
 
         {/* Proven Purity Section */}
-        <section className="py-20">
+        <section className="py-20 md:py-28">
           <div className="container-wide">
             <motion.h2 
-              className="font-body text-3xl md:text-4xl font-semibold text-center mb-16"
+              className="font-display text-3xl md:text-4xl text-center mb-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              BECAUSE YOU DESERVE TO FEEL SURE
+              Because You Deserve to Feel Sure
             </motion.h2>
             
             <div className="grid md:grid-cols-3 gap-8">
               {puritySections.map((section, index) => (
                 <motion.div 
                   key={section.title} 
-                  className="bg-card rounded-2xl p-8 text-center shadow-soft hover:shadow-card transition-shadow"
+                  className="bg-card rounded-2xl p-8 text-center shadow-soft hover:shadow-card transition-all duration-500 hover:-translate-y-1 border border-border/30"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <section.icon className="h-8 w-8 text-primary" />
+                  <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <section.icon className="h-8 w-8 text-accent" />
                   </div>
-                  <h3 className="font-body font-semibold text-xl mb-4" style={{ letterSpacing: '-0.02em' }}>{section.title}</h3>
+                  <h3 className="font-display text-xl mb-4">{section.title}</h3>
                   <p className="text-muted-foreground leading-relaxed text-sm">{section.description}</p>
                 </motion.div>
               ))}
@@ -231,7 +215,7 @@ export default function Science() {
         </section>
 
         {/* Third-Party Testing Section */}
-        <section className="py-20 bg-muted/30">
+        <section className="py-20 md:py-28 bg-secondary/30">
           <div className="container-wide">
             <motion.div 
               className="text-center mb-16"
@@ -239,8 +223,8 @@ export default function Science() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-body text-3xl md:text-4xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-                TESTED — FOR YOUR PEACE OF MIND
+              <h2 className="font-display text-3xl md:text-4xl mb-4">
+                Tested — For Your Peace of Mind
               </h2>
               <p className="text-muted-foreground text-lg">
                 Every batch is independently verified. Because the things you put in your body should never be a guessing game.
@@ -251,7 +235,7 @@ export default function Science() {
               {testCards.map((card, index) => (
                 <motion.div 
                   key={card.name} 
-                  className="bg-card rounded-2xl p-6 shadow-soft border border-border/50"
+                  className="bg-card rounded-2xl p-6 shadow-soft border border-border/30 hover:shadow-card transition-all duration-500"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -259,13 +243,13 @@ export default function Science() {
                 >
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-xs font-bold text-primary uppercase tracking-wider">Test Report</span>
-                    <span className="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-bold">
+                    <span className="bg-primary/10 text-primary px-2.5 py-0.5 rounded-full text-xs font-bold">
                       {card.status}
                     </span>
                   </div>
                   <h4 className="font-semibold text-foreground mb-2">{card.name}</h4>
                   <p className="text-xs text-muted-foreground">{card.date}</p>
-                  <div className="mt-4 pt-4 border-t border-border/50">
+                  <div className="mt-4 pt-4 border-t border-border/30">
                     <a href={card.researchUrl} target="_blank" rel="noopener noreferrer" className="text-xs text-primary font-medium flex items-center gap-1 hover:text-accent transition-colors">
                       View Research
                       <ExternalLink className="h-3 w-3" />
@@ -278,15 +262,15 @@ export default function Science() {
         </section>
 
         {/* Quality Badges Section */}
-        <section className="py-20">
+        <section className="py-20 md:py-28">
           <div className="container-wide">
             <motion.h2 
-              className="font-body text-3xl md:text-4xl font-semibold text-center mb-12"
+              className="font-display text-3xl md:text-4xl text-center mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              THE STANDARDS YOUR BODY DESERVES
+              The Standards Your Body Deserves
             </motion.h2>
             
             <motion.div 
@@ -298,9 +282,9 @@ export default function Science() {
               {qualityBadges.map((badge) => (
                 <span 
                   key={badge} 
-                  className="flex items-center gap-2 bg-card px-5 py-3 rounded-full shadow-soft border border-border/50 text-sm font-medium"
+                  className="flex items-center gap-2 bg-secondary/60 px-6 py-3.5 rounded-full shadow-soft border border-border/30 text-sm font-medium"
                 >
-                  <Award className="h-4 w-4 text-primary" />
+                  <Award className="h-4 w-4 text-accent" />
                   {badge}
                 </span>
               ))}
@@ -309,7 +293,7 @@ export default function Science() {
         </section>
 
         {/* All 13 Products Ingredient Breakdown */}
-        <section className="py-20 bg-muted/30">
+        <section className="py-20 md:py-28 bg-secondary/30">
           <div className="container-wide">
             <motion.div 
               className="text-center mb-16"
@@ -317,8 +301,8 @@ export default function Science() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-body text-3xl md:text-4xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-                FULL TRANSPARENCY — BECAUSE YOU'RE WORTH IT
+              <h2 className="font-display text-3xl md:text-4xl mb-4">
+                Full Transparency — Because You're Worth It
               </h2>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
                 13 formulas. Every ingredient listed. Every dosage shown. Your body does so much for you — the least we can do is be completely honest about what goes into it.
@@ -329,7 +313,7 @@ export default function Science() {
               {ingredientBreakdown.map((item, index) => (
                 <motion.div 
                   key={item.product} 
-                  className="bg-card rounded-2xl p-6 shadow-soft border border-border/50 hover:shadow-card transition-shadow"
+                  className="bg-card rounded-2xl p-6 shadow-soft border border-border/30 hover:shadow-card hover:-translate-y-1 transition-all duration-500"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -337,11 +321,11 @@ export default function Science() {
                 >
                   <div className="flex items-center gap-3 mb-5">
                     <span className="text-3xl">{item.icon}</span>
-                    <h4 className="font-body font-semibold text-foreground text-lg" style={{ letterSpacing: '-0.02em' }}>{item.product}</h4>
+                    <h4 className="font-body font-semibold text-foreground text-lg">{item.product}</h4>
                   </div>
                   <div className="space-y-3">
                     {item.ingredients.map((ingredient) => (
-                      <div key={ingredient.name} className="border-l-2 border-primary/30 pl-3">
+                      <div key={ingredient.name} className="border-l-2 border-accent/40 pl-3">
                         <div className="flex items-start gap-2">
                           <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                           <div>
@@ -361,7 +345,7 @@ export default function Science() {
         </section>
 
         {/* Research & References Section */}
-        <section className="py-20">
+        <section className="py-20 md:py-28">
           <div className="container-wide">
             <motion.div 
               className="text-center mb-16"
@@ -369,8 +353,8 @@ export default function Science() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-body text-3xl md:text-4xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
-                THE RESEARCH — SO YOU CAN DECIDE FOR YOURSELF
+              <h2 className="font-display text-3xl md:text-4xl mb-4">
+                The Research — So You Can Decide for Yourself
               </h2>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
                 We don't ask you to trust us blindly. Here are the peer-reviewed studies behind our key ingredients. Your health, your choice, your confidence.
@@ -388,7 +372,7 @@ export default function Science() {
               ].map((item, index) => (
                 <motion.div
                   key={item.name}
-                  className="bg-card rounded-2xl p-6 shadow-soft border border-border/50 flex flex-col"
+                  className="bg-card rounded-2xl p-6 shadow-soft border border-border/30 flex flex-col hover:shadow-card transition-all duration-500"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -423,10 +407,10 @@ export default function Science() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-primary text-primary-foreground">
+        <section className="py-20 md:py-28 bg-primary text-primary-foreground">
           <div className="container-wide text-center">
             <motion.h2 
-              className="font-body text-3xl md:text-4xl font-semibold mb-6"
+              className="font-display text-3xl md:text-4xl mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -434,7 +418,7 @@ export default function Science() {
               See what the right ingredients can do.
             </motion.h2>
             <motion.p 
-              className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto"
+              className="text-primary-foreground/70 text-lg mb-8 max-w-2xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -448,7 +432,7 @@ export default function Science() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground h-14 px-10 text-lg font-semibold rounded-lg" asChild>
+              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground h-14 px-10 text-lg font-semibold rounded-xl shadow-lg" asChild>
                 <Link to="/shop">Find Your Strip →</Link>
               </Button>
             </motion.div>
