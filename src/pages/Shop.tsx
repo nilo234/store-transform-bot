@@ -286,7 +286,7 @@ export default function Shop() {
             /* Empty State — calm, helpful */
             <div className="text-center py-16 md:py-24 max-w-md mx-auto">
                 <span className="text-4xl mb-4 block">🔍</span>
-                <h3 className="font-body text-lg md:text-xl font-semibold mb-2" style={{ letterSpacing: '-0.02em' }}>We don't have that exact match yet</h3>
+                <h3 className="font-display text-lg md:text-xl mb-2">We don't have that exact match yet</h3>
                 <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
                   But there might be something else that's perfect for you. 
                   Take a look at the full collection — your body will tell you what it needs.
