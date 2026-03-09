@@ -415,17 +415,17 @@ export default function ProductDetail() {
               </Accordion>
 
               {/* Trust Badges */}
-              <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
-                <div className="text-center">
-                  <Truck className="h-6 w-6 mx-auto mb-2 text-primary" />
+              <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border/40">
+                <div className="text-center p-3 bg-secondary/40 rounded-xl">
+                  <Truck className="h-5 w-5 mx-auto mb-2 text-primary" />
                   <p className="text-xs text-muted-foreground">Free shipping<br />on $50+</p>
                 </div>
-                <div className="text-center">
-                  <Shield className="h-6 w-6 mx-auto mb-2 text-primary" />
+                <div className="text-center p-3 bg-secondary/40 rounded-xl">
+                  <Shield className="h-5 w-5 mx-auto mb-2 text-primary" />
                   <p className="text-xs text-muted-foreground">Independently<br />tested</p>
                 </div>
-                <div className="text-center">
-                  <RotateCcw className="h-6 w-6 mx-auto mb-2 text-primary" />
+                <div className="text-center p-3 bg-secondary/40 rounded-xl">
+                  <RotateCcw className="h-5 w-5 mx-auto mb-2 text-primary" />
                   <p className="text-xs text-muted-foreground">14-day<br />money back</p>
                 </div>
               </div>
