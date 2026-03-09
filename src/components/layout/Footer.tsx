@@ -48,21 +48,21 @@ export function Footer() {
       <div className="border-b border-primary-foreground/10">
         <div className="container-wide py-10 md:py-16 px-4 md:px-6">
           <div className="max-w-xl mx-auto text-center">
-            <h3 className="font-body text-xl md:text-2xl lg:text-3xl font-semibold mb-3 md:mb-4" style={{ letterSpacing: '-0.02em' }}>
-              You're worth this. Let's get started.
+            <h3 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3 md:mb-4" style={{ letterSpacing: '-0.02em' }}>
+              You're Worth This
             </h3>
-            <p className="text-primary-foreground/70 mb-6 md:mb-8 text-sm md:text-base">
+            <p className="text-primary-foreground/60 mb-6 md:mb-8 text-sm md:text-base font-body leading-relaxed">
               Get 15% off your first order — plus honest wellness insights and new launches. No spam, ever. Just us, showing up for you.
             </p>
             <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <Input
                 type="email"
                 placeholder="Your email address"
-                className="h-11 md:h-12 bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 rounded-lg flex-1" />
+                className="h-11 md:h-12 bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 rounded-xl flex-1 font-body" />
               
               <Button
                 type="submit"
-                className="h-11 md:h-12 bg-accent hover:bg-accent/90 text-accent-foreground px-6 font-semibold rounded-lg w-full sm:w-auto">
+                className="h-11 md:h-12 bg-accent hover:bg-accent/90 text-accent-foreground px-6 font-display font-semibold rounded-xl w-full sm:w-auto shadow-glow">
                 
                 Yes, I'm Worth It
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -84,7 +84,7 @@ export function Footer() {
                 className="h-20 md:h-[4.75rem] lg:h-[8.25rem] w-auto brightness-0 invert" />
               
             </Link>
-            <p className="text-primary-foreground/70 mb-6 md:mb-8 max-w-sm text-xs md:text-sm leading-relaxed">
+            <p className="text-primary-foreground/60 mb-6 md:mb-8 max-w-sm text-xs md:text-sm font-body leading-relaxed">
               30-second wellness strips for people who believe they're worth taking care of. Designed to fit your life — not the other way around.
             </p>
             
@@ -94,7 +94,7 @@ export function Footer() {
               <a
                 key={social.label}
                 href={social.href}
-                className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center transition-colors"
+                className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-primary-foreground/10 hover:bg-accent/30 hover:text-accent flex items-center justify-center transition-all duration-300"
                 aria-label={social.label}>
                 
                   <social.icon className="h-4 w-4 md:h-5 md:w-5" />
@@ -105,13 +105,13 @@ export function Footer() {
 
           {/* Shop Links */}
           <div>
-            <h4 className="font-semibold text-sm md:text-lg mb-4 md:mb-6">Shop</h4>
+            <h4 className="font-display text-base md:text-lg mb-4 md:mb-6">Shop</h4>
             <ul className="space-y-2.5 md:space-y-4">
               {footerLinks.shop.map((link) =>
               <li key={link.href}>
                   <Link
                   to={link.href}
-                  className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-xs md:text-sm">
+                  className="text-primary-foreground/60 hover:text-accent transition-colors text-xs md:text-sm font-body">
                   
                     {link.label}
                   </Link>
@@ -122,13 +122,13 @@ export function Footer() {
 
           {/* Company Links */}
           <div>
-            <h4 className="font-semibold text-sm md:text-lg mb-4 md:mb-6">Company</h4>
+            <h4 className="font-display text-base md:text-lg mb-4 md:mb-6">Company</h4>
             <ul className="space-y-2.5 md:space-y-4">
               {footerLinks.company.map((link) =>
               <li key={link.href}>
                   <Link
                   to={link.href}
-                  className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-xs md:text-sm">
+                  className="text-primary-foreground/60 hover:text-accent transition-colors text-xs md:text-sm font-body">
                   
                     {link.label}
                   </Link>
@@ -139,13 +139,13 @@ export function Footer() {
 
           {/* Support Links */}
           <div className="col-span-2 md:col-span-1">
-            <h4 className="font-semibold text-sm md:text-lg mb-4 md:mb-6">Support</h4>
+            <h4 className="font-display text-base md:text-lg mb-4 md:mb-6">Support</h4>
             <ul className="grid grid-cols-2 md:grid-cols-1 gap-2.5 md:gap-4">
               {footerLinks.support.map((link) =>
               <li key={link.href}>
                   <Link
                   to={link.href}
-                  className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-xs md:text-sm">
+                  className="text-primary-foreground/60 hover:text-accent transition-colors text-xs md:text-sm font-body">
                   
                     {link.label}
                   </Link>
@@ -159,7 +159,7 @@ export function Footer() {
         <div className="mt-10 md:mt-16 pt-6 md:pt-8 border-t border-primary-foreground/10">
           <div className="flex flex-wrap justify-center gap-x-4 md:gap-x-8 gap-y-2 md:gap-y-4 mb-6 md:mb-8">
             {trustBadges.map((badge) =>
-            <span key={badge} className="flex items-center gap-1.5 md:gap-2 text-[10px] md:text-sm text-primary-foreground/70">
+            <span key={badge} className="flex items-center gap-1.5 md:gap-2 text-[10px] md:text-sm text-primary-foreground/60 font-body">
                 <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-accent" />
                 {badge}
               </span>
@@ -167,13 +167,13 @@ export function Footer() {
           </div>
           
           {/* Copyright */}
-          <p className="text-center text-primary-foreground/50 text-[10px] mb-2 my-[20px] md:text-xs">
+          <p className="text-center text-primary-foreground/40 text-[10px] mb-2 my-[20px] md:text-xs font-body">
             These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease. Every Neuvie strip is manufactured in an FDA-registered, GMP-compliant facility in the United States.
           </p>
-          <p className="text-center text-primary-foreground/50 text-[10px] md:text-xs mb-2">
+          <p className="text-center text-primary-foreground/40 text-[10px] md:text-xs mb-2 font-body">
             All prices in USD. We currently ship within the United States only.
           </p>
-          <p className="text-center text-primary-foreground/50 text-[10px] md:text-sm">
+          <p className="text-center text-primary-foreground/40 text-[10px] md:text-sm font-body">
             © {new Date().getFullYear()} Neuvie Nutrition, Inc. All rights reserved.
           </p>
         </div>
