@@ -32,7 +32,7 @@ const faqs = [
 
 export function HomepageFAQs() {
   return (
-    <section className="py-16 md:py-24 bg-muted/30">
+    <section className="py-16 md:py-24 bg-secondary/30">
       <div className="container-wide">
         <motion.div
           className="text-center mb-10"

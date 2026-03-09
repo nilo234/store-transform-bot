@@ -25,7 +25,7 @@ export function IngredientSpotlight() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="font-body text-2xl md:text-3xl lg:text-4xl font-semibold mb-3" style={{ letterSpacing: '-0.02em' }}>
+          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3" style={{ letterSpacing: '-0.02em' }}>
             Inside the Strips
           </h2>
           <p className="text-muted-foreground">

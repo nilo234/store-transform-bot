@@ -84,7 +84,7 @@ export function CompareModal({ open, onOpenChange, products, onRemoveProduct }: 
         
         {/* Header */}
         <div className="flex items-center justify-between px-4 md:px-6 py-4 border-b border-border bg-muted/30">
-          <h2 className="font-body text-lg md:text-xl font-semibold" style={{ letterSpacing: '-0.02em' }}>Compare Strips</h2>
+          <h2 className="font-display text-lg md:text-xl" style={{ letterSpacing: '-0.02em' }}>Compare Strips</h2>
           <Button variant="ghost" size="icon" onClick={() => onOpenChange(false)} className="h-8 w-8">
             <X className="h-4 w-4" />
           </Button>
@@ -115,7 +115,7 @@ export function CompareModal({ open, onOpenChange, products, onRemoveProduct }: 
                     )}
                   </div>
                   
-                  <h3 className="font-body text-xs md:text-sm font-semibold leading-tight line-clamp-2 mb-1">
+                  <h3 className="font-body ttext-sm font-semibold leading-tight line-clamp-2 mb-1">
                     {p.title}
                   </h3>
                   <span className="text-base md:text-lg font-bold text-primary">${p.price.toFixed(2)}</span>

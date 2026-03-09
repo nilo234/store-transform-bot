@@ -16,7 +16,7 @@ export const GuaranteeSection = () => {
               <Shield className="w-8 h-8 text-primary" />
             </div>
             
-            <h2 className="font-body text-2xl md:text-3xl font-semibold mb-4" style={{ letterSpacing: '-0.02em' }}>
+            <h2 className="font-display text-2xl md:text-3xl mb-4" style={{ letterSpacing: '-0.02em' }}>
               Try it for 14 days. Love it or get your money back.
             </h2>
             

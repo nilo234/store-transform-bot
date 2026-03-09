@@ -72,7 +72,7 @@ export function ProductCard({ product, index = 0, showCompare, isCompared, onTog
     >
       <Link to={`/product/${sanitizeHandle(node.handle)}`}>
         <div
-          className="bg-card rounded-xl md:rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1.5 group cursor-pointer border border-border/30 hover:border-border/60er/60er/60 hover:shadow-elevated relative"
+          className="bg-card rounded-xl md:rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1.5 group cursor-pointer border border-border/30 hover:border-border/60ed relative"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
@@ -92,7 +92,7 @@ export function ProductCard({ product, index = 0, showCompare, isCompared, onTog
           )}
 
           {/* Image */}
-          <div className="relative aspect-square overflow-hidden bg-gradient-secondarysecondarymuted/30 to-card">
+          <div className="relative aspect-square overflow-hidden bg-gradient-to-b from-secondary/30 to-card">
             {/* Strips count */}
             <div className={cn("absolute top-2 md:top-4 z-10", showCompare ? "left-10 md:left-12" : "left-2 md:left-4")}>
               <div className="bg-background/95 backdrop-blur-sm rounded-md px-2 py-1 md:px-3 md:py-1.5 text-center border border-border/50 shadow-sm">
@@ -148,7 +148,7 @@ export function ProductCard({ product, index = 0, showCompare, isCompared, onTog
               <JudgeMePreviewBadge productId={node.id} />
             </div>
 
-            <h3 className="font-body text-sm md:text-base font-semi.5bold mt-1 mb-1 text-foreground group-hover:text-primary transition-colors line-clamp-2 leading-tight">
+            <h3 className="text-sm md:text-base font-semibold mt-1 mb-1 text-foreground group-hover:text-primary transition-colors line-clamp-2 leading-tight">
               {sanitizeTitle(node.title)}
             </h3>
 
