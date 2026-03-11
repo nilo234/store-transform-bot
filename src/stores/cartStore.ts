@@ -254,7 +254,18 @@ export const useCartStore = create<CartStore>()(
 
       setOpen: (isOpen) => set({ isOpen }),
 
-      getCheckoutUrl: () => get().checkoutUrl,
+      getCheckoutUrl: () => {
+        const checkoutUrl = get().checkoutUrl;
+        if (!checkoutUrl) return null;
+
+        try {
+          const url = new URL(checkoutUrl);
+          url.searchParams.set('channel', 'online_store');
+          return url.toString();
+        } catch {
+          return checkoutUrl;
+        }
+      },
 
       syncCart: async () => {
         const { cartId, isSyncing, clearCart } = get();
