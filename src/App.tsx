@@ -20,6 +20,7 @@ import Returns from "./pages/Returns";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
+import CheckoutRedirect from "./pages/CheckoutRedirect";
 
 const queryClient = new QueryClient();
 
