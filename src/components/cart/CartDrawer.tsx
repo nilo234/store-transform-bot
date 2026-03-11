@@ -72,27 +72,39 @@ export function CartDrawer() {
 
     const normalizedCheckoutUrl = (() => {
       try {
-        const url = new URL(checkoutUrl);
+        const baseUrl = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}`;
+        const url = checkoutUrl.startsWith('http') ? new URL(checkoutUrl) : new URL(checkoutUrl, baseUrl);
         // Always force the permanent Shopify domain to avoid custom-domain 404s
         url.hostname = SHOPIFY_STORE_PERMANENT_DOMAIN;
         url.searchParams.set('channel', 'online_store');
         return url.toString();
       } catch {
-        return checkoutUrl;
+        return `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/cart`;
+      }
+    })();
+
+    const checkoutTarget = (() => {
+      try {
+        const parsed = new URL(normalizedCheckoutUrl);
+        return parsed.pathname.startsWith('/cart/c/')
+          ? `${parsed.pathname}${parsed.search}`
+          : normalizedCheckoutUrl;
+      } catch {
+        return normalizedCheckoutUrl;
       }
     })();
 
     const isMobileViewport = window.matchMedia('(max-width: 768px)').matches;
 
     if (isMobileViewport) {
-      window.location.assign(normalizedCheckoutUrl);
+      window.location.assign(checkoutTarget);
       setOpen(false);
       return;
     }
 
-    const win = window.open(normalizedCheckoutUrl, '_blank', 'noopener,noreferrer');
+    const win = window.open(checkoutTarget, '_blank', 'noopener,noreferrer');
     if (!win) {
-      window.location.assign(normalizedCheckoutUrl);
+      window.location.assign(checkoutTarget);
     }
     setOpen(false);
   };
