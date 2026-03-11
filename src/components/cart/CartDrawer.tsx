@@ -72,13 +72,14 @@ export function CartDrawer() {
 
     const normalizedCheckoutUrl = (() => {
       try {
-        const url = new URL(checkoutUrl);
+        const baseUrl = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}`;
+        const url = checkoutUrl.startsWith('http') ? new URL(checkoutUrl) : new URL(checkoutUrl, baseUrl);
         // Always force the permanent Shopify domain to avoid custom-domain 404s
         url.hostname = SHOPIFY_STORE_PERMANENT_DOMAIN;
         url.searchParams.set('channel', 'online_store');
         return url.toString();
       } catch {
-        return checkoutUrl;
+        return `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/cart`;
       }
     })();
 
