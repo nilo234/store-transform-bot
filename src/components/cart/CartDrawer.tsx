@@ -73,6 +73,9 @@ export function CartDrawer() {
     const normalizedCheckoutUrl = (() => {
       try {
         const url = new URL(checkoutUrl);
+        // Always force the permanent Shopify domain to avoid custom-domain 404s
+        const { SHOPIFY_STORE_PERMANENT_DOMAIN } = await import('@/lib/shopify');
+        url.hostname = SHOPIFY_STORE_PERMANENT_DOMAIN;
         url.searchParams.set('channel', 'online_store');
         return url.toString();
       } catch {
