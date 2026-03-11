@@ -62,7 +62,14 @@ export function CartDrawer() {
   const handleCheckout = () => {
     const checkoutUrl = getCheckoutUrl();
     if (checkoutUrl) {
-      window.location.assign(checkoutUrl);
+      // Open in new tab – window.open works better than location.assign
+      // which fails inside iframes (Shopify blocks framed checkout)
+      const win = window.open(checkoutUrl, '_blank');
+      if (!win) {
+        // Fallback for popup blockers (mobile Safari)
+        window.location.assign(checkoutUrl);
+      }
+      setOpen(false);
     }
   };
 
