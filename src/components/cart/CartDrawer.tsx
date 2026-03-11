@@ -62,16 +62,37 @@ export function CartDrawer() {
 
   const handleCheckout = () => {
     const checkoutUrl = getCheckoutUrl();
-    if (checkoutUrl) {
-      // Open in new tab – window.open works better than location.assign
-      // which fails inside iframes (Shopify blocks framed checkout)
-      const win = window.open(checkoutUrl, '_blank');
-      if (!win) {
-        // Fallback for popup blockers (mobile Safari)
-        window.location.assign(checkoutUrl);
-      }
-      setOpen(false);
+
+    if (!checkoutUrl) {
+      toast.error('Checkout currently unavailable', {
+        description: 'Please add your product again and retry checkout.',
+      });
+      return;
     }
+
+    const normalizedCheckoutUrl = (() => {
+      try {
+        const url = new URL(checkoutUrl);
+        url.searchParams.set('channel', 'online_store');
+        return url.toString();
+      } catch {
+        return checkoutUrl;
+      }
+    })();
+
+    const isMobileDevice = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isMobileDevice) {
+      window.location.assign(normalizedCheckoutUrl);
+      setOpen(false);
+      return;
+    }
+
+    const win = window.open(normalizedCheckoutUrl, '_blank', 'noopener,noreferrer');
+    if (!win) {
+      window.location.assign(normalizedCheckoutUrl);
+    }
+    setOpen(false);
   };
 
   const cartTotal = totalPrice();
