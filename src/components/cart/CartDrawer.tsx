@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react';
 import { toast } from 'sonner';
-import { sanitizeTitle } from '@/lib/shopify';
+import { sanitizeTitle, SHOPIFY_STORE_PERMANENT_DOMAIN } from '@/lib/shopify';
 import { Minus, Plus, Trash2, ExternalLink, Loader2, ShoppingCart, RefreshCw, Gift, X, Package } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from '@/components/ui/sheet';
@@ -73,6 +73,8 @@ export function CartDrawer() {
     const normalizedCheckoutUrl = (() => {
       try {
         const url = new URL(checkoutUrl);
+        // Always force the permanent Shopify domain to avoid custom-domain 404s
+        url.hostname = SHOPIFY_STORE_PERMANENT_DOMAIN;
         url.searchParams.set('channel', 'online_store');
         return url.toString();
       } catch {
