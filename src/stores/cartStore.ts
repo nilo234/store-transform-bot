@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import {
   ShopifyProduct,
+  SHOPIFY_STORE_PERMANENT_DOMAIN,
   createShopifyCart,
   addLineToShopifyCart,
   updateShopifyCartLine,
