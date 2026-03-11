@@ -82,7 +82,7 @@ export function CartDrawer() {
 
     const isMobileViewport = window.matchMedia('(max-width: 768px)').matches;
 
-    if (isMobileDevice) {
+    if (isMobileViewport) {
       window.location.assign(normalizedCheckoutUrl);
       setOpen(false);
       return;
