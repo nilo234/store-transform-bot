@@ -1,4 +1,5 @@
 import { useEffect, useMemo } from 'react';
+import { toast } from 'sonner';
 import { sanitizeTitle } from '@/lib/shopify';
 import { Minus, Plus, Trash2, ExternalLink, Loader2, ShoppingCart, RefreshCw, Gift, X, Package } from 'lucide-react';
 import { Button } from '@/components/ui/button';
