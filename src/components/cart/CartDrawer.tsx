@@ -80,7 +80,7 @@ export function CartDrawer() {
       }
     })();
 
-    const isMobileDevice = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const isMobileViewport = window.matchMedia('(max-width: 768px)').matches;
 
     if (isMobileDevice) {
       window.location.assign(normalizedCheckoutUrl);
