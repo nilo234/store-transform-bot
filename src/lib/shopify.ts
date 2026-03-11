@@ -297,6 +297,8 @@ export async function fetchProductByHandle(handle: string): Promise<ShopifyProdu
 function formatCheckoutUrl(checkoutUrl: string): string {
   try {
     const url = new URL(checkoutUrl);
+    // Force Shopify checkout domain to avoid custom-domain 404s on /cart/c/* routes
+    url.hostname = SHOPIFY_STORE_PERMANENT_DOMAIN;
     url.searchParams.set('channel', 'online_store');
     return url.toString();
   } catch {

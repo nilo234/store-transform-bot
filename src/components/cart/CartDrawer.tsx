@@ -1,4 +1,5 @@
 import { useEffect, useMemo } from 'react';
+import { toast } from 'sonner';
 import { sanitizeTitle } from '@/lib/shopify';
 import { Minus, Plus, Trash2, ExternalLink, Loader2, ShoppingCart, RefreshCw, Gift, X, Package } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -61,16 +62,37 @@ export function CartDrawer() {
 
   const handleCheckout = () => {
     const checkoutUrl = getCheckoutUrl();
-    if (checkoutUrl) {
-      // Open in new tab – window.open works better than location.assign
-      // which fails inside iframes (Shopify blocks framed checkout)
-      const win = window.open(checkoutUrl, '_blank');
-      if (!win) {
-        // Fallback for popup blockers (mobile Safari)
-        window.location.assign(checkoutUrl);
-      }
-      setOpen(false);
+
+    if (!checkoutUrl) {
+      toast.error('Checkout currently unavailable', {
+        description: 'Please add your product again and retry checkout.',
+      });
+      return;
     }
+
+    const normalizedCheckoutUrl = (() => {
+      try {
+        const url = new URL(checkoutUrl);
+        url.searchParams.set('channel', 'online_store');
+        return url.toString();
+      } catch {
+        return checkoutUrl;
+      }
+    })();
+
+    const isMobileViewport = window.matchMedia('(max-width: 768px)').matches;
+
+    if (isMobileViewport) {
+      window.location.assign(normalizedCheckoutUrl);
+      setOpen(false);
+      return;
+    }
+
+    const win = window.open(normalizedCheckoutUrl, '_blank', 'noopener,noreferrer');
+    if (!win) {
+      window.location.assign(normalizedCheckoutUrl);
+    }
+    setOpen(false);
   };
 
   const cartTotal = totalPrice();
