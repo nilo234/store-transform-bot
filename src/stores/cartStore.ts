@@ -261,6 +261,7 @@ export const useCartStore = create<CartStore>()(
 
         try {
           const url = new URL(checkoutUrl);
+          url.hostname = SHOPIFY_STORE_PERMANENT_DOMAIN;
           url.searchParams.set('channel', 'online_store');
           return url.toString();
         } catch {
