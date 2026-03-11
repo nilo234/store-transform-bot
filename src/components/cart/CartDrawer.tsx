@@ -83,17 +83,28 @@ export function CartDrawer() {
       }
     })();
 
+    const checkoutTarget = (() => {
+      try {
+        const parsed = new URL(normalizedCheckoutUrl);
+        return parsed.pathname.startsWith('/cart/c/')
+          ? `${parsed.pathname}${parsed.search}`
+          : normalizedCheckoutUrl;
+      } catch {
+        return normalizedCheckoutUrl;
+      }
+    })();
+
     const isMobileViewport = window.matchMedia('(max-width: 768px)').matches;
 
     if (isMobileViewport) {
-      window.location.assign(normalizedCheckoutUrl);
+      window.location.assign(checkoutTarget);
       setOpen(false);
       return;
     }
 
-    const win = window.open(normalizedCheckoutUrl, '_blank', 'noopener,noreferrer');
+    const win = window.open(checkoutTarget, '_blank', 'noopener,noreferrer');
     if (!win) {
-      window.location.assign(normalizedCheckoutUrl);
+      window.location.assign(checkoutTarget);
     }
     setOpen(false);
   };
