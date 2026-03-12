@@ -39,6 +39,7 @@ const App = () => (
       <WebsiteJsonLd />
       <BrowserRouter>
         <AppContent />
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/shop" element={<Shop />} />
