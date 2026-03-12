@@ -88,21 +88,19 @@ export default function Bundles() {
         </section>
 
         {/* Category Filters */}
-        <section className="py-8 border-b border-border/30 bg-background/95 backdrop-blur-md sticky top-[132px] z-40">
-          <div className="container-wide">
-            <div className="flex flex-wrap items-center justify-center gap-3">
+        <section className="border-b border-border/30 bg-background/95 backdrop-blur-md sticky top-[100px] md:top-[132px] z-40">
+          <div className="container-wide px-3 md:px-6">
+            <div className="flex items-center gap-2 overflow-x-auto scrollbar-hide py-3 md:py-4 -mx-1 px-1">
               {categoryFilters.map((filter) => (
-                <motion.button
+                <button
                   key={filter.id}
                   onClick={() => handleCategoryChange(filter.id)}
                   className={cn(
-                    "flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all",
+                    "flex items-center gap-2 px-3 md:px-5 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-medium whitespace-nowrap transition-all duration-200 flex-shrink-0",
                     activeCategory === filter.id
-                      ? "bg-primary text-primary-foreground shadow-md"
-                      : "bg-secondary/60 text-foreground hover:bg-secondary"
+                      ? "bg-primary text-primary-foreground shadow-sm"
+                      : "bg-muted/60 text-muted-foreground hover:bg-muted"
                   )}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
                 >
                   {filter.icon}
                   {filter.label}
@@ -114,7 +112,7 @@ export default function Bundles() {
                   )}>
                     {filter.count}
                   </span>
-                </motion.button>
+                </button>
               ))}
             </div>
           </div>
