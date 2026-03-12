@@ -7,6 +7,7 @@ import { LiveChatWidget } from "@/components/chat/LiveChatWidget";
 import { ExitIntentPopup } from "@/components/popups/ExitIntentPopup";
 import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/seo";
 import { useCartSync } from "@/hooks/useCartSync";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import Shop from "./pages/Shop";
 import Bundles from "./pages/Bundles";
@@ -38,6 +39,7 @@ const App = () => (
       <WebsiteJsonLd />
       <BrowserRouter>
         <AppContent />
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/shop" element={<Shop />} />
