@@ -22,6 +22,7 @@ serve(async (req) => {
   }
 
   const KLAVIYO_LIST_ID = Deno.env.get("KLAVIYO_LIST_ID");
+  console.log("KLAVIYO_LIST_ID:", KLAVIYO_LIST_ID);
   if (!KLAVIYO_LIST_ID) {
     return new Response(
       JSON.stringify({ error: "KLAVIYO_LIST_ID is not configured" }),
