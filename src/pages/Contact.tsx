@@ -35,15 +35,28 @@ export default function Contact() {
 
     setIsSubmitting(true);
     
-    // Simulate form submission (in production, connect to email service)
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    toast.success("Message sent! We'll get back to you within 24 hours.");
-    
-    setTimeout(() => setIsSuccess(false), 5000);
+    try {
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || '',
+          message: formData.message,
+        });
+
+      if (error) throw error;
+
+      setIsSuccess(true);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      toast.success("Message sent! We'll get back to you within 24 hours.");
+      setTimeout(() => setIsSuccess(false), 5000);
+    } catch (err) {
+      console.error('Contact form error:', err);
+      toast.error('Something went wrong. Please try again or email us directly at team@tryneuvie.com.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
