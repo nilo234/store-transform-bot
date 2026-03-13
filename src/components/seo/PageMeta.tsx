@@ -65,7 +65,6 @@ export function PageMeta({ title, description, ogImage, noindex }: PageMetaProps
         document.head.appendChild(link);
       }
     };
-    setHreflang('en-US', canonicalUrl);
     setHreflang('en', canonicalUrl);
     setHreflang('x-default', canonicalUrl);
 
