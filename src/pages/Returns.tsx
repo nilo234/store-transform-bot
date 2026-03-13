@@ -61,7 +61,7 @@ export default function Returns() {
               </h2>
               <div className="space-y-6">
                 {[
-                  { step: '1', title: 'Contact Us', desc: "Email hello@neuvie.com with your order number and reason for return. We'll respond within 24 hours." },
+                  { step: '1', title: 'Contact Us', desc: "Email team@tryneuvie.com with your order number and reason for return. We'll respond within 24 hours." },
                   { step: '2', title: 'Receive Instructions', desc: "We'll provide you with a return shipping label and instructions for sending back your order." },
                   { step: '3', title: 'Get Your Refund', desc: "Once we receive your return, we'll process your refund within 5-7 business days to your original payment method." },
                 ].map((item) => (

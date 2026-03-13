@@ -10,7 +10,7 @@ import { PageMeta } from '@/components/seo';
 import { toast } from 'sonner';
 
 const contactMethods = [
-  { icon: Mail, title: 'Email', description: 'Send us a message anytime', value: 'hello@neuvie.com' },
+  { icon: Mail, title: 'Email', description: 'Send us a message anytime', value: 'team@tryneuvie.com' },
   { icon: MessageSquare, title: 'Live Chat', description: 'Talk to a real person', value: 'Available 9am – 6pm EST' },
   { icon: Clock, title: 'Response Time', description: 'We typically get back to you within', value: '24 hours' },
 ];

@@ -93,8 +93,8 @@ export const ProductFAQs = ({ productHandle, customFaqs }: ProductFAQsProps) => 
             </h2>
             <p className="text-muted-foreground">
               Caring about what you put in your body is exactly the kind of person we made this for. Still curious? Email us at{' '}
-              <a href="mailto:hello@neuvie.com" className="text-primary hover:underline">
-                hello@neuvie.com
+              <a href="mailto:team@tryneuvie.com" className="text-primary hover:underline">
+                team@tryneuvie.com
               </a>
             </p>
           </motion.div>

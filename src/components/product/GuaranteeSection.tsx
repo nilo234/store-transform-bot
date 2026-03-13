@@ -51,8 +51,8 @@ export const GuaranteeSection = () => {
 
             <p className="text-xs text-muted-foreground">
               Valid for 14 days on your first order. Reach us anytime at{' '}
-              <a href="mailto:hello@neuvie.com" className="text-primary hover:underline">
-                hello@neuvie.com
+              <a href="mailto:team@tryneuvie.com" className="text-primary hover:underline">
+                team@tryneuvie.com
               </a>
             </p>
           </motion.div>

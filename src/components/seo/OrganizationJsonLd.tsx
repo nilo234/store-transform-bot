@@ -21,7 +21,7 @@ export function OrganizationJsonLd() {
         "@type": "ContactPoint",
         "telephone": "+1-800-NEUVIE",
         "contactType": "customer service",
-        "email": "hello@neuvie.com",
+        "email": "team@tryneuvie.com",
         "availableLanguage": ["English", "German"]
       },
       "address": {

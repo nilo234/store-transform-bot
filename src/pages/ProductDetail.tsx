@@ -411,7 +411,7 @@ export default function ProductDetail() {
                   </AccordionTrigger>
                   <AccordionContent className="pb-4 text-sm text-muted-foreground space-y-2">
                     <p><strong>Shipping:</strong> Orders ship within 1–2 business days. Most US orders arrive in 3–5 days.</p>
-                    <p><strong>Our promise:</strong> If it's not right for you, email hello@neuvie.com within 14 days. Full refund — because you should feel completely sure about what you put in your body.</p>
+                    <p><strong>Our promise:</strong> If it's not right for you, email team@tryneuvie.com within 14 days. Full refund — because you should feel completely sure about what you put in your body.</p>
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>

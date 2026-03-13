@@ -93,7 +93,7 @@ export default function Shipping() {
               </div>
               <p className="text-sm text-muted-foreground pt-4">
                 Questions? Reach us at{' '}
-                <a href="mailto:hello@neuvie.com" className="text-accent hover:underline">hello@neuvie.com</a>
+                <a href="mailto:team@tryneuvie.com" className="text-accent hover:underline">team@tryneuvie.com</a>
               </p>
             </motion.div>
           </div>
