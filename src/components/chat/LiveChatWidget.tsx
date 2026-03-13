@@ -65,7 +65,7 @@ export function LiveChatWidget() {
     // Simulate bot response
     setTimeout(() => {
       const lowerText = text.toLowerCase();
-      let response = "Thanks for your message! Our team will get back to you soon. For immediate assistance, email hello@neuvie.com.";
+      let response = "Thanks for your message! Our team will get back to you soon. For immediate assistance, email team@tryneuvie.com.";
 
       // Check for matching responses
       for (const [key, value] of Object.entries(botResponses)) {
