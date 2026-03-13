@@ -87,12 +87,12 @@ export default function FAQs() {
               transition={{ delay: 0.3 }}
             >
               <p className="text-muted-foreground mb-4">Still have a question?</p>
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="text-accent font-semibold hover:text-primary transition-colors inline-flex items-center gap-1"
               >
                 Get in touch →
-              </a>
+              </Link>
             </motion.div>
           </div>
         </section>
