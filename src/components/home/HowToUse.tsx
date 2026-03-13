@@ -133,16 +133,11 @@ export function HowToUse() {
         {/* CTA */}
         <motion.div className="text-center mt-14 md:mt-20" {...fadeUp} transition={{ delay: 0.5 }}>
           <Link to="/shop">
-            <button
-              className="inline-flex items-center justify-center font-body font-medium text-sm px-10 py-4 transition-all duration-300 hover:opacity-90 active:scale-[0.98] w-full sm:w-auto"
-              style={{
-                backgroundColor: '#1a1a1a',
-                color: '#FAF8F5',
-                borderRadius: '4px',
-              }}
+            <Button 
+              className="h-14 px-10 font-semibold rounded-lg text-base w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90"
             >
               Shop All Strips
-            </button>
+            </Button>
           </Link>
         </motion.div>
       </div>
