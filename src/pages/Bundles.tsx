@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Sparkles, Zap, Heart, Leaf } from 'lucide-react';
 import { Navbar } from '@/components/layout/Navbar';
@@ -152,18 +152,18 @@ export default function Bundles() {
                 we're happy to help you find what feels right.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-4">
-                <a 
-                  href="/shop" 
+                <Link 
+                  to="/shop" 
                   className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-xl font-semibold hover:bg-primary/90 transition-all shadow-lg"
                 >
                   Browse All Products
-                </a>
-                <a 
-                  href="/contact" 
+                </Link>
+                <Link 
+                  to="/contact" 
                   className="inline-flex items-center gap-2 bg-secondary text-foreground px-8 py-3.5 rounded-xl font-semibold hover:bg-secondary/80 transition-all"
                 >
                   Contact Us
-                </a>
+                </Link>
               </div>
             </motion.div>
           </div>

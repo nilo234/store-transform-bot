@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -87,12 +88,12 @@ export default function FAQs() {
               transition={{ delay: 0.3 }}
             >
               <p className="text-muted-foreground mb-4">Still have a question?</p>
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="text-accent font-semibold hover:text-primary transition-colors inline-flex items-center gap-1"
               >
                 Get in touch →
-              </a>
+              </Link>
             </motion.div>
           </div>
         </section>
