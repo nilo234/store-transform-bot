@@ -6,26 +6,23 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
+// List IDs for different sources
+const LIST_IDS: Record<string, string> = {
+  "newsletter": "YALAqK",
+  "footer-newsletter": "YALAqK",
+  "exit-intent-popup": "WbjEhD",
+  "popup": "WbjEhD",
+};
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   const KLAVIYO_API_KEY = Deno.env.get("KLAVIYO_API_KEY");
-  console.log("KLAVIYO_API_KEY prefix:", KLAVIYO_API_KEY ? KLAVIYO_API_KEY.substring(0, 10) + "..." : "NOT SET");
-  console.log("KLAVIYO_API_KEY length:", KLAVIYO_API_KEY?.length);
   if (!KLAVIYO_API_KEY) {
     return new Response(
       JSON.stringify({ error: "KLAVIYO_API_KEY is not configured" }),
-      { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-    );
-  }
-
-  const KLAVIYO_LIST_ID = Deno.env.get("KLAVIYO_LIST_ID");
-  console.log("KLAVIYO_LIST_ID:", KLAVIYO_LIST_ID);
-  if (!KLAVIYO_LIST_ID) {
-    return new Response(
-      JSON.stringify({ error: "KLAVIYO_LIST_ID is not configured" }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   }
@@ -39,6 +36,10 @@ serve(async (req) => {
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
+
+    // Determine list ID based on source
+    const listId = LIST_IDS[source || "newsletter"] || LIST_IDS["newsletter"];
+    console.log(`Subscribing ${email} to list ${listId} (source: ${source})`);
 
     // Step 1: Create or update the profile
     const profileRes = await fetch("https://a.klaviyo.com/api/profile-import/", {
@@ -54,7 +55,7 @@ serve(async (req) => {
           attributes: {
             email,
             properties: {
-              source: source || "website-popup",
+              source: source || "website",
               signed_up_at: new Date().toISOString(),
             },
           },
@@ -81,9 +82,9 @@ serve(async (req) => {
       );
     }
 
-    // Step 2: Subscribe profile to the list
+    // Step 2: Subscribe profile to the appropriate list
     const subscribeRes = await fetch(
-      `https://a.klaviyo.com/api/lists/${KLAVIYO_LIST_ID}/relationships/profiles/`,
+      `https://a.klaviyo.com/api/lists/${listId}/relationships/profiles/`,
       {
         method: "POST",
         headers: {
@@ -107,7 +108,7 @@ serve(async (req) => {
     }
 
     return new Response(
-      JSON.stringify({ success: true, message: "Subscribed successfully" }),
+      JSON.stringify({ success: true, message: "Subscribed successfully", list: source?.includes("popup") ? "Popup-Registration" : "Newsletter" }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   } catch (error) {
