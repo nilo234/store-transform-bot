@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Mail, MessageSquare, Clock, Send, Check, Loader2 } from 'lucide-react';
 import { PageMeta } from '@/components/seo';
 import { toast } from 'sonner';
+import { supabase } from '@/integrations/supabase/client';
 
 const contactMethods = [
   { icon: Mail, title: 'Email', description: 'Send us a message anytime', value: 'team@tryneuvie.com' },
