@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Sparkles, Zap, Heart, Leaf } from 'lucide-react';
 import { Navbar } from '@/components/layout/Navbar';
