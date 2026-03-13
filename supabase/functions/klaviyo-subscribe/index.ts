@@ -12,6 +12,8 @@ serve(async (req) => {
   }
 
   const KLAVIYO_API_KEY = Deno.env.get("KLAVIYO_API_KEY");
+  console.log("KLAVIYO_API_KEY prefix:", KLAVIYO_API_KEY ? KLAVIYO_API_KEY.substring(0, 10) + "..." : "NOT SET");
+  console.log("KLAVIYO_API_KEY length:", KLAVIYO_API_KEY?.length);
   if (!KLAVIYO_API_KEY) {
     return new Response(
       JSON.stringify({ error: "KLAVIYO_API_KEY is not configured" }),
