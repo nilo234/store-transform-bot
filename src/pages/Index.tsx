@@ -16,6 +16,7 @@ import { BenefitsTabs } from '@/components/home/BenefitsTabs';
 import { WhyNeuvie } from '@/components/home/WhyNeuvie';
 import { HomepageFAQs } from '@/components/home/HomepageFAQs';
 import { CommunityRitual } from '@/components/home/CommunityRitual';
+import { HowToUse } from '@/components/home/HowToUse';
 
 // ─── DATA ──────────────────────────────────────────────
 const trustBar = [
