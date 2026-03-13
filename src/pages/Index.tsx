@@ -355,6 +355,7 @@ export default function Index() {
 
             <p className="text-center text-[10px] text-muted-foreground mt-6">
               *These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
+              Learn more about our <Link to="/science" className="underline">ingredient research</Link> or read our <Link to="/faqs" className="underline">FAQs</Link>.
             </p>
           </div>
         </section>
