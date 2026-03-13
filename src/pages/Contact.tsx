@@ -8,9 +8,10 @@ import { Button } from '@/components/ui/button';
 import { Mail, MessageSquare, Clock, Send, Check, Loader2 } from 'lucide-react';
 import { PageMeta } from '@/components/seo';
 import { toast } from 'sonner';
+import { supabase } from '@/integrations/supabase/client';
 
 const contactMethods = [
-  { icon: Mail, title: 'Email', description: 'Send us a message anytime', value: 'hello@neuvie.com' },
+  { icon: Mail, title: 'Email', description: 'Send us a message anytime', value: 'team@tryneuvie.com' },
   { icon: MessageSquare, title: 'Live Chat', description: 'Talk to a real person', value: 'Available 9am – 6pm EST' },
   { icon: Clock, title: 'Response Time', description: 'We typically get back to you within', value: '24 hours' },
 ];
@@ -34,15 +35,28 @@ export default function Contact() {
 
     setIsSubmitting(true);
     
-    // Simulate form submission (in production, connect to email service)
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    toast.success("Message sent! We'll get back to you within 24 hours.");
-    
-    setTimeout(() => setIsSuccess(false), 5000);
+    try {
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || '',
+          message: formData.message,
+        });
+
+      if (error) throw error;
+
+      setIsSuccess(true);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      toast.success("Message sent! We'll get back to you within 24 hours.");
+      setTimeout(() => setIsSuccess(false), 5000);
+    } catch (err) {
+      console.error('Contact form error:', err);
+      toast.error('Something went wrong. Please try again or email us directly at team@tryneuvie.com.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
