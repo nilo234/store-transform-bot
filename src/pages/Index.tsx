@@ -76,7 +76,7 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col bg-background overflow-x-hidden">
       <PageMeta
         title="Wellness Strips – Dissolving Supplements | NEUVIE™"
         description="NEUVIE dissolving wellness strips. Energy, sleep, beauty & gut health. Clinically studied ingredients, 5x faster absorption. Free US shipping $50+."
