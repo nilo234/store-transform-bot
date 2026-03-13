@@ -123,7 +123,8 @@ export default function Index() {
 
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
                   One strip. 30 seconds. No water, no pills — just a simple daily ritual 
-                  that says: <em className="text-foreground font-medium not-italic">I'm worth it.</em>
+                  that says: <em className="text-foreground font-medium not-italic">I'm worth it.</em>{' '}
+                  Explore our <Link to="/shop" className="text-primary underline hover:text-primary/80">wellness strips</Link>, backed by <Link to="/science" className="text-primary underline hover:text-primary/80">science</Link>.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-8">
