@@ -117,8 +117,8 @@ export default function Index() {
                 </motion.div>
 
                 <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-7xl leading-[1.08] mb-6">
-                  Your body does so much for you.{' '}
-                  <span className="block italic text-accent mt-2">This is how you give back.</span>
+                  Fast-Dissolving Wellness Strips.{' '}
+                  <span className="block italic text-accent mt-2">Your daily ritual for energy, sleep & beauty.</span>
                 </h1>
 
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
