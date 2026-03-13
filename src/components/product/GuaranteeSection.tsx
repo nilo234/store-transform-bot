@@ -45,7 +45,7 @@ export const GuaranteeSection = () => {
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
                 <p className="text-sm font-medium text-foreground">Real support</p>
-                <p className="text-xs text-muted-foreground">hello@neuvie.com</p>
+                <p className="text-xs text-muted-foreground">team@tryneuvie.com</p>
               </div>
             </div>
 
