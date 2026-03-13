@@ -33,12 +33,6 @@ const categories = [
   { title: 'Immunity & Health', emoji: '🛡️', description: 'The quiet act of protecting what matters most — you.', href: '/shop?category=immunity', color: 'from-primary/5 to-muted/30' },
 ];
 
-const howItWorks = [
-  { step: '01', icon: '📦', title: 'Open the pack', description: 'A small moment, just for you.' },
-  { step: '02', icon: '👅', title: 'Place on tongue', description: 'No water. No effort. Just intention.' },
-  { step: '03', icon: '⏱️', title: '30 seconds', description: 'It dissolves. You chose yourself today.' },
-  { step: '04', icon: '✨', title: 'Go live your day', description: 'You already did the most important thing.' },
-];
 
 const ingredients = [
   { emoji: '🍄', name: "Lion's Mane", benefit: 'For the clarity you deserve*' },
