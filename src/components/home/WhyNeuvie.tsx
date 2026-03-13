@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Check, Sparkles, Shield, Leaf, FlaskConical } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import hairSkinNailsImg from '@/assets/neuvie-hair-skin-nails.png';
+import hairSkinNailsImg from '@/assets/neuvie-hair-skin-nails-new.png';
 
 const certifications = [
   { icon: '🌿', label: 'Non-GMO' },
