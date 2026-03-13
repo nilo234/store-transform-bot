@@ -268,52 +268,9 @@ export default function Index() {
         </section>
 
         {/* ═══════════════════════════════════════════════
-            4. HOW IT WORKS
+            4. HOW TO USE — Premium Editorial
         ═══════════════════════════════════════════════ */}
-        <section className="py-20 md:py-28 bg-background">
-          <div className="container-wide">
-            <motion.div className="text-center mb-14 md:mb-20" {...fadeUp}>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-4">
-                Taking care of yourself was never supposed to be hard.
-              </h2>
-              <p className="text-muted-foreground text-lg max-w-md mx-auto">
-                30 seconds. That's all it takes to tell your body: <em>I've got you.</em>
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-4xl mx-auto">
-              {howItWorks.map((item, i) => (
-                <motion.div
-                  key={item.step}
-                  className="text-center"
-                  {...fadeUp}
-                  transition={{ delay: i * 0.1 }}
-                >
-                  <div className="relative w-24 h-24 md:w-28 md:h-28 mx-auto mb-5 rounded-2xl bg-secondary border border-border/30 flex items-center justify-center shadow-soft">
-                    <span className="text-4xl md:text-5xl">{item.icon}</span>
-                    <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center shadow-md">
-                      {item.step}
-                    </span>
-                  </div>
-                  <h3 className="font-body font-semibold text-sm md:text-base mb-1">{item.title}</h3>
-                  <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{item.description}</p>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Video Placeholder */}
-            <motion.div className="mt-16 md:mt-24 max-w-3xl mx-auto" {...fadeUp} transition={{ delay: 0.4 }}>
-              <div className="relative aspect-video rounded-2xl bg-secondary border border-border/30 overflow-hidden group cursor-pointer shadow-card">
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                  <div className="w-18 h-18 md:w-20 md:h-20 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-elevated group-hover:scale-110 transition-transform duration-500">
-                    <Play className="h-7 w-7 md:h-8 md:w-8 ml-1" fill="currentColor" />
-                  </div>
-                  <span className="text-sm font-medium text-muted-foreground">See it in action →</span>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+        <HowToUse />
 
         {/* ═══════════════════════════════════════════════
             5. BENEFITS TABS
