@@ -294,7 +294,7 @@ export default function Index() {
                       {item.step}
                     </span>
                   </div>
-                  <h3 className="font-body font-ext-sm md:text-base mb-1">{item.title}</h3>
+                  <h3 className="font-body font-semibold text-sm md:text-base mb-1">{item.title}</h3>
                   <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                 </motion.div>
               ))}
