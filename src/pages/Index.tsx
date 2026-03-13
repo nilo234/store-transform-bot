@@ -83,8 +83,8 @@ export default function Index() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="You Deserve to Feel This Good – Wellness Strips | NEUVIE™"
-        description="30 seconds. No pills. No excuses. 13 dissolving wellness strips made for people who believe they're worth taking care of. Free US shipping $50+."
+        title="Wellness Strips – Fast-Dissolving Supplements for Energy, Sleep & Beauty | NEUVIE™"
+        description="NEUVIE fast-dissolving wellness strips with clinically studied ingredients. Energy, sleep, beauty & gut health strips. 5x faster absorption. Free US shipping $50+."
       />
       
       <Navbar />
