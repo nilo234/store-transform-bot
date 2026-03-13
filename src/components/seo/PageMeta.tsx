@@ -8,7 +8,7 @@ interface PageMetaProps {
   noindex?: boolean;
 }
 
-const BASE_URL = 'https://neuvie.com';
+const BASE_URL = 'https://store-transform-bot.lovable.app';
 const DEFAULT_OG_IMAGE = 'https://lovable.dev/opengraph-image-p98pqg.png';
 
 export function PageMeta({ title, description, ogImage, noindex }: PageMetaProps) {

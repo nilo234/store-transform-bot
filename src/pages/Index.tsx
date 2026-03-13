@@ -83,8 +83,8 @@ export default function Index() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="Wellness Strips – Fast-Dissolving Supplements for Energy, Sleep & Beauty | NEUVIE™"
-        description="NEUVIE fast-dissolving wellness strips with clinically studied ingredients. Energy, sleep, beauty & gut health strips. 5x faster absorption. Free US shipping $50+."
+        title="Wellness Strips – Dissolving Supplements | NEUVIE™"
+        description="NEUVIE dissolving wellness strips. Energy, sleep, beauty & gut health. Clinically studied ingredients, 5x faster absorption. Free US shipping $50+."
       />
       
       <Navbar />
