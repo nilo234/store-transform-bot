@@ -5,6 +5,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useLocation } from 'react-router-dom';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
 
 export function ExitIntentPopup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -69,16 +71,33 @@ export function ExitIntentPopup() {
     if (!email) return;
 
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 800));
-    setIsSubmitting(false);
-    setIsSuccess(true);
-
-    // Copy code to clipboard
+    
     try {
-      await navigator.clipboard.writeText('SAVE10');
-    } catch {}
+      const { data, error } = await supabase.functions.invoke('klaviyo-subscribe', {
+        body: { email, source: 'exit-intent-popup' },
+      });
 
-    setTimeout(() => setIsOpen(false), 2500);
+      if (error) {
+        console.error('Klaviyo subscribe error:', error);
+        toast.error('Something went wrong. Please try again.');
+        setIsSubmitting(false);
+        return;
+      }
+
+      setIsSubmitting(false);
+      setIsSuccess(true);
+
+      // Copy code to clipboard
+      try {
+        await navigator.clipboard.writeText('SAVE10');
+      } catch {}
+
+      setTimeout(() => setIsOpen(false), 2500);
+    } catch (err) {
+      console.error('Subscribe error:', err);
+      toast.error('Something went wrong. Please try again.');
+      setIsSubmitting(false);
+    }
   };
 
   if (!isAllowedPage) return null;

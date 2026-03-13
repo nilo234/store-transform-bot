@@ -1,1 +1,4 @@
 project_id = "jxduytrjgxwdnwbkzhtu"
+
+[functions.klaviyo-subscribe]
+verify_jwt = false
