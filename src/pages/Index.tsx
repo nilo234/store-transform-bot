@@ -83,8 +83,8 @@ export default function Index() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="You Deserve to Feel This Good – Wellness Strips | NEUVIE™"
-        description="30 seconds. No pills. No excuses. 13 dissolving wellness strips made for people who believe they're worth taking care of. Free US shipping $50+."
+        title="Wellness Strips – Fast-Dissolving Supplements for Energy, Sleep & Beauty | NEUVIE™"
+        description="NEUVIE fast-dissolving wellness strips with clinically studied ingredients. Energy, sleep, beauty & gut health strips. 5x faster absorption. Free US shipping $50+."
       />
       
       <Navbar />
@@ -117,13 +117,14 @@ export default function Index() {
                 </motion.div>
 
                 <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-7xl leading-[1.08] mb-6">
-                  Your body does so much for you.{' '}
-                  <span className="block italic text-accent mt-2">This is how you give back.</span>
+                  Fast-Dissolving Wellness Strips.{' '}
+                  <span className="block italic text-accent mt-2">Your daily ritual for energy, sleep & beauty.</span>
                 </h1>
 
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
                   One strip. 30 seconds. No water, no pills — just a simple daily ritual 
-                  that says: <em className="text-foreground font-medium not-italic">I'm worth it.</em>
+                  that says: <em className="text-foreground font-medium not-italic">I'm worth it.</em>{' '}
+                  Explore our <Link to="/shop" className="text-primary underline hover:text-primary/80">wellness strips</Link>, backed by <Link to="/science" className="text-primary underline hover:text-primary/80">science</Link>.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-8">
@@ -354,6 +355,7 @@ export default function Index() {
 
             <p className="text-center text-[10px] text-muted-foreground mt-6">
               *These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
+              Learn more about our <Link to="/science" className="underline">ingredient research</Link> or read our <Link to="/faqs" className="underline">FAQs</Link>.
             </p>
           </div>
         </section>
