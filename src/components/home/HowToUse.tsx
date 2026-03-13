@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 import howToUse1 from '@/assets/how-to-use-1.png';
 import howToUse2 from '@/assets/how-to-use-2.png';
 import howToUse3 from '@/assets/how-to-use-3.png';
