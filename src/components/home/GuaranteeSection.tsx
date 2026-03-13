@@ -31,8 +31,8 @@ export function GuaranteeSection() {
           <p className="text-sm text-muted-foreground mb-8">
             You're protected by our <span className="font-semibold text-primary">14-Day Money-Back Guarantee</span>. 
             Email us at{' '}
-            <a href="mailto:hello@neuvie.com" className="text-primary hover:underline">
-              hello@neuvie.com
+            <a href="mailto:team@tryneuvie.com" className="text-primary hover:underline">
+              team@tryneuvie.com
             </a>{' '}
             and we'll return every dollar you paid on your first order, less shipping costs.
           </p>
