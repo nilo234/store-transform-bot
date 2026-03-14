@@ -30,7 +30,7 @@ const benefits = [
 
 export function WhyNeuvieHero() {
   return (
-    <section className="py-20 md:py-28 bg-foreground text-background">
+    <section className="py-20 md:py-28 bg-primary text-primary-foreground">
       <div className="container-wide">
         <motion.div
           className="text-center mb-14 md:mb-18"
