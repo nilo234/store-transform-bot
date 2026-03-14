@@ -73,16 +73,22 @@ export function CartDrawer() {
 
       try {
         const url = new URL(checkoutUrl.startsWith('http') ? checkoutUrl : `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}${checkoutUrl}`);
-        // Ensure HTTPS
         url.protocol = 'https:';
         url.searchParams.set('channel', 'online_store');
+
+        if (url.hostname !== SHOPIFY_STORE_PERMANENT_DOMAIN) {
+          const fallbackUrl = new URL(`${url.pathname}${url.search}`, `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}`);
+          fallbackUrl.searchParams.set('channel', 'online_store');
+          return fallbackUrl.toString();
+        }
+
         return url.toString();
       } catch {
         return null;
       }
     })();
 
-    const checkoutDestination = normalizedCheckoutUrl ?? `https://shop.tryneuvie.com/cart`;
+    const checkoutDestination = normalizedCheckoutUrl ?? `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/cart`;
 
     if (!normalizedCheckoutUrl) {
       toast.error('Checkout-Link war defekt – Fallback aktiv', {

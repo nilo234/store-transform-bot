@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
 import { Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { SHOPIFY_STORE_PERMANENT_DOMAIN } from '@/lib/shopify';
 import { useLocation } from 'react-router-dom';
-
-const SHOPIFY_CHECKOUT_DOMAIN = 'shop.tryneuvie.com';
 
 const CheckoutRedirect = () => {
   const location = useLocation();
-  const checkoutUrl = `https://${SHOPIFY_CHECKOUT_DOMAIN}${location.pathname}${location.search}`;
+  const checkoutUrl = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}${location.pathname}${location.search}`;
 
   useEffect(() => {
     window.location.replace(checkoutUrl);
