@@ -282,6 +282,15 @@ export const useCartStore = create<CartStore>()(
           const url = new URL(checkoutUrl.startsWith('http') ? checkoutUrl : `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}${checkoutUrl}`);
           url.protocol = 'https:';
           url.searchParams.set('channel', 'online_store');
+
+          // If Shopify returns a custom checkout domain that is not fully ready,
+          // hard-fallback to the permanent myshopify domain with the same cart token.
+          if (url.hostname !== SHOPIFY_STORE_PERMANENT_DOMAIN) {
+            const fallbackUrl = new URL(`${url.pathname}${url.search}`, `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}`);
+            fallbackUrl.searchParams.set('channel', 'online_store');
+            return fallbackUrl.toString();
+          }
+
           return url.toString();
         } catch {
           return null;
