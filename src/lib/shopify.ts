@@ -475,13 +475,43 @@ export async function removeLineFromShopifyCart(cartId: string, lineId: string):
   return { success: true };
 }
 
-export async function fetchShopifyCart(cartId: string): Promise<{ exists: boolean }> {
+export type ShopifyCartFetchState = 'active' | 'empty' | 'missing' | 'unknown';
+
+export async function fetchShopifyCart(
+  cartId: string
+): Promise<{ state: ShopifyCartFetchState; checkoutUrl?: string; lineIds?: Map<string, string> }> {
   try {
     const data = await storefrontApiRequest(CART_QUERY, { id: cartId });
-    if (!data) return { exists: true }; // API error (402) - preserve local cart
+
+    if (!data) {
+      // API-level issue (e.g. billing), keep local cart intact
+      return { state: 'unknown' };
+    }
+
     const cart = data?.data?.cart;
-    return { exists: !!(cart && cart.totalQuantity > 0) };
+
+    if (!cart) {
+      return { state: 'missing' };
+    }
+
+    if (!cart.totalQuantity || cart.totalQuantity <= 0) {
+      return { state: 'empty' };
+    }
+
+    const lineIds = new Map<string, string>();
+    for (const edge of cart.lines?.edges || []) {
+      if (edge?.node?.merchandise?.id && edge?.node?.id) {
+        lineIds.set(edge.node.merchandise.id, edge.node.id);
+      }
+    }
+
+    return {
+      state: 'active',
+      checkoutUrl: cart.checkoutUrl ? formatCheckoutUrl(cart.checkoutUrl) : undefined,
+      lineIds,
+    };
   } catch {
-    return { exists: true }; // Network error - preserve local cart
+    // Network issue, keep local cart intact
+    return { state: 'unknown' };
   }
 }
