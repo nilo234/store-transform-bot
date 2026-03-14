@@ -417,19 +417,30 @@ export default function ProductDetail() {
               </Accordion>
 
               {/* Trust Badges */}
-              <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border/40">
+              <div className="grid grid-cols-4 gap-3 pt-4 border-t border-border/40">
                 <div className="text-center p-3 bg-secondary/40 rounded-xl">
                   <Truck className="h-5 w-5 mx-auto mb-2 text-primary" />
                   <p className="text-xs text-muted-foreground">Free shipping<br />on $50+</p>
                 </div>
                 <div className="text-center p-3 bg-secondary/40 rounded-xl">
                   <Shield className="h-5 w-5 mx-auto mb-2 text-primary" />
-                  <p className="text-xs text-muted-foreground">Independently<br />tested</p>
+                  <p className="text-xs text-muted-foreground">Third-Party<br />Tested</p>
                 </div>
                 <div className="text-center p-3 bg-secondary/40 rounded-xl">
                   <RotateCcw className="h-5 w-5 mx-auto mb-2 text-primary" />
                   <p className="text-xs text-muted-foreground">14-day<br />money back</p>
                 </div>
+                <div className="text-center p-3 bg-secondary/40 rounded-xl">
+                  <Leaf className="h-5 w-5 mx-auto mb-2 text-primary" />
+                  <p className="text-xs text-muted-foreground">Made in<br />the USA</p>
+                </div>
+              </div>
+
+              {/* Quality Promise */}
+              <div className="bg-primary/5 border border-primary/10 rounded-xl p-4">
+                <p className="text-sm text-muted-foreground leading-relaxed text-center">
+                  <span className="font-semibold text-foreground">Our Quality Promise:</span> Every batch goes through independent third-party testing. Because the things you put in your body deserve nothing less.
+                </p>
               </div>
 
               {/* Properties/Badges */}

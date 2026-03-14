@@ -6,25 +6,25 @@ const benefits = [
     icon: Zap,
     emoji: '⚡',
     title: '5x Faster Absorption',
-    description: 'Strips dissolve instantly on your tongue, bypassing the digestive system for rapid nutrient delivery.',
+    description: 'Our oral strips dissolve in seconds and absorb directly — faster than any traditional capsule or powder.',
   },
   {
     icon: Leaf,
     emoji: '🌿',
     title: '13 Active Formulas',
-    description: 'Scientifically combined ingredients at clinically studied dosages for maximum effect.',
+    description: 'Every strip is precisely formulated with scientifically selected ingredients that work together.',
   },
   {
     icon: Sparkles,
     emoji: '✨',
-    title: 'Zero Effort Daily Ritual',
-    description: '3 seconds is all it takes. No water, no pills, no planning. Just you — choosing yourself.',
+    title: '3-Second Daily Ritual',
+    description: 'No water. No pills. No routine to maintain. Just one effortless moment that fits any lifestyle.',
   },
   {
     icon: Heart,
     emoji: '💛',
-    title: 'Because You Deserve It',
-    description: 'Wellness that fits your life, not the other way around. Built for real people with real days.',
+    title: 'Built Around You',
+    description: 'NEUVIE was created for people who prioritize themselves without making it a full-time job.',
   },
 ];
 
@@ -39,12 +39,10 @@ export function WhyNeuvieHero() {
           viewport={{ once: true }}
         >
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-5">
-            Why NEUVIE? Because Your Wellbeing{' '}
-            <span className="text-accent italic">Can't Wait.</span>
+            Why NEUVIE?
           </h2>
           <p className="text-primary-foreground/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            Most supplements take 45+ minutes to absorb. NEUVIE dissolves in 3 seconds and absorbs 
-            up to 5x faster. No pills. No water. No excuses.
+            Because your wellbeing can't wait.
           </p>
         </motion.div>
 
