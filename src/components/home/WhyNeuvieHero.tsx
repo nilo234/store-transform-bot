@@ -42,7 +42,7 @@ export function WhyNeuvieHero() {
             Why NEUVIE? Because Your Wellbeing{' '}
             <span className="text-accent italic">Can't Wait.</span>
           </h2>
-          <p className="text-background/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-primary-foreground/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             Most supplements take 45+ minutes to absorb. NEUVIE dissolves in 3 seconds and absorbs 
             up to 5x faster. No pills. No water. No excuses.
           </p>
@@ -52,15 +52,15 @@ export function WhyNeuvieHero() {
           {benefits.map((benefit, index) => (
             <motion.div
               key={benefit.title}
-              className="bg-background/[0.07] border border-background/10 rounded-2xl p-7 text-center hover:bg-background/[0.12] transition-all duration-500 hover:-translate-y-1"
+              className="bg-primary-foreground/[0.07] border border-primary-foreground/10 rounded-2xl p-7 text-center hover:bg-primary-foreground/[0.12] transition-all duration-500 hover:-translate-y-1"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
               <span className="text-4xl block mb-4">{benefit.emoji}</span>
-              <h3 className="font-semibold text-lg text-background mb-2">{benefit.title}</h3>
-              <p className="text-sm text-background/60 leading-relaxed">{benefit.description}</p>
+              <h3 className="font-semibold text-lg text-primary-foreground mb-2">{benefit.title}</h3>
+              <p className="text-sm text-primary-foreground/60 leading-relaxed">{benefit.description}</p>
             </motion.div>
           ))}
         </div>
