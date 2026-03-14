@@ -34,6 +34,11 @@ const categories = [
   { title: 'Immunity & Health', emoji: '🛡️', description: 'The quiet act of protecting what matters most — you.', href: '/shop?category=immunity', color: 'from-primary/5 to-muted/30' },
 ];
 
+        {/* ═══════════════════════════════════════════════
+            1.5 WHY NEUVIE HERO — Bold Value Prop
+        ═══════════════════════════════════════════════ */}
+        <WhyNeuvieHero />
+
 
 const ingredients = [
   { emoji: '🍄', name: "Lion's Mane", benefit: 'For the clarity you deserve*' },
