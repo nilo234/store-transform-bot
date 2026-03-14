@@ -181,7 +181,23 @@ const PRODUCT_BY_HANDLE_QUERY = `
 
 const CART_QUERY = `
   query cart($id: ID!) {
-    cart(id: $id) { id totalQuantity }
+    cart(id: $id) {
+      id
+      totalQuantity
+      checkoutUrl
+      lines(first: 100) {
+        edges {
+          node {
+            id
+            merchandise {
+              ... on ProductVariant {
+                id
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `;
 
