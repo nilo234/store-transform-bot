@@ -72,10 +72,9 @@ export function CartDrawer() {
       if (!checkoutUrl) return null;
 
       try {
-        const baseUrl = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}`;
-        const url = checkoutUrl.startsWith('http') ? new URL(checkoutUrl) : new URL(checkoutUrl, baseUrl);
-        // Always force the permanent Shopify domain to avoid custom-domain 404s
-        url.hostname = SHOPIFY_STORE_PERMANENT_DOMAIN;
+        const url = new URL(checkoutUrl.startsWith('http') ? checkoutUrl : `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}${checkoutUrl}`);
+        // Ensure HTTPS
+        url.protocol = 'https:';
         url.searchParams.set('channel', 'online_store');
         return url.toString();
       } catch {
