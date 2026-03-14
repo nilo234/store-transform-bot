@@ -189,6 +189,11 @@ export default function Index() {
         </section>
 
         {/* ═══════════════════════════════════════════════
+            1.5 WHY NEUVIE HERO — Bold Value Prop
+        ═══════════════════════════════════════════════ */}
+        <WhyNeuvieHero />
+
+        {/* ═══════════════════════════════════════════════
             2. CATEGORY SECTION — Shop by Benefit
         ═══════════════════════════════════════════════ */}
         <section className="py-20 md:py-28 bg-background">
