@@ -55,10 +55,29 @@ interface CartStore {
   setOpen: (open: boolean) => void;
   syncCart: () => Promise<void>;
   getCheckoutUrl: () => string | null;
+  recoverCheckoutUrl: () => Promise<string | null>;
 
   // Computed
   totalItems: () => number;
   totalPrice: () => number;
+}
+
+function buildCartLines(items: CartItem[]): Array<{ variantId: string; quantity: number }> {
+  const quantityMap = new Map<string, number>();
+
+  for (const item of items) {
+    quantityMap.set(item.variantId, (quantityMap.get(item.variantId) || 0) + item.quantity);
+  }
+
+  return Array.from(quantityMap.entries()).map(([variantId, quantity]) => ({ variantId, quantity }));
+}
+
+function patchItemsWithLineIds(items: CartItem[], lineIds?: Map<string, string>): CartItem[] {
+  if (!lineIds) return items;
+  return items.map((item) => ({
+    ...item,
+    lineId: lineIds.get(item.variantId) ?? item.lineId ?? null,
+  }));
 }
 
 export const useCartStore = create<CartStore>()(
@@ -121,7 +140,7 @@ export const useCartStore = create<CartStore>()(
           set({ isLoading: false });
         }
 
-      // Open cart drawer
+        // Open cart drawer
         set({ isOpen: true });
       },
 
@@ -270,14 +289,99 @@ export const useCartStore = create<CartStore>()(
         }
       },
 
+      recoverCheckoutUrl: async () => {
+        const { cartId, clearCart } = get();
+        const currentUrl = get().getCheckoutUrl();
+        if (currentUrl) return currentUrl;
+
+        const localItems = get().items;
+        if (localItems.length === 0) return null;
+
+        set({ isLoading: true });
+        try {
+          if (cartId) {
+            const snapshot = await fetchShopifyCart(cartId);
+
+            if (snapshot.state === 'active' && snapshot.checkoutUrl) {
+              set((state) => ({
+                checkoutUrl: snapshot.checkoutUrl ?? state.checkoutUrl,
+                items: patchItemsWithLineIds(state.items, snapshot.lineIds),
+              }));
+              return snapshot.checkoutUrl;
+            }
+
+            if (snapshot.state === 'empty') {
+              clearCart();
+              return null;
+            }
+          }
+
+          const rebuilt = await createShopifyCartMultiLines(buildCartLines(localItems));
+          if (!rebuilt) return null;
+
+          set((state) => ({
+            cartId: rebuilt.cartId,
+            checkoutUrl: rebuilt.checkoutUrl,
+            items: patchItemsWithLineIds(state.items, rebuilt.lineIds),
+          }));
+
+          return rebuilt.checkoutUrl;
+        } catch (error) {
+          console.error('Failed to recover checkout URL:', error);
+          return null;
+        } finally {
+          set({ isLoading: false });
+        }
+      },
+
       syncCart: async () => {
         const { cartId, isSyncing, clearCart } = get();
         if (!cartId || isSyncing) return;
 
         set({ isSyncing: true });
         try {
-          const { exists } = await fetchShopifyCart(cartId);
-          if (!exists) clearCart();
+          const snapshot = await fetchShopifyCart(cartId);
+
+          if (snapshot.state === 'active') {
+            set((state) => ({
+              checkoutUrl: snapshot.checkoutUrl ?? state.checkoutUrl,
+              items: patchItemsWithLineIds(state.items, snapshot.lineIds),
+            }));
+            return;
+          }
+
+          if (snapshot.state === 'empty') {
+            // User likely completed checkout
+            clearCart();
+            return;
+          }
+
+          if (snapshot.state === 'missing') {
+            const localItems = get().items;
+
+            if (localItems.length === 0) {
+              clearCart();
+              return;
+            }
+
+            // Hard fallback: auto-rebuild remote cart from local state
+            const rebuilt = await createShopifyCartMultiLines(buildCartLines(localItems));
+
+            if (rebuilt) {
+              set((state) => ({
+                cartId: rebuilt.cartId,
+                checkoutUrl: rebuilt.checkoutUrl,
+                items: patchItemsWithLineIds(state.items, rebuilt.lineIds),
+              }));
+            } else {
+              // Keep items visible but reset remote refs so checkout can try another fallback
+              set((state) => ({
+                cartId: null,
+                checkoutUrl: null,
+                items: state.items.map((item) => ({ ...item, lineId: null })),
+              }));
+            }
+          }
         } catch (error) {
           console.error('Failed to sync cart:', error);
         } finally {
