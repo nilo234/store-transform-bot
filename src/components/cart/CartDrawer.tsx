@@ -48,6 +48,7 @@ export function CartDrawer() {
     removeItem,
     removeBundle,
     getCheckoutUrl,
+    recoverCheckoutUrl,
     syncCart,
     totalItems,
     totalPrice,
@@ -60,17 +61,16 @@ export function CartDrawer() {
     if (isOpen) syncCart();
   }, [isOpen, syncCart]);
 
-  const handleCheckout = () => {
-    const checkoutUrl = getCheckoutUrl();
+  const handleCheckout = async () => {
+    let checkoutUrl = getCheckoutUrl();
 
     if (!checkoutUrl) {
-      toast.error('Checkout currently unavailable', {
-        description: 'Please add your product again and retry checkout.',
-      });
-      return;
+      checkoutUrl = await recoverCheckoutUrl();
     }
 
     const normalizedCheckoutUrl = (() => {
+      if (!checkoutUrl) return null;
+
       try {
         const baseUrl = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}`;
         const url = checkoutUrl.startsWith('http') ? new URL(checkoutUrl) : new URL(checkoutUrl, baseUrl);
@@ -79,11 +79,17 @@ export function CartDrawer() {
         url.searchParams.set('channel', 'online_store');
         return url.toString();
       } catch {
-        return `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/cart`;
+        return null;
       }
     })();
 
-    const checkoutDestination = normalizedCheckoutUrl;
+    const checkoutDestination = normalizedCheckoutUrl ?? `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/cart`;
+
+    if (!normalizedCheckoutUrl) {
+      toast.error('Checkout-Link war defekt – Fallback aktiv', {
+        description: 'Wir leiten dich direkt in den Shopify-Warenkorb weiter.',
+      });
+    }
 
     const isMobileViewport = window.matchMedia('(max-width: 768px)').matches;
 
