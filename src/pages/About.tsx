@@ -11,7 +11,7 @@ export default function About() {
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
         title="About NEUVIE™ – We Built This Because You Are Worth It"
-        description="The story behind NEUVIE™: born from hair loss, frustration, and the belief that wellness should take 3 seconds — not 30 minutes. You are worth it. Not someday. Today."
+        description="The story behind NEUVIE™: born from frustration, simplicity, and a 3-second solution we wish existed sooner. You are worth it. Not someday. Today."
       />
       <Navbar />
       
@@ -34,53 +34,95 @@ export default function About() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
               >
-                A story about hair loss, frustration, and the 3-second solution we wished existed.
+                A story about frustration, simplicity, and a 3-second solution we wish existed sooner.
               </motion.p>
             </div>
           </div>
         </section>
 
-        {/* Founder Story */}
+        {/* Section 1 — The Problem */}
         <section className="py-20 md:py-28">
           <div className="container-wide">
             <div className="max-w-3xl mx-auto">
               <motion.div
-                className="space-y-6 text-lg text-muted-foreground leading-relaxed"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <p>
-                  It started with a mirror — and the kind of frustration that builds up quietly over years. 
-                  Thinning hair. Brittle nails that split before they could grow. Dull, tired skin that no 
-                  cream could fix from the outside. She tried everything. Capsules that sat forgotten in a 
-                  drawer. Powders that tasted like chalk and took ten minutes to mix. Routines that felt 
-                  like a medical obligation instead of self-care. Nothing worked consistently — because she 
-                  kept forgetting, or hated swallowing pills, or the products just felt like another chore 
-                  on an already overwhelming list.
-                </p>
-                <p>
-                  Then came the moment that changed everything. Not a breakthrough in a lab — a breakthrough 
-                  in perspective. <span className="text-foreground font-medium">What if wellness didn't have to feel hard?</span> What if 
-                  taking care of yourself could be as simple as placing a strip on your tongue — 3 seconds, 
-                  no water, no excuses — and getting on with your day knowing you just did something beautiful 
-                  for yourself? That question became NEUVIE.
-                </p>
-                <p>
-                  Today, NEUVIE is a brand built on one belief: <span className="text-foreground font-medium">you deserve to feel beautiful 
-                  from the inside out, every single day.</span> Not when you have more time. Not when life 
-                  slows down. Right now. Our 13 fast-dissolving strips are formulated with clinically studied 
-                  ingredients at real dosages — because your body deserves more than a label claim. Every 
-                  batch is independently tested. Every formula is designed for your real life. Because 
-                  wellness should feel like a gift you give yourself — not a task you keep putting off.
-                </p>
+                <h2 className="font-display text-2xl md:text-3xl mb-6 text-center">The Problem</h2>
+                <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+                  <p>
+                    We kept buying supplements with the best intentions — and watching them collect dust in a drawer. 
+                    The pills were too big, the powders were too messy, and the routines felt like another item on an 
+                    already endless to-do list.
+                  </p>
+                  <p>
+                    It wasn't that we didn't care about our health. We cared deeply. But nothing was built for the way 
+                    we actually live — busy, on the go, and juggling a hundred things at once. Wellness felt like 
+                    something we'd get to "someday." And someday never came.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 2 — The Realization */}
+        <section className="py-20 md:py-28 bg-secondary/40">
+          <div className="container-wide">
+            <div className="max-w-3xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="font-display text-2xl md:text-3xl mb-6 text-center">The Realization</h2>
+                <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+                  <p>
+                    The supplement industry wasn't broken because the ingredients were bad. It was broken because the 
+                    <span className="text-foreground font-medium"> experience</span> was bad. Too many steps. Too many products. 
+                    Too much friction between wanting to feel better and actually doing something about it.
+                  </p>
+                  <p>
+                    We realized that the biggest barrier to wellness wasn't motivation — it was simplicity. If taking 
+                    care of yourself could happen in 3 seconds, without water, without a routine to remember, 
+                    people wouldn't just start. They'd never stop.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 3 — The Solution */}
+        <section className="py-20 md:py-28">
+          <div className="container-wide">
+            <div className="max-w-3xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="font-display text-2xl md:text-3xl mb-6 text-center">The Solution</h2>
+                <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+                  <p>
+                    So we built NEUVIE from the ground up — not as another supplement company, but as a brand that 
+                    believes self-care should feel effortless. Not like an obligation. Not like a medical routine. 
+                    Like a small act of kindness you give yourself every single day.
+                  </p>
+                  <p>
+                    Today, NEUVIE offers 13 fast-dissolving strips formulated with clinically studied ingredients at 
+                    real dosages. Every batch is independently tested. Every formula is designed for your real life. 
+                    Because you deserve more than good intentions sitting in a drawer.
+                  </p>
+                </div>
               </motion.div>
             </div>
           </div>
         </section>
 
         {/* Mission */}
-        <section className="py-20 md:py-28 bg-secondary/40">
+        <section className="py-16 md:py-20 bg-secondary/40">
           <div className="container-wide">
             <motion.div
               className="max-w-3xl mx-auto text-center"
@@ -93,8 +135,7 @@ export default function About() {
               <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
                 To make self-care so effortless that you never skip it again. To create supplements 
                 that dissolve in 3 seconds and absorb up to 5x faster — so taking care of yourself 
-                becomes the easiest decision you make all day. Because when wellness fits your life, 
-                you actually do it. And when you do it, everything changes.
+                becomes the easiest decision you make all day.
               </p>
             </motion.div>
           </div>
@@ -105,13 +146,13 @@ export default function About() {
           <div className="absolute inset-0" style={{ background: 'var(--gradient-warm)' }} />
           <div className="container-wide text-center relative z-10">
             <motion.h2 
-              className="font-display text-4xl md:text-5xl lg:text-6xl mb-6 max-w-3xl mx-auto"
+              className="font-display text-3xl md:text-4xl lg:text-5xl mb-6 max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              You are worth it.
-              <span className="block text-accent mt-2 italic">Not someday. Today.</span>
+              You are worth more than a pill you keep forgetting.
+              <span className="block text-accent mt-3 italic">You are worth NEUVIE.</span>
             </motion.h2>
             <motion.p
               className="text-muted-foreground text-lg mb-10 max-w-xl mx-auto"
