@@ -279,9 +279,8 @@ export const useCartStore = create<CartStore>()(
         if (!checkoutUrl) return null;
 
         try {
-          const baseUrl = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}`;
-          const url = checkoutUrl.startsWith('http') ? new URL(checkoutUrl) : new URL(checkoutUrl, baseUrl);
-          url.hostname = SHOPIFY_STORE_PERMANENT_DOMAIN;
+          const url = new URL(checkoutUrl.startsWith('http') ? checkoutUrl : `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}${checkoutUrl}`);
+          url.protocol = 'https:';
           url.searchParams.set('channel', 'online_store');
           return url.toString();
         } catch {
