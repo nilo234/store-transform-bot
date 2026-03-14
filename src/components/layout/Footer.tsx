@@ -26,6 +26,7 @@ const footerLinks = {
     { label: 'Returns & Refunds', href: '/returns' },
     { label: 'Privacy Policy', href: '/privacy' },
     { label: 'Terms of Service', href: '/terms' },
+    { label: 'Become Affiliated', href: 'https://af.uppromote.com/lovable-project-99js2/register', external: true },
   ],
 };
 
@@ -199,12 +200,23 @@ export function Footer() {
             <ul className="grid grid-cols-2 md:grid-cols-1 gap-2.5 md:gap-4">
               {footerLinks.support.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    to={link.href}
-                    className="text-primary-foreground/60 hover:text-accent transition-colors text-xs md:text-sm font-body"
-                  >
-                    {link.label}
-                  </Link>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary-foreground/60 hover:text-accent transition-colors text-xs md:text-sm font-body"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="text-primary-foreground/60 hover:text-accent transition-colors text-xs md:text-sm font-body"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
