@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import productsLineup from '@/assets/neuvie-products-lineup.png';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Star, Check, ChevronRight } from 'lucide-react';
+import { ArrowRight, Star, Check, ChevronRight, Leaf, ShieldCheck, FlaskConical, Flag } from 'lucide-react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 
@@ -15,8 +15,16 @@ import { PageMeta } from '@/components/seo';
 import { HomepageFAQs } from '@/components/home/HomepageFAQs';
 import { HowToUse } from '@/components/home/HowToUse';
 import { WhyNeuvieHero } from '@/components/home/WhyNeuvieHero';
+import { WhyNeuvie } from '@/components/home/WhyNeuvie';
 
 // ─── DATA ──────────────────────────────────────────────
+const trustBar = [
+  { icon: Leaf, label: 'Non-GMO' },
+  { icon: ShieldCheck, label: 'Third-Party Tested' },
+  { icon: FlaskConical, label: 'Clinically Dosed' },
+  { icon: Flag, label: 'Made in USA' },
+];
+
 const reviews = [
   { id: '1', name: 'Sarah M.', text: "I started taking the Energy Strips because I wanted to stop relying on coffee. What I didn't expect was how much better I'd feel about actually doing something for myself every morning.", rating: 5, product: 'Energy Strips' },
   { id: '2', name: 'James R.', text: "It's not even about the focus anymore. It's the fact that I take 30 seconds every day and it's mine. The Mushroom Focus just happens to make everything after that a little sharper.", rating: 5, product: 'Mushroom Focus' },
@@ -61,7 +69,7 @@ export default function Index() {
       <main className="flex-1">
 
         {/* ═══════════════════════════════════════════════
-            1. HERO — Problem-Focused, Clean
+            1. HERO — Original, Warm, Community-Driven
         ═══════════════════════════════════════════════ */}
         <section className="relative overflow-hidden">
           <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
@@ -86,29 +94,31 @@ export default function Index() {
                 </motion.div>
 
                 <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-7xl leading-[1.08] mb-6">
-                  Tired of supplements{' '}
-                  <span className="italic text-accent">you keep forgetting?</span>
+                  Fast-Dissolving Wellness Strips.{' '}
+                  <span className="block italic text-accent mt-2">Your daily ritual for energy, sleep & beauty.</span>
                 </h1>
 
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-                  NEUVIE dissolves on your tongue in 3 seconds. No water, no pills, no routine to remember. 
-                  Just fast-absorbing wellness strips that actually fit your life.
+                  One strip. 30 seconds. No water, no pills — just a simple daily ritual 
+                  that says: <em className="text-foreground font-medium not-italic">I'm worth it.</em>{' '}
+                  Explore our <Link to="/shop" className="text-primary underline hover:text-primary/80">wellness strips</Link>, backed by <Link to="/science" className="text-primary underline hover:text-primary/80">science</Link>.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-8">
                   <Link to="/shop">
                     <Button className="w-full sm:w-auto h-14 px-10 text-base font-semibold rounded-xl group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-elevated transition-all">
-                      Find Your Strip
+                      Start Your Ritual
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                  </Link>
+                  <Link to="/shop">
+                    <Button variant="outline" className="w-full sm:w-auto h-14 px-10 text-base font-semibold rounded-xl border-2 border-primary/20 text-foreground hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all">
+                      Explore What Fits You
                     </Button>
                   </Link>
                 </div>
 
                 <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1.5">
-                    <Check className="h-4 w-4 text-primary" />
-                    5x faster absorption
-                  </span>
                   <span className="flex items-center gap-1.5">
                     <Check className="h-4 w-4 text-primary" />
                     14-day money-back guarantee
@@ -140,6 +150,22 @@ export default function Index() {
                 </div>
               </motion.div>
             </div>
+
+            {/* Trust Bar */}
+            <motion.div
+              className="mt-16 md:mt-20 pt-8 border-t border-border/40"
+              {...fadeUp}
+              transition={{ delay: 0.4 }}
+            >
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-3xl mx-auto">
+                {trustBar.map((item) => (
+                  <div key={item.label} className="flex items-center justify-center gap-2.5 text-sm text-muted-foreground">
+                    <item.icon className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span className="font-medium">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </section>
 
@@ -149,12 +175,12 @@ export default function Index() {
         <WhyNeuvieHero />
 
         {/* ═══════════════════════════════════════════════
-            3. HOW TO USE — Shows Simplicity
+            3. HOW TO USE — The Ritual
         ═══════════════════════════════════════════════ */}
         <HowToUse />
 
         {/* ═══════════════════════════════════════════════
-            4. BESTSELLERS — Shop
+            4. BESTSELLERS
         ═══════════════════════════════════════════════ */}
         <section className="py-20 md:py-28 bg-secondary/40">
           <div className="container-wide">
@@ -189,7 +215,7 @@ export default function Index() {
             <motion.div className="text-center mt-12" {...fadeUp}>
               <Link to="/shop">
                 <Button variant="outline" className="h-13 px-8 text-sm font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-xl">
-                  View all 13 strips →
+                  Find what's right for you →
                 </Button>
               </Link>
             </motion.div>
@@ -197,7 +223,12 @@ export default function Index() {
         </section>
 
         {/* ═══════════════════════════════════════════════
-            5. SOCIAL PROOF — Reviews
+            5. WHY NEUVIE — Deep Dive (Quality + Science)
+        ═══════════════════════════════════════════════ */}
+        <WhyNeuvie />
+
+        {/* ═══════════════════════════════════════════════
+            6. SOCIAL PROOF — Reviews
         ═══════════════════════════════════════════════ */}
         <section className="py-20 md:py-28 bg-background overflow-hidden">
           <div className="container-wide">
@@ -255,7 +286,7 @@ export default function Index() {
         </section>
 
         {/* ═══════════════════════════════════════════════
-            6. BUNDLES — Value / Upsell
+            7. BUNDLES — Value / Upsell
         ═══════════════════════════════════════════════ */}
         <section className="py-20 md:py-28 bg-secondary/40">
           <div className="container-wide">
@@ -286,7 +317,7 @@ export default function Index() {
         </section>
 
         {/* ═══════════════════════════════════════════════
-            7. FAQs — Objection Handling
+            8. FAQs
         ═══════════════════════════════════════════════ */}
         <HomepageFAQs />
 
