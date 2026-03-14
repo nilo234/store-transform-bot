@@ -26,6 +26,7 @@ const footerLinks = {
     { label: 'Returns & Refunds', href: '/returns' },
     { label: 'Privacy Policy', href: '/privacy' },
     { label: 'Terms of Service', href: '/terms' },
+    { label: 'Become Affiliated', href: 'https://af.uppromote.com/lovable-project-99js2/register', external: true },
   ],
 };
 
