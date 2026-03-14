@@ -82,7 +82,7 @@ export function CartDrawer() {
       }
     })();
 
-    const checkoutDestination = normalizedCheckoutUrl ?? `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/cart`;
+    const checkoutDestination = normalizedCheckoutUrl ?? `https://shop.tryneuvie.com/cart`;
 
     if (!normalizedCheckoutUrl) {
       toast.error('Checkout-Link war defekt – Fallback aktiv', {
