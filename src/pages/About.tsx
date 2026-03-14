@@ -2,58 +2,22 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
-import { Check, Leaf, Heart, Award, Users, Quote, ArrowRight } from 'lucide-react';
+import { ArrowRight, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { PageMeta } from '@/components/seo';
-
-const values = [
-  {
-    icon: Leaf,
-    title: 'Intentional Sourcing',
-    description: 'Every ingredient is traceable, independently verified, and chosen for what it does — not how it looks on a label.',
-  },
-  {
-    icon: Award,
-    title: 'Real Dosages',
-    description: 'Formulated at levels that are studied to work. No pixie-dusting, no filler ingredients, no shortcuts.',
-  },
-  {
-    icon: Heart,
-    title: 'Tested, Then Tested Again',
-    description: 'Every batch goes through independent third-party testing for purity, potency, and safety before it ships.',
-  },
-  {
-    icon: Users,
-    title: 'Built Around You',
-    description: 'Your routine should be easy to keep. We designed every detail — format, flavor, packaging — with that in mind.',
-  },
-];
-
-const stats = [
-  { number: '50,000+', label: 'People Who Chose Themselves' },
-  { number: '99%', label: 'Felt Good About Their Choice' },
-  { number: '13', label: 'Ways to Show Up for You' },
-  { number: '14 Days', label: 'To Feel Sure — Guaranteed' },
-];
-
-const team = [
-  { name: 'Alex M.', role: 'Co-Founder & CEO', bio: 'Believes wellness should fit your life — not the other way around.', gradient: 'from-primary to-accent' },
-  { name: 'Jordan L.', role: 'Head of Product', bio: 'Obsessed with finding the right ingredients in the right format.', gradient: 'from-primary/70 to-primary' },
-  { name: 'Priya S.', role: 'Lead Scientist', bio: 'Makes sure every formula is backed by real research and effective dosages.', gradient: 'from-accent/70 to-accent' },
-];
 
 export default function About() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="About NEUVIE™ – Built for People Who Believe They're Worth It"
-        description="NEUVIE™ exists because taking care of yourself should be effortless, not optional. Learn our story, our values, and why we do what we do."
+        title="About NEUVIE™ – We Built This Because You Are Worth It"
+        description="The story behind NEUVIE™: born from hair loss, frustration, and the belief that wellness should take 3 seconds — not 30 minutes. You are worth it. Not someday. Today."
       />
       <Navbar />
       
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="relative py-20 md:py-28 overflow-hidden">
+        {/* Hero */}
+        <section className="relative py-24 md:py-36 overflow-hidden">
           <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
           <div className="container-wide relative z-10">
             <div className="max-w-3xl mx-auto text-center">
@@ -62,22 +26,61 @@ export default function About() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                About Neuvie
+                We Built NEUVIE Because You Are Worth It.
               </motion.h1>
               <motion.p 
-                className="text-lg md:text-xl text-muted-foreground leading-relaxed"
+                className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
               >
-                We started Neuvie because we believed something simple: you're worth taking care of. Not in a complicated, time-consuming way. In a way that fits your actual life — and makes you feel good about the choice you're making for yourself.
+                A story about hair loss, frustration, and the 3-second solution we wished existed.
               </motion.p>
             </div>
           </div>
         </section>
 
-        {/* Founder Quote */}
-        <section className="py-16 md:py-20 bg-secondary/40">
+        {/* Founder Story */}
+        <section className="py-20 md:py-28">
+          <div className="container-wide">
+            <div className="max-w-3xl mx-auto">
+              <motion.div
+                className="space-y-6 text-lg text-muted-foreground leading-relaxed"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <p>
+                  It started with a mirror — and the kind of frustration that builds up quietly over years. 
+                  Thinning hair. Brittle nails that split before they could grow. Dull, tired skin that no 
+                  cream could fix from the outside. She tried everything. Capsules that sat forgotten in a 
+                  drawer. Powders that tasted like chalk and took ten minutes to mix. Routines that felt 
+                  like a medical obligation instead of self-care. Nothing worked consistently — because she 
+                  kept forgetting, or hated swallowing pills, or the products just felt like another chore 
+                  on an already overwhelming list.
+                </p>
+                <p>
+                  Then came the moment that changed everything. Not a breakthrough in a lab — a breakthrough 
+                  in perspective. <span className="text-foreground font-medium">What if wellness didn't have to feel hard?</span> What if 
+                  taking care of yourself could be as simple as placing a strip on your tongue — 3 seconds, 
+                  no water, no excuses — and getting on with your day knowing you just did something beautiful 
+                  for yourself? That question became NEUVIE.
+                </p>
+                <p>
+                  Today, NEUVIE is a brand built on one belief: <span className="text-foreground font-medium">you deserve to feel beautiful 
+                  from the inside out, every single day.</span> Not when you have more time. Not when life 
+                  slows down. Right now. Our 13 fast-dissolving strips are formulated with clinically studied 
+                  ingredients at real dosages — because your body deserves more than a label claim. Every 
+                  batch is independently tested. Every formula is designed for your real life. Because 
+                  wellness should feel like a gift you give yourself — not a task you keep putting off.
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Mission */}
+        <section className="py-20 md:py-28 bg-secondary/40">
           <div className="container-wide">
             <motion.div
               className="max-w-3xl mx-auto text-center"
@@ -85,199 +88,39 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <Quote className="h-12 w-12 text-accent/40 mx-auto mb-6" />
-              <blockquote className="font-display text-2xl md:text-3xl text-foreground leading-relaxed mb-6">
-                "We built Neuvie for the person who always puts everyone else first — and forgets that they deserve the same care."
-              </blockquote>
-              <p className="text-muted-foreground font-medium">&mdash; The Neuvie Team</p>
+              <Heart className="h-10 w-10 text-accent mx-auto mb-6" />
+              <h2 className="font-display text-3xl md:text-4xl mb-6">Our Mission</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+                To make self-care so effortless that you never skip it again. To create supplements 
+                that dissolve in 3 seconds and absorb up to 5x faster — so taking care of yourself 
+                becomes the easiest decision you make all day. Because when wellness fits your life, 
+                you actually do it. And when you do it, everything changes.
+              </p>
             </motion.div>
           </div>
         </section>
 
-        {/* Story Section */}
-        <section className="py-20 md:py-28">
-          <div className="container-wide">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-              >
-                <h2 className="font-display text-3xl md:text-4xl mb-6">
-                  Our Story
-                </h2>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p>
-                    It started with a question: why do most people stop taking their supplements?
-                  </p>
-                  <p>
-                    Not because they stopped caring about their health. Because the routine was too much. Too many pills, too much effort, too easy to forget. We wanted to create something that doesn't feel like a chore — something that feels like a small act of kindness toward yourself.
-                  </p>
-                  <p>
-                    Today, Neuvie offers 13 fast-dissolving strips — from Energy and Focus to Sleep and Beauty. Each one is a 30-second ritual that says: I matter. My body matters. And I'm going to show up for myself today.
-                  </p>
-                </div>
-              </motion.div>
-              
-              <motion.div
-                className="bg-gradient-to-br from-secondary to-secondary/40 rounded-3xl aspect-square flex items-center justify-center border border-border/30 shadow-soft"
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-              >
-                <span className="text-8xl">💊</span>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Stats Section */}
-        <section className="py-20 md:py-28 bg-primary text-primary-foreground">
-          <div className="container-wide">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              {stats.map((stat, index) => (
-                <motion.div 
-                  key={stat.label} 
-                  className="text-center"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <p className="font-display text-4xl md:text-5xl mb-2">{stat.number}</p>
-                  <p className="text-primary-foreground/70 text-sm">{stat.label}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Meet the Team */}
-        <section className="py-20 md:py-28">
-          <div className="container-wide">
-            <motion.h2 
-              className="font-display text-3xl md:text-4xl text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              Meet the Team
-            </motion.h2>
-
-            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              {team.map((member, index) => (
-                <motion.div
-                  key={member.name}
-                  className="bg-card rounded-2xl p-8 text-center shadow-soft border border-border/30 hover:shadow-card hover:-translate-y-1 transition-all duration-500"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${member.gradient} flex items-center justify-center mx-auto mb-5 shadow-md`}>
-                    <span className="text-2xl font-bold text-primary-foreground">
-                      {member.name.split(' ').map(n => n[0]).join('')}
-                    </span>
-                  </div>
-                  <h3 className="font-semibold text-lg text-foreground">{member.name}</h3>
-                  <p className="text-sm text-accent font-medium mb-3">{member.role}</p>
-                  <p className="text-sm text-muted-foreground">{member.bio}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Values Section */}
-        <section className="py-20 md:py-28 bg-secondary/30">
-          <div className="container-wide">
-            <motion.h2 
-              className="font-display text-3xl md:text-4xl text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              What We Believe In
-            </motion.h2>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {values.map((value, index) => (
-                <motion.div
-                  key={value.title}
-                  className="bg-card rounded-2xl p-8 text-center shadow-soft border border-border/30 hover:shadow-card hover:-translate-y-1 transition-all duration-500"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <value.icon className="h-7 w-7 text-accent" />
-                  </div>
-                  <h3 className="font-semibold text-lg mb-3">{value.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{value.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Commitment Section */}
-        <section className="py-20 md:py-28">
-          <div className="container-wide">
-            <div className="max-w-3xl mx-auto">
-              <motion.h2 
-                className="font-display text-3xl md:text-4xl text-center mb-12"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                Our Promise to You
-              </motion.h2>
-              
-              <motion.div 
-                className="space-y-4"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                {[
-                  'Every batch independently tested — because your trust is everything',
-                  'Clinically studied ingredients at real dosages — nothing for show',
-                  'Dissolves in 30 seconds — self-care that fits your real life',
-                  'No artificial colors, no fillers — only what your body actually needs',
-                  'Non-GMO and ethically sourced — because you deserve the best',
-                  '14-day guarantee — because you should feel completely sure',
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-3 bg-secondary/40 p-4 rounded-xl border border-border/30">
-                    <Check className="h-5 w-5 text-primary flex-shrink-0" />
-                    <span className="text-foreground">{item}</span>
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="py-20 md:py-28 relative overflow-hidden">
+        {/* Emotional Closing */}
+        <section className="py-24 md:py-36 relative overflow-hidden">
           <div className="absolute inset-0" style={{ background: 'var(--gradient-warm)' }} />
           <div className="container-wide text-center relative z-10">
             <motion.h2 
-              className="font-display text-3xl md:text-4xl mb-6"
+              className="font-display text-4xl md:text-5xl lg:text-6xl mb-6 max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              You already know you're worth it.
+              You are worth it.
+              <span className="block text-accent mt-2 italic">Not someday. Today.</span>
             </motion.h2>
             <motion.p
-              className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto"
+              className="text-muted-foreground text-lg mb-10 max-w-xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              This is just 30 seconds to prove it to yourself. Every day.
+              3 seconds. That's all it takes to choose yourself. Every single day.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}

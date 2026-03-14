@@ -17,6 +17,7 @@ import { WhyNeuvie } from '@/components/home/WhyNeuvie';
 import { HomepageFAQs } from '@/components/home/HomepageFAQs';
 import { CommunityRitual } from '@/components/home/CommunityRitual';
 import { HowToUse } from '@/components/home/HowToUse';
+import { WhyNeuvieHero } from '@/components/home/WhyNeuvieHero';
 
 // ─── DATA ──────────────────────────────────────────────
 const trustBar = [
@@ -186,6 +187,11 @@ export default function Index() {
             </motion.div>
           </div>
         </section>
+
+        {/* ═══════════════════════════════════════════════
+            1.5 WHY NEUVIE HERO — Bold Value Prop
+        ═══════════════════════════════════════════════ */}
+        <WhyNeuvieHero />
 
         {/* ═══════════════════════════════════════════════
             2. CATEGORY SECTION — Shop by Benefit

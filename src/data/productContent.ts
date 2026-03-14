@@ -1,5 +1,5 @@
 // English product content for all 13 Neuvie supplement strips
-// SEO-optimized, legally compliant product descriptions
+// SEO-optimized, emotionally rich, US-market product descriptions
 
 export interface ProductContent {
   handle: string;
@@ -21,7 +21,7 @@ export const productContentMap: Record<string, ProductContent> = {
     handle: 'hangover',
     seoTitle: 'Hangover Strips Mango-Orange | Natural Recovery | Neuvie',
     metaDescription: 'Neuvie Hangover Strips with Curcumin, Date Extract & Grape Seed Extract. Supports liver function, hydration & natural recovery. Mango-Orange flavor.',
-    shortDescription: 'Our Hangover Strips are formulated with Ayurvedic ingredients to support your body after a night out. For best results, take 1 strip before bed. Supports hydration, restful sleep, and helps reduce occasional discomfort.',
+    shortDescription: "You had a great night — you deserve a great morning too. Our Hangover Strips dissolve in 3 seconds and absorb up to 5x faster than capsules, delivering Curcumin, Date Extract, and Grape Seed to support your body's natural recovery. Because you are worth more than a pill you keep forgetting. Wake up feeling like yourself again.",
     benefits: [
       { headline: 'Multi-Symptom Support', description: 'Helps address headaches, sleep disruption, and general discomfort after drinking.' },
       { headline: 'Healthy Inflammatory Response', description: 'Curcuma Longa and other botanicals support normal inflammatory processes.' },
@@ -29,10 +29,9 @@ export const productContentMap: Record<string, ProductContent> = {
       { headline: 'Hydration Balance', description: 'Formulated to maintain hydration and support overall well-being.' },
     ],
     longDescription: [
-      'Our Hangover Oral Strips are crafted with a blend of ingredients inspired by traditional Ayurvedic practices, designed to support general wellness after social activities.',
-      'Each strip delivers a unique combination of Curcuma Longa (Curcumin), Date Extract, Grape Seed Extract, and other botanicals traditionally valued for supporting the body\'s natural recovery processes.',
-      'The formula includes Andrographis and Phyllanthus for liver support, plus natural flavors that make taking your strip a pleasant experience.',
-      'Simply place one strip on your tongue before bed and let it dissolve. No water needed, no pills to swallow—just fast-dissolving convenience.',
+      "We've all been there — you wake up and immediately regret last night. The headache, the fatigue, the \"why did I do this to myself\" feeling. You deserve better than that. Our Hangover Strips are your 3-second safety net, crafted with a powerful Ayurvedic-inspired blend that supports your body when it needs it most.",
+      "Each strip delivers Curcuma Longa (Curcumin), Date Extract, Grape Seed Extract, Andrographis, and Phyllanthus — ingredients traditionally valued for supporting liver function, hydration, and the body's natural recovery processes. And because they dissolve on your tongue, they absorb up to 5x faster than traditional capsules.",
+      "Just place one strip on your tongue before bed. No water needed. No pills to choke down at 2 AM. That's it. Because taking care of yourself should be the easiest thing you do — even on your worst morning.",
     ],
     usage: 'Place 1 strip on your tongue before bed and let it dissolve completely.',
     ingredients: [
@@ -57,7 +56,7 @@ export const productContentMap: Record<string, ProductContent> = {
     handle: 'bone',
     seoTitle: 'Bone Support Strips Raspberry | Vitamin D3 + K2 | Neuvie',
     metaDescription: 'Neuvie Bone Support Strips with Vitamin D3 (2000 IU) & K2 (200 mcg). Supports bone health, calcium absorption & immune function. Convenient strip format.',
-    shortDescription: 'Bone Support Strips combine Vitamin D3 and K2 in a fast-dissolving, raspberry-flavored strip. Supports normal calcium metabolism, bone strength, and immune function—anytime, anywhere.',
+    shortDescription: "Your bones carry you through everything — isn't it time you carried them? Bone Support Strips dissolve in 3 seconds and absorb up to 5x faster, delivering 2000 IU of Vitamin D3 and 200 mcg of K2 where your body needs it most. Because you are worth more than a pill you keep forgetting. Feel strong from the inside out.",
     benefits: [
       { headline: 'Essential for Bone Health', description: 'Vitamin K2 helps direct calcium to bones where it\'s needed.' },
       { headline: 'Supports Bone Strength', description: 'Vitamin D3 aids calcium absorption for stronger bones.' },
@@ -65,9 +64,9 @@ export const productContentMap: Record<string, ProductContent> = {
       { headline: 'Immune System Support', description: 'Vitamin D3 also contributes to normal immune function.' },
     ],
     longDescription: [
-      'Support your wellness routine with Bone Support Strips, a convenient oral supplement formulated with Vitamin D3 and Vitamin K2.',
-      'These essential nutrients work together to support your body\'s natural calcium utilization and bone maintenance. Vitamin D3 aids calcium absorption, while Vitamin K2 helps direct that calcium to your bones.',
-      'Each raspberry-flavored strip dissolves quickly on your tongue—no water or pills required. Perfect for busy lifestyles.',
+      "You don't think about your bones — until they remind you. The ache after a long day. The worry that you're not doing enough. Your body holds you up through everything, and it deserves more than a dusty bottle of calcium pills on your counter.",
+      "Our Bone Support Strips deliver 2000 IU of Vitamin D3 and 200 mcg of Vitamin K2 in a raspberry-flavored strip that dissolves on your tongue in 3 seconds — absorbing up to 5x faster than traditional supplements. D3 helps your body absorb calcium, while K2 directs it to your bones where it actually belongs.",
+      "No water. No capsules. Just a daily moment of strength you can feel good about. Because taking care of your foundation should be effortless.",
     ],
     usage: 'Place 1 strip on your tongue daily and let it dissolve completely.',
     ingredients: [
@@ -88,7 +87,7 @@ export const productContentMap: Record<string, ProductContent> = {
     handle: 'cognitive',
     seoTitle: 'Cognitive Relax Strips Strawberry-Mint | L-Theanine + GABA | Neuvie',
     metaDescription: 'Neuvie Cognitive Relax Strips with L-Theanine (50mg), GABA (25mg) & Vitamin B6. Supports relaxation, focus & nervous system. Strawberry-Mint flavor.',
-    shortDescription: 'Cognitive Relax Strips combine L-Theanine, GABA, and Vitamin B6 to support stress management, mental clarity, and nervous system wellness. Take 1 strip daily—anytime you need calm focus.',
+    shortDescription: "Your mind races all day — it deserves a moment of calm. Cognitive Relax Strips dissolve in 3 seconds and absorb up to 5x faster, combining L-Theanine, GABA, and Vitamin B6 for focused relaxation without drowsiness. Because you are worth more than a pill you keep forgetting. Find your calm in 3 seconds.",
     benefits: [
       { headline: 'Calm, Focused Mind', description: 'L-Theanine promotes mental relaxation without drowsiness.' },
       { headline: 'Mental Wellbeing', description: 'GABA supports your body\'s natural stress response.' },
@@ -96,10 +95,9 @@ export const productContentMap: Record<string, ProductContent> = {
       { headline: 'Anytime Convenience', description: 'Fast-dissolving strips—no water needed, take anywhere.' },
     ],
     longDescription: [
-      'Find your calm with Cognitive Relax Strips, thoughtfully formulated with L-Theanine from Green Tea, GABA, and Vitamin B6.',
-      'L-Theanine, found naturally in green tea, is known for promoting a calm, relaxed state while helping maintain mental clarity—no drowsiness.',
-      'GABA supports normal nervous system activity, while Vitamin B6 contributes to energy metabolism and nervous system function. Together, they promote everyday balance.',
-      'Simply place one strip on your tongue and let it dissolve. Enjoy the refreshing strawberry-mint flavor.',
+      "You give so much of yourself to everyone else — your job, your family, your responsibilities. By the end of the day, your mind is still running even when your body begs to stop. You deserve a moment of calm that actually works.",
+      "Cognitive Relax Strips combine L-Theanine from Green Tea, GABA, and Vitamin B6 in a refreshing strawberry-mint strip that dissolves in 3 seconds and absorbs up to 5x faster than capsules. L-Theanine promotes relaxation without making you drowsy, GABA supports your natural stress response, and B6 keeps your nervous system balanced.",
+      "No pills. No water. No complicated evening routine. Just 3 seconds of peace — because the person who takes care of everyone else deserves to be taken care of too.",
     ],
     usage: 'Place 1 strip on your tongue daily and let it dissolve completely.',
     ingredients: [
@@ -121,7 +119,7 @@ export const productContentMap: Record<string, ProductContent> = {
     handle: 'mushroom',
     seoTitle: 'Mushroom Focus Strips Chocolate | Lion\'s Mane + Cordyceps | Neuvie',
     metaDescription: 'Neuvie Mushroom Focus Strips with Lion\'s Mane, Cordyceps, Maitake & Shiitake. Supports focus, energy & cognitive function. Rich chocolate flavor.',
-    shortDescription: 'Support your focus, energy & mental wellness with Mushroom Focus Strips. A curated blend of Lion\'s Mane, Maitake, Cordyceps, and Shiitake in a rich chocolate-flavored strip. Zero-fuss, quick-dissolving.',
+    shortDescription: "Brain fog steals your best hours. Take them back. Mushroom Focus Strips dissolve in 3 seconds and absorb up to 5x faster, delivering Lion's Mane, Cordyceps, Maitake, and Shiitake in a rich chocolate-flavored strip. Because you are worth more than a pill you keep forgetting. Show up sharper, every single day.",
     benefits: [
       { headline: 'Cognitive Support', description: 'Lion\'s Mane is traditionally used to support focus and mental clarity.' },
       { headline: 'Natural Energy', description: 'Cordyceps supports energy metabolism and stamina.' },
@@ -129,10 +127,9 @@ export const productContentMap: Record<string, ProductContent> = {
       { headline: 'Delicious Convenience', description: 'Rich chocolate flavor, dissolves quickly—no capsules or water needed.' },
     ],
     longDescription: [
-      'Sharpen your mental clarity with Mushroom Focus Strips, a convenient and flavorful way to support your cognitive routine.',
-      'These smooth, chocolate-flavored strips dissolve on your tongue, delivering a curated blend of functional mushroom extracts traditionally valued for supporting normal cognitive function.',
-      'Each strip combines: Lion\'s Mane for focus and cognitive support, Maitake for immune function, Cordyceps for energy and stamina, and Shiitake for immune balance and antioxidant properties.',
-      'Perfect for busy days—no water or capsules needed. Just place on your tongue and go.',
+      "You know that feeling — you're staring at your screen, but nothing clicks. The fog rolls in and your sharpest self disappears. You've tried coffee, energy drinks, willpower. But what if the answer was actually something good for you?",
+      "Mushroom Focus Strips combine Lion's Mane for cognitive clarity, Cordyceps for natural energy, Maitake for immune balance, and Shiitake for antioxidant support — all in a rich chocolate-flavored strip that dissolves in 3 seconds and absorbs up to 5x faster than capsules.",
+      "This isn't about pushing harder. It's about showing up as the clearest version of yourself — in 3 seconds, no water, no effort. Because your mind deserves better than brain fog.",
     ],
     usage: 'Place 1 strip on your tongue daily and let it dissolve completely.',
     ingredients: [
@@ -156,7 +153,7 @@ export const productContentMap: Record<string, ProductContent> = {
     handle: 'libido',
     seoTitle: 'Libido Support Strips Chocolate | Cordyceps + Shilajit | Neuvie',
     metaDescription: 'Neuvie Libido Support Strips with Cordyceps, Shilajit & Oyster Peptide. Supports vitality, stamina & sexual wellness. Discreet and convenient.',
-    shortDescription: 'Libido Support Strips are designed for adults seeking to maintain healthy energy, stamina, and sexual wellness. With Cordyceps, Shilajit, and Oyster Peptide in a rich chocolate-flavored format.',
+    shortDescription: "Feeling disconnected from your own vitality? You're not alone — and you don't have to stay there. Libido Support Strips dissolve in 3 seconds and absorb up to 5x faster, with Cordyceps, Shilajit, and Oyster Peptide for natural stamina and energy. Because you are worth more than a pill you keep forgetting. Reclaim what's yours.",
     benefits: [
       { headline: 'Active Vitality', description: 'Cordyceps traditionally supports stamina and endurance.' },
       { headline: 'Mineral Support', description: 'Shilajit provides naturally occurring minerals for wellness.' },
@@ -164,10 +161,9 @@ export const productContentMap: Record<string, ProductContent> = {
       { headline: 'Discreet & Convenient', description: 'Rich chocolate flavor, quick-dissolving—no pills or water.' },
     ],
     longDescription: [
-      'Add vitality to your wellness routine with Libido Support Strips, specially crafted for adults looking to maintain healthy energy, stamina, and sexual wellness.',
-      'Each strip delivers Cordyceps militaris, Shilajit, and Oyster Peptide—ingredients traditionally valued for supporting endurance, energy metabolism, and sexual function.',
-      'Cordyceps is associated with promoting stamina and vitality, while Shilajit provides naturally occurring minerals that support wellness.',
-      'These chocolate-flavored strips dissolve easily on your tongue, offering a simple, discreet way to support your vitality.',
+      "This one's personal — because vitality isn't just physical, it's how you feel about yourself. When your energy dips and your drive fades, it affects everything. You deserve to feel fully alive, not just going through the motions.",
+      "Our Libido Support Strips deliver Cordyceps militaris for stamina, Shilajit for naturally occurring minerals, and Oyster Peptide to support sexual wellness — in a discreet, chocolate-flavored strip that dissolves in 3 seconds and absorbs up to 5x faster than traditional supplements.",
+      "No awkward bottles on your nightstand. No pills to remember. Just 3 seconds of intention — and the confidence that comes with actually taking care of yourself.",
     ],
     usage: 'Place 1-2 strips on your tongue as needed. Do not exceed 2 strips per day.',
     ingredients: [
@@ -189,7 +185,7 @@ export const productContentMap: Record<string, ProductContent> = {
     handle: 'probiotic',
     seoTitle: 'Probiotic + Metabolism Strips | 10 Billion CFU | Neuvie',
     metaDescription: 'Neuvie Probiotic + Metabolism Strips with 10 Billion CFU Bifidobacterium lactis, Polydextrose & Monk Fruit. Supports gut health & digestion.',
-    shortDescription: 'Probiotic + Metabolism Strips offer easy, delicious support for digestive health. Each strip delivers 10 Billion CFU plus prebiotic fiber to promote a healthy gut microbiome. Mixed-Berry flavor.',
+    shortDescription: "Your gut is the foundation of everything — your energy, your mood, your skin. Probiotic + Metabolism Strips dissolve in 3 seconds and absorb up to 5x faster, delivering 10 Billion CFU plus prebiotic fiber in a refreshing mixed-berry strip. Because you are worth more than a pill you keep forgetting. Feel good from the inside out.",
     benefits: [
       { headline: 'Daily Digestive Support', description: '10 Billion CFU support a healthy gut flora and digestion.' },
       { headline: 'Probiotic + Prebiotic Synergy', description: 'Probiotics plus prebiotic fiber work together for enhanced effect.' },
@@ -197,10 +193,9 @@ export const productContentMap: Record<string, ProductContent> = {
       { headline: 'Refreshing Flavor', description: 'Light mixed berry taste—perfect for your daily routine.' },
     ],
     longDescription: [
-      'Make digestive wellness effortless with Probiotic + Metabolism Strips. Each strip contains Bifidobacterium lactis, a probiotic that helps support a healthy balance of gut bacteria.',
-      'Combined with prebiotic fiber that fuels beneficial bacteria, these strips work in harmony to promote digestive balance.',
-      'The strips dissolve on your tongue in seconds—no water required. Portable and convenient for travel, work, or on-the-go lifestyles.',
-      'With a light mixed berry flavor and natural sweeteners like monk fruit, you get a clean-tasting experience without added sugars.',
+      "That bloated, sluggish feeling that follows you through the day? It's your gut asking for help. And you've probably tried everything — capsules that upset your stomach, powders that taste terrible, routines you couldn't keep up with. You deserve something that actually works and actually fits your life.",
+      "Each Probiotic + Metabolism Strip delivers 10 Billion CFU of Bifidobacterium lactis plus prebiotic fiber — a synbiotic combination that supports your gut microbiome from both sides. And because it dissolves on your tongue in 3 seconds, it absorbs up to 5x faster than traditional probiotic capsules.",
+      "Mixed-berry flavor. No water needed. No refrigeration required. Just one strip, every morning, and a gut that finally feels balanced. That's self-care that actually makes sense.",
     ],
     usage: 'Place 1 strip on your tongue daily and let it dissolve. Best taken in the morning on an empty stomach.',
     ingredients: [
@@ -221,7 +216,7 @@ export const productContentMap: Record<string, ProductContent> = {
     handle: 'beauty',
     seoTitle: 'Beauty + Collagen Strips Mango | Collagen + Vitamin E | Neuvie',
     metaDescription: 'Neuvie Beauty + Collagen Strips with 100mg Collagen Peptides & Vitamin E. Supports skin elasticity, hair & nails. Delicious mango flavor.',
-    shortDescription: 'Beauty + Collagen Strips support your natural collagen production, skin elasticity, and antioxidant protection. Collagen Peptides plus Vitamin E in a fruity mango-flavored strip—perfect for your daily beauty routine.',
+    shortDescription: "You look in the mirror and you want to see the best version of yourself looking back. Beauty + Collagen Strips dissolve in 3 seconds and absorb up to 5x faster, delivering 100mg Collagen Peptides and Vitamin E for radiant skin, stronger hair, and healthier nails. Because you are worth more than a pill you keep forgetting. Glow from within.",
     benefits: [
       { headline: 'Skin Elasticity', description: 'Collagen peptides support your skin\'s natural structure.' },
       { headline: 'Antioxidant Protection', description: 'Vitamin E helps protect cells from oxidative stress.' },
@@ -229,9 +224,9 @@ export const productContentMap: Record<string, ProductContent> = {
       { headline: 'Hair & Nail Health', description: 'Collagen provides building blocks for healthy hair and nails.' },
     ],
     longDescription: [
-      'Beauty + Collagen Strips offer an easy way to support your daily beauty and wellness routine.',
-      'Each strip combines Collagen Peptides (100 mg), which support your body\'s natural collagen structure for skin, hair, and joints, plus Vitamin E for antioxidant protection.',
-      'The strips dissolve instantly on your tongue with a pleasant mango flavor. No water needed. Perfect for anyone seeking a quick, convenient beauty solution.',
+      "Real beauty starts from within — and you know it. But the collagen powders are messy, the pills are huge, and the routines feel like a full-time job. You deserve a beauty ritual that's as effortless as you want to feel.",
+      "Beauty + Collagen Strips deliver 100mg of Collagen Peptides and Vitamin E in a fruity mango-flavored strip that dissolves on your tongue in 3 seconds — absorbing up to 5x faster than traditional collagen supplements. Collagen supports your skin's elasticity, while Vitamin E provides antioxidant protection.",
+      "No mixing. No measuring. No forgetting. Just one strip a day and the confidence of knowing you're nourishing your natural glow from the inside out.",
     ],
     usage: 'Place 1 strip on your tongue daily and let it dissolve. For best results, use consistently over time.',
     ingredients: [
@@ -251,7 +246,7 @@ export const productContentMap: Record<string, ProductContent> = {
     handle: 'hair',
     seoTitle: 'Hair, Skin & Nails Strips Orange | Biotin 5000 mcg | Neuvie',
     metaDescription: 'Neuvie Hair, Skin & Nails Strips with Biotin (5000 mcg), Folate & Vitamin D3. Supports hair growth, skin vitality & strong nails. Orange flavor.',
-    shortDescription: 'Support your natural glow with Hair, Skin and Nails Strips. Formulated with Biotin, Folate, and Vitamin D3, these fast-dissolving orange-flavored strips support healthy hair, skin, and nail strength. Just 1 strip daily—no water needed.',
+    shortDescription: "Watching your hair thin, your nails break, your skin lose its life — it's more than cosmetic. It's personal. Hair, Skin & Nails Strips dissolve in 3 seconds and absorb up to 5x faster, with 5,000 mcg Biotin, Folate, and Vitamin D3. Because you are worth more than a pill you keep forgetting. See the difference you deserve.",
     benefits: [
       { headline: 'Biotin for Beauty', description: 'Biotin plays a key role in natural hair, skin & nail health.' },
       { headline: 'Cellular Wellness', description: 'Folate supports healthy cell function and skin vitality.' },
@@ -259,10 +254,9 @@ export const productContentMap: Record<string, ProductContent> = {
       { headline: 'On-the-Go Care', description: 'Orange-flavored, dissolves quickly—perfect for mobile beauty routines.' },
     ],
     longDescription: [
-      'Nourish your natural beauty from within with Hair, Skin and Nails Strips—a convenient, on-the-go supplement designed to support hair strength, skin vitality, and nail health.',
-      'Each strip contains 5,000 mcg of Biotin, a key nutrient known to support the body\'s processes for maintaining healthy hair, skin, and nails.',
-      'Paired with Folate (Vitamin B9) and Vitamin D3, this combination helps promote overall wellness and cellular health.',
-      'Simply place one strip on your tongue and let it dissolve—no water required. Enjoy the refreshing orange flavor.',
+      "This is the one that started it all. Because watching your hair fall out in the shower, seeing your nails split before they can grow, feeling like your skin has lost its light — that's not just frustrating. It's heartbreaking. And every capsule you forgot to take felt like giving up on yourself a little more.",
+      "Hair, Skin & Nails Strips deliver 5,000 mcg of Biotin, Folate, and Vitamin D3 — the trifecta your body craves for hair strength, skin vitality, and nail resilience. They dissolve on your tongue in 3 seconds and absorb up to 5x faster than traditional biotin pills. No water needed. No routine to remember.",
+      "This is the strip that says: I'm not giving up on myself. Not today. Not ever. 3 seconds of intention, and your body gets exactly what it needs to shine from within.",
     ],
     usage: 'Place 1 strip on your tongue daily and let it dissolve. For visible results, use consistently for 8-12 weeks.',
     ingredients: [
@@ -283,7 +277,7 @@ export const productContentMap: Record<string, ProductContent> = {
     handle: 'digestive',
     seoTitle: 'Digestive + Gut Health Strips | Probiotics + Enzymes | Neuvie',
     metaDescription: 'Neuvie Digestive + Gut Health Strips with Bacillus Coagulans (10 Billion CFU), Protease, Papain & Bromelain. Supports digestion & gut health.',
-    shortDescription: 'Digestive + Gut Health Strips support your gut microbiome with a combination of probiotics and digestive enzymes in a fast-dissolving, mixed-berry flavored strip. Perfect for on-the-go digestive support.',
+    shortDescription: "Bloating, discomfort, that heavy feeling after every meal — you've tried to ignore it long enough. Digestive + Gut Health Strips dissolve in 3 seconds and absorb up to 5x faster, combining probiotics and digestive enzymes for real relief. Because you are worth more than a pill you keep forgetting. Your gut will thank you.",
     benefits: [
       { headline: 'Healthy Gut Balance', description: 'Bacillus Coagulans supports a healthy microbiome.' },
       { headline: 'Protein Digestion', description: 'Enzymes like Protease, Papain & Bromelain aid natural digestion.' },
@@ -291,10 +285,9 @@ export const productContentMap: Record<string, ProductContent> = {
       { headline: 'Simple Gut Support', description: 'One strip delivers your daily digestive wellness, portable and easy.' },
     ],
     longDescription: [
-      'Support your daily digestive wellness with Digestive + Gut Health Strips, designed for easy, on-the-go use.',
-      'Each strip delivers a unique blend of probiotics and digestive enzymes to help maintain normal gut flora balance and support natural digestion.',
-      'Bacillus Coagulans, a widely studied probiotic strain, helps maintain healthy gut microflora. Combined with Protease, Papain, and Bromelain, these enzymes assist in protein breakdown and natural digestive processes.',
-      'With a refreshing mixed berry flavor and fast-dissolving format, digestive support has never been easier.',
+      "You know the feeling — that uncomfortable bloat after eating, the heaviness that follows you through the afternoon, the gut issues you've learned to just \"deal with.\" But here's the truth: you shouldn't have to. Your digestive system deserves real support, not another capsule you'll forget by Wednesday.",
+      "Digestive + Gut Health Strips combine 10 Billion CFU of Bacillus Coagulans with a triple-enzyme blend of Protease, Papain, and Bromelain — supporting both your gut flora and your body's natural digestive processes. They dissolve on your tongue in 3 seconds and absorb up to 5x faster than traditional gut supplements.",
+      "Mixed-berry flavor. No water. No planning. Just one strip after a meal and the relief of knowing you're finally doing something about it.",
     ],
     usage: 'Place 1 strip on your tongue after a meal and let it dissolve. Up to 2 strips daily as needed.',
     ingredients: [
@@ -316,7 +309,7 @@ export const productContentMap: Record<string, ProductContent> = {
     handle: 'appetite',
     seoTitle: 'Appetite Balance & Weight Support Strips | Chromium + Saffron | Neuvie',
     metaDescription: 'Neuvie Appetite Balance Strips with Chromium (75 mcg), Molybdenum (100 mcg) & Saffron. Supports normal blood sugar levels & appetite balance.',
-    shortDescription: 'Appetite Balance & Weight Support Strips offer easy, quick-dissolving support for nutrition-conscious adults. With Saffron, Chromium, and Molybdenum to support mindful eating habits, metabolism, and daily vitality.',
+    shortDescription: "The cravings. The guilt. The cycle that never ends. Appetite Balance Strips dissolve in 3 seconds and absorb up to 5x faster, delivering Saffron, Chromium, and Molybdenum to support balanced blood sugar and mindful eating. Because you are worth more than a pill you keep forgetting. Take control — gently, on your terms.",
     benefits: [
       { headline: 'Daily Wellness Support', description: 'Molybdenum supports natural enzyme activity in the body.' },
       { headline: 'Blood Sugar Balance', description: 'Chromium supports glucose metabolism and stable levels.' },
@@ -324,10 +317,9 @@ export const productContentMap: Record<string, ProductContent> = {
       { headline: 'Convenient Format', description: 'Dissolving strip—portable, fast, easy to take anywhere.' },
     ],
     longDescription: [
-      'Stay on track with your wellness goals with Appetite Balance & Weight Support Strips.',
-      'Each strip contains a thoughtful blend of Saffron extract, Chromium, and Molybdenum to support balanced nutrition and overall well-being.',
-      'Saffron has been traditionally used in wellness practices for supporting balance. Chromium supports normal macronutrient metabolism and helps maintain healthy blood sugar levels. Molybdenum contributes to essential nutrient metabolism.',
-      'These strips dissolve quickly on the tongue—designed for health-conscious adults, anytime, anywhere.',
+      "You're not weak. The cravings, the constant hunger, the frustration with your own body — none of that is a character flaw. It's your biology asking for support. And you deserve support that actually works, not another fad product that makes you feel worse about yourself.",
+      "Appetite Balance Strips combine Saffron extract for emotional balance, Chromium for healthy blood sugar metabolism, and Molybdenum for essential nutrient processing — in a strip that dissolves in 3 seconds and absorbs up to 5x faster than capsules. No water needed. No meal planning required.",
+      "This isn't about restriction. It's about balance — the kind that comes from finally giving your body what it's been asking for. One strip. 3 seconds. A gentler relationship with yourself.",
     ],
     usage: 'Place 1 strip on your tongue before a meal and let it dissolve. Up to 2 strips daily.',
     ingredients: [
@@ -349,7 +341,7 @@ export const productContentMap: Record<string, ProductContent> = {
     handle: 'iron',
     seoTitle: 'Iron Strips Raspberry | Iron + Folate | Neuvie',
     metaDescription: 'Neuvie Iron Strips with Iron (19 mg) & Folate (400 mcg). Supports red blood cell formation, oxygen transport & energy. Raspberry flavor.',
-    shortDescription: 'Promote your daily wellness with Iron Strips, a raspberry-flavored oral supplement designed to support normal energy and vitality. Easy-to-use, convenient, and no water needed.',
+    shortDescription: "That bone-deep tiredness that coffee can't fix? It might be your iron. Iron Strips dissolve in 3 seconds and absorb up to 5x faster, delivering 19mg of gentle iron plus Folate — without the nausea or constipation of traditional iron pills. Because you are worth more than a pill you keep forgetting. Feel alive again.",
     benefits: [
       { headline: 'Red Blood Cell Formation', description: 'Iron contributes to normal red blood cell production.' },
       { headline: 'Oxygen Transport', description: 'Iron supports normal oxygen transport throughout the body.' },
@@ -357,9 +349,9 @@ export const productContentMap: Record<string, ProductContent> = {
       { headline: 'Healthy Cell Formation', description: 'Folate supports normal cell division.' },
     ],
     longDescription: [
-      'Support your everyday wellness with Iron Strips, a convenient and gentle way to maintain normal energy levels and overall vitality.',
-      'Each strip provides 19 mg of iron, an important mineral for red blood cell production and oxygen transport. Paired with 400 mcg of folate, this formula supports healthy cell formation as part of a balanced diet.',
-      'These quick-dissolving, raspberry-flavored strips require no water—perfect for busy lifestyles.',
+      "You're exhausted — and not the \"I need more sleep\" kind. It's deeper than that. The fatigue that sits in your bones, the brain fog that won't lift, the feeling that your body is running on empty no matter what you do. If that sounds familiar, your iron levels might be trying to tell you something.",
+      "Our Iron Strips deliver 19mg of iron in a gentle, raspberry-flavored format that dissolves in 3 seconds and absorbs up to 5x faster than traditional iron pills — without the nausea, constipation, or metallic taste that made you quit last time. Paired with 400 mcg of Folate for healthy cell formation.",
+      "No stomach upset. No huge pills. Just a tiny strip on your tongue and the energy your body has been begging for. You deserve to feel alive — not just awake.",
     ],
     usage: 'Place 1 strip on your tongue daily and let it dissolve completely.',
     ingredients: [
@@ -380,7 +372,7 @@ export const productContentMap: Record<string, ProductContent> = {
     handle: 'energy',
     seoTitle: 'Energy Strips Cranberry | Caffeine + L-Theanine | Neuvie',
     metaDescription: 'Neuvie Energy Strips with Caffeine (50 mg), L-Theanine (30 mg) & Vitamin B12. Supports focus, endurance & mental clarity. No crash, no jitters.',
-    shortDescription: 'Energy Strips are designed for people who need a natural, fast energy boost—without the sugar crash or jitters of energy drinks. Supports focus, endurance, mental clarity, and stable energy.',
+    shortDescription: "You're running on empty and another cup of coffee isn't the answer. Energy Strips dissolve in 3 seconds and absorb up to 5x faster, delivering clean Caffeine, L-Theanine, and B12 for jitter-free focus and all-day stamina. Because you are worth more than a pill you keep forgetting. Energy that feels like you.",
     benefits: [
       { headline: 'Enhanced Focus', description: 'Caffeine and L-Theanine together promote focused attention.' },
       { headline: 'Physical Endurance', description: 'Supports physical stamina and performance.' },
@@ -388,10 +380,9 @@ export const productContentMap: Record<string, ProductContent> = {
       { headline: 'No Crash, No Jitters', description: 'Stable energy release without the typical energy drink crash.' },
     ],
     longDescription: [
-      'Energy Strips provide a convenient way to support focus, energy, and daily performance.',
-      'These dissolvable cranberry-flavored strips combine caffeine, L-theanine, and vitamin B12 for fast-acting support for mental clarity and endurance.',
-      'The formulation is designed for stable, jitter-free energy without the crash associated with sugary drinks.',
-      'Perfect for athletes, professionals, students—anyone seeking a fast, controlled energy boost.',
+      "Three cups of coffee by noon and you're still dragging. The energy drinks leave you jittery and then crash you harder. You deserve energy that actually feels good — the kind that lifts you up without the payback.",
+      "Energy Strips combine 50mg of Caffeine with 30mg of L-Theanine and Vitamin B12 — a proven stack for smooth, focused energy without jitters or crashes. Each cranberry-flavored strip dissolves in 3 seconds and absorbs up to 5x faster than energy supplements in capsule form.",
+      "Keep a pack in your bag, your desk, your car. Whenever you need a lift, it's 3 seconds away. No sugar, no crash, no excuses. Just clean energy that respects your body as much as you do.",
     ],
     usage: 'Place 1 strip on your tongue as needed and let it dissolve. Do not exceed 3 strips per day.',
     ingredients: [
@@ -413,7 +404,7 @@ export const productContentMap: Record<string, ProductContent> = {
     handle: 'sleep',
     seoTitle: 'Sleep Strips Raspberry | Melatonin + Valerian | Neuvie',
     metaDescription: 'Neuvie Sleep Strips with Melatonin (5 mg), Valerian, Chamomile, Lavender & Hibiscus. Supports restful sleep. Non-habit forming.',
-    shortDescription: 'This gentle blend of non-habit forming botanical extracts is designed to support a healthy sleep-wake cycle. Helps with restful sleep, stress-related sleep issues, and healthy sleep patterns.',
+    shortDescription: "You lie awake replaying the day, and tomorrow starts before you've even recovered from today. Sleep Strips dissolve in 3 seconds and absorb up to 5x faster, combining Melatonin, Valerian, Chamomile, Lavender, and Hibiscus for deep, restorative rest. Because you are worth more than a pill you keep forgetting. You carried the whole day — let tonight carry you.",
     benefits: [
       { headline: 'Enhanced Sleep Quality', description: 'Melatonin helps reduce the time it takes to fall asleep.' },
       { headline: 'Stress Reduction', description: 'Valerian and Chamomile may contribute to relaxation.' },
@@ -421,10 +412,9 @@ export const productContentMap: Record<string, ProductContent> = {
       { headline: 'Non-Habit Forming', description: 'Gentle, botanical formula without addiction potential.' },
     ],
     longDescription: [
-      'Sleep Strips were created to help support relaxation and natural sleep cycles.',
-      'The combination of valerian, chamomile, lavender, hibiscus, and melatonin offers a gentle nighttime formula designed to calm the mind and support restful sleep.',
-      'These quick-dissolving raspberry-flavored strips are perfect for anyone seeking a natural alternative to traditional sleep aids.',
-      'The non-habit forming formula is suitable for consistent nightly use to promote well-being and next-day energy.',
+      "Your body is exhausted but your mind won't stop. You replay conversations, worry about tomorrow, count the hours of sleep you're losing in real time. You've earned rest — real rest. The kind where you wake up and actually feel like a different person.",
+      "Sleep Strips combine 5mg of Melatonin with a calming botanical blend of Valerian, Chamomile, Lavender, and Hibiscus — nature's gentlest sleep support. Each raspberry-flavored strip dissolves on your tongue in 3 seconds and absorbs up to 5x faster than traditional sleep supplements. Non-habit forming, so you can use them every night without worry.",
+      "No water. No pills on your nightstand. Just a quiet 3-second ritual that tells your body: you did enough today. Rest now. Because the person who gives everything to everyone else deserves a night of deep, peaceful sleep.",
     ],
     usage: 'Place 1 strip on your tongue 30 minutes before bedtime and let it dissolve.',
     ingredients: [
