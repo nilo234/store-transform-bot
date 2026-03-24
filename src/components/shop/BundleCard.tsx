@@ -190,10 +190,15 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
             ))}
           </div>
 
-          {/* Tagline */}
+          {/* Tagline & Subline */}
           <p className="text-sm italic text-muted-foreground leading-relaxed">
             "{bundle.tagline}"
           </p>
+          {bundle.subline && (
+            <p className="text-xs text-muted-foreground mt-1.5">
+              {bundle.subline}
+            </p>
+          )}
         </div>
 
         {/* Price Section */}
