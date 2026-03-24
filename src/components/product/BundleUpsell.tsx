@@ -9,20 +9,20 @@ interface BundleUpsellProps {
 
 const bundles = [
   {
-    name: "Daily Wellness Bundle",
-    description: "Energy + Immunity + Focus",
-    products: ["Energy", "Immunity", "Mushroom Focus"],
+    name: "The Deep Work Stack",
+    description: "Focus + Energy + Calm",
+    products: ["Mushroom Focus", "Energy", "Cognitive Relax"],
     originalPrice: 104.97,
     salePrice: 84.99,
     savings: "19%",
   },
   {
-    name: "Complete Health Bundle",
+    name: "The Full You",
     description: "Full spectrum, one routine",
-    products: ["Energy", "Sleep", "Immunity", "Probiotic"],
-    originalPrice: 139.96,
-    salePrice: 114.99,
-    savings: "18%",
+    products: ["Focus", "Energy", "Probiotic", "Sleep", "Beauty", "Iron"],
+    originalPrice: 209.94,
+    salePrice: 169.99,
+    savings: "19%",
   },
 ];
 

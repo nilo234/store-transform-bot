@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Plus, Clock, Package, Copy, Check } from 'lucide-react';
+import { Plus, Package, Copy, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
@@ -13,42 +13,6 @@ interface BundleCardProps {
   index?: number;
 }
 
-// Countdown timer component
-function CountdownTimer() {
-  const [timeLeft, setTimeLeft] = useState({
-    hours: 23,
-    minutes: 59,
-    seconds: 59,
-  });
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 };
-        } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-        } else if (prev.hours > 0) {
-          return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        }
-        return { hours: 23, minutes: 59, seconds: 59 }; // Reset
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  return (
-    <div className="flex items-center gap-1.5 text-xs font-medium text-destructive">
-      <Clock className="h-3.5 w-3.5" />
-      <span>
-        {String(timeLeft.hours).padStart(2, '0')}:
-        {String(timeLeft.minutes).padStart(2, '0')}:
-        {String(timeLeft.seconds).padStart(2, '0')}
-      </span>
-    </div>
-  );
-}
 
 export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
   const [isHovered, setIsHovered] = useState(false);
@@ -198,10 +162,6 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
             </div>
           )}
 
-          {/* Countdown Timer - positioned at bottom of image */}
-          <div className="absolute bottom-4 left-4 bg-background/90 backdrop-blur-sm rounded-lg px-3 py-1.5 shadow-sm">
-            <CountdownTimer />
-          </div>
         </div>
 
         {/* Bundle Name with Emoji */}
@@ -230,10 +190,15 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
             ))}
           </div>
 
-          {/* Tagline */}
+          {/* Tagline & Subline */}
           <p className="text-sm italic text-muted-foreground leading-relaxed">
             "{bundle.tagline}"
           </p>
+          {bundle.subline && (
+            <p className="text-xs text-muted-foreground mt-1.5">
+              {bundle.subline}
+            </p>
+          )}
         </div>
 
         {/* Price Section */}

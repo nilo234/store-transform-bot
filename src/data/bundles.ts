@@ -1,15 +1,5 @@
-// Bundle data for Neuvie™ - 8 High-Converting Bundles with real Shopify products
+// Bundle data for Neuvie™ - 9 Curated Bundles with real Shopify products
 export type BundleCategory = 'all' | 'performance' | 'wellness' | 'beauty';
-
-// Bundle images
-import ultimateFocusImg from '@/assets/bundles/ultimate-focus-stack.jpg';
-import athletePerformanceImg from '@/assets/bundles/athlete-performance.jpg';
-import completeGutHealthImg from '@/assets/bundles/complete-gut-health.jpg';
-import dailyWellnessImg from '@/assets/bundles/daily-wellness.jpg';
-import beautyGlowImg from '@/assets/bundles/beauty-glow.jpg';
-import sleepRecoverImg from '@/assets/bundles/sleep-recover.jpg';
-import bestValueMegaImg from '@/assets/bundles/best-value-mega.jpg';
-import newYearResetImg from '@/assets/bundles/new-year-reset.jpg';
 
 // Real Shopify product variant IDs (ACTIVE products accessible via Storefront API)
 export const shopifyVariants = {
@@ -28,19 +18,7 @@ export const shopifyVariants = {
   hangover: 'gid://shopify/ProductVariant/48094361256155',
 };
 
-// Bundle images map
-export const bundleImages: Record<string, string> = {
-  'ultimate-focus-stack': ultimateFocusImg,
-  'athlete-performance': athletePerformanceImg,
-  'complete-gut-health': completeGutHealthImg,
-  'daily-wellness': dailyWellnessImg,
-  'beauty-glow': beautyGlowImg,
-  'sleep-recover': sleepRecoverImg,
-  'best-value-mega': bestValueMegaImg,
-  'new-year-reset': newYearResetImg,
-};
-
-// Product info for cart display (standard price $34.99 for all strips)
+// Product info for cart display
 export const productInfo: Record<string, { title: string; price: string }> = {
   [shopifyVariants.mushroomFocus]: { title: 'Mushroom Focus Strips', price: '34.99' },
   [shopifyVariants.energy]: { title: 'Energy Strips', price: '34.99' },
@@ -64,51 +42,88 @@ export interface Bundle {
   packSize: string;
   category: BundleCategory;
   products: string[];
-  variantIds: string[]; // Real Shopify variant IDs
+  variantIds: string[];
   originalPrice: number;
   salePrice: number;
   savings: number;
   discountPercent: number;
   tagline: string;
-  discountCode: string; // Shopify discount code
+  subline: string;
+  discountCode: string;
   badge?: string;
 }
 
 export const bundles: Bundle[] = [
   {
-    id: 'ultimate-focus-stack',
-    name: 'ULTIMATE FOCUS STACK',
+    id: 'spring-reset',
+    name: 'SPRING RESET',
+    emoji: '🌸',
+    packSize: '4-Pack',
+    category: 'beauty',
+    products: ['Beauty + Collagen', 'Hair, Skin & Nails', 'Probiotic', 'Energy'],
+    variantIds: [shopifyVariants.beautyCollagen, shopifyVariants.hairSkinNails, shopifyVariants.probiotic, shopifyVariants.energy],
+    originalPrice: 139.96,
+    salePrice: 111.97,
+    savings: 27.99,
+    discountPercent: 20,
+    tagline: 'New season. New skin. Same you – just glowing.',
+    subline: 'Spring clean your routine from the inside out.',
+    discountCode: 'SPRING20',
+    badge: 'LIMITED · SPRING EDITION 🌸',
+  },
+  {
+    id: 'night-out-survival-kit',
+    name: 'THE NIGHT OUT SURVIVAL KIT',
+    emoji: '🍾',
+    packSize: '3-Pack',
+    category: 'performance',
+    products: ['Hangover', 'Energy', 'Cognitive Relax'],
+    variantIds: [shopifyVariants.hangover, shopifyVariants.energy, shopifyVariants.cognitiveRelax],
+    originalPrice: 104.97,
+    salePrice: 86.99,
+    savings: 17.98,
+    discountPercent: 17,
+    tagline: "For the night you won't remember and the morning you will.",
+    subline: 'Go out. Come back. Feel human again.',
+    discountCode: 'NIGHTOUT17',
+    badge: 'FAN FAVORITE 🍾',
+  },
+  {
+    id: 'deep-work-stack',
+    name: 'THE DEEP WORK STACK',
     emoji: '🔥',
     packSize: '3-Pack',
     category: 'performance',
-    products: ['Mushroom Focus', 'Energy', 'Libido Support Strips'],
-    variantIds: [shopifyVariants.mushroomFocus, shopifyVariants.energy, shopifyVariants.libidoSupport],
+    products: ['Mushroom Focus', 'Energy', 'Cognitive Relax'],
+    variantIds: [shopifyVariants.mushroomFocus, shopifyVariants.energy, shopifyVariants.cognitiveRelax],
     originalPrice: 104.97,
     salePrice: 84.99,
     savings: 19.98,
     discountPercent: 19,
-    tagline: 'Max Focus + Energy + Drive All Day',
-    discountCode: 'FOCUS19',
-    badge: 'BEST SELLER',
+    tagline: 'Show up sharp. Stay there.',
+    subline: 'For the days when your to-do list has a to-do list.',
+    discountCode: 'DEEPWORK19',
+    badge: 'BEST SELLER 🔥',
   },
   {
-    id: 'athlete-performance',
-    name: 'ATHLETE PERFORMANCE',
+    id: 'before-you-leave',
+    name: 'BEFORE YOU LEAVE THE HOUSE',
     emoji: '⚡',
     packSize: '2-Pack',
     category: 'performance',
-    products: ['Mushroom Focus', 'Energy Strips'],
-    variantIds: [shopifyVariants.mushroomFocus, shopifyVariants.energy],
+    products: ['Energy', 'Mushroom Focus'],
+    variantIds: [shopifyVariants.energy, shopifyVariants.mushroomFocus],
     originalPrice: 69.98,
     salePrice: 59.99,
     savings: 9.99,
     discountPercent: 14,
-    tagline: 'Pre-Workout Focus & Energy Boost',
-    discountCode: 'ATHLETE14',
+    tagline: 'Two strips. Zero excuses.',
+    subline: "The morning routine for people who don't do morning routines.",
+    discountCode: 'READY14',
   },
   {
-    id: 'complete-gut-health',
-    name: 'COMPLETE GUT HEALTH',
+    id: 'gut-feeling',
+    name: 'THE GUT FEELING BUNDLE',
     emoji: '🌿',
     packSize: '4-Pack',
     category: 'wellness',
@@ -118,62 +133,66 @@ export const bundles: Bundle[] = [
     salePrice: 114.99,
     savings: 24.97,
     discountPercent: 18,
-    tagline: 'Full Gut Reset + Nutrient Absorption',
-    discountCode: 'GUT18',
+    tagline: 'Trust it. Finally.',
+    subline: "Built for the girl who bloats on vacation and pretends she doesn't.",
+    discountCode: 'GUTFEELING18',
     badge: 'POPULAR',
   },
   {
-    id: 'daily-wellness',
-    name: 'DAILY WELLNESS',
-    emoji: '💪',
-    packSize: '4-Pack',
-    category: 'wellness',
-    products: ['Bone Support', 'Probiotic', 'Appetite Balance', 'Iron'],
-    variantIds: [shopifyVariants.boneSupport, shopifyVariants.probiotic, shopifyVariants.appetite, shopifyVariants.iron],
-    originalPrice: 129.96,
-    salePrice: 106.99,
-    savings: 22.97,
-    discountPercent: 18,
-    tagline: 'Daily Foundation for Optimal Health',
-    discountCode: 'WELLNESS18',
-  },
-  {
-    id: 'beauty-glow',
-    name: 'BEAUTY GLOW',
+    id: 'glow-protocol',
+    name: 'THE GLOW PROTOCOL',
     emoji: '✨',
     packSize: '3-Pack',
     category: 'beauty',
-    products: ['Beauty Collagen', 'Hair Skin Nails', 'Bone Support'],
+    products: ['Beauty + Collagen', 'Hair, Skin & Nails', 'Bone Support'],
     variantIds: [shopifyVariants.beautyCollagen, shopifyVariants.hairSkinNails, shopifyVariants.boneSupport],
     originalPrice: 94.97,
     salePrice: 76.99,
     savings: 17.98,
     discountPercent: 19,
-    tagline: 'Inside-Out Beauty Transformation',
-    discountCode: 'BEAUTY19',
+    tagline: "Radiance isn't luck. It's a routine.",
+    subline: 'For the version of you that already has her life together.',
+    discountCode: 'GLOW19',
   },
   {
-    id: 'sleep-recover',
-    name: 'SLEEP & RECOVER',
+    id: 'quiet-down',
+    name: 'QUIET DOWN',
     emoji: '😴',
     packSize: '2-Pack',
     category: 'wellness',
-    products: ['Sleep', 'Cognitive Relax Strips'],
+    products: ['Sleep', 'Cognitive Relax'],
     variantIds: [shopifyVariants.sleep, shopifyVariants.cognitiveRelax],
     originalPrice: 69.98,
     salePrice: 59.99,
     savings: 9.99,
     discountPercent: 14,
-    tagline: 'Deep Sleep + Morning Recovery',
-    discountCode: 'SLEEP14',
+    tagline: 'Your brain called. It needs a minute.',
+    subline: 'For overthinkers who crash hard and wake up unrefreshed.',
+    discountCode: 'QUIETDOWN14',
   },
   {
-    id: 'best-value-mega',
-    name: 'BEST VALUE MEGA',
+    id: 'the-foundation',
+    name: 'THE FOUNDATION',
+    emoji: '💪',
+    packSize: '4-Pack',
+    category: 'wellness',
+    products: ['Bone Support', 'Probiotic', 'Iron', 'Appetite Balance'],
+    variantIds: [shopifyVariants.boneSupport, shopifyVariants.probiotic, shopifyVariants.iron, shopifyVariants.appetite],
+    originalPrice: 129.96,
+    salePrice: 106.99,
+    savings: 22.97,
+    discountPercent: 18,
+    tagline: 'The boring stuff that makes everything else work.',
+    subline: 'Not sexy. Just essential. Your body will thank you in 3 months.',
+    discountCode: 'FOUNDATION18',
+  },
+  {
+    id: 'the-full-you',
+    name: 'THE FULL YOU',
     emoji: '🎁',
     packSize: '6-Pack',
     category: 'wellness',
-    products: ['Focus', 'Energy', 'Probiotic', 'Sleep', 'Beauty', 'Iron'],
+    products: ['Mushroom Focus', 'Energy', 'Probiotic', 'Sleep', 'Beauty + Collagen', 'Iron'],
     variantIds: [
       shopifyVariants.mushroomFocus,
       shopifyVariants.energy,
@@ -186,30 +205,9 @@ export const bundles: Bundle[] = [
     salePrice: 169.99,
     savings: 39.95,
     discountPercent: 19,
-    tagline: 'Our Best Deal — 6 Strips, Maximum Savings',
-    discountCode: 'MEGA19',
-    badge: 'BEST VALUE',
-  },
-  {
-    id: 'new-year-reset',
-    name: 'NEW YEAR RESET',
-    emoji: '🍾',
-    packSize: '5-Pack',
-    category: 'performance',
-    products: ['Hangover', 'Sleep', 'Probiotic', 'Energy', 'Mushroom Focus'],
-    variantIds: [
-      shopifyVariants.hangover,
-      shopifyVariants.sleep,
-      shopifyVariants.probiotic,
-      shopifyVariants.energy,
-      shopifyVariants.mushroomFocus,
-    ],
-    originalPrice: 174.95,
-    salePrice: 139.99,
-    savings: 34.96,
-    discountPercent: 20,
-    tagline: 'Party Recovery + Fresh Start 2026',
-    discountCode: 'NEWYEAR20',
-    badge: 'LIMITED',
+    tagline: 'Every part of you, covered.',
+    subline: "For when you're finally ready to stop picking just one thing to fix.",
+    discountCode: 'FULLME19',
+    badge: 'BEST VALUE 🎁',
   },
 ];
