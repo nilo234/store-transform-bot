@@ -162,10 +162,6 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
             </div>
           )}
 
-          {/* Countdown Timer - positioned at bottom of image */}
-          <div className="absolute bottom-4 left-4 bg-background/90 backdrop-blur-sm rounded-lg px-3 py-1.5 shadow-sm">
-            <CountdownTimer />
-          </div>
         </div>
 
         {/* Bundle Name with Emoji */}
