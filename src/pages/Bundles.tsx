@@ -274,7 +274,7 @@ export default function Bundles() {
               </p>
 
               <div className="flex justify-center mb-8">
-                <SocialShareButtons />
+                <SocialShareButtons url={pageUrl} text="Check out these wellness strip bundles from NEUVIE – save up to 20%!" />
               </div>
 
               <div className="flex flex-wrap items-center justify-center gap-4">
