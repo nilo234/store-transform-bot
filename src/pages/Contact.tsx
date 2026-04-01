@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Input } from '@/components/ui/input';
@@ -9,11 +10,12 @@ import { Mail, MessageSquare, Clock, Send, Check, Loader2 } from 'lucide-react';
 import { PageMeta } from '@/components/seo';
 import { toast } from 'sonner';
 import { supabase } from '@/integrations/supabase/client';
+import { SocialShareButtons } from '@/components/seo/SocialShareButtons';
 
 const contactMethods = [
-  { icon: Mail, title: 'Email', description: 'Send us a message anytime', value: 'team@tryneuvie.com' },
-  { icon: MessageSquare, title: 'Live Chat', description: 'Talk to a real person', value: 'Available 9am – 6pm EST' },
-  { icon: Clock, title: 'Response Time', description: 'We typically get back to you within', value: '24 hours' },
+  { icon: Mail, title: 'Email Us', description: 'Send us a message anytime', value: 'team@tryneuvie.com' },
+  { icon: MessageSquare, title: 'Live Chat Support', description: 'Talk to a real person', value: 'Available 9am – 6pm EST' },
+  { icon: Clock, title: 'Average Response Time', description: 'We typically get back to you within', value: '24 hours' },
 ];
 
 export default function Contact() {
@@ -62,8 +64,8 @@ export default function Contact() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="We're Here for You – Contact NEUVIE™"
-        description="Questions about your strips, your order, or anything else? We're real people who genuinely care. Reach out anytime."
+        title="Contact NEUVIE™ – Questions About Our Wellness Strips?"
+        description="Have questions about our dissolving wellness strips, your order, or ingredients? Real people, real answers. Email, chat, or use our contact form."
       />
       <Navbar />
 
@@ -77,7 +79,7 @@ export default function Contact() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
-              We're Here for You
+              Contact Us – We're Here to Help
             </motion.h1>
             <motion.p
               className="text-lg text-muted-foreground max-w-2xl mx-auto"
@@ -85,7 +87,8 @@ export default function Contact() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              Whether it's about your order, our ingredients, or you just want to talk — we're real people who genuinely care about your experience. No scripts, no bots.
+              Whether it's about your wellness strips order, our <Link to="/science" className="text-primary hover:underline">ingredients and science</Link>, 
+              or you just want to talk — we're real people who genuinely care about your experience. No scripts, no bots.
             </motion.p>
           </div>
         </section>
@@ -140,51 +143,22 @@ export default function Contact() {
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label className="text-sm font-medium mb-2 block">Your Name</label>
-                      <Input
-                        placeholder="Jane Doe"
-                        className="h-12 rounded-lg"
-                        value={formData.name}
-                        onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                        required
-                      />
+                      <Input placeholder="Jane Doe" className="h-12 rounded-lg" value={formData.name} onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))} required />
                     </div>
                     <div>
                       <label className="text-sm font-medium mb-2 block">Email Address</label>
-                      <Input
-                        placeholder="jane@example.com"
-                        type="email"
-                        className="h-12 rounded-lg"
-                        value={formData.email}
-                        onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                        required
-                      />
+                      <Input placeholder="jane@example.com" type="email" className="h-12 rounded-lg" value={formData.email} onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))} required />
                     </div>
                   </div>
                   <div>
                     <label className="text-sm font-medium mb-2 block">Subject</label>
-                    <Input
-                      placeholder="What can we help with?"
-                      className="h-12 rounded-lg"
-                      value={formData.subject}
-                      onChange={(e) => setFormData(prev => ({ ...prev, subject: e.target.value }))}
-                    />
+                    <Input placeholder="What can we help with?" className="h-12 rounded-lg" value={formData.subject} onChange={(e) => setFormData(prev => ({ ...prev, subject: e.target.value }))} />
                   </div>
                   <div>
                     <label className="text-sm font-medium mb-2 block">Message</label>
-                    <Textarea
-                      placeholder="Tell us more..."
-                      rows={6}
-                      className="rounded-lg resize-none"
-                      value={formData.message}
-                      onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
-                      required
-                    />
+                    <Textarea placeholder="Tell us more..." rows={6} className="rounded-lg resize-none" value={formData.message} onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))} required />
                   </div>
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full h-14 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-lg text-base shadow-glow"
-                  >
+                  <Button type="submit" disabled={isSubmitting} className="w-full h-14 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-lg text-base shadow-glow">
                     {isSubmitting ? (
                       <Loader2 className="h-5 w-5 animate-spin" />
                     ) : (
@@ -196,6 +170,29 @@ export default function Contact() {
                   </Button>
                 </form>
               )}
+            </motion.div>
+
+            {/* SEO Content + Links */}
+            <motion.div
+              className="mt-12 text-center space-y-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              <p className="text-muted-foreground leading-relaxed">
+                Before reaching out, you might find your answer in our{' '}
+                <Link to="/faqs" className="text-primary hover:underline">frequently asked questions</Link>. 
+                For information about ingredients and dosages, visit our{' '}
+                <Link to="/science" className="text-primary hover:underline">science and transparency page</Link>. 
+                Need help with a return? See our{' '}
+                <Link to="/returns" className="text-primary hover:underline">14-day return policy</Link>.
+              </p>
+
+              <SocialShareButtons 
+                url="https://tryneuvie.com/contact" 
+                text="Got questions about NEUVIE wellness strips? Reach out to their team." 
+                className="justify-center"
+              />
             </motion.div>
           </div>
         </section>
