@@ -4,6 +4,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { FAQJsonLd, PageMeta } from '@/components/seo';
+import { SocialShareButtons } from '@/components/seo/SocialShareButtons';
 
 const faqs = [
   { q: 'How do I take Neuvie strips?', a: 'Place one strip on your tongue and let it dissolve — usually within 30–60 seconds. No water needed. For best results, follow the specific instructions on each product.' },
@@ -26,8 +27,8 @@ export default function FAQs() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="Your Questions, Answered – NEUVIE™ FAQ"
-        description="Everything you want to know about NEUVIE™ dissolving strips. Ingredients, shipping, returns & more. Because you deserve to feel sure."
+        title="FAQs – Dissolving Wellness Strips Questions | NEUVIE™"
+        description="Answers about NEUVIE dissolving strips: ingredients, how they work, shipping, returns & more. Everything you need to feel confident."
       />
       <FAQJsonLd faqs={faqJsonLdData} />
       <Navbar />
@@ -41,7 +42,7 @@ export default function FAQs() {
               style={{ letterSpacing: '-0.02em' }}
               animate={{ opacity: 1, y: 0 }}
             >
-              Your Questions, Answered
+              Frequently Asked Questions About Our Wellness Strips
             </motion.h1>
             <motion.p
               className="text-lg text-muted-foreground max-w-2xl mx-auto"
@@ -49,7 +50,9 @@ export default function FAQs() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              We want you to feel completely confident in what you're putting in your body. If you don't find your answer here, reach out — we're genuinely happy to help.
+              We want you to feel completely confident about our dissolving wellness strips. From ingredients to shipping — 
+              find answers to common questions below, or{' '}
+              <Link to="/contact" className="text-primary hover:underline">reach out to our team</Link> anytime.
             </motion.p>
           </div>
         </section>
@@ -80,20 +83,43 @@ export default function FAQs() {
               </Accordion>
             </motion.div>
 
-            {/* Contact CTA */}
+            {/* SEO Content + Links */}
             <motion.div
-              className="mt-16 text-center bg-secondary/40 rounded-2xl p-8"
+              className="mt-16 bg-card rounded-2xl p-8 border border-border/30 shadow-soft"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
-              <p className="text-muted-foreground mb-4">Still have a question?</p>
-              <Link
-                to="/contact"
-                className="text-accent font-semibold hover:text-primary transition-colors inline-flex items-center gap-1"
-              >
-                Get in touch →
-              </Link>
+              <h2 className="font-display text-xl md:text-2xl mb-4 text-center">Learn More About NEUVIE Wellness Strips</h2>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                NEUVIE's fast-dissolving wellness strips use{' '}
+                <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6390339/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                  oral thin film technology
+                </a>{' '}
+                to deliver vitamins, minerals, and botanical extracts through the oral mucosa — offering up to 5× faster absorption 
+                than traditional pills. Each of our <Link to="/shop" className="text-primary hover:underline">13 dissolving strip formulas</Link> is 
+                clinically dosed with ingredients backed by{' '}
+                <Link to="/science" className="text-primary hover:underline">peer-reviewed scientific research</Link>.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                All products are manufactured in FDA-registered facilities in the USA, are non-GMO, and most are vegan and gluten-free. 
+                Save up to 20% with our <Link to="/bundles" className="text-primary hover:underline">curated wellness bundles</Link>, 
+                enjoy free shipping on orders over $50, and shop with confidence thanks to our{' '}
+                <Link to="/returns" className="text-primary hover:underline">14-day money-back guarantee</Link>.
+              </p>
+
+              <div className="flex flex-col items-center gap-4">
+                <SocialShareButtons 
+                  url="https://tryneuvie.com/faqs" 
+                  text="Got questions about dissolving wellness strips? NEUVIE has answers." 
+                />
+                <Link
+                  to="/contact"
+                  className="text-accent font-semibold hover:text-primary transition-colors inline-flex items-center gap-1"
+                >
+                  Still have a question? Get in touch →
+                </Link>
+              </div>
             </motion.div>
           </div>
         </section>

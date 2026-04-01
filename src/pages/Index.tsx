@@ -16,6 +16,7 @@ import { HomepageFAQs } from '@/components/home/HomepageFAQs';
 import { HowToUse } from '@/components/home/HowToUse';
 import { WhyNeuvieHero } from '@/components/home/WhyNeuvieHero';
 import { WhyNeuvie } from '@/components/home/WhyNeuvie';
+import { SocialShareButtons } from '@/components/seo/SocialShareButtons';
 
 // ─── DATA ──────────────────────────────────────────────
 const trustBar = [
@@ -101,7 +102,11 @@ export default function Index() {
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
                   One strip. 30 seconds. No water, no pills — just a simple daily ritual 
                   that says: <em className="text-foreground font-medium not-italic">I'm worth it.</em>{' '}
-                  Explore our <Link to="/shop" className="text-primary underline hover:text-primary/80">wellness strips</Link>, backed by <Link to="/science" className="text-primary underline hover:text-primary/80">science</Link>.
+                  Our fast-dissolving wellness strips deliver clinically studied ingredients with up to{' '}
+                  <a href="https://pubmed.ncbi.nlm.nih.gov/23550999/" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80">
+                    5× faster absorption
+                  </a>{' '}
+                  than traditional pills.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-8">
@@ -111,9 +116,9 @@ export default function Index() {
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>
-                  <Link to="/shop">
+                  <Link to="/science">
                     <Button variant="outline" className="w-full sm:w-auto h-14 px-10 text-base font-semibold rounded-xl border-2 border-primary/20 text-foreground hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all">
-                      Explore What Fits You
+                      See the Science
                     </Button>
                   </Link>
                 </div>
@@ -125,7 +130,7 @@ export default function Index() {
                   </span>
                   <span className="flex items-center gap-1.5">
                     <Check className="h-4 w-4 text-primary" />
-                    Free shipping on $50+
+                    Free shipping on orders $50+
                   </span>
                 </div>
               </motion.div>
@@ -142,7 +147,7 @@ export default function Index() {
                   <div className="relative aspect-square rounded-[2rem] overflow-hidden shadow-elevated">
                     <img
                       src={productsLineup}
-                      alt="Neuvie wellness strips lineup — Beauty, Sleep, Energy, Hair Skin & Nails, Libido Support"
+                      alt="NEUVIE fast-dissolving wellness strips lineup — Energy, Sleep, Beauty, Focus and Gut Health supplements"
                       className="w-full h-full object-cover"
                       loading="eager"
                     />
@@ -215,7 +220,7 @@ export default function Index() {
             <motion.div className="text-center mt-12" {...fadeUp}>
               <Link to="/shop">
                 <Button variant="outline" className="h-13 px-8 text-sm font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-xl">
-                  Find what's right for you →
+                  Browse All 13 Wellness Strips →
                 </Button>
               </Link>
             </motion.div>
@@ -320,6 +325,68 @@ export default function Index() {
             8. FAQs
         ═══════════════════════════════════════════════ */}
         <HomepageFAQs />
+
+        {/* ═══════════════════════════════════════════════
+            9. SEO CONTENT + SOCIAL SHARING
+        ═══════════════════════════════════════════════ */}
+        <section className="py-16 md:py-20 bg-card border-t border-border/30">
+          <div className="container-wide max-w-4xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <h2 className="font-display text-2xl md:text-3xl text-center mb-6">
+                What Are Fast-Dissolving Wellness Strips?
+              </h2>
+              <div className="grid md:grid-cols-2 gap-8 text-muted-foreground leading-relaxed">
+                <div>
+                  <p className="mb-4">
+                    NEUVIE wellness strips are thin, fast-dissolving oral strips that deliver vitamins, minerals, and 
+                    botanical extracts directly through the oral mucosa. Unlike traditional pills and capsules that must 
+                    pass through your digestive system, dissolving strips provide a more efficient delivery method — with 
+                    up to 5× faster absorption according to{' '}
+                    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6390339/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                      published research on oral thin films
+                    </a>.
+                  </p>
+                  <p>
+                    Each strip dissolves on your tongue in about 30 seconds — no water needed. Our collection includes 
+                    13 unique formulas covering <Link to="/shop" className="text-primary hover:underline">energy and focus</Link>, 
+                    sleep and relaxation, beauty and collagen, gut health and digestion, and essential daily vitamins. 
+                    Every formula is clinically dosed with ingredients backed by{' '}
+                    <Link to="/science" className="text-primary hover:underline">peer-reviewed scientific research</Link>.
+                  </p>
+                </div>
+                <div>
+                  <p className="mb-4">
+                    NEUVIE strips are manufactured in{' '}
+                    <a href="https://www.fda.gov/food/registration-food-facilities-and-other-submissions/registration-food-facilities" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                      FDA-registered facilities
+                    </a>{' '}
+                    in the United States and independently verified by third-party labs for purity, potency, and safety. 
+                    Every ingredient is non-GMO, and most formulas are vegan and gluten-free.
+                  </p>
+                  <p>
+                    Whether you're looking for a morning energy boost without the coffee jitters, a calming bedtime ritual, 
+                    or daily beauty support from the inside out — our dissolving wellness strips make self-care fit into 
+                    your real life. Explore our <Link to="/bundles" className="text-primary hover:underline">curated bundles</Link> to 
+                    save up to 20%, or <Link to="/contact" className="text-primary hover:underline">contact our team</Link> for 
+                    personalized recommendations.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex justify-center pt-6">
+                <SocialShareButtons 
+                  url="https://tryneuvie.com" 
+                  text="NEUVIE – Fast-dissolving wellness strips for energy, sleep & beauty. 5× faster absorption than pills." 
+                />
+              </div>
+            </motion.div>
+          </div>
+        </section>
 
       </main>
 
