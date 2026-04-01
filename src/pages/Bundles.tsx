@@ -24,41 +24,7 @@ const categoryFilters: { id: BundleCategory; label: string; icon: React.ReactNod
   { id: 'beauty', label: 'Beauty', icon: <Heart className="h-4 w-4" />, count: bundles.filter(b => b.category === 'beauty').length },
 ];
 
-function SocialShareButtons() {
-  const shareText = 'Check out these wellness strip bundles from NEUVIE – save up to 20%!';
-  return (
-    <div className="flex items-center gap-3">
-      <span className="text-sm text-muted-foreground font-medium">Share:</span>
-      <a
-        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-muted/60 hover:bg-primary/10 text-muted-foreground hover:text-primary transition-colors"
-        aria-label="Share on Facebook"
-      >
-        <Facebook className="h-4 w-4" />
-      </a>
-      <a
-        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(shareText)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-muted/60 hover:bg-primary/10 text-muted-foreground hover:text-primary transition-colors"
-        aria-label="Share on X (Twitter)"
-      >
-        <Twitter className="h-4 w-4" />
-      </a>
-      <a
-        href={`https://pinterest.com/pin/create/button/?url=${encodeURIComponent(pageUrl)}&description=${encodeURIComponent(shareText)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-muted/60 hover:bg-primary/10 text-muted-foreground hover:text-primary transition-colors"
-        aria-label="Share on Pinterest"
-      >
-        <Share2 className="h-4 w-4" />
-      </a>
-    </div>
-  );
-}
+
 
 export default function Bundles() {
   const [searchParams, setSearchParams] = useSearchParams();
