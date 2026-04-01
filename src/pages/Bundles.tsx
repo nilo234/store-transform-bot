@@ -1,13 +1,14 @@
 import { useState, useMemo } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Sparkles, Zap, Heart, Leaf, Share2, Facebook, Twitter } from 'lucide-react';
+import { Sparkles, Zap, Heart, Leaf } from 'lucide-react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { BundleCard } from '@/components/shop/BundleCard';
 import { bundles, BundleCategory } from '@/data/bundles';
 import { cn } from '@/lib/utils';
 import { PageMeta } from '@/components/seo';
+import { SocialShareButtons } from '@/components/seo/SocialShareButtons';
 
 const SEO = {
   title: 'Wellness Strip Bundles – Save Up to 20% | NEUVIE™',
