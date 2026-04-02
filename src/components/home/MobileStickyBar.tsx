@@ -29,8 +29,8 @@ export function MobileStickyBar() {
   if (!variant) return null;
 
   const price = parseFloat(variant.price.amount);
-  const compareAt = product.node.compareAtPriceRange?.maxVariantPrice
-    ? parseFloat(product.node.compareAtPriceRange.maxVariantPrice.amount)
+  const compareAt = (product.node as any).compareAtPriceRange?.maxVariantPrice
+    ? parseFloat((product.node as any).compareAtPriceRange.maxVariantPrice.amount)
     : null;
 
   const handleBuy = async () => {
