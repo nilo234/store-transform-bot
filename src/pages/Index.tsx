@@ -45,6 +45,8 @@ const featuredBundles = bundles.filter(b =>
 export default function Index() {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const addItem = useCartStore((s) => s.addItem);
+  const setCartOpen = useCartStore((s) => s.setOpen);
 
   useEffect(() => {
     async function loadProducts() {
