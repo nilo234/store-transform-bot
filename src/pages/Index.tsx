@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import productsLineup from '@/assets/neuvie-products-lineup.png';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Star, Check, ChevronRight, Leaf, ShieldCheck, FlaskConical, Flag } from 'lucide-react';
+import { ArrowRight, Star, Check, ChevronRight, Leaf, ShieldCheck, FlaskConical, Flag, ShoppingCart } from 'lucide-react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 
@@ -14,7 +14,6 @@ import { bundles } from '@/data/bundles';
 import { PageMeta } from '@/components/seo';
 import { HomepageFAQs } from '@/components/home/HomepageFAQs';
 import { HowToUse } from '@/components/home/HowToUse';
-import { WhyNeuvieHero } from '@/components/home/WhyNeuvieHero';
 import { WhyNeuvie } from '@/components/home/WhyNeuvie';
 import { SocialShareButtons } from '@/components/seo/SocialShareButtons';
 import { HeroTrustBar } from '@/components/home/HeroTrustBar';
@@ -23,19 +22,12 @@ import { StickyMobileCTA } from '@/components/home/StickyMobileCTA';
 import { PaymentTrustStrip } from '@/components/home/PaymentTrustStrip';
 
 // ─── DATA ──────────────────────────────────────────────
-const trustBar = [
-  { icon: Leaf, label: 'Non-GMO' },
-  { icon: ShieldCheck, label: 'Third-Party Tested' },
-  { icon: FlaskConical, label: 'Clinically Dosed' },
-  { icon: Flag, label: 'Made in USA' },
-];
-
 const reviews = [
-  { id: '1', name: 'Sarah M.', text: "I replaced my morning coffee with the Energy Strip. No crash, no jitters — just clean focus that lasts until lunch. I didn't expect to feel this different.", rating: 5, product: 'Energy Strips', timeAgo: '2 weeks ago' },
-  { id: '2', name: 'James R.', text: "The Focus Strip is part of my morning now. Meetings feel sharper, I'm not reaching for another espresso by 2pm. Genuinely surprised how well it works.", rating: 5, product: 'Mushroom Focus', timeAgo: '1 month ago' },
+  { id: '1', name: 'Sarah M.', text: "I used to forget my vitamins every single day. Now it's literally 3 seconds — strip on tongue, done. My energy is noticeably better by week two.", rating: 5, product: 'Energy Strips', timeAgo: '2 weeks ago' },
+  { id: '2', name: 'Jess T.', text: "Found NEUVIE on TikTok and honestly thought it was too good to be true. But my sleep is SO much better. I fall asleep in like 15 minutes now.", rating: 5, product: 'Sleep Strips', timeAgo: '1 week ago' },
   { id: '3', name: 'Emily K.', text: "My nails were always brittle and breaking. After 6 weeks on Hair, Skin & Nails strips, they're noticeably stronger. My hairdresser even commented on my hair.", rating: 5, product: 'Hair, Skin & Nails', timeAgo: '3 weeks ago' },
-  { id: '4', name: 'Michael T.', text: "I've tried melatonin gummies, teas, everything. The Sleep Strip is the first thing that actually helps me fall asleep in under 20 minutes. Game-changer.", rating: 5, product: 'Sleep Strips', timeAgo: '1 week ago' },
-  { id: '5', name: 'Lisa P.', text: "I love that I don't have to think about it. One strip on my tongue, done. No water, no pills. It's the easiest healthy habit I've ever built.", rating: 5, product: 'Cognitive Relax', timeAgo: '2 weeks ago' },
+  { id: '4', name: 'Aaliyah R.', text: "I'm not a pill person. Never have been. These strips actually make me WANT to take my supplements. The taste is good and I can feel the difference.", rating: 5, product: 'Daily Multivitamin', timeAgo: '1 month ago' },
+  { id: '5', name: 'Lisa P.', text: "Bought the Beauty Bundle for my bestie's birthday and she texted me three days later asking where I got them. Now we're both subscribed 💛", rating: 5, product: 'Beauty Bundle', timeAgo: '2 weeks ago' },
 ];
 
 const featuredBundles = bundles.filter(b =>
@@ -74,13 +66,13 @@ export default function Index() {
       <main className="flex-1">
 
         {/* ═══════════════════════════════════════════════
-            1. HERO — Benefit-Driven + Urgency
+            1. HERO — Emotional, Identity-Driven for Women 18-44
         ═══════════════════════════════════════════════ */}
         <section className="relative overflow-hidden">
           <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
 
-          <div className="container-wide relative z-10 py-20 md:py-28 lg:py-36">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="container-wide relative z-10 py-16 md:py-24 lg:py-32">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
               {/* Copy */}
               <motion.div
@@ -94,51 +86,67 @@ export default function Index() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-6"
+                  className="inline-flex items-center gap-2 bg-accent/15 text-accent px-4 py-2 rounded-full mb-5"
                 >
-                  <span className="text-sm font-semibold">⚡ Save 20% — Subscribe & Auto-Refill Today</span>
+                  <span className="text-sm font-semibold">🔥 Trending — Save 20% on Your First Order</span>
                 </motion.div>
 
-                <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-7xl leading-[1.08] mb-6">
-                  Stop Swallowing Pills You Keep Forgetting.{' '}
-                  <span className="block italic text-accent mt-2">Start a 30-second ritual that actually works.</span>
+                <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-6xl leading-[1.08] mb-5">
+                  Your wellness routine{' '}
+                  <span className="italic text-accent">shouldn't feel like a chore.</span>
                 </h1>
 
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-                  NEUVIE wellness strips dissolve on your tongue in seconds — delivering clinically dosed vitamins with up to{' '}
-                  <a href="https://pubmed.ncbi.nlm.nih.gov/23550999/" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80">
-                    5× faster absorption
-                  </a>{' '}
-                  than traditional capsules. No water. No routine to maintain. Just results you can feel.
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0">
+                  Dissolving vitamin strips that taste good, work fast, and fit in your bag. 
+                  No pills. No water. Just place on your tongue and go.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-5">
+                <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-4">
                   <Link to="/shop">
                     <Button className="w-full sm:w-auto h-14 px-10 text-base font-semibold rounded-xl group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-elevated transition-all">
-                      Get Yours Now
+                      Shop Best Sellers
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>
-                  <Link to="/science">
+                  <Link to="/bundles">
                     <Button variant="outline" className="w-full sm:w-auto h-14 px-10 text-base font-semibold rounded-xl border-2 border-primary/20 text-foreground hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all">
-                      See the Science
+                      Build a Bundle — Save 20%
                     </Button>
                   </Link>
                 </div>
 
-                {/* Social proof line */}
-                <p className="text-sm text-muted-foreground mb-6 text-center lg:text-left">
-                  ✨ Join <strong className="text-foreground">10,000+</strong> customers who made wellness effortless.
-                </p>
+                {/* Social proof */}
+                <div className="flex items-center gap-3 justify-center lg:justify-start mb-5">
+                  <div className="flex -space-x-2">
+                    {['S', 'J', 'E', 'A'].map((initial, i) => (
+                      <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-accent/30 to-primary/30 border-2 border-background flex items-center justify-center">
+                        <span className="text-[10px] font-bold text-primary">{initial}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    <div className="flex items-center gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="h-3.5 w-3.5 fill-accent text-accent" />
+                      ))}
+                      <span className="ml-1 font-semibold text-foreground">4.9</span>
+                    </div>
+                    <span>from 2,400+ happy customers</span>
+                  </div>
+                </div>
 
-                <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-sm text-muted-foreground">
+                <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground justify-center lg:justify-start">
                   <span className="flex items-center gap-1.5">
                     <Check className="h-4 w-4 text-primary" />
-                    14-day money-back guarantee
+                    Free shipping $50+
                   </span>
                   <span className="flex items-center gap-1.5">
                     <Check className="h-4 w-4 text-primary" />
-                    Free shipping on orders $50+
+                    14-day money back
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <Check className="h-4 w-4 text-primary" />
+                    Made in USA
                   </span>
                 </div>
               </motion.div>
@@ -150,7 +158,7 @@ export default function Index() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
               >
-                <div className="relative mx-auto max-w-[380px] sm:max-w-[500px] lg:max-w-[580px]">
+                <div className="relative mx-auto max-w-[340px] sm:max-w-[460px] lg:max-w-[540px]">
                   <div className="absolute inset-0 bg-accent/10 rounded-[2rem] rotate-3 scale-[1.02]" />
                   <div className="relative aspect-square rounded-[2rem] overflow-hidden shadow-elevated">
                     <img
@@ -165,38 +173,26 @@ export default function Index() {
             </div>
 
             {/* Hero Trust Bar */}
-            <div className="mt-16 md:mt-20 pt-8 border-t border-border/40">
+            <div className="mt-12 md:mt-16 pt-6 border-t border-border/40">
               <HeroTrustBar />
             </div>
           </div>
         </section>
 
         {/* ═══════════════════════════════════════════════
-            2. WHY NEUVIE — Bold Differentiation
+            2. BESTSELLERS — Immediately After Hero
         ═══════════════════════════════════════════════ */}
-        <WhyNeuvieHero />
-
-        {/* ═══════════════════════════════════════════════
-            2b. OUTCOME BENEFITS — What Changes
-        ═══════════════════════════════════════════════ */}
-        <OutcomeBenefits />
-
-        {/* ═══════════════════════════════════════════════
-            3. HOW TO USE — The Ritual
-        ═══════════════════════════════════════════════ */}
-        <HowToUse />
-
-        {/* ═══════════════════════════════════════════════
-            4. BESTSELLERS
-        ═══════════════════════════════════════════════ */}
-        <section className="py-20 md:py-28 bg-secondary/40">
+        <section className="py-16 md:py-24 bg-secondary/40">
           <div className="container-wide">
-            <motion.div className="text-center mb-12 md:mb-16" {...fadeUp}>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-4">
-                The ones people keep coming back to.
+            <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
+              <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-accent mb-3">
+                MOST POPULAR
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-3">
+                What everyone's adding to their routine
               </h2>
               <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-                Not because they have to — because it became the part of their day they actually look forward to.
+                Our top-rated strips — starting at just $0.83/day.
               </p>
             </motion.div>
 
@@ -219,32 +215,25 @@ export default function Index() {
               </div>
             )}
 
-            <motion.div className="text-center mt-12" {...fadeUp}>
+            <motion.div className="text-center mt-10" {...fadeUp}>
               <Link to="/shop">
-                <Button variant="outline" className="h-13 px-8 text-sm font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-xl">
-                  Browse All 13 Wellness Strips →
+                <Button className="h-13 px-8 text-sm font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90">
+                  Browse All 13 Strips
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
             </motion.div>
-
-            {/* Payment & Security Badges */}
-            <PaymentTrustStrip />
           </div>
         </section>
 
         {/* ═══════════════════════════════════════════════
-            5. WHY NEUVIE — Deep Dive (Quality + Science)
+            3. SOCIAL PROOF — Reviews (before explanation)
         ═══════════════════════════════════════════════ */}
-        <WhyNeuvie />
-
-        {/* ═══════════════════════════════════════════════
-            6. SOCIAL PROOF — Reviews
-        ═══════════════════════════════════════════════ */}
-        <section className="py-20 md:py-28 bg-background overflow-hidden">
+        <section className="py-16 md:py-24 bg-background overflow-hidden">
           <div className="container-wide">
-            <motion.div className="text-center mb-12 md:mb-16" {...fadeUp}>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-4">
-                From people who decided they're worth it.
+            <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-3">
+                Real people. Real results.
               </h2>
               <div className="flex items-center justify-center gap-3 mb-2">
                 <div className="flex">
@@ -252,7 +241,7 @@ export default function Index() {
                     <Star key={i} className="h-5 w-5 fill-accent text-accent" />
                   ))}
                 </div>
-                <span className="text-sm text-muted-foreground font-medium">4.9 out of 5 — from 2,400+ verified reviews</span>
+                <span className="text-sm text-muted-foreground font-medium">4.9/5 — 2,400+ verified reviews</span>
               </div>
             </motion.div>
           </div>
@@ -263,20 +252,20 @@ export default function Index() {
               {reviews.map((review, i) => (
                 <motion.div
                   key={review.id}
-                  className="flex-shrink-0 w-[320px] md:w-[400px] snap-start"
+                  className="flex-shrink-0 w-[300px] md:w-[380px] snap-start"
                   {...fadeUp}
                   transition={{ delay: i * 0.08 }}
                 >
-                  <div className="bg-card rounded-2xl p-7 h-full border border-border/30 shadow-soft hover:shadow-card transition-all duration-500">
-                    <div className="flex gap-0.5 mb-4">
+                  <div className="bg-card rounded-2xl p-6 h-full border border-border/30 shadow-soft hover:shadow-card transition-all duration-500">
+                    <div className="flex gap-0.5 mb-3">
                       {[...Array(review.rating)].map((_, j) => (
                         <Star key={j} className="h-4 w-4 fill-accent text-accent" />
                       ))}
                     </div>
-                    <p className="text-foreground leading-relaxed mb-4">"{review.text}"</p>
-                    <p className="text-xs text-muted-foreground mb-4">{review.timeAgo}</p>
-                    <div className="flex items-center gap-3 pt-4 border-t border-border/30">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
+                    <p className="text-foreground text-sm leading-relaxed mb-3">"{review.text}"</p>
+                    <p className="text-xs text-muted-foreground mb-3">{review.timeAgo}</p>
+                    <div className="flex items-center gap-3 pt-3 border-t border-border/30">
+                      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
                         <span className="text-sm font-bold text-primary">{review.name.charAt(0)}</span>
                       </div>
                       <div>
@@ -294,19 +283,42 @@ export default function Index() {
             <div className="absolute left-0 top-0 bottom-4 w-12 bg-gradient-to-r from-background to-transparent pointer-events-none" />
             <div className="absolute right-0 top-0 bottom-4 w-12 bg-gradient-to-l from-background to-transparent pointer-events-none" />
           </div>
+
+          {/* Review CTA */}
+          <div className="container-wide text-center mt-8">
+            <Link to="/shop">
+              <Button variant="outline" className="h-12 px-8 text-sm font-semibold rounded-xl border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                Find Your Strip
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
         </section>
 
         {/* ═══════════════════════════════════════════════
-            7. BUNDLES — Value / Upsell
+            4. HOW TO USE — The Ritual (keep it short)
         ═══════════════════════════════════════════════ */}
-        <section className="py-20 md:py-28 bg-secondary/40">
+        <HowToUse />
+
+        {/* ═══════════════════════════════════════════════
+            5. OUTCOME BENEFITS — What Changes
+        ═══════════════════════════════════════════════ */}
+        <OutcomeBenefits />
+
+        {/* ═══════════════════════════════════════════════
+            6. BUNDLES — Value / Upsell
+        ═══════════════════════════════════════════════ */}
+        <section className="py-16 md:py-24 bg-secondary/40">
           <div className="container-wide">
-            <motion.div className="text-center mb-12 md:mb-16" {...fadeUp}>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-4">
-                Your routine, your way.
+            <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
+              <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-accent mb-3">
+                SAVE MORE
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-3">
+                Build your daily routine — save up to 20%
               </h2>
               <p className="text-muted-foreground text-lg max-w-lg mx-auto">
-                Combine the strips that match your life. Save more when you bundle.
+                Our curated bundles pair the strips that work best together.
               </p>
             </motion.div>
 
@@ -316,7 +328,7 @@ export default function Index() {
               ))}
             </div>
 
-            <motion.div className="mt-12 text-center" {...fadeUp}>
+            <motion.div className="mt-10 text-center" {...fadeUp}>
               <Link to="/bundles">
                 <Button variant="outline" className="h-13 px-8 text-sm font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-xl">
                   View All Bundles
@@ -328,12 +340,46 @@ export default function Index() {
         </section>
 
         {/* ═══════════════════════════════════════════════
+            7. WHY NEUVIE — Deep Dive (Quality + Science)
+        ═══════════════════════════════════════════════ */}
+        <WhyNeuvie />
+
+        {/* ═══════════════════════════════════════════════
             8. FAQs
         ═══════════════════════════════════════════════ */}
         <HomepageFAQs />
 
         {/* ═══════════════════════════════════════════════
-            9. SEO CONTENT + SOCIAL SHARING
+            FINAL CTA — Last Chance Before Footer
+        ═══════════════════════════════════════════════ */}
+        <section className="py-16 md:py-24 bg-primary text-primary-foreground">
+          <div className="container-wide text-center max-w-2xl">
+            <motion.div {...fadeUp}>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-4">
+                Ready to feel the difference?
+              </h2>
+              <p className="text-primary-foreground/70 text-lg mb-8 max-w-md mx-auto">
+                Join thousands of women who replaced their pill bottles with something better. Free shipping on orders $50+.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Link to="/shop">
+                  <Button className="h-14 px-10 text-base font-semibold rounded-xl bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg">
+                    <ShoppingCart className="mr-2 h-4 w-4" />
+                    Shop Now
+                  </Button>
+                </Link>
+                <Link to="/bundles">
+                  <Button variant="outline" className="h-14 px-10 text-base font-semibold rounded-xl border-2 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+                    Save 20% With a Bundle
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════
+            SEO CONTENT + SOCIAL SHARING
         ═══════════════════════════════════════════════ */}
         <section className="py-16 md:py-20 bg-card border-t border-border/30">
           <div className="container-wide max-w-4xl">
@@ -383,6 +429,9 @@ export default function Index() {
                   </p>
                 </div>
               </div>
+
+              {/* Payment & Security Badges */}
+              <PaymentTrustStrip />
 
               <div className="flex justify-center pt-6">
                 <SocialShareButtons 
