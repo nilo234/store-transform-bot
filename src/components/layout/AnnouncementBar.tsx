@@ -9,7 +9,7 @@ interface AnnouncementBarProps {
 }
 
 export function AnnouncementBar({
-  message = "Your body deserves the best — free US shipping on $50+",
+  message = "⚡ Limited Time — Save 20% When You Subscribe Today",
   linkText = "Start your ritual",
   linkHref = "/shop",
 }: AnnouncementBarProps) {
