@@ -17,6 +17,9 @@ import { HowToUse } from '@/components/home/HowToUse';
 import { WhyNeuvieHero } from '@/components/home/WhyNeuvieHero';
 import { WhyNeuvie } from '@/components/home/WhyNeuvie';
 import { SocialShareButtons } from '@/components/seo/SocialShareButtons';
+import { MobileSocialProof } from '@/components/home/MobileSocialProof';
+import { MobileStickyBar } from '@/components/home/MobileStickyBar';
+import { useCartStore } from '@/stores/cartStore';
 
 // ─── DATA ──────────────────────────────────────────────
 const trustBar = [
