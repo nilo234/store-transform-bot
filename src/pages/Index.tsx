@@ -78,55 +78,72 @@ export default function Index() {
         <section className="relative overflow-hidden">
           <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
 
-          <div className="container-wide relative z-10 py-20 md:py-28 lg:py-36">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="container-wide relative z-10 py-8 md:py-28 lg:py-36">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-20 items-center">
 
-              {/* Copy */}
+              {/* Copy — mobile-first, CTA above fold */}
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: 'easeOut' }}
+                transition={{ duration: 0.4, ease: 'easeOut' }}
                 className="order-2 lg:order-1 text-center lg:text-left"
               >
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-6"
-                >
-                  <span className="text-sm font-semibold">✨ Loved by 2,400+ people</span>
-                </motion.div>
+                <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-3 py-1.5 rounded-full mb-3 md:mb-6">
+                  <span className="text-xs md:text-sm font-semibold">⭐ 4.9/5 – Über 1.200 Bewertungen</span>
+                </div>
 
-                <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-7xl leading-[1.08] mb-6">
-                  Fast-Dissolving Wellness Strips.{' '}
-                  <span className="block italic text-accent mt-2">Your daily ritual for energy, sleep & beauty.</span>
+                <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-7xl leading-[1.08] mb-3 md:mb-6">
+                  Wellness Strips.{' '}
+                  <span className="block italic text-accent mt-1 md:mt-2">Lösen sich in Sekunden auf.</span>
                 </h1>
 
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-                  One strip. 30 seconds. No water, no pills — just a simple daily ritual 
-                  that says: <em className="text-foreground font-medium not-italic">I'm worth it.</em>{' '}
-                  Our fast-dissolving wellness strips deliver clinically studied ingredients with up to{' '}
+                <p className="text-sm md:text-lg text-muted-foreground leading-relaxed mb-4 md:mb-8 max-w-xl mx-auto lg:mx-0">
+                  Ein Strip. 30 Sekunden. Keine Pillen, kein Wasser — bis zu{' '}
                   <a href="https://pubmed.ncbi.nlm.nih.gov/23550999/" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80">
-                    5× faster absorption
-                  </a>{' '}
-                  than traditional pills.
+                    5× schnellere Aufnahme
+                  </a>.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-8">
-                  <Link to="/shop">
-                    <Button className="w-full sm:w-auto h-14 px-10 text-base font-semibold rounded-xl group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-elevated transition-all">
-                      Start Your Ritual
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Button>
-                  </Link>
-                  <Link to="/science">
+                {/* Primary CTA — high contrast, above fold */}
+                <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-3 md:mb-4">
+                  <Button
+                    onClick={async () => {
+                      if (products.length > 0) {
+                        const p = products[0];
+                        const v = p.node.variants.edges[0]?.node;
+                        if (v) {
+                          await addItem({
+                            product: p,
+                            variantId: v.id,
+                            variantTitle: v.title,
+                            price: v.price,
+                            quantity: 1,
+                            selectedOptions: v.selectedOptions || [],
+                          });
+                          setCartOpen(true);
+                        }
+                      }
+                    }}
+                    className="w-full sm:w-auto h-14 px-10 text-base font-bold rounded-xl shadow-lg hover:shadow-elevated transition-all text-white"
+                    style={{ background: '#FF4D6D' }}
+                  >
+                    Shop Now – Bestseller
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                  <Link to="/shop" className="hidden md:block">
                     <Button variant="outline" className="w-full sm:w-auto h-14 px-10 text-base font-semibold rounded-xl border-2 border-primary/20 text-foreground hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all">
-                      See the Science
+                      Alle Strips ansehen
                     </Button>
                   </Link>
                 </div>
 
-                <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-sm text-muted-foreground">
+                {/* Urgency */}
+                <div className="flex items-center justify-center lg:justify-start gap-2 text-sm font-semibold text-destructive mb-4 md:mb-6">
+                  <span>⚡ Nur noch 12 Stück verfügbar – Heute versandfertig</span>
+                </div>
+
+                {/* Trust signals — compact for mobile */}
+                <div className="hidden md:flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-sm text-muted-foreground">
                   <span className="flex items-center gap-1.5">
                     <Check className="h-4 w-4 text-primary" />
                     14-day money-back guarantee
@@ -138,16 +155,20 @@ export default function Index() {
                 </div>
               </motion.div>
 
-              {/* Hero Image */}
+              {/* Hero Image — smaller on mobile to keep CTA above fold */}
               <motion.div
                 className="order-1 lg:order-2"
-                initial={{ opacity: 0, scale: 0.93 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+                transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
               >
-                <div className="relative mx-auto max-w-[380px] sm:max-w-[500px] lg:max-w-[580px]">
+                <div className="relative mx-auto max-w-[220px] sm:max-w-[500px] lg:max-w-[580px]">
                   <div className="absolute inset-0 bg-accent/10 rounded-[2rem] rotate-3 scale-[1.02]" />
-                  <div className="relative aspect-square rounded-[2rem] overflow-hidden shadow-elevated">
+                  <div className="relative rounded-[2rem] overflow-hidden shadow-elevated">
+                    {/* Bestseller Badge */}
+                    <div className="absolute top-3 left-3 z-10 px-3 py-1 bg-accent text-accent-foreground text-xs font-bold rounded-full shadow-md">
+                      🔥 Meistverkauft
+                    </div>
                     <img
                       src={productsLineup}
                       alt="NEUVIE fast-dissolving wellness strips lineup — Energy, Sleep, Beauty, Focus and Gut Health supplements"
@@ -159,9 +180,9 @@ export default function Index() {
               </motion.div>
             </div>
 
-            {/* Trust Bar */}
+            {/* Trust Bar — hidden on mobile (shown in MobileSocialProof) */}
             <motion.div
-              className="mt-16 md:mt-20 pt-8 border-t border-border/40"
+              className="hidden md:block mt-16 md:mt-20 pt-8 border-t border-border/40"
               {...fadeUp}
               transition={{ delay: 0.4 }}
             >
@@ -176,6 +197,11 @@ export default function Index() {
             </motion.div>
           </div>
         </section>
+
+        {/* ═══════════════════════════════════════════════
+            1.5 MOBILE SOCIAL PROOF — immediately below hero
+        ═══════════════════════════════════════════════ */}
+        <MobileSocialProof />
 
         {/* ═══════════════════════════════════════════════
             2. WHY NEUVIE — Bold Differentiation
