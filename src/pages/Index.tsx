@@ -422,6 +422,11 @@ export default function Index() {
       </main>
 
       <Footer />
+      
+      {/* Mobile Sticky CTA Bar */}
+      <MobileStickyBar />
+      {/* Bottom padding for sticky bar on mobile */}
+      <div className="h-16 md:hidden" />
     </div>
   );
 }
