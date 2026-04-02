@@ -17,6 +17,10 @@ import { HowToUse } from '@/components/home/HowToUse';
 import { WhyNeuvieHero } from '@/components/home/WhyNeuvieHero';
 import { WhyNeuvie } from '@/components/home/WhyNeuvie';
 import { SocialShareButtons } from '@/components/seo/SocialShareButtons';
+import { HeroTrustBar } from '@/components/home/HeroTrustBar';
+import { OutcomeBenefits } from '@/components/home/OutcomeBenefits';
+import { StickyMobileCTA } from '@/components/home/StickyMobileCTA';
+import { PaymentTrustStrip } from '@/components/home/PaymentTrustStrip';
 
 // ─── DATA ──────────────────────────────────────────────
 const trustBar = [
@@ -27,11 +31,11 @@ const trustBar = [
 ];
 
 const reviews = [
-  { id: '1', name: 'Sarah M.', text: "I started taking the Energy Strips because I wanted to stop relying on coffee. What I didn't expect was how much better I'd feel about actually doing something for myself every morning.", rating: 5, product: 'Energy Strips' },
-  { id: '2', name: 'James R.', text: "It's not even about the focus anymore. It's the fact that I take 30 seconds every day and it's mine. The Mushroom Focus just happens to make everything after that a little sharper.", rating: 5, product: 'Mushroom Focus' },
-  { id: '3', name: 'Emily K.', text: "I've always put everyone else first. The Hair, Skin & Nails Strips became the first thing I do just for me. My nails are stronger, my skin is clearer — but honestly, it's the feeling that changed.", rating: 5, product: 'Hair, Skin & Nails' },
-  { id: '4', name: 'Michael T.', text: "I used to feel guilty for taking time for myself. Now I take a Sleep Strip, and it's like telling my body: you did enough today. Rest now. That shift changed everything.", rating: 5, product: 'Sleep Strips' },
-  { id: '5', name: 'Lisa P.', text: "I didn't buy these because someone told me to. I bought them because I looked in the mirror and thought — I'm worth taking care of. Three months later, I still feel that way.", rating: 5, product: 'Cognitive Relax' },
+  { id: '1', name: 'Sarah M.', text: "I replaced my morning coffee with the Energy Strip. No crash, no jitters — just clean focus that lasts until lunch. I didn't expect to feel this different.", rating: 5, product: 'Energy Strips', timeAgo: '2 weeks ago' },
+  { id: '2', name: 'James R.', text: "The Focus Strip is part of my morning now. Meetings feel sharper, I'm not reaching for another espresso by 2pm. Genuinely surprised how well it works.", rating: 5, product: 'Mushroom Focus', timeAgo: '1 month ago' },
+  { id: '3', name: 'Emily K.', text: "My nails were always brittle and breaking. After 6 weeks on Hair, Skin & Nails strips, they're noticeably stronger. My hairdresser even commented on my hair.", rating: 5, product: 'Hair, Skin & Nails', timeAgo: '3 weeks ago' },
+  { id: '4', name: 'Michael T.', text: "I've tried melatonin gummies, teas, everything. The Sleep Strip is the first thing that actually helps me fall asleep in under 20 minutes. Game-changer.", rating: 5, product: 'Sleep Strips', timeAgo: '1 week ago' },
+  { id: '5', name: 'Lisa P.', text: "I love that I don't have to think about it. One strip on my tongue, done. No water, no pills. It's the easiest healthy habit I've ever built.", rating: 5, product: 'Cognitive Relax', timeAgo: '2 weeks ago' },
 ];
 
 const featuredBundles = bundles.filter(b =>
@@ -70,7 +74,7 @@ export default function Index() {
       <main className="flex-1">
 
         {/* ═══════════════════════════════════════════════
-            1. HERO — Original, Warm, Community-Driven
+            1. HERO — Benefit-Driven + Urgency
         ═══════════════════════════════════════════════ */}
         <section className="relative overflow-hidden">
           <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
@@ -85,34 +89,33 @@ export default function Index() {
                 transition={{ duration: 0.7, ease: 'easeOut' }}
                 className="order-2 lg:order-1 text-center lg:text-left"
               >
+                {/* Urgency badge */}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                   className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-6"
                 >
-                  <span className="text-sm font-semibold">✨ Loved by 2,400+ people</span>
+                  <span className="text-sm font-semibold">⚡ Save 20% — Subscribe & Auto-Refill Today</span>
                 </motion.div>
 
                 <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-7xl leading-[1.08] mb-6">
-                  Fast-Dissolving Wellness Strips.{' '}
-                  <span className="block italic text-accent mt-2">Your daily ritual for energy, sleep & beauty.</span>
+                  Stop Swallowing Pills You Keep Forgetting.{' '}
+                  <span className="block italic text-accent mt-2">Start a 30-second ritual that actually works.</span>
                 </h1>
 
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-                  One strip. 30 seconds. No water, no pills — just a simple daily ritual 
-                  that says: <em className="text-foreground font-medium not-italic">I'm worth it.</em>{' '}
-                  Our fast-dissolving wellness strips deliver clinically studied ingredients with up to{' '}
+                  NEUVIE wellness strips dissolve on your tongue in seconds — delivering clinically dosed vitamins with up to{' '}
                   <a href="https://pubmed.ncbi.nlm.nih.gov/23550999/" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80">
                     5× faster absorption
                   </a>{' '}
-                  than traditional pills.
+                  than traditional capsules. No water. No routine to maintain. Just results you can feel.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-8">
+                <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-5">
                   <Link to="/shop">
                     <Button className="w-full sm:w-auto h-14 px-10 text-base font-semibold rounded-xl group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-elevated transition-all">
-                      Start Your Ritual
+                      Get Yours Now
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>
@@ -122,6 +125,11 @@ export default function Index() {
                     </Button>
                   </Link>
                 </div>
+
+                {/* Social proof line */}
+                <p className="text-sm text-muted-foreground mb-6 text-center lg:text-left">
+                  ✨ Join <strong className="text-foreground">10,000+</strong> customers who made wellness effortless.
+                </p>
 
                 <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-sm text-muted-foreground">
                   <span className="flex items-center gap-1.5">
@@ -156,21 +164,10 @@ export default function Index() {
               </motion.div>
             </div>
 
-            {/* Trust Bar */}
-            <motion.div
-              className="mt-16 md:mt-20 pt-8 border-t border-border/40"
-              {...fadeUp}
-              transition={{ delay: 0.4 }}
-            >
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-3xl mx-auto">
-                {trustBar.map((item) => (
-                  <div key={item.label} className="flex items-center justify-center gap-2.5 text-sm text-muted-foreground">
-                    <item.icon className="h-5 w-5 text-primary flex-shrink-0" />
-                    <span className="font-medium">{item.label}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+            {/* Hero Trust Bar */}
+            <div className="mt-16 md:mt-20 pt-8 border-t border-border/40">
+              <HeroTrustBar />
+            </div>
           </div>
         </section>
 
@@ -178,6 +175,11 @@ export default function Index() {
             2. WHY NEUVIE — Bold Differentiation
         ═══════════════════════════════════════════════ */}
         <WhyNeuvieHero />
+
+        {/* ═══════════════════════════════════════════════
+            2b. OUTCOME BENEFITS — What Changes
+        ═══════════════════════════════════════════════ */}
+        <OutcomeBenefits />
 
         {/* ═══════════════════════════════════════════════
             3. HOW TO USE — The Ritual
@@ -224,6 +226,9 @@ export default function Index() {
                 </Button>
               </Link>
             </motion.div>
+
+            {/* Payment & Security Badges */}
+            <PaymentTrustStrip />
           </div>
         </section>
 
@@ -247,7 +252,7 @@ export default function Index() {
                     <Star key={i} className="h-5 w-5 fill-accent text-accent" />
                   ))}
                 </div>
-                <span className="text-sm text-muted-foreground font-medium">4.9 out of 5 — from 2,400+ people who chose themselves.</span>
+                <span className="text-sm text-muted-foreground font-medium">4.9 out of 5 — from 2,400+ verified reviews</span>
               </div>
             </motion.div>
           </div>
@@ -268,7 +273,8 @@ export default function Index() {
                         <Star key={j} className="h-4 w-4 fill-accent text-accent" />
                       ))}
                     </div>
-                    <p className="text-foreground leading-relaxed mb-6">"{review.text}"</p>
+                    <p className="text-foreground leading-relaxed mb-4">"{review.text}"</p>
+                    <p className="text-xs text-muted-foreground mb-4">{review.timeAgo}</p>
                     <div className="flex items-center gap-3 pt-4 border-t border-border/30">
                       <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
                         <span className="text-sm font-bold text-primary">{review.name.charAt(0)}</span>
@@ -391,6 +397,9 @@ export default function Index() {
       </main>
 
       <Footer />
+
+      {/* Sticky Mobile CTA */}
+      <StickyMobileCTA />
     </div>
   );
 }
