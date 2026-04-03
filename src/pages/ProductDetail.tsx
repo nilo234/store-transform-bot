@@ -300,7 +300,7 @@ export default function ProductDetail() {
               <div>
                 <h1 className="font-display text-3xl md:text-4xl">{sanitizeTitle(product.title)}</h1>
                <p className="text-muted-foreground mt-1">
-                  {productContent?.shortDescription?.split('.')[0] || 'Fast-dissolving wellness strip'}
+                  {product.description?.split('.')[0] || productContent?.shortDescription?.split('.')[0] || 'Fast-dissolving wellness strip'}
                 </p>
               </div>
 
