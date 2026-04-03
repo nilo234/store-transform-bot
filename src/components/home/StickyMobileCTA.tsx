@@ -52,8 +52,8 @@ export function StickyMobileCTA() {
               </div>
             </div>
             <Link to="/shop" className="flex-shrink-0">
-              <Button className="h-11 px-6 text-sm font-semibold rounded-xl gap-1.5 bg-primary hover:bg-primary/90 text-primary-foreground touch-manipulation active:scale-[0.98] transition-transform">
-                <ShoppingCart className="h-3.5 w-3.5" />
+              <Button className="h-12 px-6 text-sm font-semibold rounded-xl gap-1.5 bg-primary hover:bg-primary/90 text-primary-foreground touch-manipulation active:scale-[0.98] transition-transform min-w-[120px]">
+                <ShoppingCart className="h-4 w-4" />
                 Shop Now
               </Button>
             </Link>

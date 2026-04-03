@@ -139,8 +139,12 @@ export default function ProductDetail() {
     });
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const scrollToAddToCart = () => {
+    if (addToCartButtonRef.current) {
+      addToCartButtonRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   if (isLoading) {
@@ -462,7 +466,7 @@ export default function ProductDetail() {
         <ClinicalResults productType={productType} />
 
         {/* Comparison Table */}
-        <ComparisonTable onCtaClick={scrollToTop} />
+        <ComparisonTable onCtaClick={scrollToAddToCart} />
 
         {/* Ingredient Spotlight */}
         <IngredientSpotlight productHandle={productType} />
@@ -581,7 +585,9 @@ export default function ProductDetail() {
         />
       </main>
 
-      {/* Sticky Add to Cart Bar */}
+      <Footer />
+
+      {/* Sticky Add to Cart Bar - after footer for proper z-index layering */}
       <StickyAddToCart
         productTitle={sanitizeTitle(product.title)}
         price={purchaseSelection?.finalPrice ?? price}
@@ -590,8 +596,6 @@ export default function ProductDetail() {
         isSubscription={purchaseSelection?.type === 'subscribe'}
         addToCartRef={addToCartButtonRef}
       />
-
-      <Footer />
     </div>
   );
 }

@@ -101,7 +101,7 @@ export default function Index() {
                   No pills. No water. Just place on your tongue and go.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-4">
+                <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-2">
                   <Link to="/shop">
                     <Button className="w-full sm:w-auto h-14 px-10 text-base font-semibold rounded-xl group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-elevated transition-all">
                       Shop Best Sellers
@@ -110,7 +110,7 @@ export default function Index() {
                   </Link>
                   <Link to="/bundles">
                     <Button variant="outline" className="w-full sm:w-auto h-14 px-10 text-base font-semibold rounded-xl border-2 border-primary/20 text-foreground hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all">
-                      Build a Bundle — Save 20%
+                      🎁 Shop Bundles — Save 20%
                     </Button>
                   </Link>
                 </div>
@@ -135,7 +135,7 @@ export default function Index() {
                   </div>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground justify-center lg:justify-start">
+                <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground justify-center lg:justify-start mb-3">
                   <span className="flex items-center gap-1.5">
                     <Check className="h-4 w-4 text-primary" />
                     Free shipping $50+
@@ -149,6 +149,11 @@ export default function Index() {
                     Made in USA
                   </span>
                 </div>
+
+                {/* Price anchor */}
+                <p className="text-sm font-medium text-muted-foreground text-center lg:text-left">
+                  From just <span className="text-foreground font-bold">$0.83/day</span> · Join 10,000+ happy customers
+                </p>
               </motion.div>
 
               {/* Hero Image */}
