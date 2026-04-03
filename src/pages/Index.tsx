@@ -286,9 +286,9 @@ export default function Index() {
 
           {/* Review CTA */}
           <div className="container-wide text-center mt-8">
-            <Link to="/shop">
+             <Link to="/shop">
               <Button variant="outline" className="h-12 px-8 text-sm font-semibold rounded-xl border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                Find Your Strip
+                Explore All Wellness Strips
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
