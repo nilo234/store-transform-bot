@@ -410,11 +410,15 @@ export default function ProductDetail() {
                   <AccordionTrigger className="py-3 hover:no-underline">
                     <span className="font-medium">What it does</span>
                   </AccordionTrigger>
-                  <AccordionContent className="pb-4 text-sm text-muted-foreground">
-                    {product.descriptionHtml ? (
+                  <AccordionContent className="pb-4 text-sm text-muted-foreground space-y-3">
+                    {productContent?.longDescription ? (
+                      productContent.longDescription.map((paragraph, i) => (
+                        <p key={i}>{paragraph}</p>
+                      ))
+                    ) : product.descriptionHtml ? (
                       <div dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
                     ) : (
-                      productContent?.longDescription?.[0] || product.description
+                      <p>{product.description}</p>
                     )}
                   </AccordionContent>
                 </AccordionItem>
