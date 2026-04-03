@@ -32,12 +32,12 @@ export function AnnouncementBar({
               <span>{message}</span>
               <span className="text-accent-foreground/70">—</span>
               <span className="font-bold">Subscribe & save 20%</span>
-              <a 
-                href={linkHref}
+              <Link 
+                to={linkHref}
                 className="ml-2 underline underline-offset-2 hover:no-underline font-semibold"
               >
                 {linkText} →
-              </a>
+              </Link>
             </div>
             {/* Mobile */}
             <div className="sm:hidden flex items-center justify-center gap-3 text-xs font-medium">
