@@ -581,7 +581,9 @@ export default function ProductDetail() {
         />
       </main>
 
-      {/* Sticky Add to Cart Bar */}
+      <Footer />
+
+      {/* Sticky Add to Cart Bar - after footer for proper z-index layering */}
       <StickyAddToCart
         productTitle={sanitizeTitle(product.title)}
         price={purchaseSelection?.finalPrice ?? price}
@@ -590,8 +592,6 @@ export default function ProductDetail() {
         isSubscription={purchaseSelection?.type === 'subscribe'}
         addToCartRef={addToCartButtonRef}
       />
-
-      <Footer />
     </div>
   );
 }
