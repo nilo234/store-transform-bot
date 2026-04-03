@@ -597,6 +597,29 @@ export default function ProductDetail() {
           </section>
         )}
 
+        {/* You Might Also Like */}
+        {productContent?.relatedProducts && productContent.relatedProducts.length > 0 && (
+          <section className="py-16">
+            <div className="container-wide">
+              <h2 className="font-display text-2xl md:text-3xl text-center mb-8">
+                You might also like
+              </h2>
+              <div className="flex flex-wrap justify-center gap-4">
+                {productContent.relatedProducts.map((related, index) => (
+                  <Link
+                    key={index}
+                    to={`/product/${sanitizeHandle(related.handle)}`}
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-card border border-border rounded-xl hover:border-primary hover:shadow-md transition-all text-sm font-medium text-foreground"
+                  >
+                    {related.anchor}
+                    <ChevronLeft className="h-4 w-4 rotate-180" />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Guarantee Section */}
         <GuaranteeSection />
 
