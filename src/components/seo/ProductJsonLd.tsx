@@ -50,7 +50,7 @@ export function ProductJsonLd({ product }: ProductJsonLdProps) {
       "mpn": product.handle,
       "offers": {
         "@type": "Offer",
-        "url": `https://neuvie.com/product/${product.handle}`,
+        "url": `https://tryneuvie.com/product/${product.handle}`,
         "priceCurrency": product.priceRange.minVariantPrice.currencyCode,
         "price": price.toFixed(2),
         "priceValidUntil": new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
