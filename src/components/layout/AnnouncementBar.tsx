@@ -43,12 +43,12 @@ export function AnnouncementBar({
             <div className="sm:hidden flex items-center justify-center gap-3 text-xs font-medium">
               <span>Free shipping $50+</span>
               <span className="text-accent-foreground/70">·</span>
-              <a 
-                href={linkHref}
+              <Link 
+                to={linkHref}
                 className="font-bold underline underline-offset-2"
               >
                 Start your ritual →
-              </a>
+              </Link>
             </div>
         </div>
         
