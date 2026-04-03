@@ -11,6 +11,7 @@ import { useCartStore } from '@/stores/cartStore';
 import { Skeleton } from '@/components/ui/skeleton';
 import { toast } from 'sonner';
 import { findProductContent, ProductContent } from '@/data/productContent';
+import { sendProductViewEvent, sendAddToCartEvent } from '@/hooks/useShopifyAnalytics';
 import { JudgeMeReviews } from '@/components/reviews/JudgeMeReviews';
 import { SubscriptionToggle, PurchaseType } from '@/components/shop/SubscriptionToggle';
 import { StockIndicator } from '@/components/product/StockIndicator';
@@ -98,6 +99,20 @@ export default function ProductDetail() {
       }
       setProduct(data);
       setIsLoading(false);
+
+      // Send product view event to Shopify analytics
+      if (data) {
+        const firstVariant = data.variants.edges[0]?.node;
+        if (firstVariant) {
+          sendProductViewEvent({
+            id: data.id,
+            title: data.title,
+            variantId: firstVariant.id,
+            variantTitle: firstVariant.title,
+            price: firstVariant.price.amount,
+          });
+        }
+      }
     }
     loadProduct();
   }, [handle]);
@@ -127,6 +142,16 @@ export default function ProductDetail() {
       isSubscription,
       subscriptionFrequency: purchaseSelection?.frequency,
       subscriptionDiscount: purchaseSelection?.discount,
+    });
+
+    // Send add-to-cart event to Shopify analytics
+    sendAddToCartEvent({
+      id: product.id,
+      title: product.title,
+      variantId: firstVariant.id,
+      variantTitle: firstVariant.title,
+      price: finalPrice.toString(),
+      quantity,
     });
     
     const subscriptionLabel = isSubscription 
