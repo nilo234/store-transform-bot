@@ -5,6 +5,7 @@ import {
   getClientBrowserParameters,
   AnalyticsEventName,
   AnalyticsPageType,
+  ShopifySalesChannel,
   useShopifyCookies,
   type ShopifyPageViewPayload,
   type ShopifyAddToCartPayload,
