@@ -135,7 +135,7 @@ export default function Index() {
                   </div>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground justify-center lg:justify-start">
+                <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground justify-center lg:justify-start mb-3">
                   <span className="flex items-center gap-1.5">
                     <Check className="h-4 w-4 text-primary" />
                     Free shipping $50+
@@ -149,6 +149,11 @@ export default function Index() {
                     Made in USA
                   </span>
                 </div>
+
+                {/* Price anchor */}
+                <p className="text-sm font-medium text-muted-foreground text-center lg:text-left">
+                  From just <span className="text-foreground font-bold">$0.83/day</span> · Join 10,000+ happy customers
+                </p>
               </motion.div>
 
               {/* Hero Image */}
