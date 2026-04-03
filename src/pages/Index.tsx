@@ -368,11 +368,11 @@ export default function Index() {
                       Shop All Strips Now
                     </Button>
                   </Link>
-                <Link to="/bundles">
-                  <Button variant="outline" className="h-14 px-10 text-base font-semibold rounded-xl border-2 border-primary-foreground/40 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground hover:text-primary transition-colors duration-200">
-                    Save 20% With a Bundle
-                  </Button>
-                </Link>
+                 <Link to="/bundles">
+                    <Button variant="outline" className="h-14 px-10 text-base font-semibold rounded-xl border-2 border-primary-foreground/40 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground hover:text-primary transition-colors duration-200">
+                      Save 20% — Build a Bundle
+                    </Button>
+                  </Link>
               </div>
             </motion.div>
           </div>
