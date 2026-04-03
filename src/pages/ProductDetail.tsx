@@ -99,6 +99,20 @@ export default function ProductDetail() {
       }
       setProduct(data);
       setIsLoading(false);
+
+      // Send product view event to Shopify analytics
+      if (data) {
+        const firstVariant = data.variants.edges[0]?.node;
+        if (firstVariant) {
+          sendProductViewEvent({
+            id: data.id,
+            title: data.title,
+            variantId: firstVariant.id,
+            variantTitle: firstVariant.title,
+            price: firstVariant.price.amount,
+          });
+        }
+      }
     }
     loadProduct();
   }, [handle]);
