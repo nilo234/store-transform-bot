@@ -300,7 +300,7 @@ export default function ProductDetail() {
               <div>
                 <h1 className="font-display text-3xl md:text-4xl">{sanitizeTitle(product.title)}</h1>
                <p className="text-muted-foreground mt-1">
-                  {productContent?.shortDescription?.split('.')[0] || 'Fast-dissolving wellness strip'}
+                  {product.description?.split('.')[0] || productContent?.shortDescription?.split('.')[0] || 'Fast-dissolving wellness strip'}
                 </p>
               </div>
 
@@ -386,7 +386,11 @@ export default function ProductDetail() {
                     <span className="font-medium">What it does</span>
                   </AccordionTrigger>
                   <AccordionContent className="pb-4 text-sm text-muted-foreground">
-                    {productContent?.longDescription?.[0] || product.description}
+                    {product.descriptionHtml ? (
+                      <div dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
+                    ) : (
+                      productContent?.longDescription?.[0] || product.description
+                    )}
                   </AccordionContent>
                 </AccordionItem>
 

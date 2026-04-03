@@ -76,12 +76,6 @@ export function CartDrawer() {
         url.protocol = 'https:';
         url.searchParams.set('channel', 'online_store');
 
-        if (url.hostname !== SHOPIFY_STORE_PERMANENT_DOMAIN) {
-          const fallbackUrl = new URL(`${url.pathname}${url.search}`, `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}`);
-          fallbackUrl.searchParams.set('channel', 'online_store');
-          return fallbackUrl.toString();
-        }
-
         return url.toString();
       } catch {
         return null;
@@ -91,8 +85,8 @@ export function CartDrawer() {
     const checkoutDestination = normalizedCheckoutUrl ?? `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/cart`;
 
     if (!normalizedCheckoutUrl) {
-      toast.error('Checkout-Link war defekt – Fallback aktiv', {
-        description: 'Wir leiten dich direkt in den Shopify-Warenkorb weiter.',
+      toast.error('Checkout link was broken – using fallback', {
+        description: 'We are redirecting you to the Shopify cart.',
       });
     }
 
