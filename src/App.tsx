@@ -7,6 +7,7 @@ import { LiveChatWidget } from "@/components/chat/LiveChatWidget";
 import { ExitIntentPopup } from "@/components/popups/ExitIntentPopup";
 import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/seo";
 import { useCartSync } from "@/hooks/useCartSync";
+import { useShopifyPageAnalytics } from "@/hooks/useShopifyAnalytics";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import Shop from "./pages/Shop";
