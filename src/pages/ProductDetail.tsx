@@ -143,6 +143,16 @@ export default function ProductDetail() {
       subscriptionFrequency: purchaseSelection?.frequency,
       subscriptionDiscount: purchaseSelection?.discount,
     });
+
+    // Send add-to-cart event to Shopify analytics
+    sendAddToCartEvent({
+      id: product.id,
+      title: product.title,
+      variantId: firstVariant.id,
+      variantTitle: firstVariant.title,
+      price: finalPrice.toString(),
+      quantity,
+    });
     
     const subscriptionLabel = isSubscription 
       ? ` (${purchaseSelection?.frequency} subscription)` 
