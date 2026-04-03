@@ -466,7 +466,7 @@ export default function ProductDetail() {
         <ClinicalResults productType={productType} />
 
         {/* Comparison Table */}
-        <ComparisonTable onCtaClick={scrollToTop} />
+        <ComparisonTable onCtaClick={scrollToAddToCart} />
 
         {/* Ingredient Spotlight */}
         <IngredientSpotlight productHandle={productType} />
