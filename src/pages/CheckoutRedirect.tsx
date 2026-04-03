@@ -18,10 +18,10 @@ const CheckoutRedirect = () => {
         <div className="inline-flex items-center justify-center rounded-full bg-secondary p-4">
           <Loader2 className="h-6 w-6 animate-spin text-primary" />
         </div>
-        <h1 className="font-display text-2xl text-foreground">Weiterleitung zum sicheren Checkout…</h1>
-        <p className="text-sm text-muted-foreground">Falls nichts passiert, nutze den Button unten.</p>
+        <h1 className="font-display text-2xl text-foreground">Redirecting to secure checkout…</h1>
+        <p className="text-sm text-muted-foreground">If nothing happens, use the button below.</p>
         <Button asChild className="w-full btn-primary">
-          <a href={checkoutUrl} rel="noopener noreferrer">Zum Checkout</a>
+          <a href={checkoutUrl} rel="noopener noreferrer">Go to Checkout</a>
         </Button>
       </div>
     </main>

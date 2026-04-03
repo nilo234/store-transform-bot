@@ -85,8 +85,8 @@ export function CartDrawer() {
     const checkoutDestination = normalizedCheckoutUrl ?? `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/cart`;
 
     if (!normalizedCheckoutUrl) {
-      toast.error('Checkout-Link war defekt – Fallback aktiv', {
-        description: 'Wir leiten dich direkt in den Shopify-Warenkorb weiter.',
+      toast.error('Checkout link was broken – using fallback', {
+        description: 'We are redirecting you to the Shopify cart.',
       });
     }
 
