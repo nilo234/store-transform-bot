@@ -386,7 +386,11 @@ export default function ProductDetail() {
                     <span className="font-medium">What it does</span>
                   </AccordionTrigger>
                   <AccordionContent className="pb-4 text-sm text-muted-foreground">
-                    {productContent?.longDescription?.[0] || product.description}
+                    {product.descriptionHtml ? (
+                      <div dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
+                    ) : (
+                      productContent?.longDescription?.[0] || product.description
+                    )}
                   </AccordionContent>
                 </AccordionItem>
 
