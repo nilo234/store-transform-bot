@@ -227,8 +227,8 @@ export default function ProductDetail() {
     <div className="min-h-screen flex flex-col">
       {/* SEO */}
       <PageMeta
-        title={`${sanitizeTitle(product.title)} – Because You're Worth It | NEUVIE™`}
-        description={`${sanitizeTitle(product.title)} by NEUVIE™. 30 seconds of self-care that dissolves on your tongue. No water, no pills. Rated 4.8/5. Free US shipping on $50+.`}
+        title={productContent?.seoTitle || `${sanitizeTitle(product.title)} – NEUVIE™`}
+        description={productContent?.metaDescription || `${sanitizeTitle(product.title)} by NEUVIE™. Fast-dissolving wellness strip. No water, no pills. Free US shipping on $50+.`}
       />
       <ProductJsonLd product={product} />
       <BreadcrumbJsonLd items={breadcrumbItems} />
@@ -274,7 +274,7 @@ export default function ProductDetail() {
                 {images[selectedImage] ? (
                   <img
                     src={optimizeShopifyImage(images[selectedImage].node.url, 800)}
-                    alt={images[selectedImage].node.altText || product.title}
+                    alt={images[selectedImage].node.altText || `NEUVIE ${sanitizeTitle(product.title)} Dissolving Strip – wellness supplement`}
                     className="w-full h-full object-contain"
                     loading={selectedImage === 0 ? 'eager' : 'lazy'}
                     decoding="async"
@@ -301,7 +301,7 @@ export default function ProductDetail() {
                     >
                       <img
                         src={optimizeShopifyImage(img.node.url, 100)}
-                        alt={img.node.altText || `${product.title} ${index + 1}`}
+                        alt={img.node.altText || `NEUVIE ${sanitizeTitle(product.title)} dissolving strip view ${index + 1}`}
                         className="w-full h-full object-cover"
                         loading="lazy"
                         decoding="async"
@@ -592,6 +592,29 @@ export default function ProductDetail() {
                     </p>
                   </div>
                 </div>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* You Might Also Like */}
+        {productContent?.relatedProducts && productContent.relatedProducts.length > 0 && (
+          <section className="py-16">
+            <div className="container-wide">
+              <h2 className="font-display text-2xl md:text-3xl text-center mb-8">
+                You might also like
+              </h2>
+              <div className="flex flex-wrap justify-center gap-4">
+                {productContent.relatedProducts.map((related, index) => (
+                  <Link
+                    key={index}
+                    to={`/product/${sanitizeHandle(related.handle)}`}
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-card border border-border rounded-xl hover:border-primary hover:shadow-md transition-all text-sm font-medium text-foreground"
+                  >
+                    {related.anchor}
+                    <ChevronLeft className="h-4 w-4 rotate-180" />
+                  </Link>
+                ))}
               </div>
             </div>
           </section>
