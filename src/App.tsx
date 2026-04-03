@@ -28,6 +28,7 @@ const queryClient = new QueryClient();
 
 function AppContent() {
   useCartSync();
+  useShopifyPageAnalytics();
   return null;
 }
 
