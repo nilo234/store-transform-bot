@@ -274,7 +274,7 @@ export default function ProductDetail() {
                 {images[selectedImage] ? (
                   <img
                     src={optimizeShopifyImage(images[selectedImage].node.url, 800)}
-                    alt={images[selectedImage].node.altText || product.title}
+                    alt={images[selectedImage].node.altText || `NEUVIE ${sanitizeTitle(product.title)} Dissolving Strip – wellness supplement`}
                     className="w-full h-full object-contain"
                     loading={selectedImage === 0 ? 'eager' : 'lazy'}
                     decoding="async"
