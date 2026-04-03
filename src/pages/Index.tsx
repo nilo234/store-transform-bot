@@ -101,7 +101,7 @@ export default function Index() {
                   No pills. No water. Just place on your tongue and go.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-4">
+                <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-2">
                   <Link to="/shop">
                     <Button className="w-full sm:w-auto h-14 px-10 text-base font-semibold rounded-xl group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-elevated transition-all">
                       Shop Best Sellers
@@ -110,7 +110,7 @@ export default function Index() {
                   </Link>
                   <Link to="/bundles">
                     <Button variant="outline" className="w-full sm:w-auto h-14 px-10 text-base font-semibold rounded-xl border-2 border-primary/20 text-foreground hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all">
-                      Build a Bundle — Save 20%
+                      🎁 Shop Bundles — Save 20%
                     </Button>
                   </Link>
                 </div>
