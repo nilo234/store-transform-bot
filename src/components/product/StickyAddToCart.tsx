@@ -70,7 +70,7 @@ export function StickyAddToCart({
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.2, ease: 'easeOut' }}
-          className="fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-t border-border shadow-[0_-4px_20px_rgba(0,0,0,0.1)] pb-[env(safe-area-inset-bottom)]"
+          className="fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-t border-border shadow-[0_-4px_20px_rgba(0,0,0,0.1)]"
         >
           <div className="container-wide py-3">
             <div className="flex items-center justify-between gap-4">
@@ -99,8 +99,7 @@ export function StickyAddToCart({
               {/* Add to Cart Button */}
               <Button 
                 onClick={onAddToCart}
-                className="btn-primary gap-2 h-12 px-6 sm:px-8 min-w-[140px] touch-manipulation active:scale-[0.98] transition-transform"
-                size="lg"
+                className="btn-primary gap-2 h-11 px-6 sm:px-8"
               >
                 <ShoppingCart className="h-4 w-4" />
                 <span className="hidden sm:inline">

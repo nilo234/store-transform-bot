@@ -5,11 +5,7 @@ export function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Use both methods for maximum compatibility
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
-    // Fallback for older browsers
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
+    window.scrollTo(0, 0);
   }, [pathname]);
 
   return null;
