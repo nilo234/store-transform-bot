@@ -362,12 +362,12 @@ export default function Index() {
                 Join thousands of women who replaced their pill bottles with something better. Free shipping on orders $50+.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Link to="/shop">
-                  <Button className="h-14 px-10 text-base font-semibold rounded-xl bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg">
-                    <ShoppingCart className="mr-2 h-4 w-4" />
-                    Shop Now
-                  </Button>
-                </Link>
+                 <Link to="/shop">
+                    <Button className="h-14 px-10 text-base font-semibold rounded-xl bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg">
+                      <ShoppingCart className="mr-2 h-4 w-4" />
+                      Shop All Strips Now
+                    </Button>
+                  </Link>
                 <Link to="/bundles">
                   <Button variant="outline" className="h-14 px-10 text-base font-semibold rounded-xl border-2 border-primary-foreground/40 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground hover:text-primary transition-colors duration-200">
                     Save 20% With a Bundle
