@@ -109,6 +109,11 @@ export default function FAQs() {
               </p>
 
               <div className="flex flex-col items-center gap-4">
+                <Link to="/shop">
+                  <Button className="h-14 px-10 text-base font-semibold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg">
+                    Shop Our Strips →
+                  </Button>
+                </Link>
                 <SocialShareButtons 
                   url="https://tryneuvie.com/faqs" 
                   text="Got questions about dissolving wellness strips? NEUVIE has answers." 
