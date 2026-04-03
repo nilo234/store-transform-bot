@@ -76,12 +76,6 @@ export function CartDrawer() {
         url.protocol = 'https:';
         url.searchParams.set('channel', 'online_store');
 
-        if (url.hostname !== SHOPIFY_STORE_PERMANENT_DOMAIN) {
-          const fallbackUrl = new URL(`${url.pathname}${url.search}`, `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}`);
-          fallbackUrl.searchParams.set('channel', 'online_store');
-          return fallbackUrl.toString();
-        }
-
         return url.toString();
       } catch {
         return null;
