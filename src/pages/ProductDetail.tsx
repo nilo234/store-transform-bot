@@ -11,6 +11,7 @@ import { useCartStore } from '@/stores/cartStore';
 import { Skeleton } from '@/components/ui/skeleton';
 import { toast } from 'sonner';
 import { findProductContent, ProductContent } from '@/data/productContent';
+import { sendProductViewEvent, sendAddToCartEvent } from '@/hooks/useShopifyAnalytics';
 import { JudgeMeReviews } from '@/components/reviews/JudgeMeReviews';
 import { SubscriptionToggle, PurchaseType } from '@/components/shop/SubscriptionToggle';
 import { StockIndicator } from '@/components/product/StockIndicator';
