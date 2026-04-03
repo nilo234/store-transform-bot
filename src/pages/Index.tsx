@@ -109,7 +109,7 @@ export default function Index() {
                     </Button>
                   </Link>
                   <Link to="/bundles">
-                    <Button variant="outline" className="w-full sm:w-auto h-14 px-6 sm:px-10 text-sm sm:text-base font-semibold rounded-xl border-2 border-primary bg-background text-foreground hover:bg-primary hover:text-primary-foreground transition-all whitespace-nowrap">
+                    <Button variant="outline" className="w-full sm:w-auto h-14 sm:px-10 text-sm sm:text-base font-semibold rounded-xl border-2 border-primary bg-background text-foreground hover:bg-primary hover:text-primary-foreground transition-all whitespace-nowrap px-[20px]">
                       Build a Bundle — Save 20%
                     </Button>
                   </Link>
