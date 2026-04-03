@@ -99,7 +99,8 @@ export function StickyAddToCart({
               {/* Add to Cart Button */}
               <Button 
                 onClick={onAddToCart}
-                className="btn-primary gap-2 h-11 px-6 sm:px-8"
+                className="btn-primary gap-2 h-12 px-6 sm:px-8 min-w-[140px] touch-manipulation active:scale-[0.98] transition-transform"
+                size="lg"
               >
                 <ShoppingCart className="h-4 w-4" />
                 <span className="hidden sm:inline">
