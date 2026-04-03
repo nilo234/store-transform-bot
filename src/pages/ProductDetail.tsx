@@ -227,8 +227,8 @@ export default function ProductDetail() {
     <div className="min-h-screen flex flex-col">
       {/* SEO */}
       <PageMeta
-        title={`${sanitizeTitle(product.title)} – Because You're Worth It | NEUVIE™`}
-        description={`${sanitizeTitle(product.title)} by NEUVIE™. 30 seconds of self-care that dissolves on your tongue. No water, no pills. Rated 4.8/5. Free US shipping on $50+.`}
+        title={productContent?.seoTitle || `${sanitizeTitle(product.title)} – NEUVIE™`}
+        description={productContent?.metaDescription || `${sanitizeTitle(product.title)} by NEUVIE™. Fast-dissolving wellness strip. No water, no pills. Free US shipping on $50+.`}
       />
       <ProductJsonLd product={product} />
       <BreadcrumbJsonLd items={breadcrumbItems} />
