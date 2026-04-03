@@ -139,8 +139,12 @@ export default function ProductDetail() {
     });
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const scrollToAddToCart = () => {
+    if (addToCartButtonRef.current) {
+      addToCartButtonRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   if (isLoading) {
