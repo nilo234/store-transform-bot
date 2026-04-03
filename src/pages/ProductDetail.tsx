@@ -301,7 +301,7 @@ export default function ProductDetail() {
                     >
                       <img
                         src={optimizeShopifyImage(img.node.url, 100)}
-                        alt={img.node.altText || `${product.title} ${index + 1}`}
+                        alt={img.node.altText || `NEUVIE ${sanitizeTitle(product.title)} dissolving strip view ${index + 1}`}
                         className="w-full h-full object-cover"
                         loading="lazy"
                         decoding="async"
