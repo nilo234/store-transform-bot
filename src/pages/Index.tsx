@@ -379,7 +379,7 @@ export default function Index() {
         </section>
 
         {/* ═══════════════════════════════════════════════
-            SEO CONTENT + SOCIAL SHARING
+            SEO CONTENT SECTION A — Why Fast-Dissolving Strips?
         ═══════════════════════════════════════════════ */}
         <section className="py-16 md:py-20 bg-card border-t border-border/30">
           <div className="container-wide max-w-4xl">
@@ -390,56 +390,140 @@ export default function Index() {
               className="space-y-6"
             >
               <h2 className="font-display text-2xl md:text-3xl text-center mb-6">
-                What Are Fast-Dissolving Wellness Strips?
+                Why Fast-Dissolving Wellness Strips?
               </h2>
               <div className="grid md:grid-cols-2 gap-8 text-muted-foreground leading-relaxed">
                 <div>
                   <p className="mb-4">
-                    NEUVIE wellness strips are thin, fast-dissolving oral strips that deliver vitamins, minerals, and 
-                    botanical extracts directly through the oral mucosa. Unlike traditional pills and capsules that must 
-                    pass through your digestive system, dissolving strips provide a more efficient delivery method — with 
-                    up to 5× faster absorption according to{' '}
-                    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6390339/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                      published research on oral thin films
-                    </a>.
+                    Traditional supplements were not designed for modern life. Pills are easy to forget, powders are messy, and gummies 
+                    often contain too much sugar. Fast-dissolving wellness strips solve all of these problems. NEUVIE dissolving supplement 
+                    strips are thin, portable, and require no water — making them the perfect daily wellness ritual for busy women who 
+                    refuse to compromise on their health. No pills, no powder, just a simple three-second moment that fits any lifestyle.
                   </p>
                   <p>
-                    Each strip dissolves on your tongue in about 30 seconds — no water needed. Our collection includes 
-                    13 unique formulas covering <Link to="/shop" className="text-primary hover:underline">energy and focus</Link>, 
-                    sleep and relaxation, beauty and collagen, gut health and digestion, and essential daily vitamins. 
-                    Every formula is clinically dosed with ingredients backed by{' '}
-                    <Link to="/science" className="text-primary hover:underline">peer-reviewed scientific research</Link>.
+                    Each NEUVIE strip dissolves on your tongue in about 30 seconds and absorbs directly through the oral mucosa. According 
+                    to{' '}
+                    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6390339/" target="_blank" rel="nofollow noopener noreferrer" className="text-primary hover:underline">
+                      published research on oral thin films
+                    </a>, sublingual delivery can provide up to 5× faster absorption compared to standard capsules — making your daily 
+                    wellness routine more efficient and effective.
                   </p>
                 </div>
                 <div>
                   <p className="mb-4">
+                    Our collection includes 13 unique fast-dissolving formulas covering{' '}
+                    <Link to="/shop" className="text-primary hover:underline">energy and focus supplements</Link>,{' '}
+                    sleep and relaxation, beauty and collagen support, gut health and digestion, and essential daily vitamins. 
+                    Every formula is clinically dosed with ingredients backed by{' '}
+                    <Link to="/science" className="text-primary hover:underline">peer-reviewed scientific research</Link>.
+                  </p>
+                  <p>
                     NEUVIE strips are manufactured in{' '}
-                    <a href="https://www.fda.gov/food/registration-food-facilities-and-other-submissions/registration-food-facilities" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                    <a href="https://www.fda.gov/food/registration-food-facilities-and-other-submissions/registration-food-facilities" target="_blank" rel="nofollow noopener noreferrer" className="text-primary hover:underline">
                       FDA-registered facilities
                     </a>{' '}
                     in the United States and independently verified by third-party labs for purity, potency, and safety. 
-                    Every ingredient is non-GMO, and most formulas are vegan and gluten-free.
-                  </p>
-                  <p>
-                    Whether you're looking for a morning energy boost without the coffee jitters, a calming bedtime ritual, 
-                    or daily beauty support from the inside out — our dissolving wellness strips make self-care fit into 
-                    your real life. Explore our <Link to="/bundles" className="text-primary hover:underline">curated bundles</Link> to 
-                    save up to 20%, or <Link to="/contact" className="text-primary hover:underline">contact our team</Link> for 
-                    personalized recommendations.
+                    Every ingredient is non-GMO, and most formulas are vegan and gluten-free. Whether you need energy, sleep, or beauty 
+                    support — these dissolving wellness strips make self-care fit into your real life.
                   </p>
                 </div>
               </div>
+            </motion.div>
+          </div>
+        </section>
 
-              {/* Payment & Security Badges */}
-              <PaymentTrustStrip />
-
-              <div className="flex justify-center pt-6">
-                <SocialShareButtons 
-                  url="https://tryneuvie.com" 
-                  text="NEUVIE – Fast-dissolving wellness strips for energy, sleep & beauty. 5× faster absorption than pills." 
-                />
+        {/* ═══════════════════════════════════════════════
+            SEO CONTENT SECTION B — How NEUVIE Works
+        ═══════════════════════════════════════════════ */}
+        <section className="py-12 md:py-16 bg-secondary/20">
+          <div className="container-wide max-w-4xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <h2 className="font-display text-2xl md:text-3xl text-center mb-6">
+                How NEUVIE Dissolving Strips Work
+              </h2>
+              <div className="text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+                <p className="mb-4">
+                  Using NEUVIE strips is the simplest daily wellness routine you will ever adopt. The process takes just three steps: 
+                  First, place a dissolving strip supplement on your tongue. Second, the strip dissolves in approximately 30 seconds — no 
+                  water needed, no effort required. Third, the clinically studied ingredients absorb rapidly through the oral tissue and 
+                  begin working in your system. That is your entire wellness strips daily routine — done before you finish brushing your teeth.
+                </p>
+                <p className="mb-4">
+                  Unlike traditional capsules that must travel through your digestive system, fast-dissolving supplements deliver ingredients 
+                  directly through the oral mucosa for fast absorption. This sublingual delivery method is supported by clinical research and 
+                  is one of the reasons NEUVIE strips can achieve up to 5× faster absorption than standard pills.
+                </p>
+                <p>
+                  Explore our <Link to="/bundles" className="text-primary hover:underline">curated wellness bundles</Link> to save up to 
+                  20%, or <Link to="/contact" className="text-primary hover:underline">contact our wellness team</Link> for personalized 
+                  supplement recommendations.
+                </p>
               </div>
             </motion.div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════
+            SEO CONTENT SECTION C — Short FAQ
+        ═══════════════════════════════════════════════ */}
+        <section className="py-12 md:py-16 bg-card">
+          <div className="container-wide max-w-3xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <h2 className="font-display text-2xl md:text-3xl text-center mb-6">
+                Common Questions About Dissolving Wellness Strips
+              </h2>
+              <div className="space-y-6 text-muted-foreground leading-relaxed">
+                <div>
+                  <p className="font-semibold text-foreground mb-2">What are dissolving wellness strips?</p>
+                  <p>
+                    NEUVIE dissolving wellness strips are thin oral films that deliver vitamins, minerals, and botanical extracts 
+                    directly on your tongue. They dissolve in about 30 seconds and absorb through the oral tissue — no water, no pills, 
+                    no powder needed. Each strip is a fast-dissolving supplement designed for daily use as part of your wellness routine.
+                  </p>
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground mb-2">How fast do NEUVIE strips dissolve?</p>
+                  <p>
+                    Each NEUVIE daily supplement strip dissolves on your tongue in approximately 30 seconds. Because the ingredients 
+                    absorb through the oral tissue rather than traveling through your digestive system, many customers notice effects 
+                    within 15 to 30 minutes — especially with our fast-dissolving Energy Strips.
+                  </p>
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground mb-2">Are NEUVIE strips safe to use daily?</p>
+                  <p>
+                    Yes. Every NEUVIE daily supplement strip is made with non-GMO, clinically studied ingredients. They are manufactured 
+                    in GMP-certified facilities in the USA and independently tested by third-party labs for purity, potency, and safety. 
+                    NEUVIE fast-dissolving supplements are designed for safe, everyday use as part of your daily wellness ritual.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════
+            SOCIAL SHARING + TRUST
+        ═══════════════════════════════════════════════ */}
+        <section className="py-10 bg-card border-t border-border/30">
+          <div className="container-wide max-w-4xl">
+            <PaymentTrustStrip />
+            <div className="flex justify-center pt-6">
+              <SocialShareButtons 
+                url="https://tryneuvie.com" 
+                text="NEUVIE – Fast-dissolving wellness strips for energy, sleep & beauty. 5× faster absorption than pills." 
+              />
+            </div>
           </div>
         </section>
 
