@@ -36,7 +36,7 @@ function getPageType(pathname: string): string {
 function buildBasePayload(pathname: string, search: string) {
   return {
     shopId: SHOP_ID,
-    shopifySalesChannel: AnalyticsPageType.headless,
+    shopifySalesChannel: ShopifySalesChannel.headless,
     storefrontId: STOREFRONT_ID,
     currency: CURRENCY,
     acceptedLanguage: 'EN',
