@@ -20,6 +20,8 @@ import { HeroTrustBar } from '@/components/home/HeroTrustBar';
 import { OutcomeBenefits } from '@/components/home/OutcomeBenefits';
 import { StickyMobileCTA } from '@/components/home/StickyMobileCTA';
 import { PaymentTrustStrip } from '@/components/home/PaymentTrustStrip';
+import { QuickCategoryPicker } from '@/components/home/QuickCategoryPicker';
+import { InlineEmailCapture } from '@/components/home/InlineEmailCapture';
 
 // ─── DATA ──────────────────────────────────────────────
 const reviews = [
@@ -76,9 +78,9 @@ export default function Index() {
 
               {/* Copy */}
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: 'easeOut' }}
+                transition={{ duration: 0.45, ease: 'easeOut' }}
                 className="order-2 lg:order-1 text-center lg:text-left"
               >
                 {/* Urgency badge */}
@@ -91,14 +93,14 @@ export default function Index() {
                   <span className="text-sm font-semibold">🔥 Trending — Save 20% on Your First Order</span>
                 </motion.div>
 
-                <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-6xl leading-[1.08] mb-5">
-                  Your wellness routine{' '}
-                  <span className="italic text-accent">shouldn't feel like a chore.</span>
+                <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-6xl leading-[1.08] mb-4">
+                  3 seconds.{' '}
+                  <span className="italic text-accent">That's your new wellness routine.</span>
                 </h1>
 
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0">
-                  Dissolving vitamin strips that taste good, work fast, and fit in your bag. 
-                  No pills. No water. Just place on your tongue and go.
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-5 max-w-xl mx-auto lg:mx-0">
+                  Fast-dissolving vitamin strips that replace pills, powders & gummies. 
+                  Place on tongue → dissolves in seconds → 5× faster absorption.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-4">
@@ -149,14 +151,17 @@ export default function Index() {
                     Made in USA
                   </span>
                 </div>
+
+                {/* Quick Category Picker */}
+                <QuickCategoryPicker />
               </motion.div>
 
               {/* Hero Image */}
               <motion.div
                 className="order-1 lg:order-2"
-                initial={{ opacity: 0, scale: 0.93 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+                transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
               >
                 <div className="relative mx-auto max-w-[340px] sm:max-w-[460px] lg:max-w-[540px]">
                   <div className="absolute inset-0 bg-accent/10 rounded-[2rem] rotate-3 scale-[1.02]" />
@@ -293,6 +298,11 @@ export default function Index() {
               </Button>
             </Link>
           </div>
+
+          {/* Inline Email Capture — after social proof */}
+          <div className="container-wide mt-10">
+            <InlineEmailCapture />
+          </div>
         </section>
 
         {/* ═══════════════════════════════════════════════
@@ -304,6 +314,20 @@ export default function Index() {
             5. OUTCOME BENEFITS — What Changes
         ═══════════════════════════════════════════════ */}
         <OutcomeBenefits />
+
+        {/* Mid-page conversion nudge */}
+        <section className="py-10 md:py-14 bg-accent/5 border-y border-accent/10">
+          <div className="container-wide text-center">
+            <p className="text-lg md:text-xl font-display mb-4">Still deciding? Start with our most popular strip.</p>
+            <Link to="/product/energy-strips-2">
+              <Button className="h-13 px-8 text-sm font-semibold rounded-xl bg-accent hover:bg-accent/90 text-accent-foreground shadow-glow">
+                Try Energy Strips — $24.99
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+            <p className="text-xs text-muted-foreground mt-3">Free shipping on orders $50+ · 14-day money-back guarantee</p>
+          </div>
+        </section>
 
         {/* ═══════════════════════════════════════════════
             6. BUNDLES — Value / Upsell

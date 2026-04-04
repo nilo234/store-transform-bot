@@ -139,26 +139,26 @@ export default function Contact() {
                   <p className="text-muted-foreground">We'll get back to you within 24 hours.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-sm font-medium mb-2 block">Your Name</label>
-                      <Input placeholder="Jane Doe" className="h-12 rounded-lg" value={formData.name} onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))} required />
+                      <label className="text-sm font-medium mb-1.5 block">Your Name <span className="text-destructive">*</span></label>
+                      <Input placeholder="Jane" className="h-12 rounded-xl" value={formData.name} onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))} required autoComplete="given-name" />
                     </div>
                     <div>
-                      <label className="text-sm font-medium mb-2 block">Email Address</label>
-                      <Input placeholder="jane@example.com" type="email" className="h-12 rounded-lg" value={formData.email} onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))} required />
+                      <label className="text-sm font-medium mb-1.5 block">Email <span className="text-destructive">*</span></label>
+                      <Input placeholder="jane@example.com" type="email" className="h-12 rounded-xl" value={formData.email} onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))} required autoComplete="email" />
                     </div>
                   </div>
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Subject</label>
-                    <Input placeholder="What can we help with?" className="h-12 rounded-lg" value={formData.subject} onChange={(e) => setFormData(prev => ({ ...prev, subject: e.target.value }))} />
+                    <label className="text-sm font-medium mb-1.5 block">Subject <span className="text-muted-foreground text-xs">(optional)</span></label>
+                    <Input placeholder="Order help, product question, etc." className="h-12 rounded-xl" value={formData.subject} onChange={(e) => setFormData(prev => ({ ...prev, subject: e.target.value }))} />
                   </div>
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Message</label>
-                    <Textarea placeholder="Tell us more..." rows={6} className="rounded-lg resize-none" value={formData.message} onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))} required />
+                    <label className="text-sm font-medium mb-1.5 block">How can we help? <span className="text-destructive">*</span></label>
+                    <Textarea placeholder="Tell us what's on your mind — we read every message." rows={4} className="rounded-xl resize-none" value={formData.message} onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))} required />
                   </div>
-                  <Button type="submit" disabled={isSubmitting} className="w-full h-14 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-lg text-base shadow-glow">
+                  <Button type="submit" disabled={isSubmitting} className="w-full h-14 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-xl text-base shadow-glow">
                     {isSubmitting ? (
                       <Loader2 className="h-5 w-5 animate-spin" />
                     ) : (
@@ -168,6 +168,7 @@ export default function Contact() {
                       </>
                     )}
                   </Button>
+                  <p className="text-[11px] text-muted-foreground text-center">We typically reply within 24 hours. No bots, real people.</p>
                 </form>
               )}
             </motion.div>
