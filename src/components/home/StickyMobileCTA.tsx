@@ -3,10 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingCart, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 export function StickyMobileCTA() {
-  const isMobile = useIsMobile();
   const [isVisible, setIsVisible] = useState(false);
   const [footerVisible, setFooterVisible] = useState(false);
 
@@ -27,8 +25,6 @@ export function StickyMobileCTA() {
     return () => observer.disconnect();
   }, []);
 
-  if (!isMobile) return null;
-
   const show = isVisible && !footerVisible;
 
   return (
@@ -39,7 +35,7 @@ export function StickyMobileCTA() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.2, ease: 'easeOut' }}
-          className="fixed bottom-0 left-0 right-0 z-50 bg-background/98 backdrop-blur-md border-t border-border shadow-[0_-4px_20px_rgba(0,0,0,0.12)] px-3 py-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))]"
+          className="fixed bottom-0 left-0 right-0 z-50 bg-background/98 backdrop-blur-md border-t border-border shadow-[0_-4px_20px_rgba(0,0,0,0.12)] px-3 py-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))] md:hidden"
         >
           <div className="flex items-center gap-3">
             <div className="flex-1 min-w-0">
