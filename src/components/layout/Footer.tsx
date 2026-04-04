@@ -38,7 +38,7 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 
 const socialLinks = [
   { icon: Instagram, href: 'https://instagram.com/neuvie', label: 'Instagram' },
-  { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61578388975581', label: 'Facebook' },
+  { icon: Facebook, href: 'https://www.facebook.com/people/Neu-Vie/pfbid0Q1XZ9DgKm3jE2XeGypS3vdWDniuNWp1Vskuz5kJnCGrdRHALD6tcXBqDVVLs8sodl/', label: 'Facebook' },
   { icon: Twitter, href: 'https://twitter.com/neuvie', label: 'Twitter' },
   { icon: TikTokIcon, href: 'https://www.tiktok.com/@tryneuvie', label: 'TikTok' },
 ];
