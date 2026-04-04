@@ -151,6 +151,9 @@ export default function Index() {
                     Made in USA
                   </span>
                 </div>
+
+                {/* Quick Category Picker */}
+                <QuickCategoryPicker />
               </motion.div>
 
               {/* Hero Image */}
