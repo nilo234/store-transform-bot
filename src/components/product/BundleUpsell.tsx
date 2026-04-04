@@ -44,7 +44,7 @@ export const BundleUpsell = ({ currentProductHandle }: BundleUpsellProps) => {
               Build a routine that covers all the bases.
             </h2>
             <p className="text-muted-foreground">
-              Combine strips and save up to 25% on curated bundles.
+              Combine strips and save up to 20% on curated bundles.
             </p>
           </motion.div>
 

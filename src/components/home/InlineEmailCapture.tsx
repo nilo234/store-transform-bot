@@ -57,7 +57,7 @@ export function InlineEmailCapture() {
         <span className="text-sm font-semibold text-accent">Get 10% Off Your First Order</span>
       </div>
       <p className="text-sm text-muted-foreground text-center mb-4">
-        Join 10,000+ women who start their day with NEUVIE.
+        Join 10,000+ wellness lovers who start their day with NEUVIE.
       </p>
       <form onSubmit={handleSubmit} className="flex gap-2">
         <Input

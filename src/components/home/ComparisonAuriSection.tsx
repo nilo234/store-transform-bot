@@ -121,7 +121,7 @@ export function ComparisonAuriSection() {
               </Button>
             </Link>
             <p className="text-xs text-muted-foreground mt-3">
-              60-Day Money-Back Guarantee • Free Shipping on $50+
+              14-Day Money-Back Guarantee • Free Shipping on $50+
             </p>
           </motion.div>
         </motion.div>

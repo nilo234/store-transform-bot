@@ -41,7 +41,7 @@ export function OutcomeBenefits() {
             What changes when you start?
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Real outcomes from a 30-second daily ritual.
+            Real outcomes from a 3-second daily ritual.
           </p>
         </motion.div>
 
