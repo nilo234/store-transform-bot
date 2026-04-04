@@ -7,6 +7,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 
 import { Button } from '@/components/ui/button';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { fetchProducts, ShopifyProduct } from '@/lib/shopify';
 import { ProductCard } from '@/components/shop/ProductCard';
 import { BundleCard } from '@/components/shop/BundleCard';
