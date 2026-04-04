@@ -24,7 +24,7 @@ export const InlineTestimonial = ({
         {isVerified && (
           <span className="inline-flex items-center gap-1 text-xs text-primary">
             <BadgeCheck className="w-3.5 h-3.5" />
-            Verified buyer
+            Verified Buyer
           </span>
         )}
       </div>

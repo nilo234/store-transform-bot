@@ -215,7 +215,7 @@ export function ExitIntentPopup() {
                   </motion.div>
                   <h3 className="font-display text-xl mb-2">Code SAVE10 Copied! 🎉</h3>
                   <p className="text-muted-foreground text-sm">
-                    Valid for 24 hours. Happy shopping!
+                    Valid for 24 hours. Your wellness journey starts now!
                   </p>
                 </motion.div>
               )}

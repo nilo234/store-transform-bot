@@ -383,7 +383,7 @@ export default function Index() {
                 Ready to feel the difference?
               </h2>
               <p className="text-primary-foreground/70 text-lg mb-8 max-w-md mx-auto">
-                Join thousands of women who replaced their pill bottles with something better. Free shipping on orders $50+.
+                Join thousands who replaced their pill bottles with something better. Free shipping on orders $50+.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                  <Link to="/shop">
@@ -421,8 +421,8 @@ export default function Index() {
                   <p className="mb-4">
                     Traditional supplements were not designed for modern life. Pills are easy to forget, powders are messy, and gummies 
                     often contain too much sugar. Fast-dissolving wellness strips solve all of these problems. NEUVIE dissolving supplement 
-                    strips are thin, portable, and require no water — making them the perfect daily wellness ritual for busy women who 
-                    refuse to compromise on their health. No pills, no powder, just a simple three-second moment that fits any lifestyle.
+                    strips are thin, portable, and require no water — making them the perfect daily wellness ritual for anyone who 
+                    refuses to compromise on their health. No pills, no powder, just a simple three-second moment that fits any lifestyle.
                   </p>
                   <p>
                     Each NEUVIE strip dissolves on your tongue in about 30 seconds and absorbs directly through the oral mucosa. According 
