@@ -298,6 +298,11 @@ export default function Index() {
               </Button>
             </Link>
           </div>
+
+          {/* Inline Email Capture — after social proof */}
+          <div className="container-wide mt-10">
+            <InlineEmailCapture />
+          </div>
         </section>
 
         {/* ═══════════════════════════════════════════════
@@ -309,6 +314,20 @@ export default function Index() {
             5. OUTCOME BENEFITS — What Changes
         ═══════════════════════════════════════════════ */}
         <OutcomeBenefits />
+
+        {/* Mid-page conversion nudge */}
+        <section className="py-10 md:py-14 bg-accent/5 border-y border-accent/10">
+          <div className="container-wide text-center">
+            <p className="text-lg md:text-xl font-display mb-4">Still deciding? Start with our most popular strip.</p>
+            <Link to="/product/energy-strips-2">
+              <Button className="h-13 px-8 text-sm font-semibold rounded-xl bg-accent hover:bg-accent/90 text-accent-foreground shadow-glow">
+                Try Energy Strips — $24.99
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+            <p className="text-xs text-muted-foreground mt-3">Free shipping on orders $50+ · 14-day money-back guarantee</p>
+          </div>
+        </section>
 
         {/* ═══════════════════════════════════════════════
             6. BUNDLES — Value / Upsell
