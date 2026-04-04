@@ -32,7 +32,7 @@ const footerLinks = {
 
 const socialLinks = [
   { icon: Instagram, href: 'https://instagram.com/neuvie', label: 'Instagram' },
-  { icon: Facebook, href: 'https://facebook.com/neuvie', label: 'Facebook' },
+  { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61578388975581', label: 'Facebook' },
   { icon: Twitter, href: 'https://twitter.com/neuvie', label: 'Twitter' },
 ];
 
