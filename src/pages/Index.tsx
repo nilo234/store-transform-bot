@@ -20,6 +20,8 @@ import { HeroTrustBar } from '@/components/home/HeroTrustBar';
 import { OutcomeBenefits } from '@/components/home/OutcomeBenefits';
 import { StickyMobileCTA } from '@/components/home/StickyMobileCTA';
 import { PaymentTrustStrip } from '@/components/home/PaymentTrustStrip';
+import { QuickCategoryPicker } from '@/components/home/QuickCategoryPicker';
+import { InlineEmailCapture } from '@/components/home/InlineEmailCapture';
 
 // ─── DATA ──────────────────────────────────────────────
 const reviews = [
