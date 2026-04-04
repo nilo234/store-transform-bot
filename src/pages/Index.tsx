@@ -78,9 +78,9 @@ export default function Index() {
 
               {/* Copy */}
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: 'easeOut' }}
+                transition={{ duration: 0.45, ease: 'easeOut' }}
                 className="order-2 lg:order-1 text-center lg:text-left"
               >
                 {/* Urgency badge */}
