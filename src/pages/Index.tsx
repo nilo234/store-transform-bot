@@ -383,7 +383,7 @@ export default function Index() {
                 Ready to feel the difference?
               </h2>
               <p className="text-primary-foreground/70 text-lg mb-8 max-w-md mx-auto">
-                Join thousands of women who replaced their pill bottles with something better. Free shipping on orders $50+.
+                Join thousands who replaced their pill bottles with something better. Free shipping on orders $50+.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                  <Link to="/shop">
