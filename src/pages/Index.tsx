@@ -93,14 +93,14 @@ export default function Index() {
                   <span className="text-sm font-semibold">🔥 Trending — Save 20% on Your First Order</span>
                 </motion.div>
 
-                <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-6xl leading-[1.08] mb-5">
-                  Your wellness routine{' '}
-                  <span className="italic text-accent">shouldn't feel like a chore.</span>
+                <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-6xl leading-[1.08] mb-4">
+                  3 seconds.{' '}
+                  <span className="italic text-accent">That's your new wellness routine.</span>
                 </h1>
 
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0">
-                  Dissolving vitamin strips that taste good, work fast, and fit in your bag. 
-                  No pills. No water. Just place on your tongue and go.
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-5 max-w-xl mx-auto lg:mx-0">
+                  Fast-dissolving vitamin strips that replace pills, powders & gummies. 
+                  Place on tongue → dissolves in seconds → 5× faster absorption.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-4">
