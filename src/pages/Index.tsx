@@ -159,9 +159,9 @@ export default function Index() {
               {/* Hero Image */}
               <motion.div
                 className="order-1 lg:order-2"
-                initial={{ opacity: 0, scale: 0.93 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+                transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
               >
                 <div className="relative mx-auto max-w-[340px] sm:max-w-[460px] lg:max-w-[540px]">
                   <div className="absolute inset-0 bg-accent/10 rounded-[2rem] rotate-3 scale-[1.02]" />
