@@ -107,7 +107,7 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
         onMouseLeave={() => setIsHovered(false)}
       >
         {/* Bundle Image - Shopify Product Images Grid */}
-        <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-b from-muted/30 to-card">
+        <div className="relative overflow-hidden bg-gradient-to-b from-muted/30 to-card p-3" style={{ minHeight: '220px' }}>
           {/* Badges Row - positioned over image */}
           <div className="absolute top-4 left-4 right-4 z-10 flex items-start justify-between">
             {/* Pack Size Badge */}
@@ -142,11 +142,11 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
               transition={{ duration: 0.3 }}
             >
               {shopifyImages.slice(0, 6).map((imgUrl, idx) => (
-                <div key={idx} className="relative overflow-hidden rounded-xl bg-background shadow-sm border border-border/30 aspect-square">
+                <div key={idx} className="relative overflow-hidden rounded-xl bg-background shadow-sm border border-border/30">
                   <img
                     src={optimizeShopifyImage(imgUrl, 400)}
                     alt={`${bundle.name} – ${bundle.products[idx] || `product ${idx + 1}`}`}
-                    className="w-full h-full object-contain p-1"
+                    className="w-full h-auto object-contain p-2"
                     loading="lazy"
                     decoding="async"
                   />
