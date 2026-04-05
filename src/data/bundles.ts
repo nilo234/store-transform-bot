@@ -1,5 +1,6 @@
 // Bundle data for Neuvie™ - 9 Curated Bundles with real Shopify products
 import bundleBeforeYouLeave from '@/assets/bundle-before-you-leave.png';
+import bundleQuietDown from '@/assets/bundle-quiet-down.jpg';
 
 export type BundleCategory = 'all' | 'performance' | 'wellness' | 'beauty';
 
@@ -181,6 +182,7 @@ export const bundles: Bundle[] = [
     tagline: 'Your brain called. It needs a minute.',
     subline: 'For overthinkers who crash hard and wake up unrefreshed.',
     discountCode: 'QUIETDOWN14',
+    image: bundleQuietDown,
   },
   {
     id: 'the-foundation',
