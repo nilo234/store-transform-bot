@@ -145,7 +145,7 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
               {shopifyImages.slice(0, 6).map((imgUrl, idx) => (
                 <div key={idx} className="relative overflow-hidden rounded-lg bg-white">
                   <img
-                    src={optimizeShopifyImage(imgUrl, 200)}
+                    src={optimizeShopifyImage(imgUrl, 600)}
                     alt={`${bundle.name} product ${idx + 1}`}
                     className="w-full h-full object-cover"
                     loading="lazy"
