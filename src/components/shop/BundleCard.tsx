@@ -124,8 +124,22 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
             )}
           </div>
 
-          {/* Product Images Grid */}
-          {imagesLoading ? (
+          {/* Product Images Grid or Custom Image */}
+          {bundle.image ? (
+            <motion.div
+              className="w-full h-full"
+              animate={{ scale: isHovered ? 1.05 : 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <img
+                src={bundle.image}
+                alt={bundle.name}
+                className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </motion.div>
+          ) : imagesLoading ? (
             <div className="w-full h-full flex items-center justify-center bg-muted/50">
               <div className="animate-pulse text-muted-foreground">Loading...</div>
             </div>
