@@ -131,23 +131,22 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
             </div>
           ) : shopifyImages.length > 0 ? (
             <motion.div 
-              className="w-full h-full grid gap-1 p-2"
-              style={{
-                gridTemplateColumns: shopifyImages.length === 1 ? '1fr' : 
-                  shopifyImages.length === 2 ? 'repeat(2, 1fr)' :
-                  shopifyImages.length <= 4 ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)',
-                gridTemplateRows: shopifyImages.length <= 2 ? '1fr' :
-                  shopifyImages.length <= 4 ? 'repeat(2, 1fr)' : 'repeat(2, 1fr)',
-              }}
+              className={`w-full h-full grid gap-1.5 p-3 ${
+                shopifyImages.length === 1 ? 'grid-cols-1' :
+                shopifyImages.length === 2 ? 'grid-cols-2' :
+                shopifyImages.length === 3 ? 'grid-cols-3' :
+                shopifyImages.length === 4 ? 'grid-cols-2 grid-rows-2' :
+                shopifyImages.length <= 6 ? 'grid-cols-3 grid-rows-2' : 'grid-cols-3 grid-rows-2'
+              }`}
               animate={{ scale: isHovered ? 1.02 : 1 }}
               transition={{ duration: 0.3 }}
             >
               {shopifyImages.slice(0, 6).map((imgUrl, idx) => (
-                <div key={idx} className="relative overflow-hidden rounded-lg bg-white">
+                <div key={idx} className="relative overflow-hidden rounded-xl bg-background shadow-sm border border-border/30 aspect-square">
                   <img
-                    src={optimizeShopifyImage(imgUrl, 600)}
-                    alt={`${bundle.name} product ${idx + 1}`}
-                    className="w-full h-full object-cover"
+                    src={optimizeShopifyImage(imgUrl, 400)}
+                    alt={`${bundle.name} – ${bundle.products[idx] || `product ${idx + 1}`}`}
+                    className="w-full h-full object-contain p-1"
                     loading="lazy"
                     decoding="async"
                   />
