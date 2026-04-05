@@ -16,7 +16,7 @@ const outcomes = [
     title: 'Sleep Deeper Tonight',
     description: 'Fall asleep faster and wake up feeling restored. Our sleep strips help you build a bedtime ritual that actually works.',
     cta: 'Shop Sleep',
-    link: '/product/sleep-strips',
+    link: '/product/sleep-strips-1',
   },
   {
     icon: Sparkles,
