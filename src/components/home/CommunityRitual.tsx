@@ -28,7 +28,7 @@ const ritualMoments: { icon: LucideIcon; title: string; quote: string; author: s
 const stats = [
   { value: '30s', label: 'Your daily ritual' },
   { value: '2,400+', label: 'People who chose themselves' },
-  { value: '4.9★', label: 'Average rating' },
+  { value: '4.9', label: 'Average rating' },
 ];
 
 export function CommunityRitual() {
