@@ -1,18 +1,20 @@
 import { motion } from 'framer-motion';
+import { Brain, Zap, Moon, Sparkles, Pill, Leaf } from 'lucide-react';
+import { LucideIcon } from 'lucide-react';
 
 interface Ingredient {
-  emoji: string;
+  icon: LucideIcon;
   name: string;
   benefit: string;
 }
 
 const ingredients: Ingredient[] = [
-  { emoji: '🍄', name: "Lion's Mane", benefit: 'Mental clarity you can feel*' },
-  { emoji: '🍄', name: 'Cordyceps', benefit: 'Steady energy, no crash*' },
-  { emoji: '🌙', name: 'Melatonin', benefit: 'The off-switch your brain needs*' },
-  { emoji: '✨', name: 'Collagen', benefit: 'What shows up on the outside*' },
-  { emoji: '💊', name: 'B12', benefit: 'The baseline that keeps everything else going*' },
-  { emoji: '🌿', name: 'Ashwagandha', benefit: 'Stress without the spiral*' },
+  { icon: Brain, name: "Lion's Mane", benefit: 'Mental clarity you can feel*' },
+  { icon: Zap, name: 'Cordyceps', benefit: 'Steady energy, no crash*' },
+  { icon: Moon, name: 'Melatonin', benefit: 'The off-switch your brain needs*' },
+  { icon: Sparkles, name: 'Collagen', benefit: 'What shows up on the outside*' },
+  { icon: Pill, name: 'B12', benefit: 'The baseline that keeps everything else going*' },
+  { icon: Leaf, name: 'Ashwagandha', benefit: 'Stress without the spiral*' },
 ];
 
 export function IngredientSpotlight() {
@@ -44,7 +46,7 @@ export function IngredientSpotlight() {
               transition={{ delay: index * 0.05 }}
             >
               <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-3 rounded-2xl bg-card border border-border/50 flex items-center justify-center shadow-soft">
-                <span className="text-2xl md:text-3xl">{ingredient.emoji}</span>
+                <ingredient.icon className="w-7 h-7 md:w-8 md:h-8 text-primary" strokeWidth={1.5} />
               </div>
               <h3 className="font-semibold text-sm md:text-base text-foreground">
                 {ingredient.name}

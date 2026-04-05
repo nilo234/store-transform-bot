@@ -4,25 +4,21 @@ import { Zap, Leaf, Sparkles, Heart } from 'lucide-react';
 const benefits = [
   {
     icon: Zap,
-    emoji: '⚡',
     title: '5x Faster Absorption',
     description: 'Our oral strips dissolve in seconds and absorb directly — faster than any traditional capsule or powder.',
   },
   {
     icon: Leaf,
-    emoji: '🌿',
     title: '13 Active Formulas',
     description: 'Every strip is precisely formulated with scientifically selected ingredients that work together.',
   },
   {
     icon: Sparkles,
-    emoji: '✨',
     title: '3-Second Daily Ritual',
     description: 'No water. No pills. No routine to maintain. Just one effortless moment that fits any lifestyle.',
   },
   {
     icon: Heart,
-    emoji: '💛',
     title: 'Built Around You',
     description: 'NEUVIE was created for people who prioritize themselves without making it a full-time job.',
   },
@@ -56,7 +52,7 @@ export function WhyNeuvieHero() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <span className="text-4xl block mb-4">{benefit.emoji}</span>
+              <benefit.icon className="w-9 h-9 text-primary-foreground/80 mb-4" strokeWidth={1.5} />
               <h3 className="font-semibold text-lg text-primary-foreground mb-2">{benefit.title}</h3>
               <p className="text-sm text-primary-foreground/60 leading-relaxed">{benefit.description}</p>
             </motion.div>

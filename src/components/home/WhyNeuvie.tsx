@@ -5,10 +5,10 @@ import { Button } from '@/components/ui/button';
 import hairSkinNailsImg from '@/assets/neuvie-hair-skin-nails-new.png';
 
 const certifications = [
-  { icon: '🌿', label: 'Non-GMO' },
-  { icon: '✅', label: 'Third-Party Tested' },
-  { icon: '🧪', label: 'Clinically Dosed' },
-  { icon: '🇺🇸', label: 'Made in USA' },
+  { Icon: Leaf, label: 'Non-GMO' },
+  { Icon: Check, label: 'Third-Party Tested' },
+  { Icon: FlaskConical, label: 'Clinically Dosed' },
+  { Icon: Shield, label: 'Made in USA' },
 ];
 
 const features = [
@@ -110,8 +110,8 @@ export function WhyNeuvie() {
                     key={cert.label}
                     className="flex items-center gap-3 bg-muted/50 rounded-xl px-4 py-3"
                   >
-                    <span className="text-xl">{cert.icon}</span>
-                    <span className="text-sm font-medium">{cert.label}</span>
+                     <cert.Icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
+                     <span className="text-sm font-medium">{cert.label}</span>
                   </div>
                 ))}
               </div>

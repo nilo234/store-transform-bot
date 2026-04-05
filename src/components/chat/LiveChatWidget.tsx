@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Send, Loader2 } from 'lucide-react';
+import { MessageCircle, X, Send, Loader2, Leaf } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -16,7 +16,7 @@ interface Message {
 const initialMessages: Message[] = [
   {
     id: '1',
-    text: "Hi there! 👋 Welcome to Neuvie. How can I help you today?",
+    text: "Hi there! Welcome to Neuvie. How can I help you today?",
     isBot: true,
     timestamp: new Date(),
   },
@@ -141,7 +141,7 @@ export function LiveChatWidget() {
             <div className="bg-primary text-primary-foreground p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center">
-                  <span className="text-xl">🌿</span>
+                  <Leaf className="w-5 h-5 text-primary-foreground" strokeWidth={1.5} />
                 </div>
                 <div>
                   <h3 className="font-semibold">Neuvie Support</h3>

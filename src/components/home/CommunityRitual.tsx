@@ -1,23 +1,24 @@
 import { motion } from 'framer-motion';
-import { Users, Heart, Repeat, Sparkles } from 'lucide-react';
+import { Users, Heart, Repeat, Sparkles, Sunrise, Moon, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { LucideIcon } from 'lucide-react';
 
-const ritualMoments = [
+const ritualMoments: { icon: LucideIcon; title: string; quote: string; author: string }[] = [
   {
-    icon: '🌅',
+    icon: Sunrise,
     title: 'Morning intention',
     quote: '"I place a strip on my tongue and tell myself: today, I choose me."',
     author: 'Neuvie community member',
   },
   {
-    icon: '🌙',
+    icon: Moon,
     title: 'Evening wind-down',
     quote: '"It\'s become the part of my night I actually protect. My 30 seconds."',
     author: 'Neuvie community member',
   },
   {
-    icon: '💪',
+    icon: TrendingUp,
     title: 'Pre-workout focus',
     quote: '"No shaker, no mixing. I just peel, place, and go. It fits my life."',
     author: 'Neuvie community member',
@@ -27,7 +28,7 @@ const ritualMoments = [
 const stats = [
   { value: '30s', label: 'Your daily ritual' },
   { value: '2,400+', label: 'People who chose themselves' },
-  { value: '4.9★', label: 'Average rating' },
+  { value: '4.9', label: 'Average rating' },
 ];
 
 export function CommunityRitual() {
@@ -70,7 +71,7 @@ export function CommunityRitual() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.12 }}
             >
-              <span className="text-4xl block mb-4">{moment.icon}</span>
+              <moment.icon className="w-9 h-9 text-primary mb-4" strokeWidth={1.5} />
               <h3 className="font-display text-xl mb-3 text-foreground">{moment.title}</h3>
               <p className="text-muted-foreground italic leading-relaxed mb-4">{moment.quote}</p>
               <span className="text-xs text-muted-foreground/70">— {moment.author}</span>

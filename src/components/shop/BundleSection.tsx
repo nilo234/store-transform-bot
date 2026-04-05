@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, Check } from 'lucide-react';
 import { BundleCard } from './BundleCard';
 import { bundles } from '@/data/bundles';
 
@@ -28,7 +28,7 @@ export function BundleSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            🎯 BUNDLES - SAVE UP TO 20%
+            BUNDLES — SAVE UP TO 20%
           </motion.h2>
 
           <motion.p
@@ -59,13 +59,13 @@ export function BundleSection() {
         >
           <div className="inline-flex flex-wrap items-center justify-center gap-4 md:gap-8 text-sm text-muted-foreground">
             <span className="flex items-center gap-2">
-              <span className="text-primary">✓</span> Free Shipping $50+
+              <Check className="h-4 w-4 text-primary" /> Free Shipping $50+
             </span>
             <span className="flex items-center gap-2">
-              <span className="text-primary">✓</span> 14-Day Guarantee
+              <Check className="h-4 w-4 text-primary" /> 14-Day Guarantee
             </span>
             <span className="flex items-center gap-2">
-              <span className="text-primary">✓</span> Bundle & Save More
+              <Check className="h-4 w-4 text-primary" /> Bundle & Save More
             </span>
           </div>
         </motion.div>

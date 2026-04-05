@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Plus, Package, Copy, Check } from 'lucide-react';
+import { Plus, Package, Copy, Check, Flower2, Wine, Zap, Leaf, Sparkles, Moon, TrendingUp, Gift } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
@@ -11,6 +11,23 @@ import { optimizeShopifyImage } from '@/lib/shopify';
 interface BundleCardProps {
   bundle: Bundle;
   index?: number;
+}
+
+const bundleIconMap: Record<string, typeof Zap> = {
+  '🌸': Flower2,
+  '🍾': Wine,
+  '🔥': Zap,
+  '⚡': Zap,
+  '🌿': Leaf,
+  '✨': Sparkles,
+  '😴': Moon,
+  '💪': TrendingUp,
+  '🎁': Gift,
+};
+
+function BundleIcon({ emoji, className }: { emoji: string; className?: string }) {
+  const Icon = bundleIconMap[emoji] || Sparkles;
+  return <Icon className={className} strokeWidth={1.5} />;
 }
 
 
@@ -139,7 +156,7 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
             </motion.div>
           ) : (
             <div className="w-full h-full flex items-center justify-center bg-muted/30">
-              <span className="text-6xl">{bundle.emoji}</span>
+              <BundleIcon emoji={bundle.emoji} className="w-12 h-12 text-primary" />
             </div>
           )}
 
@@ -148,7 +165,7 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
         {/* Bundle Name with Emoji */}
         <div className="px-6 pt-4 pb-2">
           <div className="flex items-center gap-2">
-            <span className="text-2xl">{bundle.emoji}</span>
+            <BundleIcon emoji={bundle.emoji} className="w-6 h-6 text-primary" />
             <h3 className="text-lg font-semibold text-foreground leading-tight" style={{ letterSpacing: '-0.02em' }}>
               {bundle.name}
             </h3>

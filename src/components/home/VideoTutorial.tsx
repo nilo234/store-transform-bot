@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Play, X } from 'lucide-react';
+import { Play, X, Package, Zap, Timer, Sparkles, LucideIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface VideoTutorialProps {
@@ -51,7 +51,7 @@ export const VideoTutorial = ({ videoSrc, posterImage }: VideoTutorialProps) => 
           <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-primary/5 via-background to-accent/5">
             {/* Animated Strip Icons */}
             <div className="flex items-center gap-4 mb-6">
-              {['📦', '👅', '⏱️', '✨'].map((icon, index) => (
+              {([Package, Zap, Timer, Sparkles] as LucideIcon[]).map((Icon, index) => (
                 <motion.div
                   key={index}
                   className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-card/80 backdrop-blur-sm border border-border/50 flex items-center justify-center shadow-soft"
@@ -60,7 +60,7 @@ export const VideoTutorial = ({ videoSrc, posterImage }: VideoTutorialProps) => 
                     transition: { duration: 0.5, delay: index * 0.1 }
                   } : {}}
                 >
-                  <span className="text-xl md:text-2xl">{icon}</span>
+                  <Icon className="w-5 h-5 md:w-7 md:h-7 text-primary" strokeWidth={1.5} />
                 </motion.div>
               ))}
             </div>
