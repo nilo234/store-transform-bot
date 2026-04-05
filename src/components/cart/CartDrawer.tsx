@@ -209,7 +209,7 @@ export function CartDrawer() {
                       {bundle.discountCode && (
                         <div className="px-3 md:px-4 py-1.5 bg-accent/10 text-center">
                           <span className="text-[10px] md:text-xs font-medium text-accent">
-                            ✅ Discount code "{bundle.discountCode}" auto-applied at checkout
+                            Discount code "{bundle.discountCode}" auto-applied at checkout
                           </span>
                         </div>
                       )}
@@ -249,7 +249,7 @@ export function CartDrawer() {
                 {bundleSavings > 0 && (
                   <div className="bg-primary/10 rounded-lg p-2.5 md:p-3 text-center">
                     <span className="text-xs md:text-sm font-semibold text-primary">
-                      🎉 Bundle discount saves you ${bundleSavings.toFixed(2)}!
+                      Bundle discount saves you ${bundleSavings.toFixed(2)}!
                     </span>
                   </div>
                 )}

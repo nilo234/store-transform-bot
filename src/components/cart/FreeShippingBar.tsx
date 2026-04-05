@@ -24,7 +24,7 @@ export function FreeShippingBar({
             <Check className="w-4 h-4" />
           </div>
           <span className="text-sm font-semibold">
-            🎉 You've unlocked FREE shipping!
+            You've unlocked FREE shipping!
           </span>
         </div>
       ) : (

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { X } from 'lucide-react';
+import { X, Zap } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface AnnouncementBarProps {
@@ -9,7 +9,7 @@ interface AnnouncementBarProps {
 }
 
 export function AnnouncementBar({
-  message = "⚡ Limited Time — Save 20% When You Subscribe Today",
+  message = "Limited Time — Save 20% When You Subscribe Today",
   linkText = "Start your ritual",
   linkHref = "/shop",
 }: AnnouncementBarProps) {

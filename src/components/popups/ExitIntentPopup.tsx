@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Gift, ArrowRight, Copy } from 'lucide-react';
+import { X, Gift, ArrowRight, Copy, Check } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -134,7 +134,7 @@ export function ExitIntentPopup() {
               transition={{ delay: 0.3 }}
               className="font-display text-2xl md:text-3xl mb-2"
             >
-              Before you go — a little something for you 💛
+              Before you go — a little something for you
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -213,7 +213,7 @@ export function ExitIntentPopup() {
                   >
                     <Copy className="h-7 w-7 text-green-600" />
                   </motion.div>
-                  <h3 className="font-display text-xl mb-2">Code SAVE10 Copied! 🎉</h3>
+                  <h3 className="font-display text-xl mb-2">Code SAVE10 Copied!</h3>
                   <p className="text-muted-foreground text-sm">
                     Valid for 24 hours. Your wellness journey starts now!
                   </p>
@@ -224,9 +224,9 @@ export function ExitIntentPopup() {
             {/* Trust Points */}
             <div className="mt-6 pt-4 border-t border-border">
               <div className="flex justify-center gap-6 text-xs text-muted-foreground">
-                <span>✓ 14-Day Guarantee</span>
-                <span>✓ Free Shipping $50+</span>
-                <span>✓ Made in USA</span>
+                <span className="flex items-center gap-1"><Check className="h-3 w-3 text-primary" /> 14-Day Guarantee</span>
+                <span className="flex items-center gap-1"><Check className="h-3 w-3 text-primary" /> Free Shipping $50+</span>
+                <span className="flex items-center gap-1"><Check className="h-3 w-3 text-primary" /> Made in USA</span>
               </div>
             </div>
           </div>

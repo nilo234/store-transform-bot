@@ -39,7 +39,7 @@ export function InlineEmailCapture() {
         <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
           <Check className="h-5 w-5 text-primary" />
         </div>
-        <p className="font-semibold text-foreground">You're in! 💛</p>
+        <p className="font-semibold text-foreground">You're in!</p>
         <p className="text-sm text-muted-foreground mt-1">Check your inbox for your 10% discount code.</p>
       </motion.div>
     );
