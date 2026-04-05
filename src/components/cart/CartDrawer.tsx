@@ -328,7 +328,7 @@ function CartItemRow({
       <div className="flex-1 min-w-0">
         <h4 className={`font-medium ${compact ? 'text-[11px] md:text-xs' : 'text-xs md:text-sm'} truncate`}>{sanitizeTitle(item.product.node.title)}</h4>
         {item.variantTitle !== 'Default Title' && (
-          <p className="text-[10px] md:text-xs text-muted-foreground mt-0.5">{item.variantTitle}</p>
+          <p className="text-[10px] md:text-xs text-muted-foreground mt-0.5 line-clamp-2">{item.variantTitle}</p>
         )}
         {item.isSubscription && (
           <Badge variant="secondary" className="mt-1 bg-accent/10 text-accent border-accent/20 gap-1 text-[10px] py-0.5">
