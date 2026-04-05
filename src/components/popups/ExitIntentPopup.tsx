@@ -47,7 +47,7 @@ export function ExitIntentPopup() {
     
     const resetInactivity = () => {
       clearTimeout(inactivityTimer);
-      inactivityTimer = setTimeout(triggerPopup, 40000);
+      inactivityTimer = setTimeout(triggerPopup, 15000);
     };
 
     document.addEventListener('mouseleave', handleMouseLeave);
@@ -55,7 +55,7 @@ export function ExitIntentPopup() {
     window.addEventListener('scroll', resetInactivity);
     
     // Start mobile inactivity timer
-    activityTimer = setTimeout(triggerPopup, 40000);
+    activityTimer = setTimeout(triggerPopup, 15000);
 
     return () => {
       document.removeEventListener('mouseleave', handleMouseLeave);
