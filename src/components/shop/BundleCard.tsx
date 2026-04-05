@@ -54,23 +54,29 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
 
     const addItem = useCartStore.getState().addItem;
 
+    // Use first Shopify image from the bundle's products for cart display
+    const bundleImage = shopifyImages.length > 0 ? shopifyImages[0] : '';
+    const imageEdges = bundleImage
+      ? [{ node: { url: bundleImage, altText: bundle.name } }]
+      : [];
+
     // Add bundle as a single Shopify product using the bundle's own variant ID
     await addItem({
       product: {
         node: {
           id: `bundle-${bundle.id}`,
           title: `${bundle.name} – ${bundle.packSize}`,
-          description: bundle.tagline,
+          description: `Includes: ${bundle.products.join(', ')}. ${bundle.tagline}`,
           handle: bundle.id,
           priceRange: {
             minVariantPrice: { amount: bundle.salePrice.toString(), currencyCode: 'USD' },
           },
-          images: { edges: [] },
+          images: { edges: imageEdges },
           variants: {
             edges: [{
               node: {
                 id: bundle.shopifyBundleVariantId,
-                title: 'Default Title',
+                title: bundle.products.join(' + '),
                 price: { amount: bundle.salePrice.toString(), currencyCode: 'USD' },
                 availableForSale: true,
                 selectedOptions: [{ name: 'Title', value: 'Default Title' }],
@@ -81,10 +87,13 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
         },
       } as import('@/lib/shopify').ShopifyProduct,
       variantId: bundle.shopifyBundleVariantId,
-      variantTitle: 'Default Title',
+      variantTitle: bundle.products.join(' + '),
       price: { amount: bundle.salePrice.toString(), currencyCode: 'USD' },
       quantity: 1,
       selectedOptions: [{ name: 'Title', value: 'Default Title' }],
+      bundleId: `bundle-${bundle.id}`,
+      bundleName: bundle.name,
+      bundleDiscountCode: bundle.discountCode,
     });
 
     toast.success('Bundle added to cart!', {
