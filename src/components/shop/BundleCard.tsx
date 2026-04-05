@@ -142,7 +142,7 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
               transition={{ duration: 0.3 }}
             >
               {shopifyImages.slice(0, 6).map((imgUrl, idx) => (
-                <div key={idx} className="relative overflow-hidden rounded-xl bg-background shadow-sm border border-border/30 aspect-square">
+                <div key={idx} className="relative overflow-hidden rounded-xl bg-background shadow-sm border border-border/30">
                   <img
                     src={optimizeShopifyImage(imgUrl, 400)}
                     alt={`${bundle.name} – ${bundle.products[idx] || `product ${idx + 1}`}`}
