@@ -38,7 +38,7 @@ export const productInfo: Record<string, { title: string; price: string }> = {
 export interface Bundle {
   id: string;
   name: string;
-  emoji: string;
+  emoji: string; // kept for data compatibility
   packSize: string;
   category: BundleCategory;
   products: string[];
@@ -71,7 +71,7 @@ export const bundles: Bundle[] = [
     tagline: 'New season. New skin. Same you – just glowing.',
     subline: 'Spring clean your routine from the inside out.',
     discountCode: 'SPRING20',
-    badge: 'LIMITED · SPRING EDITION 🌸',
+    badge: 'LIMITED · SPRING EDITION',
   },
   {
     id: 'night-out-survival-kit',
@@ -89,7 +89,7 @@ export const bundles: Bundle[] = [
     tagline: "For the night you won't remember and the morning you will.",
     subline: 'Go out. Come back. Feel human again.',
     discountCode: 'NIGHTOUT17',
-    badge: 'FAN FAVORITE 🍾',
+    badge: 'FAN FAVORITE',
   },
   {
     id: 'deep-work-stack',
@@ -107,7 +107,7 @@ export const bundles: Bundle[] = [
     tagline: 'Show up sharp. Stay there.',
     subline: 'For the days when your to-do list has a to-do list.',
     discountCode: 'DEEPWORK19',
-    badge: 'BEST SELLER 🔥',
+    badge: 'BEST SELLER',
   },
   {
     id: 'before-you-leave',
@@ -218,6 +218,6 @@ export const bundles: Bundle[] = [
     tagline: 'Every part of you, covered.',
     subline: "For when you're finally ready to stop picking just one thing to fix.",
     discountCode: 'FULLME19',
-    badge: 'BEST VALUE 🎁',
+    badge: 'BEST VALUE',
   },
 ];
