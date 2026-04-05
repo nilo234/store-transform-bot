@@ -11,6 +11,7 @@ import { cn } from '@/lib/utils';
 import { PageMeta } from '@/components/seo';
 import { ChevronDown, SlidersHorizontal, X, Scale } from 'lucide-react';
 import { goalFilters, tagFilters, sortOptions, getProductGoal, getProductTags } from '@/data/shopFilters';
+import { bundles as bundleData } from '@/data/bundles';
 import { Button } from '@/components/ui/button';
 import { CompareModal } from '@/components/shop/CompareModal';
 import { SocialShareButtons } from '@/components/seo/SocialShareButtons';
@@ -38,8 +39,17 @@ export default function Shop() {
     loadProducts();
   }, []);
 
+  // Filter out bundle products from the shop grid — bundles belong on /bundles
+  const individualProducts = useMemo(() => {
+    const bundleVariantIds = new Set(bundleData.map(b => b.shopifyBundleVariantId));
+    return products.filter(p => {
+      const variantIds = p.node.variants.edges.map(v => v.node.id);
+      return !variantIds.some(id => bundleVariantIds.has(id));
+    });
+  }, [products]);
+
   const filteredProducts = useMemo(() => {
-    let result = products;
+    let result = individualProducts;
     if (activeGoal !== 'all') {
       result = result.filter((p) => getProductGoal(p.node.title) === activeGoal);
     }
@@ -58,7 +68,7 @@ export default function Shop() {
       default: break;
     }
     return sorted;
-  }, [products, activeGoal, activeTags, activeSort]);
+  }, [individualProducts, activeGoal, activeTags, activeSort]);
 
   const updateParam = (key: string, value: string) => {
     const params = new URLSearchParams(searchParams);
