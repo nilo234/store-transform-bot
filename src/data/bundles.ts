@@ -43,6 +43,7 @@ export interface Bundle {
   category: BundleCategory;
   products: string[];
   variantIds: string[];
+  shopifyBundleVariantId: string;
   originalPrice: number;
   salePrice: number;
   savings: number;
@@ -62,6 +63,7 @@ export const bundles: Bundle[] = [
     category: 'beauty',
     products: ['Beauty + Collagen', 'Hair, Skin & Nails', 'Probiotic', 'Energy'],
     variantIds: [shopifyVariants.beautyCollagen, shopifyVariants.hairSkinNails, shopifyVariants.probiotic, shopifyVariants.energy],
+    shopifyBundleVariantId: 'gid://shopify/ProductVariant/48568149016795',
     originalPrice: 139.96,
     salePrice: 111.97,
     savings: 27.99,
