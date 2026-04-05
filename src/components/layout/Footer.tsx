@@ -76,7 +76,7 @@ export function Footer() {
 
       setIsSuccess(true);
       setEmail('');
-      toast.success('Welcome to the Neuvie family! 💛');
+      toast.success('Welcome to the Neuvie family!');
       setTimeout(() => setIsSuccess(false), 5000);
     } catch (err) {
       console.error('Newsletter error:', err);
