@@ -52,6 +52,7 @@ export interface Bundle {
   subline: string;
   discountCode: string;
   badge?: string;
+  image?: string;
 }
 
 export const bundles: Bundle[] = [
@@ -125,6 +126,7 @@ export const bundles: Bundle[] = [
     tagline: 'Two strips. Zero excuses.',
     subline: "The morning routine for people who don't do morning routines.",
     discountCode: 'READY14',
+    image: '/src/assets/bundle-before-you-leave.png',
   },
   {
     id: 'gut-feeling',
