@@ -4,7 +4,7 @@ import { Plus, Package, Copy, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
-import { Bundle, productInfo } from '@/data/bundles';
+import { Bundle } from '@/data/bundles';
 import { useBundleImages } from '@/hooks/useBundleImages';
 import { optimizeShopifyImage } from '@/lib/shopify';
 
@@ -35,64 +35,45 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
     e.preventDefault();
     e.stopPropagation();
 
-    const bundleId = `bundle-${bundle.id}-${Date.now()}`;
+    const addItem = useCartStore.getState().addItem;
 
-    // Build all bundle items with bundle metadata
-    const bundleItems = bundle.variantIds
-      .map((variantId) => {
-        const info = productInfo[variantId];
-        if (!info) return null;
-        return {
-          product: {
-            node: {
-              id: `product-${variantId}`,
-              title: info.title,
-              description: '',
-              handle: info.title.toLowerCase().replace(/\s+/g, '-'),
-              priceRange: {
-                minVariantPrice: { amount: info.price, currencyCode: 'USD' },
+    // Add bundle as a single Shopify product using the bundle's own variant ID
+    await addItem({
+      product: {
+        node: {
+          id: `bundle-${bundle.id}`,
+          title: `${bundle.name} – ${bundle.packSize}`,
+          description: bundle.tagline,
+          handle: bundle.id,
+          priceRange: {
+            minVariantPrice: { amount: bundle.salePrice.toString(), currencyCode: 'USD' },
+          },
+          images: { edges: [] },
+          variants: {
+            edges: [{
+              node: {
+                id: bundle.shopifyBundleVariantId,
+                title: 'Default Title',
+                price: { amount: bundle.salePrice.toString(), currencyCode: 'USD' },
+                availableForSale: true,
+                selectedOptions: [{ name: 'Title', value: 'Default Title' }],
               },
-              images: { edges: [] },
-              variants: {
-                edges: [{
-                  node: {
-                    id: variantId,
-                    title: 'Default Title',
-                    price: { amount: info.price, currencyCode: 'USD' },
-                    availableForSale: true,
-                    selectedOptions: [{ name: 'Title', value: 'Default Title' }],
-                  },
-                }],
-              },
-              options: [{ name: 'Title', values: ['Default Title'] }],
-            },
-          } as import('@/lib/shopify').ShopifyProduct,
-          variantId,
-          variantTitle: 'Default Title',
-          price: { amount: info.price, currencyCode: 'USD' },
-          quantity: 1,
-          selectedOptions: [{ name: 'Title', value: 'Default Title' }],
-          bundleId,
-          bundleName: bundle.name,
-          bundleDiscountCode: bundle.discountCode,
-        };
-      })
-      .filter(Boolean) as Omit<import('@/stores/cartStore').CartItem, 'lineId'>[];
-
-    // Add all items as a bundle (single Shopify cart operation + auto-apply discount)
-    await useCartStore.getState().addBundle(bundleItems, bundle.discountCode);
+            }],
+          },
+          options: [{ name: 'Title', values: ['Default Title'] }],
+        },
+      } as import('@/lib/shopify').ShopifyProduct,
+      variantId: bundle.shopifyBundleVariantId,
+      variantTitle: 'Default Title',
+      price: { amount: bundle.salePrice.toString(), currencyCode: 'USD' },
+      quantity: 1,
+      selectedOptions: [{ name: 'Title', value: 'Default Title' }],
+    });
 
     toast.success('Bundle added to cart!', {
-      description: (
-        <div className="space-y-1">
-          <p>{bundle.name} - {bundle.packSize}</p>
-          <p className="text-xs font-semibold text-primary">
-            Discount code "{bundle.discountCode}" auto-applied!
-          </p>
-        </div>
-      ),
+      description: `${bundle.name} – ${bundle.packSize}`,
       position: 'top-center',
-      duration: 5000,
+      duration: 4000,
     });
   };
 

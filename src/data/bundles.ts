@@ -43,6 +43,7 @@ export interface Bundle {
   category: BundleCategory;
   products: string[];
   variantIds: string[];
+  shopifyBundleVariantId: string;
   originalPrice: number;
   salePrice: number;
   savings: number;
@@ -62,6 +63,7 @@ export const bundles: Bundle[] = [
     category: 'beauty',
     products: ['Beauty + Collagen', 'Hair, Skin & Nails', 'Probiotic', 'Energy'],
     variantIds: [shopifyVariants.beautyCollagen, shopifyVariants.hairSkinNails, shopifyVariants.probiotic, shopifyVariants.energy],
+    shopifyBundleVariantId: 'gid://shopify/ProductVariant/48568149016795',
     originalPrice: 139.96,
     salePrice: 111.97,
     savings: 27.99,
@@ -79,6 +81,7 @@ export const bundles: Bundle[] = [
     category: 'performance',
     products: ['Hangover', 'Energy', 'Cognitive Relax'],
     variantIds: [shopifyVariants.hangover, shopifyVariants.energy, shopifyVariants.cognitiveRelax],
+    shopifyBundleVariantId: 'gid://shopify/ProductVariant/48568149049563',
     originalPrice: 104.97,
     salePrice: 86.99,
     savings: 17.98,
@@ -96,6 +99,7 @@ export const bundles: Bundle[] = [
     category: 'performance',
     products: ['Mushroom Focus', 'Energy', 'Cognitive Relax'],
     variantIds: [shopifyVariants.mushroomFocus, shopifyVariants.energy, shopifyVariants.cognitiveRelax],
+    shopifyBundleVariantId: 'gid://shopify/ProductVariant/48568149082331',
     originalPrice: 104.97,
     salePrice: 84.99,
     savings: 19.98,
@@ -113,6 +117,7 @@ export const bundles: Bundle[] = [
     category: 'performance',
     products: ['Energy', 'Mushroom Focus'],
     variantIds: [shopifyVariants.energy, shopifyVariants.mushroomFocus],
+    shopifyBundleVariantId: 'gid://shopify/ProductVariant/48568149115099',
     originalPrice: 69.98,
     salePrice: 59.99,
     savings: 9.99,
@@ -129,6 +134,7 @@ export const bundles: Bundle[] = [
     category: 'wellness',
     products: ['Probiotic', 'Digestive', 'Iron', 'Appetite Balance'],
     variantIds: [shopifyVariants.probiotic, shopifyVariants.digestive, shopifyVariants.iron, shopifyVariants.appetite],
+    shopifyBundleVariantId: 'gid://shopify/ProductVariant/48568149147867',
     originalPrice: 139.96,
     salePrice: 114.99,
     savings: 24.97,
@@ -146,6 +152,7 @@ export const bundles: Bundle[] = [
     category: 'beauty',
     products: ['Beauty + Collagen', 'Hair, Skin & Nails', 'Bone Support'],
     variantIds: [shopifyVariants.beautyCollagen, shopifyVariants.hairSkinNails, shopifyVariants.boneSupport],
+    shopifyBundleVariantId: 'gid://shopify/ProductVariant/48568149180635',
     originalPrice: 94.97,
     salePrice: 76.99,
     savings: 17.98,
@@ -162,6 +169,7 @@ export const bundles: Bundle[] = [
     category: 'wellness',
     products: ['Sleep', 'Cognitive Relax'],
     variantIds: [shopifyVariants.sleep, shopifyVariants.cognitiveRelax],
+    shopifyBundleVariantId: 'gid://shopify/ProductVariant/48568149213403',
     originalPrice: 69.98,
     salePrice: 59.99,
     savings: 9.99,
@@ -178,6 +186,7 @@ export const bundles: Bundle[] = [
     category: 'wellness',
     products: ['Bone Support', 'Probiotic', 'Iron', 'Appetite Balance'],
     variantIds: [shopifyVariants.boneSupport, shopifyVariants.probiotic, shopifyVariants.iron, shopifyVariants.appetite],
+    shopifyBundleVariantId: 'gid://shopify/ProductVariant/48568149246171',
     originalPrice: 129.96,
     salePrice: 106.99,
     savings: 22.97,
@@ -201,6 +210,7 @@ export const bundles: Bundle[] = [
       shopifyVariants.beautyCollagen,
       shopifyVariants.iron,
     ],
+    shopifyBundleVariantId: 'gid://shopify/ProductVariant/48568149278939',
     originalPrice: 209.94,
     salePrice: 169.99,
     savings: 39.95,
