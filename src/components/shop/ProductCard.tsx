@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Plus, Scale } from 'lucide-react';
+import { Plus, Scale, Package as PackageIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ShopifyProduct, sanitizeHandle, sanitizeTitle, optimizeShopifyImage } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
@@ -116,7 +116,7 @@ export function ProductCard({ product, index = 0, showCompare, isCompared, onTog
                 />
               ) : (
                 <div className="w-full h-full bg-gradient-to-b from-primary/5 to-accent/5 flex items-center justify-center rounded-xl">
-                  <span className="text-5xl md:text-7xl">🍬</span>
+                  <PackageIcon className="w-12 h-12 text-primary/40" strokeWidth={1.5} />
                 </div>
               )}
             </div>
