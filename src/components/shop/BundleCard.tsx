@@ -146,7 +146,7 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
                   <img
                     src={optimizeShopifyImage(imgUrl, 400)}
                     alt={`${bundle.name} – ${bundle.products[idx] || `product ${idx + 1}`}`}
-                    className="w-full h-full object-contain p-1"
+                    className="w-full h-auto object-contain p-2"
                     loading="lazy"
                     decoding="async"
                   />
