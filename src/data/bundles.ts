@@ -1,4 +1,6 @@
 // Bundle data for Neuvie™ - 9 Curated Bundles with real Shopify products
+import bundleBeforeYouLeave from '@/assets/bundle-before-you-leave.png';
+
 export type BundleCategory = 'all' | 'performance' | 'wellness' | 'beauty';
 
 // Real Shopify product variant IDs (ACTIVE products accessible via Storefront API)
@@ -126,7 +128,7 @@ export const bundles: Bundle[] = [
     tagline: 'Two strips. Zero excuses.',
     subline: "The morning routine for people who don't do morning routines.",
     discountCode: 'READY14',
-    image: '/src/assets/bundle-before-you-leave.png',
+    image: bundleBeforeYouLeave,
   },
   {
     id: 'gut-feeling',
