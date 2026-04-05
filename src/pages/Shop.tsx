@@ -68,7 +68,7 @@ export default function Shop() {
       default: break;
     }
     return sorted;
-  }, [products, activeGoal, activeTags, activeSort]);
+  }, [individualProducts, activeGoal, activeTags, activeSort]);
 
   const updateParam = (key: string, value: string) => {
     const params = new URLSearchParams(searchParams);
