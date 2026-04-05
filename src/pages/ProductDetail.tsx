@@ -218,9 +218,9 @@ export default function ProductDetail() {
 
   // Breadcrumb items for JSON-LD
   const breadcrumbItems = [
-    { name: 'Home', url: 'https://neuvie.com' },
-    { name: 'Shop', url: 'https://neuvie.com/shop' },
-    { name: sanitizeTitle(product.title), url: `https://neuvie.com/product/${sanitizeHandle(product.handle)}` }
+    { name: 'Home', url: 'https://tryneuvie.com' },
+    { name: 'Shop', url: 'https://tryneuvie.com/shop' },
+    { name: sanitizeTitle(product.title), url: `https://tryneuvie.com/product/${sanitizeHandle(product.handle)}` }
   ];
 
   return (
