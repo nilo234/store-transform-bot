@@ -3,6 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="https://fonts.gstatic.com/s/dmserifdisplay/v15/-nFnOHM81r4j6k0gjAW3mujVU2B2G_5x0g.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="https://fonts.gstatic.com/s/dmsans/v15/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwA.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Critical inline CSS to prevent FOUC -->
+    <style>
+      #root { opacity: 0; transition: opacity 0.15s ease-in; }
+      body { margin: 0; background: hsl(30 25% 97%); color: hsl(25 30% 10%); font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif; }
+      #root > header, #root > main, #root > footer { display: none; }
+    </style>
+
     <title>Wellness Strips – Dissolving Supplements | NEUVIE™</title>
     <meta name="description" content="NEUVIE dissolving wellness strips. Energy, sleep, beauty & gut health. Clinically studied ingredients, 5x faster absorption. Free US shipping $50+.">
     <meta name="author" content="NEUVIE Nutrition" />
@@ -57,7 +71,7 @@
         window.location.replace(window.location.href.replace('www.', ''));
       }
     </script>
-    <div id="root" style="opacity:0" onload="this.style.opacity='1'">
+    <div id="root">
       <!--
         Static fallback content for SEO crawlers that don't execute JavaScript.
         React will replace this div's contents on hydration.
