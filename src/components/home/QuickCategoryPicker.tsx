@@ -4,11 +4,11 @@ import { Battery, Moon, Sparkles, Heart, Brain, Leaf } from 'lucide-react';
 
 const categories = [
   { icon: Battery, label: 'Energy', link: '/product/energy-strips-2', color: 'text-amber-500' },
-  { icon: Moon, label: 'Sleep', link: '/product/sleep-strips', color: 'text-indigo-400' },
+  { icon: Moon, label: 'Sleep', link: '/product/sleep-strips-1', color: 'text-indigo-400' },
   { icon: Sparkles, label: 'Beauty', link: '/product/beauty-collagen-strips', color: 'text-pink-400' },
-  { icon: Brain, label: 'Focus', link: '/product/focus-strips', color: 'text-blue-400' },
-  { icon: Heart, label: 'Immunity', link: '/product/immunity-strips', color: 'text-red-400' },
-  { icon: Leaf, label: 'Gut Health', link: '/product/digestive-gut-health-strips', color: 'text-emerald-400' },
+  { icon: Brain, label: 'Focus', link: '/product/mushroom-focus-strips', color: 'text-blue-400' },
+  { icon: Heart, label: 'Gut Health', link: '/product/probiotic-metabolism-strips', color: 'text-red-400' },
+  { icon: Leaf, label: 'Digestion', link: '/product/digestive-gut-health-strips', color: 'text-emerald-400' },
 ];
 
 export function QuickCategoryPicker() {
