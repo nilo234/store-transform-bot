@@ -4,7 +4,7 @@ import { Plus, Package, Copy, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
-import { Bundle, productInfo } from '@/data/bundles';
+import { Bundle } from '@/data/bundles';
 import { useBundleImages } from '@/hooks/useBundleImages';
 import { optimizeShopifyImage } from '@/lib/shopify';
 
