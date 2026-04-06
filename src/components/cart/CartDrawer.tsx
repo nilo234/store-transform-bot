@@ -181,7 +181,7 @@ export function CartDrawer() {
                           <Package className="h-4 w-4 text-primary" />
                           <span className="text-xs md:text-sm font-bold text-foreground">{bundle.name}</span>
                           <Badge variant="secondary" className="bg-accent/20 text-accent text-[10px] border-0">
-                            {bundle.items.length}-Pack
+                            {bundleDef?.packSize || `${bundle.items.length}-Pack`}
                           </Badge>
                         </div>
                         <Button
