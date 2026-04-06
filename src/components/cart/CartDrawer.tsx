@@ -181,7 +181,7 @@ export function CartDrawer() {
                           <Package className="h-4 w-4 text-primary" />
                           <span className="text-xs md:text-sm font-bold text-foreground">{bundle.name}</span>
                           <Badge variant="secondary" className="bg-accent/20 text-accent text-[10px] border-0">
-                            {bundle.items.length}-Pack
+                            {bundleDef?.packSize || `${bundle.items.length}-Pack`}
                           </Badge>
                         </div>
                         <Button
@@ -315,7 +315,7 @@ function CartItemRow({
 }) {
   return (
     <div className={`flex gap-3 md:gap-4 ${compact ? 'px-3 md:px-4 py-2.5' : 'p-3 md:p-4 bg-card rounded-lg md:rounded-xl border border-border/50'}`}>
-      <div className={`${compact ? 'w-12 h-12 md:w-14 md:h-14' : 'w-16 h-16 md:w-20 md:h-20'} bg-muted rounded-lg overflow-hidden flex-shrink-0`}>
+      <div className={`${compact ? 'w-14 h-14 md:w-16 md:h-16' : 'w-16 h-16 md:w-20 md:h-20'} bg-muted rounded-lg overflow-hidden flex-shrink-0`}>
         {item.product.node.images?.edges?.[0]?.node && (
           <img
             src={item.product.node.images.edges[0].node.url}
