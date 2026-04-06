@@ -315,7 +315,7 @@ function CartItemRow({
 }) {
   return (
     <div className={`flex gap-3 md:gap-4 ${compact ? 'px-3 md:px-4 py-2.5' : 'p-3 md:p-4 bg-card rounded-lg md:rounded-xl border border-border/50'}`}>
-      <div className={`${compact ? 'w-12 h-12 md:w-14 md:h-14' : 'w-16 h-16 md:w-20 md:h-20'} bg-muted rounded-lg overflow-hidden flex-shrink-0`}>
+      <div className={`${compact ? 'w-14 h-14 md:w-16 md:h-16' : 'w-16 h-16 md:w-20 md:h-20'} bg-muted rounded-lg overflow-hidden flex-shrink-0`}>
         {item.product.node.images?.edges?.[0]?.node && (
           <img
             src={item.product.node.images.edges[0].node.url}
