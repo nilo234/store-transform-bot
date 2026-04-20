@@ -95,48 +95,42 @@ export default function Index() {
                 </motion.div>
 
                 <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-6xl leading-[1.08] mb-4">
-                  3 seconds.{' '}
-                  <span className="italic text-accent">That's your new wellness routine.</span>
+                  One Strip. Dissolves in Seconds.{' '}
+                  <span className="italic text-accent">Supports your gut, energy & skin — from within.</span>
                 </h1>
 
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-5 max-w-xl mx-auto lg:mx-0">
-                  Fast-dissolving vitamin strips that replace pills, powders & gummies. 
-                  Place on tongue → dissolves in seconds → 5× faster absorption.
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4 max-w-xl mx-auto lg:mx-0">
+                  No pills. No powder. Just peel, place & go. Designed for your daily routine.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-4">
-                  <Link to="/shop">
+                {/* Star rating social proof */}
+                <div className="flex items-center gap-2 justify-center lg:justify-start mb-5 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-accent text-accent" strokeWidth={1.5} />
+                    ))}
+                  </div>
+                  <span className="font-medium">5,000+ Happy Customers</span>
+                </div>
+
+                <div className="flex flex-col sm:flex-row sm:items-center gap-3 justify-center lg:justify-start mb-2">
+                  <Link to="/bundles" className="w-full sm:w-auto">
                     <Button className="w-full sm:w-auto h-14 px-10 text-base font-semibold rounded-xl group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-elevated transition-all">
-                      Shop Best Sellers
+                      Try Your First Bundle – Save 20%
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>
-                  <Link to="/bundles">
-                    <Button variant="outline" className="w-full sm:w-auto h-14 sm:px-10 text-sm sm:text-base font-semibold rounded-xl border-2 border-primary bg-background text-foreground hover:bg-primary hover:text-primary-foreground transition-all whitespace-nowrap px-[20px]">
-                      Build a Bundle — Save 20%
+                  <Link to="/shop" className="w-full sm:w-auto">
+                    <Button variant="outline" className="w-full sm:w-auto h-12 px-6 text-sm font-semibold rounded-xl border-2 border-primary/40 bg-transparent text-foreground hover:bg-primary hover:text-primary-foreground transition-all whitespace-nowrap">
+                      Shop All Strips
                     </Button>
                   </Link>
                 </div>
 
-                {/* Social proof */}
-                <div className="flex items-center gap-3 justify-center lg:justify-start mb-5">
-                  <div className="flex -space-x-2">
-                    {['S', 'J', 'E', 'A'].map((initial, i) => (
-                      <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-accent/30 to-primary/30 border-2 border-background flex items-center justify-center">
-                        <span className="text-[10px] font-bold text-primary">{initial}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    <div className="flex items-center gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-3.5 w-3.5 fill-accent text-accent" />
-                      ))}
-                      <span className="ml-1 font-semibold text-foreground">4.9</span>
-                    </div>
-                    <span>from 2,400+ happy customers</span>
-                  </div>
-                </div>
+                {/* Price anchor */}
+                <p className="text-xs md:text-sm text-muted-foreground text-center lg:text-left mb-5">
+                  Bundles starting from <span className="font-semibold text-foreground">$39.99</span> — Save up to 20%
+                </p>
 
                 <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground justify-center lg:justify-start">
                   <span className="flex items-center gap-1.5">
