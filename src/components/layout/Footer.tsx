@@ -18,6 +18,8 @@ const footerLinks = {
   company: [
     { label: 'About Us', href: '/about' },
     { label: 'Science', href: '/science' },
+    { label: 'Journal', href: '/blog' },
+    { label: 'Take the Quiz', href: '/quiz' },
     { label: 'FAQs', href: '/faqs' },
     { label: 'Contact', href: '/contact' },
   ],
