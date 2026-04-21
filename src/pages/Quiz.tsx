@@ -29,6 +29,12 @@ export default function Quiz() {
         setStep(step + 1);
       } else {
         setShowResult(true);
+        // Auto-store quiz reward code so it auto-applies at checkout
+        try {
+          window.localStorage.setItem('neuvie-discount-code', 'QUIZ15');
+        } catch {
+          // ignore
+        }
       }
     }, 250);
   };
