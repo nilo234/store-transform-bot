@@ -334,9 +334,6 @@ export default function ProductDetail() {
                 </p>
               </div>
 
-              {/* Press Logos — instant trust above the fold */}
-              <PressLogosStrip />
-
               {/* Price Block - US Market Optimized */}
               <div className="bg-secondary/60 rounded-xl p-4 space-y-3">
                 <div className="flex items-center justify-between">
@@ -403,6 +400,9 @@ export default function ProductDetail() {
                 <p className="text-center text-sm text-muted-foreground">
                   ✓ Ships free to your door · ✓ Arrives in 2–5 days
                 </p>
+
+                {/* Press Logos — trust signal under shipping info */}
+                <PressLogosStrip />
 
                 {/* Bundle cross-sell — Better Together */}
                 <BundleCrossSellBanner currentVariantId={product.variants.edges[0]?.node.id} />
