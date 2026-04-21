@@ -12,7 +12,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { toast } from 'sonner';
 import { findProductContent, ProductContent } from '@/data/productContent';
 import { sendProductViewEvent, sendAddToCartEvent } from '@/hooks/useShopifyAnalytics';
-import { JudgeMeReviews } from '@/components/reviews/JudgeMeReviews';
+import { ProductReviews } from '@/components/product/ProductReviews';
 import { SubscriptionToggle, PurchaseType } from '@/components/shop/SubscriptionToggle';
 import { StockIndicator } from '@/components/product/StockIndicator';
 import { ValueProposition } from '@/components/product/ValueProposition';
@@ -638,9 +638,8 @@ export default function ProductDetail() {
         {/* Product FAQs */}
         <ProductFAQs productHandle={productType} />
 
-        {/* Judge.me Reviews Section */}
-        <JudgeMeReviews 
-          productId={product.id} 
+        {/* Customer Reviews Section */}
+        <ProductReviews
           productHandle={product.handle}
           productTitle={sanitizeTitle(product.title)}
         />
