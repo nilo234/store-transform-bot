@@ -256,7 +256,7 @@ export default function DigestiveLanding() {
 
         <StripsVsPillsComparison />
 
-        <ProductFAQs productCategory="digestive" />
+        <ProductFAQs />
 
         <section className="py-12 md:py-16 bg-primary/5">
           <div className="container-wide max-w-2xl text-center">

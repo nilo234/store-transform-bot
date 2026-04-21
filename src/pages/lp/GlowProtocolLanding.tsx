@@ -270,7 +270,7 @@ export default function GlowProtocolLanding() {
         <StripsVsPillsComparison />
 
         {/* FAQ */}
-        <ProductFAQs productCategory="beauty" />
+        <ProductFAQs />
 
         {/* Repeat ATC */}
         <section className="py-12 md:py-16 bg-primary/5">
