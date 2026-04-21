@@ -25,6 +25,9 @@ import NotFound from "./pages/NotFound";
 import CheckoutRedirect from "./pages/CheckoutRedirect";
 import GlowProtocolLanding from "./pages/lp/GlowProtocolLanding";
 import DigestiveLanding from "./pages/lp/DigestiveLanding";
+import Quiz from "./pages/Quiz";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 
 const queryClient = new QueryClient();
 
@@ -60,6 +63,9 @@ const App = () => (
           <Route path="/cart/c/:cartToken" element={<CheckoutRedirect />} />
           <Route path="/lp/glow-protocol" element={<GlowProtocolLanding />} />
           <Route path="/lp/digestive" element={<DigestiveLanding />} />
+          <Route path="/quiz" element={<Quiz />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

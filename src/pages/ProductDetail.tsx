@@ -26,6 +26,8 @@ import { GuaranteeSection } from '@/components/product/GuaranteeSection';
 import { FirstOrderDiscountBanner } from '@/components/product/FirstOrderDiscountBanner';
 import { BundleCrossSellBanner } from '@/components/product/BundleCrossSellBanner';
 import { StripsVsPillsComparison } from '@/components/product/StripsVsPillsComparison';
+import { PressLogosStrip } from '@/components/product/PressLogosStrip';
+import { LiveActivityCounter } from '@/components/product/LiveActivityCounter';
 import { ProductJsonLd, BreadcrumbJsonLd, PageMeta } from '@/components/seo';
 import {
   Accordion,
