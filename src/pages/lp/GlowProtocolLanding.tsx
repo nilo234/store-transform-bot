@@ -58,9 +58,9 @@ export default function GlowProtocolLanding() {
 
       {/* Slim header — no nav distractions */}
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border/30">
-        <div className="container-wide flex items-center justify-between h-14 md:h-16 px-3 md:px-6">
+        <div className="container-wide flex items-center justify-between h-20 md:h-24 lg:h-32 px-3 md:px-6">
           <Link to="/" className="flex items-center">
-            <img src={neuvieLogo} alt="NEUVIE" className="h-12 md:h-14 w-auto" />
+            <img src={neuvieLogo} alt="NEUVIE" className="h-20 md:h-[4.75rem] lg:h-[8.25rem] w-auto" />
           </Link>
           <button
             onClick={() => setCartOpen(true)}
