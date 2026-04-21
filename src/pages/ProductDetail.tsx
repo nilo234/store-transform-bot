@@ -334,6 +334,9 @@ export default function ProductDetail() {
                 </p>
               </div>
 
+              {/* Press Logos — instant trust above the fold */}
+              <PressLogosStrip />
+
               {/* Price Block - US Market Optimized */}
               <div className="bg-secondary/60 rounded-xl p-4 space-y-3">
                 <div className="flex items-center justify-between">
@@ -349,6 +352,9 @@ export default function ProductDetail() {
                 {/* Stock Indicator */}
                 <StockIndicator />
               </div>
+
+              {/* Live Activity Counter — social proof in real time */}
+              <LiveActivityCounter productHandle={handle} />
 
               {/* Subscription Toggle */}
               <div className="pt-2">
