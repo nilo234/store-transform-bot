@@ -283,6 +283,18 @@ export const useCartStore = create<CartStore>()(
           url.protocol = 'https:';
           url.searchParams.set('channel', 'online_store');
 
+          // Auto-apply stored discount code (e.g. from Quiz funnel)
+          if (typeof window !== 'undefined') {
+            try {
+              const storedDiscount = window.localStorage.getItem('neuvie-discount-code');
+              if (storedDiscount && !url.searchParams.has('discount')) {
+                url.searchParams.set('discount', storedDiscount);
+              }
+            } catch {
+              // ignore localStorage access errors
+            }
+          }
+
           // If Shopify returns a custom checkout domain that is not fully ready,
           // hard-fallback to the permanent myshopify domain with the same cart token.
           if (url.hostname !== SHOPIFY_STORE_PERMANENT_DOMAIN) {
