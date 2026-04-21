@@ -171,32 +171,30 @@ export default function Quiz() {
                     <div>
                       <h3 className="font-display text-2xl mb-1">{matchedBundle.name}</h3>
                       <p className="text-sm text-muted-foreground">
-                        {matchedBundle.description}
+                        {matchedBundle.tagline}
                       </p>
                     </div>
                     <span className="bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
-                      SAVE 20%
+                      SAVE {matchedBundle.discountPercent}%
                     </span>
                   </div>
 
                   <ul className="space-y-2 mb-6">
-                    {matchedBundle.benefits?.slice(0, 4).map((benefit, i) => (
+                    {matchedBundle.products.slice(0, 4).map((p, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm">
                         <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-                        <span>{benefit}</span>
+                        <span>{p} Strips</span>
                       </li>
                     ))}
                   </ul>
 
                   <div className="flex items-baseline gap-3 mb-1">
                     <span className="text-3xl font-bold text-primary">
-                      ${matchedBundle.price}
+                      ${matchedBundle.salePrice.toFixed(2)}
                     </span>
-                    {matchedBundle.compareAtPrice && (
-                      <span className="text-lg text-muted-foreground line-through">
-                        ${matchedBundle.compareAtPrice}
-                      </span>
-                    )}
+                    <span className="text-lg text-muted-foreground line-through">
+                      ${matchedBundle.originalPrice.toFixed(2)}
+                    </span>
                   </div>
                 </div>
 
