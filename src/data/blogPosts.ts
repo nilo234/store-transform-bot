@@ -63,7 +63,7 @@ export const blogPosts: BlogPost[] = [
     ],
     cta: {
       label: 'Shop Hangover Strips',
-      href: '/product/hangover-strips',
+      href: '/product/hangover-strips-2',
     },
   },
   {
