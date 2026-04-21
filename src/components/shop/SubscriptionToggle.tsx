@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, RefreshCw, Package, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -28,12 +28,24 @@ interface SubscriptionToggleProps {
 }
 
 export function SubscriptionToggle({ basePrice, onSelectionChange }: SubscriptionToggleProps) {
-  const [purchaseType, setPurchaseType] = useState<PurchaseType>('one-time');
+  // Subscribe & Save is the DEFAULT — proven to lift LTV by 30–40% on supplement DTC sites
+  const [purchaseType, setPurchaseType] = useState<PurchaseType>('subscribe');
   const [selectedFrequency, setSelectedFrequency] = useState('monthly');
 
   const currentOption = subscriptionOptions.find(o => o.frequency === selectedFrequency) || subscriptionOptions[0];
   const discountAmount = purchaseType === 'subscribe' ? currentOption.discount : 0;
   const finalPrice = basePrice * (1 - discountAmount / 100);
+
+  // Sync the default selection with the parent on mount so price/CTA match the UI
+  useEffect(() => {
+    onSelectionChange({
+      type: 'subscribe',
+      frequency: 'monthly',
+      discount: currentOption.discount,
+      finalPrice: basePrice * (1 - currentOption.discount / 100),
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [basePrice]);
 
   const handleTypeChange = (type: PurchaseType) => {
     setPurchaseType(type);

@@ -23,6 +23,7 @@ import { StickyMobileCTA } from '@/components/home/StickyMobileCTA';
 import { PaymentTrustStrip } from '@/components/home/PaymentTrustStrip';
 import { QuickCategoryPicker } from '@/components/home/QuickCategoryPicker';
 import { InlineEmailCapture } from '@/components/home/InlineEmailCapture';
+import { useHeroVariant } from '@/hooks/useHeroVariant';
 
 // ─── DATA ──────────────────────────────────────────────
 const reviews = [
@@ -41,6 +42,7 @@ const featuredBundles = bundles.filter(b =>
 export default function Index() {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const heroVariant = useHeroVariant();
 
   useEffect(() => {
     async function loadProducts() {
@@ -84,23 +86,23 @@ export default function Index() {
                 transition={{ duration: 0.45, ease: 'easeOut' }}
                 className="order-2 lg:order-1 text-center lg:text-left"
               >
-                {/* Urgency badge */}
+                {/* Urgency badge — variant-driven */}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                   className="inline-flex items-center gap-2 bg-accent/15 text-accent px-4 py-2 rounded-full mb-5"
                 >
-                  <span className="text-sm font-semibold">🔥 Trending — Save 20% on Your First Order</span>
+                  <span className="text-sm font-semibold">{heroVariant.badge}</span>
                 </motion.div>
 
                 <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-6xl leading-[1.08] mb-4">
-                  One Strip. Dissolves in Seconds.{' '}
-                  <span className="italic text-accent">Supports your gut, energy & skin — from within.</span>
+                  {heroVariant.headlineMain}{' '}
+                  <span className="italic text-accent">{heroVariant.headlineItalic}</span>
                 </h1>
 
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4 max-w-xl mx-auto lg:mx-0">
-                  No pills. No powder. Just peel, place & go. Designed for your daily routine.
+                  {heroVariant.subline}
                 </p>
 
                 {/* Star rating social proof */}
@@ -114,9 +116,9 @@ export default function Index() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 justify-center lg:justify-start mb-2">
-                  <Link to="/bundles" className="w-full sm:w-auto">
+                  <Link to={heroVariant.id === 'b' ? '/quiz' : '/bundles'} className="w-full sm:w-auto">
                     <Button className="w-full sm:w-auto h-14 px-10 text-base font-semibold rounded-xl group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-elevated transition-all">
-                      Build My Bundle – Save 20%
+                      {heroVariant.ctaPrimary}
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>
