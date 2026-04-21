@@ -9,8 +9,8 @@ interface AnnouncementBarProps {
 }
 
 export function AnnouncementBar({
-  message = "Limited Time — Save 20% When You Subscribe Today",
-  linkText = "Start your ritual",
+  message = "Free US Shipping on Orders $50+",
+  linkText = "Shop now",
   linkHref = "/shop",
 }: AnnouncementBarProps) {
   const [isVisible, setIsVisible] = useState(true);
@@ -29,8 +29,8 @@ export function AnnouncementBar({
             {/* Desktop */}
             <div className="hidden sm:flex items-center justify-center gap-4 text-sm font-medium">
               <span>{message}</span>
-              <span className="text-accent-foreground/70">—</span>
-              <span className="font-bold">Subscribe & save 20%</span>
+              <span className="text-accent-foreground/70">·</span>
+              <span className="font-bold">14-Day Money-Back Guarantee</span>
               <a 
                 href={linkHref}
                 className="ml-2 underline underline-offset-2 hover:no-underline font-semibold"
