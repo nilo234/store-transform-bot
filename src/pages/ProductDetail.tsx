@@ -23,6 +23,9 @@ import { IngredientSpotlight } from '@/components/product/IngredientSpotlight';
 import { BundleUpsell } from '@/components/product/BundleUpsell';
 import { ProductFAQs } from '@/components/product/ProductFAQs';
 import { GuaranteeSection } from '@/components/product/GuaranteeSection';
+import { FirstOrderDiscountBanner } from '@/components/product/FirstOrderDiscountBanner';
+import { BundleCrossSellBanner } from '@/components/product/BundleCrossSellBanner';
+import { StripsVsPillsComparison } from '@/components/product/StripsVsPillsComparison';
 import { ProductJsonLd, BreadcrumbJsonLd, PageMeta } from '@/components/seo';
 import {
   Accordion,
@@ -355,6 +358,9 @@ export default function ProductDetail() {
 
               {/* Quantity & Add to Cart */}
               <div ref={addToCartButtonRef} className="flex flex-col gap-3 pt-2">
+                {/* First-order discount banner — shown only to new visitors */}
+                <FirstOrderDiscountBanner />
+
                 <div className="flex items-center gap-4">
                   <div className="flex items-center gap-3 bg-muted rounded-full p-1">
                     <Button
@@ -389,6 +395,9 @@ export default function ProductDetail() {
                 <p className="text-center text-sm text-muted-foreground">
                   ✓ Ships free to your door · ✓ Arrives in 2–5 days
                 </p>
+
+                {/* Bundle cross-sell — Better Together */}
+                <BundleCrossSellBanner currentVariantId={product.variants.edges[0]?.node.id} />
               </div>
 
               {/* Value Proposition Block */}

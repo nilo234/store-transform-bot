@@ -23,6 +23,8 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
 import CheckoutRedirect from "./pages/CheckoutRedirect";
+import GlowProtocolLanding from "./pages/lp/GlowProtocolLanding";
+import DigestiveLanding from "./pages/lp/DigestiveLanding";
 
 const queryClient = new QueryClient();
 
@@ -56,6 +58,8 @@ const App = () => (
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/cart/c/:cartToken" element={<CheckoutRedirect />} />
+          <Route path="/lp/glow-protocol" element={<GlowProtocolLanding />} />
+          <Route path="/lp/digestive" element={<DigestiveLanding />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

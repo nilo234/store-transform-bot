@@ -89,7 +89,7 @@ export function ExitIntentPopup() {
 
       // Copy code to clipboard
       try {
-        await navigator.clipboard.writeText('SAVE10');
+        await navigator.clipboard.writeText('WELCOME10');
       } catch {}
 
       setTimeout(() => setIsOpen(false), 2500);
@@ -142,7 +142,7 @@ export function ExitIntentPopup() {
               transition={{ delay: 0.4 }}
               className="text-primary-foreground/80 text-lg"
             >
-              Take 10% off your first order — because choosing yourself deserves to be celebrated. Use code <strong className="text-accent">SAVE10</strong>.
+              Take 10% off your first order — because choosing yourself deserves to be celebrated. Use code <strong className="text-accent">WELCOME10</strong>.
             </motion.p>
           </div>
 
@@ -213,7 +213,7 @@ export function ExitIntentPopup() {
                   >
                     <Copy className="h-7 w-7 text-green-600" />
                   </motion.div>
-                  <h3 className="font-display text-xl mb-2">Code SAVE10 Copied!</h3>
+                  <h3 className="font-display text-xl mb-2">Code WELCOME10 Copied!</h3>
                   <p className="text-muted-foreground text-sm">
                     Valid for 24 hours. Your wellness journey starts now!
                   </p>
