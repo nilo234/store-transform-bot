@@ -116,7 +116,7 @@ export default function Index() {
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 justify-center lg:justify-start mb-2">
                   <Link to="/bundles" className="w-full sm:w-auto">
                     <Button className="w-full sm:w-auto h-14 px-10 text-base font-semibold rounded-xl group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-elevated transition-all">
-                      Try Your First Bundle – Save 20%
+                      Build My Bundle – Save 20%
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>
@@ -127,9 +127,12 @@ export default function Index() {
                   </Link>
                 </div>
 
-                {/* Price anchor */}
-                <p className="text-xs md:text-sm text-muted-foreground text-center lg:text-left mb-5">
+                {/* Price anchor + first-order incentive */}
+                <p className="text-xs md:text-sm text-muted-foreground text-center lg:text-left mb-1">
                   Bundles starting from <span className="font-semibold text-foreground">$39.99</span> — Save up to 20%
+                </p>
+                <p className="text-xs md:text-sm text-accent font-semibold text-center lg:text-left mb-5">
+                  New here? Use code WELCOME10 for 10% off your first order
                 </p>
 
                 <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground justify-center lg:justify-start">
