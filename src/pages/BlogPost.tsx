@@ -98,15 +98,16 @@ export default function BlogPost() {
             <h3 className="font-display text-2xl md:text-3xl mb-5">
               Make it your daily ritual.
             </h3>
-            <Link to={post.cta.href}>
-              <Button
-                size="lg"
-                className="h-14 px-10 text-base font-semibold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground"
-              >
+            <Button
+              asChild
+              size="lg"
+              className="h-14 px-10 text-base font-semibold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground"
+            >
+              <Link to={post.cta.href}>
                 {post.cta.label}
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
 
           {/* Related Posts */}

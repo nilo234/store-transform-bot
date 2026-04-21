@@ -9,12 +9,13 @@ import { SearchModal } from '@/components/search/SearchModal';
 import { AnnouncementBar } from '@/components/layout/AnnouncementBar';
 import { cn } from '@/lib/utils';
 import neuvieLogo from '@/assets/neuvie-navbar-logo.png';
-// Simplified for cold-traffic conversion: removed FAQ + Contact (still in footer)
 const navLinks = [
 { href: '/shop', label: 'Shop' },
 { href: '/bundles', label: 'Bundles' },
+{ href: '/quiz', label: 'Quiz' },
 { href: '/science', label: 'Science' },
-{ href: '/about', label: 'About' }];
+{ href: '/about', label: 'About' },
+{ href: '/faqs', label: 'FAQs' }];
 
 
 
