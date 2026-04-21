@@ -353,13 +353,6 @@ export default function ProductDetail() {
               {/* Live Activity Counter — social proof in real time */}
               <LiveActivityCounter productHandle={handle} />
 
-              {/* Subscription Toggle */}
-              <div className="pt-2">
-                <SubscriptionToggle 
-                  basePrice={price} 
-                  onSelectionChange={setPurchaseSelection}
-                />
-              </div>
 
               {/* Quantity & Add to Cart */}
               <div ref={addToCartButtonRef} className="flex flex-col gap-3 pt-2">
@@ -393,7 +386,7 @@ export default function ProductDetail() {
                     size="lg"
                   >
                     <ShoppingCart className="h-5 w-5" />
-                    {purchaseSelection?.type === 'subscribe' ? 'Subscribe & Save' : 'Add to Cart'}
+                    Add to Cart
                   </Button>
                 </div>
                 
