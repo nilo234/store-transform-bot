@@ -20,6 +20,33 @@ import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from '@/components/ui/accordion';
 
+function categoryLabel(category: string) {
+  switch (category) {
+    case 'performance': return 'Performance & Focus';
+    case 'beauty': return 'Beauty & Glow';
+    case 'wellness': return 'Daily Wellness';
+    default: return 'Wellness';
+  }
+}
+
+function categoryKeywords(category: string) {
+  switch (category) {
+    case 'performance': return 'energy, focus and cognitive performance';
+    case 'beauty': return 'collagen, biotin and skin-supporting beauty';
+    case 'wellness': return 'gut health, sleep and daily wellness';
+    default: return 'daily wellness';
+  }
+}
+
+function getWhyHeadline(category: string) {
+  switch (category) {
+    case 'performance': return 'Built for the days you have to show up.';
+    case 'beauty': return 'Beauty isn\'t one product — it\'s a rhythm.';
+    case 'wellness': return 'The boring foundation. The reason everything else works.';
+    default: return 'A complete routine, in one box.';
+  }
+}
+
 export default function BundleDetail() {
   const { id } = useParams<{ id: string }>();
   const bundle = useMemo(() => bundles.find(b => b.id === id), [id]);
@@ -625,34 +652,6 @@ function QualityCard({ icon, title, desc }: { icon: React.ReactNode; title: stri
     </div>
   );
 }
-
-function getWhyHeadline(category: string) {
-  switch (category) {
-    case 'performance': return 'Built for the days you have to show up.';
-    case 'beauty': return 'Beauty isn\'t one product — it\'s a rhythm.';
-    case 'wellness': return 'The boring foundation. The reason everything else works.';
-    default: return 'A complete routine, in one box.';
-  }
-}
-
-function categoryLabel(category: string) {
-  switch (category) {
-    case 'performance': return 'Performance & Focus';
-    case 'beauty': return 'Beauty & Glow';
-    case 'wellness': return 'Daily Wellness';
-    default: return 'Wellness';
-  }
-}
-
-function categoryKeywords(category: string) {
-  switch (category) {
-    case 'performance': return 'energy, focus and cognitive performance';
-    case 'beauty': return 'collagen, biotin and skin-supporting beauty';
-    case 'wellness': return 'gut health, sleep and daily wellness';
-    default: return 'daily wellness';
-  }
-}
-
 function StickyMobileBundleATC({
   bundle, qty, onAdd, isLoading,
 }: {
