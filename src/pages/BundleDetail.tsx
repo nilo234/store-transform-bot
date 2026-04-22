@@ -190,29 +190,42 @@ export default function BundleDetail() {
 
                 {imagesLoading ? (
                   <div className="aspect-square flex items-center justify-center text-muted-foreground">Loading…</div>
-                ) : shopifyImages.length > 0 ? (
-                  <div className={`grid gap-1.5 md:gap-2 ${
-                    shopifyImages.length === 1 ? 'grid-cols-1' :
-                    shopifyImages.length === 2 ? 'grid-cols-2' :
-                    shopifyImages.length === 3 ? 'grid-cols-3' :
-                    shopifyImages.length === 4 ? 'grid-cols-2' :
-                    'grid-cols-3'
-                  }`}>
-                    {shopifyImages.slice(0, 6).map((url, i) => (
-                      <div key={i} className="bg-background rounded-lg md:rounded-xl border border-border/30 p-2 md:p-3 aspect-square flex items-center justify-center">
-                        <img
-                          src={optimizeShopifyImage(url, 600)}
-                          alt={`${toTitleCase(bundle.name)} bundle product ${i + 1}: ${bundle.products[i] ?? ''} dissolving wellness strips by NEUVIE`}
-                          className="w-full h-full object-contain"
-                          loading={i === 0 ? 'eager' : 'lazy'}
-                          fetchPriority={i === 0 ? 'high' : undefined}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="aspect-square bg-muted/30 rounded-xl" />
-                )}
+                ) : (() => {
+                  // Always render one tile per product in the bundle.
+                  // If a product is missing an image (e.g. Shopify returned empty),
+                  // fall back to any other image in the bundle so the header never
+                  // shows broken/empty squares.
+                  const tiles = bundle.products.slice(0, 6);
+                  const fallback = shopifyImages.find(Boolean) ?? '';
+                  const colsClass =
+                    tiles.length === 1 ? 'grid-cols-1' :
+                    tiles.length === 2 ? 'grid-cols-2' :
+                    tiles.length === 3 ? 'grid-cols-3' :
+                    tiles.length === 4 ? 'grid-cols-2' :
+                    'grid-cols-3';
+                  return (
+                    <div className={`grid gap-1.5 md:gap-2 ${colsClass}`}>
+                      {tiles.map((productName, i) => {
+                        const url = shopifyImages[i] || fallback;
+                        return (
+                          <div key={i} className="bg-background rounded-lg md:rounded-xl border border-border/30 p-2 md:p-3 aspect-square flex items-center justify-center">
+                            {url ? (
+                              <img
+                                src={optimizeShopifyImage(url, 600)}
+                                alt={`${toTitleCase(bundle.name)} bundle product ${i + 1}: ${productName} dissolving wellness strips by NEUVIE`}
+                                className="w-full h-full object-contain"
+                                loading={i === 0 ? 'eager' : 'lazy'}
+                                fetchPriority={i === 0 ? 'high' : undefined}
+                              />
+                            ) : (
+                              <Package className="h-8 w-8 text-muted-foreground" />
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  );
+                })()}
               </motion.div>
 
               {/* DETAILS */}
