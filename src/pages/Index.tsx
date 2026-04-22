@@ -185,7 +185,41 @@ export default function Index() {
         </section>
 
         {/* ═══════════════════════════════════════════════
-            2. BESTSELLERS — Immediately After Hero
+            1.5 BUNDLE-FIRST PICKER — The Money Section
+        ═══════════════════════════════════════════════ */}
+        <section className="py-14 md:py-20 bg-background">
+          <div className="container-wide">
+            <motion.div className="text-center mb-10" {...fadeUp}>
+              <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-accent mb-3">
+                START HERE · SAVE 20%
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-3">
+                Pick a routine. Skip the guesswork.
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                Curated 3–6 strip bundles built for one goal. One ritual. Better results than a single strip.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {featuredBundles.slice(0, 4).map((bundle, i) => (
+                <BundleCard key={bundle.id} bundle={bundle} index={i} />
+              ))}
+            </div>
+
+            <motion.div className="text-center mt-10" {...fadeUp}>
+              <Link to="/bundles">
+                <Button className="h-13 px-8 text-sm font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90">
+                  See All 9 Bundles
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════
+            2. BESTSELLERS — Single Strips (secondary)
         ═══════════════════════════════════════════════ */}
         <section className="py-16 md:py-24 bg-secondary/40">
           <div className="container-wide">
