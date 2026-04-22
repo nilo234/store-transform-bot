@@ -13,7 +13,7 @@ import { toast } from 'sonner';
 import { findProductContent, ProductContent } from '@/data/productContent';
 import { sendProductViewEvent, sendAddToCartEvent } from '@/hooks/useShopifyAnalytics';
 import { ProductReviews } from '@/components/product/ProductReviews';
-import { SubscriptionToggle, PurchaseType } from '@/components/shop/SubscriptionToggle';
+import { PurchaseTypeSelector, PurchaseMode } from '@/components/product/PurchaseTypeSelector';
 import { StockIndicator } from '@/components/product/StockIndicator';
 import { ValueProposition } from '@/components/product/ValueProposition';
 import { InlineTestimonial } from '@/components/product/InlineTestimonial';
@@ -80,15 +80,11 @@ export default function ProductDetail() {
   const [isLoading, setIsLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [purchaseMode, setPurchaseMode] = useState<PurchaseMode>('single');
   const addToCartButtonRef = useRef<HTMLDivElement>(null);
-  const [purchaseSelection, setPurchaseSelection] = useState<{
-    type: PurchaseType;
-    frequency?: string;
-    discount: number;
-    finalPrice: number;
-  } | null>(null);
-  
+
   const addItem = useCartStore((state) => state.addItem);
+  const addBundle = useCartStore((state) => state.addBundle);
 
   useEffect(() => {
     async function loadProduct() {
