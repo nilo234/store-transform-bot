@@ -135,40 +135,49 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
             )}
           </div>
 
-          {/* Product Images Grid */}
+          {/* Product Images Grid — always render one tile per product so missing
+              Shopify images don't shrink the grid or break alignment. Falls back
+              to any other available bundle image when a slot is empty. */}
           {imagesLoading ? (
             <div className="w-full h-full flex items-center justify-center bg-muted/50">
               <div className="animate-pulse text-muted-foreground">Loading...</div>
             </div>
-          ) : shopifyImages.length > 0 ? (
-            <motion.div 
-              className={`w-full h-full grid gap-1.5 p-3 ${
-                shopifyImages.length === 1 ? 'grid-cols-1' :
-                shopifyImages.length === 2 ? 'grid-cols-2' :
-                shopifyImages.length === 3 ? 'grid-cols-3' :
-                shopifyImages.length === 4 ? 'grid-cols-2 grid-rows-2' :
-                shopifyImages.length <= 6 ? 'grid-cols-3 grid-rows-2' : 'grid-cols-3 grid-rows-2'
-              }`}
-              animate={{ scale: isHovered ? 1.02 : 1 }}
-              transition={{ duration: 0.3 }}
-            >
-              {shopifyImages.slice(0, 6).map((imgUrl, idx) => (
-                <div key={idx} className="relative overflow-hidden rounded-xl bg-background shadow-sm border border-border/30">
-                  <img
-                    src={optimizeShopifyImage(imgUrl, 400)}
-                    alt={`${bundle.name} – ${bundle.products[idx] || `product ${idx + 1}`}`}
-                    className="w-full h-auto object-contain p-2"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-              ))}
-            </motion.div>
-          ) : (
-            <div className="w-full h-full flex items-center justify-center bg-muted/30">
-              <BundleIcon emoji={bundle.emoji} className="w-12 h-12 text-primary" />
-            </div>
-          )}
+          ) : (() => {
+            const tiles = bundle.products.slice(0, 6);
+            const fallback = shopifyImages.find(Boolean) ?? '';
+            const colsClass =
+              tiles.length === 1 ? 'grid-cols-1' :
+              tiles.length === 2 ? 'grid-cols-2' :
+              tiles.length === 3 ? 'grid-cols-3' :
+              tiles.length === 4 ? 'grid-cols-2 grid-rows-2' :
+              'grid-cols-3 grid-rows-2';
+            return (
+              <motion.div
+                className={`w-full h-full grid gap-1.5 p-3 ${colsClass}`}
+                animate={{ scale: isHovered ? 1.02 : 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                {tiles.map((productName, idx) => {
+                  const url = shopifyImages[idx] || fallback;
+                  return (
+                    <div key={idx} className="relative overflow-hidden rounded-xl bg-background shadow-sm border border-border/30 flex items-center justify-center">
+                      {url ? (
+                        <img
+                          src={optimizeShopifyImage(url, 400)}
+                          alt={`${bundle.name} – ${productName}`}
+                          className="w-full h-auto object-contain p-2"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      ) : (
+                        <Package className="h-6 w-6 text-muted-foreground" />
+                      )}
+                    </div>
+                  );
+                })}
+              </motion.div>
+            );
+          })()}
 
         </div>
 
