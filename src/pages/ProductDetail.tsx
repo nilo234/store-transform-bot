@@ -386,6 +386,15 @@ export default function ProductDetail() {
                 {/* First-order discount banner — shown only to new visitors */}
                 <FirstOrderDiscountBanner />
 
+                {/* PURCHASE TYPE SELECTOR — Single vs. Bundle (Bundle-First CRO) */}
+                <PurchaseTypeSelector
+                  currentVariantId={product.variants.edges[0]?.node.id}
+                  singlePrice={price}
+                  comparePrice={originalPrice}
+                  selected={purchaseMode}
+                  onChange={setPurchaseMode}
+                />
+
                 <div className="flex items-center gap-4">
                   <div className="flex items-center gap-3 bg-muted rounded-full p-1">
                     <Button
