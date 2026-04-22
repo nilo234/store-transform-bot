@@ -635,6 +635,60 @@ function getWhyHeadline(category: string) {
   }
 }
 
+function categoryLabel(category: string) {
+  switch (category) {
+    case 'performance': return 'Performance & Focus';
+    case 'beauty': return 'Beauty & Glow';
+    case 'wellness': return 'Daily Wellness';
+    default: return 'Wellness';
+  }
+}
+
+function categoryKeywords(category: string) {
+  switch (category) {
+    case 'performance': return 'energy, focus and cognitive performance';
+    case 'beauty': return 'collagen, biotin and skin-supporting beauty';
+    case 'wellness': return 'gut health, sleep and daily wellness';
+    default: return 'daily wellness';
+  }
+}
+
+function StickyMobileBundleATC({
+  bundle, qty, onAdd, isLoading,
+}: {
+  bundle: { name: string; salePrice: number; discountPercent: number };
+  qty: number;
+  onAdd: () => void | Promise<void>;
+  isLoading: boolean;
+}) {
+  const [showSticky, setShowSticky] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setShowSticky(window.scrollY > 600);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  if (!showSticky) return null;
+  return (
+    <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-background/95 backdrop-blur-lg border-t border-border/60 px-3 py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] shadow-[0_-4px_20px_-4px_rgba(0,0,0,0.1)]">
+      <div className="flex items-center gap-2.5">
+        <div className="flex-shrink-0 min-w-0">
+          <p className="text-[10px] text-muted-foreground leading-tight truncate max-w-[110px]">{toTitleCase(bundle.name)}</p>
+          <p className="text-sm font-bold text-primary leading-tight">${(bundle.salePrice * qty).toFixed(2)}</p>
+        </div>
+        <Button
+          onClick={onAdd}
+          disabled={isLoading}
+          className="flex-1 h-12 text-sm font-bold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground"
+        >
+          <Plus className="h-4 w-4 mr-1" />
+          Add Bundle · Save {bundle.discountPercent}%
+        </Button>
+      </div>
+    </div>
+  );
+}
+
 function getWhyCopy(bundle: { products: string[]; tagline: string; subline: string }) {
   return `Single strips work. Routines compound. We grouped these ${bundle.products.length} strips because they support each other — every one fills a gap the others leave open. ${bundle.subline || bundle.tagline}`;
 }
