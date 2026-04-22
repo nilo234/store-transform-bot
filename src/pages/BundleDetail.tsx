@@ -1,10 +1,10 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   Check, ShieldCheck, Truck, Clock, Sparkles, Plus, Minus,
   Star, Package, Leaf, FlaskConical, Heart, Zap, Moon, Award,
-  ChevronDown, ArrowRight,
+  ArrowRight,
 } from 'lucide-react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
