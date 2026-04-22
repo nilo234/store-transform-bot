@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Plus, Package, Copy, Check, Flower2, Wine, Zap, Leaf, Sparkles, Moon, TrendingUp, Gift } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -110,7 +111,8 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="h-full"
     >
-      <div
+      <Link
+        to={`/bundles/${bundle.id}`}
         className="relative bg-card rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 group cursor-pointer border border-border/50 hover:border-primary/30 hover:shadow-elevated h-full flex flex-col"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -258,7 +260,7 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
             </Button>
           </motion.div>
         </div>
-      </div>
+      </Link>
     </motion.div>
   );
 }

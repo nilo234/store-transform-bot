@@ -12,6 +12,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import Shop from "./pages/Shop";
 import Bundles from "./pages/Bundles";
+import BundleDetail from "./pages/BundleDetail";
 import ProductDetail from "./pages/ProductDetail";
 import Science from "./pages/Science";
 import About from "./pages/About";
@@ -51,6 +52,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/bundles" element={<Bundles />} />
+          <Route path="/bundles/:id" element={<BundleDetail />} />
           <Route path="/product/:handle" element={<ProductDetail />} />
           <Route path="/science" element={<Science />} />
           <Route path="/about" element={<About />} />
