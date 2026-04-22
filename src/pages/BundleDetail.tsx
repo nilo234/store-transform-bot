@@ -129,33 +129,33 @@ export default function BundleDetail() {
 
       <Navbar />
 
-      <main className="flex-1">
+      <main className="flex-1 pb-20 md:pb-0">
         {/* ============ HERO / ABOVE THE FOLD ============ */}
-        <section className="relative pt-6 md:pt-10 pb-10 md:pb-14">
-          <div className="container-wide">
+        <section className="relative pt-4 md:pt-10 pb-8 md:pb-14">
+          <div className="container-wide px-4 md:px-6">
             {/* Breadcrumb */}
-            <nav className="text-xs text-muted-foreground mb-4 flex items-center gap-1.5 flex-wrap">
+            <nav aria-label="Breadcrumb" className="text-xs text-muted-foreground mb-3 md:mb-4 flex items-center gap-1.5 flex-wrap">
               <Link to="/" className="hover:text-foreground">Home</Link>
-              <span>/</span>
+              <span aria-hidden>/</span>
               <Link to="/bundles" className="hover:text-foreground">Bundles</Link>
-              <span>/</span>
+              <span aria-hidden>/</span>
               <span className="text-foreground font-medium">{toTitleCase(bundle.name)}</span>
             </nav>
 
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-start">
               {/* IMAGE */}
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="relative bg-card rounded-2xl border border-border/50 overflow-hidden p-4 md:p-6 lg:sticky lg:top-[140px]"
+                className="relative bg-card rounded-2xl border border-border/50 overflow-hidden p-3 md:p-6 lg:sticky lg:top-[140px]"
               >
                 {/* Badges */}
-                <div className="absolute top-4 left-4 right-4 z-10 flex justify-between items-start pointer-events-none">
-                  <span className="bg-primary text-primary-foreground px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5">
-                    <Package className="h-3.5 w-3.5" /> {bundle.packSize}
+                <div className="absolute top-3 left-3 right-3 md:top-4 md:left-4 md:right-4 z-10 flex justify-between items-start pointer-events-none gap-2">
+                  <span className="bg-primary text-primary-foreground px-2.5 py-1 md:px-3 md:py-1.5 rounded-lg text-[10px] md:text-xs font-bold flex items-center gap-1 md:gap-1.5">
+                    <Package className="h-3 w-3 md:h-3.5 md:w-3.5" /> {bundle.packSize}
                   </span>
                   {bundle.badge && (
-                    <span className="bg-accent text-accent-foreground px-3 py-1.5 rounded-lg text-xs font-bold">
+                    <span className="bg-accent text-accent-foreground px-2.5 py-1 md:px-3 md:py-1.5 rounded-lg text-[10px] md:text-xs font-bold text-right">
                       {bundle.badge}
                     </span>
                   )}
@@ -164,7 +164,7 @@ export default function BundleDetail() {
                 {imagesLoading ? (
                   <div className="aspect-square flex items-center justify-center text-muted-foreground">Loading…</div>
                 ) : shopifyImages.length > 0 ? (
-                  <div className={`grid gap-2 ${
+                  <div className={`grid gap-1.5 md:gap-2 ${
                     shopifyImages.length === 1 ? 'grid-cols-1' :
                     shopifyImages.length === 2 ? 'grid-cols-2' :
                     shopifyImages.length === 3 ? 'grid-cols-3' :
@@ -172,12 +172,13 @@ export default function BundleDetail() {
                     'grid-cols-3'
                   }`}>
                     {shopifyImages.slice(0, 6).map((url, i) => (
-                      <div key={i} className="bg-background rounded-xl border border-border/30 p-3 aspect-square flex items-center justify-center">
+                      <div key={i} className="bg-background rounded-lg md:rounded-xl border border-border/30 p-2 md:p-3 aspect-square flex items-center justify-center">
                         <img
                           src={optimizeShopifyImage(url, 600)}
-                          alt={`${bundle.name} – ${bundle.products[i] ?? ''}`}
+                          alt={`${toTitleCase(bundle.name)} bundle product ${i + 1}: ${bundle.products[i] ?? ''} dissolving wellness strips by NEUVIE`}
                           className="w-full h-full object-contain"
-                          loading="eager"
+                          loading={i === 0 ? 'eager' : 'lazy'}
+                          fetchPriority={i === 0 ? 'high' : undefined}
                         />
                       </div>
                     ))}
@@ -192,60 +193,60 @@ export default function BundleDetail() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.05 }}
-                className="space-y-5"
+                className="space-y-4 md:space-y-5"
               >
                 {/* Reviews summary near top */}
-                <div className="flex items-center gap-2 text-sm">
-                  <div className="flex items-center text-accent">
-                    {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-current" strokeWidth={0} />)}
+                <div className="flex items-center gap-2 text-xs md:text-sm flex-wrap">
+                  <div className="flex items-center text-accent" aria-label="4.8 out of 5 stars">
+                    {[...Array(5)].map((_, i) => <Star key={i} className="h-3.5 w-3.5 md:h-4 md:w-4 fill-current" strokeWidth={0} />)}
                   </div>
                   <span className="text-foreground font-semibold">4.8</span>
-                  <span className="text-muted-foreground">· Based on verified NEUVIE customer reviews</span>
+                  <span className="text-muted-foreground">· Verified NEUVIE customer reviews</span>
                 </div>
 
                 <div>
-                  <p className="text-xs font-bold tracking-widest text-accent uppercase mb-2">
-                    {bundle.packSize} Bundle · Routine
+                  <p className="text-[10px] md:text-xs font-bold tracking-widest text-accent uppercase mb-1.5 md:mb-2">
+                    {bundle.packSize} Wellness Strip Bundle · {categoryLabel(bundle.category)}
                   </p>
-                  <h1 className="font-display text-3xl md:text-4xl lg:text-5xl leading-tight">
-                    {toTitleCase(bundle.name)}
+                  <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
+                    {toTitleCase(bundle.name)} Bundle
                   </h1>
-                  <p className="mt-3 text-lg text-muted-foreground italic">"{bundle.tagline}"</p>
+                  <p className="mt-2 md:mt-3 text-base md:text-lg text-muted-foreground italic">"{bundle.tagline}"</p>
                   {bundle.subline && (
-                    <p className="mt-2 text-sm text-muted-foreground">{bundle.subline}</p>
+                    <p className="mt-1.5 md:mt-2 text-sm text-muted-foreground">{bundle.subline}</p>
                   )}
                 </div>
 
                 {/* Price block */}
-                <div className="bg-muted/40 rounded-2xl p-5 border border-border/40">
-                  <div className="flex items-end gap-3 flex-wrap">
-                    <span className="text-4xl font-bold text-primary">${bundle.salePrice.toFixed(2)}</span>
-                    <span className="text-lg text-muted-foreground line-through">${bundle.originalPrice.toFixed(2)}</span>
-                    <span className="bg-destructive/10 text-destructive px-2.5 py-1 rounded-md text-xs font-bold">
+                <div className="bg-muted/40 rounded-2xl p-4 md:p-5 border border-border/40">
+                  <div className="flex items-end gap-2 md:gap-3 flex-wrap">
+                    <span className="text-3xl md:text-4xl font-bold text-primary">${bundle.salePrice.toFixed(2)}</span>
+                    <span className="text-base md:text-lg text-muted-foreground line-through">${bundle.originalPrice.toFixed(2)}</span>
+                    <span className="bg-destructive/10 text-destructive px-2 py-1 md:px-2.5 rounded-md text-[10px] md:text-xs font-bold">
                       SAVE ${bundle.savings.toFixed(2)} · {bundle.discountPercent}% OFF
                     </span>
                   </div>
-                  <p className="text-xs text-muted-foreground mt-2">
+                  <p className="text-[11px] md:text-xs text-muted-foreground mt-2">
                     Just <span className="font-semibold text-foreground">${pricePerProduct}</span> per strip pack ·
                     {' '}30-day supply per pack
                   </p>
                 </div>
 
-                {/* Quantity + ATC */}
+                {/* Quantity + ATC — stacks on mobile */}
                 <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <div className="flex items-center border border-border rounded-xl overflow-hidden">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
+                    <div className="flex items-center justify-center sm:justify-start border border-border rounded-xl overflow-hidden self-stretch sm:self-auto">
                       <button
                         onClick={() => setQty(q => Math.max(1, q - 1))}
-                        className="p-3 hover:bg-muted transition-colors"
+                        className="p-3 sm:p-3 hover:bg-muted transition-colors min-w-[44px] flex items-center justify-center"
                         aria-label="Decrease quantity"
                       >
                         <Minus className="h-4 w-4" />
                       </button>
-                      <span className="px-4 font-semibold min-w-[2.5rem] text-center">{qty}</span>
+                      <span className="px-4 font-semibold min-w-[3rem] text-center">{qty}</span>
                       <button
                         onClick={() => setQty(q => q + 1)}
-                        className="p-3 hover:bg-muted transition-colors"
+                        className="p-3 hover:bg-muted transition-colors min-w-[44px] flex items-center justify-center"
                         aria-label="Increase quantity"
                       >
                         <Plus className="h-4 w-4" />
@@ -254,20 +255,20 @@ export default function BundleDetail() {
                     <Button
                       onClick={handleAddToCart}
                       disabled={isLoading}
-                      className="flex-1 h-14 text-base font-bold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
+                      className="flex-1 h-14 text-sm md:text-base font-bold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
                     >
                       <Plus className="h-5 w-5 mr-1" />
-                      Add Bundle to Cart — ${(bundle.salePrice * qty).toFixed(2)}
+                      Add to Cart — ${(bundle.salePrice * qty).toFixed(2)}
                     </Button>
                   </div>
-                  <p className="text-xs text-center text-muted-foreground">
+                  <p className="text-[11px] md:text-xs text-center text-muted-foreground">
                     Discount auto-applies at checkout · Or use code{' '}
                     <span className="font-mono font-bold text-primary">{bundle.discountCode}</span>
                   </p>
                 </div>
 
                 {/* Trust line */}
-                <div className="grid grid-cols-3 gap-2 pt-2">
+                <div className="grid grid-cols-3 gap-2 pt-1 md:pt-2">
                   <TrustBadge icon={<Truck className="h-4 w-4" />} label="Free US Shipping" />
                   <TrustBadge icon={<ShieldCheck className="h-4 w-4" />} label="14-Day Guarantee" />
                   <TrustBadge icon={<Clock className="h-4 w-4" />} label="Ships in 1–2 Days" />
@@ -275,15 +276,15 @@ export default function BundleDetail() {
 
                 {/* What's inside (compact) */}
                 <div className="border border-border/50 rounded-xl p-4 bg-card">
-                  <p className="text-xs font-bold tracking-wider uppercase text-muted-foreground mb-3">
+                  <p className="text-[10px] md:text-xs font-bold tracking-wider uppercase text-muted-foreground mb-3">
                     What's Inside ({bundle.products.length} products)
                   </p>
                   <ul className="space-y-2">
                     {bundle.products.map((p, i) => (
-                      <li key={i} className="flex items-center gap-2 text-sm">
+                      <li key={i} className="flex items-center gap-2 text-xs md:text-sm">
                         <Check className="h-4 w-4 text-primary flex-shrink-0" />
-                        <span className="text-foreground">{p} Strips</span>
-                        <span className="ml-auto text-xs text-muted-foreground">30-day supply</span>
+                        <span className="text-foreground flex-1 min-w-0">{p} Strips</span>
+                        <span className="text-[10px] md:text-xs text-muted-foreground flex-shrink-0">30-day supply</span>
                       </li>
                     ))}
                   </ul>
@@ -293,17 +294,43 @@ export default function BundleDetail() {
           </div>
         </section>
 
+        {/* ============ SEO INTRO PARAGRAPH ============ */}
+        <section className="py-8 md:py-12 bg-card border-y border-border/30">
+          <div className="container-wide max-w-3xl px-4 md:px-6">
+            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+              The <strong className="text-foreground">{toTitleCase(bundle.name)} Bundle</strong> by NEUVIE is a curated{' '}
+              {bundle.packSize.toLowerCase()} of fast-dissolving oral wellness strips — featuring{' '}
+              {bundle.products.slice(0, -1).join(', ')}{bundle.products.length > 1 ? ' and ' : ''}{bundle.products[bundle.products.length - 1]} Strips.
+              Each strip dissolves on your tongue in roughly 30 seconds and is designed to deliver clinically studied{' '}
+              {categoryKeywords(bundle.category)} support without pills, water, or capsules. Built for people who want a real{' '}
+              {categoryLabel(bundle.category).toLowerCase()} routine they can actually keep — at home, at work, or on the go.
+              Save <strong className="text-foreground">{bundle.discountPercent}%</strong> versus buying each pack individually,
+              with free US shipping over $50 and our{' '}
+              <Link to="/returns" className="text-primary hover:underline font-medium">14-day money-back guarantee</Link>.
+            </p>
+          </div>
+        </section>
+
         {/* ============ WHY THIS BUNDLE ============ */}
-        <section className="py-14 md:py-20 bg-card border-y border-border/30">
-          <div className="container-wide max-w-4xl text-center">
-            <p className="text-xs font-bold tracking-widest text-accent uppercase mb-3">Why this bundle</p>
-            <h2 className="font-display text-3xl md:text-4xl mb-5">
+        <section className="py-10 md:py-20 bg-background">
+          <div className="container-wide max-w-4xl px-4 md:px-6 text-center">
+            <p className="text-[10px] md:text-xs font-bold tracking-widest text-accent uppercase mb-2 md:mb-3">Why this bundle</p>
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl mb-4 md:mb-5">
               {getWhyHeadline(bundle.category)}
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
               {getWhyCopy(bundle)}
             </p>
-            <div className="mt-8 inline-block bg-background border border-border/50 rounded-2xl px-6 py-4 text-sm text-left">
+            <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto mt-4">
+              Most NEUVIE customers don't buy a single strip — they build a routine. That's why we group{' '}
+              {bundle.products.length} complementary{' '}
+              <Link to="/shop" className="text-primary hover:underline font-medium">wellness strips</Link>{' '}
+              into one bundle: every formula closes a gap the others leave open. Together, they create the kind of daily ritual
+              that actually compounds — backed by{' '}
+              <Link to="/science" className="text-primary hover:underline font-medium">peer-reviewed research</Link> and made in
+              FDA-registered US facilities.
+            </p>
+            <div className="mt-6 md:mt-8 inline-block bg-card border border-border/50 rounded-2xl px-5 py-3 md:px-6 md:py-4 text-xs md:text-sm text-left max-w-md">
               <p className="font-semibold text-foreground mb-1">Built for:</p>
               <p className="text-muted-foreground italic">{getAudience(bundle.category)}</p>
             </div>
@@ -311,17 +338,17 @@ export default function BundleDetail() {
         </section>
 
         {/* ============ WHAT'S INCLUDED (detailed cards) ============ */}
-        <section className="py-14 md:py-20">
-          <div className="container-wide">
-            <div className="text-center mb-10">
-              <p className="text-xs font-bold tracking-widest text-accent uppercase mb-3">What's included</p>
-              <h2 className="font-display text-3xl md:text-4xl">Your {bundle.products.length}-step routine</h2>
-              <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
-                Each strip is a 30-day supply. Use them together — they're designed to work as a system.
+        <section className="py-10 md:py-20 bg-card border-y border-border/30">
+          <div className="container-wide px-4 md:px-6">
+            <div className="text-center mb-8 md:mb-10">
+              <p className="text-[10px] md:text-xs font-bold tracking-widest text-accent uppercase mb-2 md:mb-3">What's included</p>
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl">Your {bundle.products.length}-step daily ritual</h2>
+              <p className="text-sm md:text-base text-muted-foreground mt-2 md:mt-3 max-w-xl mx-auto">
+                Each NEUVIE strip pack contains a 30-day supply. Use them together — they're designed to work as one system.
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 max-w-5xl mx-auto">
               {bundle.products.map((productName, i) => {
                 const variantId = bundle.variantIds[i];
                 const info = productInfo[variantId];
@@ -333,21 +360,26 @@ export default function BundleDetail() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.05 }}
-                    className="bg-card border border-border/50 rounded-2xl p-5 hover:shadow-elevated transition-shadow"
+                    className="bg-background border border-border/50 rounded-2xl p-4 md:p-5 hover:shadow-elevated transition-shadow"
                   >
-                    <div className="aspect-square bg-background rounded-xl border border-border/30 p-4 mb-4 flex items-center justify-center">
+                    <div className="aspect-square bg-card rounded-xl border border-border/30 p-3 md:p-4 mb-3 md:mb-4 flex items-center justify-center">
                       {img ? (
-                        <img src={optimizeShopifyImage(img, 400)} alt={productName} className="w-full h-full object-contain" loading="lazy" />
+                        <img
+                          src={optimizeShopifyImage(img, 400)}
+                          alt={`${productName} dissolving wellness strips by NEUVIE`}
+                          className="w-full h-full object-contain"
+                          loading="lazy"
+                        />
                       ) : (
                         <Package className="h-12 w-12 text-muted-foreground" />
                       )}
                     </div>
-                    <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider mb-1">Step {i + 1}</p>
-                    <h3 className="font-display text-xl mb-1">{productName} Strips</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-[10px] md:text-xs text-muted-foreground font-semibold uppercase tracking-wider mb-1">Step {i + 1}</p>
+                    <h3 className="font-display text-lg md:text-xl mb-1">{productName} Strips</h3>
+                    <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
                       {getProductBenefit(productName)}
                     </p>
-                    <p className="text-xs text-muted-foreground mt-3">
+                    <p className="text-[10px] md:text-xs text-muted-foreground mt-2 md:mt-3">
                       30-day supply · ${info?.price ?? '34.99'} value
                     </p>
                   </motion.div>
@@ -358,20 +390,20 @@ export default function BundleDetail() {
         </section>
 
         {/* ============ OUTCOMES ============ */}
-        <section className="py-14 md:py-20 bg-card border-y border-border/30">
-          <div className="container-wide max-w-5xl">
-            <div className="text-center mb-10">
-              <p className="text-xs font-bold tracking-widest text-accent uppercase mb-3">What you'll feel</p>
-              <h2 className="font-display text-3xl md:text-4xl">The complete benefit of the routine</h2>
+        <section className="py-10 md:py-20 bg-background">
+          <div className="container-wide max-w-5xl px-4 md:px-6">
+            <div className="text-center mb-8 md:mb-10">
+              <p className="text-[10px] md:text-xs font-bold tracking-widest text-accent uppercase mb-2 md:mb-3">What you'll feel</p>
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl">The complete benefit of the routine</h2>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
               {outcomes.map((o, i) => (
-                <div key={i} className="bg-background rounded-2xl p-6 border border-border/40">
-                  <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-3">
+                <div key={i} className="bg-card rounded-2xl p-5 md:p-6 border border-border/40">
+                  <div className="w-10 h-10 md:w-11 md:h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-3">
                     {o.icon}
                   </div>
-                  <h3 className="font-semibold text-lg mb-1.5">{o.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{o.desc}</p>
+                  <h3 className="font-semibold text-base md:text-lg mb-1.5">{o.title}</h3>
+                  <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{o.desc}</p>
                 </div>
               ))}
             </div>
@@ -379,26 +411,29 @@ export default function BundleDetail() {
         </section>
 
         {/* ============ STRIPS VS PILLS ============ */}
-        <section className="py-14 md:py-20">
-          <div className="container-wide max-w-4xl">
-            <div className="text-center mb-10">
-              <p className="text-xs font-bold tracking-widest text-accent uppercase mb-3">The format advantage</p>
-              <h2 className="font-display text-3xl md:text-4xl">Why strips beat pills, every time</h2>
+        <section className="py-10 md:py-20 bg-card border-y border-border/30">
+          <div className="container-wide max-w-4xl px-4 md:px-6">
+            <div className="text-center mb-8 md:mb-10">
+              <p className="text-[10px] md:text-xs font-bold tracking-widest text-accent uppercase mb-2 md:mb-3">The format advantage</p>
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl">Why dissolving strips beat pills, every time</h2>
+              <p className="text-sm md:text-base text-muted-foreground mt-2 md:mt-3 max-w-xl mx-auto">
+                Sublingual delivery can absorb up to 5× faster than capsules — no digestion, no waiting, no water.
+              </p>
             </div>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-card rounded-2xl p-6 border border-border/40">
-                <p className="font-semibold text-muted-foreground mb-4">Traditional pills</p>
-                <ul className="space-y-3 text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              <div className="bg-background rounded-2xl p-5 md:p-6 border border-border/40">
+                <p className="font-semibold text-muted-foreground mb-3 md:mb-4 text-sm md:text-base">Traditional pills & capsules</p>
+                <ul className="space-y-2.5 md:space-y-3 text-xs md:text-sm">
                   <li className="flex gap-2"><span className="text-muted-foreground">✕</span> Slow digestion: 30–60 min to act</li>
                   <li className="flex gap-2"><span className="text-muted-foreground">✕</span> Bulky bottles, pill organizers</li>
                   <li className="flex gap-2"><span className="text-muted-foreground">✕</span> Hard to swallow, easy to skip</li>
                   <li className="flex gap-2"><span className="text-muted-foreground">✕</span> Need water, planning, routine props</li>
                 </ul>
               </div>
-              <div className="bg-primary/5 rounded-2xl p-6 border-2 border-primary/30">
-                <p className="font-semibold text-primary mb-4">NEUVIE strips</p>
-                <ul className="space-y-3 text-sm">
-                  <li className="flex gap-2"><Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" /> Sublingual: ~30 sec to dissolve</li>
+              <div className="bg-primary/5 rounded-2xl p-5 md:p-6 border-2 border-primary/30">
+                <p className="font-semibold text-primary mb-3 md:mb-4 text-sm md:text-base">NEUVIE wellness strips</p>
+                <ul className="space-y-2.5 md:space-y-3 text-xs md:text-sm">
+                  <li className="flex gap-2"><Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" /> Sublingual: dissolves in ~30 seconds</li>
                   <li className="flex gap-2"><Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" /> Slim packs that fit your pocket</li>
                   <li className="flex gap-2"><Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" /> No water, no fuss — anywhere</li>
                   <li className="flex gap-2"><Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" /> A 3-second daily ritual you'll keep</li>
@@ -409,39 +444,42 @@ export default function BundleDetail() {
         </section>
 
         {/* ============ HOW TO USE ============ */}
-        <section className="py-14 md:py-20 bg-card border-y border-border/30">
-          <div className="container-wide max-w-4xl">
-            <div className="text-center mb-10">
-              <p className="text-xs font-bold tracking-widest text-accent uppercase mb-3">Your daily ritual</p>
-              <h2 className="font-display text-3xl md:text-4xl">How to use this bundle</h2>
-              <p className="text-muted-foreground mt-3">Three seconds. That's the whole routine.</p>
+        <section className="py-10 md:py-20 bg-background">
+          <div className="container-wide max-w-4xl px-4 md:px-6">
+            <div className="text-center mb-8 md:mb-10">
+              <p className="text-[10px] md:text-xs font-bold tracking-widest text-accent uppercase mb-2 md:mb-3">Your daily ritual</p>
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl">How to use the {toTitleCase(bundle.name)} Bundle</h2>
+              <p className="text-sm md:text-base text-muted-foreground mt-2 md:mt-3">Three seconds. That's the whole routine.</p>
             </div>
-            <div className="grid sm:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5">
               {[
                 { step: '01', title: 'Open the strip', desc: 'Tear open one strip from the pack — slim enough to live in your bag.' },
-                { step: '02', title: 'Place on tongue', desc: 'It dissolves in ~30 seconds. No water needed.' },
+                { step: '02', title: 'Place on tongue', desc: 'It dissolves in roughly 30 seconds. No water needed, no aftertaste.' },
                 { step: '03', title: 'Done. Keep going.', desc: 'Stack the strips that fit your moment — morning energy, evening calm.' },
               ].map((s) => (
-                <div key={s.step} className="bg-background rounded-2xl p-6 border border-border/40">
-                  <p className="text-3xl font-display text-accent mb-2">{s.step}</p>
-                  <h3 className="font-semibold mb-1.5">{s.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                <div key={s.step} className="bg-card rounded-2xl p-5 md:p-6 border border-border/40">
+                  <p className="text-2xl md:text-3xl font-display text-accent mb-1.5 md:mb-2">{s.step}</p>
+                  <h3 className="font-semibold mb-1.5 text-sm md:text-base">{s.title}</h3>
+                  <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ============ SOCIAL PROOF (no fabricated reviews) ============ */}
-        <section className="py-14 md:py-20">
-          <div className="container-wide max-w-4xl text-center">
-            <p className="text-xs font-bold tracking-widest text-accent uppercase mb-3">Trusted by NEUVIE customers</p>
-            <h2 className="font-display text-3xl md:text-4xl mb-4">Bundles are our most-loved purchase</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+        {/* ============ SOCIAL PROOF ============ */}
+        <section className="py-10 md:py-20 bg-card border-y border-border/30">
+          <div className="container-wide max-w-4xl px-4 md:px-6 text-center">
+            <p className="text-[10px] md:text-xs font-bold tracking-widest text-accent uppercase mb-2 md:mb-3">Trusted by NEUVIE customers</p>
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl mb-3 md:mb-4">Bundles are our most-loved purchase</h2>
+            <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Most NEUVIE customers come back for a second bundle within 30 days. The reason is simple: a routine works
-              better than a single strip.
+              better than a single strip. Browse{' '}
+              <Link to="/bundles" className="text-primary hover:underline font-medium">all NEUVIE bundles</Link>{' '}
+              or read what customers say on{' '}
+              <Link to="/about" className="text-primary hover:underline font-medium">our story page</Link>.
             </p>
-            <div className="mt-8 grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+            <div className="mt-6 md:mt-8 grid grid-cols-3 gap-3 md:gap-4 max-w-2xl mx-auto">
               <Stat value="4.8★" label="Avg. customer rating" />
               <Stat value="14-Day" label="Money-back guarantee" />
               <Stat value="100%" label="Made in USA" />
@@ -450,36 +488,40 @@ export default function BundleDetail() {
         </section>
 
         {/* ============ SCIENCE / QUALITY ============ */}
-        <section className="py-14 md:py-20 bg-card border-y border-border/30">
-          <div className="container-wide max-w-5xl">
-            <div className="text-center mb-10">
-              <p className="text-xs font-bold tracking-widest text-accent uppercase mb-3">Quality promise</p>
-              <h2 className="font-display text-3xl md:text-4xl">Clean. Tested. Made in USA.</h2>
+        <section className="py-10 md:py-20 bg-background">
+          <div className="container-wide max-w-5xl px-4 md:px-6">
+            <div className="text-center mb-8 md:mb-10">
+              <p className="text-[10px] md:text-xs font-bold tracking-widest text-accent uppercase mb-2 md:mb-3">Quality promise</p>
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl">Clean. Tested. Made in the USA.</h2>
+              <p className="text-sm md:text-base text-muted-foreground mt-2 md:mt-3 max-w-2xl mx-auto">
+                Every strip in this bundle is third-party tested for purity and potency. See the full breakdown on our{' '}
+                <Link to="/science" className="text-primary hover:underline font-medium">Science page</Link>.
+              </p>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
               <QualityCard icon={<FlaskConical className="h-5 w-5" />} title="Third-party tested" desc="Every batch tested for purity and potency." />
               <QualityCard icon={<Leaf className="h-5 w-5" />} title="Clean ingredients" desc="No artificial dyes, fillers or unnecessary additives." />
               <QualityCard icon={<Award className="h-5 w-5" />} title="FDA-registered facility" desc="Manufactured in a US FDA-registered facility." />
               <QualityCard icon={<Sparkles className="h-5 w-5" />} title="Clinically studied doses" desc="Active ingredients backed by peer-reviewed research." />
             </div>
-            <p className="text-xs text-muted-foreground text-center mt-8 max-w-2xl mx-auto">
+            <p className="text-[10px] md:text-xs text-muted-foreground text-center mt-6 md:mt-8 max-w-2xl mx-auto leading-relaxed">
               These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure or prevent any disease.
             </p>
           </div>
         </section>
 
         {/* ============ FAQ ============ */}
-        <section className="py-14 md:py-20">
-          <div className="container-wide max-w-3xl">
-            <div className="text-center mb-10">
-              <p className="text-xs font-bold tracking-widest text-accent uppercase mb-3">FAQ</p>
-              <h2 className="font-display text-3xl md:text-4xl">Questions, answered.</h2>
+        <section className="py-10 md:py-20 bg-card border-y border-border/30">
+          <div className="container-wide max-w-3xl px-4 md:px-6">
+            <div className="text-center mb-8 md:mb-10">
+              <p className="text-[10px] md:text-xs font-bold tracking-widest text-accent uppercase mb-2 md:mb-3">FAQ</p>
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl">{toTitleCase(bundle.name)} Bundle — your questions, answered</h2>
             </div>
             <Accordion type="single" collapsible className="space-y-2">
               {faqs.map((f, i) => (
-                <AccordionItem key={i} value={`item-${i}`} className="bg-card border border-border/40 rounded-xl px-5">
-                  <AccordionTrigger className="text-left font-semibold hover:no-underline">{f.q}</AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-relaxed">{f.a}</AccordionContent>
+                <AccordionItem key={i} value={`item-${i}`} className="bg-background border border-border/40 rounded-xl px-4 md:px-5">
+                  <AccordionTrigger className="text-left font-semibold hover:no-underline text-sm md:text-base py-4">{f.q}</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed text-sm md:text-base">{f.a}</AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
@@ -487,50 +529,63 @@ export default function BundleDetail() {
         </section>
 
         {/* ============ FINAL CTA ============ */}
-        <section className="py-16 md:py-24 relative overflow-hidden">
+        <section className="py-12 md:py-24 relative overflow-hidden">
           <div className="absolute inset-0" style={{ background: 'var(--gradient-warm)' }} />
-          <div className="container-wide max-w-3xl text-center relative z-10">
-            <p className="text-xs font-bold tracking-widest text-accent uppercase mb-4">Ready when you are</p>
-            <h2 className="font-display text-3xl md:text-5xl mb-5 leading-tight">
+          <div className="container-wide max-w-3xl px-4 md:px-6 text-center relative z-10">
+            <p className="text-[10px] md:text-xs font-bold tracking-widest text-accent uppercase mb-3 md:mb-4">Ready when you are</p>
+            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl mb-4 md:mb-5 leading-tight">
               Start your {toTitleCase(bundle.name)} routine — save ${bundle.savings.toFixed(0)} today.
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8">
               One bundle. {bundle.products.length} strips that work together. A routine you'll actually keep.
             </p>
             <Button
               onClick={handleAddToCart}
               disabled={isLoading}
-              className="h-14 px-8 text-base font-bold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground shadow-xl"
+              className="h-14 px-6 md:px-8 text-sm md:text-base font-bold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground shadow-xl"
             >
               <Plus className="h-5 w-5 mr-1" />
               Add Bundle — ${bundle.salePrice.toFixed(2)} (Save {bundle.discountPercent}%)
             </Button>
-            <p className="text-xs text-muted-foreground mt-4">
+            <p className="text-[11px] md:text-xs text-muted-foreground mt-3 md:mt-4">
               Free US shipping · 14-day money-back guarantee · Cancel anytime
             </p>
           </div>
         </section>
 
         {/* ============ CROSS-SELL OTHER BUNDLES ============ */}
-        <section className="py-14 md:py-20 bg-card border-t border-border/30">
-          <div className="container-wide">
-            <div className="flex items-end justify-between mb-8">
+        <section className="py-10 md:py-20 bg-card border-t border-border/30">
+          <div className="container-wide px-4 md:px-6">
+            <div className="flex items-end justify-between mb-6 md:mb-8 gap-3">
               <div>
-                <p className="text-xs font-bold tracking-widest text-accent uppercase mb-2">Explore more</p>
-                <h2 className="font-display text-2xl md:text-3xl">Other routines you might love</h2>
+                <p className="text-[10px] md:text-xs font-bold tracking-widest text-accent uppercase mb-1 md:mb-2">Explore more</p>
+                <h2 className="font-display text-xl sm:text-2xl md:text-3xl">Other NEUVIE routines you might love</h2>
               </div>
-              <Link to="/bundles" className="hidden sm:inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
+              <Link to="/bundles" className="hidden sm:inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline whitespace-nowrap">
                 View all bundles <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
               {bundles.filter(b => b.id !== bundle.id).slice(0, 3).map((b, i) => (
                 <BundleCard key={b.id} bundle={b} index={i} />
               ))}
             </div>
+            <div className="mt-6 sm:hidden text-center">
+              <Link to="/bundles" className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
+                View all bundles <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </section>
       </main>
+
+      {/* ============ STICKY MOBILE ATC BAR ============ */}
+      <StickyMobileBundleATC
+        bundle={bundle}
+        qty={qty}
+        onAdd={handleAddToCart}
+        isLoading={isLoading}
+      />
 
       <Footer />
     </div>
