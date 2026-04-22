@@ -9,9 +9,9 @@ interface AnnouncementBarProps {
 }
 
 export function AnnouncementBar({
-  message = "Free US Shipping on Orders $50+",
-  linkText = "Shop now",
-  linkHref = "/shop",
+  message = "Bundles Save You Up to 20%",
+  linkText = "Shop Routines",
+  linkHref = "/bundles",
 }: AnnouncementBarProps) {
   const [isVisible, setIsVisible] = useState(true);
 
@@ -40,13 +40,13 @@ export function AnnouncementBar({
             </div>
             {/* Mobile */}
             <div className="sm:hidden flex items-center justify-center gap-3 text-xs font-medium">
-              <span>Free shipping $50+</span>
+              <span className="font-bold">Bundles Save 20%</span>
               <span className="text-accent-foreground/70">·</span>
               <a 
                 href={linkHref}
                 className="font-bold underline underline-offset-2"
               >
-                Start your ritual →
+                {linkText} →
               </a>
             </div>
         </div>
