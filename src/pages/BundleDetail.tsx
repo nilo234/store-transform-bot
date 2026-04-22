@@ -379,7 +379,9 @@ export default function BundleDetail() {
               {bundle.products.map((productName, i) => {
                 const variantId = bundle.variantIds[i];
                 const info = productInfo[variantId];
-                const img = shopifyImages[i];
+                // Use the matching image; if missing, fall back to any other image in the bundle
+                // so users always see a real strip visual instead of an empty placeholder.
+                const img = shopifyImages[i] || shopifyImages.find(Boolean) || heroImage;
                 return (
                   <motion.div
                     key={i}
