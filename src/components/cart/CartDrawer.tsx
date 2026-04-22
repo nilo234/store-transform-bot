@@ -10,6 +10,7 @@ import { FreeShippingBar } from './FreeShippingBar';
 import { CartUrgencyBanner } from './CartUrgencyBanner';
 import { SecureCheckoutBadges } from './SecureCheckoutBadges';
 import { CartUpsell } from './CartUpsell';
+import { CartBundleUpgradePrompt } from './CartBundleUpgradePrompt';
 import { bundles as bundleDefinitions } from '@/data/bundles';
 
 // Group items into bundles and standalone items
@@ -238,6 +239,9 @@ export function CartDrawer() {
                     </span>
                   </div>
                 </div>
+
+                {/* Bundle Upgrade Prompt — turns single-item carts into bundle carts */}
+                <CartBundleUpgradePrompt />
 
                 {/* Customers Also Bought Upsell */}
                 <CartUpsell />

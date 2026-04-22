@@ -13,7 +13,7 @@ import { toast } from 'sonner';
 import { findProductContent, ProductContent } from '@/data/productContent';
 import { sendProductViewEvent, sendAddToCartEvent } from '@/hooks/useShopifyAnalytics';
 import { ProductReviews } from '@/components/product/ProductReviews';
-import { SubscriptionToggle, PurchaseType } from '@/components/shop/SubscriptionToggle';
+import { PurchaseTypeSelector, PurchaseMode } from '@/components/product/PurchaseTypeSelector';
 import { StockIndicator } from '@/components/product/StockIndicator';
 import { ValueProposition } from '@/components/product/ValueProposition';
 import { InlineTestimonial } from '@/components/product/InlineTestimonial';
@@ -80,15 +80,11 @@ export default function ProductDetail() {
   const [isLoading, setIsLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [purchaseMode, setPurchaseMode] = useState<PurchaseMode>('single');
   const addToCartButtonRef = useRef<HTMLDivElement>(null);
-  const [purchaseSelection, setPurchaseSelection] = useState<{
-    type: PurchaseType;
-    frequency?: string;
-    discount: number;
-    finalPrice: number;
-  } | null>(null);
-  
+
   const addItem = useCartStore((state) => state.addItem);
+  const addBundle = useCartStore((state) => state.addBundle);
 
   useEffect(() => {
     async function loadProduct() {
@@ -124,47 +120,78 @@ export default function ProductDetail() {
 
   const handleAddToCart = async () => {
     if (!product) return;
-    
+
     const firstVariant = product.variants.edges[0]?.node;
     if (!firstVariant) return;
-    
+
+    // BUNDLE PATH — find best matching bundle for this variant
+    if (purchaseMode === 'bundle') {
+      const { bundles: bundleList, productInfo } = await import('@/data/bundles');
+      const matching = bundleList.filter(b => b.variantIds.includes(firstVariant.id));
+      const bestBundle =
+        matching.find(b => b.products.length === 4) ||
+        matching.find(b => b.products.length === 3) ||
+        matching[0];
+
+      if (bestBundle) {
+        const bundleItems = bestBundle.variantIds.map(vid => {
+          const info = productInfo[vid] ?? { title: 'NEUVIE Strip', price: '34.99' };
+          return {
+            product: { node: product },
+            variantId: vid,
+            variantTitle: info.title,
+            price: { amount: info.price, currencyCode: 'USD' },
+            quantity: 1,
+            selectedOptions: [],
+            bundleId: bestBundle.id,
+            bundleName: bestBundle.name,
+            bundleDiscountCode: bestBundle.discountCode,
+          };
+        });
+
+        await addBundle(bundleItems, bestBundle.discountCode);
+
+        sendAddToCartEvent({
+          id: product.id,
+          title: bestBundle.name,
+          variantId: firstVariant.id,
+          variantTitle: bestBundle.packSize,
+          price: bestBundle.salePrice.toString(),
+          quantity: 1,
+        });
+
+        toast.success('Bundle added to Cart!', {
+          description: `${bestBundle.name} · Save $${bestBundle.savings.toFixed(2)}`,
+          position: 'top-center',
+        });
+        return;
+      }
+      // fall through to single if no bundle was found
+    }
+
+    // SINGLE PATH
     const basePrice = parseFloat(firstVariant.price.amount);
-    const isSubscription = purchaseSelection?.type === 'subscribe';
-    const finalPrice = isSubscription && purchaseSelection?.finalPrice 
-      ? purchaseSelection.finalPrice 
-      : basePrice;
-    
+
     await addItem({
       product: { node: product },
       variantId: firstVariant.id,
       variantTitle: firstVariant.title,
-      price: {
-        amount: finalPrice.toString(),
-        currencyCode: 'USD',
-      },
+      price: { amount: basePrice.toString(), currencyCode: 'USD' },
       quantity,
       selectedOptions: firstVariant.selectedOptions,
-      isSubscription,
-      subscriptionFrequency: purchaseSelection?.frequency,
-      subscriptionDiscount: purchaseSelection?.discount,
     });
 
-    // Send add-to-cart event to Shopify analytics
     sendAddToCartEvent({
       id: product.id,
       title: product.title,
       variantId: firstVariant.id,
       variantTitle: firstVariant.title,
-      price: finalPrice.toString(),
+      price: basePrice.toString(),
       quantity,
     });
-    
-    const subscriptionLabel = isSubscription 
-      ? ` (${purchaseSelection?.frequency} subscription)` 
-      : '';
-    
+
     toast.success('Added to Cart!', {
-      description: `${quantity}x ${sanitizeTitle(product.title)}${subscriptionLabel}`,
+      description: `${quantity}x ${sanitizeTitle(product.title)}`,
       position: 'top-center',
     });
   };
@@ -359,6 +386,15 @@ export default function ProductDetail() {
                 {/* First-order discount banner — shown only to new visitors */}
                 <FirstOrderDiscountBanner />
 
+                {/* PURCHASE TYPE SELECTOR — Single vs. Bundle (Bundle-First CRO) */}
+                <PurchaseTypeSelector
+                  currentVariantId={product.variants.edges[0]?.node.id}
+                  singlePrice={price}
+                  comparePrice={originalPrice}
+                  selected={purchaseMode}
+                  onChange={setPurchaseMode}
+                />
+
                 <div className="flex items-center gap-4">
                   <div className="flex items-center gap-3 bg-muted rounded-full p-1">
                     <Button
@@ -404,7 +440,7 @@ export default function ProductDetail() {
               {/* Value Proposition Block */}
               <ValueProposition 
                 servings={30} 
-                subscriptionPrice={purchaseSelection?.finalPrice ? `$${purchaseSelection.finalPrice.toFixed(2)}` : "$27.99"} 
+                subscriptionPrice="$27.99" 
               />
 
               {/* Inline Testimonial */}
@@ -649,10 +685,10 @@ export default function ProductDetail() {
       {/* Sticky Add to Cart Bar */}
       <StickyAddToCart
         productTitle={sanitizeTitle(product.title)}
-        price={purchaseSelection?.finalPrice ?? price}
+        price={price}
         originalPrice={originalPrice}
         onAddToCart={handleAddToCart}
-        isSubscription={purchaseSelection?.type === 'subscribe'}
+        isSubscription={false}
         addToCartRef={addToCartButtonRef}
       />
 
