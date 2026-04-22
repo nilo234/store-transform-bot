@@ -164,44 +164,107 @@ export default function Quiz() {
                   <span className="text-sm font-semibold">Your Personalized Match</span>
                 </div>
 
-                <h1 className="font-display text-4xl md:text-5xl mb-4">
-                  {recommendation.bundleName}
+                <h1 className="font-display text-3xl md:text-5xl mb-4">
+                  Your two best paths
                 </h1>
 
-                <p className="text-lg text-muted-foreground mb-8 max-w-lg mx-auto">
-                  {recommendation.reason}
+                <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-lg mx-auto">
+                  Based on your answers, here's the complete bundle we built for you —
+                  plus the single strip to start with if you want to test the ritual first.
                 </p>
 
-                {/* Bundle Card Preview */}
-                <div className="bg-card border-2 border-primary/20 rounded-2xl p-6 md:p-8 mb-6 text-left">
-                  <div className="flex items-start justify-between gap-4 mb-4">
-                    <div>
-                      <h3 className="font-display text-2xl mb-1">{matchedBundle.name}</h3>
-                      <p className="text-sm text-muted-foreground">
-                        {matchedBundle.tagline}
-                      </p>
+                {/* Two-Card Recommendation Grid: Bundle + Single Product */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 mb-6 text-left">
+                  {/* RECOMMENDED BUNDLE */}
+                  <div className="bg-card border-2 border-primary/30 rounded-2xl p-5 md:p-6 flex flex-col">
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <span className="text-[10px] font-bold tracking-widest text-primary uppercase">
+                        Best Match · Full Ritual
+                      </span>
+                      <span className="bg-accent text-accent-foreground text-[10px] font-bold px-2 py-1 rounded-full whitespace-nowrap">
+                        SAVE {matchedBundle.discountPercent}%
+                      </span>
                     </div>
-                    <span className="bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
-                      SAVE {matchedBundle.discountPercent}%
-                    </span>
+
+                    <h3 className="font-display text-xl md:text-2xl mb-1">{matchedBundle.name}</h3>
+                    <p className="text-xs md:text-sm text-muted-foreground mb-3">
+                      {recommendation.reason}
+                    </p>
+
+                    <ul className="space-y-1.5 mb-4 flex-1">
+                      {matchedBundle.products.slice(0, 4).map((p, i) => (
+                        <li key={i} className="flex items-start gap-2 text-xs md:text-sm">
+                          <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                          <span>{p} Strips</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="flex items-baseline gap-2 mb-3">
+                      <span className="text-2xl md:text-3xl font-bold text-primary">
+                        ${matchedBundle.salePrice.toFixed(2)}
+                      </span>
+                      <span className="text-sm md:text-base text-muted-foreground line-through">
+                        ${matchedBundle.originalPrice.toFixed(2)}
+                      </span>
+                    </div>
+
+                    <Link to={`/bundles/${matchedBundle.id}`} className="w-full">
+                      <Button
+                        size="lg"
+                        className="w-full h-12 text-sm font-semibold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground"
+                      >
+                        Shop the Bundle
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </Link>
                   </div>
 
-                  <ul className="space-y-2 mb-6">
-                    {matchedBundle.products.slice(0, 4).map((p, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm">
-                        <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-                        <span>{p} Strips</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {/* SINGLE STRIP STARTER */}
+                  <div className="bg-card border-2 border-border rounded-2xl p-5 md:p-6 flex flex-col">
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <span className="text-[10px] font-bold tracking-widest text-accent uppercase">
+                        Start Small · Single Strip
+                      </span>
+                      <span className="bg-muted text-muted-foreground text-[10px] font-bold px-2 py-1 rounded-full whitespace-nowrap">
+                        FROM $34.99
+                      </span>
+                    </div>
 
-                  <div className="flex items-baseline gap-3 mb-1">
-                    <span className="text-3xl font-bold text-primary">
-                      ${matchedBundle.salePrice.toFixed(2)}
-                    </span>
-                    <span className="text-lg text-muted-foreground line-through">
-                      ${matchedBundle.originalPrice.toFixed(2)}
-                    </span>
+                    <h3 className="font-display text-xl md:text-2xl mb-1">{singleProduct.name}</h3>
+                    <p className="text-xs md:text-sm text-muted-foreground mb-3">
+                      {singleProduct.reason}
+                    </p>
+
+                    <ul className="space-y-1.5 mb-4 flex-1">
+                      <li className="flex items-start gap-2 text-xs md:text-sm">
+                        <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                        <span>30-day supply (30 strips)</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-xs md:text-sm">
+                        <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                        <span>Dissolves in ~30 seconds</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-xs md:text-sm">
+                        <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                        <span>Subscribe & save 20%</span>
+                      </li>
+                    </ul>
+
+                    <p className="text-[11px] text-muted-foreground mb-3">
+                      No commitment. Try one strip, build the ritual.
+                    </p>
+
+                    <Link to={`/product/${singleProduct.handle}`} className="w-full">
+                      <Button
+                        size="lg"
+                        variant="outline"
+                        className="w-full h-12 text-sm font-semibold rounded-xl border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                      >
+                        Try {singleProduct.name}
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </Link>
                   </div>
                 </div>
 
@@ -218,20 +281,15 @@ export default function Quiz() {
                     QUIZ15
                   </button>
                   <p className="text-xs text-muted-foreground mt-2">
-                    Tap to copy. Apply at checkout.
+                    Tap to copy. Works on bundles and single strips.
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <Link to="/bundles" className="w-full sm:w-auto">
-                    <Button
-                      size="lg"
-                      className="w-full sm:w-auto h-14 px-10 text-base font-semibold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground"
-                    >
-                      Shop My Bundle
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+                  <Link to="/shop" className="text-sm text-primary hover:underline font-medium">
+                    Browse all 13 strips
                   </Link>
+                  <span className="hidden sm:inline text-muted-foreground">·</span>
                   <button
                     onClick={() => {
                       setStep(0);
