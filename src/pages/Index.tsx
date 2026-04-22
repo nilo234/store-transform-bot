@@ -97,12 +97,12 @@ export default function Index() {
                 </motion.div>
 
                 <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-6xl leading-[1.08] mb-4">
-                  {heroVariant.headlineMain}{' '}
-                  <span className="italic text-accent">{heroVariant.headlineItalic}</span>
+                  Start with a routine,{' '}
+                  <span className="italic text-accent">not a strip.</span>
                 </h1>
 
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4 max-w-xl mx-auto lg:mx-0">
-                  {heroVariant.subline}
+                  Pre-built wellness routines that cover sleep, energy, beauty and gut — in one 3-second daily ritual. Save up to 20% when you bundle.
                 </p>
 
                 {/* Star rating social proof */}
@@ -116,25 +116,25 @@ export default function Index() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 justify-center lg:justify-start mb-2">
-                  <Link to={heroVariant.id === 'b' ? '/quiz' : '/bundles'} className="w-full sm:w-auto">
+                  <Link to="/bundles" className="w-full sm:w-auto">
                     <Button className="w-full sm:w-auto h-14 px-10 text-base font-semibold rounded-xl group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-elevated transition-all">
-                      {heroVariant.ctaPrimary}
+                      Shop Bundles — Save 20%
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>
                   <Link to="/shop" className="w-full sm:w-auto">
                     <Button variant="outline" className="w-full sm:w-auto h-12 px-6 text-sm font-semibold rounded-xl border-2 border-primary/40 bg-transparent text-foreground hover:bg-primary hover:text-primary-foreground transition-all whitespace-nowrap">
-                      Shop All Strips
+                      Or Shop Single Strips
                     </Button>
                   </Link>
                 </div>
 
                 {/* Price anchor + first-order incentive */}
                 <p className="text-xs md:text-sm text-muted-foreground text-center lg:text-left mb-1">
-                  Bundles starting from <span className="font-semibold text-foreground">$39.99</span> — Save up to 20%
+                  Bundles from <span className="font-semibold text-foreground">$59.99</span> · Save up to <span className="font-semibold text-foreground">$39.95</span> vs. buying separately
                 </p>
                 <p className="text-xs md:text-sm text-accent font-semibold text-center lg:text-left mb-5">
-                  New here? Use code WELCOME10 for 10% off your first order
+                  New here? Use code WELCOME10 for an extra 10% off your first bundle
                 </p>
 
                 <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground justify-center lg:justify-start">
