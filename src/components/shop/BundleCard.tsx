@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Plus, Package, Copy, Check, Flower2, Wine, Zap, Leaf, Sparkles, Moon, TrendingUp, Gift } from 'lucide-react';
 import { Button } from '@/components/ui/button';
