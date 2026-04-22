@@ -6,7 +6,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { PageMeta } from '@/components/seo';
-import { quizQuestions, pickBundleFromTags } from '@/data/quizQuestions';
+import { quizQuestions, pickBundleFromTags, pickSingleProductFromTags } from '@/data/quizQuestions';
 import { bundles } from '@/data/bundles';
 import { toast } from 'sonner';
 
