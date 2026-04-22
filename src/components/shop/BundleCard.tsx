@@ -259,7 +259,7 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
             </Button>
           </motion.div>
         </div>
-      </div>
+      </Link>
     </motion.div>
   );
 }
