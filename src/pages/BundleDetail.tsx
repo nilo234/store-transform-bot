@@ -109,22 +109,21 @@ export default function BundleDetail() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <PageMeta title={seoTitle} description={seoDesc} canonicalUrl={`https://tryneuvie.com/bundles/${bundle.id}`} />
+      <PageMeta title={seoTitle} description={seoDesc} ogImage={heroImage || undefined} />
       <BreadcrumbJsonLd items={[
         { name: 'Home', url: 'https://tryneuvie.com/' },
         { name: 'Bundles', url: 'https://tryneuvie.com/bundles' },
         { name: toTitleCase(bundle.name), url: `https://tryneuvie.com/bundles/${bundle.id}` },
       ]} />
       <ProductJsonLd
-        name={`${toTitleCase(bundle.name)} Bundle`}
-        description={`${bundle.tagline} Includes ${bundle.products.join(', ')}.`}
-        image={heroImage || 'https://tryneuvie.com/og-image.jpg'}
-        price={bundle.salePrice}
-        currency="USD"
-        availability="InStock"
-        brand="NEUVIE"
-        sku={`bundle-${bundle.id}`}
-        url={`https://tryneuvie.com/bundles/${bundle.id}`}
+        product={{
+          title: `${toTitleCase(bundle.name)} Bundle`,
+          description: `${bundle.tagline} Includes ${bundle.products.join(', ')}.`,
+          handle: bundle.id,
+          priceRange: { minVariantPrice: { amount: bundle.salePrice.toString(), currencyCode: 'USD' } },
+          images: { edges: heroImage ? [{ node: { url: heroImage, altText: bundle.name } }] : [] },
+          variants: { edges: [{ node: { availableForSale: true } }] },
+        }}
       />
       <FAQJsonLd faqs={faqs.map(f => ({ question: f.q, answer: f.a }))} />
 
