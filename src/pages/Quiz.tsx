@@ -52,6 +52,7 @@ export default function Quiz() {
   });
   const recommendation = pickBundleFromTags(tagCounts);
   const matchedBundle = bundles.find((b) => b.id === recommendation.bundleId) || bundles[0];
+  const singleProduct = pickSingleProductFromTags(tagCounts);
 
   const copyDiscount = async () => {
     try {
