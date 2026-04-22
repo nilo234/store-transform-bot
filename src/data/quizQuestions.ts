@@ -73,8 +73,112 @@ export const quizQuestions: QuizQuestion[] = [
 ];
 
 /**
- * Map dominant tags to a bundle slug (matches src/data/bundles.ts)
- * If no strong match, return null to fall back to "single best strip" recommendation.
+ * Single-product recommendation. Each tag maps to ONE strip the customer
+ * can start with. Handles match the routes used across the site (see
+ * src/components/home/QuickCategoryPicker.tsx and ProductDetail routes).
+ */
+export interface SingleProductPick {
+  handle: string;
+  name: string;
+  reason: string;
+}
+
+const singleProductMap: Record<string, SingleProductPick> = {
+  energy: {
+    handle: 'energy-strips-2',
+    name: 'Energy Strips',
+    reason: 'Caffeine + L-Theanine for clean, sustained energy — no jitters, no crash.',
+  },
+  b12: {
+    handle: 'energy-strips-2',
+    name: 'Energy Strips',
+    reason: 'B12-powered support to keep your energy steady from morning to night.',
+  },
+  sleep: {
+    handle: 'sleep-strips-1',
+    name: 'Sleep Strips',
+    reason: 'Melatonin + Valerian to help you fall asleep faster and wake up rested.',
+  },
+  recover: {
+    handle: 'sleep-strips-1',
+    name: 'Sleep Strips',
+    reason: 'Overnight recovery support so your body bounces back by morning.',
+  },
+  beauty: {
+    handle: 'beauty-collagen-strips',
+    name: 'Beauty + Collagen Strips',
+    reason: 'Collagen peptides for skin, hair and nails — visible results in 4–6 weeks.',
+  },
+  glow: {
+    handle: 'hair-skin-and-nails-strips',
+    name: 'Hair, Skin & Nails Strips',
+    reason: 'Biotin 5,000 mcg for that lit-from-within glow you\'ve been chasing.',
+  },
+  focus: {
+    handle: 'mushroom-focus-strips',
+    name: 'Mushroom Focus Strips',
+    reason: 'Lion\'s Mane + Cordyceps for sharp, calm focus when it matters most.',
+  },
+  mushroom: {
+    handle: 'mushroom-focus-strips',
+    name: 'Mushroom Focus Strips',
+    reason: 'Mushroom-powered clarity without the caffeine spike.',
+  },
+  cognitive: {
+    handle: 'cognitive-relax-strips',
+    name: 'Cognitive Relax Strips',
+    reason: 'L-Theanine + GABA for a calm, focused mind — ideal for overthinkers.',
+  },
+  digestive: {
+    handle: 'digestive-gut-health-strips',
+    name: 'Digestive + Gut Health Strips',
+    reason: 'Probiotics + enzymes to feel lighter, less bloated, more regular.',
+  },
+  gut: {
+    handle: 'probiotic-metabolism-strips',
+    name: 'Probiotic + Metabolism Strips',
+    reason: '10B CFU for daily digestive balance from the inside out.',
+  },
+  immunity: {
+    handle: 'iron-strips',
+    name: 'Iron Strips',
+    reason: 'Iron 19 mg + Folate for steady energy and resilient daily wellness.',
+  },
+  hangover: {
+    handle: 'hangover-strips',
+    name: 'Hangover Strips',
+    reason: 'Built for the morning after — hydration, electrolytes and recovery support.',
+  },
+  daily: {
+    handle: 'energy-strips-2',
+    name: 'Energy Strips',
+    reason: 'A simple, daily 3-second ritual to start your NEUVIE routine.',
+  },
+  easy: {
+    handle: 'energy-strips-2',
+    name: 'Energy Strips',
+    reason: '30-second strips you\'ll actually remember to take. No pills, ever.',
+  },
+  single: {
+    handle: 'energy-strips-2',
+    name: 'Energy Strips',
+    reason: 'A great place to start — small, daily, no overwhelm.',
+  },
+  bundle: {
+    handle: 'energy-strips-2',
+    name: 'Energy Strips',
+    reason: 'Add this to your bundle for daily clean energy support.',
+  },
+  subscribe: {
+    handle: 'energy-strips-2',
+    name: 'Energy Strips',
+    reason: 'Subscribe & save 20% on your daily energy ritual.',
+  },
+};
+
+/**
+ * Map dominant tags to a bundle slug (matches src/data/bundles.ts).
+ * Bundle IDs match the live bundles in src/data/bundles.ts.
  */
 export function pickBundleFromTags(tagCounts: Record<string, number>): {
   bundleId: string;
@@ -85,96 +189,106 @@ export function pickBundleFromTags(tagCounts: Record<string, number>): {
 
   const map: Record<string, { bundleId: string; bundleName: string; reason: string }> = {
     energy: {
-      bundleId: 'daily-wellness',
-      bundleName: 'Daily Wellness Bundle',
-      reason: 'Built for sustained energy + foundational nutrients without the crash.',
+      bundleId: 'before-you-leave',
+      bundleName: 'Before You Leave the House',
+      reason: 'Energy + Mushroom Focus — the 2-strip morning stack for sustained, clean energy.',
     },
     b12: {
-      bundleId: 'daily-wellness',
-      bundleName: 'Daily Wellness Bundle',
-      reason: 'B12 + foundational support to keep your energy steady all day.',
+      bundleId: 'the-foundation',
+      bundleName: 'The Foundation',
+      reason: 'Foundational nutrients to keep your energy and resilience steady all day.',
     },
     sleep: {
-      bundleId: 'sleep-recover',
-      bundleName: 'Sleep & Recover Bundle',
-      reason: 'Helps you fall asleep faster and wake up actually rested.',
+      bundleId: 'quiet-down',
+      bundleName: 'Quiet Down',
+      reason: 'Sleep + Cognitive Relax — fall asleep faster, wake up actually rested.',
     },
     recover: {
-      bundleId: 'sleep-recover',
-      bundleName: 'Sleep & Recover Bundle',
-      reason: 'Recovery-focused stack so your body bounces back overnight.',
+      bundleId: 'quiet-down',
+      bundleName: 'Quiet Down',
+      reason: 'Overnight recovery stack so your body and mind reset properly.',
     },
     beauty: {
-      bundleId: 'beauty-glow',
-      bundleName: 'Beauty & Glow Bundle',
-      reason: 'Hair, skin & nails support — visible results in 4–6 weeks.',
+      bundleId: 'the-glow-protocol',
+      bundleName: 'The Glow Protocol',
+      reason: 'Beauty + Collagen, Hair/Skin/Nails and Bone Support — visible results in 4–6 weeks.',
     },
     glow: {
-      bundleId: 'beauty-glow',
-      bundleName: 'Beauty & Glow Bundle',
-      reason: 'For that lit-from-within glow you\'ve been chasing.',
+      bundleId: 'the-glow-protocol',
+      bundleName: 'The Glow Protocol',
+      reason: 'For that lit-from-within glow — backed by collagen, biotin and bone support.',
     },
     focus: {
-      bundleId: 'best-value-mega',
-      bundleName: 'Best Value Mega Bundle',
-      reason: 'Cognitive + foundational support so you stay sharp all day.',
+      bundleId: 'deep-work-stack',
+      bundleName: 'The Deep Work Stack',
+      reason: 'Mushroom Focus + Energy + Cognitive Relax — show up sharp, stay there.',
     },
     mushroom: {
-      bundleId: 'best-value-mega',
-      bundleName: 'Best Value Mega Bundle',
-      reason: 'Mushroom-powered focus + full-day wellness support.',
+      bundleId: 'deep-work-stack',
+      bundleName: 'The Deep Work Stack',
+      reason: 'Mushroom-powered focus + full-day clarity for deep work days.',
     },
     cognitive: {
-      bundleId: 'best-value-mega',
-      bundleName: 'Best Value Mega Bundle',
-      reason: 'Calm focus + the daily essentials your brain craves.',
+      bundleId: 'deep-work-stack',
+      bundleName: 'The Deep Work Stack',
+      reason: 'Calm focus + sharp cognition for high-output days.',
     },
     digestive: {
-      bundleId: 'daily-wellness',
-      bundleName: 'Daily Wellness Bundle',
-      reason: 'Gut-friendly daily essentials to feel lighter and more regular.',
+      bundleId: 'gut-feeling',
+      bundleName: 'The Gut Feeling Bundle',
+      reason: 'Probiotic + Digestive + Iron + Appetite — the full gut-reset stack.',
     },
     gut: {
-      bundleId: 'daily-wellness',
-      bundleName: 'Daily Wellness Bundle',
-      reason: 'Gut-friendly daily essentials to feel lighter and more regular.',
+      bundleId: 'gut-feeling',
+      bundleName: 'The Gut Feeling Bundle',
+      reason: 'Built for the girl who bloats and finally wants to trust her gut again.',
     },
     immunity: {
-      bundleId: 'daily-wellness',
-      bundleName: 'Daily Wellness Bundle',
-      reason: 'Immune-supporting vitamins to keep you resilient year-round.',
+      bundleId: 'the-foundation',
+      bundleName: 'The Foundation',
+      reason: 'Bone, Probiotic, Iron and Appetite Balance — your daily resilience stack.',
     },
     hangover: {
-      bundleId: 'sleep-recover',
-      bundleName: 'Sleep & Recover Bundle',
-      reason: 'Recovery essentials for late nights and busy weekends.',
+      bundleId: 'night-out-survival-kit',
+      bundleName: 'The Night Out Survival Kit',
+      reason: 'Hangover + Energy + Cognitive Relax — for the night out and the morning after.',
     },
     daily: {
-      bundleId: 'daily-wellness',
-      bundleName: 'Daily Wellness Bundle',
-      reason: 'The foundational stack — your daily 3-second ritual, sorted.',
+      bundleId: 'the-foundation',
+      bundleName: 'The Foundation',
+      reason: 'The boring, essential stack — the reason everything else works.',
     },
     bundle: {
-      bundleId: 'best-value-mega',
-      bundleName: 'Best Value Mega Bundle',
-      reason: 'You\'re ready for the full ritual — this is the complete stack.',
+      bundleId: 'the-full-you',
+      bundleName: 'The Full You',
+      reason: 'You\'re ready for the full ritual — every part of you, covered.',
     },
     single: {
-      bundleId: 'daily-wellness',
-      bundleName: 'Daily Wellness Bundle',
-      reason: 'A great place to start — small, daily, no overwhelm.',
+      bundleId: 'before-you-leave',
+      bundleName: 'Before You Leave the House',
+      reason: 'A small 2-strip starter — easy to commit to, easy to feel.',
     },
     easy: {
-      bundleId: 'daily-wellness',
-      bundleName: 'Daily Wellness Bundle',
-      reason: '30-second strips you\'ll actually remember to take. No pills, ever.',
+      bundleId: 'before-you-leave',
+      bundleName: 'Before You Leave the House',
+      reason: '30-second strips you\'ll actually remember. No pills, ever.',
     },
     subscribe: {
-      bundleId: 'best-value-mega',
-      bundleName: 'Best Value Mega Bundle',
-      reason: 'Best value + biggest impact — the ritual upgrade you deserve.',
+      bundleId: 'the-full-you',
+      bundleName: 'The Full You',
+      reason: 'Best value + biggest impact — the complete ritual upgrade.',
     },
   };
 
   return map[top] || map.daily;
+}
+
+/**
+ * Pick a single starter product based on the dominant quiz tag.
+ * Used alongside pickBundleFromTags so the result page can show BOTH:
+ * a complete bundle AND a lower-friction single-strip option.
+ */
+export function pickSingleProductFromTags(tagCounts: Record<string, number>): SingleProductPick {
+  const top = Object.entries(tagCounts).sort((a, b) => b[1] - a[1])[0]?.[0] ?? 'daily';
+  return singleProductMap[top] || singleProductMap.daily;
 }
