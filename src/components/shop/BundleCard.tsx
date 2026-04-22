@@ -110,7 +110,8 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="h-full"
     >
-      <div
+      <Link
+        to={`/bundles/${bundle.id}`}
         className="relative bg-card rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 group cursor-pointer border border-border/50 hover:border-primary/30 hover:shadow-elevated h-full flex flex-col"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
