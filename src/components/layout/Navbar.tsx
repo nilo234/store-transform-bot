@@ -64,13 +64,18 @@ export function Navbar() {
                   key={link.href}
                   to={link.href}
                   className={cn(
-                    "text-sm font-body font-medium tracking-wide transition-colors hover:text-accent relative py-2",
+                    "text-sm font-body font-medium tracking-wide transition-colors hover:text-accent relative py-2 inline-flex items-center gap-2",
                     location.pathname === link.href ?
                     "text-accent" :
                     "text-foreground/70"
                   )}>
                   
                     {link.label}
+                    {link.href === '/bundles' && (
+                      <span className="text-[10px] font-bold uppercase tracking-wider bg-accent text-accent-foreground px-1.5 py-0.5 rounded-full leading-none">
+                        Save 20%
+                      </span>
+                    )}
                     {location.pathname === link.href && (
                       <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent rounded-full" />
                     )}
