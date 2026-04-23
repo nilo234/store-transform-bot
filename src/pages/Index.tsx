@@ -101,7 +101,7 @@ export default function Index() {
                   <span className="italic text-accent">not a strip.</span>
                 </h1>
 
-                <h2 className="font-display text-xl sm:text-2xl md:text-3xl text-foreground/80 leading-snug mb-4 max-w-xl mx-auto lg:mx-0font-normal">
+                <h2 className="font-display text-xl sm:text-2xl md:text-3xl text-foreground/80 leading-snug mb-4 max-w-xl mx-auto lg:mx-0 font-normal">
                   Fast-dissolving wellness strips. No pills. No water. Just 3 seconds — and you're done.
                 </h2>
 
