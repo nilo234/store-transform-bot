@@ -88,8 +88,9 @@ export function ExitIntentPopup() {
       setIsSuccess(true);
 
       // Copy code to clipboard
+      // TODO: activate WELCOME15 in Shopify Admin
       try {
-        await navigator.clipboard.writeText('WELCOME10');
+        await navigator.clipboard.writeText('WELCOME15');
       } catch {}
 
       setTimeout(() => setIsOpen(false), 2500);
@@ -106,7 +107,7 @@ export function ExitIntentPopup() {
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent hideClose className="max-w-[480px] p-0 gap-0 overflow-hidden border-0 rounded-2xl">
         <DialogHeader className="sr-only">
-          <DialogTitle>Get 10% Off Your First Order</DialogTitle>
+          <DialogTitle>Get 15% Off Your First Order</DialogTitle>
         </DialogHeader>
 
         <button
@@ -134,15 +135,16 @@ export function ExitIntentPopup() {
               transition={{ delay: 0.3 }}
               className="font-display text-2xl md:text-3xl mb-2"
             >
-              Before you go — a little something for you
+              Wait — before you go.
             </motion.h2>
+            {/* TODO: activate WELCOME15 in Shopify Admin */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
               className="text-primary-foreground/80 text-lg"
             >
-              Take 10% off your first order — because choosing yourself deserves to be celebrated. Use code <strong className="text-accent">WELCOME10</strong>.
+              Get 15% off your first order. Code <strong className="text-accent">WELCOME15</strong> applies at checkout. Free shipping on orders $50+.
             </motion.p>
           </div>
 
@@ -184,7 +186,7 @@ export function ExitIntentPopup() {
                       />
                     ) : (
                       <>
-                        Yes, I'm Worth It
+                        Claim My 15% Off
                         <ArrowRight className="ml-2 h-5 w-5" />
                       </>
                     )}
@@ -213,7 +215,7 @@ export function ExitIntentPopup() {
                   >
                     <Copy className="h-7 w-7 text-green-600" />
                   </motion.div>
-                  <h3 className="font-display text-xl mb-2">Code WELCOME10 Copied!</h3>
+                  <h3 className="font-display text-xl mb-2">Code WELCOME15 Copied!</h3>
                   <p className="text-muted-foreground text-sm">
                     Valid for 24 hours. Your wellness journey starts now!
                   </p>

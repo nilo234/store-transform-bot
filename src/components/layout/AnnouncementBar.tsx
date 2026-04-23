@@ -8,8 +8,9 @@ interface AnnouncementBarProps {
   linkHref?: string;
 }
 
+// TODO: activate WELCOME15 in Shopify Admin
 export function AnnouncementBar({
-  message = "Bundles Save You Up to 20%",
+  message = "First order? Use code WELCOME15 for 15% off — today only.",
   linkText = "Shop Routines",
   linkHref = "/bundles",
 }: AnnouncementBarProps) {
@@ -40,7 +41,7 @@ export function AnnouncementBar({
             </div>
             {/* Mobile */}
             <div className="sm:hidden flex items-center justify-center gap-3 text-xs font-medium">
-              <span className="font-bold">Bundles Save 20%</span>
+              <span className="font-bold">Code WELCOME15 — 15% off</span>
               <span className="text-accent-foreground/70">·</span>
               <a 
                 href={linkHref}
