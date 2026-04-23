@@ -101,6 +101,10 @@ export default function Index() {
                   <span className="italic text-accent">not a strip.</span>
                 </h1>
 
+                <h2 className="font-display text-xl sm:text-2xl md:text-3xl text-foreground/80 leading-snug mb-4 max-w-xl mx-auto lg:mx-0 font-normal">
+                  Fast-dissolving wellness strips. No pills. No water. Just 3 seconds — and you're done.
+                </h2>
+
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4 max-w-xl mx-auto lg:mx-0">
                   Pre-built wellness routines that cover sleep, energy, beauty and gut — in one 3-second daily ritual. Save up to 20% when you bundle.
                 </p>
@@ -122,19 +126,24 @@ export default function Index() {
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>
-                  <Link to="/shop" className="w-full sm:w-auto">
-                    <Button variant="outline" className="w-full sm:w-auto h-12 px-6 text-sm font-semibold rounded-xl border-2 border-primary/40 bg-transparent text-foreground hover:bg-primary hover:text-primary-foreground transition-all whitespace-nowrap">
-                      Or Shop Single Strips
-                    </Button>
+                  <Link
+                    to="/shop"
+                    className="text-sm font-semibold text-foreground/80 hover:text-accent underline-offset-4 hover:underline transition-colors text-center lg:text-left whitespace-nowrap"
+                  >
+                    Or shop single strips →
                   </Link>
                 </div>
 
                 {/* Price anchor + first-order incentive */}
                 <p className="text-xs md:text-sm text-muted-foreground text-center lg:text-left mb-1">
-                  Bundles from <span className="font-semibold text-foreground">$59.99</span> · Save up to <span className="font-semibold text-foreground">$39.95</span> vs. buying separately
+                  Bundles from <span className="font-semibold text-foreground">$59.99</span> · Single strips from <span className="font-semibold text-foreground">$34.99</span> · Free US shipping $50+
                 </p>
+                <p className="text-xs md:text-sm text-muted-foreground text-center lg:text-left mb-1">
+                  Save up to <span className="font-semibold text-foreground">$39.95</span> vs. buying separately
+                </p>
+                {/* TODO: activate WELCOME15 in Shopify Admin */}
                 <p className="text-xs md:text-sm text-accent font-semibold text-center lg:text-left mb-5">
-                  New here? Use code WELCOME10 for an extra 10% off your first bundle
+                  New here? Use code WELCOME15 for an extra 15% off your first bundle
                 </p>
 
                 <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground justify-center lg:justify-start">

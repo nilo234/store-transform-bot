@@ -155,21 +155,22 @@ export default function GlowProtocolLanding() {
                     ) : (
                       <>
                         <ShoppingCart className="h-5 w-5" />
-                        Add to Cart — Get Glowing
+                        Add to Cart — Get Glowing  ·  ${price.toFixed(2)}
                       </>
                     )}
                   </Button>
                   <p className="text-xs text-muted-foreground text-center mt-3">
-                    ✓ Free US shipping $50+ · ✓ 14-day money-back guarantee
+                    ✓ Free US shipping $50+  ·  ✓ 14-day money-back guarantee  ·  ✓ Made in USA
                   </p>
                 </div>
 
                 {/* First-order discount */}
+                {/* TODO: activate WELCOME15 in Shopify Admin */}
                 <div className="flex items-center justify-center lg:justify-start gap-2 text-sm">
                   <Gift className="h-4 w-4 text-accent" />
                   <span>
                     New customer? Use code{' '}
-                    <strong className="text-accent">WELCOME10</strong> for 10% off
+                    <strong className="text-accent">WELCOME15</strong> for 15% off
                   </span>
                 </div>
               </motion.div>
