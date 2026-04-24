@@ -6,7 +6,7 @@ export const shopifyVariants = {
   mushroomFocus: 'gid://shopify/ProductVariant/48022272737499',
   energy: 'gid://shopify/ProductVariant/48094622974171',
   libidoSupport: 'gid://shopify/ProductVariant/48114369560795',
-  probiotic: 'gid://shopify/ProductVariant/48041865248987',
+  probiotic: 'gid://shopify/ProductVariant/48359863156955',
   digestive: 'gid://shopify/ProductVariant/48094723768539',
   iron: 'gid://shopify/ProductVariant/48094752899291',
   boneSupport: 'gid://shopify/ProductVariant/48041863217371',
