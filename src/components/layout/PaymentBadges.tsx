@@ -32,7 +32,7 @@ const AmexIcon = () => (
 const PaypalIcon = () => (
   <svg viewBox="0 0 48 32" className="h-6 w-auto" fill="none">
     <rect width="48" height="32" rx="4" fill="#F5F5F5"/>
-    <text x="24" y="18" fill="#003087" fontSize="7" fontWeight="bold" textAnchor="middle" fontFamily="Arial">PayPal</text>
+    <text x="24" y="20" fill="#003087" fontSize="11" fontWeight="bold" textAnchor="middle" fontFamily="Arial">PayPal</text>
   </svg>
 );
 
@@ -46,7 +46,7 @@ const ApplePayIcon = () => (
 const GooglePayIcon = () => (
   <svg viewBox="0 0 48 32" className="h-6 w-auto" fill="none">
     <rect width="48" height="32" rx="4" fill="#F5F5F5"/>
-    <text x="24" y="18" fill="#5F6368" fontSize="5" fontWeight="bold" textAnchor="middle" fontFamily="Arial">G Pay</text>
+    <text x="24" y="20" fill="#5F6368" fontSize="11" fontWeight="bold" textAnchor="middle" fontFamily="Arial">G Pay</text>
   </svg>
 );
 
