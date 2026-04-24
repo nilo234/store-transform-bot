@@ -20,6 +20,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Footer } from '@/components/layout/Footer';
 import { CartDrawer } from '@/components/cart/CartDrawer';
+import { PaymentBadges } from '@/components/layout/PaymentBadges';
 import { optimizeShopifyImage } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { PageMeta } from '@/components/seo';

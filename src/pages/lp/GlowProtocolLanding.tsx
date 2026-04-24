@@ -5,6 +5,7 @@ import { Star, Check, ShoppingCart, ShieldCheck, Truck, Leaf, Flag, Loader2, Gif
 import { Button } from '@/components/ui/button';
 import { Footer } from '@/components/layout/Footer';
 import { CartDrawer } from '@/components/cart/CartDrawer';
+import { PaymentBadges } from '@/components/layout/PaymentBadges';
 import { fetchProductByHandle, ShopifyProduct, sanitizeTitle, optimizeShopifyImage } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { PageMeta } from '@/components/seo';
