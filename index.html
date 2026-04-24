@@ -51,9 +51,6 @@
     fbq('init', '1620626795810610');
     fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1620626795810610&ev=PageView&noscript=1"
-    /></noscript>
     <!-- End Meta Pixel Code -->
 
     <!-- Open Graph -->
@@ -84,6 +81,8 @@
   </head>
 
   <body>
+    <!-- Meta Pixel noscript fallback -->
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1620626795810610&ev=PageView&noscript=1" /></noscript>
     <script>
       if (window.location.hostname.startsWith('www.')) {
         window.location.replace(window.location.href.replace('www.', ''));
