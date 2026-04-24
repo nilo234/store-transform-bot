@@ -20,6 +20,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Footer } from '@/components/layout/Footer';
 import { CartDrawer } from '@/components/cart/CartDrawer';
+import { PaymentBadges } from '@/components/layout/PaymentBadges';
 import { optimizeShopifyImage } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { PageMeta } from '@/components/seo';
@@ -245,6 +246,9 @@ export default function NightOutLanding() {
                   <p className="text-xs text-muted-foreground text-center mt-3">
                     ✓ Free US shipping $50+  ·  ✓ 14-day money-back guarantee  ·  ✓ Made in USA
                   </p>
+                  <div className="mt-3 pt-3 border-t border-border/30">
+                    <PaymentBadges />
+                  </div>
                 </div>
 
                 {/* TODO: activate WELCOME15 in Shopify Admin */}
