@@ -14,8 +14,8 @@ export const shopifyVariants = {
   beautyCollagen: 'gid://shopify/ProductVariant/48114313330907',
   hairSkinNails: 'gid://shopify/ProductVariant/48094573756635',
   sleep: 'gid://shopify/ProductVariant/48094622056667',
-  cognitiveRelax: 'gid://shopify/ProductVariant/48022272868571',
-  hangover: 'gid://shopify/ProductVariant/48094361256155',
+  cognitiveRelax: 'gid://shopify/ProductVariant/48337060987099',
+  hangover: 'gid://shopify/ProductVariant/48094649745627',
 };
 
 // Product info for cart display
