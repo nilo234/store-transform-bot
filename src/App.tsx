@@ -28,6 +28,7 @@ import GlowProtocolLanding from "./pages/lp/GlowProtocolLanding";
 import DigestiveLanding from "./pages/lp/DigestiveLanding";
 import NightOutLanding from "./pages/lp/NightOutLanding";
 import QuietDownLanding from "./pages/lp/QuietDownLanding";
+import GutFeelingLanding from "./pages/lp/GutFeelingLanding";
 import Quiz from "./pages/Quiz";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
@@ -69,6 +70,7 @@ const App = () => (
           <Route path="/lp/digestive" element={<DigestiveLanding />} />
           <Route path="/lp/night-out" element={<NightOutLanding />} />
           <Route path="/lp/quiet-down" element={<QuietDownLanding />} />
+          <Route path="/lp/gut-feeling" element={<GutFeelingLanding />} />
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
