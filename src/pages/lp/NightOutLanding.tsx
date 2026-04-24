@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
@@ -21,62 +20,73 @@ import {
 import { Button } from '@/components/ui/button';
 import { Footer } from '@/components/layout/Footer';
 import { CartDrawer } from '@/components/cart/CartDrawer';
-import { fetchProductByHandle, ShopifyProduct, optimizeShopifyImage } from '@/lib/shopify';
+import { optimizeShopifyImage } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { PageMeta } from '@/components/seo';
 import { ProductFAQs } from '@/components/product/ProductFAQs';
 import { toast } from 'sonner';
 import { bundles } from '@/data/bundles';
+import { useBundleImages } from '@/hooks/useBundleImages';
 import neuvieLogo from '@/assets/neuvie-navbar-logo.png';
 
 // Night Out Survival Kit = Hangover + Energy + Cognitive Relax
 const BUNDLE = bundles.find(b => b.id === 'night-out-survival-kit')!;
 
-const PRODUCT_HANDLES = [
-  { handle: 'hangover-gummies', name: 'Hangover Recovery Strips', benefit: 'Bounce back, faster.', outcomes: ['Hydration support', 'Replenish key vitamins', 'Wake up feeling like you'] },
-  { handle: 'energy-gummies', name: 'Energy Strips', benefit: 'Steady lift, no crash.', outcomes: ['Clean B-vitamin energy', 'No jitters, no spike', 'Stay on through the night'] },
-  { handle: 'cognitive-relax-gummies', name: 'Cognitive Relax Strips', benefit: 'Calm a busy mind.', outcomes: ['Wind down on demand', 'Soft focus, less spiral', 'Easier transition to sleep'] },
+// Display metadata aligned BY INDEX with BUNDLE.variantIds
+// (Hangover, Energy, Cognitive Relax — see src/data/bundles.ts)
+const PRODUCT_META = [
+  { name: 'Hangover Recovery Strips', benefit: 'Bounce back, faster.', outcomes: ['Hydration support', 'Replenish key vitamins', 'Wake up feeling like you'] },
+  { name: 'Energy Strips', benefit: 'Steady lift, no crash.', outcomes: ['Clean B-vitamin energy', 'No jitters, no spike', 'Stay on through the night'] },
+  { name: 'Cognitive Relax Strips', benefit: 'Calm a busy mind.', outcomes: ['Wind down on demand', 'Soft focus, less spiral', 'Easier transition to sleep'] },
 ];
 
 export default function NightOutLanding() {
-  const [heroImage, setHeroImage] = useState<string | null>(null);
-  const [productImages, setProductImages] = useState<Record<string, string>>({});
-  const [loading, setLoading] = useState(true);
+  const { images: bundleImages, isLoading: imagesLoading } = useBundleImages(BUNDLE.variantIds);
   const addItem = useCartStore(s => s.addItem);
   const setCartOpen = useCartStore(s => s.setOpen);
   const cartCount = useCartStore(s => s.totalItems());
+  const cartLoading = useCartStore(s => s.isLoading);
 
-  useEffect(() => {
-    Promise.all(
-      PRODUCT_HANDLES.map(p => fetchProductByHandle(p.handle).then(prod => ({ handle: p.handle, prod })))
-    ).then(results => {
-      const imgs: Record<string, string> = {};
-      results.forEach(({ handle, prod }) => {
-        const img = prod?.images.edges[0]?.node.url;
-        if (img) imgs[handle] = img;
-      });
-      setProductImages(imgs);
-      setHeroImage(imgs[PRODUCT_HANDLES[0].handle] ?? null);
-      setLoading(false);
-    });
-  }, []);
+  // Hero uses the first available bundle product image
+  const heroImage = bundleImages.find(img => !!img) ?? null;
 
   const handleAddBundle = async () => {
-    if (loading) return;
-    // Add each bundle product variant to cart
-    for (const handle of PRODUCT_HANDLES.map(p => p.handle)) {
-      const prod = await fetchProductByHandle(handle);
-      const variant = prod?.variants.edges[0]?.node;
-      if (!prod || !variant) continue;
-      await addItem({
-        product: { node: prod },
-        variantId: variant.id,
-        variantTitle: variant.title,
-        price: variant.price,
-        quantity: 1,
-        selectedOptions: variant.selectedOptions,
-      });
-    }
+    if (imagesLoading) return;
+    const bundleImage = heroImage ?? '';
+    const imageEdges = bundleImage
+      ? [{ node: { url: bundleImage, altText: BUNDLE.name } }]
+      : [];
+
+    await addItem({
+      product: {
+        node: {
+          id: `bundle-${BUNDLE.id}`,
+          title: BUNDLE.name,
+          handle: `bundle-${BUNDLE.id}`,
+          description: BUNDLE.tagline,
+          priceRange: { minVariantPrice: { amount: BUNDLE.salePrice.toString(), currencyCode: 'USD' } },
+          images: { edges: imageEdges },
+          variants: {
+            edges: [{
+              node: {
+                id: BUNDLE.shopifyBundleVariantId,
+                title: BUNDLE.products.join(' + '),
+                price: { amount: BUNDLE.salePrice.toString(), currencyCode: 'USD' },
+                availableForSale: true,
+                selectedOptions: [{ name: 'Bundle', value: BUNDLE.packSize }],
+              },
+            }],
+          },
+          options: [{ name: 'Bundle', values: [BUNDLE.packSize] }],
+        },
+      } as import('@/lib/shopify').ShopifyProduct,
+      variantId: BUNDLE.shopifyBundleVariantId,
+      variantTitle: BUNDLE.products.join(' + '),
+      price: { amount: BUNDLE.salePrice.toString(), currencyCode: 'USD' },
+      quantity: 1,
+      selectedOptions: [{ name: 'Bundle', value: BUNDLE.packSize }],
+    });
+
     toast.success('Bundle added to cart!', { position: 'top-center' });
     setCartOpen(true);
   };
@@ -84,6 +94,8 @@ export default function NightOutLanding() {
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
+
+  const busy = imagesLoading || cartLoading;
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -134,21 +146,49 @@ export default function NightOutLanding() {
                 transition={{ duration: 0.4 }}
                 className="order-1"
               >
-                <div className="relative aspect-square rounded-2xl overflow-hidden bg-card shadow-elevated max-w-[460px] mx-auto">
+                {/* Hero: 3-product collage from real Shopify bundle images */}
+                <div className="relative rounded-2xl overflow-hidden bg-card shadow-elevated max-w-[460px] mx-auto p-4 md:p-5">
                   <span className="absolute top-4 left-4 z-10 bg-accent text-accent-foreground text-xs font-bold px-3 py-1.5 rounded-full">
                     BUNDLE & SAVE
                   </span>
-                  {heroImage ? (
-                    <img
-                      src={optimizeShopifyImage(heroImage, 800)}
-                      alt="Night Out Survival Kit — 3-strip bundle by NEUVIE"
-                      className="w-full h-full object-contain"
-                      loading="eager"
-                      width={800}
-                      height={800}
-                    />
+
+                  {imagesLoading ? (
+                    <div className="aspect-square bg-muted animate-pulse rounded-xl" />
                   ) : (
-                    <div className="w-full h-full bg-muted animate-pulse" />
+                    <div className="grid grid-cols-2 gap-2 md:gap-3 aspect-square">
+                      {/* Lead image — large, left column */}
+                      <div className="row-span-2 bg-secondary/30 rounded-xl flex items-center justify-center p-2 overflow-hidden">
+                        {heroImage ? (
+                          <img
+                            src={optimizeShopifyImage(heroImage, 800)}
+                            alt={`${PRODUCT_META[0].name} — NEUVIE Night Out Survival Kit`}
+                            className="w-full h-full object-contain"
+                            loading="eager"
+                            width={800}
+                            height={800}
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-muted rounded-xl" />
+                        )}
+                      </div>
+                      {/* Two stacked images on the right */}
+                      {[1, 2].map(i => (
+                        <div key={i} className="bg-secondary/30 rounded-xl flex items-center justify-center p-2 overflow-hidden">
+                          {bundleImages[i] ? (
+                            <img
+                              src={optimizeShopifyImage(bundleImages[i], 400)}
+                              alt={`${PRODUCT_META[i]?.name ?? 'NEUVIE strip'} — included in the bundle`}
+                              className="w-full h-full object-contain"
+                              loading="eager"
+                              width={400}
+                              height={400}
+                            />
+                          ) : (
+                            <div className="w-full h-full bg-muted rounded-xl" />
+                          )}
+                        </div>
+                      ))}
+                    </div>
                   )}
                 </div>
               </motion.div>
@@ -190,10 +230,10 @@ export default function NightOutLanding() {
                   </div>
                   <Button
                     onClick={handleAddBundle}
-                    disabled={loading}
+                    disabled={busy}
                     className="w-full h-13 text-base font-semibold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg gap-2"
                   >
-                    {loading ? (
+                    {busy ? (
                       <Loader2 className="h-5 w-5 animate-spin" />
                     ) : (
                       <>
@@ -254,7 +294,7 @@ export default function NightOutLanding() {
           </div>
         </section>
 
-        {/* What's included */}
+        {/* What's included — real Shopify product images */}
         <section id="included" className="py-12 md:py-16 bg-secondary/40">
           <div className="container-wide">
             <div className="text-center mb-10">
@@ -267,9 +307,9 @@ export default function NightOutLanding() {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {PRODUCT_HANDLES.map((p, idx) => (
+              {PRODUCT_META.map((p, idx) => (
                 <motion.div
-                  key={p.handle}
+                  key={p.name}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -277,9 +317,11 @@ export default function NightOutLanding() {
                   className="bg-card rounded-2xl border border-border/40 shadow-soft overflow-hidden flex flex-col"
                 >
                   <div className="aspect-square bg-secondary/30 flex items-center justify-center p-4">
-                    {productImages[p.handle] ? (
+                    {imagesLoading ? (
+                      <div className="w-full h-full bg-muted animate-pulse rounded-xl" />
+                    ) : bundleImages[idx] ? (
                       <img
-                        src={optimizeShopifyImage(productImages[p.handle], 600)}
+                        src={optimizeShopifyImage(bundleImages[idx], 600)}
                         alt={p.name}
                         className="w-full h-full object-contain"
                         loading="lazy"
@@ -287,7 +329,7 @@ export default function NightOutLanding() {
                         height={600}
                       />
                     ) : (
-                      <div className="w-full h-full bg-muted animate-pulse rounded-xl" />
+                      <div className="w-full h-full bg-muted rounded-xl" />
                     )}
                   </div>
                   <div className="p-5 flex-1 flex flex-col">
@@ -509,10 +551,10 @@ export default function NightOutLanding() {
               </div>
               <Button
                 onClick={handleAddBundle}
-                disabled={loading}
+                disabled={busy}
                 className="w-full h-13 px-8 text-base font-semibold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg gap-2"
               >
-                {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <><ShoppingCart className="h-5 w-5" /> Shop the Bundle</>}
+                {busy ? <Loader2 className="h-5 w-5 animate-spin" /> : <><ShoppingCart className="h-5 w-5" /> Shop the Bundle</>}
               </Button>
               <p className="text-xs text-muted-foreground mt-3">
                 ✓ Free shipping $50+ · ✓ 14-day money-back · ✓ Made in USA
@@ -531,15 +573,14 @@ export default function NightOutLanding() {
           </div>
           <Button
             onClick={handleAddBundle}
-            disabled={loading}
+            disabled={busy}
             className="flex-1 h-12 text-sm font-semibold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground gap-2"
           >
-            {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <><ShoppingCart className="h-4 w-4" /> Shop the Bundle</>}
+            {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <><ShoppingCart className="h-4 w-4" /> Shop the Bundle</>}
           </Button>
         </div>
       </div>
 
-      {/* spacer so footer not hidden under sticky CTA on mobile */}
       <div className="lg:hidden h-20" aria-hidden />
 
       <Footer />
