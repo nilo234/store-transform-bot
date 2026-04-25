@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import productsLineup from '@/assets/neuvie-products-lineup.png';
+import productsLineup from '@/assets/neuvie-products-lineup.webp';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Star, Check, ChevronRight, Leaf, ShieldCheck, FlaskConical, Flag, ShoppingCart } from 'lucide-react';
