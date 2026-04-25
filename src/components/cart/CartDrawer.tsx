@@ -292,6 +292,11 @@ export function CartDrawer() {
                   )}
                 </Button>
 
+                {/* Reassurance immediately under CTA — reduces last-step abandonment */}
+                <p className="text-center text-xs md:text-sm text-foreground/80 font-medium">
+                  Try it risk-free · 14-day money-back guarantee
+                </p>
+
                 {/* Secure Checkout Badges */}
                 <SecureCheckoutBadges />
               </div>
