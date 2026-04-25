@@ -65,6 +65,14 @@ export function StickyAddToCart({
 
   const show = isVisible && !footerVisible;
 
+  // Per-strip cost in cents — e.g. $34.99 / 30 strips ≈ 117¢ per strip
+  const perStripCents = stripsPerPack > 0 ? Math.round((price / stripsPerPack) * 100) : 0;
+  const perStripLabel = perStripCents > 0
+    ? (perStripCents >= 100
+        ? `$${(perStripCents / 100).toFixed(2)}/strip`
+        : `${perStripCents}¢/strip`)
+    : null;
+
   return (
     <AnimatePresence>
       {show && (
@@ -73,17 +81,22 @@ export function StickyAddToCart({
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.2, ease: 'easeOut' }}
-          className="fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-t border-border shadow-[0_-4px_20px_rgba(0,0,0,0.1)]"
+          className="fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-t border-border shadow-[0_-4px_20px_rgba(0,0,0,0.1)] pb-[env(safe-area-inset-bottom)]"
         >
           <div className="container-wide py-3">
             <div className="flex items-center justify-between gap-4">
               {/* Product Info - Desktop */}
               <div className="hidden sm:block flex-1 min-w-0">
                 <h4 className="font-semibold text-sm truncate">{productTitle}</h4>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-wrap">
                   <span className="font-bold text-primary">${price.toFixed(2)}</span>
                   {originalPrice > price && (
                     <span className="text-sm text-muted-foreground line-through">${originalPrice.toFixed(2)}</span>
+                  )}
+                  {perStripLabel && (
+                    <span className="text-xs font-semibold text-primary/80 bg-primary/10 px-2 py-0.5 rounded-full">
+                      {perStripLabel}
+                    </span>
                   )}
                   <span className="text-xs font-medium text-muted-foreground">
                     {isSubscription ? '(Subscribe & Save)' : '(One-Time)'}
@@ -93,9 +106,16 @@ export function StickyAddToCart({
 
               {/* Mobile Price */}
               <div className="sm:hidden flex-1 min-w-0">
-                <span className="font-bold text-lg text-primary">${price.toFixed(2)}</span>
-                <span className="text-xs text-muted-foreground ml-2">
-                  {isSubscription ? 'Subscribe' : 'One-Time'}
+                <div className="flex items-baseline gap-2 flex-wrap">
+                  <span className="font-bold text-lg text-primary leading-none">${price.toFixed(2)}</span>
+                  {perStripLabel && (
+                    <span className="text-[11px] font-semibold text-primary/80 bg-primary/10 px-1.5 py-0.5 rounded-full leading-none whitespace-nowrap">
+                      {perStripLabel}
+                    </span>
+                  )}
+                </div>
+                <span className="text-[10px] text-muted-foreground">
+                  {isSubscription ? 'Subscribe & Save' : 'One-Time'}
                 </span>
               </div>
 
