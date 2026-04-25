@@ -201,6 +201,16 @@ export function IngredientTransparencyDrawer({
               </p>
             </div>
           </div>
+
+          {/* Bottom close button — easy reach on mobile after scrolling through ingredients */}
+          <SheetClose asChild>
+            <Button
+              variant="outline"
+              className="w-full mt-6 h-12 text-sm font-semibold touch-manipulation"
+            >
+              Close
+            </Button>
+          </SheetClose>
         </div>
       </SheetContent>
     </Sheet>
