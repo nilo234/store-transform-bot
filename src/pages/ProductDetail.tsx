@@ -76,6 +76,21 @@ const getProductType = (handle: string): string => {
   return 'default';
 };
 
+// Outcome promise per product category — drives the 6-week timeline copy
+const getOutcomePromise = (handle: string): string => {
+  const h = handle?.toLowerCase() || '';
+  if (h.includes('hair') || h.includes('skin') || h.includes('nail') || h.includes('biotin') || h.includes('collagen')) return 'Visibly healthier hair, skin & nails';
+  if (h.includes('sleep') || h.includes('melatonin')) return 'Deeper, more restorative sleep';
+  if (h.includes('energy') || h.includes('b12')) return 'Steady, all-day natural energy';
+  if (h.includes('mushroom') || h.includes('focus') || h.includes('cognitive')) return 'Sharper focus & calmer clarity';
+  if (h.includes('relax') || h.includes('calm') || h.includes('stress')) return 'A calmer, more centered you';
+  if (h.includes('immunity') || h.includes('vitamin-c') || h.includes('immune')) return 'Stronger daily immune resilience';
+  if (h.includes('gut') || h.includes('digest') || h.includes('probiotic')) return 'Lighter digestion & a happier gut';
+  if (h.includes('hangover') || h.includes('recovery')) return 'Faster mornings, easier recoveries';
+  if (h.includes('vitality') || h.includes('shilajit') || h.includes('testo')) return 'Renewed vitality & drive';
+  return 'Real, visible results';
+};
+
 export default function ProductDetail() {
   const { handle } = useParams<{ handle: string }>();
   const [product, setProduct] = useState<ShopifyProduct['node'] | null>(null);
