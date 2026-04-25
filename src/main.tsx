@@ -1,7 +1,7 @@
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
-import productsLineup from "@/assets/neuvie-products-lineup.png";
+import productsLineup from "@/assets/neuvie-products-lineup.webp";
 
 // Preload the hero LCP image as early as possible (before React renders)
 // — improves Largest Contentful Paint on mobile.

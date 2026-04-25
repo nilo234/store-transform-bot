@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import productsLineup from '@/assets/neuvie-products-lineup.png';
+import productsLineup from '@/assets/neuvie-products-lineup.webp';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Star, Check, ChevronRight, Leaf, ShieldCheck, FlaskConical, Flag, ShoppingCart } from 'lucide-react';
@@ -179,8 +179,8 @@ export default function Index() {
                       src={productsLineup}
                       alt="NEUVIE fast-dissolving wellness strips lineup — Energy, Sleep, Beauty, Focus and Gut Health supplements"
                       className="w-full h-full object-cover"
-                      width={1080}
-                      height={1080}
+                      width={1024}
+                      height={1024}
                       loading="eager"
                       fetchPriority="high"
                       decoding="async"
