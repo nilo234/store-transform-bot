@@ -28,6 +28,8 @@ import { BundleCrossSellBanner } from '@/components/product/BundleCrossSellBanne
 import { StripsVsPillsComparison } from '@/components/product/StripsVsPillsComparison';
 import { PressLogosStrip } from '@/components/product/PressLogosStrip';
 import { LiveActivityCounter } from '@/components/product/LiveActivityCounter';
+import { ResultPromiseTimeline } from '@/components/product/ResultPromiseTimeline';
+import { IngredientTransparencyDrawer } from '@/components/product/IngredientTransparencyDrawer';
 import { ProductJsonLd, BreadcrumbJsonLd, PageMeta } from '@/components/seo';
 import {
   Accordion,
