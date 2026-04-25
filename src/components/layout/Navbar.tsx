@@ -53,6 +53,10 @@ export function Navbar() {
                 <img
                   src={neuvieLogo}
                   alt="Neuvie Nutrition"
+                  width={300}
+                  height={120}
+                  fetchPriority="high"
+                  decoding="async"
                   className="h-20 md:h-[4.75rem] lg:h-[8.25rem] w-auto" />
                 
               </Link>
@@ -119,7 +123,7 @@ export function Navbar() {
                       {/* Mobile Header */}
                       <div className="flex items-center justify-between p-6 border-b border-border">
                         <Link to="/" onClick={() => setMobileMenuOpen(false)}>
-                          <img src={neuvieLogo} alt="Neuvie Nutrition" className="h-20 md:h-[3.75rem] lg:h-[5.25rem] w-auto" />
+                          <img src={neuvieLogo} alt="Neuvie Nutrition" width={300} height={120} loading="lazy" decoding="async" className="h-20 md:h-[3.75rem] lg:h-[5.25rem] w-auto" />
                         </Link>
                         <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)}>
                           <X className="h-6 w-6" />

@@ -41,10 +41,14 @@ export const VideoTutorial = ({ videoSrc, posterImage }: VideoTutorialProps) => 
       >
         {/* Poster/Thumbnail */}
         {posterImage ? (
-          <img 
-            src={posterImage} 
-            alt="How to use Neuvie strips" 
+          <img
+            src={posterImage}
+            alt="How to use Neuvie strips"
             className="w-full h-full object-cover"
+            width={1280}
+            height={720}
+            loading="lazy"
+            decoding="async"
           />
         ) : (
           /* Placeholder Design */
