@@ -179,7 +179,11 @@ export default function Index() {
                       src={productsLineup}
                       alt="NEUVIE fast-dissolving wellness strips lineup — Energy, Sleep, Beauty, Focus and Gut Health supplements"
                       className="w-full h-full object-cover"
+                      width={1080}
+                      height={1080}
                       loading="eager"
+                      fetchPriority="high"
+                      decoding="async"
                     />
                   </div>
                 </div>

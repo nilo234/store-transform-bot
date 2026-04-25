@@ -101,7 +101,10 @@ export function HowToUse() {
                     src={step.image}
                     alt={step.alt}
                     className="w-full h-full object-cover"
+                    width={400}
+                    height={400}
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
 

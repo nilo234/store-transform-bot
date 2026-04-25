@@ -40,6 +40,10 @@ export function WhyNeuvie() {
                 src={hairSkinNailsImg}
                 alt="NEUVIE dissolving wellness strip"
                 className="w-full h-[420px] md:h-[560px] object-cover object-center"
+                width={800}
+                height={800}
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </motion.div>

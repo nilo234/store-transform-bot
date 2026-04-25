@@ -152,6 +152,10 @@ export function Footer() {
                 src={neuvieFooterLogo}
                 alt="Neuvie Nutrition"
                 className="h-20 md:h-[4.75rem] lg:h-[8.25rem] w-auto brightness-0 invert"
+                width={300}
+                height={120}
+                loading="lazy"
+                decoding="async"
               />
             </Link>
             <p className="text-primary-foreground/60 mb-6 md:mb-8 max-w-sm text-xs md:text-sm font-body leading-relaxed">
