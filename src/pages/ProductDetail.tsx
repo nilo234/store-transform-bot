@@ -429,7 +429,6 @@ export default function ProductDetail() {
                 <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm text-foreground/80 font-medium">
                   <span className="flex items-center gap-1.5"><Shield className="h-4 w-4 text-primary" />14-day money back</span>
                   <span className="flex items-center gap-1.5"><Truck className="h-4 w-4 text-primary" />Free shipping $50+</span>
-                  <span className="flex items-center gap-1.5"><RotateCcw className="h-4 w-4 text-primary" />Cancel anytime</span>
                 </div>
 
                 {/* Press Logos — trust signal under shipping info */}
