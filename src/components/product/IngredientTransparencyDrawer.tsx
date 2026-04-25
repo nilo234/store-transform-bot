@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Beaker, Leaf, BadgeCheck } from 'lucide-react';
+import { ChevronDown, Beaker, Leaf, BadgeCheck, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -9,6 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
   SheetDescription,
+  SheetClose,
 } from '@/components/ui/sheet';
 
 interface SupplementFact {
