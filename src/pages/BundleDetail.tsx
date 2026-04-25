@@ -590,7 +590,7 @@ export default function BundleDetail() {
               Add Bundle — ${bundle.salePrice.toFixed(2)} (Save {bundle.discountPercent}%)
             </Button>
             <p className="text-[11px] md:text-xs text-muted-foreground mt-3 md:mt-4">
-              Free US shipping · 14-day money-back guarantee · Cancel anytime
+              Free US shipping · 14-day money-back guarantee
             </p>
           </div>
         </section>
