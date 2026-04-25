@@ -34,7 +34,7 @@ const clinicalData: Record<string, { title: string; stats: Array<{ icon: any; la
     title: "What people felt after showing up for themselves for 60 days*",
     stats: [
       { icon: Heart, label: "Felt a real difference in how they show up each day", percentage: 80 },
-      { icon: Target, label: "Made it a part of their self-care ritual", percentage: 76 },
+      { icon: Target, label: "Made it a part of their self-care routine", percentage: 76 },
       { icon: Zap, label: "Felt more consistent, grounded energy", percentage: 72 },
     ]
   }

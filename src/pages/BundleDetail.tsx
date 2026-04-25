@@ -365,7 +365,7 @@ export default function BundleDetail() {
               Most NEUVIE customers don't buy a single strip — they build a routine. That's why we group{' '}
               {bundle.products.length} complementary{' '}
               <Link to="/shop" className="text-primary hover:underline font-medium">wellness strips</Link>{' '}
-              into one bundle: every formula closes a gap the others leave open. Together, they create the kind of daily ritual
+              into one bundle: every formula closes a gap the others leave open. Together, they create the kind of daily routine
               that actually compounds — backed by{' '}
               <Link to="/science" className="text-primary hover:underline font-medium">peer-reviewed research</Link> and made in
               FDA-registered US facilities.
@@ -382,7 +382,7 @@ export default function BundleDetail() {
           <div className="container-wide px-4 md:px-6">
             <div className="text-center mb-8 md:mb-10">
               <p className="text-[10px] md:text-xs font-bold tracking-widest text-accent uppercase mb-2 md:mb-3">What's included</p>
-              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl">Your {bundle.products.length}-step daily ritual</h2>
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl">Your {bundle.products.length}-step daily routine</h2>
               <p className="text-sm md:text-base text-muted-foreground mt-2 md:mt-3 max-w-xl mx-auto">
                 Each NEUVIE strip pack contains a 30-day supply. Use them together — they're designed to work as one system.
               </p>
@@ -478,7 +478,7 @@ export default function BundleDetail() {
                   <li className="flex gap-2"><Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" /> Sublingual: dissolves in ~30 seconds</li>
                   <li className="flex gap-2"><Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" /> Slim packs that fit your pocket</li>
                   <li className="flex gap-2"><Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" /> No water, no fuss — anywhere</li>
-                  <li className="flex gap-2"><Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" /> A 3-second daily ritual you'll keep</li>
+                  <li className="flex gap-2"><Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" /> A 3-second daily routine you'll keep</li>
                 </ul>
               </div>
             </div>
@@ -489,7 +489,7 @@ export default function BundleDetail() {
         <section className="py-10 md:py-20 bg-background">
           <div className="container-wide max-w-4xl px-4 md:px-6">
             <div className="text-center mb-8 md:mb-10">
-              <p className="text-[10px] md:text-xs font-bold tracking-widest text-accent uppercase mb-2 md:mb-3">Your daily ritual</p>
+              <p className="text-[10px] md:text-xs font-bold tracking-widest text-accent uppercase mb-2 md:mb-3">Your daily routine</p>
               <h2 className="font-display text-2xl sm:text-3xl md:text-4xl">How to use the {toTitleCase(bundle.name)} Bundle</h2>
               <p className="text-sm md:text-base text-muted-foreground mt-2 md:mt-3">Three seconds. That's the whole routine.</p>
             </div>
@@ -718,7 +718,7 @@ function getAudience(category: string) {
 
 function getOutcomes(category: string, _products: string[]) {
   const base = [
-    { icon: <Sparkles className="h-5 w-5" />, title: 'Feels like a ritual, not a chore', desc: 'A 3-second daily routine you\'ll actually keep — even on the busy days.' },
+    { icon: <Sparkles className="h-5 w-5" />, title: 'Feels like a routine, not a chore', desc: 'A 3-second daily routine you\'ll actually keep — even on the busy days.' },
     { icon: <Zap className="h-5 w-5" />, title: 'Fast absorption', desc: 'Sublingual delivery means active ingredients hit your system minutes — not hours — after the strip dissolves.' },
     { icon: <Heart className="h-5 w-5" />, title: 'Real, compounding results', desc: 'Built around how your body actually works. The benefit shows up in weeks, not seconds.' },
   ];

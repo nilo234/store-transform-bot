@@ -79,7 +79,7 @@ export const ComparisonTable = ({ onCtaClick }: ComparisonTableProps) => {
           {onCtaClick && (
             <div className="text-center mt-8">
               <Button onClick={onCtaClick} className="btn-primary" size="lg">
-                Start your ritual
+                Start your routine
               </Button>
               <p className="text-xs text-muted-foreground mt-2">14-day guarantee — because feeling sure matters</p>
             </div>

@@ -53,7 +53,7 @@ export default function GlowProtocolLanding() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="The Glow Protocol – 3-Second Beauty Ritual | NEUVIE™"
+        title="The Glow Protocol – 3-Second Beauty Routine | NEUVIE™"
         description="Glowing skin, stronger nails, healthy hair. NEUVIE Glow Protocol dissolving strips. No pills. Free US shipping $50+. 14-day guarantee."
       />
 
@@ -121,7 +121,7 @@ export default function GlowProtocolLanding() {
                 </div>
                 <h1 className="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] mb-4">
                   The Glow Protocol —{' '}
-                  <span className="italic text-accent">Your 3-Second Beauty Ritual</span>
+                  <span className="italic text-accent">Your 3-Second Beauty Routine</span>
                 </h1>
                 <p className="text-base md:text-lg text-muted-foreground mb-5 max-w-xl mx-auto lg:mx-0">
                   Glowing skin. Stronger nails. Healthy hair. One dissolving strip — no pills, no powder, no excuses.
@@ -251,13 +251,13 @@ export default function GlowProtocolLanding() {
         <section className="py-10 md:py-14 bg-secondary/40">
           <div className="container-wide max-w-4xl">
             <h2 className="font-display text-2xl md:text-3xl text-center mb-8">
-              Your 3-second beauty ritual
+              Your 3-second beauty routine
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 { step: '1', title: 'Open the strip', text: 'Pull one strip from the pouch. No water needed.' },
                 { step: '2', title: 'Place on tongue', text: 'It dissolves in seconds — clean taste, no aftertaste.' },
-                { step: '3', title: 'Glow from within', text: 'Daily ritual that fits your routine. See changes in weeks.' },
+                { step: '3', title: 'Glow from within', text: 'Daily routine that fits your routine. See changes in weeks.' },
               ].map(s => (
                 <div key={s.step} className="text-center">
                   <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground font-display text-xl flex items-center justify-center mx-auto mb-3">

@@ -163,7 +163,7 @@ export function Navbar() {
                       <div className="p-6 border-t border-border bg-secondary/30">
                         <Link to="/shop" onClick={() => setMobileMenuOpen(false)}>
                           <Button className="w-full bg-accent text-accent-foreground h-14 text-lg font-display font-semibold rounded-xl shadow-glow">
-                            Start Your Ritual →
+                            Start Your Routine →
                           </Button>
                         </Link>
                       </div>

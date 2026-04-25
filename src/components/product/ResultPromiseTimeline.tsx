@@ -8,7 +8,7 @@ interface ResultPromiseTimelineProps {
 }
 
 const defaultWeeks = [
-  { week: 'Week 1–2', label: 'Your ritual locks in. Easier than coffee.' },
+  { week: 'Week 1–2', label: 'Your routine locks in. Easier than coffee.' },
   { week: 'Week 3–4', label: 'Subtle shifts — mood, energy, consistency.' },
   { week: 'Week 5–6', label: 'Visible, lasting results you can feel & see.' },
 ];

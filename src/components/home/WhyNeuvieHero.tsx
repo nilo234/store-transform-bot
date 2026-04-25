@@ -14,7 +14,7 @@ const benefits = [
   },
   {
     icon: Sparkles,
-    title: '3-Second Daily Ritual',
+    title: '3-Second Daily Routine',
     description: 'No water. No pills. No routine to maintain. Just one effortless moment that fits any lifestyle.',
   },
   {

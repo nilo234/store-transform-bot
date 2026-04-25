@@ -56,7 +56,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: 'Our pick: NEUVIE Hangover Strips',
         paragraphs: [
-          "We built NEUVIE Hangover Strips with exactly the stack above — high-dose B-complex, electrolytes, and antioxidants — in a single 30-second strip. Take one before bed and one when you wake up. That's the ritual.",
+          "We built NEUVIE Hangover Strips with exactly the stack above — high-dose B-complex, electrolytes, and antioxidants — in a single 30-second strip. Take one before bed and one when you wake up. That's the routine.",
           "30 strips, $34.99. Free shipping over $50. 14-day money-back guarantee — if it doesn't help, you don't pay.",
         ],
       },
@@ -115,7 +115,7 @@ export const blogPosts: BlogPost[] = [
     slug: 'glutathione-vs-vitamin-c-for-skin',
     title: 'Glutathione vs Vitamin C for Skin: Which Actually Works?',
     excerpt:
-      "Both are antioxidant superstars. But for glow, brightness, and anti-aging — which one deserves your daily ritual? We break it down.",
+      "Both are antioxidant superstars. But for glow, brightness, and anti-aging — which one deserves your daily routine? We break it down.",
     metaDescription:
       'Glutathione vs Vitamin C for skin: a no-fluff comparison of benefits, absorption, and the smart way to combine both for glow.',
     category: 'Beauty',
@@ -189,10 +189,10 @@ export const blogPosts: BlogPost[] = [
         ],
       },
       {
-        heading: "Why it matters for your daily ritual",
+        heading: "Why it matters for your daily routine",
         paragraphs: [
           "If you're going to take a daily vitamin, you want the dose on the label to actually reach your cells. Strips deliver more of what you paid for — and they do it in 30 seconds, no water, no pill-anxiety.",
-          "That's the entire reason NEUVIE exists. Same nutrients you've heard of for years. Better delivery system. Daily ritual you'll actually keep.",
+          "That's the entire reason NEUVIE exists. Same nutrients you've heard of for years. Better delivery system. Daily routine you'll actually keep.",
         ],
       },
     ],

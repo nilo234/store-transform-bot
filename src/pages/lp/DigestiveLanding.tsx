@@ -245,7 +245,7 @@ export default function DigestiveLanding() {
               {[
                 { step: '1', title: 'Open the strip', text: 'Pull one strip from the pouch. No water needed.' },
                 { step: '2', title: 'Place on tongue', text: 'Dissolves in 30 seconds — clean taste.' },
-                { step: '3', title: 'Feel light', text: 'Daily ritual that fits anywhere — home, work, travel.' },
+                { step: '3', title: 'Feel light', text: 'Daily routine that fits anywhere — home, work, travel.' },
               ].map(s => (
                 <div key={s.step} className="text-center">
                   <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground font-display text-xl flex items-center justify-center mx-auto mb-3">

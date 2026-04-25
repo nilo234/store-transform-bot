@@ -263,7 +263,7 @@ export const productContentMap: Record<string, ProductContent> = {
       { headline: 'Hair & Nail Health', description: 'These dissolving collagen strips provide building blocks for healthy hair and nails — the best collagen supplement 2026.' },
     ],
     longDescription: [
-      "Real beauty starts from within — and you know it. But the collagen powders are messy, the pills are huge, and the routines feel like a full-time job. You deserve dissolving collagen strips that make your beauty ritual as effortless as you want to feel. That's collagen without pills, designed for real life.",
+      "Real beauty starts from within — and you know it. But the collagen powders are messy, the pills are huge, and the routines feel like a full-time job. You deserve dissolving collagen strips that make your beauty routine as effortless as you want to feel. That's collagen without pills, designed for real life.",
       "NEUVIE Beauty + Collagen Strips deliver 100mg of Collagen Peptides and Vitamin E in a fruity mango-flavored beauty supplement strip that dissolves on your tongue in 3 seconds — absorbing up to 5x faster than traditional supplements. These collagen strips for skin support your skin's elasticity, while Vitamin E provides antioxidant protection. It's the skin glow supplement and best collagen supplement 2026 you've been looking for.",
       "No mixing. No measuring. No forgetting. Just one vitamin C collagen strip a day and the confidence of knowing you're nourishing your natural glow from the inside out. Because the best beauty routine is one you'll actually stick to.",
     ],
@@ -489,7 +489,7 @@ export const productContentMap: Record<string, ProductContent> = {
     longDescription: [
       "Your body is exhausted but your mind won't stop. You replay conversations, worry about tomorrow, count the hours of sleep you're losing in real time. You've earned rest — real rest. The kind where you wake up and actually feel like a different person. You need dissolving sleep strips that work.",
       "NEUVIE Sleep Strips are a melatonin strip supplement combining 5mg of Melatonin with a calming botanical blend of Valerian, Chamomile, Lavender, and Hibiscus — nature's gentlest sleep support. This fast dissolving sleep aid dissolves on your tongue in 3 seconds and absorbs up to 5x faster than traditional supplements. It's a natural sleep supplement strip that's non-habit forming — a sleep aid without capsules you can use every night without worry.",
-      "No water. No pills on your nightstand. Just a quiet 3-second ritual that tells your body: you did enough today. Rest now. Because the person who gives everything to everyone else deserves a night of deep, peaceful sleep with these dissolving sleep strips.",
+      "No water. No pills on your nightstand. Just a quiet 3-second routine that tells your body: you did enough today. Rest now. Because the person who gives everything to everyone else deserves a night of deep, peaceful sleep with these dissolving sleep strips.",
     ],
     usage: 'Place 1 strip on your tongue 30 minutes before bedtime and let it dissolve.',
     ingredients: [

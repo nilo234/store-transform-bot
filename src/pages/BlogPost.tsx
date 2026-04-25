@@ -96,7 +96,7 @@ export default function BlogPost() {
               Ready to start?
             </p>
             <h3 className="font-display text-2xl md:text-3xl mb-5">
-              Make it your daily ritual.
+              Make it your daily routine.
             </h3>
             <Button
               asChild

@@ -20,12 +20,12 @@ export const productReviewsMap: Record<string, Review[]> = {
     { author: 'Marcus T.', location: 'Brooklyn, NY', rating: 5, date: '1 month ago', title: 'Finally something that works', body: "I've tried everything — Pedialyte, Liquid IV, those Korean pills. This is the only thing that actually made a noticeable difference the next morning. The mango flavor is also surprisingly good for 2 AM you.", helpful: 38, verified: true },
     { author: 'Priya S.', location: 'Chicago, IL', rating: 4, date: '3 weeks ago', title: 'Works well, smart packaging', body: "I keep one in my purse for date nights. Took it before sleep after a few too many cocktails and the morning after was so much smoother than usual. Removed one star only because I wish there were more strips per pack.", helpful: 22, verified: true },
     { author: 'Tyler K.', location: 'Denver, CO', rating: 5, date: '5 days ago', title: 'Worth every penny', body: "Bachelor party in Vegas. Brought these for the whole group. Five guys, three nights, and not a single ruined morning. The DHM combo really does what it claims.", helpful: 19, verified: true },
-    { author: 'Ana R.', location: 'Miami, FL', rating: 5, date: '2 months ago', title: 'My new ritual', body: "Even after just two glasses of wine I notice a difference. No grogginess the next day. I love that it's not another pill in my drawer — it actually feels like self-care.", helpful: 31, verified: true },
+    { author: 'Ana R.', location: 'Miami, FL', rating: 5, date: '2 months ago', title: 'My new routine', body: "Even after just two glasses of wine I notice a difference. No grogginess the next day. I love that it's not another pill in my drawer — it actually feels like self-care.", helpful: 31, verified: true },
     { author: 'David W.', location: 'Seattle, WA', rating: 4, date: '1 week ago', title: 'Real difference', body: "Skeptical at first but after three uses I'm a believer. Headaches are way milder. Just wish they had a subscription discount that's a bit deeper.", helpful: 14, verified: true },
   ],
   bone: [
     { author: 'Linda H.', location: 'Phoenix, AZ', rating: 5, date: '3 weeks ago', title: 'My doctor approved', body: "I'm 54 and my doctor told me I needed more D3 and K2. I hate swallowing pills — they always get stuck. These dissolve in seconds and the raspberry flavor is lovely. My last bloodwork showed my levels are finally where they should be.", helpful: 56, verified: true },
-    { author: 'Robert J.', location: 'Boston, MA', rating: 5, date: '1 month ago', title: 'Great for active 60s', body: "I bike 4 days a week and want to keep my bones strong. Easy to take, no aftertaste, no upset stomach like with calcium tablets. Perfect daily ritual with my morning coffee.", helpful: 41, verified: true },
+    { author: 'Robert J.', location: 'Boston, MA', rating: 5, date: '1 month ago', title: 'Great for active 60s', body: "I bike 4 days a week and want to keep my bones strong. Easy to take, no aftertaste, no upset stomach like with calcium tablets. Perfect daily routine with my morning coffee.", helpful: 41, verified: true },
     { author: 'Maria G.', location: 'San Diego, CA', rating: 5, date: '2 weeks ago', title: 'Finally a D3 I take daily', body: "I've bought so many vitamin D bottles that ended up forgotten in a cabinet. The strip format means I actually remember. Three months in and I feel stronger overall.", helpful: 28, verified: true },
     { author: 'Helen K.', location: 'Portland, OR', rating: 4, date: '1 week ago', title: 'Love the convenience', body: "Post-menopause my doctor wanted me on D3+K2. These are easy and tasty. Only complaint is I wish the strip was slightly bigger so it lasted a few seconds longer to enjoy.", helpful: 17, verified: true },
     { author: 'Frank D.', location: 'Tampa, FL', rating: 5, date: '6 weeks ago', title: 'Travel friendly', body: "I travel for work constantly. No more spilled vitamin bottles in my suitcase. One strip a day, done. My energy and joints feel better since starting.", helpful: 33, verified: true },
@@ -89,11 +89,11 @@ export const productReviewsMap: Record<string, Review[]> = {
   ],
   sleep: [
     { author: 'Andrew J.', location: 'Philadelphia, PA', rating: 5, date: '2 weeks ago', title: 'Best sleep in years', body: "I'm a chronic insomniac. Tried prescription sleep aids and hated the grogginess. These get me to sleep within 30 minutes and I wake up actually rested. Melatonin + L-theanine combo is perfect.", helpful: 94, verified: true },
-    { author: 'Elise R.', location: 'Boston, MA', rating: 5, date: '1 month ago', title: 'No more 3 AM wake-ups', body: "I used to wake up at 3 AM and stare at the ceiling for two hours. With these, I sleep through the night. The lavender flavor is so calming as a wind-down ritual.", helpful: 67, verified: true },
+    { author: 'Elise R.', location: 'Boston, MA', rating: 5, date: '1 month ago', title: 'No more 3 AM wake-ups', body: "I used to wake up at 3 AM and stare at the ceiling for two hours. With these, I sleep through the night. The lavender flavor is so calming as a wind-down routine.", helpful: 67, verified: true },
     { author: 'Marcus L.', location: 'Nashville, TN', rating: 5, date: '3 weeks ago', title: 'Travel must-pack', body: "Took these on a red-eye and slept the entire flight. No grogginess on landing. Now they live in my carry-on permanently.", helpful: 52, verified: true },
     { author: 'Kelly H.', location: 'Sacramento, CA', rating: 4, date: '6 days ago', title: 'Works gently', body: "Not a sledgehammer like ZzzQuil. More like a nudge into sleep. I appreciate that I can still wake up if my kids need me, but fall right back asleep.", helpful: 25, verified: true },
     { author: 'Brian T.', location: 'Denver, CO', rating: 5, date: '2 months ago', title: 'Replaced my Ambien', body: "Slowly weaned off prescription sleep meds with my doctor's help and these strips. Honestly works better and no dependency worries.", helpful: 81, verified: true },
-    { author: 'Olivia C.', location: 'Tampa, FL', rating: 5, date: '1 week ago', title: 'My evening ritual', body: "Bath, book, sleep strip. It's now sacred. The act of taking it signals my brain it's time to wind down. Sleep quality is night and day.", helpful: 39, verified: true },
+    { author: 'Olivia C.', location: 'Tampa, FL', rating: 5, date: '1 week ago', title: 'My evening routine', body: "Bath, book, sleep strip. It's now sacred. The act of taking it signals my brain it's time to wind down. Sleep quality is night and day.", helpful: 39, verified: true },
   ],
   beauty: [
     { author: 'Sophia A.', location: 'Los Angeles, CA', rating: 5, date: '2 weeks ago', title: 'Glow is real', body: "Six weeks in and my skin has this luminosity I haven't seen since my 20s. The collagen + hyaluronic acid combo really works. My makeup sits so much better now.", helpful: 88, verified: true },
@@ -167,7 +167,7 @@ export const ProductReviews = ({ productHandle, productTitle }: ProductReviewsPr
               What customers say about {productTitle}
             </h2>
             <p className="text-muted-foreground">
-              Verified reviews from people who made it part of their daily ritual.
+              Verified reviews from people who made it part of their daily routine.
             </p>
           </div>
 

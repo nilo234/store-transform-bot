@@ -63,7 +63,7 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 'commitment',
-    question: 'How ready are you to make this a daily ritual?',
+    question: 'How ready are you to make this a daily routine?',
     options: [
       { label: 'All in — I want my best self', tags: ['bundle', 'subscribe'] },
       { label: 'Open, but want to start small', tags: ['single'] },
@@ -152,7 +152,7 @@ const singleProductMap: Record<string, SingleProductPick> = {
   daily: {
     handle: 'energy-strips-2',
     name: 'Energy Strips',
-    reason: 'A simple, daily 3-second ritual to start your NEUVIE routine.',
+    reason: 'A simple, daily 3-second routine to start your NEUVIE routine.',
   },
   easy: {
     handle: 'energy-strips-2',
@@ -172,7 +172,7 @@ const singleProductMap: Record<string, SingleProductPick> = {
   subscribe: {
     handle: 'energy-strips-2',
     name: 'Energy Strips',
-    reason: 'Subscribe & save 20% on your daily energy ritual.',
+    reason: 'Subscribe & save 20% on your daily energy routine.',
   },
 };
 
@@ -261,7 +261,7 @@ export function pickBundleFromTags(tagCounts: Record<string, number>): {
     bundle: {
       bundleId: 'the-full-you',
       bundleName: 'The Full You',
-      reason: 'You\'re ready for the full ritual — every part of you, covered.',
+      reason: 'You\'re ready for the full routine — every part of you, covered.',
     },
     single: {
       bundleId: 'before-you-leave',
@@ -276,7 +276,7 @@ export function pickBundleFromTags(tagCounts: Record<string, number>): {
     subscribe: {
       bundleId: 'the-full-you',
       bundleName: 'The Full You',
-      reason: 'Best value + biggest impact — the complete ritual upgrade.',
+      reason: 'Best value + biggest impact — the complete routine upgrade.',
     },
   };
 

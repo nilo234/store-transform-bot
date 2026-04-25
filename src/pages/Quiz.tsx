@@ -170,7 +170,7 @@ export default function Quiz() {
 
                 <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-lg mx-auto">
                   Based on your answers, here's the complete bundle we built for you —
-                  plus the single strip to start with if you want to test the ritual first.
+                  plus the single strip to start with if you want to test the routine first.
                 </p>
 
                 {/* Two-Card Recommendation Grid: Bundle + Single Product */}
@@ -179,7 +179,7 @@ export default function Quiz() {
                   <div className="bg-card border-2 border-primary/30 rounded-2xl p-5 md:p-6 flex flex-col">
                     <div className="flex items-center justify-between gap-2 mb-3">
                       <span className="text-[10px] font-bold tracking-widest text-primary uppercase">
-                        Best Match · Full Ritual
+                        Best Match · Full Routine
                       </span>
                       <span className="bg-accent text-accent-foreground text-[10px] font-bold px-2 py-1 rounded-full whitespace-nowrap">
                         SAVE {matchedBundle.discountPercent}%
@@ -252,7 +252,7 @@ export default function Quiz() {
                     </ul>
 
                     <p className="text-[11px] text-muted-foreground mb-3">
-                      No commitment. Try one strip, build the ritual.
+                      No commitment. Try one strip, build the routine.
                     </p>
 
                     <Link to={`/product/${singleProduct.handle}`} className="w-full">

@@ -45,7 +45,7 @@ const productTestimonials: Record<string, { quote: string; author: string }> = {
     author: "Michael R."
   },
   energy: {
-    quote: "I used to run on coffee and guilt. Now I take an Energy Strip in the morning and it feels like a tiny promise I keep with myself. The energy is great — but the ritual is what changed me.",
+    quote: "I used to run on coffee and guilt. Now I take an Energy Strip in the morning and it feels like a tiny promise I keep with myself. The energy is great — but the routine is what changed me.",
     author: "Sarah K."
   },
   sleep: {

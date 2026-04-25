@@ -194,7 +194,7 @@ export default function QuietDownLanding() {
                 </div>
                 <h1 className="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] mb-4">
                   Quiet Down —{' '}
-                  <span className="italic text-accent">your 2-strip ritual to wind down and sleep deep.</span>
+                  <span className="italic text-accent">your 2-strip routine to wind down and sleep deep.</span>
                 </h1>
                 <p className="text-base md:text-lg text-muted-foreground mb-5 max-w-xl mx-auto lg:mx-0">
                   For overthinkers, late workers, and the always-on. Two premium dissolving strips. No pills, no water, no melatonin hangover.
@@ -280,7 +280,7 @@ export default function QuietDownLanding() {
               For the nights your mind won't quiet down.
             </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              Big workdays. Anxious evenings. Travel insomnia. Quiet Down is the two-strip ritual for women who want a calmer
+              Big workdays. Anxious evenings. Travel insomnia. Quiet Down is the two-strip routine for women who want a calmer
               wind-down — without melatonin grogginess or another supplement bottle on the nightstand. Soft, simple, and made
               for the version of your evening that actually feels good.
             </p>
@@ -357,12 +357,12 @@ export default function QuietDownLanding() {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               {[
-                { icon: Moon, title: 'Easy to fit into night routine', text: 'Slip a strip into your bedside ritual.' },
+                { icon: Moon, title: 'Easy to fit into night routine', text: 'Slip a strip into your bedside routine.' },
                 { icon: Droplet, title: 'No water needed', text: 'Dissolves on your tongue in seconds.' },
                 { icon: Clock, title: '3 seconds, done', text: 'No pills. No powder. Just routine.' },
                 { icon: PackageCheck, title: 'Premium ingredients', text: 'Third-party tested. Made in USA.' },
                 { icon: Heart, title: 'Designed for real life', text: 'For evenings, travel, and reset moments.' },
-                { icon: Sparkles, title: 'A ritual, not a chore', text: 'Something you actually look forward to.' },
+                { icon: Sparkles, title: 'A routine, not a chore', text: 'Something you actually look forward to.' },
               ].map(({ icon: Icon, title, text }) => (
                 <div key={title} className="text-center md:text-left">
                   <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center mb-3 mx-auto md:mx-0">
@@ -466,7 +466,7 @@ export default function QuietDownLanding() {
                   ['No water needed', true, false],
                   ['Dissolves in 3 seconds', true, false],
                   ['Premium bundle savings', true, false],
-                  ['Designed for evening rituals', true, false],
+                  ['Designed for evening routines', true, false],
                   ['Tastes good', true, false],
                 ].map(([label, a, b], i, arr) => (
                   <div key={label as string} className="contents">
@@ -532,7 +532,7 @@ export default function QuietDownLanding() {
               Your calm routine, simplified.
             </h2>
             <p className="text-muted-foreground mb-7 max-w-md mx-auto">
-              Two strips. One ritual. An evening that finally feels like yours.
+              Two strips. One routine. An evening that finally feels like yours.
             </p>
             <div className="bg-card rounded-2xl border border-border/40 p-5 shadow-soft max-w-md mx-auto mb-4">
               <div className="flex items-baseline gap-3 mb-4 justify-center flex-wrap">
