@@ -11,6 +11,8 @@ interface StickyAddToCartProps {
   isSubscription?: boolean;
   /** Ref to the original Add to Cart button to observe */
   addToCartRef?: React.RefObject<HTMLElement>;
+  /** Number of strips per pack — used to compute per-strip cost. Defaults to 30. */
+  stripsPerPack?: number;
 }
 
 export function StickyAddToCart({
@@ -20,6 +22,7 @@ export function StickyAddToCart({
   onAddToCart,
   isSubscription = false,
   addToCartRef,
+  stripsPerPack = 30,
 }: StickyAddToCartProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [footerVisible, setFooterVisible] = useState(false);
