@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Beaker, Leaf, BadgeCheck } from 'lucide-react';
+import { ChevronDown, Beaker, Leaf, BadgeCheck, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -9,6 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
   SheetDescription,
+  SheetClose,
 } from '@/components/ui/sheet';
 
 interface SupplementFact {
@@ -104,22 +105,35 @@ export function IngredientTransparencyDrawer({
         </Button>
       </SheetTrigger>
 
-      <SheetContent side="right" className="w-full sm:max-w-lg overflow-y-auto">
-        <SheetHeader className="text-left">
-          <div className="flex items-center gap-2 mb-2">
-            <BadgeCheck className="h-4 w-4 text-primary" />
-            <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-primary">
-              Full Transparency
-            </span>
-          </div>
-          <SheetTitle className="font-display text-2xl leading-tight" style={{ letterSpacing: '-0.02em' }}>
-            What's actually inside {productTitle}
-          </SheetTitle>
-          <SheetDescription className="text-sm">
-            Every ingredient. Every dosage. And exactly why we chose it. No proprietary blends, no fillers, no surprises.
-          </SheetDescription>
-        </SheetHeader>
+      <SheetContent side="right" className="w-full sm:max-w-lg overflow-y-auto p-0 flex flex-col">
+        {/* Sticky header with always-visible close (X) — critical for mobile UX */}
+        <div className="sticky top-0 z-10 flex items-start justify-between gap-3 px-6 pt-6 pb-4 bg-background/95 backdrop-blur-sm border-b border-border/60">
+          <SheetHeader className="text-left space-y-2 flex-1 min-w-0">
+            <div className="flex items-center gap-2">
+              <BadgeCheck className="h-4 w-4 text-primary" />
+              <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-primary">
+                Full Transparency
+              </span>
+            </div>
+            <SheetTitle className="font-display text-xl md:text-2xl leading-tight" style={{ letterSpacing: '-0.02em' }}>
+              What's actually inside {productTitle}
+            </SheetTitle>
+            <SheetDescription className="text-sm">
+              Every ingredient. Every dosage. And exactly why we chose it.
+            </SheetDescription>
+          </SheetHeader>
+          <SheetClose asChild>
+            <button
+              type="button"
+              aria-label="Close ingredients panel"
+              className="flex-shrink-0 -mt-1 -mr-1 h-10 w-10 rounded-full bg-muted hover:bg-muted/70 active:bg-muted/50 flex items-center justify-center text-foreground transition-colors touch-manipulation"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </SheetClose>
+        </div>
 
+        <div className="px-6 pb-6 pt-2 flex-1">
         <div className="mt-6 space-y-2">
           {supplementFacts.map((fact, i) => {
             const isOpen = openIndex === i;
@@ -175,18 +189,29 @@ export function IngredientTransparencyDrawer({
           })}
         </div>
 
-        <div className="mt-6 p-4 rounded-xl bg-primary/5 border border-primary/15">
-          <div className="flex items-start gap-2.5">
-            <BadgeCheck className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-            <div>
-              <p className="text-xs font-semibold text-foreground mb-1">
-                Every batch third-party tested
-              </p>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                Tested for potency, purity, and contaminants in independent US labs. No artificial colors, no fillers, no proprietary blends.
-              </p>
+          <div className="mt-6 p-4 rounded-xl bg-primary/5 border border-primary/15">
+            <div className="flex items-start gap-2.5">
+              <BadgeCheck className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+              <div>
+                <p className="text-xs font-semibold text-foreground mb-1">
+                  Every batch third-party tested
+                </p>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  Tested for potency, purity, and contaminants in independent US labs. No artificial colors, no fillers, no proprietary blends.
+                </p>
+              </div>
             </div>
           </div>
+
+          {/* Bottom close button — easy reach on mobile after scrolling through ingredients */}
+          <SheetClose asChild>
+            <Button
+              variant="outline"
+              className="w-full mt-6 h-12 text-sm font-semibold touch-manipulation"
+            >
+              Close
+            </Button>
+          </SheetClose>
         </div>
       </SheetContent>
     </Sheet>
