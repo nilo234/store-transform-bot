@@ -217,6 +217,3 @@ export function IngredientTransparencyDrawer({
     </Sheet>
   );
 }
-    </Sheet>
-  );
-}
