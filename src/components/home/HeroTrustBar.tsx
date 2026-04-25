@@ -1,11 +1,10 @@
-import { Shield, Truck, Star, RotateCcw } from 'lucide-react';
+import { Shield, Truck, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const trustItems = [
   { icon: Shield, label: '14-Day Money Back' },
   { icon: Truck, label: 'Free US Shipping $50+' },
   { icon: Star, label: '2,400+ Verified Reviews' },
-  { icon: RotateCcw, label: 'Cancel Anytime' },
 ];
 
 export function HeroTrustBar() {
