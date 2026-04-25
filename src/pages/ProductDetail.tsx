@@ -448,6 +448,17 @@ export default function ProductDetail() {
                   <span className="flex items-center gap-1.5"><Truck className="h-4 w-4 text-primary" />Free shipping $50+</span>
                 </div>
 
+                {/* Result Promise Timeline — 6-week outcome guarantee */}
+                <ResultPromiseTimeline outcome={getOutcomePromise(handle || '')} />
+
+                {/* Ingredient Transparency Drawer — clickable full-disclosure panel */}
+                {productContent?.supplementFacts && productContent.supplementFacts.length > 0 && (
+                  <IngredientTransparencyDrawer
+                    productTitle={sanitizeTitle(product.title)}
+                    supplementFacts={productContent.supplementFacts}
+                  />
+                )}
+
                 {/* Press Logos — trust signal under shipping info */}
                 <PressLogosStrip />
 
