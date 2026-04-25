@@ -71,7 +71,7 @@ export function HowToUse() {
         {/* Header */}
         <motion.div className="text-center mb-14 md:mb-20" {...fadeUp}>
           <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: '#E8752A' }}>
-            THE RITUAL
+            THE ROUTINE
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-4 text-foreground">
             How To Use

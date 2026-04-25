@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { LucideIcon } from 'lucide-react';
 
-const ritualMoments: { icon: LucideIcon; title: string; quote: string; author: string }[] = [
+const routineMoments: { icon: LucideIcon; title: string; quote: string; author: string }[] = [
   {
     icon: Sunrise,
     title: 'Morning intention',
@@ -26,12 +26,12 @@ const ritualMoments: { icon: LucideIcon; title: string; quote: string; author: s
 ];
 
 const stats = [
-  { value: '30s', label: 'Your daily ritual' },
+  { value: '30s', label: 'Your daily routine' },
   { value: '2,400+', label: 'People who chose themselves' },
   { value: '4.9', label: 'Average rating' },
 ];
 
-export function CommunityRitual() {
+export function CommunityRoutine() {
   return (
     <section className="py-20 md:py-28 relative overflow-hidden">
       {/* Warm gradient background */}
@@ -46,7 +46,7 @@ export function CommunityRitual() {
         >
           <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-6">
             <Heart className="h-4 w-4" />
-            <span className="text-sm font-semibold">Join the ritual</span>
+            <span className="text-sm font-semibold">Join the routine</span>
           </div>
           
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-5">
@@ -60,9 +60,9 @@ export function CommunityRitual() {
           </p>
         </motion.div>
 
-        {/* Ritual moments */}
+        {/* Routine moments */}
         <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-16">
-          {ritualMoments.map((moment, i) => (
+          {routineMoments.map((moment, i) => (
             <motion.div
               key={moment.title}
               className="bg-card/80 backdrop-blur-sm rounded-2xl p-8 border border-border/50 shadow-soft hover:shadow-card transition-all duration-500 hover:-translate-y-1"
@@ -98,7 +98,7 @@ export function CommunityRitual() {
           <div className="text-center">
             <Link to="/shop">
               <Button className="bg-accent hover:bg-accent/90 text-accent-foreground h-13 px-8 text-base font-semibold rounded-xl shadow-lg">
-                Start your ritual today
+                Start your routine today
                 <Sparkles className="ml-2 h-4 w-4" />
               </Button>
             </Link>

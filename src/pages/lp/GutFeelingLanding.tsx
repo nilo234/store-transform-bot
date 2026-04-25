@@ -204,7 +204,7 @@ export default function GutFeelingLanding() {
                 </div>
                 <h1 className="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] mb-4">
                   Gut Feeling —{' '}
-                  <span className="italic text-accent">your 4-strip ritual for inside-out balance.</span>
+                  <span className="italic text-accent">your 4-strip routine for inside-out balance.</span>
                 </h1>
                 <p className="text-base md:text-lg text-muted-foreground mb-5 max-w-xl mx-auto lg:mx-0">
                   For busy days, travel weeks, and the always-on. Four premium dissolving strips. No pills, no water, no clutter on the counter.
@@ -289,7 +289,7 @@ export default function GutFeelingLanding() {
               For the days your routine has to keep up with you.
             </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              Long workdays. Travel weeks. Skipped lunches. The Gut Feeling Bundle is the four-strip ritual for women who want a
+              Long workdays. Travel weeks. Skipped lunches. The Gut Feeling Bundle is the four-strip routine for women who want a
               simple daily routine — without bulky bottles, water, or another thing to remember. Premium support that
               actually fits the life you live.
             </p>
@@ -302,7 +302,7 @@ export default function GutFeelingLanding() {
             <div className="text-center mb-10">
               <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold mb-3">What's inside</p>
               <h2 className="font-display text-3xl md:text-4xl" style={{ letterSpacing: '-0.02em' }}>
-                Four strips. One easy daily ritual.
+                Four strips. One easy daily routine.
               </h2>
               <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
                 Each strip plays a role — together they cover your whole day, from the inside out.
@@ -366,12 +366,12 @@ export default function GutFeelingLanding() {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               {[
-                { icon: Sun, title: 'Easy to take daily', text: 'Slip a strip into your morning ritual.' },
+                { icon: Sun, title: 'Easy to take daily', text: 'Slip a strip into your morning routine.' },
                 { icon: Droplet, title: 'No water needed', text: 'Dissolves on your tongue in seconds.' },
                 { icon: Clock, title: '3 seconds, done', text: 'No pills. No powder. Just routine.' },
                 { icon: PackageCheck, title: 'Premium ingredients', text: 'Third-party tested. Made in USA.' },
                 { icon: Heart, title: 'Designed for real life', text: 'For desks, travel, and on-the-go days.' },
-                { icon: Sparkles, title: 'A ritual, not a chore', text: 'Something you actually look forward to.' },
+                { icon: Sparkles, title: 'A routine, not a chore', text: 'Something you actually look forward to.' },
               ].map(({ icon: Icon, title, text }) => (
                 <div key={title} className="text-center md:text-left">
                   <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center mb-3 mx-auto md:mx-0">
@@ -392,7 +392,7 @@ export default function GutFeelingLanding() {
               <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">Loved by women who want a simple daily wellness routine</p>
             </div>
             <h2 className="font-display text-3xl md:text-4xl text-center mb-10" style={{ letterSpacing: '-0.02em' }}>
-              The daily ritual reviews.
+              The daily routine reviews.
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {[
@@ -541,7 +541,7 @@ export default function GutFeelingLanding() {
               Your daily routine, made simpler.
             </h2>
             <p className="text-muted-foreground mb-7 max-w-md mx-auto">
-              Four strips. One ritual. A day that finally feels balanced — from the inside out.
+              Four strips. One routine. A day that finally feels balanced — from the inside out.
             </p>
             <div className="bg-card rounded-2xl border border-border/40 p-5 shadow-soft max-w-md mx-auto mb-4">
               <div className="flex items-baseline gap-3 mb-4 justify-center flex-wrap">

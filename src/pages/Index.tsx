@@ -106,7 +106,7 @@ export default function Index() {
                 </h2>
 
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4 max-w-xl mx-auto lg:mx-0">
-                  Pre-built wellness routines that cover sleep, energy, beauty and gut — in one 3-second daily ritual. Save up to 20% when you bundle.
+                  Pre-built wellness routines that cover sleep, energy, beauty and gut — in one 3-second daily routine. Save up to 20% when you bundle.
                 </p>
 
                 {/* Star rating social proof */}
@@ -209,7 +209,7 @@ export default function Index() {
                 Pick a routine. Skip the guesswork.
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Curated 3–6 strip bundles built for one goal. One ritual. Better results than a single strip.
+                Curated 3–6 strip bundles built for one goal. One routine. Better results than a single strip.
               </p>
             </motion.div>
 
@@ -352,7 +352,7 @@ export default function Index() {
         </section>
 
         {/* ═══════════════════════════════════════════════
-            4. HOW TO USE — The Ritual (keep it short)
+            4. HOW TO USE — The Routine (keep it short)
         ═══════════════════════════════════════════════ */}
         <HowToUse />
 
@@ -483,7 +483,7 @@ export default function Index() {
                     <p className="mb-4">
                       Traditional supplements were not designed for modern life. Pills are easy to forget, powders are messy, and gummies 
                       often contain too much sugar. Fast-dissolving wellness strips solve all of these problems. NEUVIE dissolving supplement 
-                      strips are thin, portable, and require no water — making them the perfect daily wellness ritual for anyone who 
+                      strips are thin, portable, and require no water — making them the perfect daily wellness routine for anyone who 
                       refuses to compromise on their health. No pills, no powder, just a simple three-second moment that fits any lifestyle.
                     </p>
                     <p>
@@ -568,7 +568,7 @@ export default function Index() {
                   <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
                     Yes. Every NEUVIE daily supplement strip is made with non-GMO, clinically studied ingredients. They are manufactured 
                     in GMP-certified facilities in the USA and independently tested by third-party labs for purity, potency, and safety. 
-                    NEUVIE fast-dissolving supplements are designed for safe, everyday use as part of your daily wellness ritual.
+                    NEUVIE fast-dissolving supplements are designed for safe, everyday use as part of your daily wellness routine.
                   </AccordionContent>
                 </AccordionItem>
 

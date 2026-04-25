@@ -10,7 +10,7 @@ export default function Blog() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title="The NEUVIE Journal — Wellness, Science & Daily Rituals"
+        title="The NEUVIE Journal — Wellness, Science & Daily Routines"
         description="Honest, research-backed articles on vitamins, sleep, recovery, beauty and the science of dissolving wellness strips. New posts weekly."
       />
       <Navbar />
@@ -26,7 +26,7 @@ export default function Blog() {
               Wellness, decoded.
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              No fluff, no hype. Just the science behind your daily ritual — and why
+              No fluff, no hype. Just the science behind your daily routine — and why
               it matters for how you actually feel.
             </p>
           </div>

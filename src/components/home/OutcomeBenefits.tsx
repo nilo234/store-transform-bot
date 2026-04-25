@@ -14,7 +14,7 @@ const outcomes = [
   {
     icon: Moon,
     title: 'Sleep Deeper Tonight',
-    description: 'Fall asleep faster and wake up feeling restored. Our sleep strips help you build a bedtime ritual that actually works.',
+    description: 'Fall asleep faster and wake up feeling restored. Our sleep strips help you build a bedtime routine that actually works.',
     cta: 'Shop Sleep',
     link: '/product/sleep-strips-1',
   },
@@ -41,7 +41,7 @@ export function OutcomeBenefits() {
             What changes when you start?
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Real outcomes from a 3-second daily ritual.
+            Real outcomes from a 3-second daily routine.
           </p>
         </motion.div>
 
