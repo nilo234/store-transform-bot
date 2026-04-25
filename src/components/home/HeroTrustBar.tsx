@@ -1,4 +1,4 @@
-import { Shield, Truck, Star, RotateCcw } from 'lucide-react';
+import { Shield, Truck, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const trustItems = [
