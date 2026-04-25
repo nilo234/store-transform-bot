@@ -28,6 +28,8 @@ import { BundleCrossSellBanner } from '@/components/product/BundleCrossSellBanne
 import { StripsVsPillsComparison } from '@/components/product/StripsVsPillsComparison';
 import { PressLogosStrip } from '@/components/product/PressLogosStrip';
 import { LiveActivityCounter } from '@/components/product/LiveActivityCounter';
+import { ResultPromiseTimeline } from '@/components/product/ResultPromiseTimeline';
+import { IngredientTransparencyDrawer } from '@/components/product/IngredientTransparencyDrawer';
 import { ProductJsonLd, BreadcrumbJsonLd, PageMeta } from '@/components/seo';
 import {
   Accordion,
@@ -72,6 +74,21 @@ const getProductType = (handle: string): string => {
   if (handle?.includes('cognitive') || handle?.includes('relax')) return 'cognitive';
   if (handle?.includes('immunity') || handle?.includes('vitamin-c')) return 'immunity';
   return 'default';
+};
+
+// Outcome promise per product category — drives the 6-week timeline copy
+const getOutcomePromise = (handle: string): string => {
+  const h = handle?.toLowerCase() || '';
+  if (h.includes('hair') || h.includes('skin') || h.includes('nail') || h.includes('biotin') || h.includes('collagen')) return 'Visibly healthier hair, skin & nails';
+  if (h.includes('sleep') || h.includes('melatonin')) return 'Deeper, more restorative sleep';
+  if (h.includes('energy') || h.includes('b12')) return 'Steady, all-day natural energy';
+  if (h.includes('mushroom') || h.includes('focus') || h.includes('cognitive')) return 'Sharper focus & calmer clarity';
+  if (h.includes('relax') || h.includes('calm') || h.includes('stress')) return 'A calmer, more centered you';
+  if (h.includes('immunity') || h.includes('vitamin-c') || h.includes('immune')) return 'Stronger daily immune resilience';
+  if (h.includes('gut') || h.includes('digest') || h.includes('probiotic')) return 'Lighter digestion & a happier gut';
+  if (h.includes('hangover') || h.includes('recovery')) return 'Faster mornings, easier recoveries';
+  if (h.includes('vitality') || h.includes('shilajit') || h.includes('testo')) return 'Renewed vitality & drive';
+  return 'Real, visible results';
 };
 
 export default function ProductDetail() {
@@ -430,6 +447,17 @@ export default function ProductDetail() {
                   <span className="flex items-center gap-1.5"><Shield className="h-4 w-4 text-primary" />14-day money back</span>
                   <span className="flex items-center gap-1.5"><Truck className="h-4 w-4 text-primary" />Free shipping $50+</span>
                 </div>
+
+                {/* Result Promise Timeline — 6-week outcome guarantee */}
+                <ResultPromiseTimeline outcome={getOutcomePromise(handle || '')} />
+
+                {/* Ingredient Transparency Drawer — clickable full-disclosure panel */}
+                {productContent?.supplementFacts && productContent.supplementFacts.length > 0 && (
+                  <IngredientTransparencyDrawer
+                    productTitle={sanitizeTitle(product.title)}
+                    supplementFacts={productContent.supplementFacts}
+                  />
+                )}
 
                 {/* Press Logos — trust signal under shipping info */}
                 <PressLogosStrip />
