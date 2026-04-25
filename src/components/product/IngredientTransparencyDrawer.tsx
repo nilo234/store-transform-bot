@@ -189,16 +189,17 @@ export function IngredientTransparencyDrawer({
           })}
         </div>
 
-        <div className="mt-6 p-4 rounded-xl bg-primary/5 border border-primary/15">
-          <div className="flex items-start gap-2.5">
-            <BadgeCheck className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-            <div>
-              <p className="text-xs font-semibold text-foreground mb-1">
-                Every batch third-party tested
-              </p>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                Tested for potency, purity, and contaminants in independent US labs. No artificial colors, no fillers, no proprietary blends.
-              </p>
+          <div className="mt-6 p-4 rounded-xl bg-primary/5 border border-primary/15">
+            <div className="flex items-start gap-2.5">
+              <BadgeCheck className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+              <div>
+                <p className="text-xs font-semibold text-foreground mb-1">
+                  Every batch third-party tested
+                </p>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  Tested for potency, purity, and contaminants in independent US labs. No artificial colors, no fillers, no proprietary blends.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -213,6 +214,9 @@ export function IngredientTransparencyDrawer({
           </SheetClose>
         </div>
       </SheetContent>
+    </Sheet>
+  );
+}
     </Sheet>
   );
 }
