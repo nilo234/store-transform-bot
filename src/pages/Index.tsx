@@ -119,11 +119,12 @@ export default function Index() {
                   <span className="font-medium">5,000+ Happy Customers</span>
                 </div>
 
-                <div className="flex flex-col sm:flex-row sm:items-center gap-3 justify-center lg:justify-start mb-2">
+                {/* PRIMARY CTA — visually dominant, guarantee adjacent */}
+                <div className="flex flex-col sm:flex-row sm:items-center gap-3 justify-center lg:justify-start mb-3">
                   <Link to="/bundles" className="w-full sm:w-auto">
-                    <Button className="w-full sm:w-auto h-14 px-10 text-base font-semibold rounded-xl group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-elevated transition-all">
+                    <Button className="w-full sm:w-auto h-16 px-12 text-lg font-bold rounded-xl group bg-primary hover:bg-primary/90 text-primary-foreground shadow-elevated hover:shadow-glow transition-all">
                       Shop Bundles — Save 20%
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>
                   <Link
@@ -134,32 +135,30 @@ export default function Index() {
                   </Link>
                 </div>
 
-                {/* Price anchor + first-order incentive */}
-                <p className="text-xs md:text-sm text-muted-foreground text-center lg:text-left mb-1">
-                  Bundles from <span className="font-semibold text-foreground">$59.99</span> · Single strips from <span className="font-semibold text-foreground">$34.99</span> · Free US shipping $50+
-                </p>
-                <p className="text-xs md:text-sm text-muted-foreground text-center lg:text-left mb-1">
-                  Save up to <span className="font-semibold text-foreground">$39.95</span> vs. buying separately
-                </p>
-                {/* TODO: activate WELCOME15 in Shopify Admin */}
-                <p className="text-xs md:text-sm text-accent font-semibold text-center lg:text-left mb-5">
-                  New here? Use code WELCOME15 for an extra 15% off your first bundle
-                </p>
-
-                <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground justify-center lg:justify-start">
+                {/* Reassurance directly under CTA — highest-impact placement */}
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm text-foreground/80 justify-center lg:justify-start mb-4 font-medium">
                   <span className="flex items-center gap-1.5">
-                    <Check className="h-4 w-4 text-primary" />
-                    Free shipping $50+
+                    <ShieldCheck className="h-4 w-4 text-primary" />
+                    14-Day Money Back
                   </span>
                   <span className="flex items-center gap-1.5">
                     <Check className="h-4 w-4 text-primary" />
-                    14-day money back
+                    Free US Shipping $50+
                   </span>
                   <span className="flex items-center gap-1.5">
                     <Check className="h-4 w-4 text-primary" />
                     Made in USA
                   </span>
                 </div>
+
+                {/* Price anchor — secondary, smaller */}
+                <p className="text-xs text-muted-foreground text-center lg:text-left mb-1">
+                  Bundles from <span className="font-semibold text-foreground">$59.99</span> · Save up to <span className="font-semibold text-foreground">$39.95</span> vs. buying separately
+                </p>
+                {/* TODO: activate WELCOME15 in Shopify Admin */}
+                <p className="text-xs md:text-sm text-accent font-semibold text-center lg:text-left mb-5">
+                  New here? Use code WELCOME15 for an extra 15% off your first bundle
+                </p>
 
                 {/* Quick Category Picker */}
                 <QuickCategoryPicker />
