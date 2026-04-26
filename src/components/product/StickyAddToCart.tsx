@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { WhyNowMicroCopy } from '@/components/product/WhyNowMicroCopy';
 
 interface StickyAddToCartProps {
   productTitle: string;
@@ -131,6 +132,7 @@ export function StickyAddToCart({
                 <span className="sm:hidden">Add to Cart</span>
               </Button>
             </div>
+            <WhyNowMicroCopy compact />
           </div>
         </motion.div>
       )}
