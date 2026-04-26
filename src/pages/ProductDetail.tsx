@@ -161,7 +161,7 @@ export default function ProductDetail() {
 
       if (bestBundle) {
         const bundleItems = bestBundle.variantIds.map(vid => {
-          const info = productInfo[vid] ?? { title: 'NEUVIE Strip', price: '34.99' };
+          const info = productInfo[vid] ?? { title: 'NEUVIE Strip', price: '29.99' };
           return {
             product: { node: product },
             variantId: vid,
