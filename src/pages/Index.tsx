@@ -23,6 +23,7 @@ import { StickyMobileCTA } from '@/components/home/StickyMobileCTA';
 import { PaymentTrustStrip } from '@/components/home/PaymentTrustStrip';
 import { QuickCategoryPicker } from '@/components/home/QuickCategoryPicker';
 import { InlineEmailCapture } from '@/components/home/InlineEmailCapture';
+import { AdMatchTrustBar } from '@/components/conversion/AdMatchTrustBar';
 import { useHeroVariant } from '@/hooks/useHeroVariant';
 
 // ─── DATA ──────────────────────────────────────────────
@@ -67,6 +68,7 @@ export default function Index() {
       />
       
       <Navbar />
+      <AdMatchTrustBar />
 
       <main className="flex-1">
 
