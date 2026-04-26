@@ -30,6 +30,8 @@ import { PressLogosStrip } from '@/components/product/PressLogosStrip';
 import { LiveActivityCounter } from '@/components/product/LiveActivityCounter';
 import { ResultPromiseTimeline } from '@/components/product/ResultPromiseTimeline';
 import { IngredientTransparencyDrawer } from '@/components/product/IngredientTransparencyDrawer';
+import { WhyNowMicroCopy } from '@/components/product/WhyNowMicroCopy';
+import { detectAdTraffic } from '@/lib/adTraffic';
 import { ProductJsonLd, BreadcrumbJsonLd, PageMeta } from '@/components/seo';
 import {
   Accordion,
@@ -97,7 +99,14 @@ export default function ProductDetail() {
   const [isLoading, setIsLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
-  const [purchaseMode, setPurchaseMode] = useState<PurchaseMode>('single');
+  // Bundle-Preselect for paid social ad traffic — lifts AOV by defaulting
+  // to the bundle when visitors arrive from FB/IG/TikTok ads.
+  const [purchaseMode, setPurchaseMode] = useState<PurchaseMode>(() => {
+    if (typeof window === 'undefined') return 'single';
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('bundle') === '1') return 'bundle';
+    return detectAdTraffic().isPaidSocial ? 'bundle' : 'single';
+  });
   const addToCartButtonRef = useRef<HTMLDivElement>(null);
 
   const addItem = useCartStore((state) => state.addItem);
@@ -447,6 +456,9 @@ export default function ProductDetail() {
                   <span className="flex items-center gap-1.5"><Shield className="h-4 w-4 text-primary" />14-day money back</span>
                   <span className="flex items-center gap-1.5"><Truck className="h-4 w-4 text-primary" />Free shipping $50+</span>
                 </div>
+
+                {/* Why-Now Micro-Copy — removes friction at the purchase moment */}
+                <WhyNowMicroCopy />
 
                 {/* Result Promise Timeline — 6-week outcome guarantee */}
                 <ResultPromiseTimeline outcome={getOutcomePromise(handle || '')} />
