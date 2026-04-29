@@ -31,6 +31,7 @@ export default function Bundles() {
   const [searchParams, setSearchParams] = useSearchParams();
   const initialCategory = (searchParams.get('category') as BundleCategory) || 'all';
   const [activeCategory, setActiveCategory] = useState<BundleCategory>(initialCategory);
+  const { isUK } = useRegion();
 
   const filteredBundles = useMemo(() => {
     if (activeCategory === 'all') return bundles;
@@ -79,9 +80,11 @@ export default function Bundles() {
               </p>
 
               <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-sm text-muted-foreground">
-                <span className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Free Shipping on Orders $50+
-                </span>
+                {!isUK && (
+                  <span className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Free Shipping on Orders $50+
+                  </span>
+                )}
                 <span className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent" /> 14-Day Money-Back Guarantee
                 </span>
