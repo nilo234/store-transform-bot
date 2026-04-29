@@ -678,6 +678,7 @@ function StickyMobileBundleATC({
   isLoading: boolean;
 }) {
   const [showSticky, setShowSticky] = useState(false);
+  const { formatPrice } = useRegion();
   useEffect(() => {
     const onScroll = () => setShowSticky(window.scrollY > 600);
     window.addEventListener('scroll', onScroll, { passive: true });
