@@ -424,7 +424,7 @@ export default function BundleDetail() {
                       {getProductBenefit(productName)}
                     </p>
                     <p className="text-[10px] md:text-xs text-muted-foreground mt-2 md:mt-3">
-                      30-day supply · ${info?.price ?? '34.99'} value
+                      30-day supply · {formatPrice(info?.price ?? '34.99')} value
                     </p>
                   </motion.div>
                 );
@@ -578,7 +578,7 @@ export default function BundleDetail() {
           <div className="container-wide max-w-3xl px-4 md:px-6 text-center relative z-10">
             <p className="text-[10px] md:text-xs font-bold tracking-widest text-accent uppercase mb-3 md:mb-4">Ready when you are</p>
             <h2 className="font-display text-2xl sm:text-3xl md:text-5xl mb-4 md:mb-5 leading-tight">
-              Start your {toTitleCase(bundle.name)} routine — save ${bundle.savings.toFixed(0)} today.
+              Start your {toTitleCase(bundle.name)} routine — save {formatPrice(bundle.savings, { minimumFractionDigits: 0 })} today.
             </h2>
             <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8">
               One bundle. {bundle.products.length} strips that work together. A routine you'll actually keep.
@@ -589,10 +589,10 @@ export default function BundleDetail() {
               className="h-14 px-6 md:px-8 text-sm md:text-base font-bold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground shadow-xl"
             >
               <Plus className="h-5 w-5 mr-1" />
-              Add Bundle — ${bundle.salePrice.toFixed(2)} (Save {bundle.discountPercent}%)
+              Add Bundle — {formatPrice(bundle.salePrice)} (Save {bundle.discountPercent}%)
             </Button>
             <p className="text-[11px] md:text-xs text-muted-foreground mt-3 md:mt-4">
-              Free US shipping · 14-day money-back guarantee
+              {isUK ? 'International shipping · 14-day money-back guarantee' : 'Free US shipping · 14-day money-back guarantee'}
             </p>
           </div>
         </section>
@@ -690,7 +690,7 @@ function StickyMobileBundleATC({
       <div className="flex items-center gap-2.5">
         <div className="flex-shrink-0 min-w-0">
           <p className="text-[10px] text-muted-foreground leading-tight truncate max-w-[110px]">{toTitleCase(bundle.name)}</p>
-          <p className="text-sm font-bold text-primary leading-tight">${(bundle.salePrice * qty).toFixed(2)}</p>
+          <p className="text-sm font-bold text-primary leading-tight">{formatPrice(bundle.salePrice * qty)}</p>
         </div>
         <Button
           onClick={onAdd}
