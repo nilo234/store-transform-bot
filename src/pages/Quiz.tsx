@@ -9,12 +9,14 @@ import { PageMeta } from '@/components/seo';
 import { quizQuestions, pickBundleFromTags, pickSingleProductFromTags } from '@/data/quizQuestions';
 import { bundles } from '@/data/bundles';
 import { toast } from 'sonner';
+import { useRegion } from '@/hooks/useRegion';
 
 export default function Quiz() {
   const navigate = useNavigate();
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string[]>>({});
   const [showResult, setShowResult] = useState(false);
+  const { formatPrice } = useRegion();
 
   const totalSteps = quizQuestions.length;
   const currentQuestion = quizQuestions[step];
@@ -202,10 +204,10 @@ export default function Quiz() {
 
                     <div className="flex items-baseline gap-2 mb-3">
                       <span className="text-2xl md:text-3xl font-bold text-primary">
-                        ${matchedBundle.salePrice.toFixed(2)}
+                        {formatPrice(matchedBundle.salePrice)}
                       </span>
                       <span className="text-sm md:text-base text-muted-foreground line-through">
-                        ${matchedBundle.originalPrice.toFixed(2)}
+                        {formatPrice(matchedBundle.originalPrice)}
                       </span>
                     </div>
 
@@ -227,7 +229,7 @@ export default function Quiz() {
                         Start Small · Single Strip
                       </span>
                       <span className="bg-muted text-muted-foreground text-[10px] font-bold px-2 py-1 rounded-full whitespace-nowrap">
-                        FROM $34.99
+                        FROM {formatPrice(34.99)}
                       </span>
                     </div>
 
