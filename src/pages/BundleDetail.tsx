@@ -15,6 +15,7 @@ import { BundleCard } from '@/components/shop/BundleCard';
 import { useBundleImages } from '@/hooks/useBundleImages';
 import { useCartStore } from '@/stores/cartStore';
 import { optimizeShopifyImage } from '@/lib/shopify';
+import { useRegion } from '@/hooks/useRegion';
 import { toast } from 'sonner';
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
@@ -54,6 +55,7 @@ export default function BundleDetail() {
   const addItem = useCartStore(s => s.addItem);
   const isLoading = useCartStore(s => s.isLoading);
   const [qty, setQty] = useState(1);
+  const { formatPrice, isUK } = useRegion();
 
   if (!bundle) return <Navigate to="/bundles" replace />;
 
