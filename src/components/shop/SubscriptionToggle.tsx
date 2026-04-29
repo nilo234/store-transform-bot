@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, RefreshCw, Package, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useRegion } from '@/hooks/useRegion';
 
 export type PurchaseType = 'one-time' | 'subscribe';
 
@@ -31,6 +32,7 @@ export function SubscriptionToggle({ basePrice, onSelectionChange }: Subscriptio
   // Subscribe & Save is the DEFAULT — proven to lift LTV by 30–40% on supplement DTC sites
   const [purchaseType, setPurchaseType] = useState<PurchaseType>('subscribe');
   const [selectedFrequency, setSelectedFrequency] = useState('monthly');
+  const { formatPrice } = useRegion();
 
   const currentOption = subscriptionOptions.find(o => o.frequency === selectedFrequency) || subscriptionOptions[0];
   const discountAmount = purchaseType === 'subscribe' ? currentOption.discount : 0;
@@ -101,7 +103,7 @@ export function SubscriptionToggle({ basePrice, onSelectionChange }: Subscriptio
                 <span className="font-semibold">One-Time</span>
               </div>
               <p className="text-lg font-bold text-foreground mt-1">
-                ${basePrice.toFixed(2)}
+                {formatPrice(basePrice)}
               </p>
             </div>
           </div>
@@ -142,10 +144,10 @@ export function SubscriptionToggle({ basePrice, onSelectionChange }: Subscriptio
               </div>
               <div className="flex items-baseline gap-2 mt-1">
                 <span className="text-lg font-bold text-accent">
-                   ${finalPrice.toFixed(2)}
+                   {formatPrice(finalPrice)}
                  </span>
                  <span className="text-sm text-muted-foreground line-through">
-                   ${basePrice.toFixed(2)}
+                   {formatPrice(basePrice)}
                 </span>
               </div>
               <div className="flex items-center gap-1 mt-1">
