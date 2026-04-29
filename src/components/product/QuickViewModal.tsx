@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { ShopifyProduct, sanitizeTitle, sanitizeHandle } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
+import { formatShopifyMoney } from '@/lib/region';
 
 interface QuickViewModalProps {
   product: ShopifyProduct | null;
@@ -21,8 +22,10 @@ export function QuickViewModal({ product, open, onOpenChange }: QuickViewModalPr
   if (!product) return null;
 
   const price = parseFloat(product.node.priceRange.minVariantPrice.amount);
+  const currencyCode = product.node.priceRange.minVariantPrice.currencyCode;
   const originalPrice = 49.99;
   const savings = originalPrice - price;
+  const fmt = (n: number) => formatShopifyMoney(n, currencyCode);
   const images = product.node.images.edges;
   const firstVariant = product.node.variants.edges[0]?.node;
 
@@ -108,11 +111,11 @@ export function QuickViewModal({ product, open, onOpenChange }: QuickViewModalPr
             {/* Price Block */}
             <div className="bg-muted/30 rounded-xl p-4 mb-4">
               <div className="flex items-center gap-3 mb-2">
-                <span className="text-2xl font-bold text-primary">${price.toFixed(2)}</span>
-                <span className="text-lg text-muted-foreground line-through">${originalPrice.toFixed(2)}</span>
+                <span className="text-2xl font-bold text-primary">{fmt(price)}</span>
+                <span className="text-lg text-muted-foreground line-through">{fmt(originalPrice)}</span>
               </div>
               <span className="inline-block bg-accent text-accent-foreground text-xs font-bold px-2 py-1 rounded-full">
-                SAVE ${savings.toFixed(2)}
+                SAVE {fmt(savings)}
               </span>
             </div>
 

@@ -23,6 +23,7 @@ import { StickyMobileCTA } from '@/components/home/StickyMobileCTA';
 import { PaymentTrustStrip } from '@/components/home/PaymentTrustStrip';
 import { QuickCategoryPicker } from '@/components/home/QuickCategoryPicker';
 import { InlineEmailCapture } from '@/components/home/InlineEmailCapture';
+import { useRegion } from '@/hooks/useRegion';
 import { AdMatchTrustBar } from '@/components/conversion/AdMatchTrustBar';
 import { useHeroVariant } from '@/hooks/useHeroVariant';
 
@@ -44,6 +45,7 @@ export default function Index() {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const heroVariant = useHeroVariant();
+  const { isUK } = useRegion();
 
   useEffect(() => {
     async function loadProducts() {
@@ -145,7 +147,7 @@ export default function Index() {
                   </span>
                   <span className="flex items-center gap-1.5">
                     <Check className="h-4 w-4 text-primary" />
-                    Free US Shipping $50+
+                    {isUK ? 'International Shipping' : 'Free US Shipping $50+'}
                   </span>
                   <span className="flex items-center gap-1.5">
                     <Check className="h-4 w-4 text-primary" />
@@ -373,7 +375,7 @@ export default function Index() {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <p className="text-xs text-muted-foreground mt-3">Free shipping on orders $50+ · 14-day money-back guarantee</p>
+            <p className="text-xs text-muted-foreground mt-3">{isUK ? 'International shipping · 14-day money-back guarantee' : 'Free shipping on orders $50+ · 14-day money-back guarantee'}</p>
           </div>
         </section>
 
@@ -431,7 +433,7 @@ export default function Index() {
                 Ready to feel the difference?
               </h2>
               <p className="text-primary-foreground/70 text-lg mb-8 max-w-md mx-auto">
-                Join thousands who replaced their pill bottles with something better. Free shipping on orders $50+.
+                Join thousands who replaced their pill bottles with something better.{!isUK && ' Free shipping on orders $50+.'}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                  <Link to="/shop">

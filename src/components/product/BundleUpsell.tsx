@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { useRegion } from '@/hooks/useRegion';
 
 interface BundleUpsellProps {
   currentProductHandle?: string;
@@ -27,6 +28,7 @@ const bundles = [
 ];
 
 export const BundleUpsell = ({ currentProductHandle }: BundleUpsellProps) => {
+  const { formatPrice } = useRegion();
   return (
     <section className="py-16">
       <div className="container-wide">
@@ -78,8 +80,8 @@ export const BundleUpsell = ({ currentProductHandle }: BundleUpsellProps) => {
                 </div>
 
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-2xl font-bold text-primary">${bundle.salePrice.toFixed(2)}</span>
-                  <span className="text-muted-foreground line-through">${bundle.originalPrice.toFixed(2)}</span>
+                  <span className="text-2xl font-bold text-primary">{formatPrice(bundle.salePrice)}</span>
+                  <span className="text-muted-foreground line-through">{formatPrice(bundle.originalPrice)}</span>
                 </div>
 
                 <Link to="/bundles">

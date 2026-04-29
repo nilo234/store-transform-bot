@@ -9,6 +9,8 @@ import { toast } from 'sonner';
 import { JudgeMePreviewBadge } from '@/components/reviews/JudgeMeReviews';
 import { getBenefitLine } from '@/data/shopFilters';
 import { cn } from '@/lib/utils';
+import { formatShopifyMoney } from '@/lib/region';
+import { useRegion } from '@/hooks/useRegion';
 
 interface ProductCardProps {
   product: ShopifyProduct;
@@ -34,9 +36,12 @@ export function ProductCard({ product, index = 0, showCompare, isCompared, onTog
   const { node } = product;
   const firstVariant = node.variants.edges[0]?.node;
   const firstImage = node.images.edges[0]?.node;
-  const price = parseFloat(node.priceRange.minVariantPrice.amount);
+  const priceAmount = node.priceRange.minVariantPrice.amount;
+  const priceCurrency = node.priceRange.minVariantPrice.currencyCode;
+  const formattedPrice = formatShopifyMoney(priceAmount, priceCurrency);
   const badge = getCategoryBadge(node.title);
   const benefitLine = getBenefitLine(node.title);
+  const { isUK } = useRegion();
 
   const handleAddToCart = async (e: React.MouseEvent) => {
     e.preventDefault();
@@ -160,16 +165,18 @@ export function ProductCard({ product, index = 0, showCompare, isCompared, onTog
             {/* Price — clean, no fake discounts */}
             <div className="flex items-baseline gap-2">
               <span className="text-base md:text-lg font-bold text-foreground">
-                ${price.toFixed(2)}
+                {formattedPrice}
               </span>
               <span className="text-[10px] md:text-xs text-muted-foreground">
                 / 30 strips
               </span>
             </div>
 
-            <p className="text-[10px] md:text-xs text-muted-foreground mt-1.5 font-medium">
-              Free shipping on $50+
-            </p>
+            {!isUK && (
+              <p className="text-[10px] md:text-xs text-muted-foreground mt-1.5 font-medium">
+                Free shipping on $50+
+              </p>
+            )}
 
             {/* View details link */}
             <div className="hidden md:block mt-3 pt-3 border-t border-border/50">

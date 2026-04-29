@@ -15,6 +15,7 @@ import { BundleCard } from '@/components/shop/BundleCard';
 import { useBundleImages } from '@/hooks/useBundleImages';
 import { useCartStore } from '@/stores/cartStore';
 import { optimizeShopifyImage } from '@/lib/shopify';
+import { useRegion } from '@/hooks/useRegion';
 import { toast } from 'sonner';
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
@@ -54,6 +55,7 @@ export default function BundleDetail() {
   const addItem = useCartStore(s => s.addItem);
   const isLoading = useCartStore(s => s.isLoading);
   const [qty, setQty] = useState(1);
+  const { formatPrice, isUK } = useRegion();
 
   if (!bundle) return <Navigate to="/bundles" replace />;
 
@@ -260,14 +262,14 @@ export default function BundleDetail() {
                 {/* Price block */}
                 <div className="bg-muted/40 rounded-2xl p-4 md:p-5 border border-border/40">
                   <div className="flex items-end gap-2 md:gap-3 flex-wrap">
-                    <span className="text-3xl md:text-4xl font-bold text-primary">${bundle.salePrice.toFixed(2)}</span>
-                    <span className="text-base md:text-lg text-muted-foreground line-through">${bundle.originalPrice.toFixed(2)}</span>
+                    <span className="text-3xl md:text-4xl font-bold text-primary">{formatPrice(bundle.salePrice)}</span>
+                    <span className="text-base md:text-lg text-muted-foreground line-through">{formatPrice(bundle.originalPrice)}</span>
                     <span className="bg-destructive/10 text-destructive px-2 py-1 md:px-2.5 rounded-md text-[10px] md:text-xs font-bold">
-                      SAVE ${bundle.savings.toFixed(2)} · {bundle.discountPercent}% OFF
+                      SAVE {formatPrice(bundle.savings)} · {bundle.discountPercent}% OFF
                     </span>
                   </div>
                   <p className="text-[11px] md:text-xs text-muted-foreground mt-2">
-                    Just <span className="font-semibold text-foreground">${pricePerProduct}</span> per strip pack ·
+                    Just <span className="font-semibold text-foreground">{formatPrice(pricePerProduct)}</span> per strip pack ·
                     {' '}30-day supply per pack
                   </p>
                 </div>
@@ -298,7 +300,7 @@ export default function BundleDetail() {
                       className="flex-1 h-14 text-sm md:text-base font-bold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
                     >
                       <Plus className="h-5 w-5 mr-1" />
-                      Add to Cart — ${(bundle.salePrice * qty).toFixed(2)}
+                      Add to Cart — {formatPrice(bundle.salePrice * qty)}
                     </Button>
                   </div>
                   <p className="text-[11px] md:text-xs text-center text-muted-foreground">
@@ -309,7 +311,7 @@ export default function BundleDetail() {
 
                 {/* Trust line */}
                 <div className="grid grid-cols-3 gap-2 pt-1 md:pt-2">
-                  <TrustBadge icon={<Truck className="h-4 w-4" />} label="Free US Shipping" />
+                  <TrustBadge icon={<Truck className="h-4 w-4" />} label={isUK ? 'International Shipping' : 'Free US Shipping'} />
                   <TrustBadge icon={<ShieldCheck className="h-4 w-4" />} label="14-Day Guarantee" />
                   <TrustBadge icon={<Clock className="h-4 w-4" />} label="Ships in 1–2 Days" />
                 </div>
@@ -422,7 +424,7 @@ export default function BundleDetail() {
                       {getProductBenefit(productName)}
                     </p>
                     <p className="text-[10px] md:text-xs text-muted-foreground mt-2 md:mt-3">
-                      30-day supply · ${info?.price ?? '34.99'} value
+                      30-day supply · {formatPrice(info?.price ?? '34.99')} value
                     </p>
                   </motion.div>
                 );
@@ -576,7 +578,7 @@ export default function BundleDetail() {
           <div className="container-wide max-w-3xl px-4 md:px-6 text-center relative z-10">
             <p className="text-[10px] md:text-xs font-bold tracking-widest text-accent uppercase mb-3 md:mb-4">Ready when you are</p>
             <h2 className="font-display text-2xl sm:text-3xl md:text-5xl mb-4 md:mb-5 leading-tight">
-              Start your {toTitleCase(bundle.name)} routine — save ${bundle.savings.toFixed(0)} today.
+              Start your {toTitleCase(bundle.name)} routine — save {formatPrice(bundle.savings, { minimumFractionDigits: 0 })} today.
             </h2>
             <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8">
               One bundle. {bundle.products.length} strips that work together. A routine you'll actually keep.
@@ -587,10 +589,10 @@ export default function BundleDetail() {
               className="h-14 px-6 md:px-8 text-sm md:text-base font-bold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground shadow-xl"
             >
               <Plus className="h-5 w-5 mr-1" />
-              Add Bundle — ${bundle.salePrice.toFixed(2)} (Save {bundle.discountPercent}%)
+              Add Bundle — {formatPrice(bundle.salePrice)} (Save {bundle.discountPercent}%)
             </Button>
             <p className="text-[11px] md:text-xs text-muted-foreground mt-3 md:mt-4">
-              Free US shipping · 14-day money-back guarantee
+              {isUK ? 'International shipping · 14-day money-back guarantee' : 'Free US shipping · 14-day money-back guarantee'}
             </p>
           </div>
         </section>
@@ -676,6 +678,7 @@ function StickyMobileBundleATC({
   isLoading: boolean;
 }) {
   const [showSticky, setShowSticky] = useState(false);
+  const { formatPrice } = useRegion();
   useEffect(() => {
     const onScroll = () => setShowSticky(window.scrollY > 600);
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -688,7 +691,7 @@ function StickyMobileBundleATC({
       <div className="flex items-center gap-2.5">
         <div className="flex-shrink-0 min-w-0">
           <p className="text-[10px] text-muted-foreground leading-tight truncate max-w-[110px]">{toTitleCase(bundle.name)}</p>
-          <p className="text-sm font-bold text-primary leading-tight">${(bundle.salePrice * qty).toFixed(2)}</p>
+          <p className="text-sm font-bold text-primary leading-tight">{formatPrice(bundle.salePrice * qty)}</p>
         </div>
         <Button
           onClick={onAdd}

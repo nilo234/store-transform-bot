@@ -8,6 +8,7 @@ import { toast } from 'sonner';
 import { Bundle } from '@/data/bundles';
 import { useBundleImages } from '@/hooks/useBundleImages';
 import { optimizeShopifyImage } from '@/lib/shopify';
+import { useRegion } from '@/hooks/useRegion';
 
 interface BundleCardProps {
   bundle: Bundle;
@@ -37,6 +38,7 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
   const [codeCopied, setCodeCopied] = useState(false);
   const isLoading = useCartStore((state) => state.isLoading);
   const { images: shopifyImages, isLoading: imagesLoading } = useBundleImages(bundle.variantIds);
+  const { formatPrice } = useRegion();
 
   const handleCopyCode = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -224,17 +226,17 @@ export function BundleCard({ bundle, index = 0 }: BundleCardProps) {
             {/* Savings Badge */}
             <div className="flex items-center justify-center gap-2 mb-2">
               <span className="bg-destructive/10 text-destructive px-3 py-1 rounded-full text-sm font-bold">
-                SAVE ${bundle.savings} | {bundle.discountPercent}% OFF
+                SAVE {formatPrice(bundle.savings)} | {bundle.discountPercent}% OFF
               </span>
             </div>
 
             {/* Prices */}
             <div className="flex items-baseline justify-center gap-3">
               <span className="text-sm text-muted-foreground line-through">
-                ${bundle.originalPrice.toFixed(2)}
+                {formatPrice(bundle.originalPrice)}
               </span>
               <span className="text-3xl font-bold text-primary">
-                ${bundle.salePrice.toFixed(2)}
+                {formatPrice(bundle.salePrice)}
               </span>
             </div>
 

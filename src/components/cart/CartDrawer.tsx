@@ -12,6 +12,8 @@ import { SecureCheckoutBadges } from './SecureCheckoutBadges';
 import { CartUpsell } from './CartUpsell';
 import { CartBundleUpgradePrompt } from './CartBundleUpgradePrompt';
 import { bundles as bundleDefinitions } from '@/data/bundles';
+import { useRegion } from '@/hooks/useRegion';
+import { formatShopifyMoney } from '@/lib/region';
 
 // Group items into bundles and standalone items
 function useGroupedItems(items: CartItem[]) {
@@ -56,6 +58,7 @@ export function CartDrawer() {
   } = useCartStore();
 
   const { bundles, standalone } = useGroupedItems(items);
+  const { formatPrice } = useRegion();
 
   // Sync cart with Shopify when drawer opens
   useEffect(() => {
@@ -199,10 +202,10 @@ export function CartDrawer() {
                       {bundleDef && (
                         <div className="px-3 md:px-4 py-2 bg-accent/5 flex items-center justify-between">
                           <span className="text-[10px] md:text-xs text-muted-foreground">
-                            Bundle total: <span className="line-through">${bundleItemsTotal.toFixed(2)}</span>
+                            Bundle total: <span className="line-through">{formatPrice(bundleItemsTotal)}</span>
                           </span>
                           <span className="text-xs md:text-sm font-bold text-primary">
-                            ${bundleDef.salePrice.toFixed(2)} <span className="text-[10px] font-normal text-accent">(-{bundleDef.discountPercent}%)</span>
+                            {formatPrice(bundleDef.salePrice)} <span className="text-[10px] font-normal text-accent">(-{bundleDef.discountPercent}%)</span>
                           </span>
                         </div>
                       )}
@@ -253,7 +256,7 @@ export function CartDrawer() {
                 {bundleSavings > 0 && (
                   <div className="bg-primary/10 rounded-lg p-2.5 md:p-3 text-center">
                     <span className="text-xs md:text-sm font-semibold text-primary">
-                      Bundle discount saves you ${bundleSavings.toFixed(2)}!
+                      Bundle discount saves you {formatPrice(bundleSavings)}!
                     </span>
                   </div>
                 )}
@@ -267,7 +270,7 @@ export function CartDrawer() {
                   </div>
                   <div className="text-right">
                     <span className="text-xl md:text-2xl font-bold text-primary">
-                      ${cartTotal.toFixed(2)}
+                      {formatPrice(cartTotal)}
                     </span>
                   </div>
                 </div>
@@ -349,7 +352,7 @@ function CartItemRow({
         )}
         <div className="flex items-center gap-1.5 mt-1">
           <span className={`font-semibold ${compact ? 'text-xs' : 'text-sm md:text-base'} text-primary`}>
-            ${parseFloat(item.price.amount).toFixed(2)}
+            {formatShopifyMoney(item.price.amount, item.price.currencyCode)}
           </span>
         </div>
       </div>

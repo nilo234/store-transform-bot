@@ -15,6 +15,7 @@ import { bundles as bundleData } from '@/data/bundles';
 import { Button } from '@/components/ui/button';
 import { CompareModal } from '@/components/shop/CompareModal';
 import { SocialShareButtons } from '@/components/seo/SocialShareButtons';
+import { useRegion } from '@/hooks/useRegion';
 
 export default function Shop() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -23,6 +24,7 @@ export default function Shop() {
   const [showFilters, setShowFilters] = useState(false);
   const [compareList, setCompareList] = useState<string[]>([]);
   const [showCompare, setShowCompare] = useState(false);
+  const { isUK } = useRegion();
   const [compareModalOpen, setCompareModalOpen] = useState(false);
 
   const activeGoal = searchParams.get('goal') || 'all';
@@ -133,7 +135,7 @@ export default function Shop() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}>
-              {['Third-party tested', 'Made in the USA', 'Non-GMO', 'Free shipping on $50+'].map((item) =>
+              {['Third-party tested', 'Made in the USA', 'Non-GMO', ...(isUK ? [] : ['Free shipping on $50+'])].map((item) =>
               <span key={item} className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                   {item}
@@ -401,7 +403,7 @@ export default function Shop() {
               { icon: '🧪', label: 'Third-Party Tested', shortLabel: 'Lab Tested' },
               { icon: '🌿', label: 'Non-GMO', shortLabel: 'Non-GMO' },
               { icon: '🇺🇸', label: 'Made in USA', shortLabel: 'USA Made' },
-              { icon: '📦', label: 'Free Shipping on $50+', shortLabel: 'Free Ship' },
+              ...(isUK ? [] : [{ icon: '📦', label: 'Free Shipping on $50+', shortLabel: 'Free Ship' }]),
               { icon: '↩️', label: '14-Day Money-Back Guarantee', shortLabel: '14-Day Return' }].
               map((badge) =>
               <div key={badge.label} className="flex flex-col md:flex-row items-center gap-1 md:gap-2 text-muted-foreground text-center">
