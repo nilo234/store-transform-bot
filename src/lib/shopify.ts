@@ -1,4 +1,5 @@
 import { toast } from "sonner";
+import { getRegion, type RegionCode } from "@/lib/region";
 
 // Shopify Configuration
 export const SHOPIFY_API_VERSION = '2025-07';
