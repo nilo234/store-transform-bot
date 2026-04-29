@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { useCartStore, CartItem } from '@/stores/cartStore';
 import { bundles, productInfo, Bundle } from '@/data/bundles';
 import { toast } from 'sonner';
+import { useRegion } from '@/hooks/useRegion';
 
 /**
  * Cart Drawer Upgrade Prompt:
@@ -20,6 +21,7 @@ export function CartBundleUpgradePrompt() {
   const items = useCartStore((s) => s.items);
   const addBundle = useCartStore((s) => s.addBundle);
   const isLoading = useCartStore((s) => s.isLoading);
+  const { formatPrice } = useRegion();
 
   const standaloneVariantIds = useMemo(
     () => items.filter((i) => !i.bundleId).map((i) => i.variantId),
@@ -71,7 +73,7 @@ export function CartBundleUpgradePrompt() {
 
     await addBundle(bundleItems, bundle.discountCode);
     toast.success('Upgraded to bundle!', {
-      description: `${bundle.name} added · Save $${bundle.savings.toFixed(2)}`,
+      description: `${bundle.name} added · Save ${formatPrice(bundle.savings)}`,
       position: 'top-center',
     });
   };
@@ -110,12 +112,12 @@ export function CartBundleUpgradePrompt() {
               {primary.products.join(' + ')}
             </p>
             <p className="text-xs text-foreground mt-1">
-              <span className="font-semibold">${primary.salePrice.toFixed(2)}</span>
+              <span className="font-semibold">{formatPrice(primary.salePrice)}</span>
               <span className="text-muted-foreground line-through ml-1.5">
-                ${primary.originalPrice.toFixed(2)}
+                {formatPrice(primary.originalPrice)}
               </span>
               <span className="text-accent font-semibold ml-1.5">
-                Save ${primary.savings.toFixed(2)}
+                Save {formatPrice(primary.savings)}
               </span>
             </p>
           </div>
@@ -154,7 +156,7 @@ export function CartBundleUpgradePrompt() {
               {secondary.name}
             </p>
             <p className="text-[11px] text-muted-foreground truncate">
-              {secondary.packSize} · ${secondary.salePrice.toFixed(2)} · Save ${secondary.savings.toFixed(2)}
+              {secondary.packSize} · {formatPrice(secondary.salePrice)} · Save {formatPrice(secondary.savings)}
             </p>
           </div>
           <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-primary flex-shrink-0" />

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { fetchProducts, ShopifyProduct, optimizeShopifyImage, sanitizeTitle } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
+import { useRegion } from '@/hooks/useRegion';
 
 // Category mapping for smart recommendations
 const PRODUCT_CATEGORIES: Record<string, string[]> = {
@@ -53,6 +54,7 @@ export function CartUpsell() {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const { items, addItem } = useCartStore();
+  const { formatPrice } = useRegion();
 
   useEffect(() => {
     async function loadProducts() {
@@ -141,7 +143,7 @@ export function CartUpsell() {
               <div className="flex-1 min-w-0">
                 <p className="text-xs font-medium truncate">{sanitizeTitle(product.node.title)}</p>
                 <span className="text-sm font-semibold text-primary">
-                  ${price.toFixed(2)}
+                  {formatPrice(price)}
                 </span>
               </div>
               <Button
