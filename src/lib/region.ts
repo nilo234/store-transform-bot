@@ -100,10 +100,17 @@ export function getCurrencySymbol(): string {
 
 // Format a numeric price using the active region's currency.
 // Use this everywhere instead of hardcoding "$" in the UI.
-export function formatPrice(amount: number | string, opts?: { region?: RegionCode; minimumFractionDigits?: number }): string {
+export function formatPrice(amount: number | string, opts?: { region?: RegionCode; minimumFractionDigits?: number; sourceCurrency?: CurrencyCode }): string {
   const cfg = getRegionConfig(opts?.region);
-  const num = typeof amount === 'string' ? parseFloat(amount) : amount;
+  let num = typeof amount === 'string' ? parseFloat(amount) : amount;
   if (!Number.isFinite(num)) return `${cfg.symbol}0.00`;
+
+  // Hardcoded prices in the app are authored in USD. Convert to GBP when needed.
+  const source = opts?.sourceCurrency ?? 'USD';
+  if (cfg.currency === 'GBP' && source === 'USD') {
+    num = convertUsdToGbp(num);
+  }
+
   try {
     return new Intl.NumberFormat(cfg.locale, {
       style: 'currency',
@@ -116,23 +123,37 @@ export function formatPrice(amount: number | string, opts?: { region?: RegionCod
   }
 }
 
-// Format a price coming from Shopify (already in the correct currency).
+// Format a price coming from Shopify. If Shopify returns USD but the active
+// region is GB (because Markets isn't configured yet), convert to GBP for display.
 export function formatShopifyMoney(amount: string | number, currencyCode?: string): string {
-  const cfg = currencyCode === 'GBP'
-    ? CONFIG.GB
-    : currencyCode === 'USD'
-      ? CONFIG.US
-      : getRegionConfig();
-  const num = typeof amount === 'string' ? parseFloat(amount) : amount;
-  if (!Number.isFinite(num)) return `${cfg.symbol}0.00`;
+  const activeRegion = getRegion();
+  const activeCfg = CONFIG[activeRegion];
+  let num = typeof amount === 'string' ? parseFloat(amount) : amount;
+  if (!Number.isFinite(num)) return `${activeCfg.symbol}0.00`;
+
+  let displayCfg: RegionConfig;
+  if (currencyCode === 'GBP') {
+    displayCfg = CONFIG.GB;
+  } else if (currencyCode === 'USD') {
+    // Shopify priced in USD — if user is in GB, convert + show as GBP
+    if (activeRegion === 'GB') {
+      num = convertUsdToGbp(num);
+      displayCfg = CONFIG.GB;
+    } else {
+      displayCfg = CONFIG.US;
+    }
+  } else {
+    displayCfg = activeCfg;
+  }
+
   try {
-    return new Intl.NumberFormat(cfg.locale, {
+    return new Intl.NumberFormat(displayCfg.locale, {
       style: 'currency',
-      currency: cfg.currency,
+      currency: displayCfg.currency,
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     }).format(num);
   } catch {
-    return `${cfg.symbol}${num.toFixed(2)}`;
+    return `${displayCfg.symbol}${num.toFixed(2)}`;
   }
 }
