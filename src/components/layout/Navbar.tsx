@@ -97,8 +97,8 @@ export function Navbar() {
 
                 {/* Account - hidden until auth is implemented */}
 
-                {/* Region/currency switcher (US/UK) */}
-                <div className="hidden md:block">
+                {/* Region/currency switcher (US/UK) — visible on all sizes */}
+                <div className="block">
                   <RegionSwitcher />
                 </div>
 
