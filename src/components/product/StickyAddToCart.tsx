@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { WhyNowMicroCopy } from '@/components/product/WhyNowMicroCopy';
+import { useRegion } from '@/hooks/useRegion';
 
 interface StickyAddToCartProps {
   productTitle: string;
@@ -65,12 +66,13 @@ export function StickyAddToCart({
   }, [addToCartRef]);
 
   const show = isVisible && !footerVisible;
+  const { formatPrice, symbol } = useRegion();
 
-  // Per-strip cost in cents — e.g. $34.99 / 30 strips ≈ 100¢ per strip
+  // Per-strip cost in minor units — e.g. $34.99 / 30 strips
   const perStripCents = stripsPerPack > 0 ? Math.round((price / stripsPerPack) * 100) : 0;
   const perStripLabel = perStripCents > 0
     ? (perStripCents >= 100
-        ? `$${(perStripCents / 100).toFixed(2)}/strip`
+        ? `${formatPrice(perStripCents / 100)}/strip`
         : `${perStripCents}¢/strip`)
     : null;
 
@@ -90,9 +92,9 @@ export function StickyAddToCart({
               <div className="hidden sm:block flex-1 min-w-0">
                 <h4 className="font-semibold text-sm truncate">{productTitle}</h4>
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className="font-bold text-primary">${price.toFixed(2)}</span>
+                  <span className="font-bold text-primary">{formatPrice(price)}</span>
                   {originalPrice > price && (
-                    <span className="text-sm text-muted-foreground line-through">${originalPrice.toFixed(2)}</span>
+                    <span className="text-sm text-muted-foreground line-through">{formatPrice(originalPrice)}</span>
                   )}
                   {perStripLabel && (
                     <span className="text-xs font-semibold text-primary/80 bg-primary/10 px-2 py-0.5 rounded-full">
@@ -108,7 +110,7 @@ export function StickyAddToCart({
               {/* Mobile Price */}
               <div className="sm:hidden flex-1 min-w-0">
                 <div className="flex items-baseline gap-2 flex-wrap">
-                  <span className="font-bold text-lg text-primary leading-none">${price.toFixed(2)}</span>
+                  <span className="font-bold text-lg text-primary leading-none">{formatPrice(price)}</span>
                   {perStripLabel && (
                     <span className="text-[11px] font-semibold text-primary/80 bg-primary/10 px-1.5 py-0.5 rounded-full leading-none whitespace-nowrap">
                       {perStripLabel}
