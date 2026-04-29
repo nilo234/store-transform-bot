@@ -20,19 +20,19 @@ export const shopifyVariants = {
 
 // Product info for cart display
 export const productInfo: Record<string, { title: string; price: string }> = {
-  [shopifyVariants.mushroomFocus]: { title: 'Mushroom Focus Strips', price: '29.99' },
-  [shopifyVariants.energy]: { title: 'Energy Strips', price: '29.99' },
-  [shopifyVariants.libidoSupport]: { title: 'Libido Support Strips', price: '29.99' },
-  [shopifyVariants.probiotic]: { title: 'Probiotic + Metabolism Strips', price: '29.99' },
-  [shopifyVariants.digestive]: { title: 'Digestive + Gut Health Strips', price: '29.99' },
-  [shopifyVariants.iron]: { title: 'Iron Strips', price: '29.99' },
-  [shopifyVariants.boneSupport]: { title: 'Bone Support Strips', price: '29.99' },
-  [shopifyVariants.appetite]: { title: 'Appetite Balance & Weight Support Strips', price: '29.99' },
-  [shopifyVariants.beautyCollagen]: { title: 'Beauty + Collagen Strips', price: '29.99' },
-  [shopifyVariants.hairSkinNails]: { title: 'Hair, Skin & Nails Strips', price: '29.99' },
-  [shopifyVariants.sleep]: { title: 'Sleep Strips', price: '29.99' },
-  [shopifyVariants.cognitiveRelax]: { title: 'Cognitive Relax Strips', price: '29.99' },
-  [shopifyVariants.hangover]: { title: 'Hangover Strips', price: '29.99' },
+  [shopifyVariants.mushroomFocus]: { title: 'Mushroom Focus Strips', price: '34.99' },
+  [shopifyVariants.energy]: { title: 'Energy Strips', price: '34.99' },
+  [shopifyVariants.libidoSupport]: { title: 'Libido Support Strips', price: '34.99' },
+  [shopifyVariants.probiotic]: { title: 'Probiotic + Metabolism Strips', price: '34.99' },
+  [shopifyVariants.digestive]: { title: 'Digestive + Gut Health Strips', price: '34.99' },
+  [shopifyVariants.iron]: { title: 'Iron Strips', price: '34.99' },
+  [shopifyVariants.boneSupport]: { title: 'Bone Support Strips', price: '34.99' },
+  [shopifyVariants.appetite]: { title: 'Appetite Balance & Weight Support Strips', price: '34.99' },
+  [shopifyVariants.beautyCollagen]: { title: 'Beauty + Collagen Strips', price: '34.99' },
+  [shopifyVariants.hairSkinNails]: { title: 'Hair, Skin & Nails Strips', price: '34.99' },
+  [shopifyVariants.sleep]: { title: 'Sleep Strips', price: '34.99' },
+  [shopifyVariants.cognitiveRelax]: { title: 'Cognitive Relax Strips', price: '34.99' },
+  [shopifyVariants.hangover]: { title: 'Hangover Strips', price: '34.99' },
 };
 
 export interface Bundle {
