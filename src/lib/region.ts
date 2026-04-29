@@ -86,6 +86,40 @@ export function setRegion(region: RegionCode): void {
   }
 }
 
+// IP-based auto-detection. Runs once per browser; result is cached so we
+// only call the geo-IP service once. If the user already has an explicit
+// override (set via RegionSwitcher), this is a no-op.
+const IP_DETECTED_KEY = 'neuvie-region-ip-detected';
+export async function autoDetectRegionFromIP(): Promise<void> {
+  if (typeof window === 'undefined') return;
+  try {
+    // Don't override an explicit user choice
+    const override = window.localStorage.getItem(STORAGE_KEY);
+    if (override === 'US' || override === 'GB') return;
+    // Don't re-detect if we already did once
+    if (window.localStorage.getItem(IP_DETECTED_KEY) === '1') return;
+
+    const res = await fetch('https://ipapi.co/json/', { cache: 'force-cache' });
+    if (!res.ok) return;
+    const data = await res.json();
+    const country = (data?.country_code || data?.country || '').toUpperCase();
+
+    let detected: RegionCode | null = null;
+    if (country === 'GB' || country === 'UK') detected = 'GB';
+    else if (country === 'US') detected = 'US';
+
+    window.localStorage.setItem(IP_DETECTED_KEY, '1');
+
+    if (detected && detected !== cached) {
+      cached = detected;
+      window.localStorage.setItem(STORAGE_KEY, detected);
+      window.dispatchEvent(new CustomEvent('neuvie:region-change', { detail: detected }));
+    }
+  } catch {
+    // ignore network/parse errors
+  }
+}
+
 export function getRegionConfig(region?: RegionCode): RegionConfig {
   return CONFIG[region ?? getRegion()];
 }
