@@ -488,7 +488,7 @@ export default function ProductDetail() {
               {/* Value Proposition Block */}
               <ValueProposition 
                 servings={30} 
-                subscriptionPrice="$27.99" 
+                basePrice={parseFloat(product.variants.edges[0]?.node.price.amount || '34.99')}
               />
 
               {/* Inline Testimonial */}
@@ -547,7 +547,7 @@ export default function ProductDetail() {
               <div className="grid grid-cols-4 gap-3 pt-4 border-t border-border/40">
                 <div className="text-center p-3 bg-secondary/40 rounded-xl">
                   <Truck className="h-5 w-5 mx-auto mb-2 text-primary" />
-                  <p className="text-xs text-muted-foreground">{isUK ? 'International\nshipping' : 'Free shipping\non $50+'}</p>
+                  <p className="text-xs text-muted-foreground">{isUK ? 'International\nshipping' : <>Free shipping<br />on $50+</>}</p>
                 </div>
                 <div className="text-center p-3 bg-secondary/40 rounded-xl">
                   <Shield className="h-5 w-5 mx-auto mb-2 text-primary" />
