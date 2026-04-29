@@ -3,11 +3,12 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/seo";
 import { useCartSync } from "@/hooks/useCartSync";
 import { useShopifyPageAnalytics } from "@/hooks/useShopifyAnalytics";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { autoDetectRegionFromIP } from "@/lib/region";
 import Index from "./pages/Index";
 
 // Defer non-critical route bundles to keep initial JS small (improves TBT/LCP on mobile)
