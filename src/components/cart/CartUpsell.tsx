@@ -5,6 +5,7 @@ import { fetchProducts, ShopifyProduct, optimizeShopifyImage, sanitizeTitle } fr
 import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
 import { useRegion } from '@/hooks/useRegion';
+import { formatShopifyMoney } from '@/lib/region';
 
 // Category mapping for smart recommendations
 const PRODUCT_CATEGORIES: Record<string, string[]> = {
@@ -121,7 +122,9 @@ export function CartUpsell() {
       </h4>
       <div className="space-y-2.5">
         {upsellProducts.map((product) => {
-          const price = parseFloat(product.node.priceRange?.minVariantPrice?.amount || '0');
+          const minPrice = product.node.priceRange?.minVariantPrice;
+          const price = parseFloat(minPrice?.amount || '0');
+          const currencyCode = minPrice?.currencyCode || 'USD';
           const image = product.node.images?.edges?.[0]?.node;
 
           return (
@@ -143,7 +146,7 @@ export function CartUpsell() {
               <div className="flex-1 min-w-0">
                 <p className="text-xs font-medium truncate">{sanitizeTitle(product.node.title)}</p>
                 <span className="text-sm font-semibold text-primary">
-                  {formatPrice(price)}
+                  {formatShopifyMoney(price, currencyCode)}
                 </span>
               </div>
               <Button
