@@ -459,7 +459,9 @@ export default function ProductDetail() {
                 
                 <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm text-foreground/80 font-medium">
                   <span className="flex items-center gap-1.5"><Shield className="h-4 w-4 text-primary" />14-day money back</span>
-                  <span className="flex items-center gap-1.5"><Truck className="h-4 w-4 text-primary" />Free shipping $50+</span>
+                  {!isUK && (
+                    <span className="flex items-center gap-1.5"><Truck className="h-4 w-4 text-primary" />Free shipping $50+</span>
+                  )}
                 </div>
 
                 {/* Why-Now Micro-Copy — removes friction at the purchase moment */}
@@ -545,7 +547,7 @@ export default function ProductDetail() {
               <div className="grid grid-cols-4 gap-3 pt-4 border-t border-border/40">
                 <div className="text-center p-3 bg-secondary/40 rounded-xl">
                   <Truck className="h-5 w-5 mx-auto mb-2 text-primary" />
-                  <p className="text-xs text-muted-foreground">Free shipping<br />on $50+</p>
+                  <p className="text-xs text-muted-foreground">{isUK ? 'International\nshipping' : 'Free shipping\non $50+'}</p>
                 </div>
                 <div className="text-center p-3 bg-secondary/40 rounded-xl">
                   <Shield className="h-5 w-5 mx-auto mb-2 text-primary" />
