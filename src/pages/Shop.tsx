@@ -15,6 +15,7 @@ import { bundles as bundleData } from '@/data/bundles';
 import { Button } from '@/components/ui/button';
 import { CompareModal } from '@/components/shop/CompareModal';
 import { SocialShareButtons } from '@/components/seo/SocialShareButtons';
+import { useRegion } from '@/hooks/useRegion';
 
 export default function Shop() {
   const [searchParams, setSearchParams] = useSearchParams();
