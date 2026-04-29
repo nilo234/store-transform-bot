@@ -292,7 +292,8 @@ export async function storefrontApiRequest(query: string, variables: Record<stri
 
 export async function fetchProducts(limit: number = 20, query?: string): Promise<ShopifyProduct[]> {
   try {
-    const data = await storefrontApiRequest(PRODUCTS_QUERY, { first: limit, query });
+    const country = getRegion();
+    const data = await storefrontApiRequest(PRODUCTS_QUERY, { first: limit, query, country });
     if (!data) return [];
     return data.data.products.edges;
   } catch (error) {
@@ -303,7 +304,8 @@ export async function fetchProducts(limit: number = 20, query?: string): Promise
 
 export async function fetchProductByHandle(handle: string): Promise<ShopifyProduct['node'] | null> {
   try {
-    const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle });
+    const country = getRegion();
+    const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle, country });
     if (!data) return null;
     return data.data.productByHandle;
   } catch (error) {
