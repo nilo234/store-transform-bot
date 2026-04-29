@@ -8,6 +8,7 @@ import { BundleCard } from '@/components/shop/BundleCard';
 import { bundles, BundleCategory } from '@/data/bundles';
 import { cn } from '@/lib/utils';
 import { PageMeta } from '@/components/seo';
+import { useRegion } from '@/hooks/useRegion';
 import { SocialShareButtons } from '@/components/seo/SocialShareButtons';
 
 const SEO = {
