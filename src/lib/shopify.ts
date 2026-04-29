@@ -82,9 +82,10 @@ export interface ShopifyProduct {
   };
 }
 
-// GraphQL Queries
+// GraphQL Queries — both accept a $country (CountryCode) so Shopify Markets returns
+// localized prices (e.g. GBP for the UK market). Requires UK market enabled in Shopify Markets.
 const PRODUCTS_QUERY = `
-  query GetProducts($first: Int!, $query: String) {
+  query GetProducts($first: Int!, $query: String, $country: CountryCode!) @inContext(country: $country) {
     products(first: $first, query: $query) {
       edges {
         node {
@@ -134,7 +135,7 @@ const PRODUCTS_QUERY = `
 `;
 
 const PRODUCT_BY_HANDLE_QUERY = `
-  query GetProductByHandle($handle: String!) {
+  query GetProductByHandle($handle: String!, $country: CountryCode!) @inContext(country: $country) {
     productByHandle(handle: $handle) {
       id
       title
