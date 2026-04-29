@@ -1,17 +1,23 @@
 import { Truck, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useRegion } from '@/hooks/useRegion';
 
 interface FreeShippingBarProps {
   currentTotal: number;
   threshold?: number;
+  /** @deprecated currency is now driven by useRegion() */
   currencySymbol?: string;
 }
 
 export function FreeShippingBar({ 
   currentTotal, 
-  threshold = 50, 
-  currencySymbol = '$' 
+  threshold = 50,
 }: FreeShippingBarProps) {
+  const { isUK, formatPrice } = useRegion();
+
+  // No free-shipping promo for UK customers (US-only offer)
+  if (isUK) return null;
+
   const remaining = threshold - currentTotal;
   const progress = Math.min((currentTotal / threshold) * 100, 100);
   const qualified = remaining <= 0;
@@ -33,7 +39,7 @@ export function FreeShippingBar({
             <div className="flex items-center gap-2">
               <Truck className="w-4 h-4 text-muted-foreground" />
               <span className="text-sm text-muted-foreground">
-                Add <span className="font-bold text-primary">{currencySymbol}{remaining.toFixed(2)}</span> for FREE shipping
+                Add <span className="font-bold text-primary">{formatPrice(remaining)}</span> for FREE shipping
               </span>
             </div>
           </div>
