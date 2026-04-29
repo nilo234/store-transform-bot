@@ -719,7 +719,10 @@ export default function ProductDetail() {
         <GuaranteeSection />
 
         {/* Bundle Upsell */}
-        <BundleUpsell currentProductHandle={handle} />
+        <BundleUpsell
+          currentProductHandle={handle}
+          currentVariantId={product.variants.edges[0]?.node.id}
+        />
 
         {/* Product FAQs */}
         <ProductFAQs productHandle={productType} />
