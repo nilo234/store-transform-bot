@@ -113,6 +113,7 @@ export default function ProductDetail() {
 
   const addItem = useCartStore((state) => state.addItem);
   const addBundle = useCartStore((state) => state.addBundle);
+  const { isUK } = useRegion();
 
   useEffect(() => {
     async function loadProduct() {
