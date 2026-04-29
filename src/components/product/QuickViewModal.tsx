@@ -63,7 +63,7 @@ export function QuickViewModal({ product, open, onOpenChange }: QuickViewModalPr
             {/* Sale Badge */}
             <div className="absolute top-4 right-4 z-10">
               <span className="bg-primary text-primary-foreground text-sm font-semibold px-3 py-1.5 rounded-full">
-                SAVE ${savings.toFixed(0)}
+                SAVE {fmt(savings)}
               </span>
             </div>
 
