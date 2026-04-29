@@ -113,6 +113,7 @@ export default function ProductDetail() {
 
   const addItem = useCartStore((state) => state.addItem);
   const addBundle = useCartStore((state) => state.addBundle);
+  const { isUK } = useRegion();
 
   useEffect(() => {
     async function loadProduct() {
@@ -272,7 +273,6 @@ export default function ProductDetail() {
   const originalPrice = 49.99; // Standard compare-at price (display in active region currency)
   const images = product.images.edges;
   const productType = getProductType(handle || '');
-  const { isUK } = useRegion();
   const fmtMoney = (n: number) => formatShopifyMoney(n, currencyCode);
   const testimonial = productTestimonials[productType] || productTestimonials.default;
   
