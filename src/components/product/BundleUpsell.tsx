@@ -1,39 +1,84 @@
 import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
+import { Check, Plus, ArrowRight, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { useRegion } from '@/hooks/useRegion';
+import { bundles as allBundles, type Bundle } from '@/data/bundles';
+import { useCartStore, type CartItem } from '@/stores/cartStore';
+import { toast } from 'sonner';
 
 interface BundleUpsellProps {
+  /** Current product's Shopify variant ID — used to surface bundles that contain it */
+  currentVariantId?: string;
   currentProductHandle?: string;
 }
 
-const bundles = [
-  {
-    name: "The Deep Work Stack",
-    description: "Focus + Energy + Calm",
-    products: ["Mushroom Focus", "Energy", "Cognitive Relax"],
-    originalPrice: 104.97,
-    salePrice: 84.99,
-    savings: "19%",
-  },
-  {
-    name: "The Full You",
-    description: "Full spectrum, one routine",
-    products: ["Focus", "Energy", "Probiotic", "Sleep", "Beauty", "Iron"],
-    originalPrice: 209.94,
-    salePrice: 169.99,
-    savings: "19%",
-  },
-];
-
-export const BundleUpsell = ({ currentProductHandle }: BundleUpsellProps) => {
+export const BundleUpsell = ({ currentVariantId }: BundleUpsellProps) => {
   const { formatPrice } = useRegion();
+  const addBundle = useCartStore((s) => s.addBundle);
+  const isLoading = useCartStore((s) => s.isLoading);
+
+  // Pick up to 2 best matching bundles for this product (small first, then larger)
+  const matched = (currentVariantId
+    ? allBundles.filter((b) => b.variantIds.includes(currentVariantId))
+    : []
+  )
+    .sort((a, b) => a.variantIds.length - b.variantIds.length);
+
+  const bundlesToShow: Bundle[] = (matched.length >= 2
+    ? matched.slice(0, 2)
+    : [...matched, ...allBundles.filter((b) => !matched.includes(b))].slice(0, 2));
+
+  const handleAddBundle = async (bundle: Bundle) => {
+    const perVariantPrice = (bundle.salePrice / bundle.variantIds.length).toFixed(2);
+    const lineItems: Omit<CartItem, 'lineId'>[] = bundle.variantIds.map((variantId, i) => {
+      const productName = bundle.products[i] ?? bundle.name;
+      return {
+        product: {
+          node: {
+            id: `bundle-${bundle.id}-${variantId}`,
+            title: `${productName} Strips`,
+            description: `${bundle.name} bundle item`,
+            handle: bundle.id,
+            priceRange: { minVariantPrice: { amount: perVariantPrice, currencyCode: 'USD' } },
+            images: { edges: [] },
+            variants: {
+              edges: [{
+                node: {
+                  id: variantId,
+                  title: productName,
+                  price: { amount: perVariantPrice, currencyCode: 'USD' },
+                  availableForSale: true,
+                  selectedOptions: [{ name: 'Title', value: 'Default Title' }],
+                },
+              }],
+            },
+            options: [{ name: 'Title', values: ['Default Title'] }],
+          },
+        } as unknown as CartItem['product'],
+        variantId,
+        variantTitle: productName,
+        price: { amount: perVariantPrice, currencyCode: 'USD' },
+        quantity: 1,
+        selectedOptions: [{ name: 'Title', value: 'Default Title' }],
+        bundleId: `bundle-${bundle.id}`,
+        bundleName: bundle.name,
+        bundleDiscountCode: bundle.discountCode,
+      };
+    });
+
+    await addBundle(lineItems, bundle.discountCode);
+    toast.success('Bundle added to cart!', {
+      description: `${bundle.name} – ${bundle.packSize} · Discount ${bundle.discountCode} applied`,
+      position: 'top-center',
+    });
+  };
+
   return (
     <section className="py-16">
       <div className="container-wide">
         <div className="max-w-5xl mx-auto">
-          <motion.div 
+          <motion.div
             className="text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -51,10 +96,10 @@ export const BundleUpsell = ({ currentProductHandle }: BundleUpsellProps) => {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {bundles.map((bundle, index) => (
+            {bundlesToShow.map((bundle, index) => (
               <motion.div
-                key={index}
-                className="bg-card rounded-2xl p-6 border border-border/50 hover:border-primary/30 transition-all"
+                key={bundle.id}
+                className="bg-card rounded-2xl p-6 border border-border/50 hover:border-primary/30 transition-all flex flex-col"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -63,14 +108,14 @@ export const BundleUpsell = ({ currentProductHandle }: BundleUpsellProps) => {
                 <div className="flex justify-between items-start mb-4">
                   <div>
                     <h3 className="font-semibold text-lg text-foreground">{bundle.name}</h3>
-                    <p className="text-sm text-muted-foreground">{bundle.description}</p>
+                    <p className="text-sm text-muted-foreground">{bundle.tagline}</p>
                   </div>
-                  <span className="bg-accent/20 text-accent text-xs font-bold px-2 py-1 rounded-full">
-                    {bundle.savings} off
+                  <span className="bg-accent/20 text-accent text-xs font-bold px-2 py-1 rounded-full whitespace-nowrap">
+                    {bundle.discountPercent}% off
                   </span>
                 </div>
 
-                <div className="space-y-2 mb-4">
+                <div className="space-y-2 mb-4 flex-1">
                   {bundle.products.map((product, i) => (
                     <div key={i} className="flex items-center gap-2 text-sm">
                       <Check className="w-4 h-4 text-primary" />
@@ -84,11 +129,27 @@ export const BundleUpsell = ({ currentProductHandle }: BundleUpsellProps) => {
                   <span className="text-muted-foreground line-through">{formatPrice(bundle.originalPrice)}</span>
                 </div>
 
-                <Link to="/bundles">
-                  <Button className="w-full btn-secondary" variant="outline">
-                    See this bundle
+                <div className="flex gap-2">
+                  <Button
+                    onClick={() => handleAddBundle(bundle)}
+                    disabled={isLoading}
+                    className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold gap-1.5"
+                  >
+                    {isLoading ? (
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    ) : (
+                      <>
+                        <Plus className="w-4 h-4" />
+                        Add Bundle
+                      </>
+                    )}
                   </Button>
-                </Link>
+                  <Button asChild variant="outline" className="px-3">
+                    <Link to={`/bundles/${bundle.id}`} aria-label={`View ${bundle.name}`}>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </Button>
+                </div>
               </motion.div>
             ))}
           </div>
