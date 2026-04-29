@@ -1,11 +1,16 @@
 import { Package, Truck, Gift, RefreshCw, Shield, Zap } from 'lucide-react';
+import { useRegion } from '@/hooks/useRegion';
 
 interface ValuePropositionProps {
   servings?: number;
-  subscriptionPrice?: string;
+  /** Base USD price; subscribe & save (20% off) is computed and converted per region. */
+  basePrice?: number;
 }
 
-export const ValueProposition = ({ servings = 30, subscriptionPrice = "$12.99" }: ValuePropositionProps) => {
+export const ValueProposition = ({ servings = 30, basePrice = 34.99 }: ValuePropositionProps) => {
+  const { isUK, formatPrice } = useRegion();
+  const subPrice = formatPrice(basePrice * 0.8);
+
   const perks = [
     {
       icon: Package,
@@ -14,28 +19,28 @@ export const ValueProposition = ({ servings = 30, subscriptionPrice = "$12.99" }
     },
     {
       icon: Truck,
-      title: "Free US shipping",
-      subtitle: "On orders $50+"
+      title: isUK ? 'International shipping' : 'Free US shipping',
+      subtitle: isUK ? 'Calculated at checkout' : `On orders ${formatPrice(50)}+`
     },
     {
       icon: Gift,
-      title: "Surprise extras",
-      subtitle: "Included with subscriptions"
+      title: 'Surprise extras',
+      subtitle: 'Included with subscriptions'
     },
     {
       icon: Zap,
-      title: "Absorbs in seconds",
-      subtitle: "Faster than pills or capsules"
+      title: 'Absorbs in seconds',
+      subtitle: 'Faster than pills or capsules'
     },
     {
       icon: RefreshCw,
-      title: "Subscribe & save 20%",
-      subtitle: `Auto-refill at ${subscriptionPrice}/mo`
+      title: 'Subscribe & save 20%',
+      subtitle: `Auto-refill at ${subPrice}/mo`
     },
     {
       icon: Shield,
-      title: "14-day guarantee",
-      subtitle: "Full refund, no questions"
+      title: '14-day guarantee',
+      subtitle: 'Full refund, no questions'
     }
   ];
 

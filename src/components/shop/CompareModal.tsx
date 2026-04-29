@@ -11,6 +11,7 @@ import { productContentMap, ProductContent } from '@/data/productContent';
 import { getBenefitLine } from '@/data/shopFilters';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
+import { formatShopifyMoney } from '@/lib/region';
 
 interface CompareModalProps {
   open: boolean;
@@ -43,6 +44,7 @@ export function CompareModal({ open, onOpenChange, products, onRemoveProduct }: 
     return products.map(p => {
       const content = getContentForProduct(p.node.title);
       const price = parseFloat(p.node.priceRange.minVariantPrice.amount);
+      const currencyCode = p.node.priceRange.minVariantPrice.currencyCode;
       const firstVariant = p.node.variants.edges[0]?.node;
       const firstImage = p.node.images.edges[0]?.node;
 
@@ -51,6 +53,7 @@ export function CompareModal({ open, onOpenChange, products, onRemoveProduct }: 
         handle: p.node.handle,
         title: p.node.title,
         price,
+        currencyCode,
         image: firstImage?.url,
         variant: firstVariant,
         product: p,
@@ -118,7 +121,7 @@ export function CompareModal({ open, onOpenChange, products, onRemoveProduct }: 
                   <h3 className="font-body ttext-sm font-semibold leading-tight line-clamp-2 mb-1">
                     {p.title}
                   </h3>
-                  <span className="text-base md:text-lg font-bold text-primary">${p.price.toFixed(2)}</span>
+                  <span className="text-base md:text-lg font-bold text-primary">{formatShopifyMoney(p.price, p.currencyCode)}</span>
                 </div>
               ))}
             </div>
@@ -183,7 +186,7 @@ export function CompareModal({ open, onOpenChange, products, onRemoveProduct }: 
               <CompareRow label="Price / Strip" cols={products.length} highlighted>
                 {productData.map(p => (
                   <div key={p.id} className="text-sm font-bold text-primary">
-                    ${(p.price / 30).toFixed(2)}
+                    {formatShopifyMoney(p.price / 30, p.currencyCode)}
                   </div>
                 ))}
               </CompareRow>
