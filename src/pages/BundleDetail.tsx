@@ -262,14 +262,14 @@ export default function BundleDetail() {
                 {/* Price block */}
                 <div className="bg-muted/40 rounded-2xl p-4 md:p-5 border border-border/40">
                   <div className="flex items-end gap-2 md:gap-3 flex-wrap">
-                    <span className="text-3xl md:text-4xl font-bold text-primary">${bundle.salePrice.toFixed(2)}</span>
-                    <span className="text-base md:text-lg text-muted-foreground line-through">${bundle.originalPrice.toFixed(2)}</span>
+                    <span className="text-3xl md:text-4xl font-bold text-primary">{formatPrice(bundle.salePrice)}</span>
+                    <span className="text-base md:text-lg text-muted-foreground line-through">{formatPrice(bundle.originalPrice)}</span>
                     <span className="bg-destructive/10 text-destructive px-2 py-1 md:px-2.5 rounded-md text-[10px] md:text-xs font-bold">
-                      SAVE ${bundle.savings.toFixed(2)} · {bundle.discountPercent}% OFF
+                      SAVE {formatPrice(bundle.savings)} · {bundle.discountPercent}% OFF
                     </span>
                   </div>
                   <p className="text-[11px] md:text-xs text-muted-foreground mt-2">
-                    Just <span className="font-semibold text-foreground">${pricePerProduct}</span> per strip pack ·
+                    Just <span className="font-semibold text-foreground">{formatPrice(pricePerProduct)}</span> per strip pack ·
                     {' '}30-day supply per pack
                   </p>
                 </div>
@@ -300,7 +300,7 @@ export default function BundleDetail() {
                       className="flex-1 h-14 text-sm md:text-base font-bold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
                     >
                       <Plus className="h-5 w-5 mr-1" />
-                      Add to Cart — ${(bundle.salePrice * qty).toFixed(2)}
+                      Add to Cart — {formatPrice(bundle.salePrice * qty)}
                     </Button>
                   </div>
                   <p className="text-[11px] md:text-xs text-center text-muted-foreground">
@@ -311,7 +311,7 @@ export default function BundleDetail() {
 
                 {/* Trust line */}
                 <div className="grid grid-cols-3 gap-2 pt-1 md:pt-2">
-                  <TrustBadge icon={<Truck className="h-4 w-4" />} label="Free US Shipping" />
+                  <TrustBadge icon={<Truck className="h-4 w-4" />} label={isUK ? 'International Shipping' : 'Free US Shipping'} />
                   <TrustBadge icon={<ShieldCheck className="h-4 w-4" />} label="14-Day Guarantee" />
                   <TrustBadge icon={<Clock className="h-4 w-4" />} label="Ships in 1–2 Days" />
                 </div>
