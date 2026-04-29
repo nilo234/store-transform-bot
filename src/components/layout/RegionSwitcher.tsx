@@ -37,11 +37,12 @@ export const RegionSwitcher = () => {
         <Button
           variant="ghost"
           size="sm"
-          className="h-9 px-2 text-xs font-medium gap-1.5"
-          aria-label="Select region"
+          className="h-9 px-1.5 md:px-2 text-[11px] md:text-xs font-medium gap-1 md:gap-1.5"
+          aria-label="Select region and currency"
         >
           <Globe className="h-4 w-4" strokeWidth={1.5} />
-          <span>{LABELS[region]}</span>
+          <span className="hidden sm:inline">{LABELS[region]}</span>
+          <span className="sm:hidden">{region === 'GB' ? '£' : '$'}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="bg-background z-50">
