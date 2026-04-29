@@ -166,7 +166,7 @@ export function CartDrawer() {
 
               {/* Free Shipping Progress */}
               <div className="px-4 md:px-6 pt-3 md:pt-4">
-                <FreeShippingBar currentTotal={cartTotal} threshold={50} currencySymbol="$" />
+                <FreeShippingBar currentTotal={cartTotal} threshold={50} />
               </div>
 
               {/* Scrollable items area */}
@@ -270,7 +270,7 @@ export function CartDrawer() {
                   </div>
                   <div className="text-right">
                     <span className="text-xl md:text-2xl font-bold text-primary">
-                      {formatPrice(cartTotal)}
+                      {formatShopifyMoney(cartTotal, items[0]?.price.currencyCode)}
                     </span>
                   </div>
                 </div>
