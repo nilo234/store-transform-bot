@@ -16,6 +16,18 @@ const CONFIG: Record<RegionCode, RegionConfig> = {
   GB: { country: 'GB', currency: 'GBP', symbol: '£', locale: 'en-GB' },
 };
 
+// Static USD → GBP conversion rate. All hardcoded prices in the app are
+// authored in USD; when the active region is GB we convert them at display time.
+// Keep this conservative and easy to update.
+export const USD_TO_GBP = 0.79;
+
+function convertUsdToGbp(amountUsd: number): number {
+  // Round to nearest .X9 for retail-friendly pricing (e.g. 34.99 → 27.99)
+  const raw = amountUsd * USD_TO_GBP;
+  const rounded = Math.round(raw) - 0.01;
+  return rounded > 0 ? rounded : Math.round(raw * 100) / 100;
+}
+
 const STORAGE_KEY = 'neuvie-region';
 
 // Conservative UK detection: timezone OR explicit en-GB locale
