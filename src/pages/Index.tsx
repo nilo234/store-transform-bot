@@ -369,7 +369,7 @@ export default function Index() {
             <p className="text-lg md:text-xl font-display mb-4">Still deciding? Start with our most popular strip.</p>
             <Link to="/product/energy-strips-2">
               <Button className="h-13 px-8 text-sm font-semibold rounded-xl bg-accent hover:bg-accent/90 text-accent-foreground shadow-glow">
-                Try Energy Strips — $29.99
+                Try Energy Strips — $34.99
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>

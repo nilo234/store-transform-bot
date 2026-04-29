@@ -55,7 +55,7 @@ export function CartBundleUpgradePrompt() {
     if (!placeholderProduct) return;
 
     const bundleItems: Omit<CartItem, 'lineId'>[] = bundle.variantIds.map((vid) => {
-      const info = productInfo[vid] ?? { title: 'NEUVIE Strip', price: '29.99' };
+      const info = productInfo[vid] ?? { title: 'NEUVIE Strip', price: '34.99' };
       return {
         product: placeholderProduct,
         variantId: vid,

@@ -422,7 +422,7 @@ export default function BundleDetail() {
                       {getProductBenefit(productName)}
                     </p>
                     <p className="text-[10px] md:text-xs text-muted-foreground mt-2 md:mt-3">
-                      30-day supply · ${info?.price ?? '29.99'} value
+                      30-day supply · ${info?.price ?? '34.99'} value
                     </p>
                   </motion.div>
                 );
