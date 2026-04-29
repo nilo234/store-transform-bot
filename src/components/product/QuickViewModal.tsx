@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { ShopifyProduct, sanitizeTitle, sanitizeHandle } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { toast } from 'sonner';
-import { formatShopifyMoney } from '@/lib/region';
+import { formatShopifyMoney, getRegion, formatPrice as formatPriceLib } from '@/lib/region';
 
 interface QuickViewModalProps {
   product: ShopifyProduct | null;
@@ -122,7 +122,9 @@ export function QuickViewModal({ product, open, onOpenChange }: QuickViewModalPr
             {/* Trust Points */}
             <div className="flex flex-wrap gap-3 mb-4">
               {[
-                { icon: Truck, text: 'Free Shipping on $50+' },
+                ...(getRegion() === 'GB'
+                  ? [{ icon: Truck, text: 'International shipping' }]
+                  : [{ icon: Truck, text: `Free Shipping on ${formatPriceLib(50)}+` }]),
                 { icon: Shield, text: '14-Day Guarantee' },
                 { icon: Check, text: 'Lab Tested' },
               ].map((item) => (
