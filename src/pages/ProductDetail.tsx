@@ -7,6 +7,8 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { fetchProductByHandle, ShopifyProduct, sanitizeTitle, sanitizeHandle, unsanitizeHandle, optimizeShopifyImage } from '@/lib/shopify';
+import { useRegion } from '@/hooks/useRegion';
+import { formatShopifyMoney } from '@/lib/region';
 import { useCartStore } from '@/stores/cartStore';
 import { Skeleton } from '@/components/ui/skeleton';
 import { toast } from 'sonner';
@@ -266,9 +268,12 @@ export default function ProductDetail() {
   }
 
   const price = parseFloat(product.priceRange.minVariantPrice.amount);
-  const originalPrice = 49.99; // Standard compare-at price
+  const currencyCode = product.priceRange.minVariantPrice.currencyCode;
+  const originalPrice = 49.99; // Standard compare-at price (display in active region currency)
   const images = product.images.edges;
   const productType = getProductType(handle || '');
+  const { isUK } = useRegion();
+  const fmtMoney = (n: number) => formatShopifyMoney(n, currencyCode);
   const testimonial = productTestimonials[productType] || productTestimonials.default;
   
   // Get product content
@@ -325,7 +330,7 @@ export default function ProductDetail() {
                 {/* Sale Badge */}
                 <div className="absolute top-4 right-4 z-10">
                   <span className="bg-primary text-primary-foreground text-sm font-semibold px-3 py-1.5 rounded-full">
-                    SAVE ${(originalPrice - price).toFixed(0)}
+                    SAVE {fmtMoney(originalPrice - price)}
                   </span>
                 </div>
 
@@ -391,11 +396,11 @@ export default function ProductDetail() {
               <div className="bg-secondary/60 rounded-xl p-4 space-y-3">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <span className="text-3xl font-bold text-primary">${price.toFixed(2)}</span>
-                    <span className="text-lg text-muted-foreground line-through">${originalPrice.toFixed(2)}</span>
+                    <span className="text-3xl font-bold text-primary">{fmtMoney(price)}</span>
+                    <span className="text-lg text-muted-foreground line-through">{fmtMoney(originalPrice)}</span>
                   </div>
                   <span className="bg-accent text-accent-foreground text-sm font-bold px-3 py-1 rounded-full">
-                    SAVE ${(originalPrice - price).toFixed(2)}
+                    SAVE {fmtMoney(originalPrice - price)}
                   </span>
                 </div>
                 
