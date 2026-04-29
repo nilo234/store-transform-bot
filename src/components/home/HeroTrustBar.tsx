@@ -1,13 +1,18 @@
-import { Shield, Truck, Star } from 'lucide-react';
+import { Shield, Truck, Star, Globe } from 'lucide-react';
 import { motion } from 'framer-motion';
-
-const trustItems = [
-  { icon: Shield, label: '14-Day Money Back' },
-  { icon: Truck, label: 'Free US Shipping $50+' },
-  { icon: Star, label: '2,400+ Verified Reviews' },
-];
+import { useRegion } from '@/hooks/useRegion';
 
 export function HeroTrustBar() {
+  const { isUK } = useRegion();
+
+  const trustItems = [
+    { icon: Shield, label: '14-Day Money Back' },
+    isUK
+      ? { icon: Globe, label: 'International Shipping' }
+      : { icon: Truck, label: 'Free US Shipping $50+' },
+    { icon: Star, label: '2,400+ Verified Reviews' },
+  ];
+
   return (
     <motion.div
       className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"
