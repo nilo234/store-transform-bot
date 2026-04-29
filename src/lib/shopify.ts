@@ -1,4 +1,5 @@
 import { toast } from "sonner";
+import { getRegion, type RegionCode } from "@/lib/region";
 
 // Shopify Configuration
 export const SHOPIFY_API_VERSION = '2025-07';
@@ -81,9 +82,10 @@ export interface ShopifyProduct {
   };
 }
 
-// GraphQL Queries
+// GraphQL Queries — both accept a $country (CountryCode) so Shopify Markets returns
+// localized prices (e.g. GBP for the UK market). Requires UK market enabled in Shopify Markets.
 const PRODUCTS_QUERY = `
-  query GetProducts($first: Int!, $query: String) {
+  query GetProducts($first: Int!, $query: String, $country: CountryCode!) @inContext(country: $country) {
     products(first: $first, query: $query) {
       edges {
         node {
@@ -133,7 +135,7 @@ const PRODUCTS_QUERY = `
 `;
 
 const PRODUCT_BY_HANDLE_QUERY = `
-  query GetProductByHandle($handle: String!) {
+  query GetProductByHandle($handle: String!, $country: CountryCode!) @inContext(country: $country) {
     productByHandle(handle: $handle) {
       id
       title
@@ -290,7 +292,8 @@ export async function storefrontApiRequest(query: string, variables: Record<stri
 
 export async function fetchProducts(limit: number = 20, query?: string): Promise<ShopifyProduct[]> {
   try {
-    const data = await storefrontApiRequest(PRODUCTS_QUERY, { first: limit, query });
+    const country = getRegion();
+    const data = await storefrontApiRequest(PRODUCTS_QUERY, { first: limit, query, country });
     if (!data) return [];
     return data.data.products.edges;
   } catch (error) {
@@ -301,7 +304,8 @@ export async function fetchProducts(limit: number = 20, query?: string): Promise
 
 export async function fetchProductByHandle(handle: string): Promise<ShopifyProduct['node'] | null> {
   try {
-    const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle });
+    const country = getRegion();
+    const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle, country });
     if (!data) return null;
     return data.data.productByHandle;
   } catch (error) {
@@ -337,8 +341,12 @@ function isCartNotFoundError(userErrors: UserError[]): boolean {
 }
 
 export async function createShopifyCart(variantId: string, quantity: number): Promise<{ cartId: string; checkoutUrl: string; lineId: string } | null> {
+  const country = getRegion();
   const data = await storefrontApiRequest(CART_CREATE_MUTATION, {
-    input: { lines: [{ quantity, merchandiseId: variantId }] },
+    input: {
+      lines: [{ quantity, merchandiseId: variantId }],
+      buyerIdentity: { countryCode: country },
+    },
   });
 
   if (data?.data?.cartCreate?.userErrors?.length > 0) {
@@ -360,8 +368,12 @@ export async function createShopifyCart(variantId: string, quantity: number): Pr
 export async function createShopifyCartMultiLines(
   lines: Array<{ variantId: string; quantity: number }>
 ): Promise<{ cartId: string; checkoutUrl: string; lineIds: Map<string, string> } | null> {
+  const country = getRegion();
   const data = await storefrontApiRequest(CART_CREATE_MUTATION, {
-    input: { lines: lines.map(l => ({ quantity: l.quantity, merchandiseId: l.variantId })) },
+    input: {
+      lines: lines.map(l => ({ quantity: l.quantity, merchandiseId: l.variantId })),
+      buyerIdentity: { countryCode: country },
+    },
   });
 
   if (data?.data?.cartCreate?.userErrors?.length > 0) {

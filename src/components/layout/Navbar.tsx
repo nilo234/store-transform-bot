@@ -6,6 +6,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useCartStore } from '@/stores/cartStore';
 import { CartDrawer } from '@/components/cart/CartDrawer';
 import { SearchModal } from '@/components/search/SearchModal';
+import { RegionSwitcher } from '@/components/layout/RegionSwitcher';
 import { AnnouncementBar } from '@/components/layout/AnnouncementBar';
 import { cn } from '@/lib/utils';
 import neuvieLogo from '@/assets/neuvie-navbar-logo.png';
@@ -95,6 +96,11 @@ export function Navbar() {
                 </Button>
 
                 {/* Account - hidden until auth is implemented */}
+
+                {/* Region/currency switcher (US/UK) */}
+                <div className="hidden md:block">
+                  <RegionSwitcher />
+                </div>
 
                 {/* Cart */}
                 <Button
