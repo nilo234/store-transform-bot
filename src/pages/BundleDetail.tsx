@@ -52,7 +52,7 @@ export default function BundleDetail() {
   const { id } = useParams<{ id: string }>();
   const bundle = useMemo(() => bundles.find(b => b.id === id), [id]);
   const { images: shopifyImages, isLoading: imagesLoading } = useBundleImages(bundle?.variantIds ?? []);
-  const addItem = useCartStore(s => s.addItem);
+  const addBundle = useCartStore(s => s.addBundle);
   const isLoading = useCartStore(s => s.isLoading);
   const [qty, setQty] = useState(1);
   const { formatPrice, isUK } = useRegion();
@@ -64,40 +64,50 @@ export default function BundleDetail() {
 
   const handleAddToCart = async () => {
     const imageEdges = heroImage ? [{ node: { url: heroImage, altText: bundle.name } }] : [];
-    await addItem({
-      product: {
-        node: {
-          id: `bundle-${bundle.id}`,
-          title: `${bundle.name} – ${bundle.packSize}`,
-          description: `Includes: ${bundle.products.join(', ')}. ${bundle.tagline}`,
-          handle: bundle.id,
-          priceRange: { minVariantPrice: { amount: bundle.salePrice.toString(), currencyCode: 'USD' } },
-          images: { edges: imageEdges },
-          variants: {
-            edges: [{
-              node: {
-                id: bundle.shopifyBundleVariantId,
-                title: bundle.products.join(' + '),
-                price: { amount: bundle.salePrice.toString(), currencyCode: 'USD' },
-                availableForSale: true,
-                selectedOptions: [{ name: 'Title', value: 'Default Title' }],
-              },
-            }],
+    const bundleIdKey = `bundle-${bundle.id}`;
+    // Per-product price so the cart subtotal matches the bundle's sale price
+    // before the discount code is applied at checkout.
+    const perVariantPrice = (bundle.salePrice / bundle.variantIds.length).toFixed(2);
+
+    const lineItems = bundle.variantIds.map((variantId, i) => {
+      const productName = bundle.products[i] ?? bundle.name;
+      return {
+        product: {
+          node: {
+            id: `${bundleIdKey}-${variantId}`,
+            title: `${productName} Strips`,
+            description: `${bundle.name} bundle item`,
+            handle: bundle.id,
+            priceRange: { minVariantPrice: { amount: perVariantPrice, currencyCode: 'USD' } },
+            images: { edges: imageEdges },
+            variants: {
+              edges: [{
+                node: {
+                  id: variantId,
+                  title: productName,
+                  price: { amount: perVariantPrice, currencyCode: 'USD' },
+                  availableForSale: true,
+                  selectedOptions: [{ name: 'Title', value: 'Default Title' }],
+                },
+              }],
+            },
+            options: [{ name: 'Title', values: ['Default Title'] }],
           },
-          options: [{ name: 'Title', values: ['Default Title'] }],
-        },
-      } as any,
-      variantId: bundle.shopifyBundleVariantId,
-      variantTitle: bundle.products.join(' + '),
-      price: { amount: bundle.salePrice.toString(), currencyCode: 'USD' },
-      quantity: qty,
-      selectedOptions: [{ name: 'Title', value: 'Default Title' }],
-      bundleId: `bundle-${bundle.id}`,
-      bundleName: bundle.name,
-      bundleDiscountCode: bundle.discountCode,
+        } as any,
+        variantId,
+        variantTitle: productName,
+        price: { amount: perVariantPrice, currencyCode: 'USD' },
+        quantity: qty,
+        selectedOptions: [{ name: 'Title', value: 'Default Title' }],
+        bundleId: bundleIdKey,
+        bundleName: bundle.name,
+        bundleDiscountCode: bundle.discountCode,
+      };
     });
+
+    await addBundle(lineItems, bundle.discountCode);
     toast.success('Bundle added to cart!', {
-      description: `${bundle.name} – ${bundle.packSize}`,
+      description: `${bundle.name} – ${bundle.packSize} · Discount ${bundle.discountCode} applied`,
       position: 'top-center',
     });
   };
