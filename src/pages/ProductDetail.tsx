@@ -421,6 +421,7 @@ export default function ProductDetail() {
                 <PurchaseTypeSelector
                   currentVariantId={product.variants.edges[0]?.node.id}
                   singlePrice={price}
+                  singleCurrencyCode={product.variants.edges[0]?.node.price.currencyCode}
                   comparePrice={originalPrice}
                   selected={purchaseMode}
                   onChange={setPurchaseMode}

@@ -2,12 +2,16 @@ import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles, ArrowRight } from 'lucide-react';
 import { bundles } from '@/data/bundles';
+import { useRegion } from '@/hooks/useRegion';
+import { formatShopifyMoney } from '@/lib/region';
 
 export type PurchaseMode = 'single' | 'bundle';
 
 interface Props {
   currentVariantId?: string;
   singlePrice: number;
+  /** Currency code of singlePrice (from Shopify). Defaults to USD. */
+  singleCurrencyCode?: string;
   comparePrice: number;
   selected: PurchaseMode;
   onChange: (mode: PurchaseMode) => void;
@@ -21,10 +25,12 @@ interface Props {
 export function PurchaseTypeSelector({
   currentVariantId,
   singlePrice,
+  singleCurrencyCode,
   comparePrice,
   selected,
   onChange,
 }: Props) {
+  const { formatPrice, isUK } = useRegion();
   const bestBundle = useMemo(() => {
     const matching = bundles.filter(b =>
       currentVariantId ? b.variantIds.includes(currentVariantId) : false
@@ -70,12 +76,12 @@ export function PurchaseTypeSelector({
             <div className="flex items-center justify-between gap-2 flex-wrap">
               <span className="font-semibold text-foreground">Single Strip</span>
               <span className="font-bold text-foreground">
-                ${singlePrice.toFixed(2)}
+                {formatShopifyMoney(singlePrice, singleCurrencyCode || 'USD')}
               </span>
             </div>
             <p className="text-xs text-muted-foreground mt-0.5">
               30 strips · One goal
-              {singleSavings > 0 && ` · Save $${singleSavings.toFixed(2)} vs. retail`}
+              {singleSavings > 0 && ` · Save ${formatShopifyMoney(singleSavings, singleCurrencyCode || 'USD')} vs. retail`}
             </p>
           </div>
         </div>
@@ -113,10 +119,10 @@ export function PurchaseTypeSelector({
                 </span>
                 <div className="text-right">
                   <span className="font-bold text-foreground">
-                    ${bestBundle.salePrice.toFixed(2)}
+                    {formatPrice(bestBundle.salePrice)}
                   </span>
                   <span className="ml-1.5 text-xs text-muted-foreground line-through">
-                    ${bestBundle.originalPrice.toFixed(2)}
+                    {formatPrice(bestBundle.originalPrice)}
                   </span>
                 </div>
               </div>
@@ -124,7 +130,7 @@ export function PurchaseTypeSelector({
                 Includes: {bestBundle.products.join(' · ')}
               </p>
               <p className="text-xs font-semibold text-primary mt-1">
-                You save ${bestBundle.savings.toFixed(2)} · Free shipping included
+                You save {formatPrice(bestBundle.savings)}{!isUK && ' · Free shipping included'}
               </p>
             </div>
           </div>
