@@ -66,7 +66,7 @@ export function StickyAddToCart({
 
   const show = isVisible && !footerVisible;
 
-  // Per-strip cost in cents — e.g. $29.99 / 30 strips ≈ 100¢ per strip
+  // Per-strip cost in cents — e.g. $34.99 / 30 strips ≈ 100¢ per strip
   const perStripCents = stripsPerPack > 0 ? Math.round((price / stripsPerPack) * 100) : 0;
   const perStripLabel = perStripCents > 0
     ? (perStripCents >= 100

@@ -57,7 +57,7 @@ export const blogPosts: BlogPost[] = [
         heading: 'Our pick: NEUVIE Hangover Strips',
         paragraphs: [
           "We built NEUVIE Hangover Strips with exactly the stack above — high-dose B-complex, electrolytes, and antioxidants — in a single 30-second strip. Take one before bed and one when you wake up. That's the routine.",
-          "30 strips, $29.99. Free shipping over $50. 14-day money-back guarantee — if it doesn't help, you don't pay.",
+          "30 strips, $34.99. Free shipping over $50. 14-day money-back guarantee — if it doesn't help, you don't pay.",
         ],
       },
     ],

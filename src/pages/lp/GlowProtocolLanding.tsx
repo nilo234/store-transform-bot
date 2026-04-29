@@ -47,7 +47,7 @@ export default function GlowProtocolLanding() {
     toast.success('Added to cart!', { position: 'top-center' });
   };
 
-  const price = product ? parseFloat(product.priceRange.minVariantPrice.amount) : 29.99;
+  const price = product ? parseFloat(product.priceRange.minVariantPrice.amount) : 34.99;
   const heroImage = product?.images.edges[0]?.node.url;
 
   return (
