@@ -341,8 +341,12 @@ function isCartNotFoundError(userErrors: UserError[]): boolean {
 }
 
 export async function createShopifyCart(variantId: string, quantity: number): Promise<{ cartId: string; checkoutUrl: string; lineId: string } | null> {
+  const country = getRegion();
   const data = await storefrontApiRequest(CART_CREATE_MUTATION, {
-    input: { lines: [{ quantity, merchandiseId: variantId }] },
+    input: {
+      lines: [{ quantity, merchandiseId: variantId }],
+      buyerIdentity: { countryCode: country },
+    },
   });
 
   if (data?.data?.cartCreate?.userErrors?.length > 0) {
@@ -364,8 +368,12 @@ export async function createShopifyCart(variantId: string, quantity: number): Pr
 export async function createShopifyCartMultiLines(
   lines: Array<{ variantId: string; quantity: number }>
 ): Promise<{ cartId: string; checkoutUrl: string; lineIds: Map<string, string> } | null> {
+  const country = getRegion();
   const data = await storefrontApiRequest(CART_CREATE_MUTATION, {
-    input: { lines: lines.map(l => ({ quantity: l.quantity, merchandiseId: l.variantId })) },
+    input: {
+      lines: lines.map(l => ({ quantity: l.quantity, merchandiseId: l.variantId })),
+      buyerIdentity: { countryCode: country },
+    },
   });
 
   if (data?.data?.cartCreate?.userErrors?.length > 0) {
