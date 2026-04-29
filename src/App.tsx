@@ -48,6 +48,10 @@ const queryClient = new QueryClient();
 function AppContent() {
   useCartSync();
   useShopifyPageAnalytics();
+  useEffect(() => {
+    // Run once on first load: if no explicit region override, detect via IP
+    autoDetectRegionFromIP();
+  }, []);
   return null;
 }
 
