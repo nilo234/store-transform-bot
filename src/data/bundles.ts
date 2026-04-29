@@ -3,13 +3,13 @@ export type BundleCategory = 'all' | 'performance' | 'wellness' | 'beauty';
 
 // Real Shopify product variant IDs (ACTIVE products accessible via Storefront API)
 export const shopifyVariants = {
-  mushroomFocus: 'gid://shopify/ProductVariant/48022272737499',
+  mushroomFocus: 'gid://shopify/ProductVariant/48335669788891',
   energy: 'gid://shopify/ProductVariant/48094622974171',
   libidoSupport: 'gid://shopify/ProductVariant/48114369560795',
   probiotic: 'gid://shopify/ProductVariant/48359863156955',
   digestive: 'gid://shopify/ProductVariant/48094723768539',
   iron: 'gid://shopify/ProductVariant/48094752899291',
-  boneSupport: 'gid://shopify/ProductVariant/48041863217371',
+  boneSupport: 'gid://shopify/ProductVariant/48357584175323',
   appetite: 'gid://shopify/ProductVariant/48113482170587',
   beautyCollagen: 'gid://shopify/ProductVariant/48114313330907',
   hairSkinNails: 'gid://shopify/ProductVariant/48094573756635',
