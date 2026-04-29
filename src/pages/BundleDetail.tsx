@@ -347,7 +347,7 @@ export default function BundleDetail() {
               {categoryKeywords(bundle.category)} support without pills, water, or capsules. Built for people who want a real{' '}
               {categoryLabel(bundle.category).toLowerCase()} routine they can actually keep — at home, at work, or on the go.
               Save <strong className="text-foreground">{bundle.discountPercent}%</strong> versus buying each pack individually,
-              with free US shipping over $50 and our{' '}
+              {isUK ? ' with international shipping and our ' : ' with free US shipping over $50 and our '}
               <Link to="/returns" className="text-primary hover:underline font-medium">14-day money-back guarantee</Link>.
             </p>
           </div>
