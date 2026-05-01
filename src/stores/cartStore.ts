@@ -150,6 +150,13 @@ export const useCartStore = create<CartStore>()(
           set({ isLoading: false });
         }
 
+        // Marketing pixels — fire AddToCart event for Meta + GA4
+        try {
+          trackAddToCart([itemToPixelProduct(item as never)]);
+        } catch {
+          /* ignore */
+        }
+
         // Open cart drawer
         set({ isOpen: true });
       },
