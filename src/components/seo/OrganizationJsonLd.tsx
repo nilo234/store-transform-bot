@@ -7,8 +7,8 @@ export function OrganizationJsonLd() {
       "@type": "Organization",
       "name": "Neuvie",
       "alternateName": "Neuvie Nutrition",
-      "url": "https://neuvie.com",
-      "logo": "https://neuvie.com/neuvie-logo.png",
+      "url": "https://tryneuvie.com",
+      "logo": "https://tryneuvie.com/neuvie-logo.png",
       "description": "Premium oral supplement strips designed for maximum bioavailability and convenience. Fast-dissolving, science-backed wellness solutions.",
       "foundingDate": "2024",
       "sameAs": [
