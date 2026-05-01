@@ -2,6 +2,9 @@ User-agent: Googlebot
 Allow: /
 Crawl-delay: 1
 
+User-agent: Googlebot-Image
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 2
@@ -22,7 +25,7 @@ User-agent: *
 Allow: /
 
 Disallow: /api/
-Disallow: /_next/
 Disallow: /admin/
+Disallow: /cart/c/
 
-Sitemap: https://neuvie.com/sitemap.xml
+Sitemap: https://tryneuvie.com/sitemap.xml
