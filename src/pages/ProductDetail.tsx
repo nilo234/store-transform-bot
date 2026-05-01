@@ -14,6 +14,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { toast } from 'sonner';
 import { findProductContent, ProductContent } from '@/data/productContent';
 import { sendProductViewEvent, sendAddToCartEvent } from '@/hooks/useShopifyAnalytics';
+import { trackViewContent } from '@/lib/marketingPixels';
 import { ProductReviews } from '@/components/product/ProductReviews';
 import { PurchaseTypeSelector, PurchaseMode } from '@/components/product/PurchaseTypeSelector';
 import { StockIndicator } from '@/components/product/StockIndicator';
@@ -140,6 +141,13 @@ export default function ProductDetail() {
             variantId: firstVariant.id,
             variantTitle: firstVariant.title,
             price: firstVariant.price.amount,
+          });
+          // Meta Pixel + GA4 ViewContent — critical for retargeting & DPA
+          trackViewContent({
+            id: firstVariant.id,
+            name: data.title,
+            price: parseFloat(firstVariant.price.amount) || 0,
+            quantity: 1,
           });
         }
       }
