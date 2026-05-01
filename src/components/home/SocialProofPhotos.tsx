@@ -23,7 +23,7 @@ export function SocialProofPhotos() {
           viewport={{ once: true }}
         >
           <h2 className="font-display text-2xl md:text-3xl mb-2" style={{ letterSpacing: '-0.02em' }}>
-            <span className="text-primary">50,000+</span> Happy Customers!
+            <span className="text-primary">Loved by</span> our early customers
           </h2>
         </motion.div>
       </div>
