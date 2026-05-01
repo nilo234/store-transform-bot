@@ -214,6 +214,13 @@ export const useCartStore = create<CartStore>()(
           set({ isLoading: false });
         }
 
+        // Marketing pixels — fire AddToCart for the bundle
+        try {
+          trackAddToCart(bundleItems.map((i) => itemToPixelProduct(i as never)));
+        } catch {
+          /* ignore */
+        }
+
         set({ isOpen: true });
       },
 
