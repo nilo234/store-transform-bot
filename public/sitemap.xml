@@ -1,95 +1,261 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Core pages -->
   <url>
-    <loc>https://neuvie.com/</loc>
-    <lastmod>2026-03-01</lastmod>
+    <loc>https://tryneuvie.com/</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://neuvie.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://neuvie.com/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuvie.com/" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://tryneuvie.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tryneuvie.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tryneuvie.com/" />
   </url>
   <url>
-    <loc>https://neuvie.com/shop</loc>
-    <lastmod>2026-03-01</lastmod>
+    <loc>https://tryneuvie.com/shop</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://neuvie.com/shop" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://neuvie.com/shop" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuvie.com/shop" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://tryneuvie.com/shop" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tryneuvie.com/shop" />
   </url>
   <url>
-    <loc>https://neuvie.com/bundles</loc>
-    <lastmod>2026-03-01</lastmod>
+    <loc>https://tryneuvie.com/bundles</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://neuvie.com/bundles" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://neuvie.com/bundles" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuvie.com/bundles" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://tryneuvie.com/bundles" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tryneuvie.com/bundles" />
+  </url>
+
+  <!-- Product pages (13 products) -->
+  <url>
+    <loc>https://tryneuvie.com/product/hair-skin-and-nails-strips</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neuvie.com/science</loc>
+    <loc>https://tryneuvie.com/product/sleep-strips-1</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/product/energy-strips-2</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/product/hangover-strips-2</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/product/digestive-gut-health-strips</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/product/iron-strips-1</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/product/appetite-balance-weight-support-strips</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/product/beauty-collagen-strips</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/product/libido-support-strips-1</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/product/mushroom-focus-strips</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/product/cognitive-relax-strips</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/product/bone-support-strips-1</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/product/probiotic-metabolism-strips</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Bundle pages -->
+  <url>
+    <loc>https://tryneuvie.com/bundles/spring-reset</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/bundles/night-out-survival-kit</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/bundles/deep-work-stack</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/bundles/before-you-leave</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/bundles/gut-feeling</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/bundles/glow-protocol</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/bundles/quiet-down</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/bundles/the-foundation</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/bundles/the-full-you</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Landing pages -->
+  <url>
+    <loc>https://tryneuvie.com/lp/glow-protocol</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/lp/digestive</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/lp/night-out</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/lp/quiet-down</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/lp/gut-feeling</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Quiz / Blog -->
+  <url>
+    <loc>https://tryneuvie.com/quiz</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/blog</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Info pages -->
+  <url>
+    <loc>https://tryneuvie.com/science</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://neuvie.com/science" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://neuvie.com/science" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuvie.com/science" />
   </url>
   <url>
-    <loc>https://neuvie.com/about</loc>
+    <loc>https://tryneuvie.com/about</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://neuvie.com/about" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://neuvie.com/about" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuvie.com/about" />
   </url>
   <url>
-    <loc>https://neuvie.com/faqs</loc>
+    <loc>https://tryneuvie.com/faqs</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://neuvie.com/faqs" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://neuvie.com/faqs" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuvie.com/faqs" />
   </url>
   <url>
-    <loc>https://neuvie.com/contact</loc>
+    <loc>https://tryneuvie.com/contact</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://neuvie.com/contact" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://neuvie.com/contact" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuvie.com/contact" />
   </url>
   <url>
-    <loc>https://neuvie.com/shipping</loc>
+    <loc>https://tryneuvie.com/shipping</loc>
     <lastmod>2026-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://neuvie.com/shipping" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://neuvie.com/shipping" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuvie.com/shipping" />
   </url>
   <url>
-    <loc>https://neuvie.com/returns</loc>
+    <loc>https://tryneuvie.com/returns</loc>
     <lastmod>2026-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://neuvie.com/returns" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://neuvie.com/returns" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://neuvie.com/returns" />
   </url>
   <url>
-    <loc>https://neuvie.com/privacy</loc>
+    <loc>https://tryneuvie.com/privacy</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://neuvie.com/terms</loc>
+    <loc>https://tryneuvie.com/terms</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
