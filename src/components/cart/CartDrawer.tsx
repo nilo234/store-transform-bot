@@ -14,6 +14,7 @@ import { CartBundleUpgradePrompt } from './CartBundleUpgradePrompt';
 import { bundles as bundleDefinitions } from '@/data/bundles';
 import { useRegion } from '@/hooks/useRegion';
 import { formatShopifyMoney } from '@/lib/region';
+import { trackInitiateCheckout } from '@/lib/marketingPixels';
 
 // Group items into bundles and standalone items
 function useGroupedItems(items: CartItem[]) {
@@ -66,6 +67,20 @@ export function CartDrawer() {
   }, [isOpen, syncCart]);
 
   const handleCheckout = async () => {
+    // Marketing pixels — fire InitiateCheckout BEFORE redirect (otherwise it doesn't fire)
+    try {
+      trackInitiateCheckout(
+        items.map((i) => ({
+          id: i.variantId,
+          name: i.product?.node?.title ?? 'Product',
+          price: parseFloat(i.price.amount) || 0,
+          quantity: i.quantity,
+        }))
+      );
+    } catch {
+      /* ignore */
+    }
+
     let checkoutUrl = getCheckoutUrl();
 
     if (!checkoutUrl) {
