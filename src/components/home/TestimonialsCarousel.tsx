@@ -105,7 +105,7 @@ export function TestimonialsCarousel() {
           </div>
           
           <p className="text-muted-foreground text-lg">
-            From <strong className="text-foreground">2,400+</strong> people who tried it, felt it, and stayed.
+            From the early customers who tried it, felt it, and stayed.
           </p>
         </motion.div>
       </div>

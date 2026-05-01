@@ -57,7 +57,7 @@ export function AdMatchTrustBar() {
                 <div className="flex items-center gap-1.5 flex-shrink-0">
                   <Star className="h-3.5 w-3.5 fill-accent text-accent" />
                   <span className="text-[11px] md:text-xs font-medium text-foreground whitespace-nowrap">
-                    2,400+ 5-star reviews
+                    Loved by early customers
                   </span>
                 </div>
                 <div className="flex items-center gap-1.5 flex-shrink-0">

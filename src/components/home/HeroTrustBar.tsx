@@ -10,7 +10,7 @@ export function HeroTrustBar() {
     isUK
       ? { icon: Globe, label: 'International Shipping' }
       : { icon: Truck, label: 'Free US Shipping $50+' },
-    { icon: Star, label: '2,400+ Verified Reviews' },
+    { icon: Star, label: 'Founder-Led Brand' },
   ];
 
   return (

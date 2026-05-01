@@ -44,7 +44,7 @@ export function StickyMobileCTA() {
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-2.5 w-2.5 fill-accent text-accent" />
                 ))}
-                <span className="text-[10px] text-muted-foreground ml-0.5">2,400+ reviews</span>
+                <span className="text-[10px] text-muted-foreground ml-0.5">14-day guarantee</span>
               </div>
             </div>
             <Link to="/shop" className="flex-shrink-0">
