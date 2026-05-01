@@ -7,12 +7,12 @@ export function WebsiteJsonLd() {
       "@type": "WebSite",
       "name": "Neuvie",
       "alternateName": "Neuvie Nutrition",
-      "url": "https://neuvie.com",
+      "url": "https://tryneuvie.com",
       "potentialAction": {
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://neuvie.com/shop?search={search_term_string}"
+          "urlTemplate": "https://tryneuvie.com/shop?search={search_term_string}"
         },
         "query-input": "required name=search_term_string"
       }
