@@ -27,7 +27,7 @@ const routineMoments: { icon: LucideIcon; title: string; quote: string; author: 
 
 const stats = [
   { value: '30s', label: 'Your daily routine' },
-  { value: '2,400+', label: 'People who chose themselves' },
+  { value: 'New', label: 'Founder-led brand · Made in USA' },
   { value: '4.9', label: 'Average rating' },
 ];
 

@@ -117,7 +117,7 @@ export default function GlowProtocolLanding() {
                 className="order-2 text-center lg:text-left"
               >
                 <div className="inline-flex items-center gap-2 bg-accent/15 text-accent px-3 py-1.5 rounded-full mb-4 text-xs font-semibold">
-                  <Star className="h-3.5 w-3.5 fill-accent" /> 4.9/5 — Loved by 5,000+
+                  <Star className="h-3.5 w-3.5 fill-accent" /> Founder-Led · Made in USA
                 </div>
                 <h1 className="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.05] mb-4">
                   The Glow Protocol —{' '}
@@ -282,7 +282,7 @@ export default function GlowProtocolLanding() {
           <div className="container-wide max-w-2xl text-center">
             <h2 className="font-display text-2xl md:text-3xl mb-3">Ready to glow?</h2>
             <p className="text-muted-foreground mb-6">
-              Join 5,000+ customers who made wellness simple.
+              Join the early customers making wellness effortless.
             </p>
             <Button
               onClick={handleAddToCart}

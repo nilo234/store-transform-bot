@@ -120,7 +120,7 @@ export default function Index() {
                       <Star key={i} className="h-4 w-4 fill-accent text-accent" strokeWidth={1.5} />
                     ))}
                   </div>
-                  <span className="font-medium">5,000+ Happy Customers</span>
+                  <span className="font-medium">Loved by our early customers</span>
                 </div>
 
                 {/* PRIMARY CTA — visually dominant, guarantee adjacent */}
@@ -296,7 +296,7 @@ export default function Index() {
                     <Star key={i} className="h-5 w-5 fill-accent text-accent" />
                   ))}
                 </div>
-                <span className="text-sm text-muted-foreground font-medium">4.9/5 — 2,400+ verified reviews</span>
+                <span className="text-sm text-muted-foreground font-medium">Loved by our first wave of customers</span>
               </div>
             </motion.div>
           </div>

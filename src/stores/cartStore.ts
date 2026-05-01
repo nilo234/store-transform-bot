@@ -12,6 +12,16 @@ import {
   addMultipleLinesToShopifyCart,
   applyDiscountToShopifyCart,
 } from '@/lib/shopify';
+import { trackAddToCart, trackInitiateCheckout, type PixelProduct } from '@/lib/marketingPixels';
+
+function itemToPixelProduct(item: { product: ShopifyProduct; price: { amount: string }; quantity: number; variantId: string }): PixelProduct {
+  return {
+    id: item.variantId,
+    name: item.product?.node?.title ?? 'Product',
+    price: parseFloat(item.price.amount) || 0,
+    quantity: item.quantity,
+  };
+}
 
 export interface CartItem {
   lineId: string | null; // Shopify cart line ID, null until synced
@@ -140,6 +150,13 @@ export const useCartStore = create<CartStore>()(
           set({ isLoading: false });
         }
 
+        // Marketing pixels — fire AddToCart event for Meta + GA4
+        try {
+          trackAddToCart([itemToPixelProduct(item as never)]);
+        } catch {
+          /* ignore */
+        }
+
         // Open cart drawer
         set({ isOpen: true });
       },
@@ -195,6 +212,13 @@ export const useCartStore = create<CartStore>()(
           console.error('Failed to add bundle:', error);
         } finally {
           set({ isLoading: false });
+        }
+
+        // Marketing pixels — fire AddToCart for the bundle
+        try {
+          trackAddToCart(bundleItems.map((i) => itemToPixelProduct(i as never)));
+        } catch {
+          /* ignore */
         }
 
         set({ isOpen: true });

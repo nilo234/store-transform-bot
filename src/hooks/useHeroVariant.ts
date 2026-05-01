@@ -22,7 +22,7 @@ export const heroVariants: Record<'a' | 'b' | 'c', HeroVariant> = {
   // B — benefit-led, more direct
   b: {
     id: 'b',
-    badge: '⚡ 5,000+ Reviews · 4.8★ Average',
+    badge: 'New Drop · Founder-Led Brand',
     headlineMain: 'Vitamins You\'ll Actually Take.',
     headlineItalic: 'Because pills are the worst part of feeling better.',
     subline: 'Dissolving wellness strips for energy, sleep, beauty & gut health. 30 seconds. Done.',
