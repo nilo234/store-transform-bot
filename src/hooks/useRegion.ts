@@ -1,36 +1,23 @@
-import { useEffect, useState, useCallback } from 'react';
-import { getRegion, getRegionConfig, formatPrice as formatPriceLib, type RegionCode } from '@/lib/region';
+import { useCallback } from 'react';
+import { formatPrice as formatPriceLib, type RegionCode } from '@/lib/region';
 
 /**
- * Reactive region hook. Re-renders when the user switches region
- * (via RegionSwitcher → window 'neuvie:region-change' event).
+ * US-only region hook. GBP/UK support removed — kept as a thin wrapper
+ * so existing components (`isUK`, `formatPrice`) continue to compile.
  */
 export function useRegion() {
-  const [region, setRegionState] = useState<RegionCode>(() => getRegion());
-
-  useEffect(() => {
-    const handler = (e: Event) => {
-      const detail = (e as CustomEvent).detail as RegionCode | undefined;
-      setRegionState(detail ?? getRegion());
-    };
-    window.addEventListener('neuvie:region-change', handler);
-    return () => window.removeEventListener('neuvie:region-change', handler);
-  }, []);
-
-  const cfg = getRegionConfig(region);
-
   const formatPrice = useCallback(
     (amount: number | string, opts?: { minimumFractionDigits?: number }) =>
-      formatPriceLib(amount, { region, ...opts }),
-    [region]
+      formatPriceLib(amount, opts),
+    []
   );
 
   return {
-    region,
-    currency: cfg.currency,
-    symbol: cfg.symbol,
-    isUK: region === 'GB',
-    isUS: region === 'US',
+    region: 'US' as RegionCode,
+    currency: 'USD' as const,
+    symbol: '$',
+    isUK: false,
+    isUS: true,
     formatPrice,
   };
 }
