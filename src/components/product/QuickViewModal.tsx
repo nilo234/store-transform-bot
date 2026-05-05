@@ -122,9 +122,7 @@ export function QuickViewModal({ product, open, onOpenChange }: QuickViewModalPr
             {/* Trust Points */}
             <div className="flex flex-wrap gap-3 mb-4">
               {[
-                ...(getRegion() === 'GB'
-                  ? [{ icon: Truck, text: 'International shipping' }]
-                  : [{ icon: Truck, text: `Free Shipping on ${formatPriceLib(50)}+` }]),
+                { icon: Truck, text: `Free Shipping on ${formatPriceLib(50)}+` },
                 { icon: Shield, text: '14-Day Guarantee' },
                 { icon: Check, text: 'Lab Tested' },
               ].map((item) => (

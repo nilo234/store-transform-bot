@@ -1,8 +1,8 @@
-// Region & currency detection for US / UK markets
-// Lightweight client-side detection — no external API calls.
+// US-only region module. GBP/UK support has been removed.
+// All exports are kept for backwards compatibility with existing imports.
 
-export type RegionCode = 'US' | 'GB';
-export type CurrencyCode = 'USD' | 'GBP';
+export type RegionCode = 'US';
+export type CurrencyCode = 'USD';
 
 interface RegionConfig {
   country: RegionCode;
@@ -11,183 +11,68 @@ interface RegionConfig {
   locale: string;
 }
 
-const CONFIG: Record<RegionCode, RegionConfig> = {
-  US: { country: 'US', currency: 'USD', symbol: '$', locale: 'en-US' },
-  GB: { country: 'GB', currency: 'GBP', symbol: '£', locale: 'en-GB' },
+const US_CONFIG: RegionConfig = {
+  country: 'US',
+  currency: 'USD',
+  symbol: '$',
+  locale: 'en-US',
 };
 
-// Static USD → GBP conversion rate. All hardcoded prices in the app are
-// authored in USD; when the active region is GB we convert them at display time.
-// Keep this conservative and easy to update.
-export const USD_TO_GBP = 0.79;
+export const USD_TO_GBP = 1; // legacy export — no longer used
 
-function convertUsdToGbp(amountUsd: number): number {
-  // Round to nearest .X9 for retail-friendly pricing (e.g. 34.99 → 27.99)
-  const raw = amountUsd * USD_TO_GBP;
-  const rounded = Math.round(raw) - 0.01;
-  return rounded > 0 ? rounded : Math.round(raw * 100) / 100;
-}
-
-const STORAGE_KEY = 'neuvie-region';
-
-// Conservative UK detection: timezone OR explicit en-GB locale
-function detectFromBrowser(): RegionCode {
-  if (typeof window === 'undefined') return 'US';
-
-  try {
-    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-    if (tz === 'Europe/London' || tz === 'Europe/Belfast' || tz === 'Europe/Jersey' || tz === 'Europe/Guernsey' || tz === 'Europe/Isle_of_Man') {
-      return 'GB';
-    }
-
-    const langs = (navigator.languages && navigator.languages.length > 0 ? navigator.languages : [navigator.language || 'en-US']);
-    for (const lang of langs) {
-      const lower = lang.toLowerCase();
-      if (lower === 'en-gb' || lower.startsWith('en-gb-')) return 'GB';
-    }
-  } catch {
-    // ignore
-  }
-
+export function getRegion(): RegionCode {
   return 'US';
 }
 
-let cached: RegionCode | null = null;
-
-export function getRegion(): RegionCode {
-  if (cached) return cached;
-
-  if (typeof window !== 'undefined') {
-    try {
-      const override = window.localStorage.getItem(STORAGE_KEY);
-      if (override === 'US' || override === 'GB') {
-        cached = override;
-        return cached;
-      }
-    } catch {
-      // ignore
-    }
-  }
-
-  cached = detectFromBrowser();
-  return cached;
+export function setRegion(_region: RegionCode): void {
+  // no-op — only US is supported
 }
 
-export function setRegion(region: RegionCode): void {
-  cached = region;
-  if (typeof window !== 'undefined') {
-    try {
-      window.localStorage.setItem(STORAGE_KEY, region);
-    } catch {
-      // ignore
-    }
-    // Force a refresh so Shopify queries re-fetch in the new currency context
-    window.dispatchEvent(new CustomEvent('neuvie:region-change', { detail: region }));
-  }
-}
-
-// IP-based auto-detection. Runs once per browser; result is cached so we
-// only call the geo-IP service once. If the user already has an explicit
-// override (set via RegionSwitcher), this is a no-op.
-const IP_DETECTED_KEY = 'neuvie-region-ip-detected';
 export async function autoDetectRegionFromIP(): Promise<void> {
-  if (typeof window === 'undefined') return;
-  try {
-    // Don't override an explicit user choice
-    const override = window.localStorage.getItem(STORAGE_KEY);
-    if (override === 'US' || override === 'GB') return;
-    // Don't re-detect if we already did once
-    if (window.localStorage.getItem(IP_DETECTED_KEY) === '1') return;
-
-    const res = await fetch('https://ipapi.co/json/', { cache: 'force-cache' });
-    if (!res.ok) return;
-    const data = await res.json();
-    const country = (data?.country_code || data?.country || '').toUpperCase();
-
-    let detected: RegionCode | null = null;
-    if (country === 'GB' || country === 'UK') detected = 'GB';
-    else if (country === 'US') detected = 'US';
-
-    window.localStorage.setItem(IP_DETECTED_KEY, '1');
-
-    if (detected && detected !== cached) {
-      cached = detected;
-      window.localStorage.setItem(STORAGE_KEY, detected);
-      window.dispatchEvent(new CustomEvent('neuvie:region-change', { detail: detected }));
-    }
-  } catch {
-    // ignore network/parse errors
-  }
+  // no-op — region detection removed
 }
 
-export function getRegionConfig(region?: RegionCode): RegionConfig {
-  return CONFIG[region ?? getRegion()];
+export function getRegionConfig(_region?: RegionCode): RegionConfig {
+  return US_CONFIG;
 }
 
 export function getCurrency(): CurrencyCode {
-  return getRegionConfig().currency;
+  return 'USD';
 }
 
 export function getCurrencySymbol(): string {
-  return getRegionConfig().symbol;
+  return '$';
 }
 
-// Format a numeric price using the active region's currency.
-// Use this everywhere instead of hardcoding "$" in the UI.
-export function formatPrice(amount: number | string, opts?: { region?: RegionCode; minimumFractionDigits?: number; sourceCurrency?: CurrencyCode }): string {
-  const cfg = getRegionConfig(opts?.region);
-  let num = typeof amount === 'string' ? parseFloat(amount) : amount;
-  if (!Number.isFinite(num)) return `${cfg.symbol}0.00`;
-
-  // Hardcoded prices in the app are authored in USD. Convert to GBP when needed.
-  const source = opts?.sourceCurrency ?? 'USD';
-  if (cfg.currency === 'GBP' && source === 'USD') {
-    num = convertUsdToGbp(num);
-  }
-
+export function formatPrice(
+  amount: number | string,
+  opts?: { region?: RegionCode; minimumFractionDigits?: number; sourceCurrency?: CurrencyCode }
+): string {
+  const num = typeof amount === 'string' ? parseFloat(amount) : amount;
+  if (!Number.isFinite(num)) return '$0.00';
   try {
-    return new Intl.NumberFormat(cfg.locale, {
+    return new Intl.NumberFormat('en-US', {
       style: 'currency',
-      currency: cfg.currency,
+      currency: 'USD',
       minimumFractionDigits: opts?.minimumFractionDigits ?? 2,
       maximumFractionDigits: 2,
     }).format(num);
   } catch {
-    return `${cfg.symbol}${num.toFixed(2)}`;
+    return `$${num.toFixed(2)}`;
   }
 }
 
-// Format a price coming from Shopify. If Shopify returns USD but the active
-// region is GB (because Markets isn't configured yet), convert to GBP for display.
-export function formatShopifyMoney(amount: string | number, currencyCode?: string): string {
-  const activeRegion = getRegion();
-  const activeCfg = CONFIG[activeRegion];
-  let num = typeof amount === 'string' ? parseFloat(amount) : amount;
-  if (!Number.isFinite(num)) return `${activeCfg.symbol}0.00`;
-
-  let displayCfg: RegionConfig;
-  if (currencyCode === 'GBP') {
-    displayCfg = CONFIG.GB;
-  } else if (currencyCode === 'USD') {
-    // Shopify priced in USD — if user is in GB, convert + show as GBP
-    if (activeRegion === 'GB') {
-      num = convertUsdToGbp(num);
-      displayCfg = CONFIG.GB;
-    } else {
-      displayCfg = CONFIG.US;
-    }
-  } else {
-    displayCfg = activeCfg;
-  }
-
+export function formatShopifyMoney(amount: string | number, _currencyCode?: string): string {
+  const num = typeof amount === 'string' ? parseFloat(amount) : amount;
+  if (!Number.isFinite(num)) return '$0.00';
   try {
-    return new Intl.NumberFormat(displayCfg.locale, {
+    return new Intl.NumberFormat('en-US', {
       style: 'currency',
-      currency: displayCfg.currency,
+      currency: 'USD',
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     }).format(num);
   } catch {
-    return `${displayCfg.symbol}${num.toFixed(2)}`;
+    return `$${num.toFixed(2)}`;
   }
 }
