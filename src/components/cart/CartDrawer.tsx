@@ -179,6 +179,7 @@ export function CartDrawer() {
   }, 0);
 
   return (
+    <>
     <Sheet open={isOpen} onOpenChange={setOpen}>
       <SheetContent className="w-full sm:max-w-lg flex flex-col h-full p-0">
         <SheetHeader className="px-4 md:px-6 py-3 md:py-4 border-b flex flex-row items-center justify-between">
@@ -370,6 +371,7 @@ export function CartDrawer() {
       context={feedbackContext}
       onConfirm={handleConfirmRemoval}
     />
+    </>
   );
 }
 
