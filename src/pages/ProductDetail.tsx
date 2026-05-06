@@ -172,7 +172,7 @@ export default function ProductDetail() {
 
       if (bestBundle) {
         const bundleItems = bestBundle.variantIds.map(vid => {
-          const info = productInfo[vid] ?? { title: 'NEUVIE Strip', price: '34.99' };
+          const info = productInfo[vid] ?? { title: 'NEUVIE Strip', price: '29.99' };
           return {
             product: { node: product },
             variantId: vid,
@@ -497,7 +497,7 @@ export default function ProductDetail() {
               {/* Value Proposition Block */}
               <ValueProposition 
                 servings={30} 
-                basePrice={parseFloat(product.variants.edges[0]?.node.price.amount || '34.99')}
+                basePrice={parseFloat(product.variants.edges[0]?.node.price.amount || '29.99')}
               />
 
               {/* Inline Testimonial */}
