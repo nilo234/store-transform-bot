@@ -193,9 +193,11 @@ const CART_QUERY = `
         edges {
           node {
             id
+            quantity
             merchandise {
               ... on ProductVariant {
                 id
+                price { amount currencyCode }
               }
             }
           }
@@ -493,29 +495,29 @@ export type ShopifyCartFetchState = 'active' | 'empty' | 'missing' | 'unknown';
 
 export async function fetchShopifyCart(
   cartId: string
-): Promise<{ state: ShopifyCartFetchState; checkoutUrl?: string; lineIds?: Map<string, string> }> {
+): Promise<{
+  state: ShopifyCartFetchState;
+  checkoutUrl?: string;
+  lineIds?: Map<string, string>;
+  prices?: Map<string, { amount: string; currencyCode: string }>;
+}> {
   try {
     const data = await storefrontApiRequest(CART_QUERY, { id: cartId });
 
-    if (!data) {
-      // API-level issue (e.g. billing), keep local cart intact
-      return { state: 'unknown' };
-    }
+    if (!data) return { state: 'unknown' };
 
     const cart = data?.data?.cart;
-
-    if (!cart) {
-      return { state: 'missing' };
-    }
-
-    if (!cart.totalQuantity || cart.totalQuantity <= 0) {
-      return { state: 'empty' };
-    }
+    if (!cart) return { state: 'missing' };
+    if (!cart.totalQuantity || cart.totalQuantity <= 0) return { state: 'empty' };
 
     const lineIds = new Map<string, string>();
+    const prices = new Map<string, { amount: string; currencyCode: string }>();
     for (const edge of cart.lines?.edges || []) {
-      if (edge?.node?.merchandise?.id && edge?.node?.id) {
-        lineIds.set(edge.node.merchandise.id, edge.node.id);
+      const variantId = edge?.node?.merchandise?.id;
+      const lineId = edge?.node?.id;
+      if (variantId && lineId) lineIds.set(variantId, lineId);
+      if (variantId && edge?.node?.merchandise?.price) {
+        prices.set(variantId, edge.node.merchandise.price);
       }
     }
 
@@ -523,9 +525,9 @@ export async function fetchShopifyCart(
       state: 'active',
       checkoutUrl: cart.checkoutUrl ? formatCheckoutUrl(cart.checkoutUrl) : undefined,
       lineIds,
+      prices,
     };
   } catch {
-    // Network issue, keep local cart intact
     return { state: 'unknown' };
   }
 }
