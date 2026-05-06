@@ -68,7 +68,7 @@ export function StickyAddToCart({
   const show = isVisible && !footerVisible;
   const { formatPrice, symbol } = useRegion();
 
-  // Per-strip cost in minor units — e.g. $34.99 / 30 strips
+  // Per-strip cost in minor units — e.g. $29.99 / 30 strips
   const perStripCents = stripsPerPack > 0 ? Math.round((price / stripsPerPack) * 100) : 0;
   const perStripLabel = perStripCents > 0
     ? (perStripCents >= 100

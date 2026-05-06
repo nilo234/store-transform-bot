@@ -7,7 +7,7 @@ interface ValuePropositionProps {
   basePrice?: number;
 }
 
-export const ValueProposition = ({ servings = 30, basePrice = 34.99 }: ValuePropositionProps) => {
+export const ValueProposition = ({ servings = 30, basePrice = 29.99 }: ValuePropositionProps) => {
   const { isUK, formatPrice } = useRegion();
   const subPrice = formatPrice(basePrice * 0.8);
 

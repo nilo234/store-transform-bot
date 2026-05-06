@@ -229,7 +229,7 @@ export default function Quiz() {
                         Start Small · Single Strip
                       </span>
                       <span className="bg-muted text-muted-foreground text-[10px] font-bold px-2 py-1 rounded-full whitespace-nowrap">
-                        FROM {formatPrice(34.99)}
+                        FROM {formatPrice(29.99)}
                       </span>
                     </div>
 
