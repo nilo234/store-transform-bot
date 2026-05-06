@@ -248,7 +248,7 @@ export function CartDrawer() {
                           variant="ghost"
                           size="icon"
                           className="h-7 w-7 text-muted-foreground hover:text-destructive"
-                          onClick={() => removeBundle(bundleId)}
+                          onClick={() => requestRemoveBundle(bundleId)}
                           disabled={isLoading}
                         >
                           <Trash2 className="h-3.5 w-3.5" />
@@ -276,7 +276,7 @@ export function CartDrawer() {
                       {/* Bundle Items */}
                       <div className="divide-y divide-border/30">
                         {bundle.items.map((item) => (
-                          <CartItemRow key={item.variantId} item={item} isLoading={isLoading} updateQuantity={updateQuantity} removeItem={removeItem} compact />
+                          <CartItemRow key={item.variantId} item={item} isLoading={isLoading} updateQuantity={handleQuantityChange} removeItem={requestRemoveItem} compact />
                         ))}
                       </div>
                     </div>
@@ -285,7 +285,7 @@ export function CartDrawer() {
 
                   {/* Standalone Items */}
                   {standalone.map((item) => (
-                    <CartItemRow key={item.variantId} item={item} isLoading={isLoading} updateQuantity={updateQuantity} removeItem={removeItem} />
+                    <CartItemRow key={item.variantId} item={item} isLoading={isLoading} updateQuantity={handleQuantityChange} removeItem={requestRemoveItem} />
                   ))}
                 </div>
 
