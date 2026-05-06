@@ -82,12 +82,20 @@ function buildCartLines(items: CartItem[]): Array<{ variantId: string; quantity:
   return Array.from(quantityMap.entries()).map(([variantId, quantity]) => ({ variantId, quantity }));
 }
 
-function patchItemsWithLineIds(items: CartItem[], lineIds?: Map<string, string>): CartItem[] {
-  if (!lineIds) return items;
-  return items.map((item) => ({
-    ...item,
-    lineId: lineIds.get(item.variantId) ?? item.lineId ?? null,
-  }));
+function patchItemsWithLineIds(
+  items: CartItem[],
+  lineIds?: Map<string, string>,
+  prices?: Map<string, { amount: string; currencyCode: string }>,
+): CartItem[] {
+  if (!lineIds && !prices) return items;
+  return items.map((item) => {
+    const fresh = prices?.get(item.variantId);
+    return {
+      ...item,
+      lineId: lineIds?.get(item.variantId) ?? item.lineId ?? null,
+      price: fresh ? { amount: fresh.amount, currencyCode: fresh.currencyCode } : item.price,
+    };
+  });
 }
 
 export const useCartStore = create<CartStore>()(
