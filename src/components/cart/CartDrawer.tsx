@@ -1,4 +1,5 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { CartRemovalFeedbackDialog, type RemovalContext } from './CartRemovalFeedbackDialog';
 import { toast } from 'sonner';
 import { sanitizeTitle, SHOPIFY_STORE_PERMANENT_DOMAIN } from '@/lib/shopify';
 import { Minus, Plus, Trash2, ExternalLink, Loader2, ShoppingCart, RefreshCw, Gift, X, Package } from 'lucide-react';
@@ -60,6 +61,46 @@ export function CartDrawer() {
 
   const { bundles, standalone } = useGroupedItems(items);
   const { formatPrice } = useRegion();
+
+  const [feedbackOpen, setFeedbackOpen] = useState(false);
+  const [feedbackContext, setFeedbackContext] = useState<RemovalContext | null>(null);
+
+  const requestRemoveItem = (variantId: string) => {
+    const item = items.find(i => i.variantId === variantId);
+    if (!item) return;
+    setFeedbackContext({ type: 'item', item });
+    setFeedbackOpen(true);
+  };
+
+  const requestRemoveBundle = (bundleId: string) => {
+    const bundleItems = items.filter(i => i.bundleId === bundleId);
+    if (bundleItems.length === 0) return;
+    setFeedbackContext({
+      type: 'bundle',
+      bundleId,
+      bundleName: bundleItems[0].bundleName || 'Bundle',
+      items: bundleItems,
+    });
+    setFeedbackOpen(true);
+  };
+
+  const handleConfirmRemoval = async () => {
+    if (!feedbackContext) return;
+    if (feedbackContext.type === 'item') {
+      await removeItem(feedbackContext.item.variantId);
+    } else {
+      await removeBundle(feedbackContext.bundleId);
+    }
+  };
+
+  // Intercept quantity decrease to 0 with feedback
+  const handleQuantityChange = async (variantId: string, newQuantity: number) => {
+    if (newQuantity <= 0) {
+      requestRemoveItem(variantId);
+      return;
+    }
+    await updateQuantity(variantId, newQuantity);
+  };
 
   // Sync cart with Shopify when drawer opens
   useEffect(() => {
@@ -138,6 +179,7 @@ export function CartDrawer() {
   }, 0);
 
   return (
+    <>
     <Sheet open={isOpen} onOpenChange={setOpen}>
       <SheetContent className="w-full sm:max-w-lg flex flex-col h-full p-0">
         <SheetHeader className="px-4 md:px-6 py-3 md:py-4 border-b flex flex-row items-center justify-between">
@@ -207,7 +249,7 @@ export function CartDrawer() {
                           variant="ghost"
                           size="icon"
                           className="h-7 w-7 text-muted-foreground hover:text-destructive"
-                          onClick={() => removeBundle(bundleId)}
+                          onClick={() => requestRemoveBundle(bundleId)}
                           disabled={isLoading}
                         >
                           <Trash2 className="h-3.5 w-3.5" />
@@ -235,7 +277,7 @@ export function CartDrawer() {
                       {/* Bundle Items */}
                       <div className="divide-y divide-border/30">
                         {bundle.items.map((item) => (
-                          <CartItemRow key={item.variantId} item={item} isLoading={isLoading} updateQuantity={updateQuantity} removeItem={removeItem} compact />
+                          <CartItemRow key={item.variantId} item={item} isLoading={isLoading} updateQuantity={handleQuantityChange} removeItem={requestRemoveItem} compact />
                         ))}
                       </div>
                     </div>
@@ -244,7 +286,7 @@ export function CartDrawer() {
 
                   {/* Standalone Items */}
                   {standalone.map((item) => (
-                    <CartItemRow key={item.variantId} item={item} isLoading={isLoading} updateQuantity={updateQuantity} removeItem={removeItem} />
+                    <CartItemRow key={item.variantId} item={item} isLoading={isLoading} updateQuantity={handleQuantityChange} removeItem={requestRemoveItem} />
                   ))}
                 </div>
 
@@ -323,6 +365,13 @@ export function CartDrawer() {
         </div>
       </SheetContent>
     </Sheet>
+    <CartRemovalFeedbackDialog
+      open={feedbackOpen}
+      onOpenChange={setFeedbackOpen}
+      context={feedbackContext}
+      onConfirm={handleConfirmRemoval}
+    />
+    </>
   );
 }
 
@@ -336,8 +385,8 @@ function CartItemRow({
 }: {
   item: CartItem;
   isLoading: boolean;
-  updateQuantity: (variantId: string, quantity: number) => Promise<void>;
-  removeItem: (variantId: string) => Promise<void>;
+  updateQuantity: (variantId: string, quantity: number) => void | Promise<void>;
+  removeItem: (variantId: string) => void | Promise<void>;
   compact?: boolean;
 }) {
   return (

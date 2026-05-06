@@ -34,6 +34,7 @@ const GutFeelingLanding = lazy(() => import("./pages/lp/GutFeelingLanding"));
 const Quiz = lazy(() => import("./pages/Quiz"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
+const AdminCartFeedback = lazy(() => import("./pages/AdminCartFeedback"));
 
 // Defer non-critical widgets (chat + exit popup) — they should never block first paint
 const LiveChatWidget = lazy(() =>
@@ -89,6 +90,7 @@ const App = () => (
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/admin/cart-feedback" element={<AdminCartFeedback />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
