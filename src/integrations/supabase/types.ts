@@ -14,6 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
+      cart_removal_feedback: {
+        Row: {
+          bundle_name: string | null
+          comment: string | null
+          created_at: string
+          id: string
+          is_bundle: boolean
+          page_url: string | null
+          price_amount: number | null
+          product_title: string | null
+          quantity: number | null
+          reason: string
+          user_agent: string | null
+          variant_id: string | null
+        }
+        Insert: {
+          bundle_name?: string | null
+          comment?: string | null
+          created_at?: string
+          id?: string
+          is_bundle?: boolean
+          page_url?: string | null
+          price_amount?: number | null
+          product_title?: string | null
+          quantity?: number | null
+          reason: string
+          user_agent?: string | null
+          variant_id?: string | null
+        }
+        Update: {
+          bundle_name?: string | null
+          comment?: string | null
+          created_at?: string
+          id?: string
+          is_bundle?: boolean
+          page_url?: string | null
+          price_amount?: number | null
+          product_title?: string | null
+          quantity?: number | null
+          reason?: string
+          user_agent?: string | null
+          variant_id?: string | null
+        }
+        Relationships: []
+      }
       contact_submissions: {
         Row: {
           created_at: string
