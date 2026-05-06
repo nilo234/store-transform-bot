@@ -82,12 +82,20 @@ function buildCartLines(items: CartItem[]): Array<{ variantId: string; quantity:
   return Array.from(quantityMap.entries()).map(([variantId, quantity]) => ({ variantId, quantity }));
 }
 
-function patchItemsWithLineIds(items: CartItem[], lineIds?: Map<string, string>): CartItem[] {
-  if (!lineIds) return items;
-  return items.map((item) => ({
-    ...item,
-    lineId: lineIds.get(item.variantId) ?? item.lineId ?? null,
-  }));
+function patchItemsWithLineIds(
+  items: CartItem[],
+  lineIds?: Map<string, string>,
+  prices?: Map<string, { amount: string; currencyCode: string }>,
+): CartItem[] {
+  if (!lineIds && !prices) return items;
+  return items.map((item) => {
+    const fresh = prices?.get(item.variantId);
+    return {
+      ...item,
+      lineId: lineIds?.get(item.variantId) ?? item.lineId ?? null,
+      price: fresh ? { amount: fresh.amount, currencyCode: fresh.currencyCode } : item.price,
+    };
+  });
 }
 
 export const useCartStore = create<CartStore>()(
@@ -349,7 +357,7 @@ export const useCartStore = create<CartStore>()(
             if (snapshot.state === 'active' && snapshot.checkoutUrl) {
               set((state) => ({
                 checkoutUrl: snapshot.checkoutUrl ?? state.checkoutUrl,
-                items: patchItemsWithLineIds(state.items, snapshot.lineIds),
+                items: patchItemsWithLineIds(state.items, snapshot.lineIds, snapshot.prices),
               }));
               return snapshot.checkoutUrl;
             }
@@ -389,7 +397,7 @@ export const useCartStore = create<CartStore>()(
           if (snapshot.state === 'active') {
             set((state) => ({
               checkoutUrl: snapshot.checkoutUrl ?? state.checkoutUrl,
-              items: patchItemsWithLineIds(state.items, snapshot.lineIds),
+              items: patchItemsWithLineIds(state.items, snapshot.lineIds, snapshot.prices),
             }));
             return;
           }
@@ -440,12 +448,17 @@ export const useCartStore = create<CartStore>()(
     }),
     {
       name: 'neuvie-cart',
+      version: 2, // bumped after price drop $34.99 -> $29.99 to invalidate stale persisted carts
       storage: createJSONStorage(() => localStorage),
       partialize: (state) => ({
         items: state.items,
         cartId: state.cartId,
         checkoutUrl: state.checkoutUrl,
       }),
+      migrate: (persistedState) => {
+        // Drop any persisted cart from before the price update
+        return { items: [], cartId: null, checkoutUrl: null } as never;
+      },
     }
   )
 );
