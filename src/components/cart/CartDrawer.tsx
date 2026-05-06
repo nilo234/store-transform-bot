@@ -62,6 +62,46 @@ export function CartDrawer() {
   const { bundles, standalone } = useGroupedItems(items);
   const { formatPrice } = useRegion();
 
+  const [feedbackOpen, setFeedbackOpen] = useState(false);
+  const [feedbackContext, setFeedbackContext] = useState<RemovalContext | null>(null);
+
+  const requestRemoveItem = (variantId: string) => {
+    const item = items.find(i => i.variantId === variantId);
+    if (!item) return;
+    setFeedbackContext({ type: 'item', item });
+    setFeedbackOpen(true);
+  };
+
+  const requestRemoveBundle = (bundleId: string) => {
+    const bundleItems = items.filter(i => i.bundleId === bundleId);
+    if (bundleItems.length === 0) return;
+    setFeedbackContext({
+      type: 'bundle',
+      bundleId,
+      bundleName: bundleItems[0].bundleName || 'Bundle',
+      items: bundleItems,
+    });
+    setFeedbackOpen(true);
+  };
+
+  const handleConfirmRemoval = async () => {
+    if (!feedbackContext) return;
+    if (feedbackContext.type === 'item') {
+      await removeItem(feedbackContext.item.variantId);
+    } else {
+      await removeBundle(feedbackContext.bundleId);
+    }
+  };
+
+  // Intercept quantity decrease to 0 with feedback
+  const handleQuantityChange = async (variantId: string, newQuantity: number) => {
+    if (newQuantity <= 0) {
+      requestRemoveItem(variantId);
+      return;
+    }
+    await updateQuantity(variantId, newQuantity);
+  };
+
   // Sync cart with Shopify when drawer opens
   useEffect(() => {
     if (isOpen) syncCart();
