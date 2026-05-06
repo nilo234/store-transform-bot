@@ -1,4 +1,5 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { CartRemovalFeedbackDialog, type RemovalContext } from './CartRemovalFeedbackDialog';
 import { toast } from 'sonner';
 import { sanitizeTitle, SHOPIFY_STORE_PERMANENT_DOMAIN } from '@/lib/shopify';
 import { Minus, Plus, Trash2, ExternalLink, Loader2, ShoppingCart, RefreshCw, Gift, X, Package } from 'lucide-react';
