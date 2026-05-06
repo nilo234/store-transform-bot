@@ -357,7 +357,7 @@ export const useCartStore = create<CartStore>()(
             if (snapshot.state === 'active' && snapshot.checkoutUrl) {
               set((state) => ({
                 checkoutUrl: snapshot.checkoutUrl ?? state.checkoutUrl,
-                items: patchItemsWithLineIds(state.items, snapshot.lineIds),
+                items: patchItemsWithLineIds(state.items, snapshot.lineIds, snapshot.prices),
               }));
               return snapshot.checkoutUrl;
             }
@@ -397,7 +397,7 @@ export const useCartStore = create<CartStore>()(
           if (snapshot.state === 'active') {
             set((state) => ({
               checkoutUrl: snapshot.checkoutUrl ?? state.checkoutUrl,
-              items: patchItemsWithLineIds(state.items, snapshot.lineIds),
+              items: patchItemsWithLineIds(state.items, snapshot.lineIds, snapshot.prices),
             }));
             return;
           }
