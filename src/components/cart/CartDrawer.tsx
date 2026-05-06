@@ -377,8 +377,8 @@ function CartItemRow({
 }: {
   item: CartItem;
   isLoading: boolean;
-  updateQuantity: (variantId: string, quantity: number) => Promise<void>;
-  removeItem: (variantId: string) => Promise<void>;
+  updateQuantity: (variantId: string, quantity: number) => void | Promise<void>;
+  removeItem: (variantId: string) => void | Promise<void>;
   compact?: boolean;
 }) {
   return (
