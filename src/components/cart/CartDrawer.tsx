@@ -364,6 +364,12 @@ export function CartDrawer() {
         </div>
       </SheetContent>
     </Sheet>
+    <CartRemovalFeedbackDialog
+      open={feedbackOpen}
+      onOpenChange={setFeedbackOpen}
+      context={feedbackContext}
+      onConfirm={handleConfirmRemoval}
+    />
   );
 }
 
