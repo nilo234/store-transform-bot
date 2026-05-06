@@ -448,12 +448,17 @@ export const useCartStore = create<CartStore>()(
     }),
     {
       name: 'neuvie-cart',
+      version: 2, // bumped after price drop $34.99 -> $29.99 to invalidate stale persisted carts
       storage: createJSONStorage(() => localStorage),
       partialize: (state) => ({
         items: state.items,
         cartId: state.cartId,
         checkoutUrl: state.checkoutUrl,
       }),
+      migrate: (persistedState) => {
+        // Drop any persisted cart from before the price update
+        return { items: [], cartId: null, checkoutUrl: null } as never;
+      },
     }
   )
 );
