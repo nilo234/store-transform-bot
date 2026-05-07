@@ -8,3 +8,6 @@ verify_jwt = false
 
 [functions.admin-cart-feedback]
 verify_jwt = false
+
+[functions.admin-dashboard]
+verify_jwt = false
