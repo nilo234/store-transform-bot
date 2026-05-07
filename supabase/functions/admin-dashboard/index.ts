@@ -115,7 +115,15 @@ async function getKlaviyoStats() {
 async function getGoogleAccessToken() {
   const raw = Deno.env.get("GA4_SERVICE_ACCOUNT_JSON");
   if (!raw) throw new Error("GA4_SERVICE_ACCOUNT_JSON missing");
-  const sa = JSON.parse(raw);
+  let sa: any;
+  try {
+    sa = JSON.parse(raw);
+  } catch {
+    throw new Error("GA4_SERVICE_ACCOUNT_JSON is not valid JSON. Paste the FULL contents of the service-account .json file (including the outer { } braces).");
+  }
+  if (!sa.client_email || !sa.private_key) {
+    throw new Error("GA4_SERVICE_ACCOUNT_JSON missing client_email or private_key fields.");
+  }
   const now = getNumericDate(0);
   const payload = {
     iss: sa.client_email,
