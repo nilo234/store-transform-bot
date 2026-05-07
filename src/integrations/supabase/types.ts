@@ -14,6 +14,33 @@ export type Database = {
   }
   public: {
     Tables: {
+      admin_notes: {
+        Row: {
+          author: string | null
+          created_at: string
+          id: string
+          note: string
+          scope: string
+          scope_id: string | null
+        }
+        Insert: {
+          author?: string | null
+          created_at?: string
+          id?: string
+          note: string
+          scope: string
+          scope_id?: string | null
+        }
+        Update: {
+          author?: string | null
+          created_at?: string
+          id?: string
+          note?: string
+          scope?: string
+          scope_id?: string | null
+        }
+        Relationships: []
+      }
       cart_removal_feedback: {
         Row: {
           bundle_name: string | null
