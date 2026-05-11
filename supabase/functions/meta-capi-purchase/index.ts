@@ -18,6 +18,28 @@ const sha256 = (v: string) =>
 
 const normalizePhone = (p: string) => p.replace(/[^0-9]/g, "");
 
+// Built-in sample order for the test endpoint (?test=1).
+const SAMPLE_ORDER = {
+  id: 9999000001,
+  email: "test@tryneuvie.com",
+  phone: "+1 415 555 0199",
+  created_at: new Date().toISOString(),
+  currency: "USD",
+  total_price: "59.98",
+  order_status_url: "https://tryneuvie.com/orders/test",
+  customer: { first_name: "Jane", last_name: "Tester", email: "test@tryneuvie.com" },
+  shipping_address: {
+    first_name: "Jane", last_name: "Tester",
+    city: "San Francisco", zip: "94110",
+    province_code: "CA", country_code: "US",
+    phone: "+1 415 555 0199",
+  },
+  client_details: { browser_ip: "203.0.113.42", user_agent: "Mozilla/5.0 (Test) MetaCAPI/1.0" },
+  line_items: [
+    { product_id: 8000001, variant_id: 9000001, quantity: 2, price: "29.99" },
+  ],
+};
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
 
