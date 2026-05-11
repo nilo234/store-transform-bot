@@ -177,7 +177,7 @@ Deno.serve(async (req) => {
     const debug = isTest ? {
       pixel_id: META_PIXEL_ID,
       api_version: META_API_VERSION,
-      meta_api_url: metaUrl_redacted(accessToken),
+      meta_api_url: `https://graph.facebook.com/${META_API_VERSION}/${META_PIXEL_ID}/events?access_token=***REDACTED***`,
       computed: {
         event_id: eventId,
         event_id_source: order.id ? "order.id" : "fallback:event_time",
