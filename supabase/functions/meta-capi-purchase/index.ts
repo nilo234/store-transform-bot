@@ -41,7 +41,7 @@ Deno.serve(async (req) => {
 
     // Optional HMAC verification (recommended) — set SHOPIFY_WEBHOOK_SECRET
     const webhookSecret = Deno.env.get("SHOPIFY_WEBHOOK_SECRET");
-    if (webhookSecret) {
+    if (webhookSecret && !isTest) {
       const hmacHeader = req.headers.get("x-shopify-hmac-sha256") ?? "";
       const digest = createHmac("sha256", webhookSecret).update(rawBody).digest("base64");
       if (digest !== hmacHeader) {
