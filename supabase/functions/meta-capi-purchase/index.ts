@@ -98,18 +98,43 @@ Deno.serve(async (req) => {
     const country: string | undefined = order.shipping_address?.country_code;
     const state: string | undefined = order.shipping_address?.province_code;
 
+    // fbp / fbc are typically passed by the storefront via cart note_attributes
+    // (recommended pattern). They can also arrive via cookies on the request.
+    const noteAttrs: Array<{ name: string; value: string }> = order.note_attributes ?? [];
+    const noteAttr = (k: string) =>
+      noteAttrs.find((a) => a?.name?.toLowerCase() === k.toLowerCase())?.value;
+    const cookieHeader = req.headers.get("cookie") ?? "";
+    const cookieVal = (k: string) => {
+      const m = cookieHeader.match(new RegExp(`(?:^|; )${k}=([^;]+)`));
+      return m ? decodeURIComponent(m[1]) : undefined;
+    };
+    const fbp = noteAttr("fbp") ?? cookieVal("_fbp");
+    const fbc = noteAttr("fbc") ?? cookieVal("_fbc");
+
+    // Build raw → hashed mapping for debug
+    type FieldMap = { src: string; raw?: string; normalized?: string; hashed?: string };
+    const fields: Record<string, FieldMap> = {
+      em: { src: "order.email | customer.email", raw: email, normalized: email?.trim().toLowerCase() },
+      ph: { src: "order.phone | customer.phone | shipping_address.phone", raw: phone, normalized: phone ? normalizePhone(phone) : undefined },
+      fn: { src: "customer.first_name | shipping_address.first_name", raw: firstName, normalized: firstName?.trim().toLowerCase() },
+      ln: { src: "customer.last_name | shipping_address.last_name", raw: lastName, normalized: lastName?.trim().toLowerCase() },
+      ct: { src: "shipping_address.city", raw: city, normalized: city?.trim().toLowerCase() },
+      zp: { src: "shipping_address.zip", raw: zip, normalized: zip?.trim().toLowerCase() },
+      country: { src: "shipping_address.country_code", raw: country, normalized: country?.trim().toLowerCase() },
+      st: { src: "shipping_address.province_code", raw: state, normalized: state?.trim().toLowerCase() },
+    };
+
     const userData: Record<string, unknown> = {};
-    if (email) userData.em = [sha256(email)];
-    if (phone) userData.ph = [sha256(normalizePhone(phone))];
-    if (firstName) userData.fn = [sha256(firstName)];
-    if (lastName) userData.ln = [sha256(lastName)];
-    if (city) userData.ct = [sha256(city)];
-    if (zip) userData.zp = [sha256(zip)];
-    if (country) userData.country = [sha256(country)];
-    if (state) userData.st = [sha256(state)];
-    // Shopify includes the customer IP & UA in the order payload
+    for (const [k, f] of Object.entries(fields)) {
+      if (f.normalized) {
+        f.hashed = sha256(f.normalized);
+        userData[k] = [f.hashed];
+      }
+    }
     if (order.client_details?.browser_ip) userData.client_ip_address = order.client_details.browser_ip;
     if (order.client_details?.user_agent) userData.client_user_agent = order.client_details.user_agent;
+    if (fbp) userData.fbp = fbp;
+    if (fbc) userData.fbc = fbc;
 
     const contents = (order.line_items ?? []).map((li: Record<string, unknown>) => ({
       id: String(li.product_id ?? li.variant_id ?? ""),
@@ -117,12 +142,14 @@ Deno.serve(async (req) => {
       item_price: Number(li.price ?? 0),
     }));
 
+    const eventId = String(order.id ?? `${eventTime}`);
+
     const payload = {
       data: [
         {
           event_name: "Purchase",
           event_time: eventTime,
-          event_id: String(order.id ?? `${eventTime}`), // dedupe with browser pixel
+          event_id: eventId, // dedupe with browser pixel — must match the `eventID` sent to fbq('track', 'Purchase', {...}, { eventID })
           action_source: "website",
           event_source_url: order.order_status_url ?? `https://tryneuvie.com`,
           user_data: userData,
@@ -142,9 +169,43 @@ Deno.serve(async (req) => {
     const testEventCode = url.searchParams.get("test_event_code");
     if (testEventCode) {
       (payload.data[0] as Record<string, unknown>).test_event_code = testEventCode;
-      // Also accepted at top level by Meta; include both for safety
       (payload as Record<string, unknown>).test_event_code = testEventCode;
     }
+
+
+    // Build debug bundle (only attached in test mode)
+    const debug = isTest ? {
+      pixel_id: META_PIXEL_ID,
+      api_version: META_API_VERSION,
+      meta_api_url: `https://graph.facebook.com/${META_API_VERSION}/${META_PIXEL_ID}/events?access_token=***REDACTED***`,
+      computed: {
+        event_id: eventId,
+        event_id_source: order.id ? "order.id" : "fallback:event_time",
+        event_time: eventTime,
+        event_time_iso: new Date(eventTime * 1000).toISOString(),
+        event_time_source: order.created_at ? "order.created_at" : "now()",
+        value,
+        value_source: order.total_price ? "order.total_price" : (order.current_total_price ? "order.current_total_price" : "fallback:0"),
+        currency,
+        contents_count: contents.length,
+        num_items: contents.reduce((s: number, c: { quantity: number }) => s + (c.quantity ?? 0), 0),
+      },
+      user_data_mapping: fields, // raw → normalized → hashed for each PII field
+      tracking_ids: {
+        fbp: fbp ?? null,
+        fbp_source: fbp ? (noteAttr("fbp") ? "note_attributes.fbp" : "_fbp cookie") : null,
+        fbc: fbc ?? null,
+        fbc_source: fbc ? (noteAttr("fbc") ? "note_attributes.fbc" : "_fbc cookie") : null,
+        client_ip_address: order.client_details?.browser_ip ?? null,
+        client_user_agent: order.client_details?.user_agent ?? null,
+      },
+      hmac: {
+        secret_configured: !!Deno.env.get("SHOPIFY_WEBHOOK_SECRET"),
+        verified: !!Deno.env.get("SHOPIFY_WEBHOOK_SECRET") && !isTest,
+        skipped_reason: isTest ? "test mode" : (!Deno.env.get("SHOPIFY_WEBHOOK_SECRET") ? "no SHOPIFY_WEBHOOK_SECRET set" : null),
+      },
+      browser_pixel_dedup_hint: `On the Thank-You page, fire fbq('track','Purchase',{...},{eventID:'${eventId}'}) with the SAME event_id to deduplicate.`,
+    } : undefined;
 
     const metaUrl = `https://graph.facebook.com/${META_API_VERSION}/${META_PIXEL_ID}/events?access_token=${encodeURIComponent(accessToken)}`;
     const metaRes = await fetch(metaUrl, {
@@ -156,7 +217,7 @@ Deno.serve(async (req) => {
 
     if (!metaRes.ok) {
       console.error("Meta CAPI error", metaJson);
-      return new Response(JSON.stringify({ error: "Meta CAPI error", details: metaJson, sent_payload: isTest ? payload : undefined }), {
+      return new Response(JSON.stringify({ error: "Meta CAPI error", details: metaJson, sent_payload: isTest ? payload : undefined, debug }, null, 2), {
         status: 502,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
@@ -169,8 +230,8 @@ Deno.serve(async (req) => {
         success: true,
         test_mode: isTest,
         meta: metaJson,
-        // In test mode, echo the exact payload sent to Meta so you can inspect hashing & mapping.
         sent_payload: isTest ? payload : undefined,
+        debug,
       }, null, 2),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } },
     );
