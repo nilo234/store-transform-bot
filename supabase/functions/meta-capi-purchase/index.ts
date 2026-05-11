@@ -116,8 +116,16 @@ Deno.serve(async (req) => {
       ],
     };
 
-    const url = `https://graph.facebook.com/${META_API_VERSION}/${META_PIXEL_ID}/events?access_token=${encodeURIComponent(accessToken)}`;
-    const metaRes = await fetch(url, {
+    // Optional: route to Meta Test Events tab. Pass ?test_event_code=TESTxxxxx
+    const testEventCode = url.searchParams.get("test_event_code");
+    if (testEventCode) {
+      (payload.data[0] as Record<string, unknown>).test_event_code = testEventCode;
+      // Also accepted at top level by Meta; include both for safety
+      (payload as Record<string, unknown>).test_event_code = testEventCode;
+    }
+
+    const metaUrl = `https://graph.facebook.com/${META_API_VERSION}/${META_PIXEL_ID}/events?access_token=${encodeURIComponent(accessToken)}`;
+    const metaRes = await fetch(metaUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -126,17 +134,24 @@ Deno.serve(async (req) => {
 
     if (!metaRes.ok) {
       console.error("Meta CAPI error", metaJson);
-      return new Response(JSON.stringify({ error: "Meta CAPI error", details: metaJson }), {
+      return new Response(JSON.stringify({ error: "Meta CAPI error", details: metaJson, sent_payload: isTest ? payload : undefined }), {
         status: 502,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
 
-    console.log("Meta CAPI Purchase sent", { order_id: order.id, value, currency, meta: metaJson });
+    console.log("Meta CAPI Purchase sent", { order_id: order.id, value, currency, test: isTest, meta: metaJson });
 
-    return new Response(JSON.stringify({ success: true, meta: metaJson }), {
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({
+        success: true,
+        test_mode: isTest,
+        meta: metaJson,
+        // In test mode, echo the exact payload sent to Meta so you can inspect hashing & mapping.
+        sent_payload: isTest ? payload : undefined,
+      }, null, 2),
+      { headers: { ...corsHeaders, "Content-Type": "application/json" } },
+    );
   } catch (err) {
     console.error("meta-capi-purchase error", err);
     return new Response(JSON.stringify({ error: (err as Error).message }), {
