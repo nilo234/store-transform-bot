@@ -21,8 +21,23 @@ const normalizePhone = (p: string) => p.replace(/[^0-9]/g, "");
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
 
+  const url = new URL(req.url);
+  const isTest = url.searchParams.get("test") === "1";
+
   try {
-    const rawBody = await req.text();
+    // TEST MODE: skip HMAC, use sample order if no body provided.
+    // Usage:
+    //   GET  /meta-capi-purchase?test=1                  → uses built-in sample order
+    //   POST /meta-capi-purchase?test=1  + JSON body     → uses your own order JSON
+    // Add &test_event_code=TEST12345 to route into Meta Events Manager → Test Events.
+    let rawBody = "";
+    if (isTest && req.method === "GET") {
+      rawBody = JSON.stringify(SAMPLE_ORDER);
+    } else {
+      rawBody = await req.text();
+      if (isTest && !rawBody) rawBody = JSON.stringify(SAMPLE_ORDER);
+    }
+
 
     // Optional HMAC verification (recommended) — set SHOPIFY_WEBHOOK_SECRET
     const webhookSecret = Deno.env.get("SHOPIFY_WEBHOOK_SECRET");
