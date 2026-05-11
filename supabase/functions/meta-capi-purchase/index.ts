@@ -18,15 +18,52 @@ const sha256 = (v: string) =>
 
 const normalizePhone = (p: string) => p.replace(/[^0-9]/g, "");
 
+// Built-in sample order for the test endpoint (?test=1).
+const SAMPLE_ORDER = {
+  id: 9999000001,
+  email: "test@tryneuvie.com",
+  phone: "+1 415 555 0199",
+  created_at: new Date().toISOString(),
+  currency: "USD",
+  total_price: "59.98",
+  order_status_url: "https://tryneuvie.com/orders/test",
+  customer: { first_name: "Jane", last_name: "Tester", email: "test@tryneuvie.com" },
+  shipping_address: {
+    first_name: "Jane", last_name: "Tester",
+    city: "San Francisco", zip: "94110",
+    province_code: "CA", country_code: "US",
+    phone: "+1 415 555 0199",
+  },
+  client_details: { browser_ip: "203.0.113.42", user_agent: "Mozilla/5.0 (Test) MetaCAPI/1.0" },
+  line_items: [
+    { product_id: 8000001, variant_id: 9000001, quantity: 2, price: "29.99" },
+  ],
+};
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
 
+  const url = new URL(req.url);
+  const isTest = url.searchParams.get("test") === "1";
+
   try {
-    const rawBody = await req.text();
+    // TEST MODE: skip HMAC, use sample order if no body provided.
+    // Usage:
+    //   GET  /meta-capi-purchase?test=1                  → uses built-in sample order
+    //   POST /meta-capi-purchase?test=1  + JSON body     → uses your own order JSON
+    // Add &test_event_code=TEST12345 to route into Meta Events Manager → Test Events.
+    let rawBody = "";
+    if (isTest && req.method === "GET") {
+      rawBody = JSON.stringify(SAMPLE_ORDER);
+    } else {
+      rawBody = await req.text();
+      if (isTest && !rawBody) rawBody = JSON.stringify(SAMPLE_ORDER);
+    }
+
 
     // Optional HMAC verification (recommended) — set SHOPIFY_WEBHOOK_SECRET
     const webhookSecret = Deno.env.get("SHOPIFY_WEBHOOK_SECRET");
-    if (webhookSecret) {
+    if (webhookSecret && !isTest) {
       const hmacHeader = req.headers.get("x-shopify-hmac-sha256") ?? "";
       const digest = createHmac("sha256", webhookSecret).update(rawBody).digest("base64");
       if (digest !== hmacHeader) {
@@ -101,8 +138,16 @@ Deno.serve(async (req) => {
       ],
     };
 
-    const url = `https://graph.facebook.com/${META_API_VERSION}/${META_PIXEL_ID}/events?access_token=${encodeURIComponent(accessToken)}`;
-    const metaRes = await fetch(url, {
+    // Optional: route to Meta Test Events tab. Pass ?test_event_code=TESTxxxxx
+    const testEventCode = url.searchParams.get("test_event_code");
+    if (testEventCode) {
+      (payload.data[0] as Record<string, unknown>).test_event_code = testEventCode;
+      // Also accepted at top level by Meta; include both for safety
+      (payload as Record<string, unknown>).test_event_code = testEventCode;
+    }
+
+    const metaUrl = `https://graph.facebook.com/${META_API_VERSION}/${META_PIXEL_ID}/events?access_token=${encodeURIComponent(accessToken)}`;
+    const metaRes = await fetch(metaUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -111,17 +156,24 @@ Deno.serve(async (req) => {
 
     if (!metaRes.ok) {
       console.error("Meta CAPI error", metaJson);
-      return new Response(JSON.stringify({ error: "Meta CAPI error", details: metaJson }), {
+      return new Response(JSON.stringify({ error: "Meta CAPI error", details: metaJson, sent_payload: isTest ? payload : undefined }), {
         status: 502,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
 
-    console.log("Meta CAPI Purchase sent", { order_id: order.id, value, currency, meta: metaJson });
+    console.log("Meta CAPI Purchase sent", { order_id: order.id, value, currency, test: isTest, meta: metaJson });
 
-    return new Response(JSON.stringify({ success: true, meta: metaJson }), {
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({
+        success: true,
+        test_mode: isTest,
+        meta: metaJson,
+        // In test mode, echo the exact payload sent to Meta so you can inspect hashing & mapping.
+        sent_payload: isTest ? payload : undefined,
+      }, null, 2),
+      { headers: { ...corsHeaders, "Content-Type": "application/json" } },
+    );
   } catch (err) {
     console.error("meta-capi-purchase error", err);
     return new Response(JSON.stringify({ error: (err as Error).message }), {
