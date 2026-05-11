@@ -173,6 +173,40 @@ Deno.serve(async (req) => {
     }
 
 
+    // Build debug bundle (only attached in test mode)
+    const debug = isTest ? {
+      pixel_id: META_PIXEL_ID,
+      api_version: META_API_VERSION,
+      meta_api_url: metaUrl_redacted(accessToken),
+      computed: {
+        event_id: eventId,
+        event_id_source: order.id ? "order.id" : "fallback:event_time",
+        event_time: eventTime,
+        event_time_iso: new Date(eventTime * 1000).toISOString(),
+        event_time_source: order.created_at ? "order.created_at" : "now()",
+        value,
+        value_source: order.total_price ? "order.total_price" : (order.current_total_price ? "order.current_total_price" : "fallback:0"),
+        currency,
+        contents_count: contents.length,
+        num_items: contents.reduce((s: number, c: { quantity: number }) => s + (c.quantity ?? 0), 0),
+      },
+      user_data_mapping: fields, // raw → normalized → hashed for each PII field
+      tracking_ids: {
+        fbp: fbp ?? null,
+        fbp_source: fbp ? (noteAttr("fbp") ? "note_attributes.fbp" : "_fbp cookie") : null,
+        fbc: fbc ?? null,
+        fbc_source: fbc ? (noteAttr("fbc") ? "note_attributes.fbc" : "_fbc cookie") : null,
+        client_ip_address: order.client_details?.browser_ip ?? null,
+        client_user_agent: order.client_details?.user_agent ?? null,
+      },
+      hmac: {
+        secret_configured: !!Deno.env.get("SHOPIFY_WEBHOOK_SECRET"),
+        verified: !!Deno.env.get("SHOPIFY_WEBHOOK_SECRET") && !isTest,
+        skipped_reason: isTest ? "test mode" : (!Deno.env.get("SHOPIFY_WEBHOOK_SECRET") ? "no SHOPIFY_WEBHOOK_SECRET set" : null),
+      },
+      browser_pixel_dedup_hint: `On the Thank-You page, fire fbq('track','Purchase',{...},{eventID:'${eventId}'}) with the SAME event_id to deduplicate.`,
+    } : undefined;
+
     const metaUrl = `https://graph.facebook.com/${META_API_VERSION}/${META_PIXEL_ID}/events?access_token=${encodeURIComponent(accessToken)}`;
     const metaRes = await fetch(metaUrl, {
       method: "POST",
@@ -183,7 +217,7 @@ Deno.serve(async (req) => {
 
     if (!metaRes.ok) {
       console.error("Meta CAPI error", metaJson);
-      return new Response(JSON.stringify({ error: "Meta CAPI error", details: metaJson, sent_payload: isTest ? payload : undefined }), {
+      return new Response(JSON.stringify({ error: "Meta CAPI error", details: metaJson, sent_payload: isTest ? payload : undefined, debug }, null, 2), {
         status: 502,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
@@ -196,8 +230,8 @@ Deno.serve(async (req) => {
         success: true,
         test_mode: isTest,
         meta: metaJson,
-        // In test mode, echo the exact payload sent to Meta so you can inspect hashing & mapping.
         sent_payload: isTest ? payload : undefined,
+        debug,
       }, null, 2),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } },
     );
