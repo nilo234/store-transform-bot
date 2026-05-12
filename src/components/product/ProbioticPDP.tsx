@@ -203,12 +203,9 @@ export function ProbioticPDP({ product, onAddSingle, onAddBundle }: Props) {
                   <span className="font-semibold">4.8/5</span>
                   <span className="text-muted-foreground">· 282 reviews</span>
                 </span>
-                <span className="inline-flex items-center gap-1.5 bg-secondary/60 px-3 py-1.5 rounded-full">
-                  <Flame className="h-4 w-4 text-accent" strokeWidth={2} />
-                  <LiveActivityCounter productHandle={product.handle} compact />
-                </span>
               </div>
 
+              <LiveActivityCounter productHandle={product.handle} />
               <StockIndicator />
 
               {/* Price */}
