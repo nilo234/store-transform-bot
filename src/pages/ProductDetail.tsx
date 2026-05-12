@@ -34,6 +34,7 @@ import { LiveActivityCounter } from '@/components/product/LiveActivityCounter';
 import { ResultPromiseTimeline } from '@/components/product/ResultPromiseTimeline';
 import { IngredientTransparencyDrawer } from '@/components/product/IngredientTransparencyDrawer';
 import { WhyNowMicroCopy } from '@/components/product/WhyNowMicroCopy';
+import { ProbioticPDP } from '@/components/product/ProbioticPDP';
 import { detectAdTraffic } from '@/lib/adTraffic';
 import { ProductJsonLd, BreadcrumbJsonLd, PageMeta } from '@/components/seo';
 import {
