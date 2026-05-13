@@ -260,4 +260,36 @@
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://tryneuvie.com/blog</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/blog/best-vitamin-strips-for-hangover</loc>
+    <lastmod>2025-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/blog/how-long-does-melatonin-take-to-work</loc>
+    <lastmod>2025-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/blog/glutathione-vs-vitamin-c-for-skin</loc>
+    <lastmod>2025-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/blog/why-vitamin-strips-beat-pills</loc>
+    <lastmod>2025-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>

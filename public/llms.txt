@@ -1,0 +1,29 @@
+# NEUVIE Nutrition
+
+> Fast-dissolving wellness strips for energy, sleep, beauty, and gut health. Clinically studied ingredients, made in the USA, free US shipping over $50.
+
+NEUVIE makes 30-second dissolving supplement strips designed as a daily ritual. Each strip absorbs sublingually for up to 5x faster delivery than pills. Manufactured in FDA-registered US facilities, third-party tested, non-GMO.
+
+## Pages
+
+- [Home](/): Brand overview and bestselling strips.
+- [Shop](/shop): All 13 wellness strips, filterable by goal.
+- [Bundles](/bundles): Curated multi-strip bundles up to 25% off.
+- [Science](/science): Ingredients, sublingual absorption research, third-party testing.
+- [About](/about): Founder story and brand mission.
+- [FAQs](/faqs): Common questions on strips, shipping, and ingredients.
+- [Contact](/contact): Customer support (team@tryneuvie.com).
+- [Shipping](/shipping): US shipping policy and delivery times.
+- [Returns](/returns): 14-day money-back guarantee details.
+
+## Blog
+
+- [Best Vitamin Strips for Hangover Recovery](/blog/best-vitamin-strips-for-hangover): B-complex, electrolytes, and antioxidants for the morning after.
+- [How Long Does Melatonin Take to Work](/blog/how-long-does-melatonin-take-to-work): Sublingual vs pill onset times.
+- [Glutathione vs Vitamin C for Skin](/blog/glutathione-vs-vitamin-c-for-skin): Antioxidant comparison for skin health.
+- [Why Vitamin Strips Beat Pills](/blog/why-vitamin-strips-beat-pills): Absorption, convenience, and compliance.
+
+## Optional
+
+- [Privacy Policy](/privacy)
+- [Terms of Service](/terms)
