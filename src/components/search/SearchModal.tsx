@@ -83,7 +83,7 @@ export function SearchModal({ open, onOpenChange }: SearchModalProps) {
             placeholder="Search for products..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="flex-1 border-0 focus-visible:ring-0 text-lg placeholder:text-muted-foreground/60"
+            className="flex-1 border-0 focus-visible:ring-0 text-lg placeholder:text-muted-foreground"
             autoFocus
           />
           {query && (
@@ -197,7 +197,7 @@ export function SearchModal({ open, onOpenChange }: SearchModalProps) {
           {!isLoading && query && results.length === 0 && (
             <div className="p-8 text-center">
               <p className="text-muted-foreground mb-2">No products found for "{query}"</p>
-              <p className="text-sm text-muted-foreground/70">Try a different search term</p>
+              <p className="text-sm text-muted-foreground">Try a different search term</p>
             </div>
           )}
         </div>

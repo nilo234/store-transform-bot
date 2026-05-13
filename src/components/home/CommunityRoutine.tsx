@@ -74,7 +74,7 @@ export function CommunityRoutine() {
               <moment.icon className="w-9 h-9 text-primary mb-4" strokeWidth={1.5} />
               <h3 className="font-display text-xl mb-3 text-foreground">{moment.title}</h3>
               <p className="text-muted-foreground italic leading-relaxed mb-4">{moment.quote}</p>
-              <span className="text-xs text-muted-foreground/70">— {moment.author}</span>
+              <span className="text-xs text-muted-foreground">— {moment.author}</span>
             </motion.div>
           ))}
         </div>

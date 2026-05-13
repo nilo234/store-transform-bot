@@ -32,7 +32,7 @@ export function PressLogos() {
           {pressLogos.map((logo, index) => (
             <motion.span
               key={logo.name}
-              className="text-lg md:text-xl font-bold text-muted-foreground/50 hover:text-muted-foreground transition-colors cursor-default tracking-wide"
+              className="text-lg md:text-xl font-bold text-muted-foreground hover:text-foreground transition-colors cursor-default tracking-wide"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
