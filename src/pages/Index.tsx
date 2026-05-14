@@ -25,6 +25,11 @@ import { fetchProducts, ShopifyProduct } from '@/lib/shopify';
 import { ProductCard } from '@/components/shop/ProductCard';
 import { PageMeta } from '@/components/seo';
 import { StickyMobileCTA } from '@/components/home/StickyMobileCTA';
+import { HowToUse } from '@/components/home/HowToUse';
+import { ComparisonAuriSection } from '@/components/home/ComparisonAuriSection';
+import { HomepageFAQs } from '@/components/home/HomepageFAQs';
+import { PressLogos } from '@/components/home/PressLogos';
+import { IngredientSpotlight } from '@/components/home/IngredientSpotlight';
 import productsLineup from '@/assets/neuvie-products-lineup.webp';
 
 const fadeUp = {
