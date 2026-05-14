@@ -88,7 +88,7 @@ export function TestimonialsCarousel() {
           viewport={{ once: true }}
         >
           <span className="text-xs font-bold text-primary uppercase tracking-widest mb-6 block">
-            Customer Reviews
+            Extraordinary Results
           </span>
           
           <div className="mb-6">

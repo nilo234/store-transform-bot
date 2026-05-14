@@ -528,6 +528,9 @@ export default function ProductDetail() {
                   )}
                 </div>
 
+                {/* Live-viewer urgency */}
+                <LiveViewerUrgency />
+
                 {/* Why-Now Micro-Copy — removes friction at the purchase moment */}
                 <WhyNowMicroCopy />
 
