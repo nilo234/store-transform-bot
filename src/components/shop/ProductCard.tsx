@@ -106,6 +106,18 @@ export function ProductCard({ product, index = 0, showCompare, isCompared, onTog
               </div>
             </div>
 
+            {/* Subscribe & Save 20% — hover badge */}
+            <motion.div
+              className="absolute top-2 md:top-4 right-2 md:right-4 z-10 hidden md:block"
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : -6 }}
+              transition={{ duration: 0.2 }}
+            >
+              <span className="text-[10px] font-semibold tracking-wider uppercase bg-accent text-accent-foreground px-2.5 py-1 rounded-full shadow-sm">
+                Subscribe & Save 20%
+              </span>
+            </motion.div>
+
             <div className="w-full h-full flex items-center justify-center p-4 md:p-8">
               {firstImage ? (
                 <motion.img
