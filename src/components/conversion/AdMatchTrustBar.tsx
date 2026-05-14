@@ -69,7 +69,7 @@ export function AdMatchTrustBar() {
                 <div className="flex items-center gap-1.5 flex-shrink-0">
                   <ShieldCheck className="h-3.5 w-3.5 text-primary" />
                   <span className="text-[11px] md:text-xs font-medium text-foreground whitespace-nowrap">
-                    14-day money-back
+                    30-day money-back
                   </span>
                 </div>
               </div>

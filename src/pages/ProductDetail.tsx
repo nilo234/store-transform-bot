@@ -522,7 +522,7 @@ export default function ProductDetail() {
                 </div>
                 
                 <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm text-foreground/80 font-medium">
-                  <span className="flex items-center gap-1.5"><Shield className="h-4 w-4 text-primary" />14-day money back</span>
+                  <span className="flex items-center gap-1.5"><Shield className="h-4 w-4 text-primary" />30-day money back</span>
                   {!isUK && (
                     <span className="flex items-center gap-1.5"><Truck className="h-4 w-4 text-primary" />Free shipping $50+</span>
                   )}
@@ -602,7 +602,7 @@ export default function ProductDetail() {
                   </AccordionTrigger>
                   <AccordionContent className="pb-4 text-sm text-muted-foreground space-y-2">
                     <p><strong>Shipping:</strong> Orders ship within 1–2 business days. Most US orders arrive in 3–5 days.</p>
-                    <p><strong>Our promise:</strong> If it's not right for you, email team@tryneuvie.com within 14 days. Full refund — because you should feel completely sure about what you put in your body.</p>
+                    <p><strong>Our promise:</strong> If it's not right for you, email team@tryneuvie.com within 30 days. Full refund — because you should feel completely sure about what you put in your body.</p>
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -619,7 +619,7 @@ export default function ProductDetail() {
                 </div>
                 <div className="text-center p-3 bg-secondary/40 rounded-xl">
                   <RotateCcw className="h-5 w-5 mx-auto mb-2 text-primary" />
-                  <p className="text-xs text-muted-foreground">14-day<br />money back</p>
+                  <p className="text-xs text-muted-foreground">30-day<br />money back</p>
                 </div>
                 <div className="text-center p-3 bg-secondary/40 rounded-xl">
                   <Leaf className="h-5 w-5 mx-auto mb-2 text-primary" />

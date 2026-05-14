@@ -83,7 +83,7 @@ const COMPARISON: Array<{ feature: string; strips: 'yes' | 'no'; capsules: 'yes'
 const FAQS = [
   {
     q: 'How long does it take to feel results?',
-    a: "Most customers notice less bloating within 7–10 days. Real energy and regularity improvements hit around week 3–4. By week 6, the transformation is obvious. But everyone's gut is different — that's why we offer a 14-day full refund if you don't feel better.",
+    a: "Most customers notice less bloating within 7–10 days. Real energy and regularity improvements hit around week 3–4. By week 6, the transformation is obvious. But everyone's gut is different — that's why we offer a 30-day full refund if you don't feel better.",
   },
   {
     q: 'Will I need to refrigerate these?',
@@ -95,7 +95,7 @@ const FAQS = [
   },
   {
     q: 'Do you have a money-back guarantee?',
-    a: "Yes. Full refund within 14 days, no questions. We're confident you'll feel the difference. If you don't, email team@tryneuvie.com and we'll refund your first order immediately.",
+    a: "Yes. Full refund within 30 days, no questions. We're confident you'll feel the difference. If you don't, email team@tryneuvie.com and we'll refund your first order immediately.",
   },
 ];
 
@@ -134,7 +134,7 @@ export function ProbioticPDP({ product, onAddSingle, onAddBundle }: Props) {
     <div className="min-h-screen flex flex-col">
       <PageMeta
         title="Probiotic Strips: Less Bloat, Real Energy | NEUVIE"
-        description="10B CFU probiotic + prebiotic in a 3-second dissolving strip. No fridge, no capsules. Visible gut results in 6 weeks. 14-day guarantee."
+        description="10B CFU probiotic + prebiotic in a 3-second dissolving strip. No fridge, no capsules. Visible gut results in 6 weeks. 30-day guarantee."
       />
       <ProductJsonLd product={product} />
       <BreadcrumbJsonLd items={breadcrumbItems} />
@@ -228,7 +228,7 @@ export function ProbioticPDP({ product, onAddSingle, onAddBundle }: Props) {
                   Heal My Gut Starting Today
                 </Button>
                 <p className="text-center text-sm text-muted-foreground">
-                  14-day money-back guarantee · Ships today
+                  30-day money-back guarantee · Ships today
                 </p>
               </div>
 
@@ -238,7 +238,7 @@ export function ProbioticPDP({ product, onAddSingle, onAddBundle }: Props) {
                   { icon: Shield, label: 'Third-Party Tested' },
                   { icon: Leaf, label: 'Made in USA' },
                   { icon: Sparkles, label: 'No Refrigeration' },
-                  { icon: RotateCcw, label: '14-Day Guarantee' },
+                  { icon: RotateCcw, label: '30-Day Guarantee' },
                 ].map(({ icon: Icon, label }) => (
                   <div key={label} className="flex items-center gap-1.5 bg-secondary/40 rounded-lg px-2 py-2">
                     <Icon className="h-4 w-4 text-primary flex-shrink-0" strokeWidth={2} />
@@ -418,7 +418,7 @@ export function ProbioticPDP({ product, onAddSingle, onAddBundle }: Props) {
 
             <p className="text-center text-sm text-muted-foreground mt-6 max-w-2xl mx-auto">
               New to NEUVIE? The Gut Feeling Bundle is the complete gut transformation. Same
-              14-day guarantee on everything.
+              30-day guarantee on everything.
             </p>
           </div>
         </section>
@@ -447,7 +447,7 @@ export function ProbioticPDP({ product, onAddSingle, onAddBundle }: Props) {
             </div>
 
             <p className="text-center text-sm text-muted-foreground mt-8 max-w-xl mx-auto">
-              Not seeing results? Email us within 14 days for a full refund — no questions asked.
+              Not seeing results? Email us within 30 days for a full refund — no questions asked.
             </p>
           </div>
         </section>

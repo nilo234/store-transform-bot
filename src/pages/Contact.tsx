@@ -186,7 +186,7 @@ export default function Contact() {
                 For information about ingredients and dosages, visit our{' '}
                 <Link to="/science" className="text-primary hover:underline">science and transparency page</Link>. 
                 Need help with a return? See our{' '}
-                <Link to="/returns" className="text-primary hover:underline">14-day return policy</Link>.
+                <Link to="/returns" className="text-primary hover:underline">30-day return policy</Link>.
               </p>
 
               <SocialShareButtons 

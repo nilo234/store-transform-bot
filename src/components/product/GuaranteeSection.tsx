@@ -17,12 +17,12 @@ export const GuaranteeSection = () => {
             </div>
             
             <h2 className="font-display text-2xl md:text-3xl mb-4" style={{ letterSpacing: '-0.02em' }}>
-              Try it for 14 days. Love it or get your money back.
+              Try it for 30 days. Love it or get your money back.
             </h2>
             
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
               We'd be surprised if you didn't feel the difference. But if it's not for you, 
-              email us within 14 days and we'll refund your first order — no questions, no hassle.
+              email us within 30 days and we'll refund your first order — no questions, no hassle.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
@@ -31,7 +31,7 @@ export const GuaranteeSection = () => {
                   <Shield className="w-5 h-5 text-primary" />
                 </div>
                 <p className="text-sm font-medium text-foreground">Zero risk</p>
-                <p className="text-xs text-muted-foreground">14 days to decide</p>
+                <p className="text-xs text-muted-foreground">30 days to decide</p>
               </div>
               <div className="text-center">
                 <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center mx-auto mb-2">
@@ -50,7 +50,7 @@ export const GuaranteeSection = () => {
             </div>
 
             <p className="text-xs text-muted-foreground">
-              Valid for 14 days on your first order. Reach us anytime at{' '}
+              Valid for 30 days on your first order. Reach us anytime at{' '}
               <a href="mailto:team@tryneuvie.com" className="text-primary hover:underline">
                 team@tryneuvie.com
               </a>

@@ -86,7 +86,7 @@ export default function Bundles() {
                   </span>
                 )}
                 <span className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> 14-Day Money-Back Guarantee
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> 30-Day Money-Back Guarantee
                 </span>
                 <span className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Subscribe & Save More
@@ -188,7 +188,7 @@ export default function Bundles() {
                     Buying individual strips adds up. Our bundles give you meaningful savings — from 14% off on 2-packs 
                     up to 20% off on seasonal collections like the Spring Reset Bundle. Combine that with 
                     free shipping on orders over $50 and our{' '}
-                    <Link to="/returns" className="text-primary hover:underline">14-day money-back guarantee</Link>, 
+                    <Link to="/returns" className="text-primary hover:underline">30-day money-back guarantee</Link>, 
                     and there's truly no risk in trying.
                   </p>
                 </div>
