@@ -222,6 +222,9 @@ export default function Index() {
           </div>
         </section>
 
+        {/* ───────── 5b. PRESS LOGOS ───────── */}
+        <PressLogos />
+
         {/* ───────── 4. BEST SELLERS ───────── */}
         <section className="py-16 md:py-24 bg-background">
           <div className="container-wide">
@@ -289,6 +292,9 @@ export default function Index() {
             </div>
           </div>
         </section>
+
+        {/* ───────── 6b. THE RITUAL — How To Use ───────── */}
+        <HowToUse />
 
         {/* ───────── 7. NEW RELEASES ───────── */}
         <section className="py-16 md:py-24 bg-background">
@@ -376,6 +382,12 @@ export default function Index() {
             </div>
           </div>
         </section>
+
+        {/* ───────── 9b. INGREDIENT SPOTLIGHT ───────── */}
+        <IngredientSpotlight />
+
+        {/* ───────── 9c. NEUVIE vs PILLS COMPARISON ───────── */}
+        <ComparisonAuriSection />
 
         {/* ───────── 10. SOCIAL PROOF 2 — Story Cards ───────── */}
         <section className="py-16 md:py-24 bg-secondary/50">
@@ -501,6 +513,9 @@ export default function Index() {
             </div>
           </div>
         </section>
+
+        {/* ───────── 13b. HOMEPAGE FAQs ───────── */}
+        <HomepageFAQs />
 
         {/* ───────── 14. FINAL CTA ───────── */}
         <section className="py-20 md:py-28 bg-background">
