@@ -353,9 +353,20 @@ export function CartDrawer() {
                 </Button>
 
                 {/* Reassurance immediately under CTA — reduces last-step abandonment */}
-                <p className="text-center text-xs md:text-sm text-foreground/80 font-medium">
-                  Try it risk-free · 30-day money-back guarantee
-                </p>
+                <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-xs md:text-sm text-foreground/80 font-medium pt-1">
+                  <span className="flex items-center gap-1.5">
+                    <Shield className="w-3.5 h-3.5 text-primary" strokeWidth={2} />
+                    30-day money-back
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <Truck className="w-3.5 h-3.5 text-primary" strokeWidth={2} />
+                    Free US shipping $50+
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <BadgeCheck className="w-3.5 h-3.5 text-primary" strokeWidth={2} />
+                    Made in USA
+                  </span>
+                </div>
 
                 {/* Secure Checkout Badges */}
                 <SecureCheckoutBadges />
