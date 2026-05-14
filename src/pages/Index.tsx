@@ -25,6 +25,11 @@ import { fetchProducts, ShopifyProduct } from '@/lib/shopify';
 import { ProductCard } from '@/components/shop/ProductCard';
 import { PageMeta } from '@/components/seo';
 import { StickyMobileCTA } from '@/components/home/StickyMobileCTA';
+import { HowToUse } from '@/components/home/HowToUse';
+import { ComparisonAuriSection } from '@/components/home/ComparisonAuriSection';
+import { HomepageFAQs } from '@/components/home/HomepageFAQs';
+import { PressLogos } from '@/components/home/PressLogos';
+import { IngredientSpotlight } from '@/components/home/IngredientSpotlight';
 import productsLineup from '@/assets/neuvie-products-lineup.webp';
 
 const fadeUp = {
@@ -217,6 +222,9 @@ export default function Index() {
           </div>
         </section>
 
+        {/* ───────── 5b. PRESS LOGOS ───────── */}
+        <PressLogos />
+
         {/* ───────── 4. BEST SELLERS ───────── */}
         <section className="py-16 md:py-24 bg-background">
           <div className="container-wide">
@@ -284,6 +292,9 @@ export default function Index() {
             </div>
           </div>
         </section>
+
+        {/* ───────── 6b. THE RITUAL — How To Use ───────── */}
+        <HowToUse />
 
         {/* ───────── 7. NEW RELEASES ───────── */}
         <section className="py-16 md:py-24 bg-background">
@@ -371,6 +382,12 @@ export default function Index() {
             </div>
           </div>
         </section>
+
+        {/* ───────── 9b. INGREDIENT SPOTLIGHT ───────── */}
+        <IngredientSpotlight />
+
+        {/* ───────── 9c. NEUVIE vs PILLS COMPARISON ───────── */}
+        <ComparisonAuriSection />
 
         {/* ───────── 10. SOCIAL PROOF 2 — Story Cards ───────── */}
         <section className="py-16 md:py-24 bg-secondary/50">
@@ -496,6 +513,9 @@ export default function Index() {
             </div>
           </div>
         </section>
+
+        {/* ───────── 13b. HOMEPAGE FAQs ───────── */}
+        <HomepageFAQs />
 
         {/* ───────── 14. FINAL CTA ───────── */}
         <section className="py-20 md:py-28 bg-background">
