@@ -39,17 +39,17 @@ export function StickyMobileCTA() {
         >
           <div className="flex items-center gap-3">
             <div className="flex-1 min-w-0">
-              <p className="text-xs font-semibold text-foreground truncate">From $0.83/day</p>
+              <p className="text-xs font-semibold text-foreground truncate">Free Shipping over $50</p>
               <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-2.5 w-2.5 fill-accent text-accent" />
                 ))}
-                <span className="text-[10px] text-muted-foreground ml-0.5">14-day guarantee</span>
+                <span className="text-[10px] text-muted-foreground ml-0.5">30-day guarantee</span>
               </div>
             </div>
             <Link to="/shop" className="flex-shrink-0">
-              <Button className="h-11 px-6 text-sm font-semibold rounded-xl gap-1.5 bg-primary hover:bg-primary/90 text-primary-foreground touch-manipulation active:scale-[0.98] transition-transform">
-                <ShoppingCart className="h-3.5 w-3.5" />
+              <Button className="h-12 px-6 text-sm font-semibold rounded-xl gap-1.5 bg-primary hover:bg-primary/90 text-primary-foreground touch-manipulation active:scale-[0.98] transition-transform">
+                <ShoppingCart className="h-3.5 w-3.5" strokeWidth={1.75} />
                 Shop Now
               </Button>
             </Link>
