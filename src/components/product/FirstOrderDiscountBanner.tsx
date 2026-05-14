@@ -32,7 +32,7 @@ export function FirstOrderDiscountBanner() {
     }
   };
 
-  // Show to everyone for 14 days; we just track that we've seen them.
+  // Show to everyone for 30 days; we just track that we've seen them.
   // The banner stays useful for returning visitors who haven't bought yet.
   if (isReturning) return null;
 

@@ -32,7 +32,7 @@ const quickReplies = [
 const botResponses: Record<string, string> = {
   'track my order': "To track your order, please visit our shipping page or check your email for tracking information. Need more help? Type 'human' to speak with our team!",
   'product questions': "I'd be happy to help with product questions! What would you like to know about our oral strips? You can ask about ingredients, usage, or benefits.",
-  'returns & refunds': "We offer a 14-day money-back guarantee on all products. Simply email team@tryneuvie.com with your order number to start a return. Full refund, no questions asked!",
+  'returns & refunds': "We offer a 30-day money-back guarantee on all products. Simply email team@tryneuvie.com with your order number to start a return. Full refund, no questions asked!",
   'speak to human': "I'll connect you with our support team! Please email team@tryneuvie.com or leave your message here and we'll respond within 24 hours.",
   'human': "I'll connect you with our support team! Please email team@tryneuvie.com or leave your message here and we'll respond within 24 hours.",
 };

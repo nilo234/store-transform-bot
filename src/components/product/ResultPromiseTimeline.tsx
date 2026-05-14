@@ -61,7 +61,7 @@ export function ResultPromiseTimeline({
       <div className="flex items-center gap-2 mt-4 pt-4 border-t border-border/40">
         <Shield className="h-4 w-4 text-primary flex-shrink-0" />
         <p className="text-xs text-muted-foreground">
-          Don't feel a difference? Email us within 14 days for a full refund — no questions.
+          Don't feel a difference? Email us within 30 days for a full refund — no questions.
         </p>
       </div>
     </motion.div>
