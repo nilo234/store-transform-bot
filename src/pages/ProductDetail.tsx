@@ -409,7 +409,7 @@ export default function ProductDetail() {
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-muted/20">
-                    <span className="text-6xl">💊</span>
+                    <Package className="w-20 h-20 text-muted-foreground/40" strokeWidth={1.5} />
                   </div>
                 )}
               </div>
