@@ -1,22 +1,22 @@
 import { useState, useEffect } from 'react';
-import { X, Sparkles, Truck, ShieldCheck } from 'lucide-react';
+import { X } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const messages = [
   {
-    icon: Sparkles,
+    emoji: '🎉',
     text: (
       <>
-        Use code <span className="font-bold">WELCOME15</span> — Save 15% on your first order
+        <span className="font-bold">WELCOME15</span> — Save 15% on your first order
       </>
     ),
   },
   {
-    icon: Truck,
-    text: <>Free shipping on all US orders over $50</>,
+    emoji: '🚚',
+    text: <>Free Shipping on all orders over $50</>,
   },
   {
-    icon: ShieldCheck,
+    emoji: '💚',
     text: <>30-Day Money-Back Guarantee — No questions asked</>,
   },
 ];
@@ -35,7 +35,6 @@ export function AnnouncementBar() {
   if (!isVisible) return null;
 
   const current = messages[index];
-  const Icon = current.icon;
 
   return (
     <div className="bg-primary text-primary-foreground relative z-50">
@@ -50,7 +49,7 @@ export function AnnouncementBar() {
               transition={{ duration: 0.35 }}
               className="flex items-center gap-2 text-[12px] sm:text-sm font-body tracking-wide"
             >
-              <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" strokeWidth={1.75} />
+              <span className="text-base sm:text-lg flex-shrink-0" aria-hidden="true">{current.emoji}</span>
               <span className="text-center">{current.text}</span>
             </motion.div>
           </AnimatePresence>
