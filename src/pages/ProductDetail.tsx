@@ -3,7 +3,6 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Minus, Plus, ShoppingCart, ChevronLeft, Check, Truck, Shield, RotateCcw, Leaf, AlertCircle, Package } from 'lucide-react';
 import { StickyAddToCart } from '@/components/product/StickyAddToCart';
-import { LiveViewerUrgency } from '@/components/product/LiveViewerUrgency';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
@@ -528,9 +527,6 @@ export default function ProductDetail() {
                     <span className="flex items-center gap-1.5"><Truck className="h-4 w-4 text-primary" />Free shipping $50+</span>
                   )}
                 </div>
-
-                {/* Live-viewer urgency */}
-                <LiveViewerUrgency />
 
                 {/* Why-Now Micro-Copy — removes friction at the purchase moment */}
                 <WhyNowMicroCopy />

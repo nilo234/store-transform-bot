@@ -35,14 +35,6 @@ const Quiz = lazy(() => import("./pages/Quiz"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const AdminCartFeedback = lazy(() => import("./pages/AdminCartFeedback"));
-const Reviews = lazy(() => import("./pages/Reviews"));
-const ScienceReports = lazy(() => import("./pages/ScienceReports"));
-const VipClub = lazy(() => import("./pages/VipClub"));
-const Subscribe = lazy(() => import("./pages/Subscribe"));
-const Affiliate = lazy(() => import("./pages/Affiliate"));
-const TrackOrder = lazy(() => import("./pages/TrackOrder"));
-const Subscriptions = lazy(() => import("./pages/Subscriptions"));
-const AccountLogin = lazy(() => import("./pages/AccountLogin"));
 
 // Defer non-critical widgets (chat + exit popup) — they should never block first paint
 const LiveChatWidget = lazy(() =>
@@ -99,14 +91,6 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/admin/cart-feedback" element={<AdminCartFeedback />} />
-            <Route path="/reviews" element={<Reviews />} />
-            <Route path="/science-reports" element={<ScienceReports />} />
-            <Route path="/vip-club" element={<VipClub />} />
-            <Route path="/subscribe" element={<Subscribe />} />
-            <Route path="/affiliate" element={<Affiliate />} />
-            <Route path="/track" element={<TrackOrder />} />
-            <Route path="/subscriptions" element={<Subscriptions />} />
-            <Route path="/account/login" element={<AccountLogin />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

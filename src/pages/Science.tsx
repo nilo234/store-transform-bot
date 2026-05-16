@@ -182,50 +182,6 @@ export default function Science() {
           </div>
         </section>
 
-        {/* 3rd Party Tested — Quality Badges + Pill Blocks */}
-        <section className="py-16 md:py-20 bg-background border-b border-border">
-          <div className="container-wide">
-            <motion.div className="text-center mb-10" initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-accent">3rd Party Tested</span>
-              <h2 className="font-display text-3xl md:text-4xl mt-3">Verified Excellence, Trusted Results</h2>
-            </motion.div>
-
-            {/* 4 Quality badges row */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-4xl mx-auto mb-10">
-              {['Rigorously Lab Tested', 'Guaranteed Purity', 'Consistent Quality', '30-Day Money-Back Guarantee'].map((b) => (
-                <div key={b} className="flex items-center justify-center gap-2 bg-secondary/60 border border-border rounded-xl px-4 py-3 text-center">
-                  <Award className="h-4 w-4 text-accent flex-shrink-0" strokeWidth={1.75} />
-                  <span className="text-xs md:text-sm font-medium leading-tight">{b}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Dark pill block — what we DON'T use */}
-            <div className="bg-primary text-primary-foreground rounded-2xl px-6 py-5 md:px-8 md:py-6 mb-4 max-w-4xl mx-auto">
-              <p className="text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase text-accent mb-3 text-center">What we never use</p>
-              <div className="flex flex-wrap justify-center gap-2 md:gap-2.5">
-                {['NO GMOs', 'NO GELATIN', 'NO ALCOHOL', 'NO FOOD DYES', 'NO FILLERS', 'NO JUNK'].map((t) => (
-                  <span key={t} className="text-[11px] md:text-xs font-semibold tracking-wider px-3 py-1.5 rounded-full border border-primary-foreground/20 bg-primary-foreground/5">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Light pill block — what we DO use */}
-            <div className="bg-secondary border border-border rounded-2xl px-6 py-5 md:px-8 md:py-6 max-w-4xl mx-auto">
-              <p className="text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase text-accent mb-3 text-center">What you'll find inside</p>
-              <div className="flex flex-wrap justify-center gap-2 md:gap-2.5">
-                {['VEGAN', 'GLUTEN-FREE', 'SUGAR-FREE', 'TASTES GREAT', 'LAB TESTED', 'NON-GMO'].map((t) => (
-                  <span key={t} className="text-[11px] md:text-xs font-semibold tracking-wider px-3 py-1.5 rounded-full border border-border bg-background">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Proven Purity Section */}
         <section className="py-20 md:py-28">
           <div className="container-wide">
