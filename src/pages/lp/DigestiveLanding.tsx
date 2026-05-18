@@ -54,7 +54,7 @@ export default function DigestiveLanding() {
 
   const addItem = useCartStore((s) => s.addItem);
   const setCartOpen = useCartStore((s) => s.setOpen);
-  const cartCount = useCartStore((s) => s.totalItems());
+  
 
   useEffect(() => {
     fetchProductByHandle(PRIMARY_HANDLE).then((p) => {
