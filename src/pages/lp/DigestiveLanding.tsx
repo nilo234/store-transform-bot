@@ -700,22 +700,36 @@ export default function DigestiveLanding() {
                   title: "Nature at its finest!",
                   text: "This product boosts my mood and digestion. I noticed the improvements within the first week!",
                 },
-              ].map((rev, i) => (
-                <div key={i} className="text-left">
-                  <div className="aspect-[4/3] bg-gray-200 mb-4 rounded" /> {/* Placeholder for user photo/video */}
-                  <div className="flex mb-2" style={{ color: AURI_GREEN }}>
-                    {[...Array(5)].map((_, s) => (
-                      <Star key={s} className="h-3 w-3 fill-current" />
-                    ))}
+              ].map((rev, i) => {
+                const initial = rev.name.charAt(0);
+                const bgs = ["#EFF3EE", "#F5E9DF", "#E8EFEA"];
+                return (
+                  <div key={i} className="text-left">
+                    <div
+                      className="aspect-[4/3] mb-4 rounded flex items-center justify-center"
+                      style={{ backgroundColor: bgs[i % bgs.length] }}
+                    >
+                      <div
+                        className="w-20 h-20 rounded-full flex items-center justify-center font-serif text-2xl text-white"
+                        style={{ backgroundColor: AURI_GREEN }}
+                      >
+                        {initial}
+                      </div>
+                    </div>
+                    <div className="flex mb-2" style={{ color: AURI_GREEN }}>
+                      {[...Array(5)].map((_, s) => (
+                        <Star key={s} className="h-3 w-3 fill-current" />
+                      ))}
+                    </div>
+                    <h4 className="font-bold text-[14px] mb-2">{rev.title}</h4>
+                    <p className="text-[12px] text-gray-600 mb-4 min-h-[60px]">{rev.text}</p>
+                    <p className="text-[12px] font-bold">{rev.name}</p>
+                    <p className="text-[10px] font-bold flex items-center gap-1" style={{ color: AURI_GREEN }}>
+                      <Check className="h-3 w-3" strokeWidth={3} /> Verified Buyer
+                    </p>
                   </div>
-                  <h4 className="font-bold text-[14px] mb-2">{rev.title}</h4>
-                  <p className="text-[12px] text-gray-600 mb-4 min-h-[60px]">{rev.text}</p>
-                  <p className="text-[12px] font-bold">{rev.name}</p>
-                  <p className="text-[10px] text-green-700 font-bold flex items-center gap-1">
-                    <Check className="h-3 w-3" /> Verified Buyer
-                  </p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
