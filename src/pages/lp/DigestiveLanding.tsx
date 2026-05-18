@@ -739,17 +739,24 @@ export default function DigestiveLanding() {
           <h3 className="font-serif text-[24px] mb-8">Our Promise</h3>
           <div className="flex justify-center gap-12 md:gap-24 mb-12">
             {[
-              { icon: "✨", label: "Feels & tastes like\nclarity" },
-              { icon: "🌿", label: "Crafted with premium\ningredients" },
-              { icon: "🔬", label: "Rigorously lab tested" },
+              { Icon: Sparkles, label: "Feels & tastes like\nclarity" },
+              { Icon: Leaf, label: "Crafted with premium\ningredients" },
+              { Icon: FlaskConical, label: "Rigorously lab tested" },
             ].map((p, i) => (
               <div key={i} className="flex flex-col items-center">
-                <div className="text-3xl mb-3">{p.icon}</div>
-                <p className="text-[12px] font-bold whitespace-pre-line leading-tight">{p.label}</p>
+                <div
+                  className="w-14 h-14 rounded-full mb-3 flex items-center justify-center"
+                  style={{ backgroundColor: "#EFF3EE" }}
+                >
+                  <p.Icon className="h-7 w-7" style={{ color: AURI_GREEN }} strokeWidth={1.5} />
+                </div>
+                <p className="text-[12px] font-bold whitespace-pre-line leading-tight text-center">{p.label}</p>
               </div>
             ))}
           </div>
-          <p className="text-[12px] font-bold mb-8">🛡️ 60-Day Moneyback Guarantee***</p>
+          <p className="text-[12px] font-bold mb-8 flex items-center justify-center gap-1.5">
+            <ShieldCheck className="h-4 w-4" style={{ color: AURI_GREEN }} strokeWidth={1.75} /> 60-Day Moneyback Guarantee***
+          </p>
 
           <div className="max-w-[800px] mx-auto bg-[#F4F9F5] border border-green-200 p-6 rounded flex flex-col md:flex-row items-center gap-6 text-left">
             <div className="bg-[#143C2B] text-white p-3 rounded font-bold text-center leading-tight shrink-0">
