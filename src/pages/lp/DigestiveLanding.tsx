@@ -1,41 +1,21 @@
 import { useEffect, useState } from "react";
-import {
-  Star,
-  Check,
-  ChevronDown,
-  ChevronUp,
-  Package,
-  BookOpen,
-  Truck,
-  Gift,
-  Sparkles,
-  ShieldCheck,
-  Leaf,
-  FlaskConical,
-  Stethoscope,
-  UserRound,
-  WheatOff,
-  Nut,
-  Cherry,
-  Microscope,
-  CircleDot,
-  Wind,
-} from "lucide-react";
+import { Link } from "react-router-dom";
+import { Star, Check, ShoppingCart, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { fetchProductByHandle, ShopifyProduct, optimizeShopifyImage } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { PageMeta } from "@/components/seo";
 import { toast } from "sonner";
+import neuvieLogo from "@/assets/neuvie-navbar-logo.png";
 
 const PRIMARY_HANDLE = "digestive-gut-health-strips";
 
-// Brand tokens (Luxury Wellness): Forest primary, Cream bg, Terracotta accent
-const AURI_BG = "#f7f3ec";
-const AURI_GREEN = "#2e4a3c";
-const AURI_RED = "#c8794a";
+// AURI Brand Colors mapped for this template
+const AURI_BG = "#FBF9F6";
+const AURI_GREEN = "#143C2B";
+const AURI_RED = "#9F2228";
 const AURI_TEXT = "#2A2A2A";
 
 export default function DigestiveLanding() {
@@ -54,7 +34,7 @@ export default function DigestiveLanding() {
 
   const addItem = useCartStore((s) => s.addItem);
   const setCartOpen = useCartStore((s) => s.setOpen);
-  
+  const cartCount = useCartStore((s) => s.totalItems());
 
   useEffect(() => {
     fetchProductByHandle(PRIMARY_HANDLE).then((p) => {
@@ -76,7 +56,7 @@ export default function DigestiveLanding() {
       product: { node: product },
       variantId: variant.id,
       variantTitle: variant.title,
-      price: { amount: currentPrice.toString(), currencyCode: "USD" },
+      price: currentPrice.toString(),
       quantity: 1,
       selectedOptions: variant.selectedOptions,
     });
@@ -93,7 +73,46 @@ export default function DigestiveLanding() {
         description="Beat the bloat. Clinical gut health support."
       />
 
-      <Navbar />
+      {/* TOP BAR */}
+      <div className="bg-black text-white text-xs font-bold text-center py-2 uppercase tracking-wide">
+        Summer Sale: Up to <span style={{ color: AURI_RED }}>36% OFF</span> 📦
+      </div>
+
+      {/* NAVBAR */}
+      <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+        <div className="max-w-[1200px] mx-auto flex items-center justify-between h-[70px] px-4 md:px-8">
+          <Link to="/" className="flex items-center">
+            <img src={neuvieLogo} alt="NEUVIE" className="h-8 md:h-10 w-auto" />
+          </Link>
+          <div className="hidden md:flex items-center gap-8 text-[13px] font-bold uppercase tracking-wider text-gray-800">
+            <Link to="/shop" className="hover:text-gray-500">
+              Strips
+            </Link>
+            <Link to="/elixirs" className="hover:text-gray-500">
+              Elixirs
+            </Link>
+            <Link to="/guarantee" style={{ color: AURI_RED }}>
+              Auri's Guarantee 🔒
+            </Link>
+            <Link to="/science" className="hover:text-gray-500">
+              Science
+            </Link>
+            <Link to="/reviews" className="hover:text-gray-500">
+              Customer Talk
+            </Link>
+          </div>
+          <div className="flex items-center gap-4">
+            <button onClick={() => setCartOpen(true)} className="relative p-2">
+              <ShoppingCart className="h-5 w-5" />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-black text-white text-[10px] font-bold flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
+            </button>
+          </div>
+        </div>
+      </header>
 
       <main className="flex-1">
         {/* HERO SECTION */}
@@ -152,40 +171,56 @@ export default function DigestiveLanding() {
 
             {/* Price Line */}
             <div className="flex items-center gap-3 mb-6">
-              <span className="text-xs font-bold uppercase text-gray-500">Sale Price</span>
+              <span className="text-xs font-bold uppercase text-gray-500">Sonderpreis</span>
               <span className="text-[28px] font-bold" style={{ color: AURI_RED }}>
                 ${currentPrice}
               </span>
-              <span className="text-xs font-bold uppercase text-gray-500 ml-2">Regular Price</span>
+              <span className="text-xs font-bold uppercase text-gray-500 ml-2">Normaler Preis</span>
               <span className="text-lg text-gray-400 line-through">${normalPrice}</span>
             </div>
 
             <div className="flex items-center gap-3 mb-4">
               <span className="bg-[#F2D7D8] text-[#9F2228] text-xs font-bold px-2 py-1">36% OFF TODAY</span>
-              <span className="bg-[#F6E9CC] text-[#8C6D1F] text-xs font-bold px-2 py-1">Low Stock — 90% Sold</span>
+              <span className="bg-[#F6E9CC] text-[#8C6D1F] text-xs font-bold px-2 py-1">Low Stock 90% Sold</span>
             </div>
 
             {/* Green Box */}
             <div className="border border-green-800 bg-[#E8EFEA] p-4 mb-6 rounded text-sm relative">
-              <div className="font-bold text-center mb-3 flex items-center justify-center gap-1.5" style={{ color: AURI_GREEN }}>
-                <Check className="h-4 w-4" strokeWidth={3} /> 36% OFF AUTO-APPLIED TODAY
+              <div className="font-bold text-center mb-3" style={{ color: AURI_GREEN }}>
+                36% OFF AUTO-APPLIED TODAY ✅
               </div>
               <p className="font-bold mb-2">Here's what you'll get:</p>
               <div className="grid grid-cols-2 gap-y-2 gap-x-4">
                 <div className="flex items-center gap-2">
-                  <Package className="w-4 h-4 shrink-0" style={{ color: AURI_GREEN }} strokeWidth={1.75} />
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/190/190411.png"
+                    className="w-4 h-4 opacity-70"
+                    alt=""
+                  />{" "}
                   30 Servings of Strips
                 </div>
                 <div className="flex items-center gap-2">
-                  <BookOpen className="w-4 h-4 shrink-0" style={{ color: AURI_GREEN }} strokeWidth={1.75} />
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/2916/2916298.png"
+                    className="w-4 h-4 opacity-70"
+                    alt=""
+                  />{" "}
                   FREE gut health guide
                 </div>
                 <div className="flex items-center gap-2">
-                  <Truck className="w-4 h-4 shrink-0" style={{ color: AURI_GREEN }} strokeWidth={1.75} />
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/2769/2769339.png"
+                    className="w-4 h-4 opacity-70"
+                    alt=""
+                  />{" "}
                   FREE US shipping
                 </div>
                 <div className="flex items-center gap-2">
-                  <Gift className="w-4 h-4 shrink-0" style={{ color: AURI_GREEN }} strokeWidth={1.75} />
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/204/204272.png"
+                    className="w-4 h-4 opacity-70"
+                    alt=""
+                  />{" "}
                   FREE mystery gifts — <span className="underline text-xs">View Gifts</span>
                 </div>
               </div>
@@ -387,8 +422,8 @@ export default function DigestiveLanding() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="rounded-xl overflow-hidden aspect-[4/3] bg-gray-100">
               {/* Fallback image if product image isn't available */}
-              {images[0] && (
-                <img src={optimizeShopifyImage(images[0]!, 600)} className="w-full h-full object-cover" alt="Benefits" />
+              {heroImage && (
+                <img src={optimizeShopifyImage(heroImage, 600)} className="w-full h-full object-cover" alt="Benefits" />
               )}
             </div>
             <div>
@@ -428,7 +463,7 @@ export default function DigestiveLanding() {
                       className="w-full py-5 flex justify-between items-center font-bold text-[14px]"
                     >
                       <div className="flex items-center gap-3">
-                        <Sparkles className="h-4 w-4" style={{ color: AURI_GREEN }} strokeWidth={1.75} /> {acc.title}
+                        <span style={{ color: AURI_GREEN }}>✨</span> {acc.title}
                       </div>
                       {openBenefitAcc === acc.id ? (
                         <ChevronUp className="h-4 w-4" />
@@ -495,8 +530,10 @@ export default function DigestiveLanding() {
                     "Easy to forget or skip",
                   ].map((text, i) => (
                     <li key={i} className="flex items-start gap-2 text-[12px] text-gray-500">
-                      <div className="mt-0.5 rounded-full bg-red-100 h-4 w-4 flex items-center justify-center shrink-0">
-                        <span className="text-red-600 text-[10px] font-bold leading-none">×</span>
+                      <div className="mt-0.5 rounded-full bg-red-100 p-0.5">
+                        <div className="h-2.5 w-2.5 flex items-center justify-center text-red-600 text-[10px] font-bold">
+                          ✕
+                        </div>
                       </div>
                       {text}
                     </li>
@@ -513,7 +550,7 @@ export default function DigestiveLanding() {
             >
               Try NEUVIE Risk-Free →
             </Button>
-            <p className="text-[11px] font-bold mt-2 flex items-center justify-center gap-1.5"><ShieldCheck className="h-4 w-4" style={{ color: AURI_GREEN }} strokeWidth={1.75} /> 60-Day Moneyback Guarantee***</p>
+            <p className="text-[11px] font-bold mt-2">🛡️ 60-Day Moneyback Guarantee***</p>
           </div>
         </section>
 
@@ -531,39 +568,27 @@ export default function DigestiveLanding() {
                   name: "Probiotics",
                   tag: "Gut-Health*",
                   desc: "Contains 50B CFU to support cellular energy and microbiome balance*",
-                  Icon: CircleDot,
                 },
                 {
                   name: "Prebiotics",
                   tag: "Digestion*",
                   desc: "Fibers that feed the good bacteria and help regulate daily digestion*",
-                  Icon: Sparkles,
                 },
                 {
                   name: "Ginger Root",
                   tag: "Soothing*",
                   desc: "Revered for its ability to calm the stomach lining and reduce nausea*",
-                  Icon: Leaf,
                 },
                 {
                   name: "Peppermint",
                   tag: "Relief*",
                   desc: "Contains natural antispasmodic properties to alleviate trapped gas*",
-                  Icon: Wind,
                 },
               ].map((ing, i) => (
                 <div key={i} className="flex flex-col items-center">
-                  <div
-                    className="w-20 h-20 rounded-full border border-gray-200 mb-4 flex items-center justify-center"
-                    style={{ backgroundColor: "#EFF3EE" }}
-                  >
-                    <ing.Icon className="h-8 w-8" style={{ color: AURI_GREEN }} strokeWidth={1.5} />
-                  </div>
+                  <div className="w-20 h-20 rounded-full border border-gray-200 mb-4 bg-[#FAF9F6]" />
                   <h4 className="font-bold text-[15px]">{ing.name}</h4>
-                  <span
-                    className="text-white text-[9px] uppercase font-bold px-2 py-0.5 mt-1 mb-2"
-                    style={{ backgroundColor: AURI_GREEN }}
-                  >
+                  <span className="bg-black text-white text-[9px] uppercase font-bold px-2 py-0.5 mt-1 mb-2">
                     {ing.tag}
                   </span>
                   <p className="text-[11px] text-gray-500 leading-relaxed px-2">{ing.desc}</p>
@@ -612,18 +637,13 @@ export default function DigestiveLanding() {
 
               <div className="grid grid-cols-4 gap-2 text-center">
                 {[
-                  { Icon: WheatOff, label: "Gluten\nFree" },
-                  { Icon: Nut, label: "Allergen\nFree" },
-                  { Icon: Cherry, label: "Naturally\nFlavored" },
-                  { Icon: Microscope, label: "Third-Party\nTested" },
+                  { icon: "🌾", label: "Gluten\nFree" },
+                  { icon: "🥜", label: "Allergen\nFree" },
+                  { icon: "🍓", label: "Naturally\nFlavored" },
+                  { icon: "🔬", label: "Third-Party\nTested" },
                 ].map((item, i) => (
                   <div key={i} className="flex flex-col items-center gap-2">
-                    <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center"
-                      style={{ backgroundColor: "#EFF3EE" }}
-                    >
-                      <item.Icon className="h-6 w-6" style={{ color: AURI_GREEN }} strokeWidth={1.5} />
-                    </div>
+                    <div className="text-2xl">{item.icon}</div>
                     <span className="text-[10px] font-bold whitespace-pre-line">{item.label}</span>
                   </div>
                 ))}
@@ -700,36 +720,22 @@ export default function DigestiveLanding() {
                   title: "Nature at its finest!",
                   text: "This product boosts my mood and digestion. I noticed the improvements within the first week!",
                 },
-              ].map((rev, i) => {
-                const initial = rev.name.charAt(0);
-                const bgs = ["#EFF3EE", "#F5E9DF", "#E8EFEA"];
-                return (
-                  <div key={i} className="text-left">
-                    <div
-                      className="aspect-[4/3] mb-4 rounded flex items-center justify-center"
-                      style={{ backgroundColor: bgs[i % bgs.length] }}
-                    >
-                      <div
-                        className="w-20 h-20 rounded-full flex items-center justify-center font-serif text-2xl text-white"
-                        style={{ backgroundColor: AURI_GREEN }}
-                      >
-                        {initial}
-                      </div>
-                    </div>
-                    <div className="flex mb-2" style={{ color: AURI_GREEN }}>
-                      {[...Array(5)].map((_, s) => (
-                        <Star key={s} className="h-3 w-3 fill-current" />
-                      ))}
-                    </div>
-                    <h4 className="font-bold text-[14px] mb-2">{rev.title}</h4>
-                    <p className="text-[12px] text-gray-600 mb-4 min-h-[60px]">{rev.text}</p>
-                    <p className="text-[12px] font-bold">{rev.name}</p>
-                    <p className="text-[10px] font-bold flex items-center gap-1" style={{ color: AURI_GREEN }}>
-                      <Check className="h-3 w-3" strokeWidth={3} /> Verified Buyer
-                    </p>
+              ].map((rev, i) => (
+                <div key={i} className="text-left">
+                  <div className="aspect-[4/3] bg-gray-200 mb-4 rounded" /> {/* Placeholder for user photo/video */}
+                  <div className="flex mb-2" style={{ color: AURI_GREEN }}>
+                    {[...Array(5)].map((_, s) => (
+                      <Star key={s} className="h-3 w-3 fill-current" />
+                    ))}
                   </div>
-                );
-              })}
+                  <h4 className="font-bold text-[14px] mb-2">{rev.title}</h4>
+                  <p className="text-[12px] text-gray-600 mb-4 min-h-[60px]">{rev.text}</p>
+                  <p className="text-[12px] font-bold">{rev.name}</p>
+                  <p className="text-[10px] text-green-700 font-bold flex items-center gap-1">
+                    <Check className="h-3 w-3" /> Verified Buyer
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -739,24 +745,17 @@ export default function DigestiveLanding() {
           <h3 className="font-serif text-[24px] mb-8">Our Promise</h3>
           <div className="flex justify-center gap-12 md:gap-24 mb-12">
             {[
-              { Icon: Sparkles, label: "Feels & tastes like\nclarity" },
-              { Icon: Leaf, label: "Crafted with premium\ningredients" },
-              { Icon: FlaskConical, label: "Rigorously lab tested" },
+              { icon: "✨", label: "Feels & tastes like\nclarity" },
+              { icon: "🌿", label: "Crafted with premium\ningredients" },
+              { icon: "🔬", label: "Rigorously lab tested" },
             ].map((p, i) => (
               <div key={i} className="flex flex-col items-center">
-                <div
-                  className="w-14 h-14 rounded-full mb-3 flex items-center justify-center"
-                  style={{ backgroundColor: "#EFF3EE" }}
-                >
-                  <p.Icon className="h-7 w-7" style={{ color: AURI_GREEN }} strokeWidth={1.5} />
-                </div>
-                <p className="text-[12px] font-bold whitespace-pre-line leading-tight text-center">{p.label}</p>
+                <div className="text-3xl mb-3">{p.icon}</div>
+                <p className="text-[12px] font-bold whitespace-pre-line leading-tight">{p.label}</p>
               </div>
             ))}
           </div>
-          <p className="text-[12px] font-bold mb-8 flex items-center justify-center gap-1.5">
-            <ShieldCheck className="h-4 w-4" style={{ color: AURI_GREEN }} strokeWidth={1.75} /> 60-Day Moneyback Guarantee***
-          </p>
+          <p className="text-[12px] font-bold mb-8">🛡️ 60-Day Moneyback Guarantee***</p>
 
           <div className="max-w-[800px] mx-auto bg-[#F4F9F5] border border-green-200 p-6 rounded flex flex-col md:flex-row items-center gap-6 text-left">
             <div className="bg-[#143C2B] text-white p-3 rounded font-bold text-center leading-tight shrink-0">
@@ -779,7 +778,7 @@ export default function DigestiveLanding() {
         <section className="bg-white py-16 border-t border-gray-200">
           <div className="max-w-[800px] mx-auto px-4">
             <div className="text-center mb-10">
-              <Stethoscope className="h-6 w-6 mx-auto" style={{ color: AURI_GREEN }} strokeWidth={1.5} />
+              <span className="text-[20px]">🩺</span>
               <h2 className="font-serif text-[28px] mt-2 mb-2">Independent Clinician Evaluations</h2>
               <p className="text-[12px] text-gray-500">
                 Effective review of products and claims by independent medical professionals.{" "}
@@ -789,12 +788,7 @@ export default function DigestiveLanding() {
 
             <div className="border border-gray-200 rounded p-6 flex gap-6">
               <div className="shrink-0 text-center">
-                <div
-                  className="w-16 h-16 rounded-full mx-auto mb-2 flex items-center justify-center"
-                  style={{ backgroundColor: "#EFF3EE" }}
-                >
-                  <UserRound className="h-8 w-8" style={{ color: AURI_GREEN }} strokeWidth={1.5} />
-                </div>
+                <div className="w-16 h-16 bg-gray-200 rounded-full mx-auto mb-2" />
                 <p className="text-[11px] font-bold">Dr. Sarah Jenkins, MD</p>
                 <p className="text-[9px] text-gray-500 mb-1">Verified Reviewer</p>
                 <div className="text-[10px] text-left">
@@ -880,7 +874,55 @@ export default function DigestiveLanding() {
         </section>
       </main>
 
-      <Footer />
+      {/* FOOTER (Simple placeholder to match Auri structure) */}
+      <footer className="bg-[#FAF9F6] border-t border-gray-200 pt-16 pb-8 px-4 text-[12px]">
+        <div className="max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+          <div>
+            <h4 className="font-bold mb-4">Shop</h4>
+            <ul className="space-y-2 text-gray-600">
+              <li>
+                <Link to="/shop">Daily Strips</Link>
+              </li>
+              <li>
+                <Link to="/bundles">Bundles</Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4">About</h4>
+            <ul className="space-y-2 text-gray-600">
+              <li>
+                <Link to="/story">Our Story</Link>
+              </li>
+              <li>
+                <Link to="/science">Science</Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4">Support</h4>
+            <ul className="space-y-2 text-gray-600">
+              <li>
+                <Link to="/contact">Contact Us</Link>
+              </li>
+              <li>
+                <Link to="/refund">Refund Policy</Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4">Newsletter</h4>
+            <p className="text-gray-600 mb-4">Subscribe for special offers.</p>
+          </div>
+        </div>
+        <div className="max-w-[1200px] mx-auto text-center text-[10px] text-gray-400 border-t border-gray-200 pt-8">
+          <p>© 2026, NEUVIE Nutrition.</p>
+          <p className="mt-2 max-w-4xl mx-auto leading-relaxed">
+            * These statements have not been evaluated by the Food and Drug Administration. This product is not intended
+            to diagnose, treat, cure, or prevent any disease.
+          </p>
+        </div>
+      </footer>
       <CartDrawer />
     </div>
   );
