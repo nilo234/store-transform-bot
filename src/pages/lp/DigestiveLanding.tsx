@@ -789,7 +789,12 @@ export default function DigestiveLanding() {
 
             <div className="border border-gray-200 rounded p-6 flex gap-6">
               <div className="shrink-0 text-center">
-                <div className="w-16 h-16 bg-gray-200 rounded-full mx-auto mb-2" />
+                <div
+                  className="w-16 h-16 rounded-full mx-auto mb-2 flex items-center justify-center"
+                  style={{ backgroundColor: "#EFF3EE" }}
+                >
+                  <UserRound className="h-8 w-8" style={{ color: AURI_GREEN }} strokeWidth={1.5} />
+                </div>
                 <p className="text-[11px] font-bold">Dr. Sarah Jenkins, MD</p>
                 <p className="text-[9px] text-gray-500 mb-1">Verified Reviewer</p>
                 <div className="text-[10px] text-left">
