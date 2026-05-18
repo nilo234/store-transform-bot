@@ -93,46 +93,7 @@ export default function DigestiveLanding() {
         description="Beat the bloat. Clinical gut health support."
       />
 
-      {/* TOP BAR */}
-      <div className="bg-black text-white text-xs font-bold text-center py-2 uppercase tracking-wide">
-        Summer Sale: Up to <span style={{ color: AURI_RED }}>36% OFF</span> 📦
-      </div>
-
-      {/* NAVBAR */}
-      <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
-        <div className="max-w-[1200px] mx-auto flex items-center justify-between h-[70px] px-4 md:px-8">
-          <Link to="/" className="flex items-center">
-            <img src={neuvieLogo} alt="NEUVIE" className="h-8 md:h-10 w-auto" />
-          </Link>
-          <div className="hidden md:flex items-center gap-8 text-[13px] font-bold uppercase tracking-wider text-gray-800">
-            <Link to="/shop" className="hover:text-gray-500">
-              Strips
-            </Link>
-            <Link to="/elixirs" className="hover:text-gray-500">
-              Elixirs
-            </Link>
-            <Link to="/guarantee" style={{ color: AURI_RED }}>
-              Auri's Guarantee 🔒
-            </Link>
-            <Link to="/science" className="hover:text-gray-500">
-              Science
-            </Link>
-            <Link to="/reviews" className="hover:text-gray-500">
-              Customer Talk
-            </Link>
-          </div>
-          <div className="flex items-center gap-4">
-            <button onClick={() => setCartOpen(true)} className="relative p-2">
-              <ShoppingCart className="h-5 w-5" />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-black text-white text-[10px] font-bold flex items-center justify-center">
-                  {cartCount}
-                </span>
-              )}
-            </button>
-          </div>
-        </div>
-      </header>
+      <Navbar />
 
       <main className="flex-1">
         {/* HERO SECTION */}
