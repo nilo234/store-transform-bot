@@ -1,21 +1,41 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Star, Check, ShoppingCart, ChevronDown, ChevronUp } from "lucide-react";
+import {
+  Star,
+  Check,
+  ChevronDown,
+  ChevronUp,
+  Package,
+  BookOpen,
+  Truck,
+  Gift,
+  Sparkles,
+  ShieldCheck,
+  Leaf,
+  FlaskConical,
+  Stethoscope,
+  UserRound,
+  WheatOff,
+  Nut,
+  Cherry,
+  Microscope,
+  CircleDot,
+  Wind,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { fetchProductByHandle, ShopifyProduct, optimizeShopifyImage } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { PageMeta } from "@/components/seo";
 import { toast } from "sonner";
-import neuvieLogo from "@/assets/neuvie-navbar-logo.png";
 
 const PRIMARY_HANDLE = "digestive-gut-health-strips";
 
-// AURI Brand Colors mapped for this template
-const AURI_BG = "#FBF9F6";
-const AURI_GREEN = "#143C2B";
-const AURI_RED = "#9F2228";
+// Brand tokens (Luxury Wellness): Forest primary, Cream bg, Terracotta accent
+const AURI_BG = "#f7f3ec";
+const AURI_GREEN = "#2e4a3c";
+const AURI_RED = "#c8794a";
 const AURI_TEXT = "#2A2A2A";
 
 export default function DigestiveLanding() {
