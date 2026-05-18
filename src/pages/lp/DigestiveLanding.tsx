@@ -152,56 +152,40 @@ export default function DigestiveLanding() {
 
             {/* Price Line */}
             <div className="flex items-center gap-3 mb-6">
-              <span className="text-xs font-bold uppercase text-gray-500">Sonderpreis</span>
+              <span className="text-xs font-bold uppercase text-gray-500">Sale Price</span>
               <span className="text-[28px] font-bold" style={{ color: AURI_RED }}>
                 ${currentPrice}
               </span>
-              <span className="text-xs font-bold uppercase text-gray-500 ml-2">Normaler Preis</span>
+              <span className="text-xs font-bold uppercase text-gray-500 ml-2">Regular Price</span>
               <span className="text-lg text-gray-400 line-through">${normalPrice}</span>
             </div>
 
             <div className="flex items-center gap-3 mb-4">
               <span className="bg-[#F2D7D8] text-[#9F2228] text-xs font-bold px-2 py-1">36% OFF TODAY</span>
-              <span className="bg-[#F6E9CC] text-[#8C6D1F] text-xs font-bold px-2 py-1">Low Stock 90% Sold</span>
+              <span className="bg-[#F6E9CC] text-[#8C6D1F] text-xs font-bold px-2 py-1">Low Stock — 90% Sold</span>
             </div>
 
             {/* Green Box */}
             <div className="border border-green-800 bg-[#E8EFEA] p-4 mb-6 rounded text-sm relative">
-              <div className="font-bold text-center mb-3" style={{ color: AURI_GREEN }}>
-                36% OFF AUTO-APPLIED TODAY ✅
+              <div className="font-bold text-center mb-3 flex items-center justify-center gap-1.5" style={{ color: AURI_GREEN }}>
+                <Check className="h-4 w-4" strokeWidth={3} /> 36% OFF AUTO-APPLIED TODAY
               </div>
               <p className="font-bold mb-2">Here's what you'll get:</p>
               <div className="grid grid-cols-2 gap-y-2 gap-x-4">
                 <div className="flex items-center gap-2">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/190/190411.png"
-                    className="w-4 h-4 opacity-70"
-                    alt=""
-                  />{" "}
+                  <Package className="w-4 h-4 shrink-0" style={{ color: AURI_GREEN }} strokeWidth={1.75} />
                   30 Servings of Strips
                 </div>
                 <div className="flex items-center gap-2">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/2916/2916298.png"
-                    className="w-4 h-4 opacity-70"
-                    alt=""
-                  />{" "}
+                  <BookOpen className="w-4 h-4 shrink-0" style={{ color: AURI_GREEN }} strokeWidth={1.75} />
                   FREE gut health guide
                 </div>
                 <div className="flex items-center gap-2">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/2769/2769339.png"
-                    className="w-4 h-4 opacity-70"
-                    alt=""
-                  />{" "}
+                  <Truck className="w-4 h-4 shrink-0" style={{ color: AURI_GREEN }} strokeWidth={1.75} />
                   FREE US shipping
                 </div>
                 <div className="flex items-center gap-2">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/204/204272.png"
-                    className="w-4 h-4 opacity-70"
-                    alt=""
-                  />{" "}
+                  <Gift className="w-4 h-4 shrink-0" style={{ color: AURI_GREEN }} strokeWidth={1.75} />
                   FREE mystery gifts — <span className="underline text-xs">View Gifts</span>
                 </div>
               </div>
