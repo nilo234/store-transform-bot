@@ -495,10 +495,8 @@ export default function DigestiveLanding() {
                     "Easy to forget or skip",
                   ].map((text, i) => (
                     <li key={i} className="flex items-start gap-2 text-[12px] text-gray-500">
-                      <div className="mt-0.5 rounded-full bg-red-100 p-0.5">
-                        <div className="h-2.5 w-2.5 flex items-center justify-center text-red-600 text-[10px] font-bold">
-                          ✕
-                        </div>
+                      <div className="mt-0.5 rounded-full bg-red-100 h-4 w-4 flex items-center justify-center shrink-0">
+                        <span className="text-red-600 text-[10px] font-bold leading-none">×</span>
                       </div>
                       {text}
                     </li>
