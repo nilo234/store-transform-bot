@@ -612,13 +612,18 @@ export default function DigestiveLanding() {
 
               <div className="grid grid-cols-4 gap-2 text-center">
                 {[
-                  { icon: "🌾", label: "Gluten\nFree" },
-                  { icon: "🥜", label: "Allergen\nFree" },
-                  { icon: "🍓", label: "Naturally\nFlavored" },
-                  { icon: "🔬", label: "Third-Party\nTested" },
+                  { Icon: WheatOff, label: "Gluten\nFree" },
+                  { Icon: Nut, label: "Allergen\nFree" },
+                  { Icon: Cherry, label: "Naturally\nFlavored" },
+                  { Icon: Microscope, label: "Third-Party\nTested" },
                 ].map((item, i) => (
                   <div key={i} className="flex flex-col items-center gap-2">
-                    <div className="text-2xl">{item.icon}</div>
+                    <div
+                      className="w-12 h-12 rounded-full flex items-center justify-center"
+                      style={{ backgroundColor: "#EFF3EE" }}
+                    >
+                      <item.Icon className="h-6 w-6" style={{ color: AURI_GREEN }} strokeWidth={1.5} />
+                    </div>
                     <span className="text-[10px] font-bold whitespace-pre-line">{item.label}</span>
                   </div>
                 ))}
