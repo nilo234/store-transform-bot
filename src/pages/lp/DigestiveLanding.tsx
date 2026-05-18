@@ -1,20 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, useScroll, useTransform } from "framer-motion";
-import {
-  Star,
-  Check,
-  ShoppingCart,
-  ShieldCheck,
-  ChevronDown,
-  ChevronUp,
-  ArrowRight,
-  Activity,
-  Leaf,
-  Shield,
-  Truck,
-  Award,
-} from "lucide-react";
+import { Star, Check, ShoppingCart, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Footer } from "@/components/layout/Footer";
 import { CartDrawer } from "@/components/cart/CartDrawer";
@@ -26,16 +12,25 @@ import neuvieLogo from "@/assets/neuvie-navbar-logo.png";
 
 const PRIMARY_HANDLE = "digestive-gut-health-strips";
 
+// AURI Brand Colors mapped for this template
+const AURI_BG = "#FBF9F6";
+const AURI_GREEN = "#143C2B";
+const AURI_RED = "#9F2228";
+const AURI_TEXT = "#2A2A2A";
+
 export default function DigestiveLanding() {
   const [product, setProduct] = useState<ShopifyProduct["node"] | null>(null);
   const [loading, setLoading] = useState(true);
+
+  // States
   const [isSubscription, setIsSubscription] = useState(true);
   const [activeImage, setActiveImage] = useState(0);
-  const [openFaq, setOpenFaq] = useState<string | null>("benefits");
 
-  // For Sticky Mobile Bottom Bar
-  const { scrollY } = useScroll();
-  const showStickyBar = useTransform(scrollY, [600, 700], [0, 1]);
+  // Accordion states mapped exactly like Auri
+  const [openHeroAcc, setOpenHeroAcc] = useState<string | null>(null);
+  const [openBenefitAcc, setOpenBenefitAcc] = useState<string>("focus");
+  const [openDetailAcc, setOpenDetailAcc] = useState<string>("ingredients");
+  const [openFaq, setOpenFaq] = useState<string | null>(null);
 
   const addItem = useCartStore((s) => s.addItem);
   const setCartOpen = useCartStore((s) => s.setOpen);
@@ -48,12 +43,9 @@ export default function DigestiveLanding() {
     });
   }, []);
 
-  const normalPrice = 49.99; // Standard retail
-  const subPrice = 31.99; // Subscription price
-  const oneTimePrice = 39.99; // One time price
-
-  const currentPrice = isSubscription ? subPrice : oneTimePrice;
-  const savings = normalPrice - currentPrice;
+  const normalPrice = 49.99;
+  const subPrice = 31.99;
+  const currentPrice = isSubscription ? subPrice : normalPrice;
 
   const handleAddToCart = async () => {
     if (!product) return;
@@ -69,78 +61,90 @@ export default function DigestiveLanding() {
       selectedOptions: variant.selectedOptions,
     });
     setCartOpen(true);
-    toast.success("Added to cart!", { icon: "🛒" });
+    toast.success("Added to cart!");
   };
 
-  const images = product?.images.edges.map((e) => e.node.url) || [null, null, null, null];
+  const images = product?.images.edges.map((e) => e.node.url) || [null, null, null, null, null];
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF9F7] text-[#1A1A1A] font-sans">
+    <div className="min-h-screen flex flex-col font-sans" style={{ backgroundColor: AURI_BG, color: AURI_TEXT }}>
       <PageMeta
-        title="Beat the Bloat — Digestive Strips | NEUVIE™"
-        description="Reduce bloating, support gut health, no pills needed. NEUVIE Digestive dissolving strips. Clinically backed."
+        title="Super Digestive Daily Strips | NEUVIE™"
+        description="Beat the bloat. Clinical gut health support."
       />
 
-      {/* TOP ANNOUNCEMENT BAR */}
-      <div className="bg-[#1A1A1A] text-white text-xs font-semibold tracking-wider text-center py-2.5 px-4 flex justify-center items-center gap-2">
-        <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-        </span>
-        SUMMER SALE: UP TO 36% OFF + FREE SHIPPING
+      {/* TOP BAR */}
+      <div className="bg-black text-white text-xs font-bold text-center py-2 uppercase tracking-wide">
+        Summer Sale: Up to <span style={{ color: AURI_RED }}>36% OFF</span> 📦
       </div>
 
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-black/5 shadow-sm">
-        <div className="max-w-7xl mx-auto flex items-center justify-between h-16 md:h-20 px-4 md:px-8">
+      {/* NAVBAR */}
+      <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+        <div className="max-w-[1200px] mx-auto flex items-center justify-between h-[70px] px-4 md:px-8">
           <Link to="/" className="flex items-center">
             <img src={neuvieLogo} alt="NEUVIE" className="h-8 md:h-10 w-auto" />
           </Link>
-          <button onClick={() => setCartOpen(true)} className="relative p-2 hover:bg-gray-50 rounded-full transition">
-            <ShoppingCart className="h-5 w-5 md:h-6 md:w-6 text-gray-800" />
-            {cartCount > 0 && (
-              <span className="absolute top-0 right-0 h-4 w-4 md:h-5 md:w-5 rounded-full bg-[#D44638] text-white text-[10px] md:text-xs font-bold flex items-center justify-center border-2 border-white">
-                {cartCount}
-              </span>
-            )}
-          </button>
+          <div className="hidden md:flex items-center gap-8 text-[13px] font-bold uppercase tracking-wider text-gray-800">
+            <Link to="/shop" className="hover:text-gray-500">
+              Strips
+            </Link>
+            <Link to="/elixirs" className="hover:text-gray-500">
+              Elixirs
+            </Link>
+            <Link to="/guarantee" style={{ color: AURI_RED }}>
+              Auri's Guarantee 🔒
+            </Link>
+            <Link to="/science" className="hover:text-gray-500">
+              Science
+            </Link>
+            <Link to="/reviews" className="hover:text-gray-500">
+              Customer Talk
+            </Link>
+          </div>
+          <div className="flex items-center gap-4">
+            <button onClick={() => setCartOpen(true)} className="relative p-2">
+              <ShoppingCart className="h-5 w-5" />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-black text-white text-[10px] font-bold flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
+            </button>
+          </div>
         </div>
       </header>
 
       <main className="flex-1">
-        {/* HERO SPLIT SECTION */}
-        <section className="max-w-7xl mx-auto py-6 md:py-12 px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
-          {/* LEFT: Product Gallery */}
-          <div className="lg:col-span-6 space-y-4">
-            <div className="aspect-square md:aspect-[4/5] bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative flex items-center justify-center group overflow-hidden">
-              <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
-                <span className="bg-[#D44638] text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-sm">
-                  🔥 Best Seller
-                </span>
-              </div>
-
+        {/* HERO SECTION */}
+        <section className="max-w-[1200px] mx-auto py-8 md:py-12 px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Left: Gallery */}
+          <div className="flex flex-col gap-4">
+            <div className="aspect-square bg-white rounded-lg p-8 relative flex justify-center items-center">
+              <span className="absolute top-4 right-4 bg-[#F2D7D8] text-[#9F2228] text-[10px] font-bold uppercase tracking-wider px-2 py-1">
+                SUMMER SALE - 36% OFF
+              </span>
               {images[activeImage] ? (
                 <img
                   src={optimizeShopifyImage(images[activeImage] as string, 800)}
-                  alt="NEUVIE Digestive Strips"
-                  className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500"
+                  alt="NEUVIE"
+                  className="w-full h-full object-contain"
                 />
               ) : (
-                <div className="w-full h-full bg-gray-50 animate-pulse rounded-2xl" />
+                <div className="w-full h-full bg-gray-100 animate-pulse" />
               )}
             </div>
-
-            <div className="grid grid-cols-4 gap-3">
+            <div className="flex gap-2 overflow-x-auto">
               {images.map(
                 (img, i) =>
                   img && (
                     <button
                       key={i}
                       onClick={() => setActiveImage(i)}
-                      className={`aspect-square bg-white border-2 rounded-xl overflow-hidden transition-all ${activeImage === i ? "border-[#234F32]" : "border-gray-100 hover:border-gray-300"}`}
+                      className={`w-20 h-20 bg-white border ${activeImage === i ? "border-gray-800" : "border-transparent"} p-1`}
                     >
                       <img
                         src={optimizeShopifyImage(img, 200)}
-                        alt={`Thumbnail ${i}`}
+                        alt={`Thumb ${i}`}
                         className="w-full h-full object-cover"
                       />
                     </button>
@@ -149,349 +153,776 @@ export default function DigestiveLanding() {
             </div>
           </div>
 
-          {/* RIGHT: Buy Box (Conversion Engine) */}
-          <div className="lg:col-span-6 flex flex-col pt-2 md:pt-4">
-            {/* Reviews Trust Signal */}
-            <div className="flex items-center gap-2 mb-3">
-              <div className="flex text-[#FFB800]">
+          {/* Right: Buy Box */}
+          <div className="flex flex-col">
+            {/* Reviews */}
+            <div className="flex items-center gap-1 mb-2">
+              <div className="flex" style={{ color: AURI_GREEN }}>
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-current" />
+                  <Star key={i} className="h-3 w-3 fill-current" />
                 ))}
               </div>
-              <a
-                href="#reviews"
-                className="text-sm font-semibold underline decoration-gray-300 hover:decoration-gray-600 transition"
-              >
-                4.9/5.0 (2,143 Reviews)
-              </a>
-              <span className="text-gray-300">|</span>
-              <span className="text-sm font-medium text-gray-500 flex items-center gap-1">
-                <ShieldCheck className="h-4 w-4 text-green-600" /> 50k+ Customers
-              </span>
+              <span className="text-xs font-bold underline ml-1">4.9/5.0 (7076) | 1M+ Customers</span>
             </div>
 
-            <h1 className="font-serif text-4xl md:text-5xl font-medium tracking-tight mb-2 text-[#1A1A1A]">
-              Super Digestive
-            </h1>
-            <h2 className="text-2xl font-light text-gray-600 mb-2">Daily Strips™</h2>
-            <p className="text-sm text-gray-500 mb-6 pb-6 border-b border-gray-200">
-              Wild Berry | Beat the Bloat + Digestion | NEUVIE™
-            </p>
+            <h1 className="font-serif text-[42px] leading-tight mb-1 text-black">Super Digestive</h1>
+            <h2 className="text-[28px] font-serif text-black mb-2">Daily Strips®</h2>
+            <p className="text-[13px] text-gray-500 mb-6">Wild Berry | Bloat Relief + Digestion | NEUVIE Nutrition™</p>
 
-            {/* Price & Scarcity */}
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-4">
-              <div className="flex items-center gap-3">
-                <span className="text-4xl font-bold text-[#D44638]">${currentPrice}</span>
-                <div className="flex flex-col">
-                  <span className="text-lg text-gray-400 line-through leading-none">${normalPrice}</span>
-                  <span className="text-sm font-bold text-green-700 leading-none mt-1">Save ${savings.toFixed(2)}</span>
-                </div>
+            {/* Price Line */}
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-xs font-bold uppercase text-gray-500">Sonderpreis</span>
+              <span className="text-[28px] font-bold" style={{ color: AURI_RED }}>
+                ${currentPrice}
+              </span>
+              <span className="text-xs font-bold uppercase text-gray-500 ml-2">Normaler Preis</span>
+              <span className="text-lg text-gray-400 line-through">${normalPrice}</span>
+            </div>
+
+            <div className="flex items-center gap-3 mb-4">
+              <span className="bg-[#F2D7D8] text-[#9F2228] text-xs font-bold px-2 py-1">36% OFF TODAY</span>
+              <span className="bg-[#F6E9CC] text-[#8C6D1F] text-xs font-bold px-2 py-1">Low Stock 90% Sold</span>
+            </div>
+
+            {/* Green Box */}
+            <div className="border border-green-800 bg-[#E8EFEA] p-4 mb-6 rounded text-sm relative">
+              <div className="font-bold text-center mb-3" style={{ color: AURI_GREEN }}>
+                36% OFF AUTO-APPLIED TODAY ✅
               </div>
-              <div className="bg-orange-50 text-orange-800 text-xs font-bold px-3 py-2 rounded-lg flex items-center gap-2 border border-orange-100">
-                <Activity className="h-4 w-4" /> Low Stock: 90% Sold
+              <p className="font-bold mb-2">Here's what you'll get:</p>
+              <div className="grid grid-cols-2 gap-y-2 gap-x-4">
+                <div className="flex items-center gap-2">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/190/190411.png"
+                    className="w-4 h-4 opacity-70"
+                    alt=""
+                  />{" "}
+                  30 Servings of Strips
+                </div>
+                <div className="flex items-center gap-2">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/2916/2916298.png"
+                    className="w-4 h-4 opacity-70"
+                    alt=""
+                  />{" "}
+                  FREE gut health guide
+                </div>
+                <div className="flex items-center gap-2">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/2769/2769339.png"
+                    className="w-4 h-4 opacity-70"
+                    alt=""
+                  />{" "}
+                  FREE US shipping
+                </div>
+                <div className="flex items-center gap-2">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/204/204272.png"
+                    className="w-4 h-4 opacity-70"
+                    alt=""
+                  />{" "}
+                  FREE mystery gifts — <span className="underline text-xs">View Gifts</span>
+                </div>
               </div>
             </div>
 
             {/* Subscription Toggle */}
-            <div className="space-y-3 mb-6">
-              {/* Subscribe Option */}
+            <div className="space-y-0 mb-6 border border-gray-300 rounded overflow-hidden">
               <label
-                className={`relative flex flex-col p-4 border-2 rounded-2xl cursor-pointer transition-all duration-200 ${isSubscription ? "border-[#234F32] bg-[#F4F8F5]" : "border-gray-200 bg-white hover:border-gray-300"}`}
-              >
-                {isSubscription && (
-                  <div className="absolute -top-3 left-4 bg-[#234F32] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full">
-                    Most Popular
-                  </div>
-                )}
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-3">
-                    <div
-                      className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${isSubscription ? "border-[#234F32]" : "border-gray-300"}`}
-                    >
-                      {isSubscription && <div className="w-2.5 h-2.5 bg-[#234F32] rounded-full" />}
-                    </div>
-                    <span className="font-bold text-[#1A1A1A]">Subscribe & Save 36%</span>
-                  </div>
-                  <span className="font-bold text-lg">${subPrice}</span>
-                </div>
-
-                <div
-                  className={`pl-8 space-y-1.5 overflow-hidden transition-all ${isSubscription ? "h-auto opacity-100 mt-2" : "h-0 opacity-0"}`}
-                >
-                  <p className="text-xs font-semibold text-green-700 mb-2">42% OFF AUTO-APPLIED TODAY ✅</p>
-                  <ul className="text-sm text-gray-600 space-y-1.5">
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-green-600" /> 30 Servings of Strips
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-green-600" /> <strong>FREE</strong> US Shipping
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-green-600" /> Cancel or skip anytime
-                    </li>
-                  </ul>
-                </div>
-              </label>
-
-              {/* One-time Option */}
-              <label
-                className={`flex items-center justify-between p-4 border-2 rounded-2xl cursor-pointer transition-all duration-200 ${!isSubscription ? "border-[#234F32] bg-[#F4F8F5]" : "border-gray-200 bg-white hover:border-gray-300"}`}
+                className={`flex flex-col p-4 cursor-pointer border-b border-gray-200 ${isSubscription ? "bg-[#F2F8F4]" : "bg-white"}`}
               >
                 <div className="flex items-center gap-3">
-                  <div
-                    className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${!isSubscription ? "border-[#234F32]" : "border-gray-300"}`}
-                  >
-                    {!isSubscription && <div className="w-2.5 h-2.5 bg-[#234F32] rounded-full" />}
-                  </div>
-                  <span className="font-semibold text-gray-700">One-time purchase</span>
+                  <input
+                    type="radio"
+                    checked={isSubscription}
+                    onChange={() => setIsSubscription(true)}
+                    className="w-4 h-4 accent-green-800"
+                  />
+                  <span className="font-bold text-sm">Auto-refill every 4 weeks at ${subPrice}</span>
                 </div>
-                <span className="font-semibold text-gray-700">${oneTimePrice}</span>
+                {isSubscription && (
+                  <p className="text-[11px] text-gray-600 mt-2 pl-7">
+                    3 days before your next shipment is set to go through, we'll email you a reminder. By default, it'll
+                    be another 30 servings delivered to you, and you can easily adjust or cancel at anytime.
+                  </p>
+                )}
+              </label>
+
+              <label
+                className={`flex items-center justify-between p-4 cursor-pointer ${!isSubscription ? "bg-[#F2F8F4]" : "bg-white"}`}
+              >
+                <div className="flex items-center gap-3">
+                  <input
+                    type="radio"
+                    checked={!isSubscription}
+                    onChange={() => setIsSubscription(false)}
+                    className="w-4 h-4 accent-green-800"
+                  />
+                  <div>
+                    <span className="font-bold text-sm block">Buy Once</span>
+                    <span className="text-[11px] text-gray-500">Does not include free gifts.</span>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <span className="font-bold text-sm block">${normalPrice}</span>
+                  <span className="text-[11px] text-gray-500">+ $6.95 Shipping</span>
+                </div>
               </label>
             </div>
 
-            {/* CTA Button */}
             <Button
               onClick={handleAddToCart}
-              disabled={loading}
-              className="w-full h-16 text-lg font-bold rounded-2xl bg-[#234F32] hover:bg-[#1A3A25] text-white shadow-xl shadow-green-900/20 transform transition active:scale-[0.98] flex items-center justify-center gap-2 mb-4"
+              className="w-full h-14 text-[15px] font-bold tracking-wide uppercase"
+              style={{ backgroundColor: AURI_GREEN, color: "white" }}
             >
-              {loading ? "Loading..." : `Add to Cart — ${isSubscription ? "Save 36%" : "Try Today"}`}
-              <ArrowRight className="h-5 w-5" />
+              Add to Cart →
             </Button>
 
-            {/* Trust Badges under CTA */}
-            <div className="flex items-center justify-center gap-6 text-xs font-medium text-gray-500 mb-8 pb-8 border-b border-gray-200">
-              <span className="flex items-center gap-1.5">
-                <Shield className="h-4 w-4 text-gray-400" /> 60-Day Guarantee
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Truck className="h-4 w-4 text-gray-400" /> Ships in 24h
-              </span>
+            <p className="text-center text-xs font-bold mt-3 mb-6">
+              3-6 months of consistent use recommended to see results.
+            </p>
+
+            {/* Trust Quote */}
+            <div className="bg-white p-4 border border-gray-200 rounded text-center mb-6">
+              <div className="flex justify-center gap-1 mb-2" style={{ color: AURI_GREEN }}>
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-3 w-3 fill-current" />
+                ))}
+              </div>
+              <p className="text-[13px] italic mb-2">
+                "Its digestive benefits really come to light after the first week with my bloating disappearing and an
+                overall sense of increased well being."
+              </p>
+              <div className="flex items-center justify-center gap-2">
+                <div className="w-6 h-6 bg-pink-100 rounded-full flex items-center justify-center text-[10px] font-bold text-pink-800">
+                  R
+                </div>
+                <div className="text-left">
+                  <p className="text-[11px] font-bold">Rebecca R.</p>
+                  <p className="text-[9px] text-gray-500">Verified Buyer</p>
+                </div>
+              </div>
             </div>
 
             {/* Accordions */}
-            <div className="space-y-0 border border-gray-200 rounded-2xl overflow-hidden bg-white">
+            <div className="border-t border-gray-200">
               {[
                 {
-                  id: "benefits",
-                  title: "Life-Changing Benefits",
+                  id: "desc",
+                  title: "Description",
                   content:
-                    "Clinically studied to reduce bloating instantly. Supports a healthy gut microbiome with probiotics that actually survive stomach acid to reach your gut alive.",
+                    "Our Daily Digestive Strips are designed to melt on your tongue and deliver clinical ingredients directly into your system, bypassing harsh stomach acids.",
                 },
                 {
-                  id: "ingredients",
-                  title: "Ingredients & Nutrition",
+                  id: "ing",
+                  title: "Ingredients",
                   content:
-                    "Probiotic Blend (50 Billion CFU), Prebiotic Fiber, Ginger Root Extract, Peppermint Extract. 100% Vegan, Sugar-Free, Non-GMO. Made in FDA registered facility.",
+                    "Probiotic Blend (50B CFU), Prebiotic Fiber, Ginger Root Extract, Peppermint. Vegan, Gluten-Free.",
                 },
                 {
-                  id: "shipping",
+                  id: "ship",
                   title: "Shipping & Guarantee",
-                  content:
-                    'Free US shipping on all subscriptions. Protected by our 60-Day "Bottom of the Bag" Money-Back Guarantee. If you don\'t feel the difference, we refund you.',
+                  content: "Free shipping on subscription. 60-Day money back guarantee.",
                 },
-              ].map((acc, index) => (
-                <div key={acc.id} className={`${index !== 2 ? "border-b border-gray-100" : ""}`}>
+                {
+                  id: "sub",
+                  title: "Subscriber Perks",
+                  content:
+                    "Subscribers get 36% off, free shipping, free mystery gifts, and our digital gut health guide.",
+                },
+              ].map((acc) => (
+                <div key={acc.id} className="border-b border-gray-200">
                   <button
-                    onClick={() => setOpenFaq(openFaq === acc.id ? null : acc.id)}
-                    className="w-full p-5 flex justify-between items-center bg-white hover:bg-gray-50 transition"
+                    onClick={() => setOpenHeroAcc(openHeroAcc === acc.id ? null : acc.id)}
+                    className="w-full py-4 flex justify-between items-center font-serif text-[15px]"
                   >
-                    <span className="font-bold text-sm text-gray-800">{acc.title}</span>
-                    <div className="bg-gray-100 p-1.5 rounded-full text-gray-600">
-                      {openFaq === acc.id ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-                    </div>
+                    {acc.title}
+                    {openHeroAcc === acc.id ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
                   </button>
-                  {openFaq === acc.id && (
-                    <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed">{acc.content}</div>
-                  )}
+                  {openHeroAcc === acc.id && <div className="pb-4 text-[13px] text-gray-600">{acc.content}</div>}
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* TRUST BANNER */}
-        <section className="border-y border-gray-200 bg-white py-6">
-          <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-center items-center gap-4 md:gap-12">
-            <p className="font-serif italic text-lg text-gray-500">Tested. Verified. Clean.</p>
-            <div className="flex items-center gap-2 text-sm font-medium">
-              <Award className="h-5 w-5 text-[#234F32]" />
-              3rd-party tested by <span className="font-bold border-b-2 border-[#234F32]">Eurofins</span>
-            </div>
-          </div>
-        </section>
-
-        {/* CLINICAL DATA SECTION */}
-        <section className="bg-[#FAF9F7] py-16 md:py-24">
-          <div className="max-w-5xl mx-auto px-4">
-            <h2 className="font-serif text-3xl md:text-4xl text-center mb-12 text-[#1A1A1A]">
-              Clinically shown to heal your gut*
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-8 items-stretch">
-              <div className="bg-white p-8 md:p-10 rounded-[2rem] shadow-sm border border-gray-100">
-                <div className="flex justify-between items-end border-b border-gray-100 pb-4 mb-6">
-                  <span className="font-bold text-gray-800">Results in 30 days</span>
-                  <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">% of users</span>
+        {/* CLINICAL GRAPH SECTION */}
+        <section className="bg-white py-12 md:py-16">
+          <div className="max-w-[1000px] mx-auto px-4">
+            <h2 className="font-serif text-[32px] text-center mb-8">Clinically shown to reduce bloating*</h2>
+            <div className="grid md:grid-cols-2 gap-6 items-stretch">
+              {/* Left Table */}
+              <div className="border border-gray-200 rounded p-6 bg-[#FBF9F6]">
+                <div className="flex justify-between items-end border-b border-gray-200 pb-2 mb-4">
+                  <span className="text-[11px] font-bold uppercase text-gray-500">Results in 60 days</span>
+                  <span className="text-[11px] font-bold uppercase text-gray-500">% of users</span>
                 </div>
-
-                <div className="space-y-8">
+                <div className="space-y-4">
                   {[
-                    { label: "Reduced daily bloating", value: "82%" },
-                    { label: "Improved digestion", value: "76%" },
-                    { label: "Felt lighter & more energetic", value: "68%" },
+                    { label: "Reduced bloating", value: "78%" },
+                    { label: "Better digestion", value: "74%" },
+                    { label: "Lighter stomach", value: "70%" },
                   ].map((stat, i) => (
                     <div key={i} className="flex justify-between items-center">
-                      <div className="flex items-center gap-4">
-                        <div className="bg-[#F4F8F5] p-2 rounded-full">
-                          <Check className="h-5 w-5 text-[#234F32]" strokeWidth={3} />
+                      <div className="flex items-center gap-2">
+                        <div style={{ color: AURI_GREEN }}>
+                          <Check className="h-4 w-4" strokeWidth={3} />
                         </div>
-                        <span className="font-medium text-gray-700">{stat.label}</span>
+                        <span className="font-bold text-[15px]">{stat.label}</span>
                       </div>
-                      <span className="font-bold text-2xl text-[#1A1A1A]">{stat.value}</span>
+                      <span className="font-bold text-xl">{stat.value}</span>
                     </div>
                   ))}
                 </div>
+                <p className="text-[9px] text-gray-400 mt-6">
+                  *Based on a 60-day consumer study. Individual results may vary.
+                </p>
               </div>
 
-              <div className="bg-[#234F32] text-white p-8 md:p-10 rounded-[2rem] shadow-xl flex flex-col justify-center relative overflow-hidden">
-                <div className="absolute -right-10 -top-10 w-40 h-40 bg-white/5 rounded-full blur-3xl" />
-                <h3 className="font-medium text-xl opacity-90 mb-4">
-                  In the first 30 days, severe bloating was reduced by
+              {/* Right Graph (Simulated) */}
+              <div className="border border-gray-200 rounded p-6 bg-white relative flex flex-col">
+                <h3 className="font-bold text-[15px] mb-2">
+                  In the first 60 days,
+                  <br />
+                  bloating reduced by
                 </h3>
-                <p className="text-7xl md:text-8xl font-serif font-light mb-4">
-                  74<span className="text-5xl">%</span>
-                </p>
-                <p className="text-sm opacity-70 border-t border-white/20 pt-4 mt-auto">
-                  *Based on a 30-day consumer study of 120 participants.
-                </p>
+                <p className="text-[54px] font-serif mb-8">64%</p>
+                {/* Fake Graph Area */}
+                <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-tr from-[#E8D1B5] to-transparent opacity-40 rounded-b" />
+                <div className="mt-auto relative z-10 w-full border-b-2 border-dashed border-[#C19B6C] flex items-end justify-between px-4 pb-2">
+                  <span className="text-[10px] font-bold">Day 1</span>
+                  <span className="text-[10px] font-bold">Day 30</span>
+                  <span className="text-[10px] font-bold">Day 60</span>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* CLINICIAN EVALUATION */}
-        <section className="py-16 bg-white">
-          <div className="max-w-4xl mx-auto px-4">
-            <div className="text-center mb-10">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#234F32] mb-2 block">
-                Expert Backed
-              </span>
-              <h2 className="font-serif text-3xl">Independent Clinician Evaluation</h2>
+        {/* EUROFINS BANNER */}
+        <section className="border-y border-gray-200 bg-white py-4">
+          <div className="max-w-[1000px] mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex items-center gap-4">
+              <div className="text-[#00529B] font-bold text-xl tracking-tighter">eurofins</div>
+              <div>
+                <p className="font-bold text-[15px]">Tested. Verified. Clean.</p>
+                <p className="text-[11px] text-gray-500">
+                  NEUVIE is 3rd-party tested by Eurofins to ensure safety, potency, and purity.
+                </p>
+              </div>
+            </div>
+            <button className="border border-black px-4 py-2 text-[11px] font-bold uppercase tracking-wider">
+              View Recent Results →
+            </button>
+          </div>
+        </section>
+
+        {/* LIFE CHANGING BENEFITS */}
+        <section className="max-w-[1000px] mx-auto py-16 px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="rounded-xl overflow-hidden aspect-[4/3] bg-gray-100">
+              {/* Fallback image if product image isn't available */}
+              {heroImage && (
+                <img src={optimizeShopifyImage(heroImage, 600)} className="w-full h-full object-cover" alt="Benefits" />
+              )}
+            </div>
+            <div>
+              <h2 className="font-serif text-[32px] mb-2">Life-Changing Benefits</h2>
+              <p className="text-gray-500 text-[13px] mb-8">Become your best self</p>
+
+              <div className="space-y-0 border-t border-gray-200">
+                {[
+                  {
+                    id: "focus",
+                    title: "Reduce Daily Bloating*",
+                    content:
+                      "Prebiotic fibers and natural extracts target trapped gas and soothe the stomach lining almost instantly.",
+                  },
+                  {
+                    id: "inf",
+                    title: "Improve Inflammatory Response*",
+                    content:
+                      "The blend of ginger and peppermint is rich in anti-inflammatory components shown to support a normal inflammatory response in the gut.",
+                  },
+                  {
+                    id: "gut",
+                    title: "Improve Gut Health*",
+                    content:
+                      "Our 50B CFU Probiotic blend contains nutrients to support healthy gut bacteria. It helps balance good microbes while supporting cellular energy.",
+                  },
+                  {
+                    id: "imm",
+                    title: "Immune System Support*",
+                    content:
+                      "Since 70% of your immune system lives in your gut, daily support with our bioactive strips strengthens your natural defenses.",
+                  },
+                ].map((acc) => (
+                  <div key={acc.id} className="border-b border-gray-200">
+                    <button
+                      onClick={() => setOpenBenefitAcc(openBenefitAcc === acc.id ? "" : acc.id)}
+                      className="w-full py-5 flex justify-between items-center font-bold text-[14px]"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span style={{ color: AURI_GREEN }}>✨</span> {acc.title}
+                      </div>
+                      {openBenefitAcc === acc.id ? (
+                        <ChevronUp className="h-4 w-4" />
+                      ) : (
+                        <ChevronDown className="h-4 w-4" />
+                      )}
+                    </button>
+                    {openBenefitAcc === acc.id && (
+                      <div className="pb-5 pl-8 text-[13px] text-gray-600 leading-relaxed">{acc.content}</div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ALL IN ONE BANNER */}
+        <section className="bg-[#F8EAE5] py-12 px-4 text-center">
+          <h2 className="font-serif text-[32px] mb-2">All-in-One Strip for Superior Health</h2>
+          <p className="text-[14px] text-gray-700 max-w-2xl mx-auto">
+            An all-natural and effective dissolving supplement that targets bloating, immunity, gut health, and mood.
+            Made to take everyday, just like a multivitamin.
+          </p>
+        </section>
+
+        {/* A RITUAL THAT FEELS GOOD (COMPARISON) */}
+        <section className="max-w-[1000px] mx-auto py-16 px-4">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="md:col-span-1">
+              <h2 className="font-serif text-[32px] mb-4">A Ritual That Feels Good</h2>
+              <p className="text-[13px] text-gray-600 leading-relaxed">
+                Skip bitter powders and hard-to-swallow capsules. NEUVIE strips are crafted to be easy to use,
+                delicious, and designed for your daily wellness routine.
+              </p>
             </div>
 
-            <div className="bg-[#FAF9F7] p-8 rounded-3xl flex flex-col md:flex-row gap-8 items-center md:items-start border border-gray-100">
-              <div className="w-24 h-24 shrink-0 bg-gray-200 rounded-full border-4 border-white shadow-md overflow-hidden">
-                <img
-                  src="https://i.pravatar.cc/150?img=32"
-                  alt="Dr. Sarah Jenkins"
-                  className="w-full h-full object-cover"
-                />
+            <div className="md:col-span-2 grid grid-cols-2 border border-gray-200 rounded-lg overflow-hidden">
+              <div className="p-6 bg-[#F2F8F4]">
+                <h3 className="font-bold text-[13px] mb-4 text-[#143C2B]">NEUVIE Digestive Strips</h3>
+                <ul className="space-y-4">
+                  {[
+                    "Tastes great—something you'll want to take",
+                    "Absorbs 5x faster in the mouth",
+                    "No mixing, no water—just place on tongue",
+                    "Built for your daily rhythm: simple and smooth",
+                  ].map((text, i) => (
+                    <li key={i} className="flex items-start gap-2 text-[12px] font-bold">
+                      <div className="mt-0.5 rounded-full bg-[#143C2B] p-0.5">
+                        <Check className="h-2.5 w-2.5 text-white" strokeWidth={4} />
+                      </div>
+                      {text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="p-6 bg-white">
+                <h3 className="font-bold text-[13px] mb-4 text-gray-500">Typical Capsules & Powders</h3>
+                <ul className="space-y-4">
+                  {[
+                    "Bitter, hard-to-mask taste",
+                    "Can upset sensitive stomachs",
+                    "Often packed with fillers",
+                    "Easy to forget or skip",
+                  ].map((text, i) => (
+                    <li key={i} className="flex items-start gap-2 text-[12px] text-gray-500">
+                      <div className="mt-0.5 rounded-full bg-red-100 p-0.5">
+                        <div className="h-2.5 w-2.5 flex items-center justify-center text-red-600 text-[10px] font-bold">
+                          ✕
+                        </div>
+                      </div>
+                      {text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="mt-8 text-center">
+            <Button
+              onClick={handleAddToCart}
+              className="h-12 px-8 text-[13px] font-bold uppercase tracking-wider"
+              style={{ backgroundColor: AURI_GREEN, color: "white" }}
+            >
+              Try NEUVIE Risk-Free →
+            </Button>
+            <p className="text-[11px] font-bold mt-2">🛡️ 60-Day Moneyback Guarantee***</p>
+          </div>
+        </section>
+
+        {/* INSIDE THE STRIPS */}
+        <section className="bg-white py-16 border-t border-gray-200">
+          <div className="max-w-[1000px] mx-auto px-4 text-center">
+            <h2 className="font-serif text-[32px] mb-2">Inside the Strips</h2>
+            <p className="text-[14px] text-gray-600 mb-12">
+              Our Daily Strips have 4 clinical ingredients, highlighting these heavy hitters for your best health:
+            </p>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
+              {[
+                {
+                  name: "Probiotics",
+                  tag: "Gut-Health*",
+                  desc: "Contains 50B CFU to support cellular energy and microbiome balance*",
+                },
+                {
+                  name: "Prebiotics",
+                  tag: "Digestion*",
+                  desc: "Fibers that feed the good bacteria and help regulate daily digestion*",
+                },
+                {
+                  name: "Ginger Root",
+                  tag: "Soothing*",
+                  desc: "Revered for its ability to calm the stomach lining and reduce nausea*",
+                },
+                {
+                  name: "Peppermint",
+                  tag: "Relief*",
+                  desc: "Contains natural antispasmodic properties to alleviate trapped gas*",
+                },
+              ].map((ing, i) => (
+                <div key={i} className="flex flex-col items-center">
+                  <div className="w-20 h-20 rounded-full border border-gray-200 mb-4 bg-[#FAF9F6]" />
+                  <h4 className="font-bold text-[15px]">{ing.name}</h4>
+                  <span className="bg-black text-white text-[9px] uppercase font-bold px-2 py-0.5 mt-1 mb-2">
+                    {ing.tag}
+                  </span>
+                  <p className="text-[11px] text-gray-500 leading-relaxed px-2">{ing.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* TASTY & DELICIOUS / SUPPLEMENT FACTS */}
+        <section className="max-w-[1000px] mx-auto py-16 px-4">
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <h2 className="font-serif text-[32px] mb-4">Tasty & Delicious</h2>
+              <p className="text-[13px] text-gray-600 mb-8">
+                Supplements have never tasted THIS good before. Get the relief you need and benefit from, without the
+                nasty taste from powders and oils.
+              </p>
+
+              <div className="border-t border-gray-200 mb-8">
+                {[
+                  { id: "ingredients", title: "Ingredients", content: "Probiotics, Prebiotics, Ginger, Peppermint." },
+                  {
+                    id: "directions",
+                    title: "Directions",
+                    content: "Take one strip daily. Place on tongue and let dissolve for 30 seconds. No water needed.",
+                  },
+                  { id: "taste", title: "Taste", content: "Wild Raspberry" },
+                ].map((acc) => (
+                  <div key={acc.id} className="border-b border-gray-200">
+                    <button
+                      onClick={() => setOpenDetailAcc(openDetailAcc === acc.id ? "" : acc.id)}
+                      className="w-full py-4 flex justify-between items-center font-bold text-[13px]"
+                    >
+                      {acc.title}
+                      {openDetailAcc === acc.id ? (
+                        <ChevronUp className="h-4 w-4" />
+                      ) : (
+                        <ChevronDown className="h-4 w-4" />
+                      )}
+                    </button>
+                    {openDetailAcc === acc.id && <div className="pb-4 text-[12px] text-gray-600">{acc.content}</div>}
+                  </div>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-4 gap-2 text-center">
+                {[
+                  { icon: "🌾", label: "Gluten\nFree" },
+                  { icon: "🥜", label: "Allergen\nFree" },
+                  { icon: "🍓", label: "Naturally\nFlavored" },
+                  { icon: "🔬", label: "Third-Party\nTested" },
+                ].map((item, i) => (
+                  <div key={i} className="flex flex-col items-center gap-2">
+                    <div className="text-2xl">{item.icon}</div>
+                    <span className="text-[10px] font-bold whitespace-pre-line">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Fake Supplement Facts Panel */}
+            <div className="border border-gray-300 rounded p-6 bg-white shadow-sm">
+              <div className="bg-[#143C2B] text-white text-center py-1 font-bold text-[10px] tracking-widest uppercase mb-4 rounded-sm">
+                Super Digestive Daily Strips
+              </div>
+              <h3 className="font-bold text-3xl border-b-[8px] border-black pb-1 mb-2">Supplement Facts</h3>
+              <div className="flex justify-between text-[11px] font-bold border-b border-gray-400 pb-1 mb-1">
+                <span>Serving Size: 1 Strip</span>
+                <span>Servings Per Container: 30</span>
+              </div>
+              <div className="flex justify-between text-[10px] font-bold border-b-[4px] border-black pb-1 mb-2">
+                <span>Amount per serving</span>
+                <span>% Daily Value</span>
+              </div>
+
+              <div className="space-y-1 text-[11px] border-b-[4px] border-black pb-2 mb-2">
+                <div className="flex justify-between border-b border-gray-300 pb-1">
+                  <span>Calories</span>
+                  <span>0</span>
+                </div>
+                <div className="flex justify-between border-b border-gray-300 pb-1">
+                  <span>Total Carbohydrates</span>
+                  <span>0g</span>
+                </div>
+                <div className="flex justify-between border-b border-gray-300 pb-1">
+                  <span>Total Sugars</span>
+                  <span>0g</span>
+                </div>
+                <div className="flex justify-between border-b border-gray-300 pb-1 font-bold">
+                  <span>Proprietary Digestive Blend</span>
+                  <span>150mg</span>
+                </div>
+                <div className="pl-2 text-[10px] text-gray-600 leading-tight">
+                  Probiotic Blend (50B CFU), Prebiotic Inulin Fiber, Ginger Root Extract, Peppermint Leaf Extract.
+                </div>
+              </div>
+              <p className="text-[9px] text-gray-500 leading-tight">
+                * Daily Value not established.
+                <br />
+                <strong>Other Ingredients:</strong> Pullulan, Cellulose, Natural Raspberry Flavor, Stevia Extract.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* DON'T TAKE OUR WORD (REVIEWS) */}
+        <section className="bg-white py-16 border-t border-gray-200">
+          <div className="max-w-[1200px] mx-auto px-4 text-center">
+            <h2 className="font-serif text-[32px] mb-2">Don't Take Our Word...</h2>
+            <p className="text-[13px] text-gray-500 mb-10">
+              Over 50,000 customers have experienced extraordinary results
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                {
+                  name: "Ronald O.",
+                  title: "Spectacular Product",
+                  text: "The bloat has lifted. I find myself with a flat stomach. Great supplement for anybody looking.",
+                },
+                {
+                  name: "Meki R.",
+                  title: "First Thing I Take When I Wake Up!",
+                  text: "I take it immediately after I wake up and I do not have stomach issues for the rest of the day.",
+                },
+                {
+                  name: "Catherine L.",
+                  title: "Nature at its finest!",
+                  text: "This product boosts my mood and digestion. I noticed the improvements within the first week!",
+                },
+              ].map((rev, i) => (
+                <div key={i} className="text-left">
+                  <div className="aspect-[4/3] bg-gray-200 mb-4 rounded" /> {/* Placeholder for user photo/video */}
+                  <div className="flex mb-2" style={{ color: AURI_GREEN }}>
+                    {[...Array(5)].map((_, s) => (
+                      <Star key={s} className="h-3 w-3 fill-current" />
+                    ))}
+                  </div>
+                  <h4 className="font-bold text-[14px] mb-2">{rev.title}</h4>
+                  <p className="text-[12px] text-gray-600 mb-4 min-h-[60px]">{rev.text}</p>
+                  <p className="text-[12px] font-bold">{rev.name}</p>
+                  <p className="text-[10px] text-green-700 font-bold flex items-center gap-1">
+                    <Check className="h-3 w-3" /> Verified Buyer
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* OUR PROMISE & GUARANTEE */}
+        <section className="py-12 bg-white text-center">
+          <h3 className="font-serif text-[24px] mb-8">Our Promise</h3>
+          <div className="flex justify-center gap-12 md:gap-24 mb-12">
+            {[
+              { icon: "✨", label: "Feels & tastes like\nclarity" },
+              { icon: "🌿", label: "Crafted with premium\ningredients" },
+              { icon: "🔬", label: "Rigorously lab tested" },
+            ].map((p, i) => (
+              <div key={i} className="flex flex-col items-center">
+                <div className="text-3xl mb-3">{p.icon}</div>
+                <p className="text-[12px] font-bold whitespace-pre-line leading-tight">{p.label}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-[12px] font-bold mb-8">🛡️ 60-Day Moneyback Guarantee***</p>
+
+          <div className="max-w-[800px] mx-auto bg-[#F4F9F5] border border-green-200 p-6 rounded flex flex-col md:flex-row items-center gap-6 text-left">
+            <div className="bg-[#143C2B] text-white p-3 rounded font-bold text-center leading-tight shrink-0">
+              <span className="block text-2xl">60</span>DAY
+            </div>
+            <div>
+              <h4 className="font-bold text-[15px] mb-1">60-Day Money Back Guarantee Protection</h4>
+              <p className="text-[12px] text-gray-600">
+                In the unlikely event that you are unhappy with our product, email us at{" "}
+                <a href="mailto:hello@tryneuvie.com" className="underline font-bold">
+                  hello@tryneuvie.com
+                </a>{" "}
+                and we'll return every dollar you paid on your first order, less shipping costs.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* CLINICIAN REVIEWS */}
+        <section className="bg-white py-16 border-t border-gray-200">
+          <div className="max-w-[800px] mx-auto px-4">
+            <div className="text-center mb-10">
+              <span className="text-[20px]">🩺</span>
+              <h2 className="font-serif text-[28px] mt-2 mb-2">Independent Clinician Evaluations</h2>
+              <p className="text-[12px] text-gray-500">
+                Effective review of products and claims by independent medical professionals.{" "}
+                <span className="underline">Learn more</span>.
+              </p>
+            </div>
+
+            <div className="border border-gray-200 rounded p-6 flex gap-6">
+              <div className="shrink-0 text-center">
+                <div className="w-16 h-16 bg-gray-200 rounded-full mx-auto mb-2" />
+                <p className="text-[11px] font-bold">Dr. Sarah Jenkins, MD</p>
+                <p className="text-[9px] text-gray-500 mb-1">Verified Reviewer</p>
+                <div className="text-[10px] text-left">
+                  <p>
+                    Specialty: <span className="font-bold">Gastroenterology</span>
+                  </p>
+                  <p>
+                    Years in practice: <span className="font-bold">12</span>
+                  </p>
+                </div>
               </div>
               <div>
-                <div className="flex items-center gap-1 mb-2 text-[#FFB800]">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
-                <h3 className="font-bold text-lg">"The most efficient probiotic delivery I've seen."</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4 italic">
-                  "Most probiotic capsules are destroyed by stomach acid before they ever reach the gut. The sublingual
-                  delivery of NEUVIE strips allows the active compounds to bypass the harsh gastric environment. It's an
-                  elegant, highly effective solution for chronic bloating."
+                <h4 className="font-bold text-[14px] mb-2">
+                  Safely formulated with clinical ingredients to promote gut wellness
+                </h4>
+                <p className="text-[12px] text-gray-600 mb-4 leading-relaxed">
+                  "Most supplements are destroyed by stomach acid. The sublingual delivery of NEUVIE strips allows the
+                  active compounds to bypass the harsh gastric environment. It's an elegant, highly effective solution
+                  for chronic bloating."
                 </p>
-                <div className="text-sm">
-                  <p className="font-bold text-[#1A1A1A]">Dr. Sarah Jenkins, MD</p>
-                  <p className="text-gray-500">Board Certified Gastroenterologist</p>
-                </div>
+                <p className="text-[11px] font-bold text-gray-800">
+                  Highlights:{" "}
+                  <span className="font-normal text-gray-600">✓ Gut Health ✓ Fast Acting ✓ Sublingual Delivery</span>
+                </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* COMPARISON */}
-        <section className="py-16 md:py-24 max-w-5xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl md:text-4xl mb-4">A Ritual That Actually Works</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Stop swallowing giant pills that upset your stomach. NEUVIE Strips are crafted to be easy, delicious, and
-              up to 5x more bioavailable.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-0 border border-gray-200 rounded-[2rem] overflow-hidden shadow-lg">
-            {/* Our Product */}
-            <div className="bg-[#234F32] p-8 md:p-12 text-white relative">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-full" />
-              <div className="flex items-center gap-4 mb-8">
-                <img src={neuvieLogo} alt="NEUVIE" className="h-6 brightness-0 invert" />
-                <span className="font-serif text-xl border-l border-white/20 pl-4">Daily Strips™</span>
-              </div>
-              <ul className="space-y-6 relative z-10">
-                {[
-                  "Absorbs 5x faster through oral tissue",
-                  "100% survives past stomach acid",
-                  "Delicious wild berry taste you crave",
-                  "No water needed—just place on tongue",
-                  "Clean ingredients, zero fillers",
-                ].map((text, i) => (
-                  <li key={i} className="flex items-start gap-4">
-                    <div className="mt-1 rounded-full bg-white/20 p-1 backdrop-blur-sm">
-                      <Check className="h-4 w-4 text-white" />
-                    </div>
-                    <span className="text-base font-medium">{text}</span>
-                  </li>
-                ))}
-              </ul>
+        {/* FAQS */}
+        <section className="bg-white py-16 border-t border-gray-200">
+          <div className="max-w-[800px] mx-auto px-4">
+            <div className="text-center mb-8">
+              <h2 className="font-serif text-[32px] mb-2">FAQs</h2>
+              <p className="text-[13px] text-gray-500">
+                Use the below FAQ topics to find an answer! Still need help? Please email us at hello@tryneuvie.com :)
+              </p>
             </div>
 
-            {/* Competitor */}
-            <div className="bg-white p-8 md:p-12 relative">
-              <h3 className="font-bold text-gray-400 text-xl mb-8 uppercase tracking-widest">
-                Typical Pills & Powders
-              </h3>
-              <ul className="space-y-6">
-                {[
-                  "Slow digestion, low bioavailability",
-                  "Up to 80% destroyed by stomach acid",
-                  "Bitter, hard-to-mask chalky taste",
-                  "Inconvenient, messy, requires water",
-                  "Often packed with synthetic binders",
-                ].map((text, i) => (
-                  <li key={i} className="flex items-start gap-4">
-                    <div className="mt-1 rounded-full bg-red-50 p-1">
-                      <div className="h-4 w-4 flex items-center justify-center text-red-500 font-bold">✕</div>
-                    </div>
-                    <span className="text-base text-gray-500">{text}</span>
-                  </li>
-                ))}
-              </ul>
+            <div className="border-t border-gray-200">
+              {[
+                {
+                  q: "When is the best time to take these strips?",
+                  a: "We recommend taking one strip in the morning to kick-start your digestion for the day, or immediately after a heavy meal if you feel bloated.",
+                },
+                {
+                  q: "Will I actually feel a difference?",
+                  a: "Many customers report feeling lighter and less bloated within the first 30 minutes of use.",
+                },
+                {
+                  q: "Why are strips better than powders or capsules?",
+                  a: "Powders can taste bitter and capsules get destroyed by stomach acid. Strips dissolve in your mouth, allowing ingredients to absorb up to 5x faster directly into your system.",
+                },
+                {
+                  q: "Are these made with real ingredients?",
+                  a: "Yes. We use premium, clinically-backed extracts and 50 Billion CFU of probiotics. No fillers, no junk.",
+                },
+              ].map((faq, i) => (
+                <div key={i} className="border-b border-gray-200">
+                  <button
+                    onClick={() => setOpenFaq(openFaq === i.toString() ? null : i.toString())}
+                    className="w-full py-5 flex justify-between items-center text-left"
+                  >
+                    <span className="font-bold text-[13px] uppercase tracking-wide text-gray-600">{faq.q}</span>
+                    {openFaq === i.toString() ? (
+                      <ChevronUp className="h-4 w-4 text-gray-400" />
+                    ) : (
+                      <ChevronDown className="h-4 w-4 text-gray-400" />
+                    )}
+                  </button>
+                  {openFaq === i.toString() && (
+                    <div className="pb-5 text-[13px] text-gray-600 leading-relaxed pr-8">{faq.a}</div>
+                  )}
+                </div>
+              ))}
+            </div>
+            <div className="text-center mt-6">
+              <button className="text-[11px] font-bold uppercase tracking-widest border border-gray-300 px-6 py-2 rounded-full hover:bg-gray-50">
+                Load More
+              </button>
             </div>
           </div>
         </section>
       </main>
 
-      {/* STICKY BOTTOM BAR FOR MOBILE */}
-      <motion.div
-        style={{ opacity: showStickyBar, y: useTransform(showStickyBar, [0, 1], [50, 0]) }}
-        className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 p-4 pb-safe z-50 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] md:hidden pointer-events-auto"
-      >
-        <div className="flex items-center justify-between gap-4 max-w-7xl mx-auto">
-          <div className="flex flex-col">
-            <span className="text-xs font-bold text-[#D44638]">SAVE 36%</span>
-            <span className="font-bold text-lg">${subPrice}</span>
+      {/* FOOTER (Simple placeholder to match Auri structure) */}
+      <footer className="bg-[#FAF9F6] border-t border-gray-200 pt-16 pb-8 px-4 text-[12px]">
+        <div className="max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+          <div>
+            <h4 className="font-bold mb-4">Shop</h4>
+            <ul className="space-y-2 text-gray-600">
+              <li>
+                <Link to="/shop">Daily Strips</Link>
+              </li>
+              <li>
+                <Link to="/bundles">Bundles</Link>
+              </li>
+            </ul>
           </div>
-          <Button
-            onClick={handleAddToCart}
-            disabled={loading}
-            className="flex-1 h-12 text-base font-bold rounded-xl bg-[#234F32] text-white shadow-md active:scale-95 transition"
-          >
-            Add to Cart
-          </Button>
+          <div>
+            <h4 className="font-bold mb-4">About</h4>
+            <ul className="space-y-2 text-gray-600">
+              <li>
+                <Link to="/story">Our Story</Link>
+              </li>
+              <li>
+                <Link to="/science">Science</Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4">Support</h4>
+            <ul className="space-y-2 text-gray-600">
+              <li>
+                <Link to="/contact">Contact Us</Link>
+              </li>
+              <li>
+                <Link to="/refund">Refund Policy</Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4">Newsletter</h4>
+            <p className="text-gray-600 mb-4">Subscribe for special offers.</p>
+          </div>
         </div>
-      </motion.div>
-
-      <Footer />
+        <div className="max-w-[1200px] mx-auto text-center text-[10px] text-gray-400 border-t border-gray-200 pt-8">
+          <p>© 2026, NEUVIE Nutrition.</p>
+          <p className="mt-2 max-w-4xl mx-auto leading-relaxed">
+            * These statements have not been evaluated by the Food and Drug Administration. This product is not intended
+            to diagnose, treat, cure, or prevent any disease.
+          </p>
+        </div>
+      </footer>
       <CartDrawer />
     </div>
   );
