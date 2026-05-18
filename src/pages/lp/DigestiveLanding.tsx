@@ -533,27 +533,39 @@ export default function DigestiveLanding() {
                   name: "Probiotics",
                   tag: "Gut-Health*",
                   desc: "Contains 50B CFU to support cellular energy and microbiome balance*",
+                  Icon: CircleDot,
                 },
                 {
                   name: "Prebiotics",
                   tag: "Digestion*",
                   desc: "Fibers that feed the good bacteria and help regulate daily digestion*",
+                  Icon: Sparkles,
                 },
                 {
                   name: "Ginger Root",
                   tag: "Soothing*",
                   desc: "Revered for its ability to calm the stomach lining and reduce nausea*",
+                  Icon: Leaf,
                 },
                 {
                   name: "Peppermint",
                   tag: "Relief*",
                   desc: "Contains natural antispasmodic properties to alleviate trapped gas*",
+                  Icon: Wind,
                 },
               ].map((ing, i) => (
                 <div key={i} className="flex flex-col items-center">
-                  <div className="w-20 h-20 rounded-full border border-gray-200 mb-4 bg-[#FAF9F6]" />
+                  <div
+                    className="w-20 h-20 rounded-full border border-gray-200 mb-4 flex items-center justify-center"
+                    style={{ backgroundColor: "#EFF3EE" }}
+                  >
+                    <ing.Icon className="h-8 w-8" style={{ color: AURI_GREEN }} strokeWidth={1.5} />
+                  </div>
                   <h4 className="font-bold text-[15px]">{ing.name}</h4>
-                  <span className="bg-black text-white text-[9px] uppercase font-bold px-2 py-0.5 mt-1 mb-2">
+                  <span
+                    className="text-white text-[9px] uppercase font-bold px-2 py-0.5 mt-1 mb-2"
+                    style={{ backgroundColor: AURI_GREEN }}
+                  >
                     {ing.tag}
                   </span>
                   <p className="text-[11px] text-gray-500 leading-relaxed px-2">{ing.desc}</p>
