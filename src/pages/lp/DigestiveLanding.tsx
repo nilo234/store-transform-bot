@@ -428,7 +428,7 @@ export default function DigestiveLanding() {
                       className="w-full py-5 flex justify-between items-center font-bold text-[14px]"
                     >
                       <div className="flex items-center gap-3">
-                        <span style={{ color: AURI_GREEN }}>✨</span> {acc.title}
+                        <Sparkles className="h-4 w-4" style={{ color: AURI_GREEN }} strokeWidth={1.75} /> {acc.title}
                       </div>
                       {openBenefitAcc === acc.id ? (
                         <ChevronUp className="h-4 w-4" />
