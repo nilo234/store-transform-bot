@@ -513,7 +513,7 @@ export default function DigestiveLanding() {
             >
               Try NEUVIE Risk-Free →
             </Button>
-            <p className="text-[11px] font-bold mt-2">🛡️ 60-Day Moneyback Guarantee***</p>
+            <p className="text-[11px] font-bold mt-2 flex items-center justify-center gap-1.5"><ShieldCheck className="h-4 w-4" style={{ color: AURI_GREEN }} strokeWidth={1.75} /> 60-Day Moneyback Guarantee***</p>
           </div>
         </section>
 
