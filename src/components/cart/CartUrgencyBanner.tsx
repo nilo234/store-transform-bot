@@ -18,7 +18,7 @@ export function CartUrgencyBanner() {
         </div>
         <div className="flex items-center gap-1.5">
           <RotateCcw className="w-3.5 h-3.5 text-primary" />
-          <span>30-day guarantee</span>
+          <span>14-day guarantee</span>
         </div>
       </div>
     </div>

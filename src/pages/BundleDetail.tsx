@@ -135,7 +135,7 @@ export default function BundleDetail() {
     },
     {
       q: 'What if I don\'t love it?',
-      a: '30-day money-back guarantee. If the bundle doesn\'t fit your routine, email team@tryneuvie.com and we\'ll refund you — no questions asked.',
+      a: '14-day money-back guarantee. If the bundle doesn\'t fit your routine, email team@tryneuvie.com and we\'ll refund you — no questions asked.',
     },
     {
       q: 'How fast does it ship?',
@@ -322,7 +322,7 @@ export default function BundleDetail() {
                 {/* Trust line */}
                 <div className="grid grid-cols-3 gap-2 pt-1 md:pt-2">
                   <TrustBadge icon={<Truck className="h-4 w-4" />} label={isUK ? 'International Shipping' : 'Free US Shipping'} />
-                  <TrustBadge icon={<ShieldCheck className="h-4 w-4" />} label="30-Day Guarantee" />
+                  <TrustBadge icon={<ShieldCheck className="h-4 w-4" />} label="14-Day Guarantee" />
                   <TrustBadge icon={<Clock className="h-4 w-4" />} label="Ships in 1–2 Days" />
                 </div>
 
@@ -358,7 +358,7 @@ export default function BundleDetail() {
               {categoryLabel(bundle.category).toLowerCase()} routine they can actually keep — at home, at work, or on the go.
               Save <strong className="text-foreground">{bundle.discountPercent}%</strong> versus buying each pack individually,
               {isUK ? ' with international shipping and our ' : ' with free US shipping over $50 and our '}
-              <Link to="/returns" className="text-primary hover:underline font-medium">30-day money-back guarantee</Link>.
+              <Link to="/returns" className="text-primary hover:underline font-medium">14-day money-back guarantee</Link>.
             </p>
           </div>
         </section>
@@ -535,7 +535,7 @@ export default function BundleDetail() {
             </p>
             <div className="mt-6 md:mt-8 grid grid-cols-3 gap-3 md:gap-4 max-w-2xl mx-auto">
               <Stat value="4.8★" label="Avg. customer rating" />
-              <Stat value="30-Day" label="Money-back guarantee" />
+              <Stat value="14-Day" label="Money-back guarantee" />
               <Stat value="100%" label="Made in USA" />
             </div>
           </div>
@@ -602,7 +602,7 @@ export default function BundleDetail() {
               Add Bundle — {formatPrice(bundle.salePrice)} (Save {bundle.discountPercent}%)
             </Button>
             <p className="text-[11px] md:text-xs text-muted-foreground mt-3 md:mt-4">
-              {isUK ? 'International shipping · 30-day money-back guarantee' : 'Free US shipping · 30-day money-back guarantee'}
+              {isUK ? 'International shipping · 14-day money-back guarantee' : 'Free US shipping · 14-day money-back guarantee'}
             </p>
           </div>
         </section>

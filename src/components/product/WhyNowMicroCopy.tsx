@@ -13,7 +13,7 @@ export function WhyNowMicroCopy({ compact = false }: Props) {
   const items = [
     { icon: Truck, text: 'Ships today if ordered before 2pm EST' },
     { icon: RotateCcw, text: 'Free returns · Cancel anytime' },
-    { icon: Check, text: '30-day money-back guarantee' },
+    { icon: Check, text: '14-day money-back guarantee' },
   ];
 
   if (compact) {
@@ -31,7 +31,7 @@ export function WhyNowMicroCopy({ compact = false }: Props) {
         <span className="mx-1.5 text-muted-foreground/50">·</span>
         <span className="inline-flex items-center gap-1">
           <Check className="h-2.5 w-2.5 text-primary" />
-          30-day guarantee
+          14-day guarantee
         </span>
       </p>
     );

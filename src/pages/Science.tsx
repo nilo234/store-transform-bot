@@ -5,7 +5,6 @@ import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Shield, Leaf, FlaskConical, Award, Check, ExternalLink } from 'lucide-react';
 import { PageMeta } from '@/components/seo';
-import { IngredientDeepDives } from '@/components/science/IngredientDeepDives';
 
 const puritySections = [
   { 
@@ -292,9 +291,6 @@ export default function Science() {
             </motion.div>
           </div>
         </section>
-
-        {/* Ingredient Deep Dives — 10 ingredients with origin, mechanism, impact bars */}
-        <IngredientDeepDives />
 
         {/* All 13 Products Ingredient Breakdown */}
         <section className="py-20 md:py-28 bg-secondary/30">

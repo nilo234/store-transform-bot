@@ -255,13 +255,13 @@ export function Footer() {
 
           {/* Copyright */}
           <p className="text-center text-primary-foreground/40 text-[10px] mb-2 my-[20px] md:text-xs font-body">
-            These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease. Every NEUVIE strip is manufactured in an FDA-registered, GMP-compliant facility in the United States.
+            These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease. Every Neuvie strip is manufactured in an FDA-registered, GMP-compliant facility in the United States.
           </p>
           <p className="text-center text-primary-foreground/40 text-[10px] md:text-xs mb-2 font-body">
-            All prices in USD. We currently ship within the United States only. 30-Day Money-Back Guarantee on every order.
+            All prices in USD. We currently ship within the United States only.
           </p>
           <p className="text-center text-primary-foreground/40 text-[10px] md:text-sm font-body">
-            © {new Date().getFullYear()} Neuvie Nutrition, Inc. All rights reserved. · tryneuvie.com
+            © {new Date().getFullYear()} Neuvie Nutrition, Inc. All rights reserved.
           </p>
         </div>
       </div>

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { CartRemovalFeedbackDialog, type RemovalContext } from './CartRemovalFeedbackDialog';
 import { toast } from 'sonner';
 import { sanitizeTitle, SHOPIFY_STORE_PERMANENT_DOMAIN } from '@/lib/shopify';
-import { Minus, Plus, Trash2, ExternalLink, Loader2, ShoppingCart, RefreshCw, Gift, X, Package, Shield, Truck, BadgeCheck } from 'lucide-react';
+import { Minus, Plus, Trash2, ExternalLink, Loader2, ShoppingCart, RefreshCw, Gift, X, Package } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { useCartStore, CartItem } from '@/stores/cartStore';
@@ -353,20 +353,9 @@ export function CartDrawer() {
                 </Button>
 
                 {/* Reassurance immediately under CTA — reduces last-step abandonment */}
-                <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-xs md:text-sm text-foreground/80 font-medium pt-1">
-                  <span className="flex items-center gap-1.5">
-                    <Shield className="w-3.5 h-3.5 text-primary" strokeWidth={2} />
-                    30-day money-back
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <Truck className="w-3.5 h-3.5 text-primary" strokeWidth={2} />
-                    Free US shipping $50+
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <BadgeCheck className="w-3.5 h-3.5 text-primary" strokeWidth={2} />
-                    Made in USA
-                  </span>
-                </div>
+                <p className="text-center text-xs md:text-sm text-foreground/80 font-medium">
+                  Try it risk-free · 14-day money-back guarantee
+                </p>
 
                 {/* Secure Checkout Badges */}
                 <SecureCheckoutBadges />

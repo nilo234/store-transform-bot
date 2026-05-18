@@ -33,7 +33,7 @@ export const heroVariants: Record<'a' | 'b' | 'c', HeroVariant> = {
     id: 'c',
     badge: '✨ As Featured in Vogue, Forbes & Well+Good',
     headlineMain: 'Stop Forgetting Your Vitamins.',
-    headlineItalic: '3-second strip. Real results in 30 days.',
+    headlineItalic: '3-second strip. Real results in 14 days.',
     subline: 'The wellness routine women actually keep. Free US shipping over $50.',
     ctaPrimary: 'Start My Routine – 20% Off',
   },

@@ -52,7 +52,7 @@ export default function DigestiveLanding() {
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
         title="Beat the Bloat — Digestive Strips | NEUVIE™"
-        description="Reduce bloating, support gut health, no pills needed. NEUVIE Digestive dissolving strips. Free US shipping $50+. 30-day guarantee."
+        description="Reduce bloating, support gut health, no pills needed. NEUVIE Digestive dissolving strips. Free US shipping $50+. 14-day guarantee."
       />
 
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border/30">
@@ -153,7 +153,7 @@ export default function DigestiveLanding() {
                     )}
                   </Button>
                   <p className="text-xs text-muted-foreground text-center mt-3">
-                    ✓ Free US shipping $50+  ·  ✓ 30-day money-back guarantee  ·  ✓ Made in USA
+                    ✓ Free US shipping $50+  ·  ✓ 14-day money-back guarantee  ·  ✓ Made in USA
                   </p>
                   <div className="mt-3 pt-3 border-t border-border/30">
                     <PaymentBadges />
@@ -180,7 +180,7 @@ export default function DigestiveLanding() {
                 { icon: ShieldCheck, label: 'FDA-Registered Facility' },
                 { icon: Flag, label: 'Made in USA' },
                 { icon: Truck, label: 'Free Shipping $50+' },
-                { icon: Leaf, label: '30-Day Guarantee' },
+                { icon: Leaf, label: '14-Day Guarantee' },
               ].map(({ icon: Icon, label }) => (
                 <div key={label} className="flex flex-col items-center gap-1.5">
                   <Icon className="h-5 w-5 text-primary" strokeWidth={1.75} />
@@ -277,7 +277,7 @@ export default function DigestiveLanding() {
               {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <><ShoppingCart className="h-5 w-5" /> Add to Cart — ${price.toFixed(2)}</>}
             </Button>
             <p className="text-xs text-muted-foreground mt-3">
-              ✓ Free shipping $50+ · ✓ 30-day money-back · ✓ Made in USA
+              ✓ Free shipping $50+ · ✓ 14-day money-back · ✓ Made in USA
             </p>
           </div>
         </section>

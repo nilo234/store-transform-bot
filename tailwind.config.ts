@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['Playfair Display', 'Times New Roman', 'serif'],
+        display: ['DM Serif Display', 'serif'],
         body: ['DM Sans', 'sans-serif'],
       },
       colors: {

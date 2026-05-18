@@ -17,7 +17,7 @@ const comparisonData: ComparisonRow[] = [
   { feature: 'Pocket-Friendly Packaging', neuvie: true, traditional: false },
   { feature: 'Third-Party Lab Tested', neuvie: true, traditional: 'Sometimes' },
   { feature: 'Great Taste', neuvie: true, traditional: false },
-  { feature: '30-Day Money-Back Guarantee', neuvie: true, traditional: 'Varies' },
+  { feature: '14-Day Money-Back Guarantee', neuvie: true, traditional: 'Varies' },
 ];
 
 export function ComparisonAuriSection() {
@@ -121,7 +121,7 @@ export function ComparisonAuriSection() {
               </Button>
             </Link>
             <p className="text-xs text-muted-foreground mt-3">
-              30-Day Money-Back Guarantee • Free Shipping on $50+
+              14-Day Money-Back Guarantee • Free Shipping on $50+
             </p>
           </motion.div>
         </motion.div>
