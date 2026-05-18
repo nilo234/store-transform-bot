@@ -56,7 +56,7 @@ export default function DigestiveLanding() {
       product: { node: product },
       variantId: variant.id,
       variantTitle: variant.title,
-      price: currentPrice.toString(),
+      price: { amount: currentPrice.toString(), currencyCode: "USD" },
       quantity: 1,
       selectedOptions: variant.selectedOptions,
     });
@@ -422,8 +422,8 @@ export default function DigestiveLanding() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="rounded-xl overflow-hidden aspect-[4/3] bg-gray-100">
               {/* Fallback image if product image isn't available */}
-              {heroImage && (
-                <img src={optimizeShopifyImage(heroImage, 600)} className="w-full h-full object-cover" alt="Benefits" />
+              {images[0] && (
+                <img src={optimizeShopifyImage(images[0]!, 600)} className="w-full h-full object-cover" alt="Benefits" />
               )}
             </div>
             <div>
