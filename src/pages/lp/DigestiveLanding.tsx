@@ -779,7 +779,7 @@ export default function DigestiveLanding() {
         <section className="bg-white py-16 border-t border-gray-200">
           <div className="max-w-[800px] mx-auto px-4">
             <div className="text-center mb-10">
-              <span className="text-[20px]">🩺</span>
+              <Stethoscope className="h-6 w-6 mx-auto" style={{ color: AURI_GREEN }} strokeWidth={1.5} />
               <h2 className="font-serif text-[28px] mt-2 mb-2">Independent Clinician Evaluations</h2>
               <p className="text-[12px] text-gray-500">
                 Effective review of products and claims by independent medical professionals.{" "}
