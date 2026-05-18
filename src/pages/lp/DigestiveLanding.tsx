@@ -855,55 +855,7 @@ export default function DigestiveLanding() {
         </section>
       </main>
 
-      {/* FOOTER (Simple placeholder to match Auri structure) */}
-      <footer className="bg-[#FAF9F6] border-t border-gray-200 pt-16 pb-8 px-4 text-[12px]">
-        <div className="max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-          <div>
-            <h4 className="font-bold mb-4">Shop</h4>
-            <ul className="space-y-2 text-gray-600">
-              <li>
-                <Link to="/shop">Daily Strips</Link>
-              </li>
-              <li>
-                <Link to="/bundles">Bundles</Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold mb-4">About</h4>
-            <ul className="space-y-2 text-gray-600">
-              <li>
-                <Link to="/story">Our Story</Link>
-              </li>
-              <li>
-                <Link to="/science">Science</Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold mb-4">Support</h4>
-            <ul className="space-y-2 text-gray-600">
-              <li>
-                <Link to="/contact">Contact Us</Link>
-              </li>
-              <li>
-                <Link to="/refund">Refund Policy</Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold mb-4">Newsletter</h4>
-            <p className="text-gray-600 mb-4">Subscribe for special offers.</p>
-          </div>
-        </div>
-        <div className="max-w-[1200px] mx-auto text-center text-[10px] text-gray-400 border-t border-gray-200 pt-8">
-          <p>© 2026, NEUVIE Nutrition.</p>
-          <p className="mt-2 max-w-4xl mx-auto leading-relaxed">
-            * These statements have not been evaluated by the Food and Drug Administration. This product is not intended
-            to diagnose, treat, cure, or prevent any disease.
-          </p>
-        </div>
-      </footer>
+      <Footer />
       <CartDrawer />
     </div>
   );
