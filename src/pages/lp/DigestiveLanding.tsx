@@ -56,7 +56,7 @@ export default function DigestiveLanding() {
       product: { node: product },
       variantId: variant.id,
       variantTitle: variant.title,
-      price: currentPrice.toString(),
+      price: { amount: currentPrice.toString(), currencyCode: "USD" },
       quantity: 1,
       selectedOptions: variant.selectedOptions,
     });
