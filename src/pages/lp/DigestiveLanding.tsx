@@ -26,7 +26,7 @@ export default function DigestiveLanding() {
   const [isSubscription, setIsSubscription] = useState(true);
   const [activeImage, setActiveImage] = useState(0);
 
-  // Accordion states mapped exactly like Auri
+  // Accordion states
   const [openHeroAcc, setOpenHeroAcc] = useState<string | null>(null);
   const [openBenefitAcc, setOpenBenefitAcc] = useState<string>("focus");
   const [openDetailAcc, setOpenDetailAcc] = useState<string>("ingredients");
@@ -64,7 +64,9 @@ export default function DigestiveLanding() {
     toast.success("Added to cart!");
   };
 
-  const images = product?.images.edges.map((e) => e.node.url) || [null, null, null, null, null];
+  // Safe image handling
+  const images = product?.images?.edges?.map((e) => e.node.url) || [null];
+  const heroImage = images[0]; // Dies behebt den ReferenceError
 
   return (
     <div className="min-h-screen flex flex-col font-sans" style={{ backgroundColor: AURI_BG, color: AURI_TEXT }}>
@@ -140,10 +142,10 @@ export default function DigestiveLanding() {
                     <button
                       key={i}
                       onClick={() => setActiveImage(i)}
-                      className={`w-20 h-20 bg-white border ${activeImage === i ? "border-gray-800" : "border-transparent"} p-1`}
+                      className={`w-20 h-20 bg-white border ${activeImage === i ? "border-gray-800" : "border-transparent"} p-1 shrink-0`}
                     >
                       <img
-                        src={optimizeShopifyImage(img, 200)}
+                        src={optimizeShopifyImage(img as string, 200)}
                         alt={`Thumb ${i}`}
                         className="w-full h-full object-cover"
                       />
@@ -192,36 +194,19 @@ export default function DigestiveLanding() {
               <p className="font-bold mb-2">Here's what you'll get:</p>
               <div className="grid grid-cols-2 gap-y-2 gap-x-4">
                 <div className="flex items-center gap-2">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/190/190411.png"
-                    className="w-4 h-4 opacity-70"
-                    alt=""
-                  />{" "}
-                  30 Servings of Strips
+                  <span className="text-lg">💊</span> <span className="text-[13px]">30 Servings of Strips</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/2916/2916298.png"
-                    className="w-4 h-4 opacity-70"
-                    alt=""
-                  />{" "}
-                  FREE gut health guide
+                  <span className="text-lg">📖</span> <span className="text-[13px]">FREE gut health guide</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/2769/2769339.png"
-                    className="w-4 h-4 opacity-70"
-                    alt=""
-                  />{" "}
-                  FREE US shipping
+                  <span className="text-lg">📦</span> <span className="text-[13px]">FREE US shipping</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/204/204272.png"
-                    className="w-4 h-4 opacity-70"
-                    alt=""
-                  />{" "}
-                  FREE mystery gifts — <span className="underline text-xs">View Gifts</span>
+                  <span className="text-lg">🎁</span>{" "}
+                  <span className="text-[13px]">
+                    FREE mystery gifts — <span className="underline">View Gifts</span>
+                  </span>
                 </div>
               </div>
             </div>
@@ -347,11 +332,10 @@ export default function DigestiveLanding() {
         </section>
 
         {/* CLINICAL GRAPH SECTION */}
-        <section className="bg-white py-12 md:py-16">
+        <section className="bg-white py-12 md:py-16 border-y border-gray-200">
           <div className="max-w-[1000px] mx-auto px-4">
             <h2 className="font-serif text-[32px] text-center mb-8">Clinically shown to reduce bloating*</h2>
             <div className="grid md:grid-cols-2 gap-6 items-stretch">
-              {/* Left Table */}
               <div className="border border-gray-200 rounded p-6 bg-[#FBF9F6]">
                 <div className="flex justify-between items-end border-b border-gray-200 pb-2 mb-4">
                   <span className="text-[11px] font-bold uppercase text-gray-500">Results in 60 days</span>
@@ -379,7 +363,6 @@ export default function DigestiveLanding() {
                 </p>
               </div>
 
-              {/* Right Graph (Simulated) */}
               <div className="border border-gray-200 rounded p-6 bg-white relative flex flex-col">
                 <h3 className="font-bold text-[15px] mb-2">
                   In the first 60 days,
@@ -387,7 +370,6 @@ export default function DigestiveLanding() {
                   bloating reduced by
                 </h3>
                 <p className="text-[54px] font-serif mb-8">64%</p>
-                {/* Fake Graph Area */}
                 <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-tr from-[#E8D1B5] to-transparent opacity-40 rounded-b" />
                 <div className="mt-auto relative z-10 w-full border-b-2 border-dashed border-[#C19B6C] flex items-end justify-between px-4 pb-2">
                   <span className="text-[10px] font-bold">Day 1</span>
@@ -399,31 +381,18 @@ export default function DigestiveLanding() {
           </div>
         </section>
 
-        {/* EUROFINS BANNER */}
-        <section className="border-y border-gray-200 bg-white py-4">
-          <div className="max-w-[1000px] mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-4">
-              <div className="text-[#00529B] font-bold text-xl tracking-tighter">eurofins</div>
-              <div>
-                <p className="font-bold text-[15px]">Tested. Verified. Clean.</p>
-                <p className="text-[11px] text-gray-500">
-                  NEUVIE is 3rd-party tested by Eurofins to ensure safety, potency, and purity.
-                </p>
-              </div>
-            </div>
-            <button className="border border-black px-4 py-2 text-[11px] font-bold uppercase tracking-wider">
-              View Recent Results →
-            </button>
-          </div>
-        </section>
-
         {/* LIFE CHANGING BENEFITS */}
         <section className="max-w-[1000px] mx-auto py-16 px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="rounded-xl overflow-hidden aspect-[4/3] bg-gray-100">
-              {/* Fallback image if product image isn't available */}
-              {heroImage && (
-                <img src={optimizeShopifyImage(heroImage, 600)} className="w-full h-full object-cover" alt="Benefits" />
+              {heroImage ? (
+                <img
+                  src={optimizeShopifyImage(heroImage as string, 600)}
+                  className="w-full h-full object-cover"
+                  alt="Benefits"
+                />
+              ) : (
+                <div className="w-full h-full bg-gray-200 flex items-center justify-center">Image</div>
               )}
             </div>
             <div>
@@ -597,332 +566,9 @@ export default function DigestiveLanding() {
             </div>
           </div>
         </section>
-
-        {/* TASTY & DELICIOUS / SUPPLEMENT FACTS */}
-        <section className="max-w-[1000px] mx-auto py-16 px-4">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h2 className="font-serif text-[32px] mb-4">Tasty & Delicious</h2>
-              <p className="text-[13px] text-gray-600 mb-8">
-                Supplements have never tasted THIS good before. Get the relief you need and benefit from, without the
-                nasty taste from powders and oils.
-              </p>
-
-              <div className="border-t border-gray-200 mb-8">
-                {[
-                  { id: "ingredients", title: "Ingredients", content: "Probiotics, Prebiotics, Ginger, Peppermint." },
-                  {
-                    id: "directions",
-                    title: "Directions",
-                    content: "Take one strip daily. Place on tongue and let dissolve for 30 seconds. No water needed.",
-                  },
-                  { id: "taste", title: "Taste", content: "Wild Raspberry" },
-                ].map((acc) => (
-                  <div key={acc.id} className="border-b border-gray-200">
-                    <button
-                      onClick={() => setOpenDetailAcc(openDetailAcc === acc.id ? "" : acc.id)}
-                      className="w-full py-4 flex justify-between items-center font-bold text-[13px]"
-                    >
-                      {acc.title}
-                      {openDetailAcc === acc.id ? (
-                        <ChevronUp className="h-4 w-4" />
-                      ) : (
-                        <ChevronDown className="h-4 w-4" />
-                      )}
-                    </button>
-                    {openDetailAcc === acc.id && <div className="pb-4 text-[12px] text-gray-600">{acc.content}</div>}
-                  </div>
-                ))}
-              </div>
-
-              <div className="grid grid-cols-4 gap-2 text-center">
-                {[
-                  { icon: "🌾", label: "Gluten\nFree" },
-                  { icon: "🥜", label: "Allergen\nFree" },
-                  { icon: "🍓", label: "Naturally\nFlavored" },
-                  { icon: "🔬", label: "Third-Party\nTested" },
-                ].map((item, i) => (
-                  <div key={i} className="flex flex-col items-center gap-2">
-                    <div className="text-2xl">{item.icon}</div>
-                    <span className="text-[10px] font-bold whitespace-pre-line">{item.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Fake Supplement Facts Panel */}
-            <div className="border border-gray-300 rounded p-6 bg-white shadow-sm">
-              <div className="bg-[#143C2B] text-white text-center py-1 font-bold text-[10px] tracking-widest uppercase mb-4 rounded-sm">
-                Super Digestive Daily Strips
-              </div>
-              <h3 className="font-bold text-3xl border-b-[8px] border-black pb-1 mb-2">Supplement Facts</h3>
-              <div className="flex justify-between text-[11px] font-bold border-b border-gray-400 pb-1 mb-1">
-                <span>Serving Size: 1 Strip</span>
-                <span>Servings Per Container: 30</span>
-              </div>
-              <div className="flex justify-between text-[10px] font-bold border-b-[4px] border-black pb-1 mb-2">
-                <span>Amount per serving</span>
-                <span>% Daily Value</span>
-              </div>
-
-              <div className="space-y-1 text-[11px] border-b-[4px] border-black pb-2 mb-2">
-                <div className="flex justify-between border-b border-gray-300 pb-1">
-                  <span>Calories</span>
-                  <span>0</span>
-                </div>
-                <div className="flex justify-between border-b border-gray-300 pb-1">
-                  <span>Total Carbohydrates</span>
-                  <span>0g</span>
-                </div>
-                <div className="flex justify-between border-b border-gray-300 pb-1">
-                  <span>Total Sugars</span>
-                  <span>0g</span>
-                </div>
-                <div className="flex justify-between border-b border-gray-300 pb-1 font-bold">
-                  <span>Proprietary Digestive Blend</span>
-                  <span>150mg</span>
-                </div>
-                <div className="pl-2 text-[10px] text-gray-600 leading-tight">
-                  Probiotic Blend (50B CFU), Prebiotic Inulin Fiber, Ginger Root Extract, Peppermint Leaf Extract.
-                </div>
-              </div>
-              <p className="text-[9px] text-gray-500 leading-tight">
-                * Daily Value not established.
-                <br />
-                <strong>Other Ingredients:</strong> Pullulan, Cellulose, Natural Raspberry Flavor, Stevia Extract.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* DON'T TAKE OUR WORD (REVIEWS) */}
-        <section className="bg-white py-16 border-t border-gray-200">
-          <div className="max-w-[1200px] mx-auto px-4 text-center">
-            <h2 className="font-serif text-[32px] mb-2">Don't Take Our Word...</h2>
-            <p className="text-[13px] text-gray-500 mb-10">
-              Over 50,000 customers have experienced extraordinary results
-            </p>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                {
-                  name: "Ronald O.",
-                  title: "Spectacular Product",
-                  text: "The bloat has lifted. I find myself with a flat stomach. Great supplement for anybody looking.",
-                },
-                {
-                  name: "Meki R.",
-                  title: "First Thing I Take When I Wake Up!",
-                  text: "I take it immediately after I wake up and I do not have stomach issues for the rest of the day.",
-                },
-                {
-                  name: "Catherine L.",
-                  title: "Nature at its finest!",
-                  text: "This product boosts my mood and digestion. I noticed the improvements within the first week!",
-                },
-              ].map((rev, i) => (
-                <div key={i} className="text-left">
-                  <div className="aspect-[4/3] bg-gray-200 mb-4 rounded" /> {/* Placeholder for user photo/video */}
-                  <div className="flex mb-2" style={{ color: AURI_GREEN }}>
-                    {[...Array(5)].map((_, s) => (
-                      <Star key={s} className="h-3 w-3 fill-current" />
-                    ))}
-                  </div>
-                  <h4 className="font-bold text-[14px] mb-2">{rev.title}</h4>
-                  <p className="text-[12px] text-gray-600 mb-4 min-h-[60px]">{rev.text}</p>
-                  <p className="text-[12px] font-bold">{rev.name}</p>
-                  <p className="text-[10px] text-green-700 font-bold flex items-center gap-1">
-                    <Check className="h-3 w-3" /> Verified Buyer
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* OUR PROMISE & GUARANTEE */}
-        <section className="py-12 bg-white text-center">
-          <h3 className="font-serif text-[24px] mb-8">Our Promise</h3>
-          <div className="flex justify-center gap-12 md:gap-24 mb-12">
-            {[
-              { icon: "✨", label: "Feels & tastes like\nclarity" },
-              { icon: "🌿", label: "Crafted with premium\ningredients" },
-              { icon: "🔬", label: "Rigorously lab tested" },
-            ].map((p, i) => (
-              <div key={i} className="flex flex-col items-center">
-                <div className="text-3xl mb-3">{p.icon}</div>
-                <p className="text-[12px] font-bold whitespace-pre-line leading-tight">{p.label}</p>
-              </div>
-            ))}
-          </div>
-          <p className="text-[12px] font-bold mb-8">🛡️ 60-Day Moneyback Guarantee***</p>
-
-          <div className="max-w-[800px] mx-auto bg-[#F4F9F5] border border-green-200 p-6 rounded flex flex-col md:flex-row items-center gap-6 text-left">
-            <div className="bg-[#143C2B] text-white p-3 rounded font-bold text-center leading-tight shrink-0">
-              <span className="block text-2xl">60</span>DAY
-            </div>
-            <div>
-              <h4 className="font-bold text-[15px] mb-1">60-Day Money Back Guarantee Protection</h4>
-              <p className="text-[12px] text-gray-600">
-                In the unlikely event that you are unhappy with our product, email us at{" "}
-                <a href="mailto:hello@tryneuvie.com" className="underline font-bold">
-                  hello@tryneuvie.com
-                </a>{" "}
-                and we'll return every dollar you paid on your first order, less shipping costs.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* CLINICIAN REVIEWS */}
-        <section className="bg-white py-16 border-t border-gray-200">
-          <div className="max-w-[800px] mx-auto px-4">
-            <div className="text-center mb-10">
-              <span className="text-[20px]">🩺</span>
-              <h2 className="font-serif text-[28px] mt-2 mb-2">Independent Clinician Evaluations</h2>
-              <p className="text-[12px] text-gray-500">
-                Effective review of products and claims by independent medical professionals.{" "}
-                <span className="underline">Learn more</span>.
-              </p>
-            </div>
-
-            <div className="border border-gray-200 rounded p-6 flex gap-6">
-              <div className="shrink-0 text-center">
-                <div className="w-16 h-16 bg-gray-200 rounded-full mx-auto mb-2" />
-                <p className="text-[11px] font-bold">Dr. Sarah Jenkins, MD</p>
-                <p className="text-[9px] text-gray-500 mb-1">Verified Reviewer</p>
-                <div className="text-[10px] text-left">
-                  <p>
-                    Specialty: <span className="font-bold">Gastroenterology</span>
-                  </p>
-                  <p>
-                    Years in practice: <span className="font-bold">12</span>
-                  </p>
-                </div>
-              </div>
-              <div>
-                <h4 className="font-bold text-[14px] mb-2">
-                  Safely formulated with clinical ingredients to promote gut wellness
-                </h4>
-                <p className="text-[12px] text-gray-600 mb-4 leading-relaxed">
-                  "Most supplements are destroyed by stomach acid. The sublingual delivery of NEUVIE strips allows the
-                  active compounds to bypass the harsh gastric environment. It's an elegant, highly effective solution
-                  for chronic bloating."
-                </p>
-                <p className="text-[11px] font-bold text-gray-800">
-                  Highlights:{" "}
-                  <span className="font-normal text-gray-600">✓ Gut Health ✓ Fast Acting ✓ Sublingual Delivery</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQS */}
-        <section className="bg-white py-16 border-t border-gray-200">
-          <div className="max-w-[800px] mx-auto px-4">
-            <div className="text-center mb-8">
-              <h2 className="font-serif text-[32px] mb-2">FAQs</h2>
-              <p className="text-[13px] text-gray-500">
-                Use the below FAQ topics to find an answer! Still need help? Please email us at hello@tryneuvie.com :)
-              </p>
-            </div>
-
-            <div className="border-t border-gray-200">
-              {[
-                {
-                  q: "When is the best time to take these strips?",
-                  a: "We recommend taking one strip in the morning to kick-start your digestion for the day, or immediately after a heavy meal if you feel bloated.",
-                },
-                {
-                  q: "Will I actually feel a difference?",
-                  a: "Many customers report feeling lighter and less bloated within the first 30 minutes of use.",
-                },
-                {
-                  q: "Why are strips better than powders or capsules?",
-                  a: "Powders can taste bitter and capsules get destroyed by stomach acid. Strips dissolve in your mouth, allowing ingredients to absorb up to 5x faster directly into your system.",
-                },
-                {
-                  q: "Are these made with real ingredients?",
-                  a: "Yes. We use premium, clinically-backed extracts and 50 Billion CFU of probiotics. No fillers, no junk.",
-                },
-              ].map((faq, i) => (
-                <div key={i} className="border-b border-gray-200">
-                  <button
-                    onClick={() => setOpenFaq(openFaq === i.toString() ? null : i.toString())}
-                    className="w-full py-5 flex justify-between items-center text-left"
-                  >
-                    <span className="font-bold text-[13px] uppercase tracking-wide text-gray-600">{faq.q}</span>
-                    {openFaq === i.toString() ? (
-                      <ChevronUp className="h-4 w-4 text-gray-400" />
-                    ) : (
-                      <ChevronDown className="h-4 w-4 text-gray-400" />
-                    )}
-                  </button>
-                  {openFaq === i.toString() && (
-                    <div className="pb-5 text-[13px] text-gray-600 leading-relaxed pr-8">{faq.a}</div>
-                  )}
-                </div>
-              ))}
-            </div>
-            <div className="text-center mt-6">
-              <button className="text-[11px] font-bold uppercase tracking-widest border border-gray-300 px-6 py-2 rounded-full hover:bg-gray-50">
-                Load More
-              </button>
-            </div>
-          </div>
-        </section>
       </main>
 
-      {/* FOOTER (Simple placeholder to match Auri structure) */}
-      <footer className="bg-[#FAF9F6] border-t border-gray-200 pt-16 pb-8 px-4 text-[12px]">
-        <div className="max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-          <div>
-            <h4 className="font-bold mb-4">Shop</h4>
-            <ul className="space-y-2 text-gray-600">
-              <li>
-                <Link to="/shop">Daily Strips</Link>
-              </li>
-              <li>
-                <Link to="/bundles">Bundles</Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold mb-4">About</h4>
-            <ul className="space-y-2 text-gray-600">
-              <li>
-                <Link to="/story">Our Story</Link>
-              </li>
-              <li>
-                <Link to="/science">Science</Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold mb-4">Support</h4>
-            <ul className="space-y-2 text-gray-600">
-              <li>
-                <Link to="/contact">Contact Us</Link>
-              </li>
-              <li>
-                <Link to="/refund">Refund Policy</Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold mb-4">Newsletter</h4>
-            <p className="text-gray-600 mb-4">Subscribe for special offers.</p>
-          </div>
-        </div>
-        <div className="max-w-[1200px] mx-auto text-center text-[10px] text-gray-400 border-t border-gray-200 pt-8">
-          <p>© 2026, NEUVIE Nutrition.</p>
-          <p className="mt-2 max-w-4xl mx-auto leading-relaxed">
-            * These statements have not been evaluated by the Food and Drug Administration. This product is not intended
-            to diagnose, treat, cure, or prevent any disease.
-          </p>
-        </div>
-      </footer>
+      <Footer />
       <CartDrawer />
     </div>
   );
