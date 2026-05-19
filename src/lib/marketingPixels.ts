@@ -12,6 +12,7 @@ declare global {
     fbq?: (...args: unknown[]) => void;
     gtag?: (...args: unknown[]) => void;
     dataLayer?: unknown[];
+    pintrk?: (...args: unknown[]) => void;
   }
 }
 
@@ -122,4 +123,84 @@ export function trackInitiateCheckout(products: PixelProduct[]) {
 export function trackLead(source: string) {
   safeFbq('track', 'Lead', { content_name: source });
   safeGtag('event', 'generate_lead', { source });
+}
+
+const safePintrk = (...args: unknown[]) => {
+  try {
+    if (typeof window !== 'undefined' && typeof window.pintrk === 'function') {
+      window.pintrk(...args);
+    }
+  } catch {
+    /* ignore */
+  }
+};
+
+export interface PurchasePayload {
+  orderId: string;
+  products: PixelProduct[];
+  value: number;
+  currency?: string;
+  /** Pass the same event_id used server-side in Meta CAPI to deduplicate. */
+  eventId?: string;
+}
+
+/**
+ * Fired on the order-confirmation / thank-you page.
+ * Sends a properly-formatted Purchase event to Meta Pixel (with eventID for CAPI dedupe),
+ * GA4 (`purchase`), and Pinterest (`checkout`).
+ */
+export function trackPurchase({
+  orderId,
+  products,
+  value,
+  currency = 'USD',
+  eventId,
+}: PurchasePayload) {
+  const contentIds = products.map((p) => p.id);
+  const numItems = products.reduce((s, p) => s + p.quantity, 0);
+
+  // Meta Pixel — Purchase (with CAPI dedupe via eventID)
+  safeFbq(
+    'track',
+    'Purchase',
+    {
+      content_ids: contentIds,
+      content_type: 'product',
+      contents: products.map((p) => ({ id: p.id, quantity: p.quantity, item_price: p.price })),
+      num_items: numItems,
+      value,
+      currency,
+      order_id: orderId,
+    },
+    eventId ? { eventID: eventId } : undefined,
+  );
+
+  // GA4 — purchase
+  safeGtag('event', 'purchase', {
+    transaction_id: orderId,
+    currency,
+    value,
+    items: products.map((p) => ({
+      item_id: p.id,
+      item_name: p.name,
+      item_category: p.category,
+      price: p.price,
+      quantity: p.quantity,
+    })),
+  });
+
+  // Pinterest — checkout conversion
+  safePintrk('track', 'checkout', {
+    value,
+    order_quantity: numItems,
+    currency,
+    order_id: orderId,
+    line_items: products.map((p) => ({
+      product_name: p.name,
+      product_id: p.id,
+      product_price: p.price,
+      product_quantity: p.quantity,
+      product_category: p.category,
+    })),
+  });
 }
