@@ -12,6 +12,7 @@ declare global {
     fbq?: (...args: unknown[]) => void;
     gtag?: (...args: unknown[]) => void;
     dataLayer?: unknown[];
+    pintrk?: (...args: unknown[]) => void;
   }
 }
 
