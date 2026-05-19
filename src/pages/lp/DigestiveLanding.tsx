@@ -18,6 +18,7 @@ import {
   Microscope,
   Flame,
   Brain,
+  Star,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/Navbar";
