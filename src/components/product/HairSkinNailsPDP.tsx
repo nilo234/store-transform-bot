@@ -43,6 +43,33 @@ import doctorMarcusChen from '@/assets/doctor-marcus-chen.jpg';
 import ingredientBiotin from '@/assets/ingredient-biotin.jpg';
 import ingredientFolate from '@/assets/ingredient-folate.jpg';
 import ingredientVitaminD3 from '@/assets/ingredient-vitamin-d3.jpg';
+import testimonialHsn1 from '@/assets/testimonial-hsn-1.jpg';
+import testimonialHsn2 from '@/assets/testimonial-hsn-2.jpg';
+import testimonialHsn3 from '@/assets/testimonial-hsn-3.jpg';
+
+const customerTestimonials = [
+  {
+    image: testimonialHsn1,
+    title: 'My hair finally feels strong again',
+    quote:
+      'By week 6 my breakage was way down and I could actually grow my hair past my shoulders. The orange flavor is honestly the only reason I never skip a day.',
+    author: 'Hannah B.',
+  },
+  {
+    image: testimonialHsn2,
+    title: 'Skin that glows at 48',
+    quote:
+      'My esthetician asked what I changed. I told her — one strip a day, no pills, no powders. It just works and it doesn\u2019t taste like a vitamin.',
+    author: 'Linda R.',
+  },
+  {
+    image: testimonialHsn3,
+    title: 'Nails stopped peeling within a month',
+    quote:
+      'I\u2019ve tried biotin gummies and capsules for years. Nothing stuck. This one I actually look forward to. My nails are longer than they\u2019ve ever been.',
+    author: 'Priya S.',
+  },
+];
 
 interface Props {
   product: ShopifyProduct['node'];
