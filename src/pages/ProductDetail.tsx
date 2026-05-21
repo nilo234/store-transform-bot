@@ -291,6 +291,12 @@ export default function ProductDetail() {
 
   // ============ OPTIMIZED PDP for Probiotic + Metabolism Strips ============
   const normalizedHandle = (handle || product.handle || '').toLowerCase();
+
+  // ============ DEDICATED PDP for Hair, Skin & Nails Strips ============
+  if (normalizedHandle.includes('hair') && (normalizedHandle.includes('skin') || normalizedHandle.includes('nail'))) {
+    return <HairSkinNailsPDP product={product} />;
+  }
+
   if (normalizedHandle.includes('probiotic') && normalizedHandle.includes('metabolism')) {
     const firstVariant = product.variants.edges[0]?.node;
     const onAddSingle = async () => {
