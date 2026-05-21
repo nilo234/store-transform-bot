@@ -351,6 +351,12 @@ export default function ProductDetail() {
     return <ProbioticPDP product={product} onAddSingle={onAddSingle} onAddBundle={onAddBundle} />;
   }
 
+  // ============ GENERIC PDP TEMPLATE for all other strip products ============
+  const pdpConfig = getPDPConfig(normalizedHandle);
+  if (pdpConfig) {
+    return <StripPDPTemplate product={product} config={pdpConfig} />;
+  }
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* SEO */}
