@@ -10,6 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { FreeShippingBar } from './FreeShippingBar';
 import { CartUrgencyBanner } from './CartUrgencyBanner';
 import { SecureCheckoutBadges } from './SecureCheckoutBadges';
+import { CartUpsell } from './CartUpsell';
 import { bundles as bundleDefinitions } from '@/data/bundles';
 import { useRegion } from '@/hooks/useRegion';
 import { formatShopifyMoney } from '@/lib/region';
