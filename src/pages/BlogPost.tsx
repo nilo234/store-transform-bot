@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight, Calendar, Clock, Share2 } from 'lucide-react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
-import { PageMeta } from '@/components/seo';
+import { PageMeta, ArticleJsonLd } from '@/components/seo';
 import { getBlogPostBySlug, blogPosts } from '@/data/blogPosts';
 
 export default function BlogPost() {
