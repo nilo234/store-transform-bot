@@ -1,15 +1,14 @@
-import { Package, Truck, Gift, RefreshCw, Shield, Zap } from 'lucide-react';
+import { Package, Truck, Zap, Shield } from 'lucide-react';
 import { useRegion } from '@/hooks/useRegion';
 
 interface ValuePropositionProps {
   servings?: number;
-  /** Base USD price; subscribe & save (20% off) is computed and converted per region. */
+  /** Base USD price (kept for API compatibility). */
   basePrice?: number;
 }
 
-export const ValueProposition = ({ servings = 30, basePrice = 29.99 }: ValuePropositionProps) => {
+export const ValueProposition = ({ servings = 30 }: ValuePropositionProps) => {
   const { isUK, formatPrice } = useRegion();
-  const subPrice = formatPrice(basePrice * 0.8);
 
   const perks = [
     {
@@ -23,19 +22,9 @@ export const ValueProposition = ({ servings = 30, basePrice = 29.99 }: ValueProp
       subtitle: isUK ? 'Calculated at checkout' : `On orders ${formatPrice(50)}+`
     },
     {
-      icon: Gift,
-      title: 'Surprise extras',
-      subtitle: 'Included with subscriptions'
-    },
-    {
       icon: Zap,
       title: 'Absorbs in seconds',
       subtitle: 'Faster than pills or capsules'
-    },
-    {
-      icon: RefreshCw,
-      title: 'Subscribe & save 20%',
-      subtitle: `Auto-refill at ${subPrice}/mo`
     },
     {
       icon: Shield,
