@@ -87,18 +87,21 @@ const ingredients = [
     tag: 'Hair & Nails',
     dose: '5,000 mcg',
     desc: 'The B-vitamin behind keratin. Supports hair strength and nail resilience from within.',
+    image: ingredientBiotin,
   },
   {
     name: 'Folate (B9)',
     tag: 'Cell Renewal',
     dose: '400 mcg',
     desc: 'Supports healthy cell turnover — essential for skin glow and follicle vitality.',
+    image: ingredientFolate,
   },
   {
     name: 'Vitamin D3',
     tag: 'Skin Vitality',
     dose: '200 mcg',
     desc: 'The sunshine vitamin. Supports calcium absorption, immune balance, and skin health.',
+    image: ingredientVitaminD3,
   },
 ];
 
