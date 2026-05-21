@@ -1106,7 +1106,7 @@ export function HairSkinNailsPDP({ product }: Props) {
           <div className="container-wide">
             <div className="text-center mb-10 sm:mb-14">
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl mb-3 text-foreground text-balance">
-                Don\u2019t Take Our <span className="italic text-accent">Word</span>
+                Don’t Take Our <span className="italic text-accent">Word</span>
               </h2>
               <p className="text-sm sm:text-base text-muted-foreground max-w-xl mx-auto">
                 Over 10,000 customers have made NEUVIE part of their daily ritual.
@@ -1126,7 +1126,7 @@ export function HairSkinNailsPDP({ product }: Props) {
                   <div className="aspect-[4/5] w-full overflow-hidden bg-secondary/40">
                     <img
                       src={t.image}
-                      alt={`${t.author} \u2014 verified NEUVIE customer`}
+                      alt={`${t.author} — verified NEUVIE customer`}
                       className="w-full h-full object-cover"
                       loading="lazy"
                       width={1024}
