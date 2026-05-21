@@ -150,7 +150,44 @@ interface ProductReviewsProps {
 
 export const ProductReviews = ({ productHandle, productTitle }: ProductReviewsProps) => {
   const [visible, setVisible] = useState(3);
-  const reviews = productReviewsMap[getReviewKey(productHandle)] || productReviewsMap.energy;
+  const baseReviews = productReviewsMap[getReviewKey(productHandle)] || productReviewsMap.energy;
+
+  // User-submitted reviews (session-local)
+  const [userReviews, setUserReviews] = useState<Review[]>([]);
+  const reviews = [...userReviews, ...baseReviews];
+
+  // Like tracking (toggleable, session-local)
+  const [liked, setLiked] = useState<Record<string, boolean>>({});
+  const [likeBoost, setLikeBoost] = useState<Record<string, number>>({});
+  const toggleLike = (key: string) => {
+    setLiked((prev) => ({ ...prev, [key]: !prev[key] }));
+    setLikeBoost((prev) => ({ ...prev, [key]: (prev[key] || 0) + (liked[key] ? -1 : 1) }));
+  };
+
+  // Write-review form
+  const [showForm, setShowForm] = useState(false);
+  const [form, setForm] = useState({ author: '', title: '', body: '', rating: 5 });
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.author.trim() || !form.title.trim() || !form.body.trim()) {
+      toast.error('Please fill in your name, title, and review.');
+      return;
+    }
+    const newReview: Review = {
+      author: form.author.trim().slice(0, 60),
+      location: 'United States',
+      rating: form.rating,
+      date: 'Just now',
+      title: form.title.trim().slice(0, 80),
+      body: form.body.trim().slice(0, 600),
+      helpful: 0,
+      verified: false,
+    };
+    setUserReviews((prev) => [newReview, ...prev]);
+    setForm({ author: '', title: '', body: '', rating: 5 });
+    setShowForm(false);
+    toast.success('Thanks for sharing your review!');
+  };
 
   // Aggregate stats
   const total = reviews.length;
@@ -161,21 +198,21 @@ export const ProductReviews = ({ productHandle, productTitle }: ProductReviewsPr
   }));
 
   return (
-    <section className="py-16 bg-muted/20">
+    <section className="py-12 sm:py-16 bg-muted/20">
       <div className="container-wide">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-10">
+          <div className="text-center mb-8 sm:mb-10">
             <h2 className="font-display text-2xl md:text-3xl mb-2" style={{ letterSpacing: '-0.02em' }}>
               What customers say about {productTitle}
             </h2>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-sm sm:text-base">
               Verified reviews from people who made it part of their daily routine.
             </p>
           </div>
 
           {/* Summary card */}
-          <div className="bg-card rounded-2xl border border-border/50 p-6 md:p-8 mb-8 grid md:grid-cols-3 gap-6 items-center">
+          <div className="bg-card rounded-2xl border border-border/50 p-5 sm:p-6 md:p-8 mb-6 grid md:grid-cols-3 gap-6 items-center">
             <div className="text-center md:border-r md:border-border/50 md:pr-6">
               <div className="text-5xl font-display text-foreground mb-1">{avg}</div>
               <div className="flex justify-center gap-1 mb-2">
@@ -201,47 +238,133 @@ export const ProductReviews = ({ productHandle, productTitle }: ProductReviewsPr
             </div>
           </div>
 
-          {/* Reviews list */}
-          <div className="space-y-4">
-            {reviews.slice(0, visible).map((review, idx) => (
-              <article
-                key={idx}
-                className="bg-card rounded-xl p-5 md:p-6 border border-border/50"
+          {/* Write a review */}
+          <div className="mb-8 text-center">
+            {!showForm ? (
+              <Button
+                onClick={() => setShowForm(true)}
+                className="bg-primary hover:bg-primary/90 text-primary-foreground"
               >
-                <div className="flex items-start justify-between gap-4 mb-3">
-                  <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="font-semibold text-foreground">{review.author}</span>
-                      {review.verified && (
-                        <span className="inline-flex items-center gap-1 text-xs text-primary">
-                          <BadgeCheck className="w-3.5 h-3.5" />
-                          Verified Buyer
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-xs text-muted-foreground">
-                      {review.location} · {review.date}
-                    </p>
-                  </div>
-                  <div className="flex gap-0.5 flex-shrink-0">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`w-4 h-4 ${
-                          i < review.rating ? 'fill-accent text-accent' : 'text-muted'
-                        }`}
-                      />
+                <PenLine className="w-4 h-4 mr-2" />
+                Write a Review
+              </Button>
+            ) : (
+              <form
+                onSubmit={handleSubmit}
+                className="bg-card rounded-2xl border border-border/50 p-5 sm:p-6 text-left space-y-4"
+              >
+                <h3 className="font-display text-lg sm:text-xl text-foreground">Share your experience</h3>
+
+                <div>
+                  <label className="text-xs font-semibold text-foreground mb-1.5 block">Your rating</label>
+                  <div className="flex gap-1">
+                    {[1, 2, 3, 4, 5].map((n) => (
+                      <button
+                        key={n}
+                        type="button"
+                        onClick={() => setForm({ ...form, rating: n })}
+                        aria-label={`Rate ${n} star${n > 1 ? 's' : ''}`}
+                      >
+                        <Star
+                          className={`w-6 h-6 transition ${
+                            n <= form.rating ? 'fill-accent text-accent' : 'text-muted'
+                          }`}
+                        />
+                      </button>
                     ))}
                   </div>
                 </div>
-                <h3 className="font-semibold text-foreground mb-1.5">{review.title}</h3>
-                <p className="text-sm text-foreground/80 leading-relaxed mb-3">{review.body}</p>
-                <button className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
-                  <ThumbsUp className="w-3.5 h-3.5" />
-                  Helpful ({review.helpful})
-                </button>
-              </article>
-            ))}
+
+                <div className="grid sm:grid-cols-2 gap-3">
+                  <Input
+                    placeholder="Your name"
+                    value={form.author}
+                    onChange={(e) => setForm({ ...form, author: e.target.value })}
+                    maxLength={60}
+                    required
+                  />
+                  <Input
+                    placeholder="Review title"
+                    value={form.title}
+                    onChange={(e) => setForm({ ...form, title: e.target.value })}
+                    maxLength={80}
+                    required
+                  />
+                </div>
+
+                <Textarea
+                  placeholder="Tell others about your experience with this product..."
+                  value={form.body}
+                  onChange={(e) => setForm({ ...form, body: e.target.value })}
+                  rows={4}
+                  maxLength={600}
+                  required
+                />
+
+                <div className="flex flex-wrap gap-2">
+                  <Button type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                    Submit Review
+                  </Button>
+                  <Button type="button" variant="outline" onClick={() => setShowForm(false)}>
+                    Cancel
+                  </Button>
+                </div>
+              </form>
+            )}
+          </div>
+
+          {/* Reviews list */}
+          <div className="space-y-4">
+            {reviews.slice(0, visible).map((review, idx) => {
+              const key = `${review.author}-${idx}`;
+              const isLiked = !!liked[key];
+              const helpfulCount = review.helpful + (likeBoost[key] || 0);
+              return (
+                <article
+                  key={key}
+                  className="bg-card rounded-xl p-5 md:p-6 border border-border/50"
+                >
+                  <div className="flex items-start justify-between gap-4 mb-3">
+                    <div>
+                      <div className="flex items-center gap-2 mb-1 flex-wrap">
+                        <span className="font-semibold text-foreground">{review.author}</span>
+                        {review.verified && (
+                          <span className="inline-flex items-center gap-1 text-xs text-primary">
+                            <BadgeCheck className="w-3.5 h-3.5" />
+                            Verified Buyer
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-xs text-muted-foreground">
+                        {review.location} · {review.date}
+                      </p>
+                    </div>
+                    <div className="flex gap-0.5 flex-shrink-0">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className={`w-4 h-4 ${
+                            i < review.rating ? 'fill-accent text-accent' : 'text-muted'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-1.5">{review.title}</h3>
+                  <p className="text-sm text-foreground/80 leading-relaxed mb-3">{review.body}</p>
+                  <button
+                    onClick={() => toggleLike(key)}
+                    className={`inline-flex items-center gap-1.5 text-xs transition-colors ${
+                      isLiked ? 'text-primary font-semibold' : 'text-muted-foreground hover:text-primary'
+                    }`}
+                    aria-pressed={isLiked}
+                  >
+                    <ThumbsUp className={`w-3.5 h-3.5 ${isLiked ? 'fill-primary' : ''}`} />
+                    Helpful ({helpfulCount})
+                  </button>
+                </article>
+              );
+            })}
           </div>
 
           {/* Load more */}
