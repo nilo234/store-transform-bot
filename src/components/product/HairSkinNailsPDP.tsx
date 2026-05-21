@@ -195,7 +195,10 @@ export function HairSkinNailsPDP({ product }: Props) {
     if (pack === 3) return +(base * 0.8).toFixed(2);
     return +base.toFixed(2);
   };
-  const addItem = useCartStore((s) => s.addItem);
+  const packOriginal = (pack: 1 | 2 | 3) => +(ORIGINAL_PRICE * pack).toFixed(2);
+  const packSavings = (pack: 1 | 2 | 3) =>
+    Math.round(((packOriginal(pack) - packPrice(pack)) / packOriginal(pack)) * 100);
+
   const addBundle = useCartStore((s) => s.addBundle);
 
   const handleAdd = async (qty: number) => {
