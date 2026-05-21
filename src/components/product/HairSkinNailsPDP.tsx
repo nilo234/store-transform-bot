@@ -919,81 +919,17 @@ export function HairSkinNailsPDP({ product }: Props) {
           </div>
         </section>
 
-        {/* ============ PACK PICKER ============ */}
-        <section className="bg-secondary/30 py-16">
-          <div className="container-wide">
-            <div className="text-center mb-10">
-              <h2 className="font-display text-4xl lg:text-5xl mb-3 text-foreground">
-                Choose Your <span className="italic text-accent">Routine</span>
-              </h2>
-              <p className="text-muted-foreground max-w-xl mx-auto">
-                The longer you commit, the more you save — and the more visible your results.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
-              {([1, 2, 3] as const).map((p) => {
-                const isBest = p === 2;
-                return (
-                  <div
-                    key={p}
-                    className={`bg-card rounded-3xl p-6 relative border-2 transition ${
-                      isBest ? 'border-primary shadow-elegant' : 'border-border'
-                    }`}
-                  >
-                    {isBest && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider whitespace-nowrap">
-                        Best Value
-                      </div>
-                    )}
-                    <div className="absolute top-4 right-4 bg-accent text-accent-foreground text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">
-                      {packSavings(p)}% Off
-                    </div>
-
-                    <div className="aspect-square mb-4 flex items-center justify-center bg-secondary/40 rounded-2xl p-6">
-                      {images[0] && (
-                        <img
-                          src={optimizeShopifyImage(images[0].node.url, 400)}
-                          alt={`${p}-pack of ${title}`}
-                          className="w-full h-full object-contain"
-                          loading="lazy"
-                          width={400}
-                          height={400}
-                        />
-                      )}
-                    </div>
-
-                    <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold mb-1">
-                      Beauty Wellness
-                    </p>
-                    <h3 className="font-display text-xl font-bold mb-1 text-foreground">
-                      Hair, Skin & Nails
-                    </h3>
-                    <p className="text-[11px] text-muted-foreground mb-4">
-                      {p} PACK · {p * 30} STRIPS · {p === 1 ? '1 MONTH' : `${p} MONTHS`}
-                    </p>
-
-                    <div className="flex items-baseline gap-2 mb-4">
-                      <span className="text-xl font-bold text-accent">
-                        ${packPrice(p).toFixed(2)}
-                      </span>
-                      <span className="text-xs text-muted-foreground line-through">
-                        ${packOriginal(p).toFixed(2)}
-                      </span>
-                    </div>
-
-                    <Button
-                      onClick={() => handleAdd(p)}
-                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 rounded-full text-sm transition"
-                    >
-                      Add to Cart
-                      <ShoppingCart className="h-4 w-4 ml-2" strokeWidth={2} />
-                    </Button>
-                  </div>
-                );
-              })}
-            </div>
+        {/* ============ BUNDLE SUGGESTIONS ============ */}
+        <section className="bg-secondary/30">
+          <div className="container-wide pt-12 pb-2 text-center">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl mb-3 text-foreground">
+              Choose Your <span className="italic text-accent">Routine</span>
+            </h2>
+            <p className="text-muted-foreground max-w-xl mx-auto text-sm sm:text-base">
+              Pair Hair, Skin & Nails with our other wellness strips and save up to 20%.
+            </p>
           </div>
+          <BundleUpsell currentVariantId={firstVariant?.id} currentProductHandle={product.handle} />
         </section>
 
         {/* ============ EXPERT EVALUATIONS ============ */}
