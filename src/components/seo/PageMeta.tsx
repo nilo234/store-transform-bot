@@ -12,7 +12,7 @@ interface PageMetaProps {
 const BASE_URL = 'https://tryneuvie.com';
 const DEFAULT_OG_IMAGE = 'https://tryneuvie.com/og-image.png';
 
-export function PageMeta({ title, description, ogImage, noindex }: PageMetaProps) {
+export function PageMeta({ title, description, ogImage, ogType = 'website', noindex }: PageMetaProps) {
   const location = useLocation();
   const canonicalUrl = `${BASE_URL}${location.pathname}`;
   const image = ogImage || DEFAULT_OG_IMAGE;
