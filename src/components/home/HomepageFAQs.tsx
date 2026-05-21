@@ -56,7 +56,7 @@ export function HomepageFAQs() {
           transition={{ delay: 0.1 }}
         >
           <Accordion type="single" collapsible className="space-y-3">
-            {faqs.map((faq, index) => (
+            {homepageFaqs.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
