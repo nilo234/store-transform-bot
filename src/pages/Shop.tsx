@@ -9,7 +9,7 @@ import { fetchProducts, ShopifyProduct } from '@/lib/shopify';
 import { Skeleton } from '@/components/ui/skeleton';
 import { cn } from '@/lib/utils';
 import { PageMeta, CollectionPageJsonLd } from '@/components/seo';
-import { ChevronDown, SlidersHorizontal, X, Scale } from 'lucide-react';
+import { ChevronDown, SlidersHorizontal, X, Scale, FlaskConical, Leaf, Flag, Truck, RotateCcw } from 'lucide-react';
 import { goalFilters, tagFilters, sortOptions, getProductGoal, getProductTags } from '@/data/shopFilters';
 import { bundles as bundleData } from '@/data/bundles';
 import { Button } from '@/components/ui/button';
