@@ -144,10 +144,31 @@ export interface PurchasePayload {
   eventId?: string;
 }
 
+/** Per-session guard so a Purchase is never sent twice for the same order. */
+const PURCHASE_GUARD_KEY = 'neuvie:purchase-fired';
+function alreadyFired(orderId: string): boolean {
+  try {
+    if (typeof window === 'undefined' || !window.sessionStorage) return false;
+    const raw = window.sessionStorage.getItem(PURCHASE_GUARD_KEY);
+    const set = new Set<string>(raw ? JSON.parse(raw) : []);
+    if (set.has(orderId)) return true;
+    set.add(orderId);
+    window.sessionStorage.setItem(PURCHASE_GUARD_KEY, JSON.stringify([...set]));
+    return false;
+  } catch {
+    return false;
+  }
+}
+
 /**
  * Fired on the order-confirmation / thank-you page.
- * Sends a properly-formatted Purchase event to Meta Pixel (with eventID for CAPI dedupe),
+ * Sends a Purchase event to Meta Pixel (with eventID for CAPI dedupe),
  * GA4 (`purchase`), and Pinterest (`checkout`).
+ *
+ * Safe to call multiple times: a per-session guard keyed on orderId prevents duplicates.
+ * NOTE: Shopify checkout/thank-you lives on *.myshopify.com and does NOT load this bundle.
+ * Install the Shopify Custom Web Pixel for thank-you tracking — this helper is only
+ * used if a custom in-app order confirmation page is ever added.
  */
 export function trackPurchase({
   orderId,
@@ -156,10 +177,20 @@ export function trackPurchase({
   currency = 'USD',
   eventId,
 }: PurchasePayload) {
+  // Validate inputs — never fire with empty/invalid data
+  const safeOrderId = String(orderId ?? '').trim();
+  const safeValue = Number(value);
+  const safeCurrency = (currency || 'USD').toUpperCase();
+  if (!safeOrderId || !Number.isFinite(safeValue) || safeValue < 0 || !products?.length) {
+    return;
+  }
+  if (alreadyFired(safeOrderId)) return;
+
   const contentIds = products.map((p) => p.id);
   const numItems = products.reduce((s, p) => s + p.quantity, 0);
+  const dedupId = eventId || `purchase_${safeOrderId}`;
 
-  // Meta Pixel — Purchase (with CAPI dedupe via eventID)
+  // Meta Pixel — Purchase (eventID matches CAPI for dedupe)
   safeFbq(
     'track',
     'Purchase',
@@ -168,18 +199,18 @@ export function trackPurchase({
       content_type: 'product',
       contents: products.map((p) => ({ id: p.id, quantity: p.quantity, item_price: p.price })),
       num_items: numItems,
-      value,
-      currency,
-      order_id: orderId,
+      value: safeValue,
+      currency: safeCurrency,
+      order_id: safeOrderId,
     },
-    eventId ? { eventID: eventId } : undefined,
+    { eventID: dedupId },
   );
 
   // GA4 — purchase
   safeGtag('event', 'purchase', {
-    transaction_id: orderId,
-    currency,
-    value,
+    transaction_id: safeOrderId,
+    currency: safeCurrency,
+    value: safeValue,
     items: products.map((p) => ({
       item_id: p.id,
       item_name: p.name,
@@ -191,10 +222,10 @@ export function trackPurchase({
 
   // Pinterest — checkout conversion
   safePintrk('track', 'checkout', {
-    value,
+    value: safeValue,
     order_quantity: numItems,
-    currency,
-    order_id: orderId,
+    currency: safeCurrency,
+    order_id: safeOrderId,
     line_items: products.map((p) => ({
       product_name: p.name,
       product_id: p.id,
