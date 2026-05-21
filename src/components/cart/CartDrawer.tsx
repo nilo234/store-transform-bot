@@ -10,6 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { FreeShippingBar } from './FreeShippingBar';
 import { CartUrgencyBanner } from './CartUrgencyBanner';
 import { SecureCheckoutBadges } from './SecureCheckoutBadges';
+import { CartUpsell } from './CartUpsell';
 import { bundles as bundleDefinitions } from '@/data/bundles';
 import { useRegion } from '@/hooks/useRegion';
 import { formatShopifyMoney } from '@/lib/region';
@@ -298,6 +299,8 @@ export function CartDrawer() {
                   </div>
                 </div>
 
+                {/* Customers Also Bought — individual product upsells */}
+                <CartUpsell />
               </div>
 
               {/* Fixed checkout section */}
