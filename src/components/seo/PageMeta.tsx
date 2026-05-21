@@ -74,7 +74,7 @@ export function PageMeta({ title, description, ogImage, ogType = 'website', noin
     setMeta('property', 'og:description', description);
     setMeta('property', 'og:url', canonicalUrl);
     setMeta('property', 'og:image', image);
-    setMeta('property', 'og:type', 'website');
+    setMeta('property', 'og:type', ogType);
     setMeta('property', 'og:site_name', 'NEUVIE Nutrition');
     setMeta('property', 'og:locale', 'en_US');
 
