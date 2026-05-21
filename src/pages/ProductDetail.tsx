@@ -528,15 +528,17 @@ export default function ProductDetail() {
                       size="icon"
                       className="h-10 w-10 rounded-full"
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                      aria-label="Decrease quantity"
                     >
                       <Minus className="h-4 w-4" />
                     </Button>
-                    <span className="w-12 text-center font-semibold text-lg">{quantity}</span>
+                    <span className="w-12 text-center font-semibold text-lg" aria-live="polite" aria-label={`Quantity: ${quantity}`}>{quantity}</span>
                     <Button
                       variant="ghost"
                       size="icon"
                       className="h-10 w-10 rounded-full"
                       onClick={() => setQuantity(quantity + 1)}
+                      aria-label="Increase quantity"
                     >
                       <Plus className="h-4 w-4" />
                     </Button>

@@ -85,6 +85,8 @@ export function ProductCard({ product, index = 0, showCompare, isCompared, onTog
           {showCompare && (
             <button
               onClick={handleCompareClick}
+              aria-label={isCompared ? "Remove from compare" : "Add to compare"}
+              aria-pressed={isCompared}
               className={cn(
                 "absolute top-2 md:top-3 left-2 md:left-3 z-20 w-7 h-7 rounded-full flex items-center justify-center transition-all border",
                 isCompared
