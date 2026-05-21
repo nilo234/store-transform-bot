@@ -23,6 +23,13 @@ export default function BlogPost() {
         description={post.metaDescription}
         ogType="article"
       />
+      <ArticleJsonLd
+        headline={post.title}
+        description={post.metaDescription}
+        datePublished={post.publishedAt}
+        author={post.author}
+        url={`https://tryneuvie.com/blog/${post.slug}`}
+      />
       <Navbar />
 
       <main className="flex-1 py-12 md:py-16">
