@@ -285,7 +285,7 @@ export function HairSkinNailsPDP({ product }: Props) {
               </div>
 
               <p className="text-muted-foreground text-sm font-medium mb-1">Beauty Wellness</p>
-              <h1 className="font-display text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-3 text-foreground">
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-3 text-foreground">
                 Hair, Skin & Nails
                 <span className="text-accent">.</span>
               </h1>
@@ -489,14 +489,14 @@ export function HairSkinNailsPDP({ product }: Props) {
         </section>
 
         {/* ============ CLINICAL RESULTS ============ */}
-        <section className="bg-secondary/30 py-20">
+        <section className="bg-secondary/30 py-14 sm:py-20">
           <div className="container-wide">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="font-display text-4xl lg:text-5xl mb-12 max-w-3xl text-balance text-foreground"
+              className="font-display text-3xl sm:text-4xl lg:text-5xl mb-12 max-w-3xl text-balance text-foreground"
             >
               Clinically-studied ingredients for{' '}
               <span className="italic text-accent">visibly stronger hair, skin & nails</span>*
@@ -584,7 +584,7 @@ export function HairSkinNailsPDP({ product }: Props) {
         </section>
 
         {/* ============ THIRD-PARTY TESTING ============ */}
-        <section className="bg-background py-16">
+        <section className="bg-background py-12 sm:py-16">
           <div className="container-wide">
             <div className="bg-card rounded-3xl p-8 lg:p-10 border border-border flex flex-col lg:flex-row items-center justify-between gap-6">
               <div className="flex items-center gap-6 flex-1">
@@ -612,7 +612,7 @@ export function HairSkinNailsPDP({ product }: Props) {
         </section>
 
         {/* ============ LIFE-CHANGING BENEFITS ============ */}
-        <section className="bg-background py-16">
+        <section className="bg-background py-12 sm:py-16">
           <div className="container-wide grid lg:grid-cols-2 gap-10 items-start">
             <div className="aspect-square rounded-3xl overflow-hidden bg-card border border-border relative">
               {images[0] && (
@@ -663,10 +663,10 @@ export function HairSkinNailsPDP({ product }: Props) {
         </section>
 
         {/* ============ ALL-IN-ONE ============ */}
-        <section className="bg-secondary/30 py-16">
+        <section className="bg-secondary/30 py-12 sm:py-16">
           <div className="container-wide grid lg:grid-cols-2 gap-10 items-center">
             <div>
-              <h2 className="font-display text-4xl lg:text-5xl mb-5 text-balance text-foreground">
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl mb-5 text-balance text-foreground">
                 All-in-One Beauty Strip for{' '}
                 <span className="italic text-accent">Hair, Skin & Nails</span>
               </h2>
@@ -696,9 +696,9 @@ export function HairSkinNailsPDP({ product }: Props) {
         </section>
 
         {/* ============ A RITUAL THAT FEELS GOOD ============ */}
-        <section className="bg-background py-16">
+        <section className="bg-background py-12 sm:py-16">
           <div className="container-wide">
-            <h2 className="font-display text-4xl lg:text-5xl mb-3 text-balance text-foreground">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl mb-3 text-balance text-foreground">
               A Ritual That <span className="italic text-accent">Feels Good</span>
             </h2>
             <p className="text-muted-foreground mb-10 max-w-2xl">
@@ -763,10 +763,10 @@ export function HairSkinNailsPDP({ product }: Props) {
         </section>
 
         {/* ============ INSIDE THE STRIPS ============ */}
-        <section className="bg-secondary/30 py-16">
+        <section className="bg-secondary/30 py-12 sm:py-16">
           <div className="container-wide">
             <div className="text-center mb-12">
-              <h2 className="font-display text-4xl lg:text-5xl mb-3 text-foreground">
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl mb-3 text-foreground">
                 Inside the <span className="italic text-accent">Strips</span>
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -807,10 +807,10 @@ export function HairSkinNailsPDP({ product }: Props) {
         </section>
 
         {/* ============ TASTY + SUPPLEMENT FACTS ============ */}
-        <section className="bg-background py-16">
+        <section className="bg-background py-12 sm:py-16">
           <div className="container-wide grid lg:grid-cols-2 gap-10 items-start">
             <div>
-              <h2 className="font-display text-4xl lg:text-5xl mb-4 text-balance text-foreground">
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl mb-4 text-balance text-foreground">
                 Tasty & <span className="italic text-accent">Effortless</span>
               </h2>
               <p className="text-muted-foreground text-sm leading-relaxed mb-8">
@@ -933,14 +933,14 @@ export function HairSkinNailsPDP({ product }: Props) {
         </section>
 
         {/* ============ EXPERT EVALUATIONS ============ */}
-        <section className="bg-background py-16">
+        <section className="bg-background py-12 sm:py-16">
           <div className="container-wide max-w-5xl">
             <div className="text-center mb-10">
               <div className="inline-flex items-center gap-2 text-xs font-semibold text-primary mb-3">
                 <Stethoscope className="h-4 w-4" strokeWidth={2} />
                 Expert Reviews
               </div>
-              <h2 className="font-display text-4xl lg:text-5xl mb-3 text-foreground">
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl mb-3 text-foreground">
                 Independent Clinician{' '}
                 <span className="italic text-accent">Evaluations</span>
               </h2>
@@ -1035,10 +1035,10 @@ export function HairSkinNailsPDP({ product }: Props) {
         </div>
 
         {/* ============ FAQ ============ */}
-        <section className="bg-secondary/30 py-16">
+        <section className="bg-secondary/30 py-12 sm:py-16">
           <div className="container-wide max-w-3xl">
             <div className="text-center mb-10">
-              <h2 className="font-display text-4xl lg:text-5xl mb-3 text-foreground">FAQs</h2>
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl mb-3 text-foreground">FAQs</h2>
               <p className="text-sm text-muted-foreground">
                 Still need help? Email us at{' '}
                 <a
