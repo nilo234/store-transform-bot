@@ -313,7 +313,7 @@ export default function Shop() {
                   {compareProducts.map((p) =>
                 <div key={p.node.id} className="flex items-center gap-2 bg-muted/50 rounded-full px-3 py-1.5 flex-shrink-0">
                       <span className="text-xs font-medium truncate max-w-[120px]">{sanitizeTitle(p.node.title)}</span>
-                      <button onClick={() => toggleCompare(p.node.id)} className="text-muted-foreground hover:text-foreground">
+                      <button onClick={() => toggleCompare(p.node.id)} aria-label={`Remove ${sanitizeTitle(p.node.title)} from compare`} className="text-muted-foreground hover:text-foreground">
                         <X className="h-3.5 w-3.5" />
                       </button>
                     </div>
