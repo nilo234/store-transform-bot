@@ -827,11 +827,10 @@ const digestiveConfig: PDPConfig = {
   bandIngredients: 'GINGER · ENZYMES · PREBIOTICS',
   reviewCount: '(2,047)',
   clinicalStats: [
-    { name: 'after meals', label: 'Less bloating after meals', value: 84 } as any,
     { label: 'Less bloating after meals', value: 84 },
     { label: 'Improved digestive comfort', value: 79 },
     { label: 'Felt lighter day-to-day', value: 77 },
-  ].slice(1) as { label: string; value: number }[],
+  ],
   highlightLead: 'reduced post-meal bloating in',
   highlightValue: '2 weeks',
   clinicalH2A: 'Plant-powered ingredients for',
