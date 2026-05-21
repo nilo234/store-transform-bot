@@ -29,6 +29,8 @@ import { GuaranteeSection } from '@/components/product/GuaranteeSection';
 import { FirstOrderDiscountBanner } from '@/components/product/FirstOrderDiscountBanner';
 import { ProbioticPDP } from '@/components/product/ProbioticPDP';
 import { HairSkinNailsPDP } from '@/components/product/HairSkinNailsPDP';
+import { StripPDPTemplate } from '@/components/product/StripPDPTemplate';
+import { getPDPConfig } from '@/data/pdpConfigs';
 import { detectAdTraffic } from '@/lib/adTraffic';
 import { ProductJsonLd, BreadcrumbJsonLd, PageMeta } from '@/components/seo';
 import {
