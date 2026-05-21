@@ -5,6 +5,7 @@ interface PageMetaProps {
   title: string;
   description: string;
   ogImage?: string;
+  ogType?: 'website' | 'article' | 'product' | 'profile' | 'book';
   noindex?: boolean;
 }
 
