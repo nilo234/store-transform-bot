@@ -21,6 +21,7 @@ export default function BlogPost() {
       <PageMeta
         title={`${post.title} | NEUVIE Journal`}
         description={post.metaDescription}
+        ogType="article"
       />
       <Navbar />
 
