@@ -8,17 +8,17 @@ import {
   ShieldCheck,
   Check,
   X,
-  ChevronDown,
   Sparkles,
   FlaskConical,
   Flag,
-  Leaf,
   Award,
-  Heart,
   Stethoscope,
   Plus,
   Minus,
-  Clock,
+  Wheat,
+  Leaf,
+  Calendar,
+  ArrowRight,
 } from 'lucide-react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
@@ -36,13 +36,20 @@ import { trackViewContent } from '@/lib/marketingPixels';
 import { toast } from 'sonner';
 import { ProductReviews } from '@/components/product/ProductReviews';
 import { StickyAddToCart } from '@/components/product/StickyAddToCart';
+import { BundleUpsell } from '@/components/product/BundleUpsell';
+
+import doctorRachelKim from '@/assets/doctor-rachel-kim.jpg';
+import doctorMarcusChen from '@/assets/doctor-marcus-chen.jpg';
+import ingredientBiotin from '@/assets/ingredient-biotin.jpg';
+import ingredientFolate from '@/assets/ingredient-folate.jpg';
+import ingredientVitaminD3 from '@/assets/ingredient-vitamin-d3.jpg';
 
 interface Props {
   product: ShopifyProduct['node'];
 }
 
 // ---- Brand-locked content for Hair, Skin & Nails Strips ----
-const SINGLE_PRICE = 34.99;
+const SINGLE_PRICE = 29.99;
 const ORIGINAL_PRICE = 49.99;
 
 const clinicalStats = [
