@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Minus, Plus, ShoppingCart, ChevronLeft, Check, Truck, Shield, RotateCcw, Leaf, AlertCircle } from 'lucide-react';
-import { StickyAddToCart } from '@/components/product/StickyAddToCart';
+import { useParams } from 'react-router-dom';
+import { PremiumPDP } from '@/components/product/PremiumPDP';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
