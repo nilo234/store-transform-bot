@@ -6,7 +6,7 @@ export function HeroTrustBar() {
   const { isUK } = useRegion();
 
   const trustItems = [
-    { icon: Shield, label: '14-Day Money Back' },
+    { icon: Shield, label: '30-Day Money Back' },
     isUK
       ? { icon: Globe, label: 'International Shipping' }
       : { icon: Truck, label: 'Free US Shipping $50+' },

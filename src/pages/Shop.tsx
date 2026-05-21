@@ -385,7 +385,7 @@ export default function Shop() {
                   <p>
                     Not sure which strip fits your needs? Try our <Link to="/bundles" className="text-primary hover:underline">curated bundles</Link> and 
                     save up to 20%. Every order ships free over $50 and is backed by our{' '}
-                    <Link to="/returns" className="text-primary hover:underline">14-day money-back guarantee</Link>. 
+                    <Link to="/returns" className="text-primary hover:underline">30-day money-back guarantee</Link>. 
                     Have questions? Our <Link to="/contact" className="text-primary hover:underline">support team</Link> is happy to help.
                   </p>
                 </div>
@@ -410,7 +410,7 @@ export default function Shop() {
               { Icon: Leaf, label: 'Non-GMO', shortLabel: 'Non-GMO' },
               { Icon: Flag, label: 'Made in USA', shortLabel: 'USA Made' },
               ...(isUK ? [] : [{ Icon: Truck, label: 'Free Shipping on $50+', shortLabel: 'Free Ship' }]),
-              { Icon: RotateCcw, label: '14-Day Money-Back Guarantee', shortLabel: '14-Day Return' }].
+              { Icon: RotateCcw, label: '30-Day Money-Back Guarantee', shortLabel: '30-Day Return' }].
               map((badge) =>
               <div key={badge.label} className="flex flex-col md:flex-row items-center gap-1.5 md:gap-2 text-muted-foreground text-center">
                   <badge.Icon className="w-5 h-5 md:w-6 md:h-6 text-primary" strokeWidth={1.5} />

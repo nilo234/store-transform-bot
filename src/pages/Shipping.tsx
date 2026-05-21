@@ -86,7 +86,7 @@ export default function Shipping() {
                   { text: 'Free US shipping on orders $50+', icon: Truck },
                   { text: 'Ships within 1–2 business days', icon: Clock },
                   { text: 'Tracking included with every order', icon: ShieldCheck },
-                  { text: '14-day money-back guarantee', icon: Package },
+                  { text: '30-day money-back guarantee', icon: Package },
                 ].map((item) => (
                   <div key={item.text} className="flex items-center gap-3 bg-card rounded-xl p-4 text-left border border-border/30">
                     <item.icon className="w-5 h-5 text-accent flex-shrink-0" />
