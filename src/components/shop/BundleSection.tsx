@@ -62,7 +62,7 @@ export function BundleSection() {
               <Check className="h-4 w-4 text-primary" /> Free Shipping $50+
             </span>
             <span className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-primary" /> 14-Day Guarantee
+              <Check className="h-4 w-4 text-primary" /> 30-Day Guarantee
             </span>
             <span className="flex items-center gap-2">
               <Check className="h-4 w-4 text-primary" /> Bundle & Save More

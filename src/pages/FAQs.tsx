@@ -10,7 +10,7 @@ const faqs = [
   { q: 'How do I take Neuvie strips?', a: 'Place one strip on your tongue and let it dissolve — usually within 30–60 seconds. No water needed. For best results, follow the specific instructions on each product.' },
   { q: 'What makes strips better than pills?', a: "Strips dissolve directly on your tongue, so the ingredients absorb faster than a pill that needs to break down in your stomach. They're also easier to take — no water, no swallowing large capsules, and they go wherever you go." },
   { q: 'Are your products third-party tested?', a: 'Yes. Every batch of Neuvie strips is independently tested by third-party labs for purity, potency, and safety. We believe in full transparency — what the label says is what you get.' },
-  { q: "What if I'm not happy with my order?", a: "We offer a 14-day money-back guarantee on all orders. If it's not working for you, email us and we'll refund you — no questions asked." },
+  { q: "What if I'm not happy with my order?", a: "We offer a 30-day money-back guarantee on all orders. If it's not working for you, email us and we'll refund you — no questions asked." },
   { q: 'Are Neuvie strips vegan?', a: 'Most of our strips are vegan, made with plant-based ingredients like pullulan. Check the specific product page for detailed ingredient information and dietary notes.' },
   { q: 'How long until I notice a difference?', a: 'It depends on the product. Energy Strips work within minutes. For daily-use products like Hair, Skin & Nails or Sleep Strips, most people notice a difference within 2–4 weeks of consistent use.' },
   { q: 'Do you ship internationally?', a: 'We currently ship within the United States only. Free shipping on all orders over $50, with delivery in 3–5 business days. Sign up for our newsletter to know when we expand.' },
@@ -105,7 +105,7 @@ export default function FAQs() {
                 All products are manufactured in FDA-registered facilities in the USA, are non-GMO, and most are vegan and gluten-free. 
                 Save up to 20% with our <Link to="/bundles" className="text-primary hover:underline">curated wellness bundles</Link>, 
                 enjoy free shipping on orders over $50, and shop with confidence thanks to our{' '}
-                <Link to="/returns" className="text-primary hover:underline">14-day money-back guarantee</Link>.
+                <Link to="/returns" className="text-primary hover:underline">30-day money-back guarantee</Link>.
               </p>
 
               <div className="flex flex-col items-center gap-4">

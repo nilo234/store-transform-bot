@@ -31,7 +31,7 @@ export function AnnouncementBar({
             <div className="hidden sm:flex items-center justify-center gap-4 text-sm font-medium">
               <span>{message}</span>
               <span className="text-accent-foreground/70">·</span>
-              <span className="font-bold">14-Day Money-Back Guarantee</span>
+              <span className="font-bold">30-Day Money-Back Guarantee</span>
               <a 
                 href={linkHref}
                 className="ml-2 underline underline-offset-2 hover:no-underline font-semibold"

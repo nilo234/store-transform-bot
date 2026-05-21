@@ -28,7 +28,7 @@ export const ValueProposition = ({ servings = 30 }: ValuePropositionProps) => {
     },
     {
       icon: Shield,
-      title: '14-day guarantee',
+      title: '30-day guarantee',
       subtitle: 'Full refund, no questions'
     }
   ];

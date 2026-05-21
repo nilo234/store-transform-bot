@@ -144,7 +144,7 @@ export default function Index() {
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm text-foreground/80 justify-center lg:justify-start mb-4 font-medium">
                   <span className="flex items-center gap-1.5">
                     <ShieldCheck className="h-4 w-4 text-primary" />
-                    14-Day Money Back
+                    30-Day Money Back
                   </span>
                   <span className="flex items-center gap-1.5">
                     <Check className="h-4 w-4 text-primary" />
@@ -371,7 +371,7 @@ export default function Index() {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <p className="text-xs text-muted-foreground mt-3">{isUK ? 'International shipping · 14-day money-back guarantee' : 'Free shipping on orders $50+ · 14-day money-back guarantee'}</p>
+            <p className="text-xs text-muted-foreground mt-3">{isUK ? 'International shipping · 30-day money-back guarantee' : 'Free shipping on orders $50+ · 30-day money-back guarantee'}</p>
           </div>
         </section>
 

@@ -37,7 +37,7 @@ export function SecureCheckoutBadges() {
       
       {/* Guarantee */}
       <p className="text-center text-xs text-muted-foreground">
-        14-Day Money-Back Guarantee
+        30-Day Money-Back Guarantee
       </p>
     </div>
   );

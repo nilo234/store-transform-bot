@@ -123,7 +123,7 @@ export function QuickViewModal({ product, open, onOpenChange }: QuickViewModalPr
             <div className="flex flex-wrap gap-3 mb-4">
               {[
                 { icon: Truck, text: `Free Shipping on ${formatPriceLib(50)}+` },
-                { icon: Shield, text: '14-Day Guarantee' },
+                { icon: Shield, text: '30-Day Guarantee' },
                 { icon: Check, text: 'Lab Tested' },
               ].map((item) => (
                 <div key={item.text} className="flex items-center gap-1.5 text-xs text-muted-foreground">
