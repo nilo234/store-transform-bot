@@ -68,6 +68,7 @@ export default function Index() {
         title="Wellness Strips – Dissolving Supplements | NEUVIE™"
         description="NEUVIE dissolving wellness strips. Energy, sleep, beauty & gut health. Clinically studied ingredients, 5x faster absorption. Free US shipping $50+."
       />
+      <FAQJsonLd faqs={homepageFaqs} />
       
       <Navbar />
       <AdMatchTrustBar />
