@@ -956,6 +956,7 @@ export function HairSkinNailsPDP({ product }: Props) {
                   name: 'Dr. Rachel Kim, MD',
                   specialty: 'Dermatology',
                   years: '14',
+                  image: doctorRachelKim,
                   headline: 'A smart, well-dosed daily beauty formula',
                   text:
                     'The combination of 5,000 mcg of Biotin with Folate and Vitamin D3 is a thoughtful, clinically-relevant trio for patients reporting concerns with hair thinning and brittle nails. Sublingual delivery may also help patients who struggle with capsule compliance.',
@@ -965,6 +966,7 @@ export function HairSkinNailsPDP({ product }: Props) {
                   name: 'Dr. Marcus Chen, MD',
                   specialty: 'Internal Medicine',
                   years: '17',
+                  image: doctorMarcusChen,
                   headline: 'Convenience that drives consistency',
                   text:
                     'Compliance is the single biggest predictor of supplement outcomes. A pleasant-tasting dissolvable strip removes most of the friction patients cite when stopping a daily routine, which is meaningful for nutrients like Biotin that require sustained use.',
@@ -973,11 +975,18 @@ export function HairSkinNailsPDP({ product }: Props) {
               ].map((c) => (
                 <div
                   key={c.name}
-                  className="bg-card rounded-2xl p-6 border border-border grid md:grid-cols-[180px_1fr] gap-6"
+                  className="bg-card rounded-2xl p-5 sm:p-6 border border-border grid md:grid-cols-[180px_1fr] gap-5 sm:gap-6"
                 >
                   <div className="text-center">
-                    <div className="aspect-square w-28 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-3">
-                      <Stethoscope className="h-10 w-10 text-primary" strokeWidth={1.5} />
+                    <div className="aspect-square w-24 sm:w-28 mx-auto rounded-full overflow-hidden bg-primary/10 mb-3">
+                      <img
+                        src={c.image}
+                        alt={`Portrait of ${c.name}`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                        width={256}
+                        height={256}
+                      />
                     </div>
                     <p className="font-semibold text-sm text-foreground">{c.name}</p>
                     <p className="text-xs text-muted-foreground flex items-center justify-center gap-1 mt-0.5">
@@ -991,11 +1000,11 @@ export function HairSkinNailsPDP({ product }: Props) {
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-display text-xl font-bold mb-3 text-foreground">
+                    <h3 className="font-display text-lg sm:text-xl font-bold mb-3 text-foreground">
                       {c.headline}
                     </h3>
                     <p className="text-sm text-muted-foreground leading-relaxed mb-4">{c.text}</p>
-                    <div className="flex flex-wrap gap-2 text-[11px] items-center">
+                    <div className="flex flex-wrap gap-2 text-[11px] items-center mb-4">
                       <span className="text-muted-foreground">Highlights</span>
                       {c.tags.map((t) => (
                         <span
@@ -1006,6 +1015,13 @@ export function HairSkinNailsPDP({ product }: Props) {
                         </span>
                       ))}
                     </div>
+                    <Link
+                      to="/science"
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary/80 transition"
+                    >
+                      Read the science behind this formula
+                      <ArrowRight className="h-3.5 w-3.5" strokeWidth={2} />
+                    </Link>
                   </div>
                 </div>
               ))}
