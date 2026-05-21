@@ -848,6 +848,30 @@ export function HairSkinNailsPDP({ product }: Props) {
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
+
+              {/* Trust badge icons */}
+              <div className="mt-8 grid grid-cols-3 sm:grid-cols-6 gap-3">
+                {[
+                  { icon: Wheat, label: 'Gluten Free' },
+                  { icon: Leaf, label: 'Allergen Free' },
+                  { icon: Sparkles, label: 'Naturally Flavored' },
+                  { icon: FlaskConical, label: 'Third-Party Tested' },
+                  { icon: Award, label: 'GMP Certified' },
+                  { icon: Calendar, label: '30-Day Supply' },
+                ].map(({ icon: Icon, label }) => (
+                  <div
+                    key={label}
+                    className="flex flex-col items-center text-center gap-1.5 bg-card border border-border rounded-xl p-3"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Icon className="h-5 w-5 text-primary" strokeWidth={1.75} />
+                    </div>
+                    <span className="text-[10px] font-semibold leading-tight text-foreground">
+                      {label}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Supplement facts panel */}
