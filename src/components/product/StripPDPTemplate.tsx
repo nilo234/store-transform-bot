@@ -833,12 +833,9 @@ export function StripPDPTemplate({ product, config }: Props) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="bg-card rounded-2xl overflow-hidden border border-border shadow-soft flex flex-col"
+                  className="bg-card rounded-2xl border border-border shadow-soft flex flex-col"
                 >
-                  <div className="aspect-[4/5] w-full overflow-hidden bg-secondary/40">
-                    <img src={t.image} alt={`${t.author} — verified NEUVIE customer`} className="w-full h-full object-cover" loading="lazy" width={1024} height={1280} />
-                  </div>
-                  <div className="p-5 sm:p-6 flex flex-col flex-1">
+                  <div className="p-6 sm:p-7 flex flex-col flex-1">
                     <div className="flex items-center gap-0.5 text-accent mb-3">
                       {[...Array(5)].map((_, s) => (
                         <Star key={s} className="h-4 w-4 fill-accent" strokeWidth={1.5} />
