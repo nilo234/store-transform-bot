@@ -528,26 +528,8 @@ export default function ProductDetail() {
                   )}
                 </div>
 
-                {/* Why-Now Micro-Copy — removes friction at the purchase moment */}
-                <WhyNowMicroCopy />
-
-                {/* Result Promise Timeline — 6-week outcome guarantee */}
-                <ResultPromiseTimeline outcome={getOutcomePromise(handle || '')} />
-
-                {/* Ingredient Transparency Drawer — clickable full-disclosure panel */}
-                {productContent?.supplementFacts && productContent.supplementFacts.length > 0 && (
-                  <IngredientTransparencyDrawer
-                    productTitle={sanitizeTitle(product.title)}
-                    supplementFacts={productContent.supplementFacts}
-                  />
-                )}
-
-                {/* Press Logos — trust signal under shipping info */}
-                <PressLogosStrip />
-
-                {/* Bundle cross-sell — Better Together */}
-                <BundleCrossSellBanner currentVariantId={product.variants.edges[0]?.node.id} />
               </div>
+
 
               {/* Value Proposition Block */}
               <ValueProposition 
