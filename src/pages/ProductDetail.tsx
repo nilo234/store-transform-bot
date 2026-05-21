@@ -471,8 +471,8 @@ export default function ProductDetail() {
                 <StockIndicator />
               </div>
 
-              {/* Live Activity Counter — social proof in real time */}
-              <LiveActivityCounter productHandle={handle} />
+
+
 
 
               {/* Quantity & Add to Cart */}
