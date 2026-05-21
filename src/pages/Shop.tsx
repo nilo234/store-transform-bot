@@ -9,7 +9,7 @@ import { fetchProducts, ShopifyProduct } from '@/lib/shopify';
 import { Skeleton } from '@/components/ui/skeleton';
 import { cn } from '@/lib/utils';
 import { PageMeta, CollectionPageJsonLd } from '@/components/seo';
-import { ChevronDown, SlidersHorizontal, X, Scale } from 'lucide-react';
+import { ChevronDown, SlidersHorizontal, X, Scale, FlaskConical, Leaf, Flag, Truck, RotateCcw } from 'lucide-react';
 import { goalFilters, tagFilters, sortOptions, getProductGoal, getProductTags } from '@/data/shopFilters';
 import { bundles as bundleData } from '@/data/bundles';
 import { Button } from '@/components/ui/button';
@@ -406,14 +406,14 @@ export default function Shop() {
           <div className="container-wide px-4 md:px-6">
             <div className="grid grid-cols-3 md:flex md:flex-wrap justify-center gap-4 md:gap-8 lg:gap-16">
               {[
-              { icon: '🧪', label: 'Third-Party Tested', shortLabel: 'Lab Tested' },
-              { icon: '🌿', label: 'Non-GMO', shortLabel: 'Non-GMO' },
-              { icon: '🇺🇸', label: 'Made in USA', shortLabel: 'USA Made' },
-              ...(isUK ? [] : [{ icon: '📦', label: 'Free Shipping on $50+', shortLabel: 'Free Ship' }]),
-              { icon: '↩️', label: '14-Day Money-Back Guarantee', shortLabel: '14-Day Return' }].
+              { Icon: FlaskConical, label: 'Third-Party Tested', shortLabel: 'Lab Tested' },
+              { Icon: Leaf, label: 'Non-GMO', shortLabel: 'Non-GMO' },
+              { Icon: Flag, label: 'Made in USA', shortLabel: 'USA Made' },
+              ...(isUK ? [] : [{ Icon: Truck, label: 'Free Shipping on $50+', shortLabel: 'Free Ship' }]),
+              { Icon: RotateCcw, label: '14-Day Money-Back Guarantee', shortLabel: '14-Day Return' }].
               map((badge) =>
-              <div key={badge.label} className="flex flex-col md:flex-row items-center gap-1 md:gap-2 text-muted-foreground text-center">
-                  <span className="text-xl md:text-2xl">{badge.icon}</span>
+              <div key={badge.label} className="flex flex-col md:flex-row items-center gap-1.5 md:gap-2 text-muted-foreground text-center">
+                  <badge.Icon className="w-5 h-5 md:w-6 md:h-6 text-primary" strokeWidth={1.5} />
                   <span className="text-[10px] md:text-sm font-medium leading-tight">
                     <span className="hidden md:inline">{badge.label}</span>
                     <span className="md:hidden">{badge.shortLabel}</span>
