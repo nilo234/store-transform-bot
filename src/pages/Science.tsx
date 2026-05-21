@@ -247,7 +247,7 @@ export default function Science() {
                       {card.status}
                     </span>
                   </div>
-                  <h4 className="font-semibold text-foreground mb-2">{card.name}</h4>
+                  <h3 className="font-semibold text-foreground mb-2">{card.name}</h3>
                   <p className="text-xs text-muted-foreground">{card.date}</p>
                   <div className="mt-4 pt-4 border-t border-border/30">
                     <a href={card.researchUrl} target="_blank" rel="noopener noreferrer" className="text-xs text-primary font-medium flex items-center gap-1 hover:text-accent transition-colors">
@@ -321,7 +321,7 @@ export default function Science() {
                 >
                   <div className="flex items-center gap-3 mb-5">
                     <span className="text-3xl">{item.icon}</span>
-                    <h4 className="font-body font-semibold text-foreground text-lg">{item.product}</h4>
+                    <h3 className="font-body font-semibold text-foreground text-lg">{item.product}</h3>
                   </div>
                   <div className="space-y-3">
                     {item.ingredients.map((ingredient) => (
@@ -380,7 +380,7 @@ export default function Science() {
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-3xl">{item.emoji}</span>
-                    <h4 className="font-body font-semibold text-lg text-foreground">{item.name}</h4>
+                    <h3 className="font-body font-semibold text-lg text-foreground">{item.name}</h3>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">{item.summary}</p>
                   <a 
