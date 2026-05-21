@@ -17,9 +17,9 @@ import { sendProductViewEvent, sendAddToCartEvent } from '@/hooks/useShopifyAnal
 import { trackViewContent } from '@/lib/marketingPixels';
 import { ProductReviews } from '@/components/product/ProductReviews';
 import { PurchaseTypeSelector, PurchaseMode } from '@/components/product/PurchaseTypeSelector';
-import { StockIndicator } from '@/components/product/StockIndicator';
-import { ValueProposition } from '@/components/product/ValueProposition';
 import { InlineTestimonial } from '@/components/product/InlineTestimonial';
+
+
 import { ClinicalResults } from '@/components/product/ClinicalResults';
 import { ComparisonTable } from '@/components/product/ComparisonTable';
 import { IngredientSpotlight } from '@/components/product/IngredientSpotlight';
@@ -440,29 +440,51 @@ export default function ProductDetail() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
+              {/* Reviews row */}
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+                <span className="text-accent tracking-widest">★★★★★</span>
+                <a href="#reviews" className="font-semibold text-foreground underline underline-offset-2">4.9/5.0</a>
+                <span className="text-muted-foreground">•</span>
+                <span className="text-muted-foreground">10,000+ happy customers</span>
+              </div>
+
               {/* Title & Subtitle */}
               <div>
-                <h1 className="font-display text-3xl md:text-4xl">{sanitizeTitle(product.title)}</h1>
-               <p className="text-muted-foreground mt-1">
-                  {product.description?.split('.')[0] || productContent?.shortDescription?.split('.')[0] || 'Fast-dissolving wellness strip'}
+                <p className="text-primary font-semibold tracking-wider text-xs uppercase mb-1.5">
+                  {productContent?.properties?.[0] || 'Daily Wellness Strip'}
+                </p>
+                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] text-foreground">
+                  {sanitizeTitle(product.title)}
+                </h1>
+                <p className="text-muted-foreground mt-3 text-base">
+                  {productContent?.shortDescription?.split('.')[0] || product.description?.split('.')[0] || 'Fast-dissolving wellness strip · 30-second daily ritual'}
                 </p>
               </div>
 
-              {/* Price Block - US Market Optimized */}
-              <div className="bg-secondary/60 rounded-xl p-4 space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="text-3xl font-bold text-primary">{fmtMoney(price)}</span>
-                    <span className="text-lg text-muted-foreground line-through">{fmtMoney(originalPrice)}</span>
-                  </div>
-                  <span className="bg-accent text-accent-foreground text-sm font-bold px-3 py-1 rounded-full">
-                    SAVE {fmtMoney(originalPrice - price)}
+              {/* Price Block — Auri style */}
+              <div className="space-y-3">
+                <div className="flex items-baseline gap-3 flex-wrap">
+                  <span className="text-4xl font-bold text-accent">{fmtMoney(price)}</span>
+                  <span className="text-xl text-muted-foreground line-through">{fmtMoney(originalPrice)}</span>
+                  <span className="bg-accent/10 text-accent text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wide">
+                    {Math.round(((originalPrice - price) / originalPrice) * 100)}% off today
                   </span>
                 </div>
-                
-                {/* Stock Indicator */}
-                <StockIndicator />
+
+                {/* Low-stock progress bar with gradient */}
+                <div>
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                    <span className="text-sm font-semibold text-accent">Selling fast</span>
+                    <span className="text-sm text-muted-foreground">82% claimed today</span>
+                  </div>
+                  <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-accent to-primary rounded-full" style={{ width: '82%' }} />
+                  </div>
+                </div>
               </div>
+
+
 
 
 
@@ -523,19 +545,13 @@ export default function ProductDetail() {
 
               </div>
 
-
-              {/* Value Proposition Block */}
-              <ValueProposition 
-                servings={30} 
-                basePrice={parseFloat(product.variants.edges[0]?.node.price.amount || '29.99')}
-              />
-
-              {/* Inline Testimonial */}
+              {/* Inline Testimonial — directly under CTA (Auri pattern) */}
               <InlineTestimonial 
                 quote={testimonial.quote}
                 author={testimonial.author}
                 isVerified={true}
               />
+
 
               {/* Quick Info Accordions */}
               <Accordion type="multiple" defaultValue={["description", "ingredients"]} className="space-y-2">
