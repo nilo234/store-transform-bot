@@ -35,6 +35,10 @@ import { ResultPromiseTimeline } from '@/components/product/ResultPromiseTimelin
 import { IngredientTransparencyDrawer } from '@/components/product/IngredientTransparencyDrawer';
 import { WhyNowMicroCopy } from '@/components/product/WhyNowMicroCopy';
 import { ProbioticPDP } from '@/components/product/ProbioticPDP';
+import { HsnLifeChangingBenefits } from '@/components/product/HsnLifeChangingBenefits';
+import { HsnInsideTheStrip } from '@/components/product/HsnInsideTheStrip';
+import { HsnTestedVerified } from '@/components/product/HsnTestedVerified';
+import { HsnAllInOne } from '@/components/product/HsnAllInOne';
 import { detectAdTraffic } from '@/lib/adTraffic';
 import { ProductJsonLd, BreadcrumbJsonLd, PageMeta } from '@/components/seo';
 import {
@@ -297,6 +301,7 @@ export default function ProductDetail() {
 
   // ============ OPTIMIZED PDP for Probiotic + Metabolism Strips ============
   const normalizedHandle = (handle || product.handle || '').toLowerCase();
+  const isHsn = normalizedHandle.includes('hair') && normalizedHandle.includes('skin') && normalizedHandle.includes('nail');
   if (normalizedHandle.includes('probiotic') && normalizedHandle.includes('metabolism')) {
     const firstVariant = product.variants.edges[0]?.node;
     const onAddSingle = async () => {
@@ -649,8 +654,16 @@ export default function ProductDetail() {
           </div>
         </section>
 
+        {/* HSN-only enriched sections (Auri-style, brand-adapted) */}
+        {isHsn && <HsnAllInOne />}
+        {isHsn && <HsnInsideTheStrip />}
+        {isHsn && <HsnLifeChangingBenefits />}
+        {isHsn && <HsnTestedVerified />}
+
         {/* Clinical Results Section */}
         <ClinicalResults productType={productType} />
+
+
 
         {/* Comparison Table */}
         <ComparisonTable onCtaClick={scrollToTop} />
