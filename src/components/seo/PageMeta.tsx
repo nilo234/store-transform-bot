@@ -5,13 +5,14 @@ interface PageMetaProps {
   title: string;
   description: string;
   ogImage?: string;
+  ogType?: 'website' | 'article' | 'product' | 'profile' | 'book';
   noindex?: boolean;
 }
 
 const BASE_URL = 'https://tryneuvie.com';
 const DEFAULT_OG_IMAGE = 'https://tryneuvie.com/og-image.png';
 
-export function PageMeta({ title, description, ogImage, noindex }: PageMetaProps) {
+export function PageMeta({ title, description, ogImage, ogType = 'website', noindex }: PageMetaProps) {
   const location = useLocation();
   const canonicalUrl = `${BASE_URL}${location.pathname}`;
   const image = ogImage || DEFAULT_OG_IMAGE;
@@ -73,7 +74,7 @@ export function PageMeta({ title, description, ogImage, noindex }: PageMetaProps
     setMeta('property', 'og:description', description);
     setMeta('property', 'og:url', canonicalUrl);
     setMeta('property', 'og:image', image);
-    setMeta('property', 'og:type', 'website');
+    setMeta('property', 'og:type', ogType);
     setMeta('property', 'og:site_name', 'NEUVIE Nutrition');
     setMeta('property', 'og:locale', 'en_US');
 
@@ -87,7 +88,7 @@ export function PageMeta({ title, description, ogImage, noindex }: PageMetaProps
       // Reset to defaults on unmount
       document.title = 'NEUVIE™ Nutrition | Fast-Dissolving Wellness Strips';
     };
-  }, [title, description, canonicalUrl, image, noindex]);
+  }, [title, description, canonicalUrl, image, ogType, noindex]);
 
   return null;
 }
