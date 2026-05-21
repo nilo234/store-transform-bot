@@ -88,7 +88,7 @@ export function PageMeta({ title, description, ogImage, ogType = 'website', noin
       // Reset to defaults on unmount
       document.title = 'NEUVIE™ Nutrition | Fast-Dissolving Wellness Strips';
     };
-  }, [title, description, canonicalUrl, image, noindex]);
+  }, [title, description, canonicalUrl, image, ogType, noindex]);
 
   return null;
 }
