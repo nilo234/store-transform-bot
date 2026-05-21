@@ -195,9 +195,8 @@ export function HairSkinNailsPDP({ product }: Props) {
     if (pack === 3) return +(base * 0.8).toFixed(2);
     return +base.toFixed(2);
   };
-  const packOriginal = (pack: 1 | 2 | 3) => +(ORIGINAL_PRICE * pack).toFixed(2);
-  const packSavings = (pack: 1 | 2 | 3) =>
-    Math.round(((packOriginal(pack) - packPrice(pack)) / packOriginal(pack)) * 100);
+  const addItem = useCartStore((s) => s.addItem);
+  const addBundle = useCartStore((s) => s.addBundle);
 
   const handleAdd = async (qty: number) => {
     if (!firstVariant) return;
@@ -218,12 +217,55 @@ export function HairSkinNailsPDP({ product }: Props) {
       quantity: qty,
     });
     toast.success('Added to Cart!', {
-      description: `${qty}× ${title}`,
+      description: `${qty}\u00d7 ${title}`,
       position: 'top-center',
     });
   };
 
-  const handleMainAdd = () => handleAdd(quantity * packSize);
+  const handleMainAdd = async () => {
+    if (!firstVariant) return;
+
+    // Single pack -> normal add. Multi-pack -> addBundle with discount code so checkout reflects savings.
+    if (packSize === 1) {
+      await handleAdd(quantity);
+      return;
+    }
+
+    const discountCode = packSize === 2 ? 'PACK10' : 'PACK20';
+    const totalQty = quantity * packSize;
+
+    await addBundle(
+      [
+        {
+          product: { node: product },
+          variantId: firstVariant.id,
+          variantTitle: firstVariant.title,
+          price: { amount: SINGLE_PRICE.toString(), currencyCode: 'USD' },
+          quantity: totalQty,
+          selectedOptions: firstVariant.selectedOptions,
+          bundleId: `hsn-pack-${packSize}-${Date.now()}`,
+          bundleName: `Hair, Skin & Nails ${packSize}-Pack`,
+          bundleDiscountCode: discountCode,
+        },
+      ],
+      discountCode,
+    );
+
+    sendAddToCartEvent({
+      id: product.id,
+      title: product.title,
+      variantId: firstVariant.id,
+      variantTitle: firstVariant.title,
+      price: SINGLE_PRICE.toString(),
+      quantity: totalQty,
+    });
+
+    toast.success(`${packSize}-Pack added \u2014 ${packSavings(packSize)}% off applied`, {
+      description: `Discount code ${discountCode} applied at checkout`,
+      position: 'top-center',
+    });
+  };
+
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
