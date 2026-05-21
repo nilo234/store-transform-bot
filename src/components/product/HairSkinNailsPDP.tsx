@@ -774,7 +774,7 @@ export function HairSkinNailsPDP({ product }: Props) {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-3 gap-5">
+            <div className="grid sm:grid-cols-3 gap-4 sm:gap-5">
               {ingredients.map((ing, i) => (
                 <motion.div
                   key={ing.name}
@@ -782,10 +782,17 @@ export function HairSkinNailsPDP({ product }: Props) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="bg-card rounded-2xl p-6 text-center border border-border hover:shadow-soft transition"
+                  className="bg-card rounded-2xl p-5 sm:p-6 text-center border border-border hover:shadow-soft transition"
                 >
-                  <div className="w-20 h-20 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                    <Leaf className="h-9 w-9 text-primary" strokeWidth={1.5} />
+                  <div className="aspect-square w-full max-w-[180px] mx-auto rounded-2xl overflow-hidden bg-secondary/40 mb-4">
+                    <img
+                      src={ing.image}
+                      alt={`${ing.name} — natural source`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      width={400}
+                      height={400}
+                    />
                   </div>
                   <h3 className="font-display text-xl font-bold text-foreground">{ing.name}</h3>
                   <p className="text-xs text-accent uppercase tracking-wider font-semibold mb-1">
