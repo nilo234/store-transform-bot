@@ -8,17 +8,17 @@ import {
   ShieldCheck,
   Check,
   X,
-  ChevronDown,
   Sparkles,
   FlaskConical,
   Flag,
-  Leaf,
   Award,
-  Heart,
   Stethoscope,
   Plus,
   Minus,
-  Clock,
+  Wheat,
+  Leaf,
+  Calendar,
+  ArrowRight,
 } from 'lucide-react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
@@ -36,13 +36,20 @@ import { trackViewContent } from '@/lib/marketingPixels';
 import { toast } from 'sonner';
 import { ProductReviews } from '@/components/product/ProductReviews';
 import { StickyAddToCart } from '@/components/product/StickyAddToCart';
+import { BundleUpsell } from '@/components/product/BundleUpsell';
+
+import doctorRachelKim from '@/assets/doctor-rachel-kim.jpg';
+import doctorMarcusChen from '@/assets/doctor-marcus-chen.jpg';
+import ingredientBiotin from '@/assets/ingredient-biotin.jpg';
+import ingredientFolate from '@/assets/ingredient-folate.jpg';
+import ingredientVitaminD3 from '@/assets/ingredient-vitamin-d3.jpg';
 
 interface Props {
   product: ShopifyProduct['node'];
 }
 
 // ---- Brand-locked content for Hair, Skin & Nails Strips ----
-const SINGLE_PRICE = 34.99;
+const SINGLE_PRICE = 29.99;
 const ORIGINAL_PRICE = 49.99;
 
 const clinicalStats = [
@@ -80,18 +87,21 @@ const ingredients = [
     tag: 'Hair & Nails',
     dose: '5,000 mcg',
     desc: 'The B-vitamin behind keratin. Supports hair strength and nail resilience from within.',
+    image: ingredientBiotin,
   },
   {
     name: 'Folate (B9)',
     tag: 'Cell Renewal',
     dose: '400 mcg',
     desc: 'Supports healthy cell turnover — essential for skin glow and follicle vitality.',
+    image: ingredientFolate,
   },
   {
     name: 'Vitamin D3',
     tag: 'Skin Vitality',
     dose: '200 mcg',
     desc: 'The sunshine vitamin. Supports calcium absorption, immune balance, and skin health.',
+    image: ingredientVitaminD3,
   },
 ];
 
@@ -275,7 +285,7 @@ export function HairSkinNailsPDP({ product }: Props) {
               </div>
 
               <p className="text-muted-foreground text-sm font-medium mb-1">Beauty Wellness</p>
-              <h1 className="font-display text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-3 text-foreground">
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-3 text-foreground">
                 Hair, Skin & Nails
                 <span className="text-accent">.</span>
               </h1>
@@ -479,14 +489,14 @@ export function HairSkinNailsPDP({ product }: Props) {
         </section>
 
         {/* ============ CLINICAL RESULTS ============ */}
-        <section className="bg-secondary/30 py-20">
+        <section className="bg-secondary/30 py-14 sm:py-20">
           <div className="container-wide">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="font-display text-4xl lg:text-5xl mb-12 max-w-3xl text-balance text-foreground"
+              className="font-display text-3xl sm:text-4xl lg:text-5xl mb-12 max-w-3xl text-balance text-foreground"
             >
               Clinically-studied ingredients for{' '}
               <span className="italic text-accent">visibly stronger hair, skin & nails</span>*
@@ -574,7 +584,7 @@ export function HairSkinNailsPDP({ product }: Props) {
         </section>
 
         {/* ============ THIRD-PARTY TESTING ============ */}
-        <section className="bg-background py-16">
+        <section className="bg-background py-12 sm:py-16">
           <div className="container-wide">
             <div className="bg-card rounded-3xl p-8 lg:p-10 border border-border flex flex-col lg:flex-row items-center justify-between gap-6">
               <div className="flex items-center gap-6 flex-1">
@@ -602,7 +612,7 @@ export function HairSkinNailsPDP({ product }: Props) {
         </section>
 
         {/* ============ LIFE-CHANGING BENEFITS ============ */}
-        <section className="bg-background py-16">
+        <section className="bg-background py-12 sm:py-16">
           <div className="container-wide grid lg:grid-cols-2 gap-10 items-start">
             <div className="aspect-square rounded-3xl overflow-hidden bg-card border border-border relative">
               {images[0] && (
@@ -653,10 +663,10 @@ export function HairSkinNailsPDP({ product }: Props) {
         </section>
 
         {/* ============ ALL-IN-ONE ============ */}
-        <section className="bg-secondary/30 py-16">
+        <section className="bg-secondary/30 py-12 sm:py-16">
           <div className="container-wide grid lg:grid-cols-2 gap-10 items-center">
             <div>
-              <h2 className="font-display text-4xl lg:text-5xl mb-5 text-balance text-foreground">
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl mb-5 text-balance text-foreground">
                 All-in-One Beauty Strip for{' '}
                 <span className="italic text-accent">Hair, Skin & Nails</span>
               </h2>
@@ -686,9 +696,9 @@ export function HairSkinNailsPDP({ product }: Props) {
         </section>
 
         {/* ============ A RITUAL THAT FEELS GOOD ============ */}
-        <section className="bg-background py-16">
+        <section className="bg-background py-12 sm:py-16">
           <div className="container-wide">
-            <h2 className="font-display text-4xl lg:text-5xl mb-3 text-balance text-foreground">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl mb-3 text-balance text-foreground">
               A Ritual That <span className="italic text-accent">Feels Good</span>
             </h2>
             <p className="text-muted-foreground mb-10 max-w-2xl">
@@ -753,10 +763,10 @@ export function HairSkinNailsPDP({ product }: Props) {
         </section>
 
         {/* ============ INSIDE THE STRIPS ============ */}
-        <section className="bg-secondary/30 py-16">
+        <section className="bg-secondary/30 py-12 sm:py-16">
           <div className="container-wide">
             <div className="text-center mb-12">
-              <h2 className="font-display text-4xl lg:text-5xl mb-3 text-foreground">
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl mb-3 text-foreground">
                 Inside the <span className="italic text-accent">Strips</span>
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -764,7 +774,7 @@ export function HairSkinNailsPDP({ product }: Props) {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-3 gap-5">
+            <div className="grid sm:grid-cols-3 gap-4 sm:gap-5">
               {ingredients.map((ing, i) => (
                 <motion.div
                   key={ing.name}
@@ -772,10 +782,17 @@ export function HairSkinNailsPDP({ product }: Props) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="bg-card rounded-2xl p-6 text-center border border-border hover:shadow-soft transition"
+                  className="bg-card rounded-2xl p-5 sm:p-6 text-center border border-border hover:shadow-soft transition"
                 >
-                  <div className="w-20 h-20 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                    <Leaf className="h-9 w-9 text-primary" strokeWidth={1.5} />
+                  <div className="aspect-square w-full max-w-[180px] mx-auto rounded-2xl overflow-hidden bg-secondary/40 mb-4">
+                    <img
+                      src={ing.image}
+                      alt={`${ing.name} — natural source`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      width={400}
+                      height={400}
+                    />
                   </div>
                   <h3 className="font-display text-xl font-bold text-foreground">{ing.name}</h3>
                   <p className="text-xs text-accent uppercase tracking-wider font-semibold mb-1">
@@ -790,10 +807,10 @@ export function HairSkinNailsPDP({ product }: Props) {
         </section>
 
         {/* ============ TASTY + SUPPLEMENT FACTS ============ */}
-        <section className="bg-background py-16">
+        <section className="bg-background py-12 sm:py-16">
           <div className="container-wide grid lg:grid-cols-2 gap-10 items-start">
             <div>
-              <h2 className="font-display text-4xl lg:text-5xl mb-4 text-balance text-foreground">
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl mb-4 text-balance text-foreground">
                 Tasty & <span className="italic text-accent">Effortless</span>
               </h2>
               <p className="text-muted-foreground text-sm leading-relaxed mb-8">
@@ -831,6 +848,30 @@ export function HairSkinNailsPDP({ product }: Props) {
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
+
+              {/* Trust badge icons */}
+              <div className="mt-8 grid grid-cols-3 sm:grid-cols-6 gap-3">
+                {[
+                  { icon: Wheat, label: 'Gluten Free' },
+                  { icon: Leaf, label: 'Allergen Free' },
+                  { icon: Sparkles, label: 'Naturally Flavored' },
+                  { icon: FlaskConical, label: 'Third-Party Tested' },
+                  { icon: Award, label: 'GMP Certified' },
+                  { icon: Calendar, label: '30-Day Supply' },
+                ].map(({ icon: Icon, label }) => (
+                  <div
+                    key={label}
+                    className="flex flex-col items-center text-center gap-1.5 bg-card border border-border rounded-xl p-3"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Icon className="h-5 w-5 text-primary" strokeWidth={1.75} />
+                    </div>
+                    <span className="text-[10px] font-semibold leading-tight text-foreground">
+                      {label}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Supplement facts panel */}
@@ -878,92 +919,28 @@ export function HairSkinNailsPDP({ product }: Props) {
           </div>
         </section>
 
-        {/* ============ PACK PICKER ============ */}
-        <section className="bg-secondary/30 py-16">
-          <div className="container-wide">
-            <div className="text-center mb-10">
-              <h2 className="font-display text-4xl lg:text-5xl mb-3 text-foreground">
-                Choose Your <span className="italic text-accent">Routine</span>
-              </h2>
-              <p className="text-muted-foreground max-w-xl mx-auto">
-                The longer you commit, the more you save — and the more visible your results.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
-              {([1, 2, 3] as const).map((p) => {
-                const isBest = p === 2;
-                return (
-                  <div
-                    key={p}
-                    className={`bg-card rounded-3xl p-6 relative border-2 transition ${
-                      isBest ? 'border-primary shadow-elegant' : 'border-border'
-                    }`}
-                  >
-                    {isBest && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider whitespace-nowrap">
-                        Best Value
-                      </div>
-                    )}
-                    <div className="absolute top-4 right-4 bg-accent text-accent-foreground text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">
-                      {packSavings(p)}% Off
-                    </div>
-
-                    <div className="aspect-square mb-4 flex items-center justify-center bg-secondary/40 rounded-2xl p-6">
-                      {images[0] && (
-                        <img
-                          src={optimizeShopifyImage(images[0].node.url, 400)}
-                          alt={`${p}-pack of ${title}`}
-                          className="w-full h-full object-contain"
-                          loading="lazy"
-                          width={400}
-                          height={400}
-                        />
-                      )}
-                    </div>
-
-                    <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold mb-1">
-                      Beauty Wellness
-                    </p>
-                    <h3 className="font-display text-xl font-bold mb-1 text-foreground">
-                      Hair, Skin & Nails
-                    </h3>
-                    <p className="text-[11px] text-muted-foreground mb-4">
-                      {p} PACK · {p * 30} STRIPS · {p === 1 ? '1 MONTH' : `${p} MONTHS`}
-                    </p>
-
-                    <div className="flex items-baseline gap-2 mb-4">
-                      <span className="text-xl font-bold text-accent">
-                        ${packPrice(p).toFixed(2)}
-                      </span>
-                      <span className="text-xs text-muted-foreground line-through">
-                        ${packOriginal(p).toFixed(2)}
-                      </span>
-                    </div>
-
-                    <Button
-                      onClick={() => handleAdd(p)}
-                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 rounded-full text-sm transition"
-                    >
-                      Add to Cart
-                      <ShoppingCart className="h-4 w-4 ml-2" strokeWidth={2} />
-                    </Button>
-                  </div>
-                );
-              })}
-            </div>
+        {/* ============ BUNDLE SUGGESTIONS ============ */}
+        <section className="bg-secondary/30">
+          <div className="container-wide pt-12 pb-2 text-center">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl mb-3 text-foreground">
+              Choose Your <span className="italic text-accent">Routine</span>
+            </h2>
+            <p className="text-muted-foreground max-w-xl mx-auto text-sm sm:text-base">
+              Pair Hair, Skin & Nails with our other wellness strips and save up to 20%.
+            </p>
           </div>
+          <BundleUpsell currentVariantId={firstVariant?.id} currentProductHandle={product.handle} />
         </section>
 
         {/* ============ EXPERT EVALUATIONS ============ */}
-        <section className="bg-background py-16">
+        <section className="bg-background py-12 sm:py-16">
           <div className="container-wide max-w-5xl">
             <div className="text-center mb-10">
               <div className="inline-flex items-center gap-2 text-xs font-semibold text-primary mb-3">
                 <Stethoscope className="h-4 w-4" strokeWidth={2} />
                 Expert Reviews
               </div>
-              <h2 className="font-display text-4xl lg:text-5xl mb-3 text-foreground">
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl mb-3 text-foreground">
                 Independent Clinician{' '}
                 <span className="italic text-accent">Evaluations</span>
               </h2>
@@ -979,6 +956,7 @@ export function HairSkinNailsPDP({ product }: Props) {
                   name: 'Dr. Rachel Kim, MD',
                   specialty: 'Dermatology',
                   years: '14',
+                  image: doctorRachelKim,
                   headline: 'A smart, well-dosed daily beauty formula',
                   text:
                     'The combination of 5,000 mcg of Biotin with Folate and Vitamin D3 is a thoughtful, clinically-relevant trio for patients reporting concerns with hair thinning and brittle nails. Sublingual delivery may also help patients who struggle with capsule compliance.',
@@ -988,6 +966,7 @@ export function HairSkinNailsPDP({ product }: Props) {
                   name: 'Dr. Marcus Chen, MD',
                   specialty: 'Internal Medicine',
                   years: '17',
+                  image: doctorMarcusChen,
                   headline: 'Convenience that drives consistency',
                   text:
                     'Compliance is the single biggest predictor of supplement outcomes. A pleasant-tasting dissolvable strip removes most of the friction patients cite when stopping a daily routine, which is meaningful for nutrients like Biotin that require sustained use.',
@@ -996,11 +975,18 @@ export function HairSkinNailsPDP({ product }: Props) {
               ].map((c) => (
                 <div
                   key={c.name}
-                  className="bg-card rounded-2xl p-6 border border-border grid md:grid-cols-[180px_1fr] gap-6"
+                  className="bg-card rounded-2xl p-5 sm:p-6 border border-border grid md:grid-cols-[180px_1fr] gap-5 sm:gap-6"
                 >
                   <div className="text-center">
-                    <div className="aspect-square w-28 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-3">
-                      <Stethoscope className="h-10 w-10 text-primary" strokeWidth={1.5} />
+                    <div className="aspect-square w-24 sm:w-28 mx-auto rounded-full overflow-hidden bg-primary/10 mb-3">
+                      <img
+                        src={c.image}
+                        alt={`Portrait of ${c.name}`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                        width={256}
+                        height={256}
+                      />
                     </div>
                     <p className="font-semibold text-sm text-foreground">{c.name}</p>
                     <p className="text-xs text-muted-foreground flex items-center justify-center gap-1 mt-0.5">
@@ -1014,11 +1000,11 @@ export function HairSkinNailsPDP({ product }: Props) {
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-display text-xl font-bold mb-3 text-foreground">
+                    <h3 className="font-display text-lg sm:text-xl font-bold mb-3 text-foreground">
                       {c.headline}
                     </h3>
                     <p className="text-sm text-muted-foreground leading-relaxed mb-4">{c.text}</p>
-                    <div className="flex flex-wrap gap-2 text-[11px] items-center">
+                    <div className="flex flex-wrap gap-2 text-[11px] items-center mb-4">
                       <span className="text-muted-foreground">Highlights</span>
                       {c.tags.map((t) => (
                         <span
@@ -1029,6 +1015,13 @@ export function HairSkinNailsPDP({ product }: Props) {
                         </span>
                       ))}
                     </div>
+                    <Link
+                      to="/science"
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary/80 transition"
+                    >
+                      Read the science behind this formula
+                      <ArrowRight className="h-3.5 w-3.5" strokeWidth={2} />
+                    </Link>
                   </div>
                 </div>
               ))}
@@ -1042,10 +1035,10 @@ export function HairSkinNailsPDP({ product }: Props) {
         </div>
 
         {/* ============ FAQ ============ */}
-        <section className="bg-secondary/30 py-16">
+        <section className="bg-secondary/30 py-12 sm:py-16">
           <div className="container-wide max-w-3xl">
             <div className="text-center mb-10">
-              <h2 className="font-display text-4xl lg:text-5xl mb-3 text-foreground">FAQs</h2>
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl mb-3 text-foreground">FAQs</h2>
               <p className="text-sm text-muted-foreground">
                 Still need help? Email us at{' '}
                 <a
