@@ -34,11 +34,6 @@ export function SecureCheckoutBadges() {
           <span className="text-xs font-bold text-muted-foreground">Apple Pay</span>
         </div>
       </div>
-      
-      {/* Guarantee */}
-      <p className="text-center text-xs text-muted-foreground">
-        30-Day Money-Back Guarantee
-      </p>
     </div>
   );
 }
