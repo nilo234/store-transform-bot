@@ -23,7 +23,7 @@ import { InlineTestimonial } from '@/components/product/InlineTestimonial';
 import { ClinicalResults } from '@/components/product/ClinicalResults';
 import { ComparisonTable } from '@/components/product/ComparisonTable';
 import { IngredientSpotlight } from '@/components/product/IngredientSpotlight';
-import { BundleUpsell } from '@/components/product/BundleUpsell';
+
 import { ProductFAQs } from '@/components/product/ProductFAQs';
 import { GuaranteeSection } from '@/components/product/GuaranteeSection';
 import { FirstOrderDiscountBanner } from '@/components/product/FirstOrderDiscountBanner';
