@@ -1101,10 +1101,69 @@ export function HairSkinNailsPDP({ product }: Props) {
           </div>
         </section>
 
+        {/* ============ DON'T TAKE OUR WORD — REAL CUSTOMERS ============ */}
+        <section className="bg-secondary/30 py-14 sm:py-20">
+          <div className="container-wide">
+            <div className="text-center mb-10 sm:mb-14">
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl mb-3 text-foreground text-balance">
+                Don\u2019t Take Our <span className="italic text-accent">Word</span>
+              </h2>
+              <p className="text-sm sm:text-base text-muted-foreground max-w-xl mx-auto">
+                Over 10,000 customers have made NEUVIE part of their daily ritual.
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+              {customerTestimonials.map((t, i) => (
+                <motion.div
+                  key={t.author}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="bg-card rounded-2xl overflow-hidden border border-border shadow-soft flex flex-col"
+                >
+                  <div className="aspect-[4/5] w-full overflow-hidden bg-secondary/40">
+                    <img
+                      src={t.image}
+                      alt={`${t.author} \u2014 verified NEUVIE customer`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      width={1024}
+                      height={1280}
+                    />
+                  </div>
+                  <div className="p-5 sm:p-6 flex flex-col flex-1">
+                    <div className="flex items-center gap-0.5 text-accent mb-3">
+                      {[...Array(5)].map((_, s) => (
+                        <Star key={s} className="h-4 w-4 fill-accent" strokeWidth={1.5} />
+                      ))}
+                    </div>
+                    <h3 className="font-display text-lg sm:text-xl font-bold mb-2 text-foreground leading-snug">
+                      {t.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
+                      {t.quote}
+                    </p>
+                    <div className="flex items-center justify-between pt-3 border-t border-border">
+                      <span className="text-sm font-semibold text-foreground">{t.author}</span>
+                      <span className="inline-flex items-center gap-1 text-[11px] text-primary font-semibold">
+                        <Check className="h-3 w-3" strokeWidth={2.5} />
+                        Verified Buyer
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ============ CUSTOMER REVIEWS (live Judge.me via existing component) ============ */}
         <div id="reviews">
           <ProductReviews productHandle={product.handle} productTitle={title} />
         </div>
+
 
         {/* ============ FAQ ============ */}
         <section className="bg-secondary/30 py-12 sm:py-16">
