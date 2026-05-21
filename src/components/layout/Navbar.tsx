@@ -91,7 +91,7 @@ export function Navbar() {
               {/* Right Side Actions */}
               <div className="flex items-center gap-1 md:gap-3">
                 {/* Search */}
-                <Button variant="ghost" size="icon" className="h-10 w-10" onClick={() => setSearchOpen(true)}>
+                <Button variant="ghost" size="icon" className="h-10 w-10" onClick={() => setSearchOpen(true)} aria-label="Open search">
                   <Search className="h-5 w-5" />
                 </Button>
 
@@ -102,7 +102,8 @@ export function Navbar() {
                   variant="ghost"
                   size="icon"
                   className="relative h-10 w-10"
-                  onClick={() => setCartOpen(true)}>
+                  onClick={() => setCartOpen(true)}
+                  aria-label={`Open cart${totalItems > 0 ? ` (${totalItems} items)` : ''}`}>
                   
                   <ShoppingCart className="h-5 w-5" />
                   {totalItems > 0 &&
@@ -115,7 +116,7 @@ export function Navbar() {
                 {/* Mobile Menu Toggle - TryAuri Hamburger */}
                 <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                   <SheetTrigger asChild className="lg:hidden">
-                    <Button variant="ghost" size="icon" className="h-10 w-10">
+                    <Button variant="ghost" size="icon" className="h-10 w-10" aria-label="Open menu">
                       <Menu className="h-6 w-6" />
                     </Button>
                   </SheetTrigger>
@@ -126,7 +127,7 @@ export function Navbar() {
                         <Link to="/" onClick={() => setMobileMenuOpen(false)}>
                           <img src={neuvieLogo} alt="Neuvie Nutrition" width={300} height={120} loading="lazy" decoding="async" className="h-20 md:h-[3.75rem] lg:h-[5.25rem] w-auto" />
                         </Link>
-                        <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)}>
+                        <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
                           <X className="h-6 w-6" />
                         </Button>
                       </div>
