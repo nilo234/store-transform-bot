@@ -107,6 +107,12 @@ export default function Shop() {
       <PageMeta
         title="Shop Wellness Strips – All 13 Dissolving Supplements | NEUVIE™"
         description="Browse 13 fast-dissolving wellness strips for energy, focus, sleep, beauty & gut health. Clinically dosed, third-party tested. Free US shipping on $50+." />
+      <CollectionPageJsonLd
+        name="All NEUVIE Wellness Strips"
+        description="Shop all 13 fast-dissolving wellness strips for energy, focus, sleep, beauty, and gut health."
+        url="https://tryneuvie.com/shop"
+        numberOfItems={13}
+      />
       
       <Navbar />
 
