@@ -28,6 +28,7 @@ import { ProductFAQs } from '@/components/product/ProductFAQs';
 import { GuaranteeSection } from '@/components/product/GuaranteeSection';
 import { FirstOrderDiscountBanner } from '@/components/product/FirstOrderDiscountBanner';
 import { ProbioticPDP } from '@/components/product/ProbioticPDP';
+import { HairSkinNailsPDP } from '@/components/product/HairSkinNailsPDP';
 import { detectAdTraffic } from '@/lib/adTraffic';
 import { ProductJsonLd, BreadcrumbJsonLd, PageMeta } from '@/components/seo';
 import {
@@ -290,6 +291,12 @@ export default function ProductDetail() {
 
   // ============ OPTIMIZED PDP for Probiotic + Metabolism Strips ============
   const normalizedHandle = (handle || product.handle || '').toLowerCase();
+
+  // ============ DEDICATED PDP for Hair, Skin & Nails Strips ============
+  if (normalizedHandle.includes('hair') && (normalizedHandle.includes('skin') || normalizedHandle.includes('nail'))) {
+    return <HairSkinNailsPDP product={product} />;
+  }
+
   if (normalizedHandle.includes('probiotic') && normalizedHandle.includes('metabolism')) {
     const firstVariant = product.variants.edges[0]?.node;
     const onAddSingle = async () => {
