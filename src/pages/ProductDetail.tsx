@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Minus, Plus, ShoppingCart, ChevronLeft, Check, Truck, Shield, RotateCcw, Leaf, AlertCircle } from 'lucide-react';
+import { Minus, Plus, ShoppingCart, ChevronLeft, Check, Truck, Shield, RotateCcw, Leaf } from 'lucide-react';
 import { StickyAddToCart } from '@/components/product/StickyAddToCart';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
@@ -23,17 +23,10 @@ import { InlineTestimonial } from '@/components/product/InlineTestimonial';
 import { ClinicalResults } from '@/components/product/ClinicalResults';
 import { ComparisonTable } from '@/components/product/ComparisonTable';
 import { IngredientSpotlight } from '@/components/product/IngredientSpotlight';
-import { BundleUpsell } from '@/components/product/BundleUpsell';
+
 import { ProductFAQs } from '@/components/product/ProductFAQs';
 import { GuaranteeSection } from '@/components/product/GuaranteeSection';
 import { FirstOrderDiscountBanner } from '@/components/product/FirstOrderDiscountBanner';
-import { BundleCrossSellBanner } from '@/components/product/BundleCrossSellBanner';
-import { StripsVsPillsComparison } from '@/components/product/StripsVsPillsComparison';
-import { PressLogosStrip } from '@/components/product/PressLogosStrip';
-import { LiveActivityCounter } from '@/components/product/LiveActivityCounter';
-import { ResultPromiseTimeline } from '@/components/product/ResultPromiseTimeline';
-import { IngredientTransparencyDrawer } from '@/components/product/IngredientTransparencyDrawer';
-import { WhyNowMicroCopy } from '@/components/product/WhyNowMicroCopy';
 import { ProbioticPDP } from '@/components/product/ProbioticPDP';
 import { detectAdTraffic } from '@/lib/adTraffic';
 import { ProductJsonLd, BreadcrumbJsonLd, PageMeta } from '@/components/seo';
@@ -471,8 +464,8 @@ export default function ProductDetail() {
                 <StockIndicator />
               </div>
 
-              {/* Live Activity Counter — social proof in real time */}
-              <LiveActivityCounter productHandle={handle} />
+
+
 
 
               {/* Quantity & Add to Cart */}
@@ -528,26 +521,8 @@ export default function ProductDetail() {
                   )}
                 </div>
 
-                {/* Why-Now Micro-Copy — removes friction at the purchase moment */}
-                <WhyNowMicroCopy />
-
-                {/* Result Promise Timeline — 6-week outcome guarantee */}
-                <ResultPromiseTimeline outcome={getOutcomePromise(handle || '')} />
-
-                {/* Ingredient Transparency Drawer — clickable full-disclosure panel */}
-                {productContent?.supplementFacts && productContent.supplementFacts.length > 0 && (
-                  <IngredientTransparencyDrawer
-                    productTitle={sanitizeTitle(product.title)}
-                    supplementFacts={productContent.supplementFacts}
-                  />
-                )}
-
-                {/* Press Logos — trust signal under shipping info */}
-                <PressLogosStrip />
-
-                {/* Bundle cross-sell — Better Together */}
-                <BundleCrossSellBanner currentVariantId={product.variants.edges[0]?.node.id} />
               </div>
+
 
               {/* Value Proposition Block */}
               <ValueProposition 
@@ -658,103 +633,6 @@ export default function ProductDetail() {
         {/* Ingredient Spotlight */}
         <IngredientSpotlight productHandle={productType} />
 
-        {/* Detailed Product Information */}
-        {productContent && (
-          <section className="py-16 bg-secondary/30">
-            <div className="container-wide">
-              <div className="max-w-4xl mx-auto">
-                <h2 className="font-display text-2xl md:text-3xl text-center mb-12">
-                  Everything you want to know — because you deserve to feel sure.
-                </h2>
-
-                <Accordion type="single" collapsible className="space-y-4">
-                  {/* Benefits */}
-                  <AccordionItem value="benefits" className="bg-card rounded-xl border-none">
-                    <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                      <span className="font-semibold text-lg">What you'll feel</span>
-                    </AccordionTrigger>
-                    <AccordionContent className="px-6 pb-6">
-                      <ul className="space-y-3">
-                        {productContent.benefits.map((benefit, index) => (
-                          <li key={index} className="flex items-start gap-3">
-                            <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                            <div>
-                              <span className="font-medium">{benefit.headline}:</span>{' '}
-                              <span className="text-muted-foreground">{benefit.description}</span>
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
-                    </AccordionContent>
-                  </AccordionItem>
-
-                  {/* Product Description */}
-                  <AccordionItem value="description-full" className="bg-card rounded-xl border-none">
-                    <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                      <span className="font-semibold text-lg">The full story</span>
-                    </AccordionTrigger>
-                    <AccordionContent className="px-6 pb-6">
-                      <div className="space-y-4 text-muted-foreground">
-                        {productContent.longDescription.map((paragraph, index) => (
-                          <p key={index}>{paragraph}</p>
-                        ))}
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-
-                  {/* Usage */}
-                  <AccordionItem value="usage" className="bg-card rounded-xl border-none">
-                    <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                      <span className="font-semibold text-lg">How to take it</span>
-                    </AccordionTrigger>
-                    <AccordionContent className="px-6 pb-6">
-                      <p className="text-muted-foreground">{productContent.usage}</p>
-                    </AccordionContent>
-                  </AccordionItem>
-
-                  {/* Supplement Facts */}
-                  <AccordionItem value="supplement-facts" className="bg-card rounded-xl border-none">
-                    <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                      <span className="font-semibold text-lg">What's in each strip</span>
-                    </AccordionTrigger>
-                    <AccordionContent className="px-6 pb-6">
-                      <div className="overflow-x-auto">
-                        <table className="w-full">
-                          <thead>
-                            <tr className="border-b border-border">
-                              <th className="text-left py-2 font-semibold">Nutrient</th>
-                              <th className="text-right py-2 font-semibold">Amount per Strip</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {productContent.supplementFacts.map((fact, index) => (
-                              <tr key={index} className="border-b border-border/50">
-                                <td className="py-2 text-muted-foreground">{fact.nutrient}</td>
-                                <td className="py-2 text-right">{fact.amount}</td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                        <p className="text-xs text-muted-foreground mt-3">* Daily value not established</p>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-
-                {/* Disclaimer */}
-                <div className="mt-8 p-6 bg-card rounded-xl">
-                  <div className="flex gap-4">
-                    <AlertCircle className="h-5 w-5 text-muted-foreground flex-shrink-0 mt-0.5" />
-                    <p className="text-sm text-muted-foreground italic">
-                      {productContent.disclaimer}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
-
         {/* You Might Also Like */}
         {productContent?.relatedProducts && productContent.relatedProducts.length > 0 && (
           <section className="py-16">
@@ -780,12 +658,6 @@ export default function ProductDetail() {
 
         {/* Guarantee Section */}
         <GuaranteeSection />
-
-        {/* Bundle Upsell */}
-        <BundleUpsell
-          currentProductHandle={handle}
-          currentVariantId={product.variants.edges[0]?.node.id}
-        />
 
         {/* Product FAQs */}
         <ProductFAQs productHandle={productType} />

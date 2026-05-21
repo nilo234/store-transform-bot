@@ -10,8 +10,6 @@ import { Badge } from '@/components/ui/badge';
 import { FreeShippingBar } from './FreeShippingBar';
 import { CartUrgencyBanner } from './CartUrgencyBanner';
 import { SecureCheckoutBadges } from './SecureCheckoutBadges';
-import { CartUpsell } from './CartUpsell';
-import { CartBundleUpgradePrompt } from './CartBundleUpgradePrompt';
 import { bundles as bundleDefinitions } from '@/data/bundles';
 import { useRegion } from '@/hooks/useRegion';
 import { formatShopifyMoney } from '@/lib/region';
@@ -300,11 +298,6 @@ export function CartDrawer() {
                   </div>
                 </div>
 
-                {/* Bundle Upgrade Prompt — turns single-item carts into bundle carts */}
-                <CartBundleUpgradePrompt />
-
-                {/* Customers Also Bought Upsell */}
-                <CartUpsell />
               </div>
 
               {/* Fixed checkout section */}
