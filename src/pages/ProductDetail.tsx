@@ -17,8 +17,8 @@ import { sendProductViewEvent, sendAddToCartEvent } from '@/hooks/useShopifyAnal
 import { trackViewContent } from '@/lib/marketingPixels';
 import { ProductReviews } from '@/components/product/ProductReviews';
 import { PurchaseTypeSelector, PurchaseMode } from '@/components/product/PurchaseTypeSelector';
-import { StockIndicator } from '@/components/product/StockIndicator';
 import { InlineTestimonial } from '@/components/product/InlineTestimonial';
+
 
 import { ClinicalResults } from '@/components/product/ClinicalResults';
 import { ComparisonTable } from '@/components/product/ComparisonTable';
