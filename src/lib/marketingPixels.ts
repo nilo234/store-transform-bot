@@ -44,24 +44,63 @@ const safeGtag = (...args: unknown[]) => {
   }
 };
 
+/** ISO 4217 currency — single source of truth for all client-side pixels. */
+const CURRENCY = 'USD' as const;
+
+/** Round to 2 decimals as a Number (Meta requires numeric value, not string). */
+function money(n: number): number {
+  if (!Number.isFinite(n) || n < 0) return 0;
+  return Math.round(n * 100) / 100;
+}
+
+/** Sanitize a product list: drop items with invalid price/qty, coerce numbers. */
+function sanitizeProducts(products: PixelProduct[]): PixelProduct[] {
+  return (products ?? [])
+    .map((p) => ({
+      ...p,
+      price: money(Number(p?.price)),
+      quantity: Math.max(1, Math.floor(Number(p?.quantity) || 1)),
+    }))
+    .filter((p) => p.id && p.price > 0);
+}
+
+/** Generate a unique eventID for browser-pixel ↔ CAPI deduplication. */
+function makeEventId(prefix: string): string {
+  const rand =
+    typeof crypto !== 'undefined' && 'randomUUID' in crypto
+      ? crypto.randomUUID()
+      : `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+  return `${prefix}_${rand}`;
+}
+
 /** Fired when user views a product detail page. */
 export function trackViewContent(product: PixelProduct) {
-  safeFbq('track', 'ViewContent', {
-    content_ids: [product.id],
-    content_name: product.name,
-    content_type: 'product',
-    value: product.price,
-    currency: 'USD',
-  });
+  const price = money(Number(product?.price));
+  if (!product?.id || price <= 0) return;
+
+  const eventID = makeEventId('vc');
+
+  safeFbq(
+    'track',
+    'ViewContent',
+    {
+      content_ids: [product.id],
+      content_name: product.name,
+      content_type: 'product',
+      value: price,
+      currency: CURRENCY,
+    },
+    { eventID },
+  );
 
   safeGtag('event', 'view_item', {
-    currency: 'USD',
-    value: product.price,
+    currency: CURRENCY,
+    value: price,
     items: [
       {
         item_id: product.id,
         item_name: product.name,
-        price: product.price,
+        price,
         quantity: 1,
       },
     ],
@@ -70,21 +109,32 @@ export function trackViewContent(product: PixelProduct) {
 
 /** Fired when user adds an item to the cart. */
 export function trackAddToCart(products: PixelProduct[]) {
-  const value = products.reduce((s, p) => s + p.price * p.quantity, 0);
-  const ids = products.map((p) => p.id);
+  const clean = sanitizeProducts(products);
+  if (clean.length === 0) return;
 
-  safeFbq('track', 'AddToCart', {
-    content_ids: ids,
-    content_type: 'product',
-    contents: products.map((p) => ({ id: p.id, quantity: p.quantity })),
-    value,
-    currency: 'USD',
-  });
+  const value = money(clean.reduce((s, p) => s + p.price * p.quantity, 0));
+  if (value <= 0) return;
+
+  const ids = clean.map((p) => p.id);
+  const eventID = makeEventId('atc');
+
+  safeFbq(
+    'track',
+    'AddToCart',
+    {
+      content_ids: ids,
+      content_type: 'product',
+      contents: clean.map((p) => ({ id: p.id, quantity: p.quantity, item_price: p.price })),
+      value,
+      currency: CURRENCY,
+    },
+    { eventID },
+  );
 
   safeGtag('event', 'add_to_cart', {
-    currency: 'USD',
+    currency: CURRENCY,
     value,
-    items: products.map((p) => ({
+    items: clean.map((p) => ({
       item_id: p.id,
       item_name: p.name,
       price: p.price,
@@ -95,22 +145,33 @@ export function trackAddToCart(products: PixelProduct[]) {
 
 /** Fired when user clicks "Checkout" — Meta Ads' #1 optimization signal. */
 export function trackInitiateCheckout(products: PixelProduct[]) {
-  const value = products.reduce((s, p) => s + p.price * p.quantity, 0);
-  const numItems = products.reduce((s, p) => s + p.quantity, 0);
+  const clean = sanitizeProducts(products);
+  if (clean.length === 0) return;
 
-  safeFbq('track', 'InitiateCheckout', {
-    content_ids: products.map((p) => p.id),
-    content_type: 'product',
-    contents: products.map((p) => ({ id: p.id, quantity: p.quantity })),
-    num_items: numItems,
-    value,
-    currency: 'USD',
-  });
+  const value = money(clean.reduce((s, p) => s + p.price * p.quantity, 0));
+  if (value <= 0) return;
+
+  const numItems = clean.reduce((s, p) => s + p.quantity, 0);
+  const eventID = makeEventId('ic');
+
+  safeFbq(
+    'track',
+    'InitiateCheckout',
+    {
+      content_ids: clean.map((p) => p.id),
+      content_type: 'product',
+      contents: clean.map((p) => ({ id: p.id, quantity: p.quantity, item_price: p.price })),
+      num_items: numItems,
+      value,
+      currency: CURRENCY,
+    },
+    { eventID },
+  );
 
   safeGtag('event', 'begin_checkout', {
-    currency: 'USD',
+    currency: CURRENCY,
     value,
-    items: products.map((p) => ({
+    items: clean.map((p) => ({
       item_id: p.id,
       item_name: p.name,
       price: p.price,
