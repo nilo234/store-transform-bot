@@ -300,11 +300,6 @@ export function CartDrawer() {
                   </div>
                 </div>
 
-                {/* Bundle Upgrade Prompt — turns single-item carts into bundle carts */}
-                <CartBundleUpgradePrompt />
-
-                {/* Customers Also Bought Upsell */}
-                <CartUpsell />
               </div>
 
               {/* Fixed checkout section */}
