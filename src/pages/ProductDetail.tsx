@@ -18,8 +18,8 @@ import { trackViewContent } from '@/lib/marketingPixels';
 import { ProductReviews } from '@/components/product/ProductReviews';
 import { PurchaseTypeSelector, PurchaseMode } from '@/components/product/PurchaseTypeSelector';
 import { StockIndicator } from '@/components/product/StockIndicator';
-import { ValueProposition } from '@/components/product/ValueProposition';
 import { InlineTestimonial } from '@/components/product/InlineTestimonial';
+
 import { ClinicalResults } from '@/components/product/ClinicalResults';
 import { ComparisonTable } from '@/components/product/ComparisonTable';
 import { IngredientSpotlight } from '@/components/product/IngredientSpotlight';
@@ -545,19 +545,13 @@ export default function ProductDetail() {
 
               </div>
 
-
-              {/* Value Proposition Block */}
-              <ValueProposition 
-                servings={30} 
-                basePrice={parseFloat(product.variants.edges[0]?.node.price.amount || '29.99')}
-              />
-
-              {/* Inline Testimonial */}
+              {/* Inline Testimonial — directly under CTA (Auri pattern) */}
               <InlineTestimonial 
                 quote={testimonial.quote}
                 author={testimonial.author}
                 isVerified={true}
               />
+
 
               {/* Quick Info Accordions */}
               <Accordion type="multiple" defaultValue={["description", "ingredients"]} className="space-y-2">
