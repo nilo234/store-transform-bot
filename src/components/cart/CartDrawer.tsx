@@ -299,6 +299,8 @@ export function CartDrawer() {
                   </div>
                 </div>
 
+                {/* Customers Also Bought — individual product upsells */}
+                <CartUpsell />
               </div>
 
               {/* Fixed checkout section */}
