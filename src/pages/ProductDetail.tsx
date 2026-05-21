@@ -348,6 +348,7 @@ export default function ProductDetail() {
       <PageMeta
         title={productContent?.seoTitle || `${sanitizeTitle(product.title)} – NEUVIE™`}
         description={productContent?.metaDescription || `${sanitizeTitle(product.title)} by NEUVIE™. Fast-dissolving wellness strip. No water, no pills. Free US shipping on $50+.`}
+        ogType="product"
       />
       <ProductJsonLd product={product} />
       <BreadcrumbJsonLd items={breadcrumbItems} />
