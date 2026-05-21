@@ -117,6 +117,7 @@ export function Footer() {
                 <Input
                   type="email"
                   placeholder="Your email address"
+                  aria-label="Email address for newsletter"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
