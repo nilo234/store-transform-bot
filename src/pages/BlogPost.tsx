@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight, Calendar, Clock, Share2 } from 'lucide-react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
-import { PageMeta } from '@/components/seo';
+import { PageMeta, ArticleJsonLd } from '@/components/seo';
 import { getBlogPostBySlug, blogPosts } from '@/data/blogPosts';
 
 export default function BlogPost() {
@@ -22,6 +22,13 @@ export default function BlogPost() {
         title={`${post.title} | NEUVIE Journal`}
         description={post.metaDescription}
         ogType="article"
+      />
+      <ArticleJsonLd
+        headline={post.title}
+        description={post.metaDescription}
+        datePublished={post.publishedAt}
+        author={post.author}
+        url={`https://tryneuvie.com/blog/${post.slug}`}
       />
       <Navbar />
 

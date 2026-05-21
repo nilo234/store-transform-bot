@@ -7,7 +7,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 
-const faqs = [
+export const homepageFaqs = [
   {
     question: 'How do Neuvie strips work?',
     answer: 'Place a strip on your tongue and let it dissolve — about 30 seconds. The ingredients absorb directly through the oral tissue, so they get to work faster than a pill that has to travel through your digestive system first.',
@@ -56,7 +56,7 @@ export function HomepageFAQs() {
           transition={{ delay: 0.1 }}
         >
           <Accordion type="single" collapsible className="space-y-3">
-            {faqs.map((faq, index) => (
+            {homepageFaqs.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}

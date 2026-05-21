@@ -12,8 +12,8 @@ import { fetchProducts, ShopifyProduct } from '@/lib/shopify';
 import { ProductCard } from '@/components/shop/ProductCard';
 import { BundleCard } from '@/components/shop/BundleCard';
 import { bundles } from '@/data/bundles';
-import { PageMeta } from '@/components/seo';
-import { HomepageFAQs } from '@/components/home/HomepageFAQs';
+import { PageMeta, FAQJsonLd } from '@/components/seo';
+import { HomepageFAQs, homepageFaqs } from '@/components/home/HomepageFAQs';
 import { HowToUse } from '@/components/home/HowToUse';
 import { WhyNeuvie } from '@/components/home/WhyNeuvie';
 import { SocialShareButtons } from '@/components/seo/SocialShareButtons';
@@ -68,6 +68,7 @@ export default function Index() {
         title="Wellness Strips – Dissolving Supplements | NEUVIE™"
         description="NEUVIE dissolving wellness strips. Energy, sleep, beauty & gut health. Clinically studied ingredients, 5x faster absorption. Free US shipping $50+."
       />
+      <FAQJsonLd faqs={homepageFaqs} />
       
       <Navbar />
       <AdMatchTrustBar />
