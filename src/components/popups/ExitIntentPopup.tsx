@@ -1,29 +1,29 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, Gift, ArrowRight, Copy, Check } from 'lucide-react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { useLocation } from 'react-router-dom';
-import { supabase } from '@/integrations/supabase/client';
-import { toast } from 'sonner';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, Gift, ArrowRight, Copy, Check } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useLocation } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 export function ExitIntentPopup() {
   const [isOpen, setIsOpen] = useState(false);
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [hasShown, setHasShown] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const location = useLocation();
 
   // Only fire on homepage, shop, and product pages
-  const allowedPaths = ['/', '/shop', '/bundles'];
-  const isAllowedPage = allowedPaths.includes(location.pathname) || location.pathname.startsWith('/product/');
+  const allowedPaths = ["/", "/shop", "/bundles"];
+  const isAllowedPage = allowedPaths.includes(location.pathname) || location.pathname.startsWith("/product/");
 
   useEffect(() => {
     if (!isAllowedPage) return;
 
-    const popupShown = sessionStorage.getItem('neuvie_exit_popup_shown');
+    const popupShown = sessionStorage.getItem("neuvie_exit_popup_shown");
     if (popupShown) {
       setHasShown(true);
       return;
@@ -33,7 +33,7 @@ export function ExitIntentPopup() {
       if (hasShown) return;
       setIsOpen(true);
       setHasShown(true);
-      sessionStorage.setItem('neuvie_exit_popup_shown', 'true');
+      sessionStorage.setItem("neuvie_exit_popup_shown", "true");
     };
 
     // Desktop: mouse leaves top of viewport
@@ -44,23 +44,23 @@ export function ExitIntentPopup() {
     // Mobile: trigger after 40s inactivity
     let inactivityTimer: ReturnType<typeof setTimeout>;
     let activityTimer: ReturnType<typeof setTimeout>;
-    
+
     const resetInactivity = () => {
       clearTimeout(inactivityTimer);
-      inactivityTimer = setTimeout(triggerPopup, 15000);
+      inactivityTimer = setTimeout(triggerPopup, 500);
     };
 
-    document.addEventListener('mouseleave', handleMouseLeave);
-    window.addEventListener('touchstart', resetInactivity);
-    window.addEventListener('scroll', resetInactivity);
-    
+    document.addEventListener("mouseleave", handleMouseLeave);
+    window.addEventListener("touchstart", resetInactivity);
+    window.addEventListener("scroll", resetInactivity);
+
     // Start mobile inactivity timer
-    activityTimer = setTimeout(triggerPopup, 15000);
+    activityTimer = setTimeout(triggerPopup, 500);
 
     return () => {
-      document.removeEventListener('mouseleave', handleMouseLeave);
-      window.removeEventListener('touchstart', resetInactivity);
-      window.removeEventListener('scroll', resetInactivity);
+      document.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("touchstart", resetInactivity);
+      window.removeEventListener("scroll", resetInactivity);
       clearTimeout(inactivityTimer);
       clearTimeout(activityTimer);
     };
@@ -71,15 +71,15 @@ export function ExitIntentPopup() {
     if (!email) return;
 
     setIsSubmitting(true);
-    
+
     try {
-      const { data, error } = await supabase.functions.invoke('klaviyo-subscribe', {
-        body: { email, source: 'exit-intent-popup' },
+      const { data, error } = await supabase.functions.invoke("klaviyo-subscribe", {
+        body: { email, source: "exit-intent-popup" },
       });
 
       if (error) {
-        console.error('Klaviyo subscribe error:', error);
-        toast.error('Something went wrong. Please try again.');
+        console.error("Klaviyo subscribe error:", error);
+        toast.error("Something went wrong. Please try again.");
         setIsSubmitting(false);
         return;
       }
@@ -90,13 +90,13 @@ export function ExitIntentPopup() {
       // Copy code to clipboard
       // TODO: activate WELCOME15 in Shopify Admin
       try {
-        await navigator.clipboard.writeText('WELCOME15');
+        await navigator.clipboard.writeText("WELCOME15");
       } catch {}
 
       setTimeout(() => setIsOpen(false), 2500);
     } catch (err) {
-      console.error('Subscribe error:', err);
-      toast.error('Something went wrong. Please try again.');
+      console.error("Subscribe error:", err);
+      toast.error("Something went wrong. Please try again.");
       setIsSubmitting(false);
     }
   };
@@ -124,7 +124,7 @@ export function ExitIntentPopup() {
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              transition={{ type: 'spring', delay: 0.2 }}
+              transition={{ type: "spring", delay: 0.2 }}
               className="w-16 h-16 bg-accent rounded-full mx-auto mb-4 flex items-center justify-center"
             >
               <Gift className="h-8 w-8 text-accent-foreground" />
@@ -144,7 +144,8 @@ export function ExitIntentPopup() {
               transition={{ delay: 0.4 }}
               className="text-primary-foreground/80 text-lg"
             >
-              Get 15% off your first order. Code <strong className="text-accent">WELCOME15</strong> applies at checkout. Free shipping on orders $50+.
+              Get 15% off your first order. Code <strong className="text-accent">WELCOME15</strong> applies at checkout.
+              Free shipping on orders $50+.
             </motion.p>
           </div>
 
@@ -173,16 +174,12 @@ export function ExitIntentPopup() {
                     className="h-12 text-base"
                   />
 
-                  <Button
-                    type="submit"
-                    className="w-full h-12 btn-primary text-base"
-                    disabled={isSubmitting}
-                  >
+                  <Button type="submit" className="w-full h-12 btn-primary text-base" disabled={isSubmitting}>
                     {isSubmitting ? (
                       <motion.div
                         className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full"
                         animate={{ rotate: 360 }}
-                        transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                       />
                     ) : (
                       <>
@@ -210,15 +207,13 @@ export function ExitIntentPopup() {
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    transition={{ type: 'spring' }}
+                    transition={{ type: "spring" }}
                     className="w-16 h-16 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center"
                   >
                     <Copy className="h-7 w-7 text-green-600" />
                   </motion.div>
                   <h3 className="font-display text-xl mb-2">Code WELCOME15 Copied!</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Valid for 24 hours. Your wellness journey starts now!
-                  </p>
+                  <p className="text-muted-foreground text-sm">Valid for 24 hours. Your wellness journey starts now!</p>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -226,9 +221,15 @@ export function ExitIntentPopup() {
             {/* Trust Points */}
             <div className="mt-6 pt-4 border-t border-border">
               <div className="flex justify-center gap-6 text-xs text-muted-foreground">
-                <span className="flex items-center gap-1"><Check className="h-3 w-3 text-primary" /> 30-Day Guarantee</span>
-                <span className="flex items-center gap-1"><Check className="h-3 w-3 text-primary" /> Free Shipping $50+</span>
-                <span className="flex items-center gap-1"><Check className="h-3 w-3 text-primary" /> Made in USA</span>
+                <span className="flex items-center gap-1">
+                  <Check className="h-3 w-3 text-primary" /> 30-Day Guarantee
+                </span>
+                <span className="flex items-center gap-1">
+                  <Check className="h-3 w-3 text-primary" /> Free Shipping $50+
+                </span>
+                <span className="flex items-center gap-1">
+                  <Check className="h-3 w-3 text-primary" /> Made in USA
+                </span>
               </div>
             </div>
           </div>
