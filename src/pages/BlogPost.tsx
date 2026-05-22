@@ -19,7 +19,12 @@ export default function BlogPost() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <PageMeta
-        title={`${post.title} | NEUVIE Journal`}
+        title={(() => {
+          const suffix = ' | NEUVIE';
+          const maxTitle = 60 - suffix.length;
+          const t = post.title.length > maxTitle ? `${post.title.slice(0, maxTitle - 1).trimEnd()}…` : post.title;
+          return `${t}${suffix}`;
+        })()}
         description={post.metaDescription}
         ogType="article"
       />
