@@ -304,7 +304,7 @@ export default function Index() {
                   {...fadeUp}
                   transition={{ delay: i * 0.08 }}
                 >
-                  <div className="bg-card rounded-2xl p-6 h-full border border-border/30 shadow-soft hover:shadow-card transition-all duration-500">
+                  <div className="bg-card rounded-2xl p-6 h-full border border-border shadow-soft hover:shadow-card transition-all duration-500">
                     <div className="flex gap-0.5 mb-3">
                       {[...Array(review.rating)].map((_, j) => (
                         <Star key={j} className="h-4 w-4 fill-accent text-accent" />
@@ -359,18 +359,23 @@ export default function Index() {
         <OutcomeBenefits />
 
         {/* Mid-page conversion nudge */}
-        <section className="py-10 md:py-14 bg-accent/5 border-y border-accent/10">
-          <div className="container-wide text-center">
-            <p className="text-lg md:text-xl font-display mb-4">Still deciding? Start with our most popular strip.</p>
-            <Link to="/product/energy-strips-2">
-              <Button className="h-13 px-8 text-sm font-semibold rounded-xl bg-accent hover:bg-accent/90 text-accent-foreground shadow-glow">
-                Try Energy Strips — $29.99
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-            <p className="text-xs text-muted-foreground mt-3">{isUK ? 'International shipping · 30-day money-back guarantee' : 'Free shipping on orders $50+ · 30-day money-back guarantee'}</p>
+        <section className="py-12 md:py-16 bg-secondary/30">
+          <div className="container-wide">
+            <div className="bg-card rounded-3xl p-8 lg:p-10 border border-border flex flex-col lg:flex-row items-center justify-between gap-6 max-w-4xl mx-auto">
+              <div className="text-center lg:text-left">
+                <p className="text-lg md:text-xl font-display mb-1">Still deciding? Start with our most popular strip.</p>
+                <p className="text-xs text-muted-foreground">{isUK ? 'International shipping · 30-day money-back guarantee' : 'Free shipping on orders $50+ · 30-day money-back guarantee'}</p>
+              </div>
+              <Link to="/product/energy-strips-2" className="shrink-0">
+                <Button className="h-12 px-8 text-sm font-semibold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground whitespace-nowrap">
+                  Try Energy Strips — $29.99
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </section>
+
 
         {/* ═══════════════════════════════════════════════
             6. BUNDLES — Value / Upsell
