@@ -78,10 +78,8 @@ export default function Index() {
         {/* ═══════════════════════════════════════════════
             1. HERO — Emotional, Identity-Driven for Women 18-44
         ═══════════════════════════════════════════════ */}
-        <section className="relative overflow-hidden">
-          <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
-
-          <div className="container-wide relative z-10 py-16 md:py-24 lg:py-32">
+        <section className="relative bg-background">
+          <div className="container-wide py-12 md:py-20 lg:py-24">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
               {/* Copy */}
@@ -91,14 +89,14 @@ export default function Index() {
                 transition={{ duration: 0.45, ease: 'easeOut' }}
                 className="order-2 lg:order-1 text-center lg:text-left"
               >
-                {/* Urgency badge — variant-driven */}
+                {/* Urgency badge — PDP-style flat accent chip */}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="inline-flex items-center gap-2 bg-accent/15 text-accent px-4 py-2 rounded-full mb-5"
+                  className="inline-flex items-center gap-2 bg-accent text-accent-foreground text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded mb-5"
                 >
-                  <span className="text-sm font-semibold">{heroVariant.badge}</span>
+                  <span>{heroVariant.badge}</span>
                 </motion.div>
 
                 <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-6xl leading-[1.08] mb-4">
@@ -124,10 +122,10 @@ export default function Index() {
                   <span className="font-medium">Loved by our early customers</span>
                 </div>
 
-                {/* PRIMARY CTA — visually dominant, guarantee adjacent */}
+                {/* PRIMARY CTA — matches PDP main CTA */}
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 justify-center lg:justify-start mb-3">
                   <Link to="/bundles" className="w-full sm:w-auto">
-                    <Button className="w-full sm:w-auto h-16 px-12 text-lg font-bold rounded-xl group bg-primary hover:bg-primary/90 text-primary-foreground shadow-elevated hover:shadow-glow transition-all">
+                    <Button className="w-full sm:w-auto h-14 px-10 text-base font-bold rounded-xl group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg tracking-wide transition-all">
                       Shop Bundles — Save 20%
                       <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </Button>
@@ -140,7 +138,7 @@ export default function Index() {
                   </Link>
                 </div>
 
-                {/* Reassurance directly under CTA — highest-impact placement */}
+                {/* Reassurance directly under CTA */}
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm text-foreground/80 justify-center lg:justify-start mb-4 font-medium">
                   <span className="flex items-center gap-1.5">
                     <ShieldCheck className="h-4 w-4 text-primary" />
@@ -156,24 +154,20 @@ export default function Index() {
                   </span>
                 </div>
 
-                {/* Price anchor — secondary, smaller */}
                 <p className="text-xs text-muted-foreground text-center lg:text-left mb-1">
                   Bundles from <span className="font-semibold text-foreground">$59.99</span> · Save up to <span className="font-semibold text-foreground">$39.95</span> vs. buying separately
                 </p>
-                {/* TODO: activate WELCOME15 in Shopify Admin */}
                 <p className="text-xs md:text-sm text-accent font-semibold text-center lg:text-left mb-5">
                   New here? Use code WELCOME15 for an extra 15% off your first bundle
                 </p>
 
-                {/* Quick Category Picker */}
                 <QuickCategoryPicker />
               </motion.div>
 
-              {/* Hero Image — LCP candidate, no fade-in to avoid delaying paint */}
+              {/* Hero Image — PDP-style clean card frame */}
               <div className="order-1 lg:order-2">
                 <div className="relative mx-auto max-w-[340px] sm:max-w-[460px] lg:max-w-[540px]">
-                  <div className="absolute inset-0 bg-accent/10 rounded-[2rem] rotate-3 scale-[1.02]" />
-                  <div className="relative aspect-square rounded-[2rem] overflow-hidden shadow-elevated">
+                  <div className="relative aspect-square bg-card rounded-3xl overflow-hidden border border-border/50">
                     <img
                       src={productsLineup}
                       alt="NEUVIE fast-dissolving wellness strips lineup — Energy, Sleep, Beauty, Focus and Gut Health supplements"
@@ -184,6 +178,9 @@ export default function Index() {
                       fetchPriority="high"
                       decoding="sync"
                     />
+                    <div className="absolute top-5 right-5 bg-accent text-accent-foreground text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-md">
+                      Best Sellers
+                    </div>
                   </div>
                 </div>
               </div>
