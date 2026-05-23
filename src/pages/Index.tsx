@@ -230,7 +230,7 @@ export default function Index() {
         {/* ═══════════════════════════════════════════════
             2. BESTSELLERS — Single Strips (secondary)
         ═══════════════════════════════════════════════ */}
-        <section className="py-16 md:py-24 bg-secondary/40">
+        <section className="py-16 md:py-24 bg-secondary/30">
           <div className="container-wide">
             <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
               <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-accent mb-3">
@@ -375,7 +375,7 @@ export default function Index() {
         {/* ═══════════════════════════════════════════════
             6. BUNDLES — Value / Upsell
         ═══════════════════════════════════════════════ */}
-        <section className="py-16 md:py-24 bg-secondary/40">
+        <section className="py-16 md:py-24 bg-secondary/30">
           <div className="container-wide">
             <motion.div className="text-center mb-10 md:mb-14" {...fadeUp}>
               <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-accent mb-3">

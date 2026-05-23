@@ -29,7 +29,7 @@ const outcomes = [
 
 export function OutcomeBenefits() {
   return (
-    <section className="py-16 md:py-24 bg-card">
+    <section className="py-16 md:py-24 bg-background">
       <div className="container-wide">
         <motion.div
           className="text-center mb-12"
@@ -49,7 +49,7 @@ export function OutcomeBenefits() {
           {outcomes.map((outcome, index) => (
             <motion.div
               key={outcome.title}
-              className="text-center p-8 rounded-2xl bg-background border border-border/40 hover:shadow-card transition-all duration-500 flex flex-col"
+              className="text-center p-8 rounded-2xl bg-card border border-border hover:shadow-soft transition-all duration-500 flex flex-col"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
