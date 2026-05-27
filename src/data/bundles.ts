@@ -56,9 +56,9 @@ export interface Bundle {
 
 export const bundles: Bundle[] = [
   {
-    id: 'spring-reset',
-    name: 'SPRING RESET',
-    emoji: '🌸',
+    id: 'summer-reset',
+    name: 'SUMMER RESET',
+    emoji: '☀️',
     packSize: '4-Pack',
     category: 'beauty',
     products: ['Beauty + Collagen', 'Hair, Skin & Nails', 'Probiotic', 'Energy'],
@@ -69,9 +69,9 @@ export const bundles: Bundle[] = [
     savings: 27.99,
     discountPercent: 20,
     tagline: 'New season. New skin. Same you – just glowing.',
-    subline: 'Spring clean your routine from the inside out.',
-    discountCode: 'SPRING20',
-    badge: 'LIMITED · SPRING EDITION',
+    subline: 'Summer-ready your routine from the inside out.',
+    discountCode: 'SUMMER20',
+    badge: 'LIMITED · SUMMER EDITION',
   },
   {
     id: 'night-out-survival-kit',
