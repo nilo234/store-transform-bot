@@ -186,7 +186,7 @@ export default function Bundles() {
                   <h3 className="font-display text-xl mb-3">Save Up to 20% with Bundle Pricing</h3>
                   <p className="text-muted-foreground leading-relaxed">
                     Buying individual strips adds up. Our bundles give you meaningful savings — from 14% off on 2-packs 
-                    up to 20% off on seasonal collections like the Spring Reset Bundle. Combine that with 
+                    up to 20% off on seasonal collections like the Summer Reset Bundle. Combine that with 
                     free shipping on orders over $50 and our{' '}
                     <Link to="/returns" className="text-primary hover:underline">30-day money-back guarantee</Link>, 
                     and there's truly no risk in trying.
