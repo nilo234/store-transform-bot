@@ -212,13 +212,33 @@ export function trackInitiateCheckout(products: PixelProduct[]) {
       quantity: p.quantity,
     })),
   });
+
+  sendPinterestEvent({
+    event_name: 'checkout',
+    event_id: eventID,
+    custom_data: {
+      currency: CURRENCY,
+      value: String(value),
+      content_ids: clean.map((p) => p.id),
+      num_items: numItems,
+      order_quantity: numItems,
+      line_items: clean.map((p) => ({
+        product_id: p.id,
+        product_name: p.name,
+        product_price: p.price,
+        product_quantity: p.quantity,
+      })),
+    },
+  });
 }
 
 /** Fired when a user submits an email (newsletter / popup / quiz). */
 export function trackLead(source: string) {
   safeFbq('track', 'Lead', { content_name: source });
   safeGtag('event', 'generate_lead', { source });
+  sendPinterestEvent({ event_name: 'lead', custom_data: { content_name: source } });
 }
+
 
 const safePintrk = (...args: unknown[]) => {
   try {
