@@ -13,7 +13,7 @@ import { SocialShareButtons } from '@/components/seo/SocialShareButtons';
 
 const SEO = {
   title: 'Wellness Strip Bundles – Save Up to 20% | NEUVIE™',
-  description: 'Build a self-care routine that fits your life. Curated NEUVIE™ dissolving strip bundles for energy, beauty, sleep & gut health. Save up to 20%. Free US shipping $50+.',
+  description: 'Curated NEUVIE dissolving strip bundles for energy, beauty, sleep and gut health. Save up to 20% on your daily routine. Free US shipping on orders $50+.',
 };
 
 const pageUrl = 'https://tryneuvie.com/bundles';
