@@ -276,7 +276,7 @@ export default function Shop() {
             filteredProducts.length === 0 ? (
             <div className="text-center py-16 md:py-24 max-w-md mx-auto">
                 <span className="text-4xl mb-4 block">🔍</span>
-                <h3 className="font-display text-lg md:text-xl mb-2">We don't have that exact match yet</h3>
+                <h2 className="font-display text-lg md:text-xl mb-2">We don't have that exact match yet</h2>
                 <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
                   But there might be something else that's perfect for you. 
                   Take a look at the full collection — your body will tell you what it needs.
