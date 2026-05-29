@@ -592,7 +592,7 @@ export function ProbioticPDP({ product, onAddSingle, onAddBundle }: Props) {
                   <h3 className="font-display text-xl mb-2 group-hover:text-primary transition-colors">{c.title}</h3>
                   <p className="text-sm text-muted-foreground mb-4">{c.tagline}</p>
                   <span className="text-sm font-semibold text-primary inline-flex items-center gap-1">
-                    Learn more
+                    View {c.title} details
                     <ChevronLeft className="h-4 w-4 rotate-180" />
                   </span>
                 </Link>
