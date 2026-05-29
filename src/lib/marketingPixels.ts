@@ -349,4 +349,26 @@ export function trackPurchase({
       product_category: p.category,
     })),
   });
+
+  // Pinterest CAPI — server-side checkout (dedupes via event_id with browser pintrk)
+  sendPinterestEvent({
+    event_name: 'checkout',
+    event_id: dedupId,
+    custom_data: {
+      currency: safeCurrency,
+      value: String(safeValue),
+      order_id: safeOrderId,
+      order_quantity: numItems,
+      content_ids: contentIds,
+      num_items: numItems,
+      line_items: products.map((p) => ({
+        product_id: p.id,
+        product_name: p.name,
+        product_category: p.category,
+        product_price: p.price,
+        product_quantity: p.quantity,
+      })),
+    },
+  });
 }
+
