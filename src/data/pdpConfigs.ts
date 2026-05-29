@@ -1203,6 +1203,103 @@ const ironConfig: PDPConfig = {
   ingredientsAccordionText: 'Iron Bisglycinate (19 mg), Methylfolate (400 mcg DFE), Vitamin C (60 mg), Pullulan, Cellulose, Mannitol, Monk Fruit Extract, Natural Berry Flavor, Malic Acid, Lecithin, Stevia Glycosides.',
 };
 
+const probioticConfig: PDPConfig = {
+  matchHandles: ['probiotic'],
+  category: 'Gut & Metabolism',
+  headlineMain: 'Probiotic + Metabolism',
+  headlineSuffix: 'Strips',
+  subtitle: '10B CFU Probiotics + Prebiotic + Green Tea · Gut & Metabolism · NEUVIE™',
+  productNoun: 'Probiotic Strip',
+  topBadge: 'Save up to 20% Today',
+  bottomFlavorBadge: 'MIXED BERRY · NO REFRIGERATION NEEDED',
+  bandIngredients: 'PROBIOTICS · PREBIOTIC · GREEN TEA',
+  reviewCount: '(2,184)',
+  clinicalStats: [
+    { label: 'Felt less bloated within 2 weeks', value: 82 },
+    { label: 'Reported steadier daily energy', value: 76 },
+    { label: 'Improved regularity', value: 79 },
+  ],
+  highlightLead: 'noticeable gut comfort in just',
+  highlightValue: '14 days',
+  clinicalH2A: 'Shelf-stable strains for',
+  clinicalH2B: 'a calmer gut and steadier metabolism',
+  clinicalFootnote: '*Based on a self-reported consumer perception study with daily NEUVIE Probiotic + Metabolism Strip use. Individual results vary.',
+  benefitsKicker: 'Gut Balance, Reset',
+  benefitsH2A: 'Feel as your',
+  benefitsH2B: 'lightest self',
+  benefitsLead: 'One small strip. 10 billion CFU of shelf-stable probiotics, prebiotic fuel, and green tea — the kind of gut support that doesn’t live in your fridge.',
+  benefits: [
+    { title: 'Less bloating, more comfort', body: 'A balanced multi-strain probiotic blend supports a calmer gut so meals sit lighter — no chalky drinks required.' },
+    { title: 'Feeds the good bacteria', body: 'Prebiotic fiber acts as fuel for the beneficial bacteria already in your gut, helping the new strains actually settle in.' },
+    { title: 'Supports a steady metabolism', body: 'Green tea extract has been traditionally studied for its role in healthy metabolism — quietly working in the background.' },
+    { title: 'No fridge. No drama.', body: 'Shelf-stable strains in a 3-second dissolving strip. Travel-friendly, desk-friendly, hotel-friendly — gut care that fits real life.' },
+  ],
+  allInOneH2A: 'All-in-One Probiotic Strip for',
+  allInOneH2B: 'a balanced gut & metabolism',
+  allInOneBody: 'Three of the most-trusted gut nutrients in one effortless 3-second ritual. No refrigerated bottles, no chalky powders, no horse-pill capsules. Just one mixed-berry strip — taken daily — to help your gut find its balance.',
+  ritualLead: 'Trade the fridge-bound probiotic bottle for a ritual you’ll actually keep. NEUVIE strips are effortless — so gut care finally feels easy.',
+  competitorName: 'Typical Probiotic Capsules',
+  pros: [
+    'Dissolves in 30 seconds — no water needed',
+    '10 billion CFU + Prebiotic + Green Tea, smart trio',
+    'Mixed-berry flavor — actually pleasant to take',
+    'Shelf-stable: travel, desk, hotel — anywhere',
+  ],
+  cons: [
+    'Capsules often lose potency without refrigeration',
+    'Many strains don’t survive stomach acid intact',
+    'Bulky bottles, easy to forget on the road',
+    'Frequently miss the prebiotic “food” strains need',
+  ],
+  insideLead: 'Three gut nutrients, precision-dosed. No filler, no shortcuts.',
+  ingredients: [
+    { name: 'Probiotic Blend', tag: 'Gut Flora', dose: '10B CFU', desc: 'A multi-strain blend designed to support a balanced gut microbiome — shelf-stable, no refrigeration required.', image: ingPrebiotic },
+    { name: 'Prebiotic Fiber', tag: 'Strain Fuel', dose: '150 mg', desc: 'Soluble fiber that feeds the beneficial bacteria already in your gut so the new strains actually take hold.', image: ingPrebiotic },
+    { name: 'Green Tea Extract', tag: 'Metabolism', dose: '100 mg', desc: 'A gentle plant extract traditionally studied for its role in supporting a healthy metabolism.', image: ingGreenTea },
+  ],
+  tastyBody: 'A bright, natural mixed-berry flavor — sweetened with monk fruit and stevia. No chalky probiotic aftertaste, no vitamin smell. Just a 3-second daily ritual that fits anywhere.',
+  fullIngredientList: 'Probiotic Blend (10 billion CFU), Prebiotic Fiber (150 mg), Green Tea Extract (100 mg), Pullulan, Cellulose, Mannitol, Monk Fruit Extract, Natural Mixed Berry Flavor, Malic Acid, Lecithin, Stevia Glycosides.',
+  howToUseText: 'Place one strip on your tongue once daily and let it dissolve. No water needed. For best results, take consistently for at least 4–6 weeks.',
+  propsText: 'Vegan, gluten-free, non-GMO, lactose-free, no added sugar, no refrigeration required. Made in the USA in an FDA-registered, GMP-certified facility.',
+  supplementFacts: [
+    { name: 'Probiotic Blend', amount: '10B CFU', dv: '*' },
+    { name: 'Prebiotic Fiber', amount: '150 mg', dv: '*' },
+    { name: 'Green Tea Extract', amount: '100 mg', dv: '*' },
+  ],
+  bundleSubtitle: 'Pair Probiotic + Metabolism with our other wellness strips and save up to 20%.',
+  doctors: sharedDoctors(
+    {
+      headline: 'A practical, shelf-stable approach',
+      text: 'Pairing a 10 billion CFU multi-strain probiotic with prebiotic fiber reflects current thinking on gut support — the strains benefit from a fuel source. A dissolving format that doesn’t need refrigeration removes one of the biggest reasons people stop taking probiotics.',
+      tags: ['Microbiome', 'Prebiotic', 'Shelf-Stable'],
+    },
+    {
+      headline: 'Compliance is the quiet variable',
+      text: 'Probiotics only work if they’re taken consistently for several weeks. A pleasant, no-water strip is far more likely to actually happen daily than a refrigerated capsule routine — and that consistency is what tends to move the needle.',
+      tags: ['Daily Routine', 'Compliance', 'Gut Health'],
+    },
+  ),
+  reviewsTeaser: {
+    quote: 'I’ve taken capsule probiotics for years with mediocre results. These strips work way better — I think because they bypass stomach acid. Bloating gone, regularity perfect.',
+    author: 'Amanda S.',
+  },
+  testimonials: sharedTestimonials(
+    { title: 'My gut transformed', quote: 'Within two weeks the bloating I’d had for years was just… gone. And I love that I don’t have to refrigerate them.', author: 'Amanda S.' },
+    { title: 'No fridge required', quote: 'Travel-friendly, taste good, and my digestion is the best it’s been in years. This is the format probiotics should have always been.', author: 'Brandon F.' },
+    { title: 'Less bloat, more energy', quote: 'Three weeks in and my energy is up too — I think the gut connection is real. Easiest supplement I’ve ever kept up with.', author: 'Christina R.' },
+  ),
+  faqs: [
+    { q: 'Do I need to refrigerate these?', a: 'No. Unlike most probiotics, NEUVIE Probiotic Strips are shelf-stable and don’t require refrigeration. Travel-friendly and stable at room temperature.' },
+    { q: 'How long until I feel results?', a: 'Most customers notice less bloating within 7–14 days. Real regularity and energy improvements typically hit around week 3–4, with the full benefits by week 6.' },
+    { q: 'Are these better than capsule probiotics?', a: 'They’re designed to be more reliable. Strips dissolve sublingually so the strains bypass stomach acid, and the format makes it far easier to take consistently — which is what actually matters with probiotics.' },
+    { q: 'What does it taste like?', a: 'Light, natural mixed-berry flavor — sweetened with monk fruit and stevia. No chalky probiotic aftertaste.' },
+    { q: 'Is it vegan and gluten-free?', a: 'Yes. Vegan, gluten-free, non-GMO, lactose-free, and made with no added sugar.' },
+    { q: 'Where are they made?', a: 'Made in the USA in an FDA-registered, GMP-certified facility. Every batch is independently third-party tested.' },
+  ],
+  descriptionText: 'A daily dissolving probiotic strip with 10 billion CFU of shelf-stable probiotic strains, 150 mg of prebiotic fiber, and 100 mg of green tea extract. Designed to support a balanced gut, ease occasional bloating, and quietly support a healthy metabolism — no refrigeration, no capsules.',
+  ingredientsAccordionText: 'Probiotic Blend (10 billion CFU), Prebiotic Fiber (150 mg), Green Tea Extract (100 mg), Pullulan, Cellulose, Mannitol, Monk Fruit Extract, Natural Mixed Berry Flavor, Malic Acid, Lecithin, Stevia Glycosides.',
+};
+
 // =====================================================
 // PUBLIC LOOKUP
 // =====================================================
@@ -1219,13 +1316,13 @@ const ALL_CONFIGS: PDPConfig[] = [
   libidoConfig,
   appetiteConfig,
   ironConfig,
+  probioticConfig,
 ];
 
 export function getPDPConfig(handle: string): PDPConfig | null {
   const h = (handle || '').toLowerCase();
-  // Exclude Hair/Skin/Nails (handled separately by HairSkinNailsPDP) and Probiotic (ProbioticPDP)
+  // Exclude Hair/Skin/Nails (handled separately by HairSkinNailsPDP)
   if (h.includes('hair') && (h.includes('skin') || h.includes('nail'))) return null;
-  if (h.includes('probiotic') && h.includes('metabolism')) return null;
 
   for (const cfg of ALL_CONFIGS) {
     if (cfg.matchHandles.some((m) => h.includes(m))) return cfg;

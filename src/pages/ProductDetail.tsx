@@ -299,57 +299,9 @@ export default function ProductDetail() {
     return <HairSkinNailsPDP product={product} />;
   }
 
-  if (normalizedHandle.includes('probiotic') && normalizedHandle.includes('metabolism')) {
-    const firstVariant = product.variants.edges[0]?.node;
-    const onAddSingle = async () => {
-      if (!firstVariant) return;
-      await addItem({
-        product: { node: product },
-        variantId: firstVariant.id,
-        variantTitle: firstVariant.title,
-        price: { amount: parseFloat(firstVariant.price.amount).toString(), currencyCode: 'USD' },
-        quantity: 1,
-        selectedOptions: firstVariant.selectedOptions,
-      });
-      sendAddToCartEvent({
-        id: product.id,
-        title: product.title,
-        variantId: firstVariant.id,
-        variantTitle: firstVariant.title,
-        price: firstVariant.price.amount,
-        quantity: 1,
-      });
-      toast.success('Added to Cart!', {
-        description: sanitizeTitle(product.title),
-        position: 'top-center',
-      });
-    };
-    const onAddBundle = async () => {
-      const { bundles: bundleList, productInfo } = await import('@/data/bundles');
-      const gutBundle = bundleList.find(b => b.id === 'gut-feeling');
-      if (!gutBundle || !firstVariant) return;
-      const items = gutBundle.variantIds.map(vid => {
-        const info = productInfo[vid] ?? { title: 'NEUVIE Strip', price: '29.99' };
-        return {
-          product: { node: product },
-          variantId: vid,
-          variantTitle: info.title,
-          price: { amount: info.price, currencyCode: 'USD' },
-          quantity: 1,
-          selectedOptions: [],
-          bundleId: gutBundle.id,
-          bundleName: gutBundle.name,
-          bundleDiscountCode: gutBundle.discountCode,
-        };
-      });
-      await addBundle(items, gutBundle.discountCode);
-      toast.success('Bundle added to Cart!', {
-        description: `${gutBundle.name} · Save $${gutBundle.savings.toFixed(2)}`,
-        position: 'top-center',
-      });
-    };
-    return <ProbioticPDP product={product} onAddSingle={onAddSingle} onAddBundle={onAddBundle} />;
-  }
+  // Probiotic + Metabolism now uses the standard StripPDPTemplate (probioticConfig)
+
+
 
   // ============ GENERIC PDP TEMPLATE for all other strip products ============
   const pdpConfig = getPDPConfig(normalizedHandle);
