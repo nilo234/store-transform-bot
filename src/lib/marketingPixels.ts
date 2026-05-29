@@ -7,6 +7,8 @@
  * — the algorithm will just spend budget on traffic that won't convert.
  */
 
+import { sendPinterestEvent } from './pinterestCapi';
+
 declare global {
   interface Window {
     fbq?: (...args: unknown[]) => void;
@@ -105,9 +107,23 @@ export function trackViewContent(product: PixelProduct) {
       },
     ],
   });
+
+  // Pinterest CAPI (server-side, dedupe via event_id)
+  sendPinterestEvent({
+    event_name: 'page_visit',
+    event_id: eventID,
+    custom_data: {
+      currency: CURRENCY,
+      value: String(price),
+      content_ids: [product.id],
+      content_name: product.name,
+      line_items: [{ product_id: product.id, product_name: product.name, product_price: price, product_quantity: 1 }],
+    },
+  });
 }
 
 /** Fired when user adds an item to the cart. */
+
 export function trackAddToCart(products: PixelProduct[]) {
   const clean = sanitizeProducts(products);
   if (clean.length === 0) return;
@@ -141,9 +157,27 @@ export function trackAddToCart(products: PixelProduct[]) {
       quantity: p.quantity,
     })),
   });
+
+  sendPinterestEvent({
+    event_name: 'add_to_cart',
+    event_id: eventID,
+    custom_data: {
+      currency: CURRENCY,
+      value: String(value),
+      content_ids: ids,
+      num_items: clean.reduce((s, p) => s + p.quantity, 0),
+      line_items: clean.map((p) => ({
+        product_id: p.id,
+        product_name: p.name,
+        product_price: p.price,
+        product_quantity: p.quantity,
+      })),
+    },
+  });
 }
 
 /** Fired when user clicks "Checkout" — Meta Ads' #1 optimization signal. */
+
 export function trackInitiateCheckout(products: PixelProduct[]) {
   const clean = sanitizeProducts(products);
   if (clean.length === 0) return;
@@ -178,13 +212,33 @@ export function trackInitiateCheckout(products: PixelProduct[]) {
       quantity: p.quantity,
     })),
   });
+
+  sendPinterestEvent({
+    event_name: 'checkout',
+    event_id: eventID,
+    custom_data: {
+      currency: CURRENCY,
+      value: String(value),
+      content_ids: clean.map((p) => p.id),
+      num_items: numItems,
+      order_quantity: numItems,
+      line_items: clean.map((p) => ({
+        product_id: p.id,
+        product_name: p.name,
+        product_price: p.price,
+        product_quantity: p.quantity,
+      })),
+    },
+  });
 }
 
 /** Fired when a user submits an email (newsletter / popup / quiz). */
 export function trackLead(source: string) {
   safeFbq('track', 'Lead', { content_name: source });
   safeGtag('event', 'generate_lead', { source });
+  sendPinterestEvent({ event_name: 'lead', custom_data: { content_name: source } });
 }
+
 
 const safePintrk = (...args: unknown[]) => {
   try {
@@ -295,4 +349,26 @@ export function trackPurchase({
       product_category: p.category,
     })),
   });
+
+  // Pinterest CAPI — server-side checkout (dedupes via event_id with browser pintrk)
+  sendPinterestEvent({
+    event_name: 'checkout',
+    event_id: dedupId,
+    custom_data: {
+      currency: safeCurrency,
+      value: String(safeValue),
+      order_id: safeOrderId,
+      order_quantity: numItems,
+      content_ids: contentIds,
+      num_items: numItems,
+      line_items: products.map((p) => ({
+        product_id: p.id,
+        product_name: p.name,
+        product_category: p.category,
+        product_price: p.price,
+        product_quantity: p.quantity,
+      })),
+    },
+  });
 }
+
