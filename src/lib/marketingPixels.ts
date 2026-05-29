@@ -7,6 +7,8 @@
  * — the algorithm will just spend budget on traffic that won't convert.
  */
 
+import { sendPinterestEvent } from './pinterestCapi';
+
 declare global {
   interface Window {
     fbq?: (...args: unknown[]) => void;
