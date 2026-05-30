@@ -41,6 +41,8 @@ import { toast } from 'sonner';
 import { ProductReviews } from '@/components/product/ProductReviews';
 import { StickyAddToCart } from '@/components/product/StickyAddToCart';
 import { BundleUpsell } from '@/components/product/BundleUpsell';
+import { FrequentlyBoughtTogether } from '@/components/product/FrequentlyBoughtTogether';
+import { StickyBundleSavings } from '@/components/product/StickyBundleSavings';
 import type { PDPConfig } from '@/data/pdpConfigs';
 
 const SINGLE_PRICE = 29.99;
@@ -759,6 +761,16 @@ export function StripPDPTemplate({ product, config }: Props) {
           <BundleUpsell currentVariantId={firstVariant?.id} currentProductHandle={product.handle} />
         </section>
 
+        {/* ============ FREQUENTLY BOUGHT TOGETHER ============ */}
+        {firstVariant?.id && (
+          <FrequentlyBoughtTogether
+            currentVariantId={firstVariant.id}
+            currentTitle={title}
+            currentPrice={parseFloat(firstVariant.price.amount) || SINGLE_PRICE}
+            currentImage={optimizeShopifyImage(images[0]?.node.url ?? '', 400)}
+          />
+        )}
+
         {/* ============ EXPERT EVALUATIONS ============ */}
         <section className="bg-background py-12 sm:py-16">
           <div className="container-wide max-w-5xl">
@@ -893,6 +905,8 @@ export function StripPDPTemplate({ product, config }: Props) {
         isSubscription={false}
         addToCartRef={addToCartRef}
       />
+
+      <StickyBundleSavings />
 
       <Footer />
     </div>
