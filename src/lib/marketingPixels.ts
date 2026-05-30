@@ -121,6 +121,18 @@ export function trackViewContent(product: PixelProduct) {
       line_items: [{ product_id: product.id, product_name: product.name, product_price: price, product_quantity: 1 }],
     },
   });
+
+  // TikTok Events API (server-side, dedupe via event_id with browser ttq)
+  sendTikTokEvent({
+    event: 'ViewContent',
+    event_id: eventID,
+    properties: {
+      currency: CURRENCY,
+      value: price,
+      content_type: 'product',
+      contents: [{ content_id: product.id, content_name: product.name, price, quantity: 1 }],
+    },
+  });
 }
 
 /** Fired when user adds an item to the cart. */
@@ -172,6 +184,22 @@ export function trackAddToCart(products: PixelProduct[]) {
         product_name: p.name,
         product_price: p.price,
         product_quantity: p.quantity,
+      })),
+    },
+  });
+
+  sendTikTokEvent({
+    event: 'AddToCart',
+    event_id: eventID,
+    properties: {
+      currency: CURRENCY,
+      value,
+      content_type: 'product',
+      contents: clean.map((p) => ({
+        content_id: p.id,
+        content_name: p.name,
+        price: p.price,
+        quantity: p.quantity,
       })),
     },
   });
@@ -231,6 +259,22 @@ export function trackInitiateCheckout(products: PixelProduct[]) {
       })),
     },
   });
+
+  sendTikTokEvent({
+    event: 'InitiateCheckout',
+    event_id: eventID,
+    properties: {
+      currency: CURRENCY,
+      value,
+      content_type: 'product',
+      contents: clean.map((p) => ({
+        content_id: p.id,
+        content_name: p.name,
+        price: p.price,
+        quantity: p.quantity,
+      })),
+    },
+  });
 }
 
 /** Fired when a user submits an email (newsletter / popup / quiz). */
@@ -238,6 +282,7 @@ export function trackLead(source: string) {
   safeFbq('track', 'Lead', { content_name: source });
   safeGtag('event', 'generate_lead', { source });
   sendPinterestEvent({ event_name: 'lead', custom_data: { content_name: source } });
+  sendTikTokEvent({ event: 'Lead', properties: { content_name: source } });
 }
 
 
@@ -368,6 +413,25 @@ export function trackPurchase({
         product_category: p.category,
         product_price: p.price,
         product_quantity: p.quantity,
+      })),
+    },
+  });
+
+  // TikTok Events API — server-side CompletePayment (dedupes via event_id)
+  sendTikTokEvent({
+    event: 'CompletePayment',
+    event_id: dedupId,
+    properties: {
+      currency: safeCurrency,
+      value: safeValue,
+      order_id: safeOrderId,
+      content_type: 'product',
+      contents: products.map((p) => ({
+        content_id: p.id,
+        content_name: p.name,
+        content_category: p.category,
+        price: p.price,
+        quantity: p.quantity,
       })),
     },
   });
