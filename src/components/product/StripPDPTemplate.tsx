@@ -906,6 +906,8 @@ export function StripPDPTemplate({ product, config }: Props) {
         addToCartRef={addToCartRef}
       />
 
+      <StickyBundleSavings />
+
       <Footer />
     </div>
   );
