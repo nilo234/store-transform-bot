@@ -23,34 +23,49 @@ export function FreeShippingBar({
   const qualified = remaining <= 0;
 
   return (
-    <div className="bg-muted/50 rounded-lg p-3">
+    <div className={`rounded-xl p-4 border-2 transition-colors ${qualified ? 'bg-primary/5 border-primary' : 'bg-muted/40 border-border'}`}>
       {qualified ? (
-        <div className="flex items-center gap-2 text-primary">
-          <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
-            <Check className="w-4 h-4" />
+        <motion.div
+          initial={{ scale: 0.95, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          className="flex items-center gap-3"
+        >
+          <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+            <Check className="w-5 h-5 text-primary-foreground" />
           </div>
-          <span className="text-sm font-semibold">
-            You've unlocked FREE shipping!
-          </span>
-        </div>
+          <div>
+            <p className="text-sm font-bold text-primary leading-tight">
+              You've unlocked FREE US shipping!
+            </p>
+            <p className="text-xs text-muted-foreground leading-tight">
+              We'll cover delivery on this order.
+            </p>
+          </div>
+        </motion.div>
       ) : (
         <>
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center justify-between mb-2.5">
             <div className="flex items-center gap-2">
-              <Truck className="w-4 h-4 text-muted-foreground" />
-              <span className="text-sm text-muted-foreground">
-                Add <span className="font-bold text-primary">{formatPrice(remaining)}</span> for FREE shipping
+              <Truck className="w-4 h-4 text-primary" />
+              <span className="text-sm text-foreground">
+                You're <span className="font-bold text-primary">{formatPrice(remaining)}</span> away from FREE shipping
               </span>
             </div>
+            <span className="text-xs text-muted-foreground font-medium">
+              {Math.round(progress)}%
+            </span>
           </div>
-          <div className="h-2 bg-muted rounded-full overflow-hidden">
-            <motion.div 
+          <div className="h-2.5 bg-muted rounded-full overflow-hidden">
+            <motion.div
               className="h-full bg-gradient-to-r from-primary to-accent rounded-full"
               initial={{ width: 0 }}
               animate={{ width: `${progress}%` }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
             />
           </div>
+          <p className="text-[11px] text-muted-foreground mt-2 leading-tight">
+            Free shipping on all US orders over {formatPrice(threshold)} — no code needed.
+          </p>
         </>
       )}
     </div>
