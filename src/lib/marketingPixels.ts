@@ -8,6 +8,7 @@
  */
 
 import { sendPinterestEvent } from './pinterestCapi';
+import { sendTikTokEvent } from './tiktokCapi';
 
 declare global {
   interface Window {
