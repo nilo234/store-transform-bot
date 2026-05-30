@@ -99,9 +99,17 @@ Deno.serve(async (req) => {
     });
 
     const text = await res.text();
+
+    if (!res.ok) {
+      console.warn('TikTok Events API rejected event', {
+        status: res.status,
+        response: text,
+      });
+    }
+
     return new Response(
       JSON.stringify({ ok: res.ok, status: res.status, response: text }),
-      { status: res.ok ? 200 : 502, headers: { ...corsHeaders, 'Content-Type': 'application/json' } },
+      { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } },
     );
   } catch (err) {
     return new Response(
