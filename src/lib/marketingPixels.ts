@@ -274,6 +274,19 @@ export function trackInitiateCheckout(products: PixelProduct[]) {
     })),
   });
 
+  safePintrk('track', 'checkout', {
+    event_id: eventID,
+    value,
+    order_quantity: numItems,
+    currency: CURRENCY,
+    line_items: clean.map((p) => ({
+      product_id: p.id,
+      product_name: p.name,
+      product_price: p.price,
+      product_quantity: p.quantity,
+    })),
+  });
+
   sendPinterestEvent({
     event_name: 'checkout',
     event_id: eventID,
