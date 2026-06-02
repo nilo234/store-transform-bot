@@ -47,6 +47,17 @@ const safeGtag = (...args: unknown[]) => {
   }
 };
 
+const safePintrk = (...args: unknown[]) => {
+  try {
+    if (typeof window !== 'undefined' && typeof window.pintrk === 'function') {
+      window.pintrk(...args);
+    }
+  } catch {
+    /* ignore */
+  }
+};
+
+
 /** ISO 4217 currency — single source of truth for all client-side pixels. */
 const CURRENCY = 'USD' as const;
 
@@ -109,6 +120,14 @@ export function trackViewContent(product: PixelProduct) {
     ],
   });
 
+  // Pinterest browser pixel (dedupe with CAPI via event_id)
+  safePintrk('track', 'pagevisit', {
+    event_id: eventID,
+    value: price,
+    currency: CURRENCY,
+    line_items: [{ product_id: product.id, product_name: product.name, product_price: price, product_quantity: 1 }],
+  });
+
   // Pinterest CAPI (server-side, dedupe via event_id)
   sendPinterestEvent({
     event_name: 'page_visit',
@@ -168,6 +187,19 @@ export function trackAddToCart(products: PixelProduct[]) {
       item_name: p.name,
       price: p.price,
       quantity: p.quantity,
+    })),
+  });
+
+  safePintrk('track', 'addtocart', {
+    event_id: eventID,
+    value,
+    order_quantity: clean.reduce((s, p) => s + p.quantity, 0),
+    currency: CURRENCY,
+    line_items: clean.map((p) => ({
+      product_id: p.id,
+      product_name: p.name,
+      product_price: p.price,
+      product_quantity: p.quantity,
     })),
   });
 
@@ -242,6 +274,19 @@ export function trackInitiateCheckout(products: PixelProduct[]) {
     })),
   });
 
+  safePintrk('track', 'checkout', {
+    event_id: eventID,
+    value,
+    order_quantity: numItems,
+    currency: CURRENCY,
+    line_items: clean.map((p) => ({
+      product_id: p.id,
+      product_name: p.name,
+      product_price: p.price,
+      product_quantity: p.quantity,
+    })),
+  });
+
   sendPinterestEvent({
     event_name: 'checkout',
     event_id: eventID,
@@ -279,22 +324,17 @@ export function trackInitiateCheckout(products: PixelProduct[]) {
 
 /** Fired when a user submits an email (newsletter / popup / quiz). */
 export function trackLead(source: string) {
-  safeFbq('track', 'Lead', { content_name: source });
+  const eventID = makeEventId('lead');
+  safeFbq('track', 'Lead', { content_name: source }, { eventID });
   safeGtag('event', 'generate_lead', { source });
-  sendPinterestEvent({ event_name: 'lead', custom_data: { content_name: source } });
-  sendTikTokEvent({ event: 'Lead', properties: { content_name: source } });
+  safePintrk('track', 'lead', { event_id: eventID, lead_type: source });
+  sendPinterestEvent({ event_name: 'lead', event_id: eventID, custom_data: { content_name: source } });
+  sendTikTokEvent({ event: 'Lead', event_id: eventID, properties: { content_name: source } });
 }
 
 
-const safePintrk = (...args: unknown[]) => {
-  try {
-    if (typeof window !== 'undefined' && typeof window.pintrk === 'function') {
-      window.pintrk(...args);
-    }
-  } catch {
-    /* ignore */
-  }
-};
+
+
 
 export interface PurchasePayload {
   orderId: string;
