@@ -324,11 +324,14 @@ export function trackInitiateCheckout(products: PixelProduct[]) {
 
 /** Fired when a user submits an email (newsletter / popup / quiz). */
 export function trackLead(source: string) {
-  safeFbq('track', 'Lead', { content_name: source });
+  const eventID = makeEventId('lead');
+  safeFbq('track', 'Lead', { content_name: source }, { eventID });
   safeGtag('event', 'generate_lead', { source });
-  sendPinterestEvent({ event_name: 'lead', custom_data: { content_name: source } });
-  sendTikTokEvent({ event: 'Lead', properties: { content_name: source } });
+  safePintrk('track', 'lead', { event_id: eventID, lead_type: source });
+  sendPinterestEvent({ event_name: 'lead', event_id: eventID, custom_data: { content_name: source } });
+  sendTikTokEvent({ event: 'Lead', event_id: eventID, properties: { content_name: source } });
 }
+
 
 
 
