@@ -120,6 +120,14 @@ export function trackViewContent(product: PixelProduct) {
     ],
   });
 
+  // Pinterest browser pixel (dedupe with CAPI via event_id)
+  safePintrk('track', 'pagevisit', {
+    event_id: eventID,
+    value: price,
+    currency: CURRENCY,
+    line_items: [{ product_id: product.id, product_name: product.name, product_price: price, product_quantity: 1 }],
+  });
+
   // Pinterest CAPI (server-side, dedupe via event_id)
   sendPinterestEvent({
     event_name: 'page_visit',
