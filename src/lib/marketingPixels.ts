@@ -297,15 +297,7 @@ export function trackLead(source: string) {
 }
 
 
-const safePintrk = (...args: unknown[]) => {
-  try {
-    if (typeof window !== 'undefined' && typeof window.pintrk === 'function') {
-      window.pintrk(...args);
-    }
-  } catch {
-    /* ignore */
-  }
-};
+
 
 export interface PurchasePayload {
   orderId: string;
