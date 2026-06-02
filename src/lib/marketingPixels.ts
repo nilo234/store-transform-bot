@@ -190,6 +190,19 @@ export function trackAddToCart(products: PixelProduct[]) {
     })),
   });
 
+  safePintrk('track', 'addtocart', {
+    event_id: eventID,
+    value,
+    order_quantity: clean.reduce((s, p) => s + p.quantity, 0),
+    currency: CURRENCY,
+    line_items: clean.map((p) => ({
+      product_id: p.id,
+      product_name: p.name,
+      product_price: p.price,
+      product_quantity: p.quantity,
+    })),
+  });
+
   sendPinterestEvent({
     event_name: 'add_to_cart',
     event_id: eventID,
