@@ -1,5 +1,8 @@
 import { useEffect } from 'react';
 
+const sanitizeProductHandle = (handle: string) =>
+  handle.replace(/[-_]?gummies/gi, '-strips').replace(/--+/g, '-').replace(/-$/, '');
+
 interface ProductJsonLdProps {
   product: {
     title: string;
@@ -32,9 +35,9 @@ interface ProductJsonLdProps {
 export function ProductJsonLd({ product }: ProductJsonLdProps) {
   useEffect(() => {
     const price = parseFloat(product.priceRange.minVariantPrice.amount);
-    const originalPrice = price * 1.42;
     const isAvailable = product.variants.edges.some(v => v.node.availableForSale);
     const images = product.images.edges.map(img => img.node.url);
+    const standardShipping = price >= 50 ? '0' : '4.99';
 
     const jsonLd = {
       "@context": "https://schema.org",
@@ -50,7 +53,7 @@ export function ProductJsonLd({ product }: ProductJsonLdProps) {
       "mpn": product.handle,
       "offers": {
         "@type": "Offer",
-        "url": `https://tryneuvie.com/product/${product.handle}`,
+        "url": `https://tryneuvie.com/product/${sanitizeProductHandle(product.handle)}`,
         "priceCurrency": product.priceRange.minVariantPrice.currencyCode,
         "price": price.toFixed(2),
         "priceValidUntil": new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
@@ -64,7 +67,7 @@ export function ProductJsonLd({ product }: ProductJsonLdProps) {
         "hasMerchantReturnPolicy": {
           "@type": "MerchantReturnPolicy",
           "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-          "merchantReturnDays": 14,
+          "merchantReturnDays": 30,
           "returnMethod": "https://schema.org/ReturnByMail",
           "returnFees": "https://schema.org/FreeReturn"
         },
@@ -72,12 +75,12 @@ export function ProductJsonLd({ product }: ProductJsonLdProps) {
           "@type": "OfferShippingDetails",
           "shippingRate": {
             "@type": "MonetaryAmount",
-            "value": "0",
+            "value": standardShipping,
             "currency": "USD"
           },
           "shippingDestination": {
             "@type": "DefinedRegion",
-            "addressCountry": ["US", "DE", "AT", "CH"]
+            "addressCountry": "US"
           },
           "deliveryTime": {
             "@type": "ShippingDeliveryTime",
@@ -95,42 +98,7 @@ export function ProductJsonLd({ product }: ProductJsonLdProps) {
             }
           }
         }
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "1247",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "review": [
-        {
-          "@type": "Review",
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5"
-          },
-          "author": {
-            "@type": "Person",
-            "name": "Sarah M."
-          },
-          "reviewBody": "These strips are incredibly convenient and fit perfectly into my morning routine. Clean energy without the jitters."
-        },
-        {
-          "@type": "Review",
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5"
-          },
-          "author": {
-            "@type": "Person",
-            "name": "James R."
-          },
-          "reviewBody": "Great quality and taste. I love how easy they are to take compared to traditional supplements."
-        }
-      ]
+      }
     };
 
     // Remove existing script if present

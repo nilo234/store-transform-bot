@@ -217,19 +217,8 @@ export function StripPDPTemplate({ product, config }: Props) {
 
             {/* RIGHT: Buybox */}
             <div>
-              {/* Reviews row */}
-              <div className="flex items-center gap-2 text-[13px] mb-3">
-                <div className="flex items-center gap-0.5 text-accent">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-accent" strokeWidth={1.5} />
-                  ))}
-                </div>
-                <a href="#reviews" className="font-semibold underline underline-offset-2 text-foreground">
-                  4.9/5.0
-                </a>
-                <span className="text-muted-foreground">{config.reviewCount}</span>
-                <span className="text-muted-foreground">·</span>
-                <span className="text-muted-foreground">10,000+ happy customers</span>
+              <div className="text-[13px] font-semibold text-primary mb-3">
+                Made in the USA · Third-party tested · 30 strips per pack
               </div>
 
               <p className="text-muted-foreground text-sm font-medium mb-1">{config.category}</p>
@@ -356,27 +345,11 @@ export function StripPDPTemplate({ product, config }: Props) {
                 For best results, use consistently for 4–12 weeks.
               </p>
 
-              {/* Mini testimonial */}
               <div className="bg-card rounded-2xl p-5 border border-border mb-6">
-                <div className="flex items-center gap-0.5 text-accent mb-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-accent" strokeWidth={1.5} />
-                  ))}
-                </div>
-                <p className="italic text-[14px] text-foreground leading-relaxed mb-3">
-                  “{config.reviewsTeaser.quote}”
+                <h3 className="font-semibold text-sm mb-2 text-foreground">Transparent formula details</h3>
+                <p className="text-[13px] text-muted-foreground leading-relaxed">
+                  Each pack includes 30 fast-dissolving wellness strips with the listed active ingredients, clear usage directions, and batch quality controls.
                 </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center text-primary-foreground font-bold text-xs">
-                    {config.reviewsTeaser.author.split(' ').map((n) => n[0]).join('')}
-                  </div>
-                  <div>
-                    <p className="text-[13px] font-semibold text-foreground">{config.reviewsTeaser.author}</p>
-                    <p className="text-[10px] text-muted-foreground flex items-center gap-1">
-                      <Check className="h-3 w-3 text-primary" strokeWidth={2.5} /> Verified Buyer
-                    </p>
-                  </div>
-                </div>
               </div>
 
               {/* Description tabs */}
@@ -825,22 +798,26 @@ export function StripPDPTemplate({ product, config }: Props) {
           </div>
         </section>
 
-        {/* ============ DON'T TAKE OUR WORD ============ */}
+        {/* ============ QUALITY DETAILS ============ */}
         <section className="bg-secondary/30 py-14 sm:py-20">
           <div className="container-wide">
             <div className="text-center mb-10 sm:mb-14">
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl mb-3 text-foreground text-balance">
-                Don’t Take Our <span className="italic text-accent">Word</span>
+                Clear Product <span className="italic text-accent">Details</span>
               </h2>
               <p className="text-sm sm:text-base text-muted-foreground max-w-xl mx-auto">
-                Over 10,000 customers have made NEUVIE part of their daily ritual.
+                Everything customers need to compare the product before checkout.
               </p>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-              {config.testimonials.map((t, i) => (
+              {[
+                { title: '30 strips per pack', body: 'Each package contains a 30-day supply when taken as directed.' },
+                { title: 'Full ingredient transparency', body: config.fullIngredientList },
+                { title: 'Quality controlled', body: 'Made in the USA in an FDA-registered, GMP-certified facility with third-party testing.' },
+              ].map((item, i) => (
                 <motion.div
-                  key={t.author}
+                  key={item.title}
                   initial={{ opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -848,20 +825,8 @@ export function StripPDPTemplate({ product, config }: Props) {
                   className="bg-card rounded-2xl border border-border shadow-soft flex flex-col"
                 >
                   <div className="p-6 sm:p-7 flex flex-col flex-1">
-                    <div className="flex items-center gap-0.5 text-accent mb-3">
-                      {[...Array(5)].map((_, s) => (
-                        <Star key={s} className="h-4 w-4 fill-accent" strokeWidth={1.5} />
-                      ))}
-                    </div>
-                    <h3 className="font-display text-lg sm:text-xl font-bold mb-2 text-foreground leading-snug">{t.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">{t.quote}</p>
-                    <div className="flex items-center justify-between pt-3 border-t border-border">
-                      <span className="text-sm font-semibold text-foreground">{t.author}</span>
-                      <span className="inline-flex items-center gap-1 text-[11px] text-primary font-semibold">
-                        <Check className="h-3 w-3" strokeWidth={2.5} />
-                        Verified Buyer
-                      </span>
-                    </div>
+                    <h3 className="font-display text-lg sm:text-xl font-bold mb-2 text-foreground leading-snug">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed flex-1">{item.body}</p>
                   </div>
                 </motion.div>
               ))}
@@ -871,7 +836,7 @@ export function StripPDPTemplate({ product, config }: Props) {
 
         {/* ============ CUSTOMER REVIEWS ============ */}
         <div id="reviews">
-          <ProductReviews productHandle={product.handle} productTitle={title} />
+          <ProductReviews productHandle={product.handle} productTitle={title} productId={product.id} />
         </div>
 
         {/* ============ FAQ ============ */}
