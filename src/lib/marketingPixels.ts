@@ -47,6 +47,17 @@ const safeGtag = (...args: unknown[]) => {
   }
 };
 
+const safePintrk = (...args: unknown[]) => {
+  try {
+    if (typeof window !== 'undefined' && typeof window.pintrk === 'function') {
+      window.pintrk(...args);
+    }
+  } catch {
+    /* ignore */
+  }
+};
+
+
 /** ISO 4217 currency — single source of truth for all client-side pixels. */
 const CURRENCY = 'USD' as const;
 
