@@ -1,39 +1,33 @@
-import { useState } from 'react';
-import { Star, BadgeCheck, ThumbsUp, PenLine } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { toast } from 'sonner';
+import { JudgeMeReviews } from '@/components/reviews/JudgeMeReviews';
 
-export interface Review {
-  author: string;
-  location: string;
-  rating: number;
-  date: string;
-  title: string;
-  body: string;
-  helpful: number;
-  verified?: boolean;
+interface ProductReviewsProps {
+  productHandle: string;
+  productTitle: string;
+  productId?: string;
 }
 
-// Product-specific reviews — emotionally aligned with each strip's benefit
-export const productReviewsMap: Record<string, Review[]> = {
-  hangover: [
-    { author: 'Jessica M.', location: 'Austin, TX', rating: 5, date: '2 weeks ago', title: 'Saved my Sunday', body: "Took one before bed after my best friend's wedding. Woke up feeling almost normal — no pounding headache, no fog. The fact that it dissolves on your tongue is a game changer when you're already nauseous. I will never travel without these again.", helpful: 47, verified: true },
-    { author: 'Marcus T.', location: 'Brooklyn, NY', rating: 5, date: '1 month ago', title: 'Finally something that works', body: "I've tried everything — Pedialyte, Liquid IV, those Korean pills. This is the only thing that actually made a noticeable difference the next morning. The mango flavor is also surprisingly good for 2 AM you.", helpful: 38, verified: true },
-    { author: 'Priya S.', location: 'Chicago, IL', rating: 4, date: '3 weeks ago', title: 'Works well, smart packaging', body: "I keep one in my purse for date nights. Took it before sleep after a few too many cocktails and the morning after was so much smoother than usual. Removed one star only because I wish there were more strips per pack.", helpful: 22, verified: true },
-    { author: 'Tyler K.', location: 'Denver, CO', rating: 5, date: '5 days ago', title: 'Worth every penny', body: "Bachelor party in Vegas. Brought these for the whole group. Five guys, three nights, and not a single ruined morning. The DHM combo really does what it claims.", helpful: 19, verified: true },
-    { author: 'Ana R.', location: 'Miami, FL', rating: 5, date: '2 months ago', title: 'My new routine', body: "Even after just two glasses of wine I notice a difference. No grogginess the next day. I love that it's not another pill in my drawer — it actually feels like self-care.", helpful: 31, verified: true },
-    { author: 'David W.', location: 'Seattle, WA', rating: 4, date: '1 week ago', title: 'Real difference', body: "Skeptical at first but after three uses I'm a believer. Headaches are way milder. Just wish they had a subscription discount that's a bit deeper.", helpful: 14, verified: true },
-  ],
-  bone: [
-    { author: 'Linda H.', location: 'Phoenix, AZ', rating: 5, date: '3 weeks ago', title: 'My doctor approved', body: "I'm 54 and my doctor told me I needed more D3 and K2. I hate swallowing pills — they always get stuck. These dissolve in seconds and the raspberry flavor is lovely. My last bloodwork showed my levels are finally where they should be.", helpful: 56, verified: true },
-    { author: 'Robert J.', location: 'Boston, MA', rating: 5, date: '1 month ago', title: 'Great for active 60s', body: "I bike 4 days a week and want to keep my bones strong. Easy to take, no aftertaste, no upset stomach like with calcium tablets. Perfect daily routine with my morning coffee.", helpful: 41, verified: true },
-    { author: 'Maria G.', location: 'San Diego, CA', rating: 5, date: '2 weeks ago', title: 'Finally a D3 I take daily', body: "I've bought so many vitamin D bottles that ended up forgotten in a cabinet. The strip format means I actually remember. Three months in and I feel stronger overall.", helpful: 28, verified: true },
-    { author: 'Helen K.', location: 'Portland, OR', rating: 4, date: '1 week ago', title: 'Love the convenience', body: "Post-menopause my doctor wanted me on D3+K2. These are easy and tasty. Only complaint is I wish the strip was slightly bigger so it lasted a few seconds longer to enjoy.", helpful: 17, verified: true },
-    { author: 'Frank D.', location: 'Tampa, FL', rating: 5, date: '6 weeks ago', title: 'Travel friendly', body: "I travel for work constantly. No more spilled vitamin bottles in my suitcase. One strip a day, done. My energy and joints feel better since starting.", helpful: 33, verified: true },
-    { author: 'Susan B.', location: 'Minneapolis, MN', rating: 5, date: '4 days ago', title: 'Great for winter D levels', body: "Living up north, my D3 always tanks in winter. Started these in October and felt the difference within a few weeks — better mood, less fatigue.", helpful: 21, verified: true },
-  ],
+export const ProductReviews = ({ productHandle, productTitle, productId }: ProductReviewsProps) => {
+  if (productId) {
+    return <JudgeMeReviews productId={productId} productHandle={productHandle} productTitle={productTitle} />;
+  }
+
+  return (
+    <section className="py-12 sm:py-16 bg-muted/20">
+      <div className="container-wide">
+        <div className="max-w-3xl mx-auto text-center bg-card rounded-2xl border border-border/50 p-6 sm:p-8">
+          <h2 className="font-display text-2xl md:text-3xl mb-2" style={{ letterSpacing: '-0.02em' }}>
+            Customer Reviews
+          </h2>
+          <p className="text-sm sm:text-base text-muted-foreground">
+            Reviews for {productTitle} are collected through our verified review platform.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ProductReviews;
   cognitive: [
     { author: 'Emma L.', location: 'San Francisco, CA', rating: 5, date: '2 weeks ago', title: 'My nervous system thanks me', body: "I'm a project manager and my brain runs at 100 mph all day. Take one of these mid-afternoon and within minutes there's this gentle softening — not sleepy, just less wound up. It's become my non-negotiable.", helpful: 62, verified: true },
     { author: 'James P.', location: 'New York, NY', rating: 5, date: '1 month ago', title: 'Better than my anxiety teas', body: "L-theanine and ashwagandha in one strip — genius. I take it before big presentations and my hands stop shaking. No drowsiness, just calm focus.", helpful: 49, verified: true },
