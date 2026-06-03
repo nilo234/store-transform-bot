@@ -174,6 +174,7 @@ export default function Shop() {
 
               <div className="flex items-center gap-2 ml-3 flex-shrink-0">
                 <button
+                  aria-label="Filters"
                   onClick={() => setShowFilters(!showFilters)}
                   className={cn(
                     "flex items-center gap-1.5 px-3 py-2 rounded-full text-xs md:text-sm font-medium transition-all",
@@ -184,7 +185,7 @@ export default function Shop() {
                 </button>
 
                 <div className="relative group">
-                  <button className="flex items-center gap-1.5 px-3 py-2 rounded-full text-xs md:text-sm font-medium bg-muted/60 text-muted-foreground hover:bg-muted transition-all">
+                  <button aria-label="Sort options" className="flex items-center gap-1.5 px-3 py-2 rounded-full text-xs md:text-sm font-medium bg-muted/60 text-muted-foreground hover:bg-muted transition-all">
                     <span className="hidden sm:inline">Sort</span>
                     <ChevronDown className="h-3.5 w-3.5" />
                   </button>
