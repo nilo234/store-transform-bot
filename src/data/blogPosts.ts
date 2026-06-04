@@ -201,6 +201,189 @@ export const blogPosts: BlogPost[] = [
       href: '/shop',
     },
   },
+  {
+    slug: 'best-supplements-for-women-2026',
+    title: 'Top 10 Supplements for Women in 2026 (Ranked)',
+    excerpt:
+      'A dietitian-informed ranking of the supplements actually worth taking in 2026 — from energy and sleep to hair, skin, and hormones.',
+    metaDescription:
+      'The 10 best supplements for women in 2026 — ranked by science, absorption, and real-life results. Strips, capsules, and what to skip.',
+    category: 'Guides',
+    readTime: '7 min read',
+    publishedAt: '2026-01-12',
+    author: 'NEUVIE Team',
+    content: [
+      {
+        paragraphs: [
+          "Walk into any wellness aisle in 2026 and you'll see hundreds of options. Most of them are repackaging the same handful of ingredients. Here's the short list women actually need — and the format that gets it into your bloodstream.",
+        ],
+      },
+      {
+        heading: 'The ranking (quick answer)',
+        paragraphs: [
+          '1. **Daily Multivitamin Strip** — the non-negotiable base layer.',
+          '2. **Hair, Skin & Nails (biotin + zinc + antioxidants)** — visible results in 4–6 weeks.',
+          '3. **Beauty / Glutathione + Vitamin C** — skin glow and antioxidant defense.',
+          '4. **Energy (B-complex + natural caffeine)** — steady energy, no crash.',
+          '5. **Sleep (melatonin + L-theanine)** — fall asleep faster, wake clear.',
+          '6. **Iron (bioavailable, gentle)** — most women under 50 are low.',
+          '7. **Magnesium / Relax (ashwagandha + magnesium)** — stress and recovery.',
+          '8. **Probiotic + Digestive Enzymes** — bloating, regularity, gut.',
+          '9. **Focus (lion\'s mane + L-theanine)** — clean cognitive support.',
+          '10. **Hangover / Recovery (B-complex + electrolytes)** — for life that happens.',
+        ],
+      },
+      {
+        heading: 'Why format matters more than brand',
+        paragraphs: [
+          "A vitamin you forget to take is a vitamin that doesn't work. The reason most women quit supplements isn't price — it's friction. Pills are big, gummies are sugar, powders are messy.",
+          "Dissolving strips solved that. 30 seconds on the tongue, no water, sublingual absorption that bypasses first-pass metabolism. That's why NEUVIE built every product in this list as a strip.",
+        ],
+      },
+      {
+        heading: 'What to skip',
+        paragraphs: [
+          'Mega-dose vitamin C (anything over 1000mg — your body excretes the rest). Generic "fat burner" stacks. Anything that won\'t show third-party test results. Anything with proprietary blends that hide doses.',
+        ],
+      },
+    ],
+    cta: { label: 'Shop All Strips', href: '/shop' },
+  },
+  {
+    slug: 'neuvie-vs-olly-vs-ritual',
+    title: 'NEUVIE vs Olly vs Ritual: Honest 2026 Comparison',
+    excerpt:
+      'Side-by-side: format, absorption, price-per-day, and ingredient transparency across three of the most-searched US vitamin brands.',
+    metaDescription:
+      'NEUVIE vs Olly vs Ritual compared head-to-head: format, absorption, dosing, sugar, price, and which is best for your routine.',
+    category: 'Comparison',
+    readTime: '6 min read',
+    publishedAt: '2026-02-04',
+    author: 'NEUVIE Team',
+    content: [
+      {
+        paragraphs: [
+          "Three of the most-searched US vitamin brands in 2026: NEUVIE, Olly, and Ritual. They look similar on Instagram. They're not the same in your body. Here's the honest breakdown.",
+        ],
+      },
+      {
+        heading: 'Quick answer',
+        paragraphs: [
+          '**NEUVIE** — dissolving strips, sublingual absorption, no sugar, third-party tested. Best for: people who want fastest absorption and zero pill-friction.',
+          '**Olly** — chewable gummies. Best for: people who want a sweet treat and don\'t mind 2–4g of added sugar per serving.',
+          '**Ritual** — delayed-release capsules. Best for: people who don\'t mind swallowing 2 large pills daily and want a minimalist formula.',
+        ],
+      },
+      {
+        heading: 'Format & absorption',
+        paragraphs: [
+          'NEUVIE dissolves in ~30 seconds on the tongue and absorbs sublingually — bypassing the gut entirely. Clinical research on sublingual B12 shows up to 5x higher absorption than oral capsules.',
+          'Olly gummies have to be chewed and digested. The added sugar (typically 2–4g) is part of the cost of making them palatable.',
+          'Ritual uses a delayed-release capsule designed to dissolve in the small intestine — better than a standard pill, but still subject to first-pass liver metabolism.',
+        ],
+      },
+      {
+        heading: 'Price per day (typical)',
+        paragraphs: [
+          'NEUVIE: ~$1.00/day on subscription, $1.17/day one-time.',
+          'Olly: ~$0.50–$0.80/day depending on product.',
+          'Ritual: ~$1.10/day (subscription only).',
+        ],
+      },
+      {
+        heading: 'Bottom line',
+        paragraphs: [
+          "If absorption and a routine you'll actually stick with matter most, NEUVIE wins. If you want the cheapest gummy and don't care about sugar, Olly. If you want a clean minimalist capsule and don't mind swallowing pills, Ritual.",
+        ],
+      },
+    ],
+    cta: { label: 'Try NEUVIE Risk-Free', href: '/shop' },
+  },
+  {
+    slug: 'are-vitamin-strips-better-than-pills',
+    title: 'Are Vitamin Strips Better Than Pills? (Science Explained)',
+    excerpt:
+      'The short answer: yes, for most nutrients. The long answer involves first-pass metabolism, sublingual capillaries, and a 5x absorption gap.',
+    metaDescription:
+      'Are dissolving vitamin strips better than pills? Clinical research on sublingual absorption, first-pass metabolism, and what it means for your daily vitamin.',
+    category: 'Science',
+    readTime: '5 min read',
+    publishedAt: '2026-02-20',
+    author: 'NEUVIE Team',
+    content: [
+      {
+        paragraphs: [
+          "Short answer: for most fat-soluble and B-vitamin nutrients, yes — dissolving strips deliver significantly more of the dose to your bloodstream than equivalent pills. Here's why.",
+        ],
+      },
+      {
+        heading: 'The pill problem: first-pass metabolism',
+        paragraphs: [
+          "Swallow a pill and it travels: stomach → small intestine → liver → bloodstream. The liver step breaks down a large fraction of the nutrient before it ever reaches your cells. For B12, oral absorption can drop as low as 1–2% in some adults.",
+        ],
+      },
+      {
+        heading: 'How strips change the math',
+        paragraphs: [
+          "The tissue under your tongue is rich with capillaries that connect directly to circulation. Anything absorbed there bypasses the gut and the liver — no first-pass loss. Clinical research shows sublingual B12 delivers ~5x higher absorption than the equivalent oral dose.",
+        ],
+      },
+      {
+        heading: 'When pills are still fine',
+        paragraphs: [
+          'For minerals like calcium and iron in large doses (>20mg), pills or strips both work — the bottleneck there is transporter saturation in the gut, not delivery format. For everything else — B-complex, melatonin, biotin, glutathione — strips win on absorption and on compliance.',
+        ],
+      },
+      {
+        heading: 'The compliance factor nobody talks about',
+        paragraphs: [
+          "The best supplement is the one you actually take. Surveys show 60%+ of pill-based vitamin users quit within 90 days. The #1 reason: friction. Strips remove the friction — 30 seconds, no water, tastes good.",
+        ],
+      },
+    ],
+    cta: { label: 'See How Strips Work', href: '/science' },
+  },
+  {
+    slug: 'best-supplements-for-energy-without-caffeine',
+    title: 'Best Supplements for Energy Without the Caffeine Crash',
+    excerpt:
+      'B-complex, CoQ10, iron, and adaptogens — the science-backed stack for steady, all-day energy without jitters or a 3pm crash.',
+    metaDescription:
+      'The best supplements for natural energy without caffeine crashes: B-complex, CoQ10, iron, ashwagandha. What works, what dose, what format.',
+    category: 'Energy',
+    readTime: '5 min read',
+    publishedAt: '2026-03-05',
+    author: 'NEUVIE Team',
+    content: [
+      {
+        paragraphs: [
+          "If you've been chasing energy with a fourth cup of coffee, the problem usually isn't caffeine — it's what's underneath. Here's the stack that actually moves the needle on baseline energy, without the crash.",
+        ],
+      },
+      {
+        heading: 'The four-ingredient stack',
+        paragraphs: [
+          '1. **B-Complex (B1, B6, B12).** Powers cellular energy production. Most adults are mildly deficient.',
+          '2. **CoQ10.** Powers the mitochondria — literally the energy factory of every cell.',
+          '3. **Iron (bioavailable form).** Carries oxygen. Most menstruating women run low.',
+          '4. **Adaptogens (ashwagandha, rhodiola).** Regulate cortisol so your energy stays steady instead of spiking.',
+        ],
+      },
+      {
+        heading: 'Why a low-caffeine strip beats a fourth coffee',
+        paragraphs: [
+          'A small amount of natural caffeine (40–80mg, about half a cup of coffee) paired with L-theanine gives you the lift without the jitters or crash. NEUVIE Energy Strips combine this with B-complex for sublingual delivery — onset in minutes, no stomach upset.',
+        ],
+      },
+      {
+        heading: 'Routine that works',
+        paragraphs: [
+          'Energy Strip in the morning. Iron Strip with breakfast (vitamin C helps absorption). Magnesium or Relax Strip at night to support recovery. That\'s the loop — and it compounds over weeks.',
+        ],
+      },
+    ],
+    cta: { label: 'Shop Energy Strips', href: '/shop' },
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
