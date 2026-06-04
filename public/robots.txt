@@ -1,31 +1,56 @@
+# ============================================
+# NEUVIE Nutrition - robots.txt for AI Era 2026
+# Optimized for ChatGPT, Perplexity, US AI Search
+# ============================================
+
+# Allow major search engines ( essential for SEO )
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
 
 User-agent: Googlebot-Image
 Allow: /
 
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 2
 
+# AI Search Bots (ALLOW for AI visibility)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+
+# Social Media Bots (ALLOW for sharing)
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: OAI-SearchBot
+User-agent: OAI-AdsBot
 Allow: /
 
-User-agent: GPTBot
-Allow: /
-
+# Default for all other bots
 User-agent: *
 Allow: /
 
+# Block sensitive/admin areas
 Disallow: /api/
 Disallow: /admin/
 Disallow: /cart/c/
+Disallow: /checkout/
+Disallow: /accounts/
+Disallow: /password/
 
+# Sitemap
 Sitemap: https://tryneuvie.com/sitemap.xml
