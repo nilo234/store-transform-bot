@@ -271,9 +271,24 @@ export function HairSkinNailsPDP({ product }: Props) {
   };
 
 
+  const _title = sanitizeTitle(product.title);
+  const _slug = sanitizeHandle(product.handle);
+  const _url = `https://tryneuvie.com/product/${_slug}`;
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <PageMeta
+        title="Hair, Skin & Nails Strips – Biotin + Folate | NEUVIE™"
+        description="NEUVIE Hair, Skin & Nails dissolving strips with biotin, folate & vitamin D3. Stronger hair, glowing skin, healthier nails. Free US shipping $50+."
+        ogType="product"
+      />
+      <ProductJsonLd product={product} />
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', url: 'https://tryneuvie.com' },
+        { name: 'Shop', url: 'https://tryneuvie.com/shop' },
+        { name: _title, url: _url },
+      ]} />
       <Navbar />
+
 
       <main className="flex-1">
         {/* ============ PRODUCT MAIN ============ */}
