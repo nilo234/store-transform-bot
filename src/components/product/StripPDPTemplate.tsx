@@ -33,7 +33,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { ShopifyProduct, sanitizeTitle, optimizeShopifyImage } from '@/lib/shopify';
+import { ShopifyProduct, sanitizeTitle, sanitizeHandle, optimizeShopifyImage } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { sendAddToCartEvent } from '@/hooks/useShopifyAnalytics';
 import { trackViewContent } from '@/lib/marketingPixels';
@@ -43,6 +43,7 @@ import { StickyAddToCart } from '@/components/product/StickyAddToCart';
 import { BundleUpsell } from '@/components/product/BundleUpsell';
 import { FrequentlyBoughtTogether } from '@/components/product/FrequentlyBoughtTogether';
 import { StickyBundleSavings } from '@/components/product/StickyBundleSavings';
+import { PageMeta, ProductJsonLd, BreadcrumbJsonLd } from '@/components/seo';
 import type { PDPConfig } from '@/data/pdpConfigs';
 
 const SINGLE_PRICE = 29.99;
