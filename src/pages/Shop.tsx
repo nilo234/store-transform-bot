@@ -262,8 +262,10 @@ export default function Shop() {
         </div>
 
         {/* Products Grid */}
-        <section className="py-4 md:py-8 lg:py-12">
+        <section className="py-4 md:py-8 lg:py-12" aria-labelledby="shop-grid-heading">
           <div className="container-wide px-3 md:px-6">
+            <h2 id="shop-grid-heading" className="sr-only">Our Wellness Strips</h2>
+
             {isLoading ?
             <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
                 {[...Array(8)].map((_, i) =>
