@@ -29,7 +29,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { ShopifyProduct, sanitizeTitle, optimizeShopifyImage } from '@/lib/shopify';
+import { ShopifyProduct, sanitizeTitle, sanitizeHandle, optimizeShopifyImage } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { sendAddToCartEvent } from '@/hooks/useShopifyAnalytics';
 import { trackViewContent } from '@/lib/marketingPixels';
@@ -37,6 +37,7 @@ import { toast } from 'sonner';
 import { ProductReviews } from '@/components/product/ProductReviews';
 import { StickyAddToCart } from '@/components/product/StickyAddToCart';
 import { BundleUpsell } from '@/components/product/BundleUpsell';
+import { PageMeta, ProductJsonLd, BreadcrumbJsonLd } from '@/components/seo';
 
 import doctorRachelKim from '@/assets/doctor-rachel-kim.jpg';
 import doctorMarcusChen from '@/assets/doctor-marcus-chen.jpg';
