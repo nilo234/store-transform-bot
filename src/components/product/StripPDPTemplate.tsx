@@ -150,9 +150,21 @@ export function StripPDPTemplate({ product, config }: Props) {
     });
   };
 
+  const _slug = sanitizeHandle(product.handle);
+  const _url = `https://tryneuvie.com/product/${_slug}`;
+  const _seoTitle = `${title} – Dissolving Wellness Strip | NEUVIE™`.slice(0, 60);
+  const _seoDesc = (config.subtitle || `${title} by NEUVIE — fast-dissolving wellness strip. No water, no pills. Free US shipping $50+.`).slice(0, 158);
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <PageMeta title={_seoTitle} description={_seoDesc} ogType="product" />
+      <ProductJsonLd product={product} />
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', url: 'https://tryneuvie.com' },
+        { name: 'Shop', url: 'https://tryneuvie.com/shop' },
+        { name: title, url: _url },
+      ]} />
       <Navbar />
+
 
       <main className="flex-1">
         {/* ============ PRODUCT MAIN ============ */}
