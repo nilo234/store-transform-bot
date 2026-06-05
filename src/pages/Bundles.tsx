@@ -128,9 +128,11 @@ export default function Bundles() {
         </section>
 
         {/* Bundle Grid */}
-        <section className="py-14 md:py-20 bg-background">
+        <section className="py-14 md:py-20 bg-background" aria-labelledby="bundles-grid-heading">
           <div className="container-wide">
+            <h2 id="bundles-grid-heading" className="sr-only">Available Routine Bundles</h2>
             {filteredBundles.length > 0 ? (
+
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {filteredBundles.map((bundle, index) => (
                   <BundleCard key={bundle.id} bundle={bundle} index={index} />
