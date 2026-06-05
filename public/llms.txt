@@ -52,41 +52,41 @@ Strips: dissolve in 30 sec, no sugar (unlike gummies), no water needed (unlike p
 
 ## Pages
 
-- Home (/): Brand overview, bestselling strips, 3-second daily ritual
-- Shop (/shop): All 13 wellness strips, filterable by goal (energy, sleep, beauty, focus, gut, immunity)
-- Bundles (/bundles): Curated multi-strip bundles, up to 25% off vs single strips
-- Science (/science): Sublingual absorption research, ingredient sourcing, third-party testing reports
-- About (/about): Founder story and brand mission
-- FAQs (/faqs): Common questions about strips, ingredients, shipping, returns
-- Contact (/contact): Customer support (team@tryneuvie.com)
-- Shipping (/shipping): US shipping policy and delivery times
-- Returns (/returns): 30-day money-back guarantee details
+- [Home](/): Brand overview, bestselling strips, 3-second daily ritual
+- [Shop](/shop): All 13 wellness strips, filterable by goal
+- [Bundles](/bundles): Curated multi-strip bundles, up to 25% off
+- [Science](/science): Sublingual absorption research, third-party testing
+- [About](/about): Founder story and brand mission
+- [FAQs](/faqs): Common questions about strips, ingredients, shipping
+- [Contact](/contact): Customer support (team@tryneuvie.com)
+- [Shipping](/shipping): US shipping policy and delivery times
+- [Returns](/returns): 30-day money-back guarantee details
+- [Blog](/blog): Wellness and supplement guides
 
 ## Top products
 
-- Energy Strips (/product/energy-strips): B-complex + natural caffeine for steady energy without crash
-- Sleep Strips (/product/sleep-strips): Melatonin + L-theanine for faster, deeper sleep, no morning grogginess
-- Beauty Strips (/product/beauty-strips): Collagen-supporting glutathione + vitamin C for skin glow
-- Hair, Skin & Nails Strips (/product/hairskin-strips): Biotin + zinc + antioxidants for stronger hair and nails
-- Focus Strips (/product/focus-strips): Lion's mane + L-theanine for clean cognitive focus
-- Relax Strips (/product/relax-strips): Ashwagandha + magnesium for stress and calm
-- Digestive Strips (/product/digestive-strips): Digestive enzymes and prebiotic support after meals
-- Hangover Strips (/product/hangover-strips): B-complex, electrolytes, antioxidants for morning-after recovery
-- Iron Strips (/product/iron-strips): Gentle bioavailable iron for women
-- Multivitamin Strips (/product/multivitamin-strips): Daily essential vitamins in one strip
+- [Energy Strips](/product/energy-strips-2): B-complex + natural caffeine for steady energy without crash
+- [Sleep Strips](/product/sleep-strips-1): Melatonin + L-theanine for deeper sleep, no grogginess
+- [Hair, Skin & Nails Strips](/product/hair-skin-and-nails-strips): Biotin + zinc for stronger hair, nails, skin
+- [Hangover Strips](/product/hangover-strips-2): B-complex, electrolytes, antioxidants for morning recovery
+- [Digestive Strips](/product/digestive-gut-health-strips): Enzymes + prebiotics for gut health
+- [Focus Strips](/product/focus-strips): Lion's mane + L-theanine for clean cognitive focus
+- [Relax Strips](/product/relax-strips): Ashwagandha + magnesium for stress and calm
+- [Iron Strips](/product/iron-strips): Gentle bioavailable iron for women
+- [Multivitamin Strips](/product/multivitamin-strips): Daily essential vitamins in one strip
 
 ## Blog
 
-- Best Vitamin Strips for Hangover Recovery (/blog/best-vitamin-strips-for-hangover): B-complex, electrolytes, antioxidants for morning after
-- How Long Does Melatonin Take to Work (/blog/how-long-does-melatonin-take-to-work): Sublingual vs pill onset times
-- Glutathione vs Vitamin C for Skin (/blog/glutathione-vs-vitamin-c-for-skin): Antioxidant comparison for skin health
-- Why Vitamin Strips Beat Pills (/blog/why-vitamin-strips-beat-pills): Absorption, convenience, compliance
-- Top 10 Supplements for Women in 2026 (/blog/best-supplements-for-women-2026): Ranked list of supplements worth taking
-- NEUVIE vs Olly vs Ritual (/blog/neuvie-vs-olly-vs-ritual): Head-to-head comparison of format, absorption, price
-- Are Vitamin Strips Better Than Pills? (/blog/are-vitamin-strips-better-than-pills): Sublingual absorption, first-pass metabolism explained
-- Best Supplements for Energy Without Caffeine (/blog/best-supplements-for-energy-without-caffeine): B-complex, CoQ10, iron, adaptogens for steady energy
+- [Best Vitamin Strips for Hangover Recovery](/blog/best-vitamin-strips-for-hangover): B-complex, electrolytes, antioxidants
+- [How Long Does Melatonin Take to Work](/blog/how-long-does-melatonin-take-to-work): Sublingual vs pill onset times
+- [Glutathione vs Vitamin C for Skin](/blog/glutathione-vs-vitamin-c-for-skin): Antioxidant comparison for skin
+- [Why Vitamin Strips Beat Pills](/blog/why-vitamin-strips-beat-pills): Absorption, convenience, compliance
+- [Top 10 Supplements for Women 2026](/blog/best-supplements-for-women-2026): Ranked list worth taking
+- [NEUVIE vs Olly vs Ritual](/blog/neuvie-vs-olly-vs-ritual): Format, absorption, price comparison
+- [Are Vitamin Strips Better Than Pills?](/blog/are-vitamin-strips-better-than-pills): Sublingual absorption explained
+- [Best Supplements for Energy Without Caffeine](/blog/best-supplements-for-energy-without-caffeine): B-complex, CoQ10, adaptogens
 
 ## Optional
 
-- Privacy Policy (/privacy)
-- Terms of Service (/terms)
+- [Privacy Policy](/privacy)
+- [Terms of Service](/terms)

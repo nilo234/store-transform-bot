@@ -33,7 +33,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { ShopifyProduct, sanitizeTitle, optimizeShopifyImage } from '@/lib/shopify';
+import { ShopifyProduct, sanitizeTitle, sanitizeHandle, optimizeShopifyImage } from '@/lib/shopify';
 import { useCartStore } from '@/stores/cartStore';
 import { sendAddToCartEvent } from '@/hooks/useShopifyAnalytics';
 import { trackViewContent } from '@/lib/marketingPixels';
@@ -43,6 +43,7 @@ import { StickyAddToCart } from '@/components/product/StickyAddToCart';
 import { BundleUpsell } from '@/components/product/BundleUpsell';
 import { FrequentlyBoughtTogether } from '@/components/product/FrequentlyBoughtTogether';
 import { StickyBundleSavings } from '@/components/product/StickyBundleSavings';
+import { PageMeta, ProductJsonLd, BreadcrumbJsonLd } from '@/components/seo';
 import type { PDPConfig } from '@/data/pdpConfigs';
 
 const SINGLE_PRICE = 29.99;
@@ -149,9 +150,21 @@ export function StripPDPTemplate({ product, config }: Props) {
     });
   };
 
+  const _slug = sanitizeHandle(product.handle);
+  const _url = `https://tryneuvie.com/product/${_slug}`;
+  const _seoTitle = `${title} – Dissolving Wellness Strip | NEUVIE™`.slice(0, 60);
+  const _seoDesc = (config.subtitle || `${title} by NEUVIE — fast-dissolving wellness strip. No water, no pills. Free US shipping $50+.`).slice(0, 158);
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <PageMeta title={_seoTitle} description={_seoDesc} ogType="product" />
+      <ProductJsonLd product={product} />
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', url: 'https://tryneuvie.com' },
+        { name: 'Shop', url: 'https://tryneuvie.com/shop' },
+        { name: title, url: _url },
+      ]} />
       <Navbar />
+
 
       <main className="flex-1">
         {/* ============ PRODUCT MAIN ============ */}
