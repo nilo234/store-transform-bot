@@ -45,6 +45,7 @@ import { FrequentlyBoughtTogether } from '@/components/product/FrequentlyBoughtT
 import { StickyBundleSavings } from '@/components/product/StickyBundleSavings';
 import { PageMeta, ProductJsonLd, BreadcrumbJsonLd } from '@/components/seo';
 import type { PDPConfig } from '@/data/pdpConfigs';
+import dissolveLoopAsset from '@/assets/lifestyle-dissolve-loop.mp4.asset.json';
 
 const SINGLE_PRICE = 29.99;
 const ORIGINAL_PRICE = 49.99;
@@ -496,6 +497,40 @@ export function StripPDPTemplate({ product, config }: Props) {
               <Link to="/science" className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-full font-semibold text-sm transition whitespace-nowrap">
                 View Test Results
               </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ============ DISSOLVES IN SECONDS — VIDEO MOMENT ============ */}
+        <section className="bg-secondary/20 py-12 sm:py-16">
+          <div className="container-wide grid lg:grid-cols-2 gap-10 items-center">
+            <div className="rounded-3xl overflow-hidden border border-border bg-card shadow-soft">
+              <video
+                src={dissolveLoopAsset.url}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="w-full h-auto aspect-square object-cover"
+                aria-label={`${title} strip dissolving on the palm in seconds`}
+              />
+            </div>
+            <div>
+              <p className="text-sm text-muted-foreground mb-2 uppercase tracking-wider font-semibold">
+                The 3-second ritual
+              </p>
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl mb-4 text-foreground">
+                Dissolves in <span className="italic text-accent">30 seconds.</span>
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                No water. No pills. No routine to maintain. Place one strip on your tongue and let it melt — the nutrients are designed to absorb directly, so your body gets what it needs faster than a capsule could deliver.
+              </p>
+              <ul className="space-y-2 text-sm text-foreground">
+                <li className="flex items-center gap-2"><Check className="h-4 w-4 text-accent shrink-0" /> Made in a US FDA-registered facility</li>
+                <li className="flex items-center gap-2"><Check className="h-4 w-4 text-accent shrink-0" /> Vegan, non-GMO, sugar-free</li>
+                <li className="flex items-center gap-2"><Check className="h-4 w-4 text-accent shrink-0" /> Pocket-friendly — take it anywhere</li>
+              </ul>
             </div>
           </div>
         </section>
