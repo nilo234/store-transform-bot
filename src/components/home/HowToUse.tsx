@@ -5,7 +5,6 @@ import howToUse1 from '@/assets/how-to-use-1.png';
 import howToUse2 from '@/assets/how-to-use-2.png';
 import howToUse3 from '@/assets/how-to-use-3.png';
 import howToUse4 from '@/assets/how-to-use-4.png';
-import ritualLoopAsset from '@/assets/lifestyle-ritual-loop.mp4.asset.json';
 
 const steps = [
   {
@@ -80,23 +79,6 @@ export function HowToUse() {
           <p className="font-body text-base md:text-lg font-light max-w-md mx-auto" style={{ color: '#888880' }}>
             Four simple steps. No water. No effort. Just results.
           </p>
-        </motion.div>
-
-        {/* Cinematic ritual video */}
-        <motion.div
-          className="max-w-4xl mx-auto mb-14 md:mb-20 rounded-2xl overflow-hidden border border-border/40 shadow-soft"
-          {...fadeUp}
-        >
-          <video
-            src={ritualLoopAsset.url}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="w-full h-auto aspect-video object-cover"
-            aria-label="A woman peels open a NEUVIE wellness strip in her morning routine"
-          />
         </motion.div>
 
         {/* Steps — horizontal on desktop, vertical on mobile */}

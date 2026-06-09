@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import productsLineup from '@/assets/neuvie-products-lineup.webp';
-import lifestyleHero from '@/assets/lifestyle-hero-hands.jpg';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Star, Check, ChevronRight, Leaf, ShieldCheck, FlaskConical, Flag, ShoppingCart } from 'lucide-react';
@@ -165,13 +164,13 @@ export default function Index() {
                 <QuickCategoryPicker />
               </motion.div>
 
-              {/* Hero Image — warm lifestyle moment + product peek */}
+              {/* Hero Image — PDP-style clean card frame */}
               <div className="order-1 lg:order-2">
                 <div className="relative mx-auto max-w-[340px] sm:max-w-[460px] lg:max-w-[540px]">
-                  <div className="relative aspect-square bg-card rounded-3xl overflow-hidden border border-border/50 shadow-soft">
+                  <div className="relative aspect-square bg-card rounded-3xl overflow-hidden border border-border/50">
                     <img
-                      src={lifestyleHero}
-                      alt="A woman opens her NEUVIE wellness strip in warm morning daylight"
+                      src={productsLineup}
+                      alt="NEUVIE fast-dissolving wellness strips lineup — Energy, Sleep, Beauty, Focus and Gut Health supplements"
                       className="w-full h-full object-cover"
                       width={1024}
                       height={1024}
@@ -182,18 +181,6 @@ export default function Index() {
                     <div className="absolute top-5 right-5 bg-accent text-accent-foreground text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-md">
                       Best Sellers
                     </div>
-                  </div>
-                  {/* Small product peek card */}
-                  <div className="hidden sm:block absolute -bottom-6 -left-6 w-28 h-28 lg:w-36 lg:h-36 rounded-2xl overflow-hidden border-4 border-background shadow-soft bg-card">
-                    <img
-                      src={productsLineup}
-                      alt="NEUVIE strips lineup"
-                      className="w-full h-full object-cover"
-                      width={200}
-                      height={200}
-                      loading="eager"
-                      decoding="async"
-                    />
                   </div>
                 </div>
               </div>
