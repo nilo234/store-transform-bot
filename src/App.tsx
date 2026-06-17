@@ -36,6 +36,10 @@ const Quiz = lazy(() => import("./pages/Quiz"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const AdminCartFeedback = lazy(() => import("./pages/AdminCartFeedback"));
+const CaffeineFreeEnergy = lazy(() => import("./pages/seo/CaffeineFreeEnergy"));
+const EnergyWithoutStimulants = lazy(() => import("./pages/seo/EnergyWithoutStimulants"));
+const CaffeinePillAlternatives = lazy(() => import("./pages/seo/CaffeinePillAlternatives"));
+const RespiratoryDrops = lazy(() => import("./pages/seo/RespiratoryDrops"));
 
 // Defer non-critical widgets (chat + exit popup) — they should never block first paint
 const LiveChatWidget = lazy(() =>
