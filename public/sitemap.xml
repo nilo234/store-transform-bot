@@ -340,4 +340,38 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- SEO landing pages (programmatic) -->
+  <url>
+    <loc>https://tryneuvie.com/caffeine-free-energy</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://tryneuvie.com/caffeine-free-energy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tryneuvie.com/caffeine-free-energy" />
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/energy-without-stimulants</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://tryneuvie.com/energy-without-stimulants" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tryneuvie.com/energy-without-stimulants" />
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/caffeine-pill-alternatives</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://tryneuvie.com/caffeine-pill-alternatives" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tryneuvie.com/caffeine-pill-alternatives" />
+  </url>
+  <url>
+    <loc>https://tryneuvie.com/respiratory-drops</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://tryneuvie.com/respiratory-drops" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tryneuvie.com/respiratory-drops" />
+  </url>
 </urlset>

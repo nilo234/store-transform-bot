@@ -36,6 +36,10 @@ const Quiz = lazy(() => import("./pages/Quiz"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const AdminCartFeedback = lazy(() => import("./pages/AdminCartFeedback"));
+const CaffeineFreeEnergy = lazy(() => import("./pages/seo/CaffeineFreeEnergy"));
+const EnergyWithoutStimulants = lazy(() => import("./pages/seo/EnergyWithoutStimulants"));
+const CaffeinePillAlternatives = lazy(() => import("./pages/seo/CaffeinePillAlternatives"));
+const RespiratoryDrops = lazy(() => import("./pages/seo/RespiratoryDrops"));
 
 // Defer non-critical widgets (chat + exit popup) — they should never block first paint
 const LiveChatWidget = lazy(() =>
@@ -93,6 +97,10 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/admin/cart-feedback" element={<AdminCartFeedback />} />
+            <Route path="/caffeine-free-energy" element={<CaffeineFreeEnergy />} />
+            <Route path="/energy-without-stimulants" element={<EnergyWithoutStimulants />} />
+            <Route path="/caffeine-pill-alternatives" element={<CaffeinePillAlternatives />} />
+            <Route path="/respiratory-drops" element={<RespiratoryDrops />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

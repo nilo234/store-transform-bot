@@ -6,3 +6,5 @@ export { FAQJsonLd } from './FAQJsonLd';
 export { ArticleJsonLd } from './ArticleJsonLd';
 export { CollectionPageJsonLd } from './CollectionPageJsonLd';
 export { PageMeta } from './PageMeta';
+export { SeoLandingLayout } from './SeoLandingLayout';
+export type { SeoSection, SeoLandingProps } from './SeoLandingLayout';
