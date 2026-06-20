@@ -40,6 +40,8 @@ const CaffeineFreeEnergy = lazy(() => import("./pages/seo/CaffeineFreeEnergy"));
 const EnergyWithoutStimulants = lazy(() => import("./pages/seo/EnergyWithoutStimulants"));
 const CaffeinePillAlternatives = lazy(() => import("./pages/seo/CaffeinePillAlternatives"));
 const RespiratoryDrops = lazy(() => import("./pages/seo/RespiratoryDrops"));
+const SeoClusterPage = lazy(() => import("./pages/seo/SeoClusterPage"));
+import { SEO_CLUSTERS } from "./pages/seo/clusters";
 
 // Defer non-critical widgets (chat + exit popup) — they should never block first paint
 const LiveChatWidget = lazy(() =>
@@ -101,6 +103,9 @@ const App = () => (
             <Route path="/energy-without-stimulants" element={<EnergyWithoutStimulants />} />
             <Route path="/caffeine-pill-alternatives" element={<CaffeinePillAlternatives />} />
             <Route path="/respiratory-drops" element={<RespiratoryDrops />} />
+            {SEO_CLUSTERS.map((c) => (
+              <Route key={c.slug} path={`/${c.slug}`} element={<SeoClusterPage />} />
+            ))}
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
