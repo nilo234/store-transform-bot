@@ -30,6 +30,20 @@ const footerLinks = {
     { label: 'Terms of Service', href: '/terms' },
     { label: 'Become Affiliated', href: 'https://af.uppromote.com/lovable-project-99js2/register', external: true },
   ],
+  guides: [
+    { label: 'Caffeine-Free Energy', href: '/caffeine-free-energy' },
+    { label: 'Energy Without Stimulants', href: '/energy-without-stimulants' },
+    { label: 'OTC Energy Supplements', href: '/otc-stimulants-for-energy' },
+    { label: 'Caffeine Pill Alternatives', href: '/caffeine-pills-alternative' },
+    { label: 'Natural Sleep Aid', href: '/natural-sleep-aid-without-melatonin' },
+    { label: 'Magnesium for Sleep', href: '/magnesium-for-sleep-and-anxiety' },
+    { label: 'Hangover Prevention', href: '/hangover-prevention-supplements' },
+    { label: 'Gut Health Supplements', href: '/best-supplements-for-gut-health' },
+    { label: 'Collagen for Skin', href: '/collagen-strips-for-skin' },
+    { label: 'Methylene Blue Drops', href: '/methylene-blue-drops-benefits' },
+    { label: 'Respiratory Drops', href: '/respiratory-drops' },
+    { label: 'Vitamin Strips vs Pills', href: '/vitamin-strips-vs-pills' },
+  ],
 };
 
 const TikTokIcon = ({ className }: { className?: string }) => (
@@ -241,6 +255,23 @@ export function Footer() {
               ))}
             </ul>
           </div>
+        </div>
+
+        {/* Wellness Guides — internal-linking band for SEO authority transfer */}
+        <div className="mt-10 md:mt-14 pt-6 md:pt-8 border-t border-primary-foreground/10">
+          <h4 className="font-display text-base md:text-lg mb-4 md:mb-5 text-center md:text-left">Wellness Guides</h4>
+          <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2.5">
+            {footerLinks.guides.map((link) => (
+              <li key={link.href}>
+                <Link
+                  to={link.href}
+                  className="text-primary-foreground/60 hover:text-accent transition-colors text-xs md:text-sm font-body"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
         {/* Trust Badges */}

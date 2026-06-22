@@ -62,6 +62,9 @@ export default function CaffeineFreeEnergy() {
       h1="Caffeine-Free Energy Supplements"
       lede="Steady, stimulant-free energy in a strip that dissolves in about 30 seconds. No jitters. No crash. Just a clean lift you can feel."
       sections={sections}
+      topic="caffeine-free energy supplement"
+      canonicalPath="/caffeine-free-energy"
+      quickAnswer="The best caffeine-free energy supplements use B-complex vitamins, CoQ10, and adaptogens like rhodiola to support cellular energy production — without caffeine, jitters, or a crash. A dissolvable strip is the easiest format to take consistently every day."
     />
   );
 }

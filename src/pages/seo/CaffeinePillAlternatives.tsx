@@ -62,6 +62,9 @@ export default function CaffeinePillAlternatives() {
       h1="Caffeine Pill Alternatives"
       lede="Skip the 200 mg caffeine bomb. Get steady, focused energy from a strip that dissolves in about 30 seconds."
       sections={sections}
+      topic="caffeine pill alternative"
+      canonicalPath="/caffeine-pill-alternatives"
+      quickAnswer="The cleanest alternatives to caffeine pills are non-stimulant blends of B-complex, CoQ10, and adaptogens, which support energy at the cellular level without the racing heart, jitters, or afternoon crash high-dose caffeine pills cause."
     />
   );
 }

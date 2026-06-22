@@ -7,6 +7,9 @@ export interface SeoCluster {
   h1: string;
   lede: string;
   sections: SeoSection[];
+  quickAnswer?: string;
+  topic?: string;
+  extraFaqs?: { q: string; a: string }[];
 }
 
 export const SEO_CLUSTERS: SeoCluster[] = [
@@ -358,4 +361,128 @@ export const SEO_CLUSTERS: SeoCluster[] = [
       },
     ],
   },
+  // ===== High-impression queries from GSC that had no dedicated page =====
+  {
+    slug: 'otc-stimulants-for-energy',
+    title: 'OTC Stimulants for Energy: Safer Alternatives | Neuvie',
+    description: 'A practical guide to over-the-counter energy options — and why a clean, non-stimulant strip is the safer daily choice for most people.',
+    h1: 'OTC Stimulants for Energy',
+    lede: 'A clear, honest look at over-the-counter stimulants — what they are, what they cost you, and a non-stimulant alternative that actually fits a daily routine.',
+    topic: 'OTC energy supplement',
+    quickAnswer: 'Most OTC stimulants for energy rely on high-dose caffeine, synephrine, or yohimbine. They work short-term but can cause jitters, anxiety, and a hard crash. For daily use, a stimulant-free strip with B-vitamins, CoQ10, and adaptogens supports cellular energy without the side effects.',
+    sections: [
+      {
+        h2: 'What Counts as an OTC Stimulant?',
+        intro: 'Most over-the-counter (OTC) energy products you see in pharmacies fall into one of three camps: high-dose caffeine pills, herbal stimulants like synephrine or yohimbine, or sugar-loaded energy shots. They all push your nervous system to fire harder.',
+        benefits: ['Fast, noticeable lift in the first 30 minutes', 'Easy to find without a prescription', 'Useful occasionally — for a long drive or a rare deadline'],
+        how: 'OTC stimulants work by blocking adenosine (caffeine), increasing norepinephrine release (synephrine), or constricting blood vessels (yohimbine). They borrow energy now and bill you later.',
+        bridge: 'For the rare emergency, an OTC stimulant might fit. For daily use, a stimulant-free format like a Neuvie Energy Strip is much friendlier to your nervous system.',
+        faq: { q: 'Are OTC energy stimulants safe to take every day?', a: 'Daily use of strong OTC stimulants like high-dose caffeine pills or yohimbine can raise heart rate, disturb sleep, and increase anxiety. Most experts recommend reserving them for occasional use, not as a daily routine.' },
+      },
+      {
+        h2: 'The Hidden Cost of Stimulant-Heavy Energy',
+        intro: 'Stimulants do not create energy out of thin air. They pull it forward from later in the day — and from your sleep budget. The "crash" is just that loan coming due.',
+        benefits: ['Skip the afternoon energy debt', 'Protect your sleep quality', 'Steady focus, not spikes'],
+        how: 'When stimulants wear off, adenosine rebounds and you feel even more tired than before. A non-stimulant approach supports the underlying systems — mitochondria, B-vitamin pathways, adaptogen-supported cortisol — so energy stays even.',
+        bridge: 'Neuvie Energy Strips are designed around this exact problem: real lift without the borrow-and-crash cycle.',
+        faq: { q: 'What is the best OTC alternative to caffeine pills?', a: 'A non-stimulant blend of B-complex vitamins, CoQ10, and adaptogens like rhodiola or ashwagandha supports baseline energy without the side effects of caffeine pills or other OTC stimulants.' },
+      },
+    ],
+  },
+  {
+    slug: 'clean-energy-supplements',
+    title: 'Clean Energy Supplements: No Sugar, No Crash | Neuvie',
+    description: 'Clean, stimulant-light energy support in a dissolvable strip. No sugar, no artificial colors, no afternoon crash. Made in the USA.',
+    h1: 'Clean Energy Supplements',
+    lede: 'Clean energy means no sugar bombs, no synthetic dyes, and no proprietary blends hiding the dose. Here is what to look for — and what we built.',
+    topic: 'clean energy supplement',
+    quickAnswer: 'A clean energy supplement avoids sugar, artificial colors, and stimulant-stacking. The best daily options use B-complex vitamins, CoQ10, and an adaptogen like rhodiola, delivered in a format you will actually take every day — like a sugar-free dissolvable strip.',
+    sections: [
+      {
+        h2: 'What "Clean Energy" Actually Means',
+        intro: 'The term gets thrown around on every energy drink in the cooler. The honest definition is simpler: no added sugar, no artificial dyes, no proprietary blends, and clinically meaningful doses on the label.',
+        benefits: ['Zero sugar formulas', 'No artificial colors or sweeteners', 'Full label transparency — no hidden blends'],
+        how: 'Clean energy supplements focus on the ingredients that actually support cellular energy production: B-vitamins, CoQ10, magnesium, and well-studied adaptogens. They skip the stimulant stack of caffeine, taurine, and sugar that most energy drinks rely on.',
+        bridge: 'Neuvie Energy Strips are sugar-free, dye-free, and clearly dosed — exactly what a clean energy supplement should be.',
+        faq: { q: 'What makes an energy supplement "clean"?', a: 'A clean energy supplement has no added sugar, no artificial colors, transparent dosing (no proprietary blends), and ingredients backed by research at meaningful doses.' },
+      },
+    ],
+  },
+  {
+    slug: 'caffeine-pills-alternative',
+    title: 'Caffeine Pills Alternative: Cleaner Energy Daily | Neuvie',
+    description: 'A daily alternative to caffeine pills — clean, low-jitter energy in a strip that dissolves in 30 seconds. No prescriptions, made in the USA.',
+    h1: 'Caffeine Pills Alternative',
+    lede: 'If caffeine pills leave you wired, anxious, or crashed by mid-afternoon, there is a calmer way to support daily energy.',
+    topic: 'caffeine pill alternative',
+    quickAnswer: 'The best alternatives to caffeine pills are B-complex vitamins paired with CoQ10 and adaptogens like rhodiola or ashwagandha. They support cellular energy production without the jitters, heart racing, or crash that high-dose caffeine pills cause.',
+    sections: [
+      {
+        h2: 'Why People Look for a Caffeine-Pill Alternative',
+        intro: 'Caffeine pills hit fast and hard — often 100 to 200 mg per dose, the equivalent of one to two cups of coffee in seconds. For sensitive people, that is enough to trigger jitters, anxiety, and a noticeable crash.',
+        benefits: ['No racing heart or shaking hands', 'No 3 PM crash', 'Friendly for daily use, even with caffeine sensitivity'],
+        how: 'A caffeine-pill alternative skips the nervous-system push and instead supports the cellular machinery that produces energy: B-vitamins for the Krebs cycle, CoQ10 for the mitochondria, and adaptogens for steady cortisol response.',
+        bridge: 'Neuvie Energy Strips are designed exactly for this — a steady lift without the wired feeling of a caffeine pill.',
+        faq: { q: 'What can I take instead of caffeine pills?', a: 'Look for a daily formula with B-complex, CoQ10, and an adaptogen like rhodiola or ashwagandha. These support natural energy production without the jitters or crash of caffeine pills.' },
+      },
+    ],
+  },
+  {
+    slug: 'respiratory-tincture',
+    title: 'Respiratory Tincture & Lung Drops | Neuvie',
+    description: 'A clean respiratory tincture in drop form — mullein, quercetin, and supporting botanicals for daily lung and breathing support. Made in the USA.',
+    h1: 'Respiratory Tincture',
+    lede: 'A daily respiratory tincture you can actually fit into your routine — drops that support breathing and seasonal comfort, made in the USA.',
+    topic: 'respiratory tincture',
+    quickAnswer: 'A respiratory tincture is a liquid herbal blend designed to support the lungs and airways. The most useful daily blends combine mullein leaf, quercetin, and supporting botanicals delivered in a few drops under the tongue or in water.',
+    sections: [
+      {
+        h2: 'A Daily Format That Actually Fits',
+        intro: 'Tinctures used to mean dropper bottles and bitter tastes. A modern respiratory drop is cleaner, easier to dose, and made for actual daily use — not a once-a-month ritual.',
+        benefits: ['Concentrated botanical extracts', 'Precise drop dosing', 'Fits into a daily routine in seconds'],
+        how: 'A respiratory tincture extracts active compounds from herbs like mullein into a stable liquid base. Drops absorb quickly when held briefly under the tongue, which can be gentler than capsules for people with sensitive stomachs.',
+        bridge: 'Neuvie Respiratory and Lung Health Drops bring this old tradition into a clean, US-made daily format.',
+        faq: { q: 'What is the best respiratory tincture for daily use?', a: 'Look for a clean blend featuring mullein leaf and quercetin, free of artificial sweeteners, made in an FDA-registered US facility, and dosed in a way that fits a real daily routine.' },
+      },
+    ],
+  },
+  {
+    slug: 'non-caffeine-stimulants',
+    title: 'Non-Caffeine Stimulants: A Cleaner Daily Lift | Neuvie',
+    description: 'Looking for a non-caffeine stimulant? Adaptogens, B-vitamins, and CoQ10 support energy without coffee. A clean strip you can take daily.',
+    h1: 'Non-Caffeine Stimulants',
+    lede: 'Most things sold as "non-caffeine stimulants" are still stimulants. Here is the gentler, daily-friendly approach that actually supports energy.',
+    topic: 'non-caffeine stimulant',
+    quickAnswer: 'True non-caffeine stimulants like synephrine or yohimbine still push the nervous system. A safer daily approach is a non-stimulant blend of B-complex vitamins, CoQ10, and adaptogens like rhodiola — it supports energy at the cellular level without the heart-rate spike.',
+    sections: [
+      {
+        h2: 'Non-Caffeine Does Not Always Mean Non-Stimulant',
+        intro: 'Products marketed as "non-caffeine stimulants" often swap caffeine for synephrine, yohimbine, or other ingredients that still push the same nervous-system buttons. For daily use, a non-stimulant approach is usually the smarter choice.',
+        benefits: ['No coffee, no jitters, no heart racing', 'Supports steady all-day energy', 'Safe daily format with clinically used doses'],
+        how: 'Instead of stimulating the central nervous system, a non-stimulant energy formula supports the mitochondria — the parts of your cells that actually make energy. B-vitamins, CoQ10, and adaptogens are the foundation.',
+        bridge: 'Neuvie Energy Strips deliver this stimulant-free approach in a 30-second daily ritual.',
+        faq: { q: 'Is there a stimulant that is not caffeine and not harsh?', a: 'Most "non-caffeine stimulants" are still stimulants. For a gentler daily option, a non-stimulant blend of B-vitamins, CoQ10, and adaptogens supports energy without the spike-and-crash pattern.' },
+      },
+    ],
+  },
+  {
+    slug: 'herbal-energy-supplement-without-stimulants',
+    title: 'Herbal Energy Supplement Without Stimulants | Neuvie',
+    description: 'A daily herbal energy supplement without stimulants — adaptogens, B-vitamins, and CoQ10 in a clean dissolvable strip. Made in the USA.',
+    h1: 'Herbal Energy Supplement Without Stimulants',
+    lede: 'A stimulant-free herbal energy supplement built around adaptogens, B-vitamins, and CoQ10 — the daily, calm version of an energy boost.',
+    topic: 'herbal energy supplement without stimulants',
+    quickAnswer: 'A stimulant-free herbal energy supplement uses adaptogens (rhodiola, ashwagandha, ginseng), B-complex vitamins, and CoQ10 to support cellular energy without pushing the nervous system. It is built for steady daily use, not a one-off spike.',
+    sections: [
+      {
+        h2: 'How Herbal Energy Works Without Stimulants',
+        intro: 'Herbal energy formulas use adaptogens — plants studied for their ability to support the body\'s response to stress. Instead of a quick stimulant spike, you get steadier energy over the long run.',
+        benefits: ['Adaptogens like rhodiola, ashwagandha, and ginseng', 'No caffeine, no synephrine, no harsh stimulants', 'Daily-friendly format you can carry anywhere'],
+        how: 'Adaptogens help regulate cortisol, your main stress hormone. When cortisol is steadier, energy and focus are steadier too. Paired with B-vitamins and CoQ10, the formula covers both the stress side and the cellular-energy side.',
+        bridge: 'Neuvie Energy Strips combine these herbal and nutrient pillars in one 30-second daily ritual.',
+        faq: { q: 'Do herbal energy supplements without stimulants really work?', a: 'They work best as a daily routine, not a single dose. Adaptogens build their effect over 2 to 4 weeks of consistent use, supporting more even energy without the spike-and-crash of stimulants.' },
+      },
+    ],
+  },
 ];
+
