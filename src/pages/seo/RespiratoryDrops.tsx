@@ -64,7 +64,7 @@ export default function RespiratoryDrops() {
       sections={sections}
       topic="respiratory and lung health drop"
       canonicalPath="/respiratory-drops"
-      quickAnswer={}
+      quickAnswer="Respiratory drops combine botanicals like mullein leaf and quercetin in a fast-absorbing liquid format that supports daily lung and breathing health — without harsh detoxes or smoke."
     />
   );
 }
