@@ -257,6 +257,23 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Wellness Guides — internal-linking band for SEO authority transfer */}
+        <div className="mt-10 md:mt-14 pt-6 md:pt-8 border-t border-primary-foreground/10">
+          <h4 className="font-display text-base md:text-lg mb-4 md:mb-5 text-center md:text-left">Wellness Guides</h4>
+          <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2.5">
+            {footerLinks.guides.map((link) => (
+              <li key={link.href}>
+                <Link
+                  to={link.href}
+                  className="text-primary-foreground/60 hover:text-accent transition-colors text-xs md:text-sm font-body"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
         {/* Trust Badges */}
         <div className="mt-10 md:mt-16 pt-6 md:pt-8 border-t border-primary-foreground/10">
           <div className="flex flex-wrap justify-center gap-x-4 md:gap-x-8 gap-y-2 md:gap-y-4 mb-6 md:mb-8">
