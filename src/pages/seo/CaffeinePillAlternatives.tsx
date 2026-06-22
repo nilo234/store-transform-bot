@@ -64,7 +64,7 @@ export default function CaffeinePillAlternatives() {
       sections={sections}
       topic="caffeine pill alternative"
       canonicalPath="/caffeine-pill-alternatives"
-      quickAnswer={}
+      quickAnswer="The cleanest alternatives to caffeine pills are non-stimulant blends of B-complex, CoQ10, and adaptogens, which support energy at the cellular level without the racing heart, jitters, or afternoon crash high-dose caffeine pills cause."
     />
   );
 }
