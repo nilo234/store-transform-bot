@@ -64,7 +64,7 @@ export default function CaffeineFreeEnergy() {
       sections={sections}
       topic="caffeine-free energy supplement"
       canonicalPath="/caffeine-free-energy"
-      quickAnswer={}
+      quickAnswer="The best caffeine-free energy supplements use B-complex vitamins, CoQ10, and adaptogens like rhodiola to support cellular energy production — without caffeine, jitters, or a crash. A dissolvable strip is the easiest format to take consistently every day."
     />
   );
 }
