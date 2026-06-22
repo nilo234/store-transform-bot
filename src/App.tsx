@@ -41,7 +41,10 @@ const EnergyWithoutStimulants = lazy(() => import("./pages/seo/EnergyWithoutStim
 const CaffeinePillAlternatives = lazy(() => import("./pages/seo/CaffeinePillAlternatives"));
 const RespiratoryDrops = lazy(() => import("./pages/seo/RespiratoryDrops"));
 const SeoClusterPage = lazy(() => import("./pages/seo/SeoClusterPage"));
+const GuidesHub = lazy(() => import("./pages/seo/GuidesHub"));
+const ComparisonPage = lazy(() => import("./pages/seo/ComparisonPage"));
 import { SEO_CLUSTERS } from "./pages/seo/clusters";
+import { COMPARISONS } from "./pages/seo/comparisons";
 
 // Defer non-critical widgets (chat + exit popup) — they should never block first paint
 const LiveChatWidget = lazy(() =>
