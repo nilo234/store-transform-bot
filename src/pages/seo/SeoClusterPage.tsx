@@ -1,10 +1,11 @@
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { SeoLandingLayout } from '@/components/seo';
 import { SEO_CLUSTERS } from './clusters';
 import NotFound from '@/pages/NotFound';
 
 export default function SeoClusterPage() {
-  const { slug } = useParams<{ slug: string }>();
+  const { pathname } = useLocation();
+  const slug = pathname.replace(/^\/+/, '').replace(/\/+$/, '');
   const cluster = SEO_CLUSTERS.find((c) => c.slug === slug);
   if (!cluster) return <NotFound />;
   return (
