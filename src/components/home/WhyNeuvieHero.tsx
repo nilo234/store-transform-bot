@@ -54,7 +54,7 @@ export function WhyNeuvieHero() {
             >
               <benefit.icon className="w-9 h-9 text-primary-foreground/80 mb-4" strokeWidth={1.5} />
               <h3 className="font-semibold text-lg text-primary-foreground mb-2">{benefit.title}</h3>
-              <p className="text-sm text-primary-foreground/60 leading-relaxed">{benefit.description}</p>
+              <p className="text-sm text-primary-foreground/85 leading-relaxed">{benefit.description}</p>
             </motion.div>
           ))}
         </div>

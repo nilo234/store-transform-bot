@@ -118,7 +118,7 @@ export function Footer() {
             <h3 className="font-display text-2xl md:text-3xl lg:text-4xl mb-3 md:mb-4" style={{ letterSpacing: '-0.02em' }}>
               You're Worth This
             </h3>
-            <p className="text-primary-foreground/60 mb-6 md:mb-8 text-sm md:text-base font-body leading-relaxed">
+            <p className="text-primary-foreground/85 mb-6 md:mb-8 text-sm md:text-base font-body leading-relaxed">
               Get 15% off your first order — plus honest wellness insights and new launches. No spam, ever. Just us, showing up for you.
             </p>
 
@@ -136,7 +136,7 @@ export function Footer() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="h-11 md:h-12 bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 rounded-xl flex-1 font-body"
+                  className="h-11 md:h-12 bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/75 rounded-xl flex-1 font-body"
                 />
                 <Button
                   type="submit"
@@ -174,7 +174,7 @@ export function Footer() {
                 decoding="async"
               />
             </Link>
-            <p className="text-primary-foreground/60 mb-6 md:mb-8 max-w-sm text-xs md:text-sm font-body leading-relaxed">
+            <p className="text-primary-foreground/85 mb-6 md:mb-8 max-w-sm text-xs md:text-sm font-body leading-relaxed">
               30-second wellness strips for people who believe they're worth taking care of. Designed to fit your life — not the other way around.
             </p>
 
@@ -203,7 +203,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     to={link.href}
-                    className="text-primary-foreground/60 hover:text-accent transition-colors text-xs md:text-sm font-body"
+                    className="text-primary-foreground/85 hover:text-accent transition-colors text-xs md:text-sm font-body"
                   >
                     {link.label}
                   </Link>
@@ -220,7 +220,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     to={link.href}
-                    className="text-primary-foreground/60 hover:text-accent transition-colors text-xs md:text-sm font-body"
+                    className="text-primary-foreground/85 hover:text-accent transition-colors text-xs md:text-sm font-body"
                   >
                     {link.label}
                   </Link>
@@ -240,14 +240,14 @@ export function Footer() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-primary-foreground/60 hover:text-accent transition-colors text-xs md:text-sm font-body"
+                      className="text-primary-foreground/85 hover:text-accent transition-colors text-xs md:text-sm font-body"
                     >
                       {link.label}
                     </a>
                   ) : (
                     <Link
                       to={link.href}
-                      className="text-primary-foreground/60 hover:text-accent transition-colors text-xs md:text-sm font-body"
+                      className="text-primary-foreground/85 hover:text-accent transition-colors text-xs md:text-sm font-body"
                     >
                       {link.label}
                     </Link>
@@ -266,7 +266,7 @@ export function Footer() {
               <li key={link.href}>
                 <Link
                   to={link.href}
-                  className="text-primary-foreground/60 hover:text-accent transition-colors text-xs md:text-sm font-body"
+                  className="text-primary-foreground/85 hover:text-accent transition-colors text-xs md:text-sm font-body"
                 >
                   {link.label}
                 </Link>
@@ -279,7 +279,7 @@ export function Footer() {
         <div className="mt-10 md:mt-16 pt-6 md:pt-8 border-t border-primary-foreground/10">
           <div className="flex flex-wrap justify-center gap-x-4 md:gap-x-8 gap-y-2 md:gap-y-4 mb-6 md:mb-8">
             {trustBadges.map((badge) => (
-              <span key={badge} className="flex items-center gap-1.5 md:gap-2 text-[10px] md:text-sm text-primary-foreground/60 font-body">
+              <span key={badge} className="flex items-center gap-1.5 md:gap-2 text-[10px] md:text-sm text-primary-foreground/85 font-body">
                 <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-accent" />
                 {badge}
               </span>
@@ -287,13 +287,13 @@ export function Footer() {
           </div>
 
           {/* Copyright */}
-          <p className="text-center text-primary-foreground/40 text-[10px] mb-2 my-[20px] md:text-xs font-body">
+          <p className="text-center text-primary-foreground/75 text-[10px] mb-2 my-[20px] md:text-xs font-body">
             These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease. Every Neuvie strip is manufactured in an FDA-registered, GMP-compliant facility in the United States.
           </p>
-          <p className="text-center text-primary-foreground/40 text-[10px] md:text-xs mb-2 font-body">
+          <p className="text-center text-primary-foreground/75 text-[10px] md:text-xs mb-2 font-body">
             All prices in USD. We currently ship within the United States only.
           </p>
-          <p className="text-center text-primary-foreground/40 text-[10px] md:text-sm font-body">
+          <p className="text-center text-primary-foreground/75 text-[10px] md:text-sm font-body">
             © {new Date().getFullYear()} Neuvie Nutrition, Inc. All rights reserved.
           </p>
         </div>
