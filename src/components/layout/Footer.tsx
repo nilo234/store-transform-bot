@@ -30,6 +30,20 @@ const footerLinks = {
     { label: 'Terms of Service', href: '/terms' },
     { label: 'Become Affiliated', href: 'https://af.uppromote.com/lovable-project-99js2/register', external: true },
   ],
+  guides: [
+    { label: 'Caffeine-Free Energy', href: '/caffeine-free-energy' },
+    { label: 'Energy Without Stimulants', href: '/energy-without-stimulants' },
+    { label: 'OTC Energy Supplements', href: '/otc-stimulants-for-energy' },
+    { label: 'Caffeine Pill Alternatives', href: '/caffeine-pills-alternative' },
+    { label: 'Natural Sleep Aid', href: '/natural-sleep-aid-without-melatonin' },
+    { label: 'Magnesium for Sleep', href: '/magnesium-for-sleep-and-anxiety' },
+    { label: 'Hangover Prevention', href: '/hangover-prevention-supplements' },
+    { label: 'Gut Health Supplements', href: '/best-supplements-for-gut-health' },
+    { label: 'Collagen for Skin', href: '/collagen-strips-for-skin' },
+    { label: 'Methylene Blue Drops', href: '/methylene-blue-drops-benefits' },
+    { label: 'Respiratory Drops', href: '/respiratory-drops' },
+    { label: 'Vitamin Strips vs Pills', href: '/vitamin-strips-vs-pills' },
+  ],
 };
 
 const TikTokIcon = ({ className }: { className?: string }) => (
