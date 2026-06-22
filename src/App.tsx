@@ -113,6 +113,9 @@ const App = () => (
             {COMPARISONS.map((c) => (
               <Route key={c.slug} path={`/compare/${c.slug}`} element={<ComparisonPage />} />
             ))}
+            {COMPARISONS.map((c) => (
+              <Route key={`bare-${c.slug}`} path={`/${c.slug}`} element={<ComparisonPage />} />
+            ))}
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

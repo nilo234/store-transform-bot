@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { ArrowRight, Check, X, Minus, ShieldCheck, Truck, Flag, Leaf } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/layout/Navbar';
@@ -9,7 +9,8 @@ import { COMPARISONS } from './comparisons';
 import NotFound from '@/pages/NotFound';
 
 export default function ComparisonPage() {
-  const { slug } = useParams<{ slug: string }>();
+  const { pathname } = useLocation();
+  const slug = pathname.replace(/^\/+/, '').replace(/^compare\//, '').replace(/\/+$/, '');
   const data = COMPARISONS.find((c) => c.slug === slug);
   if (!data) return <NotFound />;
 
