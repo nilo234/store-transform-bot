@@ -109,6 +109,10 @@ const App = () => (
             {SEO_CLUSTERS.map((c) => (
               <Route key={c.slug} path={`/${c.slug}`} element={<SeoClusterPage />} />
             ))}
+            <Route path="/guides" element={<GuidesHub />} />
+            {COMPARISONS.map((c) => (
+              <Route key={c.slug} path={`/compare/${c.slug}`} element={<ComparisonPage />} />
+            ))}
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
