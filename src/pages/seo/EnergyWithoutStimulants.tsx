@@ -62,6 +62,9 @@ export default function EnergyWithoutStimulants() {
       h1="Natural Energy Without Stimulants"
       lede="Feel awake, focused, and calm — without caffeine, taurine, or harsh stimulants. One strip. 3 seconds. No crash."
       sections={sections}
+      topic="natural energy supplement without stimulants"
+      canonicalPath="/energy-without-stimulants"
+      quickAnswer={}
     />
   );
 }

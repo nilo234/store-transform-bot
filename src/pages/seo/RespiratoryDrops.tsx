@@ -62,6 +62,9 @@ export default function RespiratoryDrops() {
       h1="Respiratory Drops & Lung Health Support"
       lede="A simple daily ritual for clearer, easier breathing. One strip, plant-based ingredients, 30 seconds — done."
       sections={sections}
+      topic="respiratory and lung health drop"
+      canonicalPath="/respiratory-drops"
+      quickAnswer={}
     />
   );
 }

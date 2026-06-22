@@ -62,6 +62,9 @@ export default function CaffeinePillAlternatives() {
       h1="Caffeine Pill Alternatives"
       lede="Skip the 200 mg caffeine bomb. Get steady, focused energy from a strip that dissolves in about 30 seconds."
       sections={sections}
+      topic="caffeine pill alternative"
+      canonicalPath="/caffeine-pill-alternatives"
+      quickAnswer={}
     />
   );
 }

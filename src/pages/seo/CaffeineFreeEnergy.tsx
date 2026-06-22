@@ -62,6 +62,9 @@ export default function CaffeineFreeEnergy() {
       h1="Caffeine-Free Energy Supplements"
       lede="Steady, stimulant-free energy in a strip that dissolves in about 30 seconds. No jitters. No crash. Just a clean lift you can feel."
       sections={sections}
+      topic="caffeine-free energy supplement"
+      canonicalPath="/caffeine-free-energy"
+      quickAnswer={}
     />
   );
 }
