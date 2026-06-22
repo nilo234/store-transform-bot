@@ -56,6 +56,10 @@ const DEFAULT_RELATED: RelatedLink[] = [
   { href: '/collagen-strips-for-skin', label: 'Collagen Strips for Skin' },
   { href: '/methylene-blue-drops-benefits', label: 'Methylene Blue Drops' },
   { href: '/vitamin-strips-vs-pills', label: 'Vitamin Strips vs Pills' },
+  { href: '/guides', label: 'All Wellness Guides' },
+  { href: '/compare/neuvie-vs-olly', label: 'Neuvie vs Olly' },
+  { href: '/compare/neuvie-vs-ritual', label: 'Neuvie vs Ritual' },
+  { href: '/compare/neuvie-vs-athletic-greens', label: 'Neuvie vs AG1' },
   { href: '/science', label: 'The Science Behind Neuvie' },
   { href: '/shop', label: 'Shop All Strips' },
 ];
