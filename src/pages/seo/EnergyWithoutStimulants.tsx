@@ -64,7 +64,7 @@ export default function EnergyWithoutStimulants() {
       sections={sections}
       topic="natural energy supplement without stimulants"
       canonicalPath="/energy-without-stimulants"
-      quickAnswer={}
+      quickAnswer="Natural energy without stimulants comes from supporting the systems your body already uses to make energy: B-vitamins, CoQ10, magnesium, and adaptogens like rhodiola or ashwagandha. A daily dissolvable strip is the easiest way to take them consistently."
     />
   );
 }
