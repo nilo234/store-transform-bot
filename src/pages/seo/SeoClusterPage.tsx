@@ -14,6 +14,10 @@ export default function SeoClusterPage() {
       h1={cluster.h1}
       lede={cluster.lede}
       sections={cluster.sections}
+      quickAnswer={cluster.quickAnswer}
+      topic={cluster.topic}
+      extraFaqs={cluster.extraFaqs}
+      canonicalPath={`/${cluster.slug}`}
     />
   );
 }
