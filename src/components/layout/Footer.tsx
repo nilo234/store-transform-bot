@@ -19,6 +19,7 @@ const footerLinks = {
     { label: 'About Us', href: '/about' },
     { label: 'Science', href: '/science' },
     { label: 'Journal', href: '/blog' },
+    { label: 'Wellness Guides', href: '/guides' },
     { label: 'Take the Quiz', href: '/quiz' },
     { label: 'FAQs', href: '/faqs' },
     { label: 'Contact', href: '/contact' },
