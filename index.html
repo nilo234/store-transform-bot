@@ -165,6 +165,59 @@
     <meta name="theme-color" content="#1a1a1a" />
     <meta name="google-site-verification" content="rlAbvvIBIX0zAiQB-Wo6rjUDeuv71WQE9zImNZG8T_A" />
     <meta name="google-site-verification" content="U0szPuMyWHTdW4X2XeClAZIaeqguyLs2hN7lvgSGmKI" />
+
+    <!-- Brand JSON-LD: Organization, helps Google understand "neuvie" / "tryneuvie.com" as the official brand -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://tryneuvie.com/#organization",
+        "name": "Neuvie Nutrition",
+        "alternateName": ["Neuvie", "NEUVIE", "tryneuvie", "Neuvie Strips"],
+        "url": "https://tryneuvie.com/",
+        "logo": "https://tryneuvie.com/og-image.png",
+        "image": "https://tryneuvie.com/og-image.png",
+        "description": "Neuvie makes fast-dissolving wellness strips and drops — energy, sleep, beauty, gut and respiratory support. Made in the USA in an FDA-registered facility.",
+        "email": "hello@tryneuvie.com",
+        "foundingDate": "2024",
+        "areaServed": "US",
+        "sameAs": [
+          "https://www.instagram.com/tryneuvie/",
+          "https://www.tiktok.com/@tryneuvie",
+          "https://www.facebook.com/people/Neu-Vie/pfbid0Q1XZ9DgKm3jE2XeGypS3vdWDniuNWp1Vskuz5kJnCGrdRHALD6tcXBqDVVLs8sodl/",
+          "https://pin.it/3Guqd3sio"
+        ],
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "team@tryneuvie.com",
+          "areaServed": "US",
+          "availableLanguage": ["en"]
+        }]
+      }
+    </script>
+
+    <!-- Brand JSON-LD: WebSite + SearchAction, unlocks sitelinks search box on brand SERP -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://tryneuvie.com/#website",
+        "url": "https://tryneuvie.com/",
+        "name": "Neuvie",
+        "alternateName": "Neuvie Nutrition",
+        "publisher": { "@id": "https://tryneuvie.com/#organization" },
+        "inLanguage": "en-US",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://tryneuvie.com/shop?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
   </head>
 
   <body>
