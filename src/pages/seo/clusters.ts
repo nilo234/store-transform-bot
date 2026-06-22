@@ -7,6 +7,9 @@ export interface SeoCluster {
   h1: string;
   lede: string;
   sections: SeoSection[];
+  quickAnswer?: string;
+  topic?: string;
+  extraFaqs?: { q: string; a: string }[];
 }
 
 export const SEO_CLUSTERS: SeoCluster[] = [
