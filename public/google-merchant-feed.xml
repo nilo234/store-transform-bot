@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+  <channel>
+    <title>NEUVIE — Fast-Dissolving Strips &amp; Liquid Wellness Drops</title>
+    <link>https://tryneuvie.com</link>
+    <description>Made-in-USA daily wellness in a 3-second ritual. Strips, drops, and curated bundles.</description>
+
+    <!-- ============ STRIPS (13 SKUs) ============ -->
+
+    <item>
+      <g:id>neuvie-energy-strips</g:id>
+      <g:title>NEUVIE Energy Strips — Caffeine + B-Vitamins, 30 Fast-Dissolving Strips</g:title>
+      <g:description>Clean caffeine energy without the crash. 30 fast-dissolving oral strips with caffeine and B-vitamins. No water, no pills. Made in USA in an FDA-registered facility.</g:description>
+      <g:link>https://tryneuvie.com/product/energy-strips-2</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>29.99 USD</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements</g:google_product_category>
+      <g:product_type>Strips &gt; Energy</g:product_type>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>4.99 USD</g:price>
+      </g:shipping>
+      <g:shipping_weight>0.05 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-sleep-strips</g:id>
+      <g:title>NEUVIE Sleep Strips — Melatonin + Valerian, 30 Dissolving Strips</g:title>
+      <g:description>Fall asleep faster with 5mg Melatonin, Valerian, Chamomile, Lavender &amp; Hibiscus. 30 fast-dissolving strips — no water, no pills, non-habit forming.</g:description>
+      <g:link>https://tryneuvie.com/product/sleep-strips-1</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>29.99 USD</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Sleep Aids</g:google_product_category>
+      <g:product_type>Strips &gt; Sleep</g:product_type>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>4.99 USD</g:price></g:shipping>
+      <g:shipping_weight>0.05 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-mushroom-focus-strips</g:id>
+      <g:title>NEUVIE Mushroom Focus Strips — Lion's Mane &amp; Cordyceps, 30 Strips</g:title>
+      <g:description>Functional mushroom focus strips with Lion's Mane and Cordyceps for clarity and calm focus. Dissolves in 3 seconds — no water, no caffeine crash.</g:description>
+      <g:link>https://tryneuvie.com/product/mushroom-focus-strips</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>29.99 USD</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements</g:google_product_category>
+      <g:product_type>Strips &gt; Focus</g:product_type>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>4.99 USD</g:price></g:shipping>
+      <g:shipping_weight>0.05 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-cognitive-relax-strips</g:id>
+      <g:title>NEUVIE Cognitive Relax Strips — Calm Focus, 30 Strips</g:title>
+      <g:description>Calm clarity without sedation. 30 dissolving strips for stress relief and focused calm. No pills, no water needed.</g:description>
+      <g:link>https://tryneuvie.com/product/cognitive-relax-strips</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>29.99 USD</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements</g:google_product_category>
+      <g:product_type>Strips &gt; Stress &amp; Calm</g:product_type>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>4.99 USD</g:price></g:shipping>
+      <g:shipping_weight>0.05 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-hair-skin-nails-strips</g:id>
+      <g:title>NEUVIE Hair, Skin &amp; Nails Strips — 5000mcg Biotin, 30 Strips</g:title>
+      <g:description>Biotin 5000mcg, Folate &amp; Vitamin D3 in a fast-dissolving beauty strip. 5x faster absorption than pills. Vegan, gluten-free.</g:description>
+      <g:link>https://tryneuvie.com/product/hair-skin-and-nails-strips</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>29.99 USD</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements &gt; Beauty Supplements</g:google_product_category>
+      <g:product_type>Strips &gt; Beauty</g:product_type>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>4.99 USD</g:price></g:shipping>
+      <g:shipping_weight>0.05 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-beauty-collagen-strips</g:id>
+      <g:title>NEUVIE Beauty + Collagen Strips — 30 Dissolving Strips</g:title>
+      <g:description>Marine collagen and skin-supporting actives in a fast-dissolving daily strip. Glow from the inside out.</g:description>
+      <g:link>https://tryneuvie.com/product/beauty-collagen-strips</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>29.99 USD</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements &gt; Beauty Supplements</g:google_product_category>
+      <g:product_type>Strips &gt; Beauty</g:product_type>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>4.99 USD</g:price></g:shipping>
+      <g:shipping_weight>0.05 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-probiotic-metabolism-strips</g:id>
+      <g:title>NEUVIE Probiotic + Metabolism Strips — Daily Gut Support, 30 Strips</g:title>
+      <g:description>Daily probiotic strip for gut balance and metabolic support. Shelf-stable, no refrigeration required.</g:description>
+      <g:link>https://tryneuvie.com/product/probiotic-metabolism-strips</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>29.99 USD</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements</g:google_product_category>
+      <g:product_type>Strips &gt; Gut Health</g:product_type>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>4.99 USD</g:price></g:shipping>
+      <g:shipping_weight>0.05 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-digestive-gut-health-strips</g:id>
+      <g:title>NEUVIE Digestive + Gut Health Strips — Daily Digestive Support, 30 Strips</g:title>
+      <g:description>Plant-based enzymes and prebiotics in a dissolving strip for daily digestive comfort.</g:description>
+      <g:link>https://tryneuvie.com/product/digestive-gut-health-strips</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>29.99 USD</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements</g:google_product_category>
+      <g:product_type>Strips &gt; Gut Health</g:product_type>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>4.99 USD</g:price></g:shipping>
+      <g:shipping_weight>0.05 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-iron-strips</g:id>
+      <g:title>NEUVIE Iron Strips — Gentle Iron + Vitamin C, 30 Strips</g:title>
+      <g:description>Gentle, non-constipating iron paired with Vitamin C for absorption. Daily dissolving strip — no pills, no aftertaste.</g:description>
+      <g:link>https://tryneuvie.com/product/iron-strips-1</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>29.99 USD</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements</g:google_product_category>
+      <g:product_type>Strips &gt; Iron</g:product_type>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>4.99 USD</g:price></g:shipping>
+      <g:shipping_weight>0.05 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-bone-support-strips</g:id>
+      <g:title>NEUVIE Bone Support Strips — Calcium, D3 &amp; K2, 30 Strips</g:title>
+      <g:description>Calcium, Vitamin D3 and K2 in a fast-dissolving daily strip for bone strength and density support.</g:description>
+      <g:link>https://tryneuvie.com/product/bone-support-strips-1</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>29.99 USD</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements</g:google_product_category>
+      <g:product_type>Strips &gt; Bone Health</g:product_type>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>4.99 USD</g:price></g:shipping>
+      <g:shipping_weight>0.05 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-appetite-balance-strips</g:id>
+      <g:title>NEUVIE Appetite Balance &amp; Weight Support Strips — 30 Strips</g:title>
+      <g:description>Appetite-balancing botanicals in a daily dissolving strip to support a healthy metabolism and weight routine.</g:description>
+      <g:link>https://tryneuvie.com/product/appetite-balance-weight-support-strips</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>29.99 USD</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements</g:google_product_category>
+      <g:product_type>Strips &gt; Weight Support</g:product_type>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>4.99 USD</g:price></g:shipping>
+      <g:shipping_weight>0.05 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-libido-support-strips</g:id>
+      <g:title>NEUVIE Libido Support Strips — Adaptogenic Blend, 30 Strips</g:title>
+      <g:description>Adaptogenic libido support in a fast-dissolving daily strip. No pills, no shakes.</g:description>
+      <g:link>https://tryneuvie.com/product/libido-support-strips-1</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>29.99 USD</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements</g:google_product_category>
+      <g:product_type>Strips &gt; Libido</g:product_type>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>4.99 USD</g:price></g:shipping>
+      <g:shipping_weight>0.05 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-hangover-strips</g:id>
+      <g:title>NEUVIE Hangover Strips — DHM, Electrolytes &amp; B-Vitamins, 30 Strips</g:title>
+      <g:description>DHM, electrolytes and B-vitamins in a fast-dissolving recovery strip. Take before, during, or the morning after.</g:description>
+      <g:link>https://tryneuvie.com/product/hangover-strips-2</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>29.99 USD</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements</g:google_product_category>
+      <g:product_type>Strips &gt; Recovery</g:product_type>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>4.99 USD</g:price></g:shipping>
+      <g:shipping_weight>0.05 lb</g:shipping_weight>
+    </item>
+
+    <!-- ============ LIQUID DROPS (4 SKUs) ============ -->
+
+    <item>
+      <g:id>neuvie-diet-drops-ultra</g:id>
+      <g:title>NEUVIE Diet Drops Ultra — African Mango Complex, 1 fl oz</g:title>
+      <g:description>Proprietary Active-8 &amp; African Mango Complex in a 1oz liquid drop for daily metabolism and weight support. Made in USA.</g:description>
+      <g:link>https://tryneuvie.com/drops/diet-drops-ultra</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>24.99 USD</g:price>
+      <g:sale_price>24.99 USD</g:sale_price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements</g:google_product_category>
+      <g:product_type>Drops &gt; Metabolism</g:product_type>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>4.99 USD</g:price></g:shipping>
+      <g:shipping_weight>0.25 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-methylene-blue-drops</g:id>
+      <g:title>NEUVIE Methylene Blue Drops — Cellular Energy, 2 fl oz</g:title>
+      <g:description>Pharmaceutical-grade methylene blue in a 2oz dropper for cellular energy and cognitive support.</g:description>
+      <g:link>https://tryneuvie.com/drops/methylene-blue-drops</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>24.99 USD</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements</g:google_product_category>
+      <g:product_type>Drops &gt; Cellular Energy</g:product_type>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>4.99 USD</g:price></g:shipping>
+      <g:shipping_weight>0.4 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-respiratory-lung-health-drops</g:id>
+      <g:title>NEUVIE Respiratory &amp; Lung Health Drops — Mullein &amp; Peppermint, 2 fl oz</g:title>
+      <g:description>Mullein, peppermint and elderberry in a 2oz herbal drop for respiratory and lung wellness support.</g:description>
+      <g:link>https://tryneuvie.com/drops/respiratory-lung-health-drops</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>24.99 USD</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements &gt; Herbal Supplements</g:google_product_category>
+      <g:product_type>Drops &gt; Respiratory</g:product_type>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>4.99 USD</g:price></g:shipping>
+      <g:shipping_weight>0.4 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-normal-blood-sugar-drops</g:id>
+      <g:title>NEUVIE Normal Blood Sugar Drops — Cinnamon &amp; Turmeric, 2 fl oz</g:title>
+      <g:description>Cinnamon, turmeric and chromium-supporting botanicals in a 2oz dropper for healthy blood sugar maintenance.</g:description>
+      <g:link>https://tryneuvie.com/drops/normal-blood-sugar-drops</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>24.99 USD</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements &gt; Herbal Supplements</g:google_product_category>
+      <g:product_type>Drops &gt; Blood Sugar</g:product_type>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>4.99 USD</g:price></g:shipping>
+      <g:shipping_weight>0.4 lb</g:shipping_weight>
+    </item>
+
+    <!-- ============ BUNDLES (9 SKUs) ============ -->
+
+    <item>
+      <g:id>neuvie-bundle-summer-reset</g:id>
+      <g:title>NEUVIE Summer Reset Bundle (4-Pack) — Beauty + Collagen, Hair Skin Nails, Probiotic, Energy</g:title>
+      <g:description>4-pack summer wellness bundle. Save 20% vs. buying individually. Includes Beauty + Collagen, Hair Skin &amp; Nails, Probiotic, and Energy Strips.</g:description>
+      <g:link>https://tryneuvie.com/bundles/summer-reset</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>139.96 USD</g:price>
+      <g:sale_price>111.97 USD</g:sale_price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements</g:google_product_category>
+      <g:product_type>Bundles &gt; Beauty</g:product_type>
+      <g:is_bundle>yes</g:is_bundle>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>0 USD</g:price></g:shipping>
+      <g:shipping_weight>0.2 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-bundle-night-out-survival-kit</g:id>
+      <g:title>NEUVIE Night Out Survival Kit (3-Pack) — Hangover, Energy, Cognitive Relax</g:title>
+      <g:description>3-pack performance bundle for nights out and mornings after. Includes Hangover, Energy, and Cognitive Relax Strips. Save 17%.</g:description>
+      <g:link>https://tryneuvie.com/bundles/night-out-survival-kit</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>104.97 USD</g:price>
+      <g:sale_price>87.13 USD</g:sale_price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements</g:google_product_category>
+      <g:product_type>Bundles &gt; Performance</g:product_type>
+      <g:is_bundle>yes</g:is_bundle>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>0 USD</g:price></g:shipping>
+      <g:shipping_weight>0.15 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-bundle-deep-work-stack</g:id>
+      <g:title>NEUVIE Deep Work Stack (3-Pack) — Mushroom Focus, Energy, Cognitive Relax</g:title>
+      <g:description>3-pack focus bundle for deep work sessions. Mushroom Focus + Energy + Cognitive Relax Strips. Save 20%.</g:description>
+      <g:link>https://tryneuvie.com/bundles/deep-work-stack</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>104.97 USD</g:price>
+      <g:sale_price>85.03 USD</g:sale_price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements</g:google_product_category>
+      <g:product_type>Bundles &gt; Performance</g:product_type>
+      <g:is_bundle>yes</g:is_bundle>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>0 USD</g:price></g:shipping>
+      <g:shipping_weight>0.15 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-bundle-before-you-leave</g:id>
+      <g:title>NEUVIE Before You Leave The House (2-Pack) — Daily Essentials</g:title>
+      <g:description>2-pack daily essentials bundle. Save 14% vs. buying individually.</g:description>
+      <g:link>https://tryneuvie.com/bundles/before-you-leave</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>69.98 USD</g:price>
+      <g:sale_price>60.18 USD</g:sale_price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements</g:google_product_category>
+      <g:product_type>Bundles &gt; Daily</g:product_type>
+      <g:is_bundle>yes</g:is_bundle>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>0 USD</g:price></g:shipping>
+      <g:shipping_weight>0.1 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-bundle-gut-feeling</g:id>
+      <g:title>NEUVIE The Gut Feeling Bundle (4-Pack) — Digestive &amp; Gut Health</g:title>
+      <g:description>4-pack digestive bundle for gut balance and daily digestive comfort. Save 18%.</g:description>
+      <g:link>https://tryneuvie.com/bundles/gut-feeling</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>139.96 USD</g:price>
+      <g:sale_price>114.77 USD</g:sale_price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements</g:google_product_category>
+      <g:product_type>Bundles &gt; Gut Health</g:product_type>
+      <g:is_bundle>yes</g:is_bundle>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>0 USD</g:price></g:shipping>
+      <g:shipping_weight>0.2 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-bundle-glow-protocol</g:id>
+      <g:title>NEUVIE The Glow Protocol (3-Pack) — Beauty &amp; Radiance Routine</g:title>
+      <g:description>3-pack beauty bundle for daily radiance from the inside out. Save 20%.</g:description>
+      <g:link>https://tryneuvie.com/bundles/glow-protocol</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>104.97 USD</g:price>
+      <g:sale_price>85.03 USD</g:sale_price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements &gt; Beauty Supplements</g:google_product_category>
+      <g:product_type>Bundles &gt; Beauty</g:product_type>
+      <g:is_bundle>yes</g:is_bundle>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>0 USD</g:price></g:shipping>
+      <g:shipping_weight>0.15 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-bundle-quiet-down</g:id>
+      <g:title>NEUVIE Quiet Down (2-Pack) — Sleep &amp; Stress Relief</g:title>
+      <g:description>2-pack relaxation bundle for stress relief and better sleep. Save 14%.</g:description>
+      <g:link>https://tryneuvie.com/bundles/quiet-down</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>69.98 USD</g:price>
+      <g:sale_price>60.18 USD</g:sale_price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Sleep Aids</g:google_product_category>
+      <g:product_type>Bundles &gt; Sleep &amp; Stress</g:product_type>
+      <g:is_bundle>yes</g:is_bundle>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>0 USD</g:price></g:shipping>
+      <g:shipping_weight>0.1 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-bundle-the-foundation</g:id>
+      <g:title>NEUVIE The Foundation Bundle (4-Pack) — Core Daily Wellness</g:title>
+      <g:description>4-pack foundational wellness bundle covering daily core needs. Save 18%.</g:description>
+      <g:link>https://tryneuvie.com/bundles/the-foundation</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>139.96 USD</g:price>
+      <g:sale_price>114.77 USD</g:sale_price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements</g:google_product_category>
+      <g:product_type>Bundles &gt; Daily Wellness</g:product_type>
+      <g:is_bundle>yes</g:is_bundle>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>0 USD</g:price></g:shipping>
+      <g:shipping_weight>0.2 lb</g:shipping_weight>
+    </item>
+
+    <item>
+      <g:id>neuvie-bundle-the-full-you</g:id>
+      <g:title>NEUVIE The Full You Bundle (6-Pack) — Complete Wellness Stack</g:title>
+      <g:description>6-pack complete wellness stack covering every part of your daily routine. Save 19%.</g:description>
+      <g:link>https://tryneuvie.com/bundles/the-full-you</g:link>
+      <g:image_link>https://tryneuvie.com/og-image.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>209.94 USD</g:price>
+      <g:sale_price>170.05 USD</g:sale_price>
+      <g:condition>new</g:condition>
+      <g:brand>NEUVIE</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Health &amp; Beauty &gt; Health Care &gt; Nutrition &gt; Vitamins &amp; Supplements</g:google_product_category>
+      <g:product_type>Bundles &gt; Complete Wellness</g:product_type>
+      <g:is_bundle>yes</g:is_bundle>
+      <g:adult>no</g:adult>
+      <g:age_group>adult</g:age_group>
+      <g:shipping><g:country>US</g:country><g:service>Standard</g:service><g:price>0 USD</g:price></g:shipping>
+      <g:shipping_weight>0.3 lb</g:shipping_weight>
+    </item>
+
+  </channel>
+</rss>
