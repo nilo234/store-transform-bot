@@ -676,6 +676,79 @@ export const blogPosts: BlogPost[] = [
     ],
     cta: { label: 'Shop Respiratory Drops', href: '/drops/respiratory-lung-health-drops' },
   },
+  {
+    slug: 'magnesium-glycinate-vs-citrate',
+    title: 'Magnesium Glycinate vs Citrate: Which Is Best for Sleep? (2026 Guide)',
+    excerpt:
+      'A clinician-style breakdown of magnesium glycinate vs citrate — absorption, side effects, and the best form for sleep, stress, and digestion.',
+    metaDescription:
+      'Magnesium glycinate vs citrate compared: absorption, dosing, side effects, and the best magnesium for sleep. Plus how fast-dissolving formats boost delivery.',
+    category: 'Sleep & Stress',
+    readTime: '7 min read',
+    publishedAt: '2026-06-24',
+    author: 'NEUVIE Team',
+    content: [
+      {
+        paragraphs: [
+          "Magnesium is one of the most-searched supplements in the U.S. — and for good reason. It's involved in 300+ enzymatic reactions, from sleep and stress regulation to muscle recovery and blood sugar control. But walk into any pharmacy and you'll find a dozen different forms on the shelf. The two that dominate the conversation: magnesium glycinate and magnesium citrate.",
+          "This guide breaks down exactly how they differ, which one wins for sleep, which wins for digestion, and why the delivery format you choose matters almost as much as the form.",
+        ],
+      },
+      {
+        heading: 'Magnesium glycinate: the calm, sleep-friendly form',
+        paragraphs: [
+          'Magnesium glycinate is magnesium bound to glycine, a calming amino acid that also acts as an inhibitory neurotransmitter. The pairing is gentle on the stomach, highly bioavailable, and unlikely to cause the loose stools that plague other magnesium forms.',
+          "**Best for:** sleep, anxiety, stress, muscle relaxation, people with sensitive digestion. Most clinical sleep studies on magnesium use glycinate or a similarly chelated form at 200–400 mg elemental magnesium taken 30–60 minutes before bed.",
+        ],
+      },
+      {
+        heading: 'Magnesium citrate: the absorbable, digestion-moving form',
+        paragraphs: [
+          "Magnesium citrate is magnesium bound to citric acid. It's well-absorbed, inexpensive, and the most-studied form for occasional constipation — it draws water into the bowel and stimulates motility.",
+          "**Best for:** occasional constipation, exercise recovery, people who want a budget-friendly daily magnesium and don't mind a mild laxative effect at higher doses.",
+        ],
+      },
+      {
+        heading: 'Side-by-side comparison',
+        paragraphs: [
+          '**Absorption:** Glycinate ≈ Citrate (both high, ~25–40%). Both outperform oxide, which sits closer to 4%.',
+          '**Sleep & stress:** Glycinate wins — the glycine component itself supports GABA activity and lower core body temperature at sleep onset.',
+          '**Digestion:** Citrate wins for constipation. Glycinate wins for sensitive stomachs.',
+          '**Side effects:** Citrate can cause loose stools above ~400 mg. Glycinate rarely does at any reasonable dose.',
+          '**Cost:** Citrate is cheaper per milligram. Glycinate costs more but you need less for the same effect.',
+        ],
+      },
+      {
+        heading: 'Best magnesium for sleep — the short answer',
+        paragraphs: [
+          "If your goal is falling asleep faster, staying asleep, or quieting a racing mind, glycinate is the form to start with. Pair 200–400 mg elemental magnesium glycinate with a wind-down routine 30–60 minutes before bed.",
+          "Citrate can work for sleep too, especially if you also struggle with sluggish digestion — but most people who try both report glycinate feels noticeably calmer.",
+        ],
+      },
+      {
+        heading: 'Why delivery format matters as much as form',
+        paragraphs: [
+          "Even the best magnesium form loses a meaningful fraction to first-pass liver metabolism when you swallow it as a capsule. Sublingual and fast-dissolving formats bypass that step — the active ingredient absorbs through the tissue under the tongue directly into the bloodstream, which can increase bioavailability roughly 3–5x compared to a swallowed pill for compounds that absorb well sublingually.",
+          "That's why NEUVIE built our Sleep Strips to dissolve in about 30 seconds. You get a clinically meaningful magnesium dose plus complementary sleep actives (melatonin, L-theanine, chamomile) without water, without a horse-pill, and without the digestive lag.",
+        ],
+      },
+      {
+        heading: 'How to choose',
+        paragraphs: [
+          "**Pick glycinate if** your priority is sleep, stress, anxiety, or you have a sensitive stomach.",
+          "**Pick citrate if** your priority is occasional constipation relief or you want the cheapest daily magnesium.",
+          "**Pick a fast-dissolving strip if** you want sleep support that works in minutes and skips the pill-and-water routine entirely.",
+        ],
+      },
+      {
+        heading: 'Bottom line',
+        paragraphs: [
+          "For sleep and stress, magnesium glycinate is the more research-supported pick. For digestion, citrate has the edge. And for either goal, the format you take it in — capsule, powder, or fast-dissolving strip — meaningfully changes how much magnesium actually reaches your bloodstream. As always, talk to your clinician if you take medications or have kidney issues, since magnesium clearance depends on kidney function.",
+        ],
+      },
+    ],
+    cta: { label: 'Shop Sleep Strips', href: '/product/sleep-strips' },
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
