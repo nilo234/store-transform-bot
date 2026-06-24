@@ -27,6 +27,7 @@ const Terms = lazy(() => import("./pages/Terms"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const CheckoutRedirect = lazy(() => import("./pages/CheckoutRedirect"));
 const DropProductDetail = lazy(() => import("./pages/DropProductDetail"));
+const ProductsHandleRouter = lazy(() => import("./pages/ProductsHandleRouter"));
 const GlowProtocolLanding = lazy(() => import("./pages/lp/GlowProtocolLanding"));
 const DigestiveLanding = lazy(() => import("./pages/lp/DigestiveLanding"));
 const NightOutLanding = lazy(() => import("./pages/lp/NightOutLanding"));
@@ -84,6 +85,8 @@ const App = () => (
             <Route path="/bundles/:id" element={<BundleDetail />} />
             <Route path="/product/:handle" element={<ProductDetail />} />
             <Route path="/drops/:slug" element={<DropProductDetail />} />
+            {/* Shopify/Google Merchant feed compatibility: /products/{handle} → correct PDP */}
+            <Route path="/products/:handle" element={<ProductsHandleRouter />} />
             <Route path="/science" element={<Science />} />
             <Route path="/about" element={<About />} />
             <Route path="/faqs" element={<FAQs />} />
