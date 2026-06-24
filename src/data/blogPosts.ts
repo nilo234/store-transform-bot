@@ -432,6 +432,250 @@ export const blogPosts: BlogPost[] = [
     ],
     cta: { label: 'Shop NEUVIE Energy Strips', href: '/shop' },
   },
+  {
+    slug: 'best-otc-stimulants-for-energy',
+    title: 'Best OTC Stimulants for Energy in 2026 (Caffeine-Free Options Included)',
+    excerpt:
+      'A practical, honest guide to over-the-counter stimulants for energy — what works, what to avoid, and the caffeine-free alternatives that actually deliver.',
+    metaDescription:
+      'The best OTC stimulants for energy in 2026: caffeine, L-theanine, rhodiola, ginseng and B-complex. Doses, safety, and caffeine-free alternatives that work.',
+    category: 'Energy',
+    readTime: '7 min read',
+    publishedAt: '2026-05-12',
+    author: 'NEUVIE Team',
+    content: [
+      {
+        paragraphs: [
+          "When people search for the best OTC stimulants for energy, they usually mean one of two things: a stronger pick-me-up than coffee, or a clean alternative that doesn't leave them wired and crashing. This guide covers both.",
+          "We'll rank the over-the-counter options worth your attention, flag the ones to skip, and walk through the caffeine-free stack that gives steadier energy without the jitters.",
+        ],
+      },
+      {
+        heading: 'What counts as an OTC stimulant',
+        paragraphs: [
+          "An OTC (over-the-counter) stimulant is anything you can buy without a prescription that increases alertness, focus, or perceived energy. In the US that means caffeine, certain herbal extracts, B-vitamins that support energy metabolism, and a small group of adaptogens.",
+          "What you won't find — and shouldn't look for — are amphetamine-class stimulants. Anything marketed as a 'legal alternative to Adderall' with a proprietary blend and big claims should be skipped.",
+        ],
+      },
+      {
+        heading: 'The ranking (quick answer)',
+        paragraphs: [
+          '1. **Caffeine + L-Theanine (40–80 mg + 100–200 mg).** The most reliable, best-studied stack. L-theanine smooths out caffeine\'s edges so you get focus without the jitters.',
+          '2. **Rhodiola Rosea (200–400 mg).** A non-caffeine adaptogen with real human data for fatigue and mental performance under stress.',
+          '3. **Panax Ginseng (200–400 mg).** Mild stimulant effect, used for centuries; studies show modest improvements in alertness and reaction time.',
+          '4. **B-Complex (especially B12, methylated form).** Not a stimulant in the traditional sense, but if you\'re low, supplementing closes a real energy gap.',
+          '5. **CoQ10 / Ubiquinol (100–200 mg).** Supports mitochondrial ATP output — the deepest layer of "energy" your body actually makes.',
+        ],
+      },
+      {
+        heading: 'OTC stimulants to skip',
+        paragraphs: [
+          "**High-dose caffeine pills (200 mg+).** Easy to overdo, easy to build tolerance, and the crash is brutal. If you want caffeine, dose it low and pair it with L-theanine.",
+          "**Synephrine / bitter orange.** Cardiovascular side effects in some users; the energy bump isn't worth it.",
+          "**'Fat burner' stacks with proprietary blends.** If the label hides the dose, you can't evaluate safety. Skip.",
+        ],
+      },
+      {
+        heading: 'The caffeine-free path',
+        paragraphs: [
+          "If you're caffeine-sensitive, pregnant, or just tired of the loop, the stack above works without any stimulant: rhodiola for daytime, B-complex for the underlying metabolism, CoQ10 if you're over 40, and magnesium glycinate in the evening for recovery.",
+          "Our deeper breakdown of caffeine-free options lives in the Caffeine-Free Energy guide and the Energy Without Stimulants guide. Both cover the doses, the timing, and the format choices that decide whether you'll still be doing this in 90 days.",
+        ],
+      },
+      {
+        heading: 'Why format matters as much as ingredient',
+        paragraphs: [
+          "A vitamin you forget to take is a vitamin that doesn't work. NEUVIE Energy Strips deliver a low dose of natural caffeine plus L-theanine and a B-complex in a sublingual format that absorbs in minutes — no water, no pill, no sugar.",
+          "If you want the zero-stimulant version, pair our Daily Multivitamin and Magnesium Strips with the rhodiola or ashwagandha of your choice. That covers the underlying systems caffeine was masking.",
+        ],
+      },
+      {
+        heading: 'Bottom line',
+        paragraphs: [
+          "The best OTC stimulants for energy are boring: low-dose caffeine with L-theanine, rhodiola if you want caffeine-free, and the B-vitamins your cells actually use to make ATP. Skip the proprietary blends. Pick clinically studied doses. And give any new stack four weeks before you decide.",
+        ],
+      },
+    ],
+    cta: { label: 'Shop NEUVIE Energy Strips', href: '/product/energy-strips' },
+  },
+  {
+    slug: 'caffeine-pills-alternative',
+    title: 'Caffeine Pills Alternative: 7 Better Options for Clean Energy',
+    excerpt:
+      'Caffeine pills hit hard and crash harder. Here are seven alternatives — from low-dose strips to adaptogens — that deliver steadier energy without the spike.',
+    metaDescription:
+      'Looking for a caffeine pills alternative? 7 cleaner options for energy: low-dose caffeine strips, L-theanine, rhodiola, B-complex, CoQ10 and more.',
+    category: 'Energy',
+    readTime: '6 min read',
+    publishedAt: '2026-05-18',
+    author: 'NEUVIE Team',
+    content: [
+      {
+        paragraphs: [
+          "Caffeine pills usually pack 100–200 mg per tablet — roughly one to two cups of coffee in a single hit, absorbed all at once. The lift is real. So is the crash, the jitter, and the 3 PM hole.",
+          "If you're searching for a caffeine pills alternative, you probably want one of three things: less intensity, no crash, or no caffeine at all. Here are seven options that cover all three.",
+        ],
+      },
+      {
+        heading: '1. Low-dose caffeine + L-theanine strips',
+        paragraphs: [
+          "A 40–80 mg dose of natural caffeine paired with 100–200 mg of L-theanine is the most-studied 'clean energy' stack in supplement research. L-theanine, an amino acid from green tea, smooths out caffeine's edges — you get the alertness without the racing heart.",
+          "NEUVIE Energy Strips use exactly this combination in a sublingual format that absorbs in minutes — no pill, no water, no sugar.",
+        ],
+      },
+      {
+        heading: '2. Rhodiola Rosea',
+        paragraphs: [
+          "Rhodiola is an adaptogen with real human data: studies on fatigue, stress, and mental performance show modest but consistent benefits at 200–400 mg per day. It's stimulating in a quiet way — no crash because it's not blocking adenosine like caffeine does.",
+        ],
+      },
+      {
+        heading: '3. B-Complex (methylated)',
+        paragraphs: [
+          "If you're chronically tired, a real B-vitamin deficiency might be the issue — especially B12 if you're vegan, vegetarian, or on a PPI. Supplementing a methylated B-complex with at least 100% DV of the main Bs closes that gap. It's not a stimulant; it's the metabolic fuel your cells use to make energy in the first place.",
+        ],
+      },
+      {
+        heading: '4. CoQ10 / Ubiquinol',
+        paragraphs: [
+          "CoQ10 sits inside mitochondria and is part of the chemistry that produces ATP — your cells' usable energy currency. Production drops with age and on statins. 100–200 mg of ubiquinol daily helps over the 4–8 week window, particularly for adults over 40.",
+        ],
+      },
+      {
+        heading: '5. Iron (only if you\'re low)',
+        paragraphs: [
+          "Iron carries oxygen. Without enough, you feel exhausted even after a full night's sleep. Most menstruating women run low. Bloodwork tells you for sure — ferritin under 50 is a yellow flag. If you need it, pick a gentle form like chelated iron, not ferrous sulfate.",
+        ],
+      },
+      {
+        heading: '6. Magnesium glycinate',
+        paragraphs: [
+          "Magnesium is involved in over 300 enzyme reactions including ATP production. Roughly half of US adults don't hit the daily target from food. 200–400 mg of magnesium glycinate in the evening supports recovery and deeper sleep — and better sleep is the single biggest energy lever most people are ignoring.",
+        ],
+      },
+      {
+        heading: '7. Ginseng (Panax)',
+        paragraphs: [
+          "Used for centuries in traditional medicine and backed by modest modern research, Panax ginseng at 200–400 mg has been shown to improve alertness and reaction time in some studies. A reasonable rotation partner with rhodiola.",
+        ],
+      },
+      {
+        heading: 'Putting it together',
+        paragraphs: [
+          "If you want the cleanest possible caffeine pills alternative: low-dose caffeine + L-theanine strip in the morning, B-complex with food, magnesium in the evening. Add rhodiola or CoQ10 if you want to go deeper.",
+          "For the full caffeine-free version, see our Caffeine-Free Energy guide and the Energy Without Stimulants breakdown. Both cover doses, timing, and what to skip.",
+        ],
+      },
+    ],
+    cta: { label: 'Shop NEUVIE Energy Strips', href: '/product/energy-strips' },
+  },
+  {
+    slug: 'clean-energy-supplements',
+    title: 'Clean Energy Supplements: What "Clean" Actually Means (2026)',
+    excerpt:
+      "The word 'clean' gets thrown around constantly. Here's what it should mean for an energy supplement — and the short list that actually qualifies.",
+    metaDescription:
+      'Clean energy supplements explained: no sugar, no proprietary blends, third-party tested, clinically studied doses. The short list that qualifies in 2026.',
+    category: 'Energy',
+    readTime: '5 min read',
+    publishedAt: '2026-05-24',
+    author: 'NEUVIE Team',
+    content: [
+      {
+        paragraphs: [
+          "'Clean energy supplement' is the most-overused phrase on the wellness shelf. Almost every brand uses it. Almost none of them define it. Here's a working definition you can actually use when comparing products.",
+        ],
+      },
+      {
+        heading: 'The five-point clean checklist',
+        paragraphs: [
+          '1. **No added sugar.** Most energy gummies hide 2–4 grams per serving. Over a year of daily use, that adds up.',
+          '2. **No proprietary blends.** Every ingredient and every dose listed on the label. If the brand hides the math, you can\'t evaluate it.',
+          '3. **Clinically studied doses.** Not "contains rhodiola" — but 200–400 mg of rhodiola, the dose the studies actually used.',
+          '4. **Third-party tested.** A current Certificate of Analysis from an independent lab, not a marketing claim.',
+          '5. **Made in a cGMP / FDA-registered facility.** The baseline for manufacturing quality in the US.',
+        ],
+      },
+      {
+        heading: 'What the "clean" stack looks like',
+        paragraphs: [
+          "**Low-dose caffeine + L-theanine** for daytime focus without jitters. **B-complex** (methylated, full doses) for the metabolism your cells actually run on. **Rhodiola or ginseng** as a non-caffeine adaptogen. **Magnesium glycinate** in the evening for recovery.",
+          "That's it. Five ingredients, all studied, all dosed at what the research used, all without proprietary-blend math. Anything more is usually a marketing decision.",
+        ],
+      },
+      {
+        heading: 'Format counts toward "clean" too',
+        paragraphs: [
+          "A capsule with magnesium oxide and cyanocobalamin technically contains the ingredients on the label — but neither form absorbs well. A gummy with 3 g of sugar isn't clean energy; it's a small candy with a vitamin claim.",
+          "Dissolving strips remove the format problem: no sugar, no fillers, sublingual absorption that bypasses first-pass liver metabolism. That's why NEUVIE built every product as a strip, and it's the reason we publish doses and COAs in plain sight.",
+        ],
+      },
+      {
+        heading: 'Where to start',
+        paragraphs: [
+          "If you want the simplest clean stack: an Energy Strip in the morning, a Daily Multivitamin with breakfast, and Magnesium in the evening. For a deeper walk-through, the Caffeine-Free Energy guide covers the no-stimulant path; the Energy Without Stimulants guide covers the adaptogen-led version.",
+        ],
+      },
+    ],
+    cta: { label: 'Shop Clean Energy Strips', href: '/product/energy-strips' },
+  },
+  {
+    slug: 'best-supplements-for-lung-congestion',
+    title: 'Best Supplements for Lung Congestion (Beyond Neo Life)',
+    excerpt:
+      "Searching Neo Life Lung Congestion? Here's a broader look at the ingredients that actually support respiratory health — and a faster-absorbing drop format.",
+    metaDescription:
+      'Best supplements for lung congestion in 2026: NAC, quercetin, mullein, vitamin D, and respiratory drops with faster sublingual absorption.',
+    category: 'Respiratory',
+    readTime: '6 min read',
+    publishedAt: '2026-05-30',
+    author: 'NEUVIE Team',
+    content: [
+      {
+        paragraphs: [
+          "If you've been searching Neo Life lung congestion or respiratory drops, you're already past the 'should I do anything about this' stage. This guide covers the ingredients with the strongest evidence for respiratory support — and the delivery format that gets them into your bloodstream fastest.",
+          "Quick note: persistent congestion, shortness of breath, or fever needs a clinician, not a supplement. Everything below is for general respiratory wellness, not for treating a specific medical condition.",
+        ],
+      },
+      {
+        heading: 'The respiratory wellness stack',
+        paragraphs: [
+          '1. **NAC (N-acetylcysteine, 600–1200 mg).** A precursor to glutathione, NAC has decades of human data for thinning mucus and supporting respiratory clearance.',
+          '2. **Quercetin (250–500 mg).** A plant flavonoid that supports the body\'s normal histamine response and antioxidant defense in airway tissue.',
+          '3. **Mullein leaf.** Traditional use for soothing the respiratory tract; available as tincture, tea, or sublingual drop.',
+          '4. **Vitamin D3 (1000–2000 IU).** Low vitamin D status is associated with weaker respiratory immune response in observational studies.',
+          '5. **Zinc (8–15 mg).** Supports immune function and is among the most-studied minerals for upper-respiratory wellness.',
+        ],
+      },
+      {
+        heading: 'Why drops outperform pills for the respiratory tract',
+        paragraphs: [
+          "Sublingual drops absorb under the tongue and bypass first-pass liver metabolism — meaning more of the active ingredient reaches your bloodstream, faster. For botanicals like mullein and elderberry, this matters: pills lose a meaningful fraction of the active compounds to digestion before they ever circulate.",
+          "Tinctures and drops also let you control the dose precisely and feel the effect within minutes, not hours.",
+        ],
+      },
+      {
+        heading: 'Daily habits that matter as much as supplements',
+        paragraphs: [
+          "Steam inhalation in the morning. Hydration (most adults underestimate by a liter a day). Nasal saline rinses if you're prone to congestion. Avoiding smoke, vape, and high-particulate environments where you can. A supplement is a multiplier on the habits, not a replacement.",
+        ],
+      },
+      {
+        heading: 'NEUVIE Respiratory Lung Health Drops',
+        paragraphs: [
+          "We built our Respiratory Lung Health Drops around the botanical side of this stack — mullein and traditional respiratory herbs in a sublingual format that absorbs in minutes. For the NAC and quercetin layer, capsule formats are still standard since the doses are larger than a strip can carry.",
+          "If you want the broader wellness picture, our Methylene Blue Drops cover cellular energy and antioxidant support, and our Immune Support Strips cover the zinc + vitamin C side of seasonal resilience.",
+        ],
+      },
+      {
+        heading: 'Bottom line',
+        paragraphs: [
+          "The strongest evidence for respiratory wellness supplements points to NAC, quercetin, vitamin D, zinc, and traditional botanicals like mullein. Pick clinically studied doses, lean on drops or strips for the botanical layer, and combine with the simple daily habits that move the needle most. As always, persistent symptoms need a clinician.",
+        ],
+      },
+    ],
+    cta: { label: 'Shop Respiratory Drops', href: '/drops/respiratory-lung-health-drops' },
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
