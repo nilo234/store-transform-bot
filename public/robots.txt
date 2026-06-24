@@ -86,5 +86,6 @@ Disallow: /checkout/
 Disallow: /accounts/
 Disallow: /password/
 
-# Sitemap
+# Sitemap & Google Merchant Center Feed
 Sitemap: https://tryneuvie.com/sitemap.xml
+Sitemap: https://tryneuvie.com/google-merchant-feed.xml
