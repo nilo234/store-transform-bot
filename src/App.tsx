@@ -85,6 +85,8 @@ const App = () => (
             <Route path="/bundles/:id" element={<BundleDetail />} />
             <Route path="/product/:handle" element={<ProductDetail />} />
             <Route path="/drops/:slug" element={<DropProductDetail />} />
+            {/* Shopify/Google Merchant feed compatibility: /products/{handle} → correct PDP */}
+            <Route path="/products/:handle" element={<ProductsHandleRouter />} />
             <Route path="/science" element={<Science />} />
             <Route path="/about" element={<About />} />
             <Route path="/faqs" element={<FAQs />} />
