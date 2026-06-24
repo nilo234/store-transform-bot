@@ -27,6 +27,7 @@ const Terms = lazy(() => import("./pages/Terms"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const CheckoutRedirect = lazy(() => import("./pages/CheckoutRedirect"));
 const DropProductDetail = lazy(() => import("./pages/DropProductDetail"));
+const ProductsHandleRouter = lazy(() => import("./pages/ProductsHandleRouter"));
 const GlowProtocolLanding = lazy(() => import("./pages/lp/GlowProtocolLanding"));
 const DigestiveLanding = lazy(() => import("./pages/lp/DigestiveLanding"));
 const NightOutLanding = lazy(() => import("./pages/lp/NightOutLanding"));
