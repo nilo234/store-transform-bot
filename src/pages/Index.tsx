@@ -44,7 +44,7 @@ const featuredBundles = bundles.filter(b =>
 export default function Index() {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const heroVariant = useHeroVariant();
+  
   const { isUK } = useRegion();
 
   useEffect(() => {
