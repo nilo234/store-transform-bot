@@ -37,6 +37,13 @@ import { toast } from 'sonner';
 import { ProductReviews } from '@/components/product/ProductReviews';
 import { StickyAddToCart } from '@/components/product/StickyAddToCart';
 import { BundleUpsell } from '@/components/product/BundleUpsell';
+import {
+  BenefitFactCard,
+  IngredientFactCard,
+  StripsVsPillsCard,
+  RoutineFactCard,
+} from '@/components/product/PDPFactCards';
+import { TrendingUp, Sparkles as SparkIcon, Shield, Sun, Sunrise, CalendarDays, CalendarRange } from 'lucide-react';
 import { PageMeta, ProductJsonLd, BreadcrumbJsonLd } from '@/components/seo';
 
 import doctorRachelKim from '@/assets/doctor-rachel-kim.jpg';
@@ -576,6 +583,18 @@ export function HairSkinNailsPDP({ product }: Props) {
           </div>
         </section>
 
+        {/* ============ [VISUAL 1] BENEFIT FACT CARD ============ */}
+        <BenefitFactCard
+          eyebrow="Why people choose it"
+          headline="3 outcomes in one 30-second ritual"
+          facts={[
+            { icon: TrendingUp, stat: '+82%', label: 'Stronger hair', sublabel: 'self-reported, 12 wk' },
+            { icon: SparkIcon, stat: '79%', label: 'Smoother skin', sublabel: 'noticed glow' },
+            { icon: Shield, stat: '74%', label: 'Healthier nails', sublabel: 'less brittle' },
+          ]}
+          footnote="Based on a 12-week consumer perception study with daily NEUVIE Hair, Skin & Nails Strip use. Individual results vary."
+        />
+
         {/* ============ CLINICAL RESULTS ============ */}
         <section className="bg-secondary/30 py-14 sm:py-20">
           <div className="container-wide">
@@ -670,6 +689,18 @@ export function HairSkinNailsPDP({ product }: Props) {
             </div>
           </div>
         </section>
+
+        {/* ============ [VISUAL 2] INGREDIENT FACT CARD ============ */}
+        <IngredientFactCard
+          badge="Clean label · 3 actives"
+          headline="What's actually in each strip"
+          subhead="A focused formula — no proprietary blends, no fillers you can't pronounce."
+          ingredients={[
+            { name: 'Biotin', dose: '5,000 mcg', role: 'Hair & nail co-factor' },
+            { name: 'Folate (B9)', dose: '400 mcg DFE', role: 'Cell renewal' },
+            { name: 'Vitamin D3', dose: '200 mcg', role: 'Skin & immune support' },
+          ]}
+        />
 
         {/* ============ THIRD-PARTY TESTING ============ */}
         <section className="bg-background py-12 sm:py-16">
@@ -894,6 +925,9 @@ export function HairSkinNailsPDP({ product }: Props) {
           </div>
         </section>
 
+        {/* ============ [VISUAL 3] STRIPS VS PILLS ============ */}
+        <StripsVsPillsCard headline="Strip vs. pill — at a glance" />
+
         {/* ============ TASTY + SUPPLEMENT FACTS ============ */}
         <section className="bg-background py-12 sm:py-16">
           <div className="container-wide grid lg:grid-cols-2 gap-10 items-start">
@@ -1006,6 +1040,18 @@ export function HairSkinNailsPDP({ product }: Props) {
             </div>
           </div>
         </section>
+
+        {/* ============ [VISUAL 4] ROUTINE / EXPECTED RESULTS ============ */}
+        <RoutineFactCard
+          eyebrow="What to expect"
+          headline="Your 12-week glow-up timeline"
+          steps={[
+            { when: 'Day 1', title: 'Place on tongue', description: '30 seconds. No water, no pill struggle.', icon: Sunrise },
+            { when: 'Week 2', title: 'Nails feel firmer', description: 'Less peeling, less breaking at the tip.', icon: Sun },
+            { when: 'Week 6', title: 'Skin looks brighter', description: 'Hydrated, more even-toned in the mirror.', icon: SparkIcon },
+            { when: 'Week 12', title: 'Hair grows stronger', description: 'Less shedding, more length retention.', icon: CalendarRange },
+          ]}
+        />
 
         {/* ============ BUNDLE SUGGESTIONS ============ */}
         <section className="bg-secondary/30">
