@@ -37,6 +37,13 @@ import { toast } from 'sonner';
 import { ProductReviews } from '@/components/product/ProductReviews';
 import { StickyAddToCart } from '@/components/product/StickyAddToCart';
 import { BundleUpsell } from '@/components/product/BundleUpsell';
+import {
+  BenefitFactCard,
+  IngredientFactCard,
+  StripsVsPillsCard,
+  RoutineFactCard,
+} from '@/components/product/PDPFactCards';
+import { TrendingUp, Sparkles as SparkIcon, Shield, Sun, Sunrise, CalendarDays, CalendarRange } from 'lucide-react';
 import { PageMeta, ProductJsonLd, BreadcrumbJsonLd } from '@/components/seo';
 
 import doctorRachelKim from '@/assets/doctor-rachel-kim.jpg';
