@@ -46,7 +46,7 @@ export function StickyBundleSavings() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 40 }}
           transition={{ duration: 0.3 }}
-          className="fixed z-40 left-1/2 -translate-x-1/2 bottom-24 md:bottom-6 w-[calc(100%-1.5rem)] max-w-md"
+          className="fixed z-40 left-1/2 -translate-x-1/2 bottom-32 md:bottom-6 w-[calc(100%-1.5rem)] max-w-md"
         >
           <div className="relative rounded-2xl bg-primary text-primary-foreground shadow-2xl px-4 py-3 pr-10 flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
