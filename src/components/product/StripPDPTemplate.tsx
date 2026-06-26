@@ -486,6 +486,16 @@ export function StripPDPTemplate({ product, config }: Props) {
           </div>
         </section>
 
+        {/* ============ [VISUAL 2] INGREDIENT FACT CARD ============ */}
+        {fx && (
+          <IngredientFactCard
+            badge={fx.IngredientFactCard.badge}
+            headline={fx.IngredientFactCard.headline}
+            subhead={fx.IngredientFactCard.subhead}
+            ingredients={fx.IngredientFactCard.ingredients}
+          />
+        )}
+
         {/* ============ THIRD-PARTY TESTING ============ */}
         <section className="bg-background py-12 sm:py-16">
           <div className="container-wide">
