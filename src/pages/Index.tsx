@@ -115,7 +115,7 @@ export default function Index() {
                 </div>
 
                 {/* Reassurance directly under CTA */}
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm text-foreground/80 justify-center lg:justify-start mb-4 font-medium">
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm text-foreground/80 justify-center lg:justify-start mb-6 font-medium">
                   <span className="flex items-center gap-1.5">
                     <ShieldCheck className="h-4 w-4 text-primary" />
                     30-Day Money Back
@@ -130,15 +130,9 @@ export default function Index() {
                   </span>
                 </div>
 
-                <p className="text-xs text-muted-foreground text-center lg:text-left mb-1">
-                  Bundles from <span className="font-semibold text-foreground">$59.99</span> · Save up to <span className="font-semibold text-foreground">$39.95</span> vs. buying separately
-                </p>
-                <p className="text-xs md:text-sm text-accent font-semibold text-center lg:text-left mb-5">
-                  New here? Use code WELCOME15 for an extra 15% off your first bundle
-                </p>
-
                 <QuickCategoryPicker />
               </motion.div>
+
 
               {/* Hero Image — PDP-style clean card frame */}
               <div className="order-1 lg:order-2">
