@@ -89,38 +89,14 @@ export default function Index() {
                 transition={{ duration: 0.45, ease: 'easeOut' }}
                 className="order-2 lg:order-1 text-center lg:text-left"
               >
-                {/* Urgency badge — PDP-style flat accent chip */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="inline-flex items-center gap-2 bg-accent text-accent-foreground text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded mb-5"
-                >
-                  <span>{heroVariant.badge}</span>
-                </motion.div>
-
-                <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-6xl leading-[1.08] mb-4">
+                <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-6xl leading-[1.08] mb-5">
                   Start with a routine,{' '}
                   <span className="italic text-accent">not a strip.</span>
                 </h1>
 
-                <h2 className="font-display text-xl sm:text-2xl md:text-3xl text-foreground/80 leading-snug mb-4 max-w-xl mx-auto lg:mx-0 font-normal">
-                  Fast-dissolving wellness strips. No pills. No water. Just 3 seconds — and you're done.
-                </h2>
-
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4 max-w-xl mx-auto lg:mx-0">
-                  Pre-built wellness routines that cover sleep, energy, beauty and gut — in one 3-second daily routine. Save up to 20% when you bundle.
+                <p className="text-lg md:text-xl text-foreground/75 leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0">
+                  Fast-dissolving wellness strips. No pills, no water — just 3 seconds a day.
                 </p>
-
-                {/* Star rating social proof */}
-                <div className="flex items-center gap-2 justify-center lg:justify-start mb-5 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-accent text-accent" strokeWidth={1.5} />
-                    ))}
-                  </div>
-                  <span className="font-medium">Loved by our early customers</span>
-                </div>
 
                 {/* PRIMARY CTA — matches PDP main CTA */}
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 justify-center lg:justify-start mb-3">
