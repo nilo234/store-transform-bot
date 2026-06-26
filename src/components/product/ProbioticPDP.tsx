@@ -261,6 +261,16 @@ export function ProbioticPDP({ product, onAddSingle, onAddBundle }: Props) {
           </div>
         </section>
 
+        {/* ============ [VISUAL 1] BENEFIT FACT CARD ============ */}
+        {fx && (
+          <BenefitFactCard
+            eyebrow={fx.BenefitFactCard.eyebrow}
+            headline={fx.BenefitFactCard.headline}
+            facts={fx.BenefitFactCard.facts}
+            footnote={fx.BenefitFactCard.footnote}
+          />
+        )}
+
         {/* ============ PROBLEM / SOLUTION ============ */}
         <section className="py-16 bg-secondary/40">
           <div className="container-wide max-w-5xl">
