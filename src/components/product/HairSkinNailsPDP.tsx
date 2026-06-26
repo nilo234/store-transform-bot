@@ -690,6 +690,18 @@ export function HairSkinNailsPDP({ product }: Props) {
           </div>
         </section>
 
+        {/* ============ [VISUAL 2] INGREDIENT FACT CARD ============ */}
+        <IngredientFactCard
+          badge="Clean label · 3 actives"
+          headline="What's actually in each strip"
+          subhead="A focused formula — no proprietary blends, no fillers you can't pronounce."
+          ingredients={[
+            { name: 'Biotin', dose: '5,000 mcg', role: 'Hair & nail co-factor' },
+            { name: 'Folate (B9)', dose: '400 mcg DFE', role: 'Cell renewal' },
+            { name: 'Vitamin D3', dose: '200 mcg', role: 'Skin & immune support' },
+          ]}
+        />
+
         {/* ============ THIRD-PARTY TESTING ============ */}
         <section className="bg-background py-12 sm:py-16">
           <div className="container-wide">
