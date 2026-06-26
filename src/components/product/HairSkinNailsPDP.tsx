@@ -925,6 +925,9 @@ export function HairSkinNailsPDP({ product }: Props) {
           </div>
         </section>
 
+        {/* ============ [VISUAL 3] STRIPS VS PILLS ============ */}
+        <StripsVsPillsCard headline="Strip vs. pill — at a glance" />
+
         {/* ============ TASTY + SUPPLEMENT FACTS ============ */}
         <section className="bg-background py-12 sm:py-16">
           <div className="container-wide grid lg:grid-cols-2 gap-10 items-start">
