@@ -45,6 +45,13 @@ import { FrequentlyBoughtTogether } from '@/components/product/FrequentlyBoughtT
 import { StickyBundleSavings } from '@/components/product/StickyBundleSavings';
 import { PageMeta, ProductJsonLd, BreadcrumbJsonLd } from '@/components/seo';
 import type { PDPConfig } from '@/data/pdpConfigs';
+import {
+  BenefitFactCard,
+  IngredientFactCard,
+  StripsVsPillsCard,
+  RoutineFactCard,
+} from '@/components/product/PDPFactCards';
+import { pdpFactCardProps } from '@/data/pdpFactCardProps';
 
 const SINGLE_PRICE = 29.99;
 const ORIGINAL_PRICE = 49.99;
