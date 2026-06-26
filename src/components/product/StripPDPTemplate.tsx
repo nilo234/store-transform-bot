@@ -51,7 +51,12 @@ import {
   StripsVsPillsCard,
   RoutineFactCard,
 } from '@/components/product/PDPFactCards';
-import { pdpFactCardProps } from '@/data/pdpFactCardProps';
+import { pdpFactCardProps, shouldRemove } from '@/data/pdpFactCardProps';
+// Safe duplicate removal: wrap any candidate inline block in
+//   {!shouldRemove(fx, 'heading'|'copy'|'component', '<exact value>') && (...)}
+// Currently every fx.removeSections entry is type:'todo' (no exact anchor in this
+// shared template), so this helper is a no-op — kept here as the integration point.
+
 
 const SINGLE_PRICE = 29.99;
 const ORIGINAL_PRICE = 49.99;
