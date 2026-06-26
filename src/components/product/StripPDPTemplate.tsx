@@ -744,6 +744,14 @@ export function StripPDPTemplate({ product, config }: Props) {
           </div>
         </section>
 
+        {/* ============ [VISUAL 3] STRIPS VS PILLS ============ */}
+        {fx && (
+          <StripsVsPillsCard
+            headline={fx.StripsVsPillsCard.headline}
+            rows={fx.StripsVsPillsCard.rows}
+          />
+        )}
+
         {/* ============ BUNDLE SUGGESTIONS ============ */}
         <section className="bg-secondary/30">
           <div className="container-wide pt-12 pb-2 text-center">
