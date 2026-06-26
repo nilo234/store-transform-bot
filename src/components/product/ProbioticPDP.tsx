@@ -31,7 +31,7 @@ import {
   StripsVsPillsCard,
   RoutineFactCard,
 } from '@/components/product/PDPFactCards';
-import { pdpFactCardProps } from '@/data/pdpFactCardProps';
+import { pdpFactCardProps, shouldRemove } from '@/data/pdpFactCardProps';
 
 const fx = pdpFactCardProps['probiotic-metabolism-strips'];
 
@@ -482,6 +482,10 @@ export function ProbioticPDP({ product, onAddSingle, onAddBundle }: Props) {
         )}
 
         {/* ============ INGREDIENTS ============ */}
+        {/* TODO_REMOVE: heading "10 Billion good bacteria + prebiotic fiber" duplicates IngredientFactCard,
+            but this section is embedded with IngredientTransparencyDrawer (Supplement Facts) and trust badges.
+            Cannot safely isolate — leaving in place. Gated by shouldRemove() for future exact-anchor wiring. */}
+        {!shouldRemove(fx, 'heading', '10 Billion good bacteria + prebiotic fiber') && (
         <section className="py-16 bg-secondary/40">
           <div className="container-wide max-w-5xl">
             <div className="text-center mb-10">
@@ -533,6 +537,7 @@ export function ProbioticPDP({ product, onAddSingle, onAddBundle }: Props) {
             </div>
           </div>
         </section>
+        )}
 
         {/* ============ WHY STRIPS ============ */}
         <section className="py-16">

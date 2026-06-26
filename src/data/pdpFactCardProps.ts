@@ -19,6 +19,23 @@ import type {
 
 export type Cluster = 'beauty' | 'energy-focus' | 'sleep-calm' | 'gut-immunity';
 
+/**
+ * Structured anchor for safe duplicate removal.
+ * - 'heading'    → exact <h1|h2|h3> text match
+ * - 'copy'       → exact literal copy string
+ * - 'component'  → exact component name rendered in the PDP
+ * - 'prop'       → exact prop key/value passed to a section component
+ * - 'comment'    → exact JSX comment marker
+ * - 'todo'       → no exact anchor found in current codebase; leave in place
+ */
+export type RemoveAnchor =
+  | { type: 'heading'; value: string }
+  | { type: 'copy'; value: string }
+  | { type: 'component'; value: string }
+  | { type: 'prop'; value: string }
+  | { type: 'comment'; value: string }
+  | { type: 'todo'; value: string; reason?: string };
+
 export interface PDPFactCardSet {
   handle: string;
   cluster: Cluster;
@@ -44,9 +61,24 @@ export interface PDPFactCardSet {
     mode: 'daily' | 'timeline';
     steps: RoutineStep[];
   };
-  removeSections: string[]; // ids/labels for engineer to delete on patch
-  validation: string[];     // manual review notes
+  removeSections: RemoveAnchor[]; // structured anchors for safe removal
+  validation: string[];           // manual review notes
 }
+
+/**
+ * Safe removal predicate. Returns true ONLY for exact-match anchors that
+ * the engineer has wired up in the rendering component. 'todo' is always false.
+ * Use in JSX: {!shouldRemove(fx, 'heading', '10 Billion good bacteria + prebiotic fiber') && (...)}
+ */
+export function shouldRemove(
+  fx: PDPFactCardSet | undefined,
+  type: RemoveAnchor['type'],
+  value: string,
+): boolean {
+  if (!fx || type === 'todo') return false;
+  return fx.removeSections.some(a => a.type === type && a.value === value);
+}
+
 
 export const pdpFactCardProps: Record<string, PDPFactCardSet> = {
   /* ============ BEAUTY CLUSTER ============ */
@@ -84,7 +116,10 @@ export const pdpFactCardProps: Record<string, PDPFactCardSet> = {
         { when: 'Week 12', title: 'Stay consistent', description: 'For visible support, NEUVIE recommends daily use.', icon: Sun },
       ],
     },
-    removeSections: ['Inline collagen mg callout', 'Duplicate Vitamin E pill'],
+    removeSections: [
+      { type: 'todo', value: 'Inline collagen mg callout', reason: 'No matching inline block in StripPDPTemplate.' },
+      { type: 'todo', value: 'Duplicate Vitamin E pill', reason: 'No matching inline block in StripPDPTemplate.' },
+    ],
     validation: ['No clinical % on source PDP — Benefit card uses doses only.'],
   },
 
@@ -132,7 +167,10 @@ export const pdpFactCardProps: Record<string, PDPFactCardSet> = {
         { when: 'Cap at 3', title: 'Daily max', description: 'Do not exceed 3 strips per day.', icon: Shield },
       ],
     },
-    removeSections: ['Inline "no jitters" callout block', 'Duplicate caffeine mg badge'],
+    removeSections: [
+      { type: 'todo', value: 'Inline "no jitters" callout block', reason: 'No matching inline block in StripPDPTemplate.' },
+      { type: 'todo', value: 'Duplicate caffeine mg badge', reason: 'No matching inline block in StripPDPTemplate.' },
+    ],
     validation: ['Caffeine warning preserved.'],
   },
 
@@ -170,7 +208,9 @@ export const pdpFactCardProps: Record<string, PDPFactCardSet> = {
         { when: 'Evening', title: 'Wind down', description: 'Caffeine-free — safe later in the day.', icon: Moon },
       ],
     },
-    removeSections: ['Inline mushroom mg pill row duplicating IngredientFactCard'],
+    removeSections: [
+      { type: 'todo', value: 'Inline mushroom mg pill row duplicating IngredientFactCard', reason: 'No matching inline block in StripPDPTemplate.' },
+    ],
     validation: ['No crash claim already in source copy.'],
   },
 
@@ -207,7 +247,9 @@ export const pdpFactCardProps: Record<string, PDPFactCardSet> = {
         { when: 'Week 8', title: 'Check in', description: 'Re-evaluate with your healthcare provider.', icon: Activity },
       ],
     },
-    removeSections: ['Duplicate "no stomach pain" callout'],
+    removeSections: [
+      { type: 'todo', value: 'Duplicate "no stomach pain" callout', reason: 'No matching inline block in StripPDPTemplate.' },
+    ],
     validation: ['Conservative wording — no anti-anemia claim.'],
   },
 
@@ -248,7 +290,9 @@ export const pdpFactCardProps: Record<string, PDPFactCardSet> = {
         { when: 'Morning', title: 'Wake clearer', description: 'No grogginess hangover from heavy capsules.', icon: Sun },
       ],
     },
-    removeSections: ['Inline melatonin mg callout duplicated by Benefit card'],
+    removeSections: [
+      { type: 'todo', value: 'Inline melatonin mg callout duplicated by Benefit card', reason: 'No matching inline block in StripPDPTemplate.' },
+    ],
     validation: ['Drowsiness/medication disclaimer kept.'],
   },
 
@@ -285,7 +329,9 @@ export const pdpFactCardProps: Record<string, PDPFactCardSet> = {
         { when: 'Evening', title: 'Wind down', description: 'No melatonin — safe before bed without sleep effect.', icon: Moon },
       ],
     },
-    removeSections: ['Duplicate "no drowsiness" callout'],
+    removeSections: [
+      { type: 'todo', value: 'Duplicate "no drowsiness" callout', reason: 'No matching inline block in StripPDPTemplate.' },
+    ],
     validation: ['Compliance safe; no anxiolytic claim.'],
   },
 
@@ -326,7 +372,9 @@ export const pdpFactCardProps: Record<string, PDPFactCardSet> = {
         { when: 'As needed', title: 'Keep one in your bag', description: 'Slim sachet, travel-friendly.', icon: Sparkles },
       ],
     },
-    removeSections: ['Duplicate ingredient pill grid'],
+    removeSections: [
+      { type: 'todo', value: 'Duplicate ingredient pill grid', reason: 'No matching inline block in StripPDPTemplate.' },
+    ],
     validation: ['Doses are proprietary blend on source PDP — kept as "Proprietary" instead of inventing mg.'],
   },
 
@@ -362,7 +410,9 @@ export const pdpFactCardProps: Record<string, PDPFactCardSet> = {
         { when: 'Week 8', title: 'Long-term care', description: 'Talk to your provider about long-term levels.', icon: Sun },
       ],
     },
-    removeSections: ['Duplicate D3 IU pill grid'],
+    removeSections: [
+      { type: 'todo', value: 'Duplicate D3 IU pill grid', reason: 'No matching inline block in StripPDPTemplate.' },
+    ],
     validation: ['Bone health structure-function wording kept conservative.'],
   },
 
@@ -400,7 +450,9 @@ export const pdpFactCardProps: Record<string, PDPFactCardSet> = {
         { when: 'Cap at 2', title: 'Daily max', description: 'Do not exceed 2 strips per day.', icon: Clock },
       ],
     },
-    removeSections: ['Duplicate ingredient pill grid'],
+    removeSections: [
+      { type: 'todo', value: 'Duplicate ingredient pill grid', reason: 'No matching inline block in StripPDPTemplate.' },
+    ],
     validation: ['No performance/medical claim. Compliance-safe vitality wording.'],
   },
 
@@ -436,7 +488,12 @@ export const pdpFactCardProps: Record<string, PDPFactCardSet> = {
         { when: 'Week 8', title: 'Tune in', description: 'Notice how your gut feels day-to-day.', icon: Sparkles },
       ],
     },
-    removeSections: ['Duplicate CFU callout'],
+    removeSections: [
+      // Exact match exists in ProbioticPDP.tsx (<h2> "10 Billion good bacteria + prebiotic fiber"),
+      // but that section is embedded with IngredientTransparencyDrawer + trust badges and
+      // cannot be safely isolated. Leaving in place per safety rule.
+      { type: 'todo', value: 'Ingredients heading: 10 Billion good bacteria + prebiotic fiber', reason: 'Embedded with IngredientTransparencyDrawer and trust badges in ProbioticPDP.tsx — cannot isolate safely.' },
+    ],
     validation: ['No therapeutic gut-disease claim.'],
   },
 
@@ -474,7 +531,9 @@ export const pdpFactCardProps: Record<string, PDPFactCardSet> = {
         { when: 'Long-term', title: 'Stay consistent', description: 'Gut comfort builds with steady use.', icon: Shield },
       ],
     },
-    removeSections: ['Duplicate enzyme pill grid'],
+    removeSections: [
+      { type: 'todo', value: 'Duplicate enzyme pill grid', reason: 'No matching inline block in StripPDPTemplate.' },
+    ],
     validation: ['Bloating language already on PDP — kept lifestyle, not medical.'],
   },
 
@@ -512,7 +571,9 @@ export const pdpFactCardProps: Record<string, PDPFactCardSet> = {
         { when: 'Long-term', title: 'Stay consistent', description: 'Pair with balanced eating.', icon: Shield },
       ],
     },
-    removeSections: ['Duplicate chromium mcg callout'],
+    removeSections: [
+      { type: 'todo', value: 'Duplicate chromium mcg callout', reason: 'No matching inline block in StripPDPTemplate.' },
+    ],
     validation: ['Weight-loss claim avoided; "metabolism support" language preserved.'],
   },
 };
