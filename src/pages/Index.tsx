@@ -25,7 +25,7 @@ import { QuickCategoryPicker } from '@/components/home/QuickCategoryPicker';
 import { InlineEmailCapture } from '@/components/home/InlineEmailCapture';
 import { useRegion } from '@/hooks/useRegion';
 import { AdMatchTrustBar } from '@/components/conversion/AdMatchTrustBar';
-import { useHeroVariant } from '@/hooks/useHeroVariant';
+
 
 // ─── DATA ──────────────────────────────────────────────
 const reviews = [
