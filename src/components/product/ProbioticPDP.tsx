@@ -622,6 +622,15 @@ export function ProbioticPDP({ product, onAddSingle, onAddBundle }: Props) {
           productHandle={product.handle}
           productTitle={sanitizeTitle(product.title)}
         />
+        {/* ============ [VISUAL 4] ROUTINE FACT CARD ============ */}
+        {fx && (
+          <RoutineFactCard
+            eyebrow={fx.RoutineFactCard.eyebrow}
+            headline={fx.RoutineFactCard.headline}
+            mode={fx.RoutineFactCard.mode}
+            steps={fx.RoutineFactCard.steps}
+          />
+        )}
       </main>
 
       {/* Sticky CTA */}
