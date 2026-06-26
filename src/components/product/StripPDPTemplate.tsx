@@ -398,6 +398,16 @@ export function StripPDPTemplate({ product, config }: Props) {
           </div>
         </section>
 
+        {/* ============ [VISUAL 1] BENEFIT FACT CARD ============ */}
+        {fx && (
+          <BenefitFactCard
+            eyebrow={fx.BenefitFactCard.eyebrow}
+            headline={fx.BenefitFactCard.headline}
+            facts={fx.BenefitFactCard.facts}
+            footnote={fx.BenefitFactCard.footnote}
+          />
+        )}
+
         {/* ============ CLINICAL RESULTS ============ */}
         <section className="bg-secondary/30 py-14 sm:py-20">
           <div className="container-wide">
