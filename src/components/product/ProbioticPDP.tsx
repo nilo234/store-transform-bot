@@ -25,6 +25,15 @@ import { useRegion } from '@/hooks/useRegion';
 import { formatShopifyMoney } from '@/lib/region';
 import { bundles } from '@/data/bundles';
 import { findProductContent } from '@/data/productContent';
+import {
+  BenefitFactCard,
+  IngredientFactCard,
+  StripsVsPillsCard,
+  RoutineFactCard,
+} from '@/components/product/PDPFactCards';
+import { pdpFactCardProps } from '@/data/pdpFactCardProps';
+
+const fx = pdpFactCardProps['probiotic-metabolism-strips'];
 
 interface Props {
   product: ShopifyProduct['node'];
