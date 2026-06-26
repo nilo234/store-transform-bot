@@ -17,7 +17,7 @@ import { HomepageFAQs, homepageFaqs } from '@/components/home/HomepageFAQs';
 import { HowToUse } from '@/components/home/HowToUse';
 import { WhyNeuvie } from '@/components/home/WhyNeuvie';
 import { SocialShareButtons } from '@/components/seo/SocialShareButtons';
-import { HeroTrustBar } from '@/components/home/HeroTrustBar';
+
 import { OutcomeBenefits } from '@/components/home/OutcomeBenefits';
 import { StickyMobileCTA } from '@/components/home/StickyMobileCTA';
 import { PaymentTrustStrip } from '@/components/home/PaymentTrustStrip';
@@ -25,7 +25,7 @@ import { QuickCategoryPicker } from '@/components/home/QuickCategoryPicker';
 import { InlineEmailCapture } from '@/components/home/InlineEmailCapture';
 import { useRegion } from '@/hooks/useRegion';
 import { AdMatchTrustBar } from '@/components/conversion/AdMatchTrustBar';
-import { useHeroVariant } from '@/hooks/useHeroVariant';
+
 
 // ─── DATA ──────────────────────────────────────────────
 const reviews = [
@@ -44,7 +44,7 @@ const featuredBundles = bundles.filter(b =>
 export default function Index() {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const heroVariant = useHeroVariant();
+  
   const { isUK } = useRegion();
 
   useEffect(() => {
@@ -89,38 +89,14 @@ export default function Index() {
                 transition={{ duration: 0.45, ease: 'easeOut' }}
                 className="order-2 lg:order-1 text-center lg:text-left"
               >
-                {/* Urgency badge — PDP-style flat accent chip */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="inline-flex items-center gap-2 bg-accent text-accent-foreground text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded mb-5"
-                >
-                  <span>{heroVariant.badge}</span>
-                </motion.div>
-
-                <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-6xl leading-[1.08] mb-4">
+                <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-6xl leading-[1.08] mb-5">
                   Start with a routine,{' '}
                   <span className="italic text-accent">not a strip.</span>
                 </h1>
 
-                <h2 className="font-display text-xl sm:text-2xl md:text-3xl text-foreground/80 leading-snug mb-4 max-w-xl mx-auto lg:mx-0 font-normal">
-                  Fast-dissolving wellness strips. No pills. No water. Just 3 seconds — and you're done.
-                </h2>
-
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4 max-w-xl mx-auto lg:mx-0">
-                  Pre-built wellness routines that cover sleep, energy, beauty and gut — in one 3-second daily routine. Save up to 20% when you bundle.
+                <p className="text-lg md:text-xl text-foreground/75 leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0">
+                  Fast-dissolving wellness strips. No pills, no water — just 3 seconds a day.
                 </p>
-
-                {/* Star rating social proof */}
-                <div className="flex items-center gap-2 justify-center lg:justify-start mb-5 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-accent text-accent" strokeWidth={1.5} />
-                    ))}
-                  </div>
-                  <span className="font-medium">Loved by our early customers</span>
-                </div>
 
                 {/* PRIMARY CTA — matches PDP main CTA */}
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 justify-center lg:justify-start mb-3">
@@ -139,7 +115,7 @@ export default function Index() {
                 </div>
 
                 {/* Reassurance directly under CTA */}
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm text-foreground/80 justify-center lg:justify-start mb-4 font-medium">
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm text-foreground/80 justify-center lg:justify-start mb-6 font-medium">
                   <span className="flex items-center gap-1.5">
                     <ShieldCheck className="h-4 w-4 text-primary" />
                     30-Day Money Back
@@ -154,15 +130,9 @@ export default function Index() {
                   </span>
                 </div>
 
-                <p className="text-xs text-muted-foreground text-center lg:text-left mb-1">
-                  Bundles from <span className="font-semibold text-foreground">$59.99</span> · Save up to <span className="font-semibold text-foreground">$39.95</span> vs. buying separately
-                </p>
-                <p className="text-xs md:text-sm text-accent font-semibold text-center lg:text-left mb-5">
-                  New here? Use code WELCOME15 for an extra 15% off your first bundle
-                </p>
-
                 <QuickCategoryPicker />
               </motion.div>
+
 
               {/* Hero Image — PDP-style clean card frame */}
               <div className="order-1 lg:order-2">
@@ -186,10 +156,6 @@ export default function Index() {
               </div>
             </div>
 
-            {/* Hero Trust Bar */}
-            <div className="mt-12 md:mt-16 pt-6 border-t border-border/40">
-              <HeroTrustBar />
-            </div>
           </div>
         </section>
 
