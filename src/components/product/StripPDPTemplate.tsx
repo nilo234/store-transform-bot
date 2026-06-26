@@ -45,6 +45,13 @@ import { FrequentlyBoughtTogether } from '@/components/product/FrequentlyBoughtT
 import { StickyBundleSavings } from '@/components/product/StickyBundleSavings';
 import { PageMeta, ProductJsonLd, BreadcrumbJsonLd } from '@/components/seo';
 import type { PDPConfig } from '@/data/pdpConfigs';
+import {
+  BenefitFactCard,
+  IngredientFactCard,
+  StripsVsPillsCard,
+  RoutineFactCard,
+} from '@/components/product/PDPFactCards';
+import { pdpFactCardProps } from '@/data/pdpFactCardProps';
 
 const SINGLE_PRICE = 29.99;
 const ORIGINAL_PRICE = 49.99;
@@ -65,6 +72,7 @@ export function StripPDPTemplate({ product, config }: Props) {
   const images = product.images.edges;
   const firstVariant = product.variants.edges[0]?.node;
   const title = sanitizeTitle(product.title);
+  const fx = pdpFactCardProps[sanitizeHandle(product.handle)];
 
   useEffect(() => {
     if (firstVariant) {
@@ -390,6 +398,16 @@ export function StripPDPTemplate({ product, config }: Props) {
           </div>
         </section>
 
+        {/* ============ [VISUAL 1] BENEFIT FACT CARD ============ */}
+        {fx && (
+          <BenefitFactCard
+            eyebrow={fx.BenefitFactCard.eyebrow}
+            headline={fx.BenefitFactCard.headline}
+            facts={fx.BenefitFactCard.facts}
+            footnote={fx.BenefitFactCard.footnote}
+          />
+        )}
+
         {/* ============ CLINICAL RESULTS ============ */}
         <section className="bg-secondary/30 py-14 sm:py-20">
           <div className="container-wide">
@@ -477,6 +495,16 @@ export function StripPDPTemplate({ product, config }: Props) {
             </div>
           </div>
         </section>
+
+        {/* ============ [VISUAL 2] INGREDIENT FACT CARD ============ */}
+        {fx && (
+          <IngredientFactCard
+            badge={fx.IngredientFactCard.badge}
+            headline={fx.IngredientFactCard.headline}
+            subhead={fx.IngredientFactCard.subhead}
+            ingredients={fx.IngredientFactCard.ingredients}
+          />
+        )}
 
         {/* ============ THIRD-PARTY TESTING ============ */}
         <section className="bg-background py-12 sm:py-16">
@@ -736,6 +764,14 @@ export function StripPDPTemplate({ product, config }: Props) {
           </div>
         </section>
 
+        {/* ============ [VISUAL 3] STRIPS VS PILLS ============ */}
+        {fx && (
+          <StripsVsPillsCard
+            headline={fx.StripsVsPillsCard.headline}
+            rows={fx.StripsVsPillsCard.rows}
+          />
+        )}
+
         {/* ============ BUNDLE SUGGESTIONS ============ */}
         <section className="bg-secondary/30">
           <div className="container-wide pt-12 pb-2 text-center">
@@ -851,6 +887,16 @@ export function StripPDPTemplate({ product, config }: Props) {
         <div id="reviews">
           <ProductReviews productHandle={product.handle} productTitle={title} productId={product.id} />
         </div>
+
+        {/* ============ [VISUAL 4] ROUTINE FACT CARD ============ */}
+        {fx && (
+          <RoutineFactCard
+            eyebrow={fx.RoutineFactCard.eyebrow}
+            headline={fx.RoutineFactCard.headline}
+            mode={fx.RoutineFactCard.mode}
+            steps={fx.RoutineFactCard.steps}
+          />
+        )}
 
         {/* ============ FAQ ============ */}
         <section className="bg-secondary/30 py-12 sm:py-16">

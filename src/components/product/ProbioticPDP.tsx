@@ -25,6 +25,15 @@ import { useRegion } from '@/hooks/useRegion';
 import { formatShopifyMoney } from '@/lib/region';
 import { bundles } from '@/data/bundles';
 import { findProductContent } from '@/data/productContent';
+import {
+  BenefitFactCard,
+  IngredientFactCard,
+  StripsVsPillsCard,
+  RoutineFactCard,
+} from '@/components/product/PDPFactCards';
+import { pdpFactCardProps } from '@/data/pdpFactCardProps';
+
+const fx = pdpFactCardProps['probiotic-metabolism-strips'];
 
 interface Props {
   product: ShopifyProduct['node'];
@@ -252,6 +261,16 @@ export function ProbioticPDP({ product, onAddSingle, onAddBundle }: Props) {
           </div>
         </section>
 
+        {/* ============ [VISUAL 1] BENEFIT FACT CARD ============ */}
+        {fx && (
+          <BenefitFactCard
+            eyebrow={fx.BenefitFactCard.eyebrow}
+            headline={fx.BenefitFactCard.headline}
+            facts={fx.BenefitFactCard.facts}
+            footnote={fx.BenefitFactCard.footnote}
+          />
+        )}
+
         {/* ============ PROBLEM / SOLUTION ============ */}
         <section className="py-16 bg-secondary/40">
           <div className="container-wide max-w-5xl">
@@ -452,6 +471,16 @@ export function ProbioticPDP({ product, onAddSingle, onAddBundle }: Props) {
           </div>
         </section>
 
+        {/* ============ [VISUAL 2] INGREDIENT FACT CARD ============ */}
+        {fx && (
+          <IngredientFactCard
+            badge={fx.IngredientFactCard.badge}
+            headline={fx.IngredientFactCard.headline}
+            subhead={fx.IngredientFactCard.subhead}
+            ingredients={fx.IngredientFactCard.ingredients}
+          />
+        )}
+
         {/* ============ INGREDIENTS ============ */}
         <section className="py-16 bg-secondary/40">
           <div className="container-wide max-w-5xl">
@@ -547,6 +576,14 @@ export function ProbioticPDP({ product, onAddSingle, onAddBundle }: Props) {
           </div>
         </section>
 
+        {/* ============ [VISUAL 3] STRIPS VS PILLS ============ */}
+        {fx && (
+          <StripsVsPillsCard
+            headline={fx.StripsVsPillsCard.headline}
+            rows={fx.StripsVsPillsCard.rows}
+          />
+        )}
+
         {/* ============ FAQ ============ */}
         <section className="py-16 bg-secondary/40">
           <div className="container-wide max-w-3xl">
@@ -613,6 +650,15 @@ export function ProbioticPDP({ product, onAddSingle, onAddBundle }: Props) {
           productHandle={product.handle}
           productTitle={sanitizeTitle(product.title)}
         />
+        {/* ============ [VISUAL 4] ROUTINE FACT CARD ============ */}
+        {fx && (
+          <RoutineFactCard
+            eyebrow={fx.RoutineFactCard.eyebrow}
+            headline={fx.RoutineFactCard.headline}
+            mode={fx.RoutineFactCard.mode}
+            steps={fx.RoutineFactCard.steps}
+          />
+        )}
       </main>
 
       {/* Sticky CTA */}
