@@ -583,6 +583,18 @@ export function HairSkinNailsPDP({ product }: Props) {
           </div>
         </section>
 
+        {/* ============ [VISUAL 1] BENEFIT FACT CARD ============ */}
+        <BenefitFactCard
+          eyebrow="Why people choose it"
+          headline="3 outcomes in one 30-second ritual"
+          facts={[
+            { icon: TrendingUp, stat: '+82%', label: 'Stronger hair', sublabel: 'self-reported, 12 wk' },
+            { icon: SparkIcon, stat: '79%', label: 'Smoother skin', sublabel: 'noticed glow' },
+            { icon: Shield, stat: '74%', label: 'Healthier nails', sublabel: 'less brittle' },
+          ]}
+          footnote="Based on a 12-week consumer perception study with daily NEUVIE Hair, Skin & Nails Strip use. Individual results vary."
+        />
+
         {/* ============ CLINICAL RESULTS ============ */}
         <section className="bg-secondary/30 py-14 sm:py-20">
           <div className="container-wide">
