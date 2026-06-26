@@ -17,7 +17,7 @@ import { HomepageFAQs, homepageFaqs } from '@/components/home/HomepageFAQs';
 import { HowToUse } from '@/components/home/HowToUse';
 import { WhyNeuvie } from '@/components/home/WhyNeuvie';
 import { SocialShareButtons } from '@/components/seo/SocialShareButtons';
-import { HeroTrustBar } from '@/components/home/HeroTrustBar';
+
 import { OutcomeBenefits } from '@/components/home/OutcomeBenefits';
 import { StickyMobileCTA } from '@/components/home/StickyMobileCTA';
 import { PaymentTrustStrip } from '@/components/home/PaymentTrustStrip';
