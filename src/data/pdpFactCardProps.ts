@@ -19,6 +19,23 @@ import type {
 
 export type Cluster = 'beauty' | 'energy-focus' | 'sleep-calm' | 'gut-immunity';
 
+/**
+ * Structured anchor for safe duplicate removal.
+ * - 'heading'    → exact <h1|h2|h3> text match
+ * - 'copy'       → exact literal copy string
+ * - 'component'  → exact component name rendered in the PDP
+ * - 'prop'       → exact prop key/value passed to a section component
+ * - 'comment'    → exact JSX comment marker
+ * - 'todo'       → no exact anchor found in current codebase; leave in place
+ */
+export type RemoveAnchor =
+  | { type: 'heading'; value: string }
+  | { type: 'copy'; value: string }
+  | { type: 'component'; value: string }
+  | { type: 'prop'; value: string }
+  | { type: 'comment'; value: string }
+  | { type: 'todo'; value: string; reason?: string };
+
 export interface PDPFactCardSet {
   handle: string;
   cluster: Cluster;
@@ -44,9 +61,24 @@ export interface PDPFactCardSet {
     mode: 'daily' | 'timeline';
     steps: RoutineStep[];
   };
-  removeSections: string[]; // ids/labels for engineer to delete on patch
-  validation: string[];     // manual review notes
+  removeSections: RemoveAnchor[]; // structured anchors for safe removal
+  validation: string[];           // manual review notes
 }
+
+/**
+ * Safe removal predicate. Returns true ONLY for exact-match anchors that
+ * the engineer has wired up in the rendering component. 'todo' is always false.
+ * Use in JSX: {!shouldRemove(fx, 'heading', '10 Billion good bacteria + prebiotic fiber') && (...)}
+ */
+export function shouldRemove(
+  fx: PDPFactCardSet | undefined,
+  type: RemoveAnchor['type'],
+  value: string,
+): boolean {
+  if (!fx || type === 'todo') return false;
+  return fx.removeSections.some(a => a.type === type && a.value === value);
+}
+
 
 export const pdpFactCardProps: Record<string, PDPFactCardSet> = {
   /* ============ BEAUTY CLUSTER ============ */
