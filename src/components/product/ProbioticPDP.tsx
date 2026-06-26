@@ -537,6 +537,7 @@ export function ProbioticPDP({ product, onAddSingle, onAddBundle }: Props) {
             </div>
           </div>
         </section>
+        )}
 
         {/* ============ WHY STRIPS ============ */}
         <section className="py-16">
