@@ -72,6 +72,7 @@ export function StripPDPTemplate({ product, config }: Props) {
   const images = product.images.edges;
   const firstVariant = product.variants.edges[0]?.node;
   const title = sanitizeTitle(product.title);
+  const fx = pdpFactCardProps[sanitizeHandle(product.handle)];
 
   useEffect(() => {
     if (firstVariant) {
