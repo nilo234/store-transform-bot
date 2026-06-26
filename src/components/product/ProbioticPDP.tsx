@@ -25,15 +25,6 @@ import { useRegion } from '@/hooks/useRegion';
 import { formatShopifyMoney } from '@/lib/region';
 import { bundles } from '@/data/bundles';
 import { findProductContent } from '@/data/productContent';
-import {
-  BenefitFactCard,
-  IngredientFactCard,
-  StripsVsPillsCard,
-  RoutineFactCard,
-} from '@/components/product/PDPFactCards';
-import { pdpFactCardProps, shouldRemove } from '@/data/pdpFactCardProps';
-
-const fx = pdpFactCardProps['probiotic-metabolism-strips'];
 
 interface Props {
   product: ShopifyProduct['node'];
@@ -261,16 +252,6 @@ export function ProbioticPDP({ product, onAddSingle, onAddBundle }: Props) {
           </div>
         </section>
 
-        {/* ============ [VISUAL 1] BENEFIT FACT CARD ============ */}
-        {fx && (
-          <BenefitFactCard
-            eyebrow={fx.BenefitFactCard.eyebrow}
-            headline={fx.BenefitFactCard.headline}
-            facts={fx.BenefitFactCard.facts}
-            footnote={fx.BenefitFactCard.footnote}
-          />
-        )}
-
         {/* ============ PROBLEM / SOLUTION ============ */}
         <section className="py-16 bg-secondary/40">
           <div className="container-wide max-w-5xl">
@@ -471,21 +452,7 @@ export function ProbioticPDP({ product, onAddSingle, onAddBundle }: Props) {
           </div>
         </section>
 
-        {/* ============ [VISUAL 2] INGREDIENT FACT CARD ============ */}
-        {fx && (
-          <IngredientFactCard
-            badge={fx.IngredientFactCard.badge}
-            headline={fx.IngredientFactCard.headline}
-            subhead={fx.IngredientFactCard.subhead}
-            ingredients={fx.IngredientFactCard.ingredients}
-          />
-        )}
-
         {/* ============ INGREDIENTS ============ */}
-        {/* TODO_REMOVE: heading "10 Billion good bacteria + prebiotic fiber" duplicates IngredientFactCard,
-            but this section is embedded with IngredientTransparencyDrawer (Supplement Facts) and trust badges.
-            Cannot safely isolate — leaving in place. Gated by shouldRemove() for future exact-anchor wiring. */}
-        {!shouldRemove(fx, 'heading', '10 Billion good bacteria + prebiotic fiber') && (
         <section className="py-16 bg-secondary/40">
           <div className="container-wide max-w-5xl">
             <div className="text-center mb-10">
@@ -537,7 +504,6 @@ export function ProbioticPDP({ product, onAddSingle, onAddBundle }: Props) {
             </div>
           </div>
         </section>
-        )}
 
         {/* ============ WHY STRIPS ============ */}
         <section className="py-16">
@@ -580,14 +546,6 @@ export function ProbioticPDP({ product, onAddSingle, onAddBundle }: Props) {
             </div>
           </div>
         </section>
-
-        {/* ============ [VISUAL 3] STRIPS VS PILLS ============ */}
-        {fx && (
-          <StripsVsPillsCard
-            headline={fx.StripsVsPillsCard.headline}
-            rows={fx.StripsVsPillsCard.rows}
-          />
-        )}
 
         {/* ============ FAQ ============ */}
         <section className="py-16 bg-secondary/40">
@@ -655,15 +613,6 @@ export function ProbioticPDP({ product, onAddSingle, onAddBundle }: Props) {
           productHandle={product.handle}
           productTitle={sanitizeTitle(product.title)}
         />
-        {/* ============ [VISUAL 4] ROUTINE FACT CARD ============ */}
-        {fx && (
-          <RoutineFactCard
-            eyebrow={fx.RoutineFactCard.eyebrow}
-            headline={fx.RoutineFactCard.headline}
-            mode={fx.RoutineFactCard.mode}
-            steps={fx.RoutineFactCard.steps}
-          />
-        )}
       </main>
 
       {/* Sticky CTA */}
