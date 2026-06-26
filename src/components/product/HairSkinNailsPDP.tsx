@@ -1041,6 +1041,18 @@ export function HairSkinNailsPDP({ product }: Props) {
           </div>
         </section>
 
+        {/* ============ [VISUAL 4] ROUTINE / EXPECTED RESULTS ============ */}
+        <RoutineFactCard
+          eyebrow="What to expect"
+          headline="Your 12-week glow-up timeline"
+          steps={[
+            { when: 'Day 1', title: 'Place on tongue', description: '30 seconds. No water, no pill struggle.', icon: Sunrise },
+            { when: 'Week 2', title: 'Nails feel firmer', description: 'Less peeling, less breaking at the tip.', icon: Sun },
+            { when: 'Week 6', title: 'Skin looks brighter', description: 'Hydrated, more even-toned in the mirror.', icon: SparkIcon },
+            { when: 'Week 12', title: 'Hair grows stronger', description: 'Less shedding, more length retention.', icon: CalendarRange },
+          ]}
+        />
+
         {/* ============ BUNDLE SUGGESTIONS ============ */}
         <section className="bg-secondary/30">
           <div className="container-wide pt-12 pb-2 text-center">
