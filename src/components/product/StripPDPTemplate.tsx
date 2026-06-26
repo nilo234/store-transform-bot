@@ -860,6 +860,16 @@ export function StripPDPTemplate({ product, config }: Props) {
           <ProductReviews productHandle={product.handle} productTitle={title} productId={product.id} />
         </div>
 
+        {/* ============ [VISUAL 4] ROUTINE FACT CARD ============ */}
+        {fx && (
+          <RoutineFactCard
+            eyebrow={fx.RoutineFactCard.eyebrow}
+            headline={fx.RoutineFactCard.headline}
+            mode={fx.RoutineFactCard.mode}
+            steps={fx.RoutineFactCard.steps}
+          />
+        )}
+
         {/* ============ FAQ ============ */}
         <section className="bg-secondary/30 py-12 sm:py-16">
           <div className="container-wide max-w-3xl">
