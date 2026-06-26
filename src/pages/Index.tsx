@@ -156,10 +156,6 @@ export default function Index() {
               </div>
             </div>
 
-            {/* Hero Trust Bar */}
-            <div className="mt-12 md:mt-16 pt-6 border-t border-border/40">
-              <HeroTrustBar />
-            </div>
           </div>
         </section>
 
